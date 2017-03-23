@@ -1,0 +1,55 @@
+<div class="col-md-4 col-sm-6 appendStr" name="listGroup" id="list01">
+    <input type="hidden" id="myId" value="list01"/>
+    <input type="hidden" id="listData01"/>
+    <input type="hidden" id="listNum01"/>
+    <div class="panel" data-id="1" style="min-height:200px;">
+        <div class="panel-heading">
+            <span class="title">列表1</span>
+            <div class="panel-actions">
+                <!--<span class="deletePart">删除</span>-->
+                <button type="button" class="btn remove-panel" data-toggle="tooltip" title="移除面板"><i class="icon-remove"></i></button>
+            </div>
+        </div>
+        <div class="panel-body">
+            <!--<p></p>-->
+        </div>
+    </div>
+    <div class="resize-handle"><i class="icon icon-resize-h"></i></div>
+</div>
+
+<!--<script>-->
+
+    <!--function text(){-->
+        <!--var listData=$('#listData01').val(),-->
+            <!--listNum=$("#listNum01").val();-->
+        <!--$.ajax({-->
+            <!--async : false,-->
+            <!--cache:true,-->
+            <!--type: 'post',-->
+            <!--dataType : "jsonp",-->
+            <!--data:{channelId:listData,limit:listNum,dataType:"jsonp"},  //参数-->
+            <!--url:"http://192.168.31.156:8080/cmsNews/demo_data/channel_article_list_index.do",//请求的action路径-->
+            <!--error: function () {//请求失败处理函数-->
+
+            <!--},-->
+            <!--success:function(data){ //请求成功后处理函数。-->
+<!--//                    alert("成功了")-->
+            <!--}-->
+        <!--});-->
+    <!--}-->
+
+
+    <!--function textCallBack( data ){-->
+<!--//        alert(2)-->
+        <!--console.log(data);-->
+        <!--for( var i=0;i<data.dataList.length;i++ ){-->
+<!--//            alert(data.dataList[i].title)-->
+            <!--var str="<p>"+data.dataList[i].title+"</p>";-->
+            <!--$("#list01 .panel-body").append(str);-->
+        <!--}-->
+
+    <!--}-->
+<!--</script>-->
+
+
+

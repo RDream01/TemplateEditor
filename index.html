@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>index</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/zui.min.Editor.css"/>
+    <link rel="stylesheet" href="css/zui.dashboard.Editor.css"/>
+    <link rel="stylesheet" href="css/common.Editor.css"/>
+    <script src="js/respond.js"></script>
+</head>
+<body>
+
+<!--保存-->
+<div class="keepCon row"><p id="keep" class="col-sm-offset-11 keep">保存</p></div>
+
+
+<!--section-->
+<div class="indexAll">
+    <div class="row">
+        <!--left--组件-->
+        <div class="col-xs-2 partAll">
+            <div class="panel-group" id="accordionPanels" aria-multiselectable="true">
+                <!--头部组件-->
+                <!--<div class="panel panel-default">-->
+                    <!--<div class="panel-heading">-->
+                        <!--<h4 class="panel-title">-->
+                            <!--<a data-toggle="collapse" data-parent="#accordionPanels" href="#collapseTwo">-->
+                                <!--头部组件-->
+                            <!--</a>-->
+                        <!--</h4>-->
+                    <!--</div>-->
+                    <!--<div id="collapseTwo" class="panel-collapse collapse in">-->
+                        <!--<div class="panel-body"><span class="headPart" id="span04" name="head01">头部组件1</span></div>-->
+                        <!--<div class="panel-body"><span  class="headPart" id="span05" name="head02">头部组件2</span></div>-->
+                    <!--</div>-->
+                <!--</div>-->
+
+                <!--列表组件-->
+                <!--<div class="panel panel-default">-->
+                    <!--<div class="panel-heading">-->
+                        <!--<h4 class="panel-title">-->
+                            <!--<a data-toggle="collapse" data-parent="#accordionPanels" href="#collapseOne">-->
+                                <!--列表组件-->
+                            <!--</a>-->
+                        <!--</h4>-->
+                    <!--</div>-->
+                    <!--<div id="collapseOne" class="panel-collapse collapse in">-->
+                        <!--<div class="panel-body"><span class="secPart" id="span01" name="list01">列表1</span></div>-->
+                        <!--<div class="panel-body"><span class="secPart" id="span02" name="list02">列表2</span></div>-->
+                        <!--<div class="panel-body"><span class="secPart" id="span03" name="lh">利好播报</span></div>-->
+                    <!--</div>-->
+                <!--</div>-->
+
+            </div>
+        </div>
+
+        <!--center--main-->
+        <div class="col-xs-7 main ">
+            <!--header-->
+            <div class="editorHeader">
+
+            </div>
+            <!--section-->
+            <div class="editorSection container">
+                <div class="newSection dashboard dashboard-draggable" >
+                    <div class="row">
+
+                    </div>
+                </div>
+            </div>
+            <!--footer-->
+            <div class="editorFooter">
+
+            </div>
+        </div>
+
+        <!--right--属性-->
+        <div class="col-xs-3 property">
+            <!--head组-->
+            <!--<div class="headGroup">-->
+                <!--<form class="">-->
+                    <!--<div class="row control-group">-->
+                        <!--<label class="control-label col-xs-3" for="headName">head名称</label>-->
+                        <!--<div class="controls col-xs-9">-->
+                            <!--<input type="text" id="headName" class="form-input" placeholder="区块名称">-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="row control-group">-->
+                        <!--<label class="control-label col-xs-3" for="headNum">条数</label>-->
+                        <!--<div class="controls col-xs-9">-->
+                            <!--<input type="number" id="headNum" class="form-input" placeholder="请输入条数">-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="row control-group">-->
+                        <!--<label class="control-label col-xs-3" for="headData">区块数据</label>-->
+                        <!--<div class="controls col-xs-9">-->
+                            <!--<select class="form-select" id="headData">-->
+                                <!--<option value="">请选择head数据来源</option>-->
+                                <!--<option value="apple">苹果</option>-->
+                                <!--<option value="banana">香蕉</option>-->
+                                <!--<option value="orange">桔子</option>-->
+                            <!--</select>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="row control-group">-->
+                        <!--<button class="col-xs-12 btn btn-primary submitBtn" type="button" id="headBtn" data-name="header" data-group="headGroup">提交</button>-->
+                    <!--</div>-->
+                <!--</form>-->
+            <!--</div>-->
+            <!--list组-->
+            <!--<div class="listGroup">-->
+                <!--<form class="">-->
+                    <!--<div class="row control-group">-->
+                        <!--<label class="control-label col-xs-3" for="listName">list名称</label>-->
+                        <!--<div class="controls col-xs-9">-->
+                            <!--<input type="text" id="listName" class="form-input" placeholder="区块名称">-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="row control-group">-->
+                        <!--<label class="control-label col-xs-3" for="listNum">条数</label>-->
+                        <!--<div class="controls col-xs-9">-->
+                            <!--<input type="number" id="listNum" class="form-input" placeholder="请输入条数">-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="row control-group">-->
+                        <!--<label class="control-label col-xs-3" for="listDataSelect">区块数据</label>-->
+                        <!--<div class="controls col-xs-9">-->
+                            <!--<select class="form-select" id="listDataSelect">-->
+                                <!--<option value="">请选择list数据来源</option>-->
+
+                            <!--</select>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="row control-group">-->
+                        <!--<button class="col-xs-12 btn btn-primary submitBtn" type="button" id="listBtn" data-name="section" data-group="listGroup">提交</button>-->
+                    <!--</div>-->
+                <!--</form>-->
+            <!--</div>-->
+        </div>
+    </div>
+</div>
+
+
+<script src="js/jquery-1.11.3.js"></script>
+<script src="js/zui.min.js"></script>
+<script src="js/zui.dashboard.js"></script>
+<script src="js/common.Editor.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
