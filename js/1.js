@@ -55,41 +55,9 @@ function importFile(id ){
 
     $.get("editorSection/" + id + ".html", function (data) {
         $('.editorSection div.row').append(data);
-
-        optionSelect={};
-        var blockId=$('.appendCur #myId').val();
-        var block_showId=blockId+"_"+$(".editorSection #"+$('.appendCur #myId').val()).length;
-
-        optionSelect.id = blockId;
-        optionSelect.showId = block_showId;
-
-        //$(".appendCur").parent().attr("data-showId",optionSelect.showId);
-
-        console.log(blockId);
-        console.log(block_showId);
-
-        obj.section.push(optionSelect);
-
-        testRight(id);
-
         $('.newSection').dashboard();
     });
 
-    //$.getJSON({
-    //    async : true,
-    //    cache:true,
-    //    type: 'get',
-    //    dataType : "html",
-    //    //data:{dataType:"jsonp",blockId:id},  //参数
-    //    url:"http://192.168.31.156:8090/TemplateEditor/editorSection/lhbb.html?callback=?",//请求的action路径
-    //    error: function () {//请求失败处理函数
-    //
-    //    },
-    //    success:function(data){ //请求成功后处理函数。
-    //        console.log(data)
-    //    }
-    //});
-    //http://192.168.31.156:8090/TemplateEditor/editorSection/lhbb.html
 }
 
 
