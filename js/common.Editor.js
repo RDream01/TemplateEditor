@@ -18,7 +18,6 @@
 //    });
 //});
 
-
 //1---引用文件
 function testLeft(){
     $.ajax({
@@ -36,7 +35,7 @@ function testLeft(){
     });
 }
 function testLeftCallBack(data){
-    console.log(data)
+    //console.log(data)
     var list=data.dataList,
         str="";
     for( var i=0;i<list.length;i++ ){
@@ -78,13 +77,32 @@ function importFile(id ){
 
 
 //2---组件显示状态
+var option = [];
+var optionSelect={};
+var obj = {"header":[],"section":[],"footer":[]};
+
 $('.indexAll').on("click",".appendStr .panel",function(){
+
     $(".indexAll .appendStr .panel").removeClass('appendCur');
     $(this).addClass("appendCur");
 
     var id=$(this).parent().attr("id");
-    console.log(id)
     testRight(id);
+
+    //obj.section.push(option);
+    optionSelect={};
+
+    var blockId=$('.appendCur #myId').val();
+    var block_showId=id+"_"+$(".editorSection #"+$('.appendCur #myId').val()).length;
+    //var block_showId=id+"_"+$(".editorSection #"+$('.appendCur #myId').val()).index();
+    //var block_showId;
+    //$(".editorSection #"+$('.appendCur #myId').val()).each(function(index){
+    //    console.log($(this).i)
+    //    block_showId=id+"_"+$(this).index("#"+$('.appendCur #myId').val());
+    //});
+
+    optionSelect.id = blockId;
+    optionSelect.showId = block_showId;
 
 });
 
@@ -105,7 +123,7 @@ function testRight(id){
     });
 }
 function testRightCallBack(data){
-    console.log(data.dataList);
+    //console.log(data);
     var list=data.dataList;
     $(".property").html("");
     for( var i=0;i<list.length;i++ ){
@@ -113,119 +131,45 @@ function testRightCallBack(data){
         if( list[i].propertyType=="text" ){
             str='<div class="row control-group"><label class="control-label col-xs-3" for="'+list[i].propertyId+'">'+list[i].propertyName+'</label>'
             str+='<div class="controls col-xs-9"><input onchange="collectProperty(this)" type="text" id="'+list[i].propertyId+'" class="form-input" placeholder="区块名称"></div></div>'
+        }else if( list[i].propertyType=="number" ){
+            str='<div class="row control-group"><label class="control-label col-xs-3" for="'+list[i].propertyId+'">'+list[i].propertyName+'</label>'
+            str+='<div class="controls col-xs-9"><input onchange="collectProperty(this)" type="number" id="'+list[i].propertyId+'" class="form-input" placeholder="区块名称"></div></div>'
         }
-        console.log(str)
-        console.log( "html="+$(".property").html() )
 
         $('.property').append(str);
-
     }
 }
 
-var obj = {"header":[],"section":[],"footer":[]};
-
 function collectProperty( input ){
-//        var code=$(".appendCur#"+id).prop("outerHTML");
+    //组件
+    var propertyVal=$(input).val();
+    var propertyId=$(input).attr("id");
 
-    //组件id
-    var id=$('.appendCur #myId').val();
-    var showId=id+"_"+$(".editorSection #"+$('.appendCur #myId').val()).length;
+    optionSelect[propertyId] = propertyVal;
 
-    //console.log( $(input).attr("id") );
-    //console.log( $(input).val() );
-    //console.log( "showId"+"="+showId );
-    //console.log( "id"+"="+id );
+    $(".appendCur").parent().attr("data-showId",optionSelect.showId);
 
-    var option = {};
-    option.id = id;
-    option.showId = showId;
-    //option.type = type;
-    //option.listNum = listNum;
-    //option.listData = listData;
+    //var removeShowId=optionSelect.showId;
+    //var j="";
+    //for( var i= 0;i<optionSelect.length;i++ ){
+    //    if( optionSelect[i].showId==removeShowId ){
+    //        //console.log("optionSelect[i].showId="+optionSelect[i].showId)
+    //        j=i;
+    //        //console.log("j="+j);
+    //        break;
+    //    }
+    //}
+    //option.splice(j,1);
+    //console.log( section )
+    //console.log( option )
 
+    //option.push(optionSelect);
+    //console.log(option);
 
-    $(".appendCur").parent().attr("data-showId",option.showId);
-    console.log(  $(".appendCur").parent().attr("data-showId") )
-
-    obj.section.push(option);
     //console.log(  (JSON.stringify(obj)) )
 }
 
 
-//提交button---属性
-
-$(".submitBtn").click(function(){
-
-    var type=$(this).attr("data-group");
-    var name=$(this).attr("data-name");
-    var id=$('.appendCur #myId').val();
-//        var code=$(".appendCur#"+id).prop("outerHTML");
-
-
-    //headGroup
-    if( type=="headGroup" ){
-        var headName=$("#headName").val(),
-            headNum=$("#headNum").val(),
-            headData=$("#headData option:selected").val();
-        $(".appendCur#"+id+" .title").html(headName);
-        var code=$(".appendCur#"+id).prop("outerHTML");
-
-        var option = {};
-        option.id = id;
-        option.showId = id+"_"+$(".editorHeader #"+id).length;
-        option.type = type;
-        option.code = code;
-        option.headNum = headNum;
-        option.headData = headData;
-
-        $(".appendCur#"+id).attr("showId",option.showId);
-
-        obj.header.push(option);
-        console.log(  (JSON.stringify(obj)) );
-
-        //listGroup
-    }else if( type=="listGroup" ){
-        var listName=$("#listName").val(),
-            listNum=$("#listNum").val(),
-            listData=$("#listDataSelect option:selected").val();
-        console.log(listData)
-        $(".appendCur#"+id+" .title").html( listName );
-        var code=$(".appendCur#"+id).prop("outerHTML");
-
-        var option = {};
-        option.id = id;
-        option.showId = id+"_"+$(".editorSection #"+id).length;
-        option.type = type;
-        option.code = code;
-        option.listNum = listNum;
-        option.listData = listData;
-
-        $(".appendCur#"+id).attr("data-showId",option.showId);
-
-
-        $(".appendCur#"+id+" #listData01").val(listData);
-//            alert(listData)
-        $(".appendCur#"+id+" #listNum01").val(listNum);
-
-        console.log($(".appendCur#"+id+" #listNum01").val());
-
-
-//            text();
-        obj.section.push(option);
-        console.log(  (JSON.stringify(obj)) )
-
-
-
-
-    }
-
-
-//        $(this).parent().parent()[0].reset();
-
-});
-
-
-//
 //function getChannelList(){
 ////    alert("getChannelList")
 //    $.ajax({
@@ -262,38 +206,32 @@ function callback( data ){
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 //存储container
-
 window.onload=function(){
     //left
     testLeft();
 
-
     $('#keep').click(function(){
         //alert(1);
+        var section=obj.section;
+        section.push(optionSelect);
         var str=(JSON.stringify(obj)),
             order="";
         $(".editorSection .appendStr").each(function(){
             if( $(this).css("display")!=="none" ){
                 order=order+$(this).attr("data-showId")+',';
             }
-            console.log($(this))
+            //console.log($(this))
         });
         order=order.substring(0,order.length-1);
 
-        console.log(str,order);
+
+        //obj.section.push(option);
+        console.log(obj);
+        console.log(str);
+
+
+        //console.log(str,order);
 
 //        $.ajax({
 //            async : false,
@@ -317,12 +255,7 @@ window.onload=function(){
         //window.location.href="container.html";
 
     })
-
-
-
-
-}
-
+};
 
 
 //    function callback(){
