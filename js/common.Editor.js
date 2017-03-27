@@ -129,26 +129,41 @@ function testRightCallBack(data){
     for( var i=0;i<list.length;i++ ){
         var str="";
         if( list[i].propertyType=="text" ){
-            str='<div class="row control-group"><label class="control-label col-xs-3" for="'+list[i].propertyId+'">'+list[i].propertyName+'</label>'
-            str+='<div class="controls col-xs-9"><input onchange="collectProperty(this)" type="text" id="'+list[i].propertyId+'" class="form-input" placeholder="区块名称"></div></div>'
+            str='<div class="row control-group"><label class="control-label col-xs-3" for="'+list[i].propertyId+'">'+list[i].propertyName+'</label>';
+            str+='<div class="controls col-xs-9"><input onchange="collectProperty(this)" type="text" id="'+list[i].propertyId+'" class="form-input" placeholder="区块名称"></div></div>';
         }else if( list[i].propertyType=="number" ){
-            str='<div class="row control-group"><label class="control-label col-xs-3" for="'+list[i].propertyId+'">'+list[i].propertyName+'</label>'
-            str+='<div class="controls col-xs-9"><input onchange="collectProperty(this)" type="number" id="'+list[i].propertyId+'" class="form-input" placeholder="区块名称"></div></div>'
+            str='<div class="row control-group"><label class="control-label col-xs-3" for="'+list[i].propertyId+'">'+list[i].propertyName+'</label>';
+            str+='<div class="controls col-xs-9"><input onchange="collectProperty(this)" type="number" id="'+list[i].propertyId+'" class="form-input" placeholder="区块名称"></div></div>';
+        }else if( list[i].propertyType == "select"){
+            str='<div class="row control-group"><label class="control-label col-xs-3 " for="'+list[i].propertyId+'">'+list[i].propertyName+'</label>';
+            str+='<div class="controls col-xs-9"><select onchange="collectProperty(this)" id="'+list[i].propertyId+'" >';
+            str+= '<option value="">请选择</option>';
+            for(var j=0;j<list[i].data.length;j++){
+                str += '<option value="'+list[i].data[j].value+'">'+list[i].data[j].html+'</option>';
+            }
+            str+='</select></div></div>';
+        }else if( list[i].propertyType == "radio"){
+            str='<div class="row control-group"><label class="control-label col-xs-3 " for="'+list[i].propertyId+'">'+list[i].propertyName+'</label>';
+            for(var j=0;j<list[i].data.length;j++){
+                str += '<label><input name="list[i].propertyId" type="radio" value="'+list[i].data[j].value+'" />'+list[i].data[j].html+'</label> ';
+            }
+        }else if( list[i].propertyType == "checkbox"){
+            str='<div class="row control-group"><label class="control-label col-xs-3 " for="'+list[i].propertyId+'">'+list[i].propertyName+'</label>';
+            for(var j=0;j<list[i].data.length;j++){
+                str += '<label><input name="list[i].propertyId" type="checkbox" value="'+list[i].data[j].value+'" />'+list[i].data[j].html+'</label> ';
+            }
         }
 
         $('.property').append(str);
     }
 }
 
-function collectProperty( input ){
+function collectProperty( obj ){
     //组件
-    var propertyVal=$(input).val();
-    var propertyId=$(input).attr("id");
-
+    var propertyVal=$(obj).val();
+    var propertyId=$(obj).attr("id");
     optionSelect[propertyId] = propertyVal;
-
     $(".appendCur").parent().attr("data-showId",optionSelect.showId);
-
     //var removeShowId=optionSelect.showId;
     //var j="";
     //for( var i= 0;i<optionSelect.length;i++ ){
