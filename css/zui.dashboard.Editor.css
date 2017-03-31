@@ -59,6 +59,9 @@
     font-weight: bold;
     text-overflow: ellipsis;
     white-space: nowrap;
+    /*color: #333;*/
+    /*background-color: transparent;*/
+    /*border-color:transparent;*/
 }
 .dashboard .panel-heading > .icon {
     filter: alpha(opacity=70);

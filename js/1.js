@@ -5,8 +5,8 @@
 //section--组件
 //$('.secPart').on('click',function() {
 //    var ref = $(this).attr('name');
-//    $.get("editorSection/" + ref + ".html", function (data) {
-//        $('.editorSection div.row').append(data);
+//    $.get("editorBlock/" + ref + ".html", function (data) {
+//        $('.editorBlock div.row').append(data);
 //        $('.newSection').dashboard();
 //    })
 //});
@@ -53,8 +53,8 @@ function testLeftCallBack(data){
 
 function importFile(id ){
 
-    $.get("editorSection/" + id + ".html", function (data) {
-        $('.editorSection div.row').append(data);
+    $.get("editorBlock/" + id + ".html", function (data) {
+        $('.editorBlock div.row').append(data);
         $('.newSection').dashboard();
     });
 
@@ -78,10 +78,10 @@ $('.indexAll').on("click",".appendStr .panel",function(){
     optionSelect={};
 
     var blockId=$('.appendCur #myId').val();
-    var block_showId=id+"_"+$(".editorSection #"+$('.appendCur #myId').val()).length;
-    //var block_showId=id+"_"+$(".editorSection #"+$('.appendCur #myId').val()).index();
+    var block_showId=id+"_"+$(".editorBlock #"+$('.appendCur #myId').val()).length;
+    //var block_showId=id+"_"+$(".editorBlock #"+$('.appendCur #myId').val()).index();
     //var block_showId;
-    //$(".editorSection #"+$('.appendCur #myId').val()).each(function(index){
+    //$(".editorBlock #"+$('.appendCur #myId').val()).each(function(index){
     //    console.log($(this).i)
     //    block_showId=id+"_"+$(this).index("#"+$('.appendCur #myId').val());
     //});
@@ -217,7 +217,7 @@ window.onload=function(){
         section.push(optionSelect);
         var str=(JSON.stringify(obj)),
             order="";
-        $(".editorSection .appendStr").each(function(){
+        $(".editorBlock .appendStr").each(function(){
             if( $(this).css("display")!=="none" ){
                 order=order+$(this).attr("data-showId")+',';
             }

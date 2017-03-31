@@ -94,12 +94,14 @@
 
                 var flag="v";
                 if(flag == "v"){
+                    alert(1)
                     var v_lhbb_name="利好播报";
                     if(v_lhbb_name!=""){
                         $("#lhbb_name").html(v_lhbb_name);
                     }
                     vData()
                 }else{
+                    alert(2)
                     var lhbb_name="";
                     if(lhbb_name!=""){
                         $("#lhbb_name").html(lhbb_name);
@@ -108,6 +110,7 @@
                 }
                 function vData(){
                     var v_lhbb_num="1";
+
                     var title="日防卫相访问东帝汶及印发嘎嘎地方";
                     for(var i=0;i<v_lhbb_num;i++){
 //                        var str='&lt;p&gt;&lt;a href="#"/&gt;'+title+'&lt;a/&gt;&lt;p/&gt;';
@@ -129,10 +132,11 @@
                         }
                     });
                 }
-                function callback(data){
+                function tDataCallback(data){
                     var list = data.dataList;
                     for( var i=0;i<list.length;i++ ){
-                        var str='&lt;p&gt;&lt;a href="#"/&gt;'+list[i].title+'&lt;a/&gt;&lt;p/&gt;';
+//                        var str='&lt;p&gt;&lt;a href="#"/&gt;'+list[i].title+'&lt;a/&gt;&lt;p/&gt;';
+                        var str='<p><a href="#"/>'+list[i].title+'<a><p/>';
                         $(".lh").append(str);
                     }
                 }

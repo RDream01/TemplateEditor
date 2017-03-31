@@ -945,7 +945,7 @@ function assert( fn ) {
 
 /**
  * Adds the same handler for all of the specified attrs
- * @param {String} attrs Pipe-separated editorSection of attributes
+ * @param {String} attrs Pipe-separated editorBlock of attributes
  * @param {Function} handler The method that will be applied
  */
 function addHandle( attrs, handler ) {
@@ -3091,23 +3091,23 @@ function createOptions( options ) {
 }
 
 /*
- * Create a callback editorSection using the following parameters:
+ * Create a callback editorBlock using the following parameters:
  *
- *	options: an optional editorSection of space-separated options that will change how
- *			the callback editorSection behaves or a more traditional option object
+ *	options: an optional editorBlock of space-separated options that will change how
+ *			the callback editorBlock behaves or a more traditional option object
  *
- * By default a callback editorSection will act like an event callback editorSection and can be
+ * By default a callback editorBlock will act like an event callback editorBlock and can be
  * "fired" multiple times.
  *
  * Possible options:
  *
- *	once:			will ensure the callback editorSection can only be fired once (like a Deferred)
+ *	once:			will ensure the callback editorBlock can only be fired once (like a Deferred)
  *
  *	memory:			will keep track of previous values and will call any callback added
- *					after the editorSection has been fired right away with the latest "memorized"
+ *					after the editorBlock has been fired right away with the latest "memorized"
  *					values (like a Deferred)
  *
- *	unique:			will ensure a callback can only be added once (no duplicate in the editorSection)
+ *	unique:			will ensure a callback can only be added once (no duplicate in the editorBlock)
  *
  *	stopOnFalse:	interrupt callings when a callback returns false
  *
@@ -3120,11 +3120,11 @@ jQuery.Callbacks = function( options ) {
 		( optionsCache[ options ] || createOptions( options ) ) :
 		jQuery.extend( {}, options );
 
-	var // Flag to know if editorSection is currently firing
+	var // Flag to know if editorBlock is currently firing
 		firing,
 		// Last fire value (for non-forgettable lists)
 		memory,
-		// Flag to know if editorSection was already fired
+		// Flag to know if editorBlock was already fired
 		fired,
 		// End of the loop when firing
 		firingLength,
@@ -3132,7 +3132,7 @@ jQuery.Callbacks = function( options ) {
 		firingIndex,
 		// First callback to fire (used internally by add and fireWith)
 		firingStart,
-		// Actual callback editorSection
+		// Actual callback editorBlock
 		list = [],
 		// Stack of fire calls for repeatable lists
 		stack = !options.once && [],
@@ -3165,7 +3165,7 @@ jQuery.Callbacks = function( options ) {
 		},
 		// Actual Callbacks object
 		self = {
-			// Add a callback or a collection of callbacks to the editorSection
+			// Add a callback or a collection of callbacks to the editorBlock
 			add: function() {
 				if ( list ) {
 					// First, we save the current length
@@ -3196,7 +3196,7 @@ jQuery.Callbacks = function( options ) {
 				}
 				return this;
 			},
-			// Remove a callback from the editorSection
+			// Remove a callback from the editorBlock
 			remove: function() {
 				if ( list ) {
 					jQuery.each( arguments, function( _, arg ) {
@@ -3217,18 +3217,18 @@ jQuery.Callbacks = function( options ) {
 				}
 				return this;
 			},
-			// Check if a given callback is in the editorSection.
-			// If no argument is given, return whether or not editorSection has callbacks attached.
+			// Check if a given callback is in the editorBlock.
+			// If no argument is given, return whether or not editorBlock has callbacks attached.
 			has: function( fn ) {
 				return fn ? jQuery.inArray( fn, list ) > -1 : !!( list && list.length );
 			},
-			// Remove all callbacks from the editorSection
+			// Remove all callbacks from the editorBlock
 			empty: function() {
 				list = [];
 				firingLength = 0;
 				return this;
 			},
-			// Have the editorSection do nothing anymore
+			// Have the editorBlock do nothing anymore
 			disable: function() {
 				list = stack = memory = undefined;
 				return this;
@@ -3237,7 +3237,7 @@ jQuery.Callbacks = function( options ) {
 			disabled: function() {
 				return !list;
 			},
-			// Lock the editorSection in its current state
+			// Lock the editorBlock in its current state
 			lock: function() {
 				stack = undefined;
 				if ( !memory ) {
@@ -3281,7 +3281,7 @@ jQuery.extend({
 
 	Deferred: function( func ) {
 		var tuples = [
-				// action, add listener, listener editorSection, final state
+				// action, add listener, listener editorBlock, final state
 				[ "resolve", "done", jQuery.Callbacks("once memory"), "resolved" ],
 				[ "reject", "fail", jQuery.Callbacks("once memory"), "rejected" ],
 				[ "notify", "progress", jQuery.Callbacks("memory") ]
@@ -3327,12 +3327,12 @@ jQuery.extend({
 		// Keep pipe for back-compat
 		promise.pipe = promise.then;
 
-		// Add editorSection-specific methods
+		// Add editorBlock-specific methods
 		jQuery.each( tuples, function( i, tuple ) {
 			var list = tuple[ 2 ],
 				stateString = tuple[ 3 ];
 
-			// promise[ done | fail | progress ] = editorSection.add
+			// promise[ done | fail | progress ] = editorBlock.add
 			promise[ tuple[1] ] = list.add;
 
 			// Handle state
@@ -4401,7 +4401,7 @@ jQuery.event = {
 				}
 			}
 
-			// Add to the element's handler editorSection, delegates in front
+			// Add to the element's handler editorBlock, delegates in front
 			if ( selector ) {
 				handlers.splice( handlers.delegateCount++, 0, handleObj );
 			} else {
@@ -4535,7 +4535,7 @@ jQuery.event = {
 			event.target = elem;
 		}
 
-		// Clone any incoming data and prepend the event, creating the handler arg editorSection
+		// Clone any incoming data and prepend the event, creating the handler arg editorBlock
 		data = data == null ?
 			[ event ] :
 			jQuery.makeArray( data, [ event ] );
@@ -8426,7 +8426,7 @@ jQuery.fn.extend({
 					classNames = value.match( rnotwhite ) || [];
 
 				while ( (className = classNames[ i++ ]) ) {
-					// check each className given, space separated editorSection
+					// check each className given, space separated editorBlock
 					if ( self.hasClass( className ) ) {
 						self.removeClass( className );
 					} else {
@@ -8752,7 +8752,7 @@ function ajaxHandleResponses( s, jqXHR, responses ) {
 	}
 
 	// If we found a dataType
-	// We add the dataType to the editorSection if needed
+	// We add the dataType to the editorBlock if needed
 	// and return the corresponding response
 	if ( finalDataType ) {
 		if ( finalDataType !== dataTypes[ 0 ] ) {
@@ -9081,7 +9081,7 @@ jQuery.extend({
 		// Alias method option to type as per ticket #12004
 		s.type = options.method || options.type || s.method || s.type;
 
-		// Extract dataTypes editorSection
+		// Extract dataTypes editorBlock
 		s.dataTypes = jQuery.trim( s.dataType || "*" ).toLowerCase().match( rnotwhite ) || [ "" ];
 
 		// A cross-domain request is in order when we have a protocol:host:port mismatch
@@ -9727,7 +9727,7 @@ if ( xhrSupported ) {
 						// retrieved directly we need to fire the callback
 						setTimeout( callback );
 					} else {
-						// Add to the editorSection of active xhr callbacks
+						// Add to the editorBlock of active xhr callbacks
 						xhr.onreadystatechange = xhrCallbacks[ id ] = callback;
 					}
 				},

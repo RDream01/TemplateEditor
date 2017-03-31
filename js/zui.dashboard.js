@@ -241,7 +241,7 @@
     };
 
     Dashboard.prototype.handlePanelPadding = function() {
-        this.$.find('.panel-body > table, .panel-body > .editorSection-group').parent().addClass('no-padding');
+        this.$.find('.panel-body > table, .panel-body > .editorBlock-group').parent().addClass('no-padding');
     };
 
     Dashboard.prototype.handlePanelHeight = function() {
