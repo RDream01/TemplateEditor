@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>container</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../css/zui.min.css"/>
+    <link rel="stylesheet" href="../css/zui.dashboard.css"/>
+    <link rel="stylesheet" href="../css/common.css"/>
+    <script src="../js/respond.js"></script>
+</head>
+<body>
+<div id="mainTxt">
+
+</div>
+
+
+<script src="../js/jquery-1.11.3.js"></script>
+<script src="../js/zui.min.js"></script>
+<script>
+
+    //缓存
+    if( $.zui.store.get('name')!==undefined ){
+        $('#mainTxt').html("");
+        $('#mainTxt').html($.zui.store.get('name'));
+//        $.zui.store.pageRemove('name');
+//        console.log(  $('#mainTxt').html() )
+        console.log(  $('html').html() )
+    }
+
+
+
+</script>
+</body>
+</html>
