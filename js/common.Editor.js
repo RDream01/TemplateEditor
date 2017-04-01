@@ -34,6 +34,11 @@ function blockLeftListCallBack(data){
             str+='<div id="'+list[i].blockType+'" class="panel-collapse collapse in">'
             str+='<div class="panel-body"><span onclick="importFile(\''+list[i].blockId+'\',\''+list[i].blockPath+'\')" class="secPart" id="'+list[i].blockId+'" name="list01">'+list[i].blockName+'</span></div></div></div>'
 
+        }else if( list[i].blockType=="adv" ){
+            str= '<div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title">'
+            str+='<a data-toggle="collapse" data-parent="#accordionPanels" href="#'+list[i].blockType+'">列表组件 </a></h4></div>'
+            str+='<div id="'+list[i].blockType+'" class="panel-collapse collapse in">'
+            str+='<div class="panel-body"><span onclick="importFile(\''+list[i].blockId+'\',\''+list[i].blockPath+'\')" class="secPart" id="'+list[i].blockId+'" name="list01">'+list[i].blockName+'</span></div></div></div>'
         }
         $('.partAll .panel-group').append(str);
     }
@@ -80,17 +85,6 @@ function importFile(id,path ){
         $(".appendCur").parent().attr("data-showId",optionSelect.showId);
 
         obj.section.push(optionSelect);
-
-        //var html=$("[data-showId="+optionSelect.showId+"]").prop("outerHTML");
-
-        //html=html.replace(/vData/g,"vData_"+optionSelect.showId);
-
-        //$(".appendCur").remove();
-        //$('.editorBlock div.row').append(html);
-        //console.log(html);
-        //$(".appendCur").html(html);
-
-        //console.log( $(".appendCur").html(html) );
 
         propertyRightList(id);
         $('.newSection').dashboard();
@@ -167,17 +161,21 @@ function propertyRightListCallBack(data){
             str='<div class="row control-group"><label class="control-label col-xs-3 " for="'+list[i].propertyId+'">'+list[i].propertyName+'</label>';
             str+='<div class="controls col-xs-9"><select onchange="collectProperty(this)" id="'+list[i].propertyId+'" >';
             str+= '<option value="">请选择</option>';
-            console.log(data)
             for(var j=0;j<list[i].data.length;j++){
                 str += '<option value="'+list[i].data[j].value+'"' ;
                 var curId=list[i].propertyId;
-                if( blockProAll[curId]!==undefined){
+                if( blockProAll[curId]!==undefined ){
                     if( blockProAll[curId]==list[i].data[j].value ){
+                        str+='selected';
+                    }
+                }else if( list[i].defaultValue!==undefined ){
+                    if( list[i].defaultValue==list[i].data[j].value ){
                         str+='selected';
                     }
                 }
                 str+='>'+list[i].data[j].html+'</option>';
             }
+
             str+='</select></div></div>';
         }else if( list[i].propertyType == "radio"){
             str='<div class="row control-group"><p class="control-label col-xs-3 ">'+list[i].propertyName+'</p>';
@@ -186,6 +184,10 @@ function propertyRightListCallBack(data){
                 var curId=list[i].propertyId;
                 if( blockProAll[curId]!==undefined){
                     if( blockProAll[curId]==list[i].data[j].value ){
+                        str+='checked';
+                    }
+                }else if( list[i].defaultValue!==undefined ){
+                    if( list[i].defaultValue==list[i].data[j].value ){
                         str+='checked';
                     }
                 }
@@ -200,6 +202,13 @@ function propertyRightListCallBack(data){
                 if( blockProAll[curId]!==undefined){
                     for( var k=0;k<blockProAll[curId].length;k++ ){
                         if( blockProAll[curId][k]==list[i].data[j].value ){
+                            str+='checked';
+                        }
+                    }
+                }else if( list[i].defaultValue!==undefined ){
+                    var arr=(list[i].defaultValue).split(",");
+                    for( var k=0;k<arr.length;k++ ){
+                        if( arr[k]==list[i].data[j].value ){
                             str+='checked';
                         }
                     }
@@ -249,8 +258,10 @@ function collectProperty( property,min,max ){
         }
 
     }else{
-        var propertyVal=$(property).val();
         var propertyId=$(property).attr("id");
+        var propertyVal=$(property).val();
+        //console.log(propertyVal)
+
 
         $(".appendCur .v_"+propertyId).val(propertyVal);
         eval("vData_"+showId)();
