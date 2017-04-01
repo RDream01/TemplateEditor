@@ -60,7 +60,9 @@
     </div>
 
     <div class="panel" data-id="3">
-        <input type="hidden" id="myId" value="lhbb"/>
+        <!--<input type="hidden" id="myId" value="lhbb" class="myId"/>-->
+        <input type="hidden" class="v_lhbb_name" value="利好播报"/>
+        <input type="hidden" class="v_lhbb_num" value="5"/>
         <div class="panel-heading">
             <span class="title">列表1</span>
         </div>
@@ -85,64 +87,56 @@
 
     <div class="script">
         <script>
-//            //      for( var i=0;i<data.dataList.length;i++ ){
-//            for( var i=0;i<1;i++ ){
-////            alert(data.dataList[i].title)
-//                var str='<p><a href="#">日防卫相访问东帝汶及印发嘎嘎地方</a></p>';
-//                $(".lh").append(str);
-//            }
-
-                var flag="v";
-                if(flag == "v"){
-                    alert(1)
-                    var v_lhbb_name="利好播报";
-                    if(v_lhbb_name!=""){
-                        $("#lhbb_name").html(v_lhbb_name);
-                    }
-                    vData()
-                }else{
-                    alert(2)
-                    var lhbb_name="";
-                    if(lhbb_name!=""){
-                        $("#lhbb_name").html(lhbb_name);
-                    }
-                    tData();
+            var flag="v";
+            if(flag == "v"){
+                vData()
+            }else{
+                var lhbb_name="";
+                if(lhbb_name!=""){
+                    $("#lhbb_name").html(lhbb_name);
                 }
-                function vData(){
-                    var v_lhbb_num="1";
+                tData();
+            }
 
-                    var title="日防卫相访问东帝汶及印发嘎嘎地方";
-                    for(var i=0;i<v_lhbb_num;i++){
+            function vData(){
+//                alert(1)
+                $(".appendCur .lh").html("");
+                var v_lhbb_name=$(".appendCur #v_lhbb_name").val();
+                if(v_lhbb_name!=""){
+                    $("#lhbb_name").html(v_lhbb_name);
+                }
+                var v_lhbb_num=$(".appendCur #v_lhbb_num").val();
+
+                var title="日防卫相访问东帝汶及印发嘎嘎地方";
+                for(var i=0;i<v_lhbb_num;i++){
 //                        var str='&lt;p&gt;&lt;a href="#"/&gt;'+title+'&lt;a/&gt;&lt;p/&gt;';
-                        var str='<p><a href="#"/>'+title+'<a><p/>';
-                        $(".lh").append(str);
+                    var str='<p><a href="#"/>'+title+'<a><p/>';
+                    $(".appendCur .lh").append(str);
+                }
+            }
+
+            function tData(){
+                var lhbb_id="";
+                var lhbb_num="";
+                $.ajax({
+                    async : false,
+                    cache:true,
+                    type: 'post',
+                    dataType : "jsonp",
+                    data:{dataType:"jsonp",channelId:lhbb_id,limit:lhbb_num},  //参数
+                    url:"http://192.168.31.156:8080/cmsNews/demo_data/channel_article_list_index.do",//请求的action路径
+                    success:function(data){ //请求成功后处理函数。
                     }
-                }
-                function tData(){
-                    var lhbb_id="";
-                    var lhbb_num="";
-                    $.ajax({
-                        async : false,
-                        cache:true,
-                        type: 'post',
-                        dataType : "jsonp",
-                        data:{dataType:"jsonp",channelId:lhbb_id,limit:lhbb_num},  //参数
-                        url:"http://192.168.31.156:8080/cmsNews/demo_data/channel_article_list_index.do",//请求的action路径
-                        success:function(data){ //请求成功后处理函数。
-                        }
-                    });
-                }
-                function tDataCallback(data){
-                    var list = data.dataList;
-                    for( var i=0;i<list.length;i++ ){
+                });
+            }
+            function tDataCallback(data){
+                var list = data.dataList;
+                for( var i=0;i<list.length;i++ ){
 //                        var str='&lt;p&gt;&lt;a href="#"/&gt;'+list[i].title+'&lt;a/&gt;&lt;p/&gt;';
-                        var str='<p><a href="#"/>'+list[i].title+'<a><p/>';
-                        $(".lh").append(str);
-                    }
+                    var str='<p><a href="#"/>'+list[i].title+'<a><p/>';
+                    $(".lh").append(str);
                 }
-
-
-
+            }
         </script>
     </div>
 </div>

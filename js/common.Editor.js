@@ -9,21 +9,21 @@ function callback( data ){
 
 }
 //1---引用文件
-function testLeft(){
+function blockLeftList(){
     $.ajax({
         async : false,
         cache:true,
         type: 'post',
         dataType : "jsonp",
-        data:{dataType:"jsonp"},  //参数
-        url:"http://192.168.31.156:8080/cmsNews/demo_data/testLeft.do",//请求的action路径
+        data:{dataType:"jsonp",gridSize:"3"},  //参数
+        url:"http://192.168.31.156:8080/cmsNews/template_editor/blockLeftList.do",//请求的action路径
         error: function () {//请求失败处理函数
         },
         success:function(data){ //请求成功后处理函数。
         }
     });
 }
-function testLeftCallBack(data){
+function blockLeftListCallBack(data){
     //console.log(data)
     var list=data.dataList,
         str="";
@@ -41,37 +41,58 @@ function testLeftCallBack(data){
 
 var option = [];
 var optionSelect={};
-var obj = {"header":[],"section":[],"footer":[]};
+var obj = {"section":[]};
 //2---引用组件文件
 function importFile(id,path ){
     $.get("../editorBlock/" + id + ".html", function (data) {
+
+        var block_showId;
+        var blockCur=$(".editorBlock ."+id);
+        //console.log(blockCur)
+        if(blockCur.length == 0){
+            block_showId = id+"_0";
+        }else{
+            for(var i = 0; i<blockCur.length;i++){
+                if( i==(blockCur.length-1) ){
+                    i=i+1;
+                    block_showId=id+"_"+i;
+                }
+            }
+        }
 
         $(".indexAll .appendStr .panel").removeClass('appendCur');
         data=data.replace("<html>",'');
         data=data.replace("</html>",'');
         data=data.replace("panel","panel appendCur");
+        data=data.replace(/vData/g,"vData_"+block_showId);
 
         $('.editorBlock div.row').append(data);
 
         optionSelect={};
 
-        var blockId=$('.appendCur #myId').val();
-        var block_showId;
+        //var blockId=$('.appendCur #myId').val();
 
-        var blockCur=$(".editorBlock ."+$('.appendCur #myId').val());
-        for(var i = 0; i<blockCur.length;i++){
-            if( i==(blockCur.length-1) ){
-                block_showId=blockId+"_"+i;
-            }
-        }
-        optionSelect.id = blockId;
+
+
+        optionSelect.id = id;
         optionSelect.showId = block_showId;
         optionSelect.blockPath = path;
         $(".appendCur").parent().attr("data-showId",optionSelect.showId);
 
         obj.section.push(optionSelect);
 
-        testRight(id);
+        //var html=$("[data-showId="+optionSelect.showId+"]").prop("outerHTML");
+
+        //html=html.replace(/vData/g,"vData_"+optionSelect.showId);
+
+        //$(".appendCur").remove();
+        //$('.editorBlock div.row').append(html);
+        //console.log(html);
+        //$(".appendCur").html(html);
+
+        //console.log( $(".appendCur").html(html) );
+
+        propertyRightList(id);
         $('.newSection').dashboard();
     });
 
@@ -83,19 +104,19 @@ $('.indexAll').on("click",".appendStr",function(){
     $(".indexAll .appendStr ").children(".panel").removeClass('appendCur');
     $(this).children(".panel").addClass("appendCur");
     var id=$(this).attr("id");
-    testRight(id);
+    propertyRightList(id);
 
 });
 
 //______________________________________right--属性
-function testRight(id){
+function propertyRightList(id){
     $.ajax({
         async : false,
         cache:true,
         type: 'post',
         dataType : "jsonp",
         data:{dataType:"jsonp",blockId:id},  //参数
-        url:"http://192.168.31.156:8080/cmsNews/demo_data/testRight.do",//请求的action路径
+        url:"http://192.168.31.156:8080/cmsNews/template_editor/propertyRightList.do",//请求的action路径
         error: function () {//请求失败处理函数
 
         },
@@ -103,7 +124,7 @@ function testRight(id){
         }
     });
 }
-function testRightCallBack(data){
+function propertyRightListCallBack(data){
     //console.log(data);
     var list=data.dataList;
     $(".property").html("");
@@ -122,22 +143,31 @@ function testRightCallBack(data){
             str='<div class="row control-group"><label class="control-label col-xs-3" for="'+list[i].propertyId+'">'+list[i].propertyName+'</label>';
             str+='<div class="controls col-xs-9"><input onchange="collectProperty(this)" type="text" id="'+list[i].propertyId+'"';
             var curId=list[i].propertyId;
+            str+='value="';
             if( blockProAll[curId]!==undefined){
-                str+='value="'+blockProAll[curId]+'"';
+                str+=blockProAll[curId];
+            }else if( list[i].defaultValue!==undefined ){
+                str+=list[i].defaultValue;
             }
+            str+='"';
             str+=' class="form-input" placeholder="区块名称"></div></div>';
         }else if( list[i].propertyType=="number" ){
             str='<div class="row control-group"><label class="control-label col-xs-3" for="'+list[i].propertyId+'">'+list[i].propertyName+'</label>';
-            str+='<div class="controls col-xs-9"><input onchange="collectProperty(this)" type="number" id="'+list[i].propertyId+'"' ;
+            str+='<div class="controls col-xs-9"><input onchange="collectProperty(this,'+list[i].minValue+','+list[i].maxValue+')" type="number" id="'+list[i].propertyId+'"' ;
             var curId=list[i].propertyId;
+            str+='value="';
             if( blockProAll[curId]!==undefined){
-                str+='value="'+blockProAll[curId]+'"';
+                str+=blockProAll[curId];
+            }else if( list[i].defaultValue!==undefined ){
+                str+=list[i].defaultValue;
             }
+            str+='"';
             str+=' class="form-input" placeholder="区块名称"></div></div>';
         }else if( list[i].propertyType == "select"){
             str='<div class="row control-group"><label class="control-label col-xs-3 " for="'+list[i].propertyId+'">'+list[i].propertyName+'</label>';
             str+='<div class="controls col-xs-9"><select onchange="collectProperty(this)" id="'+list[i].propertyId+'" >';
             str+= '<option value="">请选择</option>';
+            console.log(data)
             for(var j=0;j<list[i].data.length;j++){
                 str += '<option value="'+list[i].data[j].value+'"' ;
                 var curId=list[i].propertyId;
@@ -185,7 +215,9 @@ function testRightCallBack(data){
 
 //collectProperty
 
-function collectProperty( property ){
+function collectProperty( property,min,max ){
+    var showId=$(".appendCur").parent().attr("data-showId");
+    //alert(showId)
     //组件
     if( $(property).attr("type")=="radio" ){
         var propertyVal=$(property).val()
@@ -204,19 +236,27 @@ function collectProperty( property ){
         var propertyVal=propertyArr;
         var propertyId=$(property).attr("name");
 
+    }else if( $(property).attr("type")=="number" ){
+        var val=$(property).val();
+        var propertyId=$(property).attr("id");
+        if( ((/^[1-9]\d*$/).test(val))&&(val>=min)&&(val<=max) ){
+            var propertyVal=val;
+            $(".appendCur .v_"+propertyId).val(propertyVal);
+            eval("vData_"+showId)();
+        }else{
+            $(property).val("");
+            alert("数量范围为"+min+"~"+max+"的正整数");
+        }
+
     }else{
         var propertyVal=$(property).val();
-        //console.log(propertyVal);
         var propertyId=$(property).attr("id");
 
-        var showId=$(".appendCur").parent().attr("data-showId");
-        //console.log($("[data-showId="+showId+"]").html())
-
-        //$(".appendCur").parent().find($("#"+propertyId)).val(propertyVal);
-        //console.log($(".appendCur").parent().find(("#"+propertyId)).html(propertyVal))
+        $(".appendCur .v_"+propertyId).val(propertyVal);
+        eval("vData_"+showId)();
     }
 
-    var showId=$(".appendCur").parent().attr("data-showId");
+
     for(var i= 0;i<obj.section.length;i++){
         if(obj.section[i].showId == showId){
             obj.section[i][propertyId]=propertyVal;
@@ -249,36 +289,43 @@ function  deleteBlock(removeShowId){
 //存储container
 window.onload=function(){
     //left
-    testLeft();
-
+    blockLeftList();
     //保存
     $('#keep').click(function(){
-
         var str=(JSON.stringify(obj)),
             order="";
         $(".editorBlock .appendStr").each(function(){
             if( $(this).css("display")!=="none" ){
                 order=order+$(this).attr("data-showId")+',';
             }
-            //console.log($(this))
         });
         order=order.substring(0,order.length-1);
-
         console.log(str,order);
 
+        $.ajax({
+            async : false,
+            cache:true,
+            type: 'POST',
+            dataType : "jsonp",
+            data:{strKey:str,order:order,dataType : "jsonp"},  //参数
+            url:"http://192.168.31.156:8080/cmsNews/template_editor/saveTemplate.do",//请求的action路径
+            error: function () {//请求失败处理函数
 
+            },
+           success:function(data){ //请求成功后处理函数。
+               alert("成功了")
+           }
+        });
 
-        //var str=$('.main').html();
-        //str = str.replace(/<(script)[\S\s]*?\/\1>/gi, '');
-        //$('.main').html( str );
-        //$.zui.store.set('name', str);
-        //window.location.href="container.html";
 
     })
 };
 
+function saveTemplateCallBack(){
 
-//    function callback(){
+}
+
+    //function callback(){
 //        var str=$('.main').html();
 //        str = str.replace(/<(script)[\S\s]*?\/\1>/gi, '');
 //        $('.main').html( str );

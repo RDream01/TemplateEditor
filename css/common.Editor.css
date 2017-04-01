@@ -1,45 +1,47 @@
 @charset "utf-8";
 /*通用样式*/
 body {
-    /*font: 14px "microsoft yahei", Arial, Helvetica, sans-serif;*/
-    /*color:#666;*/
+    /*font: 12px "microsoft yahei", Arial, Helvetica, sans-serif;*/
+    color:#666;
     margin:0;
     padding:0;
+    /*background-color:#fafafa;*/
 }
-ul,li,p,h1,h2,h3,h4,h5,h6,dl,dt,dd {
+ul,li,p,h1,h2,h3,h4,h5,h6,dl,dt,dd,input {
     margin:0;
     padding:0;
     border:none;
     list-style:none;
 }
-/*input {border:none;}*/
+iframe{
+    width:0;
+    height:0;
+    margin:0;
+    padding:0;
+}
+input,select,option {border:none;}
 .lf   {float:left;}
 .rt  {float:right;}
 .clear  {clear:both;}
 a{text-decoration:none; color:#1a1a1a;}
-a:hover{color:#c33;text-decoration: none;}
-img{ vertical-align: bottom;border:none; }
-button{outline:none;}
-
-/*.dashboard .panel-body{*/
-    /*overflow-y: visible;*/
-/*}*/
-
-
-
+a:hover{color:#CA1E0D;text-decoration: none;}
+img{ vertical-align: bottom; border:none;}
+nav,#banner,section,footer{
+    margin:0 auto;
+}
+.commonContainer{
+    width:960px;
+    margin:0 auto;
+    overflow: hidden;
+    padding:0;
+}
 .row{
     margin:0;
 }
 .container{
     padding:0;
 }
-.spanAll{
-    margin:10px 0 50px 0;
-}
-.secPart,.headPart{
-    color:#000;
-    cursor: pointer;
-}
+/*保存*/
 .keepCon{
     padding:10px;
 }
@@ -51,29 +53,13 @@ button{outline:none;}
     text-align: center;
     cursor: pointer;
 }
-
-/*拖拽*/
-/*.type .sortableList >div {*/
-    /*cursor: move;*/
-    /*border:1px solid #000;*/
-/*}*/
-/*.type .sortableList >div.dragging {*/
-    /*visibility: visible;*/
-    /*opacity: .3;*/
-/*}*/
-
-.indexAll>.row>div{
-    border:1px solid #000;
-    min-height:500px;
-}
 .partAll{
     padding:0;
 }
-
-.appendCur{
-    border:1px solid red;
+.secPart,.headPart{
+    color:#000;
+    cursor: pointer;
 }
-
 /*form*/
 .control-label{
     text-align: right;
@@ -89,6 +75,48 @@ button{outline:none;}
     height:26px;
     line-height:26px;
 }
+/*拖拽*/
+/*.type .sortableList >div {*/
+    /*cursor: move;*/
+    /*border:1px solid #000;*/
+/*}*/
+/*.type .sortableList >div.dragging {*/
+    /*visibility: visible;*/
+    /*opacity: .3;*/
+/*}*/
+
+/*画布区域*/
+.indexAll>.row>div{
+    border:1px solid #000;
+    min-height:500px;
+}
+.partAll{
+    padding:0;
+}
+
+.appendCur{
+    border:1px solid red;
+}
+
+/*form，右边属性*/
+.control-label{
+    text-align: right;
+}
+.control-group{
+    margin:10px 0;
+}
+.form-input{
+    width:100%;
+    border: 1px solid #000;
+}
+.form-select{
+    width:100%;
+    height:26px;
+    line-height:26px;
+}
+.controls select{
+    border: 1px solid #000;
+}
 /*delete*/
 .deletePart{
     cursor: pointer;
@@ -102,24 +130,101 @@ button{outline:none;}
 .deleteBlockBtn{
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/**********************组件---header01************************/
+.header01{
+    width: 100%;
+}
+/*top--红*/
+.header01_top{
+    height:40px;
+    background-color: #c33;
+}
+/*logo*/
+.header01_logo{
+    text-align:center;
+}
+.header01_logo>img{
+    width:256px;
+    margin:20px 0;
+}
+/*导航*/
+.header01_nav{
+    background-color: #fafafa;
+    height:50px;
+}
+.header01_navChanel{
+    text-align: center;
+}
+.header01_navChanel:after{
+    display: table;
+    content: '';
+    clear: both;
+}
+.header01_navChanel>li{
+    float: left;
+    /*position:relative;*/
+}
+.header01_navChanel>li>a{
+    display: inline-block;
+    height:50px;
+    border-bottom:2px solid transparent;
+    line-height: 50px;
+    width:116px;
+    font-size:18px;
+    color:#999;
+    text-decoration: none;
+    /*position: absolute;*/
+    /*z-index:11;*/
+}
+.header01_navChanel>li>a.header01_active{
+    color:#333;
+    border-bottom-color:#c33;
+}
+.header01_active{
+    color:#333;
+    border-bottom-color:#c33;
+}
+.header01_navChanel>li>a.header01_cur{
+    color:#c33;
+}
+/*二级菜单*/
+.header01_tan{
+    display: none;
+    width: 100%;
+    min-height: 20px;
+    text-align: center;
+    margin-top:-3px;
+    margin-bottom:5px;
+    background:#ffffff;
+    border:1px solid #fafafa;
+    box-shadow:0 2px 4px 0 rgba(0,0,0,0.24);
+    position: relative;
+    z-index:10;
+}
+/*箭头*/
+.header01_arrow{
+    position:absolute;
+    left:0;
+    width:95%;
+    text-align: center;
+    height:7px;
+}
+.header01_arrow img{
+    position: absolute;
+    width:8px;
+    top:-7px;
+}
+/*li*/
+.header01_tan li a{
+    color:#9b9b9b;
+    font-size: 14px;
+    display: inline-block;
+    line-height: 35px;
+    text-decoration: none;
+}
+.header01_tan li a.header01_tanActive{
+    color:#c33;
+}
 
 
 
