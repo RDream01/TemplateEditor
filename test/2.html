@@ -9,18 +9,18 @@
     <link rel="stylesheet" href="../css/zui.dashboard.Editor.css"/>
     <link rel="stylesheet" href="../css/common.Editor.css"/>
     <script src="../js/respond.js"></script>
+    <script src="../js/jquery-1.11.3.js"></script>
+    <script src="../js/zui.min.js"></script>
+    <script src="../js/zui.dashboard.js"></script>
+    <script src="../js/common.Editor.js"></script>
+    <script src="../js/draggable.js"></script>
 </head>
 <body>
-
-
-
-
-
             <!--section-->
             <div class="editorBlock container">
                 <div class="newSection dashboard dashboard-draggable" >
-                    <div class="row">
-                        <div class="col-md-4 col-sm-4 appendStr lhbb" name="listGroup" id="lhbb">
+                    <div class="row commonContainer">
+                        <div class="col-md-4 col-sm-4 appendStr lhbb draggableBox" name="listGroup" id="lhbb" >
 
                             <div class="style">
                                 <style>
@@ -169,10 +169,11 @@
             </div>
 
 
-<script src="../js/jquery-1.11.3.js"></script>
-<script src="../js/zui.min.js"></script>
-<script src="../js/zui.dashboard.js"></script>
-<script src="../js/common.Editor.js"></script>
+
+<script>
+    $('.newSection').dashboard();
+    $('#lhbb').draggable();
+</script>
 </body>
 </html>
 

@@ -1,12 +1,15 @@
 <html>
+
 <div class="col-md-4 col-sm-4 appendStr lhbb" name="listGroup" id="lhbb">
 
+    <!--<div>X</div>-->
     <div class="style">
         <style>
             .hot{
                 margin-bottom:50px;
                 margin-left:15px;
-                width:320px;
+                width:640px;
+
             }
             .hot>div.hot_top{
                 border-bottom:1px solid #E7E9ED;
@@ -59,7 +62,7 @@
         </style>
     </div>
 
-    <div class="panel" data-id="3">
+    <div class="panel appendNot" data-id="3">
         <!--<input type="hidden" id="myId" value="lhbb" class="myId"/>-->
         <input type="hidden" class="v_lhbb_name" value="利好播报"/>
         <input type="hidden" class="v_lhbb_num" value="5"/>
@@ -93,7 +96,7 @@
             }else{
                 var lhbb_name="";
                 if(lhbb_name!=""){
-                    $("#lhbb_name").html(lhbb_name);
+                    $(".appendCur #lhbb_name").html(lhbb_name);
                 }
                 tData();
             }
@@ -103,7 +106,7 @@
                 $(".appendCur .lh").html("");
                 var v_lhbb_name=$(".appendCur .v_lhbb_name").val();
                 if(v_lhbb_name!=""){
-                    $("#lhbb_name").html(v_lhbb_name);
+                    $(".appendCur #lhbb_name").html(v_lhbb_name);
                 }
                 var v_lhbb_num=$(".appendCur .v_lhbb_num").val();
 
@@ -140,5 +143,7 @@
         </script>
     </div>
 </div>
+
+
 </html>
 

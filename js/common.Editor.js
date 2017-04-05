@@ -24,22 +24,36 @@ function blockLeftList(){
     });
 }
 function blockLeftListCallBack(data){
-    //console.log(data)
-    var list=data.dataList,
-        str="";
+    //console.log(data);
+    var list=data.dataList;
     for( var i=0;i<list.length;i++ ){
+        var str='';
         if( list[i].blockType=="list" ){
-            str= '<div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title">'
-            str+='<a data-toggle="collapse" data-parent="#accordionPanels" href="#'+list[i].blockType+'">列表组件 </a></h4></div>'
-            str+='<div id="'+list[i].blockType+'" class="panel-collapse collapse in">'
-            str+='<div class="panel-body"><span onclick="importFile(\''+list[i].blockId+'\',\''+list[i].blockPath+'\')" class="secPart" id="'+list[i].blockId+'" name="list01">'+list[i].blockName+'</span></div></div></div>'
+            if( $("#listBlock").html()==undefined ){
+                str = '<div id="listBlock" class="panel panel-default"><div class="panel-heading"><h4 class="panel-title">';
+                str += '<a data-toggle="collapse" data-parent="#accordionPanels" href="#' + list[i].blockType + '">列表组件 </a></h4></div>'
+                str += '<div id="' + list[i].blockType + '" class="panel-collapse collapse in">';
+                str += '<div class="panel-body"><span onclick="importFile(\'' + list[i].blockId + '\',\'' + list[i].blockPath + '\')" class="secPart" id="' + list[i].blockId + '" name="list01">' + list[i].blockName + '</span></div></div></div>';
+            }else{
+                str += '<span onclick="importFile(\'' + list[i].blockId + '\',\'' + list[i].blockPath + '\')" class="secPart" id="' + list[i].blockId + '" name="list01">' + list[i].blockName + '</span>';
+                $('#listBlock .panel-body').append(str);
+                continue;
+            }
+
 
         }else if( list[i].blockType=="adv" ){
-            str= '<div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title">'
-            str+='<a data-toggle="collapse" data-parent="#accordionPanels" href="#'+list[i].blockType+'">列表组件 </a></h4></div>'
-            str+='<div id="'+list[i].blockType+'" class="panel-collapse collapse in">'
-            str+='<div class="panel-body"><span onclick="importFile(\''+list[i].blockId+'\',\''+list[i].blockPath+'\')" class="secPart" id="'+list[i].blockId+'" name="list01">'+list[i].blockName+'</span></div></div></div>'
+            if( $("#advBlock").html()==undefined ){
+                str = '<div id="advBlock" class="panel panel-default"><div class="panel-heading"><h4 class="panel-title">';
+                str += '<a data-toggle="collapse" data-parent="#accordionPanels" href="#' + list[i].blockType + '">广告组件</a></h4></div>';
+                str += '<div id="' + list[i].blockType + '" class="panel-collapse collapse in">';
+                str += '<div class="panel-body"><span onclick="importFile(\'' + list[i].blockId + '\',\'' + list[i].blockPath + '\')" class="secPart" id="' + list[i].blockId + '" name="list01">' + list[i].blockName + '</span></div></div></div>';
+            }else{
+                str += '<span onclick="importFile(\'' + list[i].blockId + '\',\'' + list[i].blockPath + '\')" class="secPart" id="' + list[i].blockId + '" name="list01">' + list[i].blockName + '</span>';
+                $('#advBlock .panel-body').append(str);
+               continue;
+            }
         }
+
         $('.partAll .panel-group').append(str);
     }
 }
@@ -74,10 +88,6 @@ function importFile(id,path ){
         $('.editorBlock div.row').append(data);
 
         optionSelect={};
-
-        //var blockId=$('.appendCur #myId').val();
-
-
 
         optionSelect.id = id;
         optionSelect.showId = block_showId;
@@ -119,7 +129,7 @@ function propertyRightList(id){
     });
 }
 function propertyRightListCallBack(data){
-    //console.log(data);
+    console.log(data);
     var list=data.dataList;
     $(".property").html("");
 
@@ -135,7 +145,7 @@ function propertyRightListCallBack(data){
         var str="<div>删除</div>";
         if( list[i].propertyType=="text" ){
             str='<div class="row control-group"><label class="control-label col-xs-3" for="'+list[i].propertyId+'">'+list[i].propertyName+'</label>';
-            str+='<div class="controls col-xs-9"><input onchange="collectProperty(this)" type="text" id="'+list[i].propertyId+'"';
+            str+='<div class="controls col-xs-9"><input data-notNull="'+list[i].notNull+'" onchange="collectProperty(this,'+list[i].minValue+','+list[i].maxValue+')" type="text" id="'+list[i].propertyId+'"';
             var curId=list[i].propertyId;
             str+='value="';
             if( blockProAll[curId]!==undefined){
@@ -145,9 +155,10 @@ function propertyRightListCallBack(data){
             }
             str+='"';
             str+=' class="form-input" placeholder="区块名称"></div></div>';
+
         }else if( list[i].propertyType=="number" ){
             str='<div class="row control-group"><label class="control-label col-xs-3" for="'+list[i].propertyId+'">'+list[i].propertyName+'</label>';
-            str+='<div class="controls col-xs-9"><input onchange="collectProperty(this,'+list[i].minValue+','+list[i].maxValue+')" type="number" id="'+list[i].propertyId+'"' ;
+            str+='<div class="controls col-xs-9"><input data-notNull="'+list[i].notNull+'" onchange="collectProperty(this,'+list[i].minValue+','+list[i].maxValue+')" type="number" id="'+list[i].propertyId+'"' ;
             var curId=list[i].propertyId;
             str+='value="';
             if( blockProAll[curId]!==undefined){
@@ -222,14 +233,17 @@ function propertyRightListCallBack(data){
     $(".property").append('<div class="deleteBlockDiv"><button class="deleteBlockBtn btn btn-primary" onclick="deleteBlock(\''+showId+'\')">删除此组件</button></div>');
 }
 
-//collectProperty
+//onfocus
+$(".property").on("focus","input",function(){
+    $(this).attr("data-prevVal",$(this).val());
+});
 
+//collectProperty
 function collectProperty( property,min,max ){
     var showId=$(".appendCur").parent().attr("data-showId");
-    //alert(showId)
     //组件
     if( $(property).attr("type")=="radio" ){
-        var propertyVal=$(property).val()
+        var propertyVal=$(property).val();
         var propertyId=$(property).attr("name");
 
     }else if( $(property).attr("type")=="checkbox" ){
@@ -253,18 +267,28 @@ function collectProperty( property,min,max ){
             $(".appendCur .v_"+propertyId).val(propertyVal);
             eval("vData_"+showId)();
         }else{
-            $(property).val("");
+            $(property).val($(property).attr("data-prevVal"));
             alert("数量范围为"+min+"~"+max+"的正整数");
+            return;
+        }
+
+    }else if( $(property).attr("type")=="text" ){
+        var val=$(property).val();
+        var propertyId=$(property).attr("id");
+        if( (val.length>=min)&&(val.length<=max) ){
+            var propertyVal=val;
+            $(".appendCur .v_"+propertyId).val(propertyVal);
+            eval("vData_"+showId)();
+        }else{
+            $(property).val($(property).attr("data-prevVal"));
+            alert("范围为"+min+"~"+max+"个文字");
+            return;
         }
 
     }else{
-        var propertyId=$(property).attr("id");
         var propertyVal=$(property).val();
-        //console.log(propertyVal)
+        var propertyId=$(property).attr("id");
 
-
-        $(".appendCur .v_"+propertyId).val(propertyVal);
-        eval("vData_"+showId)();
     }
 
 
@@ -274,6 +298,10 @@ function collectProperty( property,min,max ){
             break;
         }
     }
+
+
+
+
 }
 
 //deleteBlock

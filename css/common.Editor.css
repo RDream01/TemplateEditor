@@ -60,6 +60,15 @@ nav,#banner,section,footer{
     color:#000;
     cursor: pointer;
 }
+.secPart{
+    display: block;
+    padding:10px 15px;
+    border-bottom: 1px solid #eee;
+}
+.partAll .panel-group .panel-body{
+    padding:0;
+}
+
 /*form*/
 .control-label{
     text-align: right;
@@ -93,7 +102,9 @@ nav,#banner,section,footer{
 .partAll{
     padding:0;
 }
-
+.appendNot{
+    border:1px solid blue;
+}
 .appendCur{
     border:1px solid red;
 }
