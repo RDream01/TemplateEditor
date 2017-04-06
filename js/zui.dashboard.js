@@ -279,11 +279,10 @@
 
             var blockId=$col.attr("id");
             var blockShowId=$col.attr("data-showId");
-
+            var nextShowId =$("[data-showId="+blockShowId+"]").next().attr("data-showId");
+            console.log(nextShowId);
             var mouseMove = function(event) {
                 var x = event.pageX;
-                //console.log(blockId);
-                //console.log(blockShowId);
                 var grid = Math.max(1, Math.min(12, Math.round(12 * (startWidth + (x - startX)) / rowWidth)));
                 if(lastGrid != grid) {
                     if(lastGrid != grid) {
@@ -293,8 +292,6 @@
                             if(messagerAvaliable) dashboardMessager[dashboardMessager.isShow ? 'update' : 'show'](33+"%" );
                         }else if(33.3<(100*grid/12)&&(100*grid/12)<=66.6){
                             grid="8";
-                            //blockId=blockId.replace("1","2");
-                            //$col.attr("id",blockId);
                             $col.attr('data-grid', grid).css('width', 66.6 + '%');
                             if(messagerAvaliable) dashboardMessager[dashboardMessager.isShow ? 'update' : 'show']( 66.6+"%" );
                         }else{
@@ -325,13 +322,25 @@
                     pBlockId = pBlockId[0];
                     if(lastGrid == "4"){
                         var newBlockId = pBlockId+"_3g1";
-                        importFile(newBlockId,"");
+                        if(nextShowId !== undefined){
+                            importFile(newBlockId,nextShowId);
+                        }else{
+                            importFile(newBlockId,"");
+                        }
                     }else if(lastGrid == "8"){
                         var newBlockId = pBlockId + "_3g2";
-                        importFile(newBlockId,"");
+                        if(nextShowId !== undefined){
+                            importFile(newBlockId,nextShowId);
+                        }else{
+                            importFile(newBlockId,"");
+                        }
                     }else{
                         var newBlockId = pBlockId +"_3g3";
-                        importFile(newBlockId,"");
+                        if(nextShowId !== undefined){
+                            importFile(newBlockId,nextShowId);
+                        }else{
+                            importFile(newBlockId,"");
+                        }
                     }
                 }
 
