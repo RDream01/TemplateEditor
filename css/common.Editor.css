@@ -108,7 +108,12 @@ nav,#banner,section,footer{
 .appendCur{
     border:1px solid red;
 }
-
+.controls select.notNull,.controls input.notNull{
+    border:1px solid blue;
+}
+.notNullColor{
+    color:red;
+}
 /*form，右边属性*/
 .control-label{
     text-align: right;

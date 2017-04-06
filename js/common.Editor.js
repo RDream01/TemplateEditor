@@ -79,6 +79,7 @@ function importFile(id,path ){
             }
         }
 
+        notNull();
         $(".indexAll .appendStr .panel").removeClass('appendCur');
         data=data.replace("<html>",'');
         data=data.replace("</html>",'');
@@ -104,7 +105,7 @@ function importFile(id,path ){
 
 //2---组件显示状态
 $('.indexAll').on("click",".appendStr",function(){
-
+    notNull();
     $(".indexAll .appendStr ").children(".panel").removeClass('appendCur');
     $(this).children(".panel").addClass("appendCur");
     var id=$(this).attr("id");
@@ -129,8 +130,9 @@ function propertyRightList(id){
     });
 }
 function propertyRightListCallBack(data){
-    console.log(data);
+    //console.log(data);
     var list=data.dataList;
+
     $(".property").html("");
 
     var showId=$(".appendCur").parent().attr("data-showId");
@@ -142,10 +144,15 @@ function propertyRightListCallBack(data){
     }
 
     for( var i=0;i<list.length;i++ ){
-        var str="<div>删除</div>";
+        var str="";
         if( list[i].propertyType=="text" ){
-            str='<div class="row control-group"><label class="control-label col-xs-3" for="'+list[i].propertyId+'">'+list[i].propertyName+'</label>';
-            str+='<div class="controls col-xs-9"><input data-notNull="'+list[i].notNull+'" onchange="collectProperty(this,'+list[i].minValue+','+list[i].maxValue+')" type="text" id="'+list[i].propertyId+'"';
+            str='<div class="row control-group">' ;
+            str+='<label class="control-label col-xs-4" for="'+list[i].propertyId+'">';
+            if( list[i].notNull=="yes" ){
+                str+='<span class="notNullColor">* </span>';
+            }
+            str+=list[i].propertyName+'</label>';
+            str+='<div class="controls col-xs-8"><input data-notNull="'+list[i].notNull+'" onchange="collectProperty(this,'+list[i].minValue+','+list[i].maxValue+')" type="text" id="'+list[i].propertyId+'"';
             var curId=list[i].propertyId;
             str+='value="';
             if( blockProAll[curId]!==undefined){
@@ -157,8 +164,12 @@ function propertyRightListCallBack(data){
             str+=' class="form-input" placeholder="区块名称"></div></div>';
 
         }else if( list[i].propertyType=="number" ){
-            str='<div class="row control-group"><label class="control-label col-xs-3" for="'+list[i].propertyId+'">'+list[i].propertyName+'</label>';
-            str+='<div class="controls col-xs-9"><input data-notNull="'+list[i].notNull+'" onchange="collectProperty(this,'+list[i].minValue+','+list[i].maxValue+')" type="number" id="'+list[i].propertyId+'"' ;
+            str='<div class="row control-group"><label class="control-label col-xs-4" for="'+list[i].propertyId+'">';
+            if( list[i].notNull=="yes" ){
+                str+='<span class="notNullColor">* </span>';
+            }
+            str+=list[i].propertyName+'</label>';
+            str+='<div class="controls col-xs-8"><input data-notNull="'+list[i].notNull+'" onchange="collectProperty(this,'+list[i].minValue+','+list[i].maxValue+')" type="number" id="'+list[i].propertyId+'"' ;
             var curId=list[i].propertyId;
             str+='value="';
             if( blockProAll[curId]!==undefined){
@@ -169,13 +180,17 @@ function propertyRightListCallBack(data){
             str+='"';
             str+=' class="form-input" placeholder="区块名称"></div></div>';
         }else if( list[i].propertyType == "select"){
-            str='<div class="row control-group"><label class="control-label col-xs-3 " for="'+list[i].propertyId+'">'+list[i].propertyName+'</label>';
-            str+='<div class="controls col-xs-9"><select onchange="collectProperty(this)" id="'+list[i].propertyId+'" >';
+            str='<div class="row control-group"><label class="control-label col-xs-4 " for="'+list[i].propertyId+'">';
+            if( list[i].notNull=="yes" ){
+                str+='<span class="notNullColor">* </span>';
+            }
+            str+=list[i].propertyName+'</label>';
+            str+='<div class="controls col-xs-8"><select onchange="collectProperty(this)" data-notNull="'+list[i].notNull+'" id="'+list[i].propertyId+'" >';
             str+= '<option value="">请选择</option>';
             for(var j=0;j<list[i].data.length;j++){
                 str += '<option value="'+list[i].data[j].value+'"' ;
                 var curId=list[i].propertyId;
-                if( blockProAll[curId]!==undefined ){
+                if( (blockProAll[curId]!==undefined)&&(blockProAll[curId]!=="") ){
                     if( blockProAll[curId]==list[i].data[j].value ){
                         str+='selected';
                     }
@@ -186,14 +201,31 @@ function propertyRightListCallBack(data){
                 }
                 str+='>'+list[i].data[j].html+'</option>';
             }
-
             str+='</select></div></div>';
+
         }else if( list[i].propertyType == "radio"){
-            str='<div class="row control-group"><p class="control-label col-xs-3 ">'+list[i].propertyName+'</p>';
+            str='<div class="row control-group"><p class="control-label col-xs-3 ">';
+            if( list[i].notNull=="yes" ){
+                str+='<span class="notNullColor">* </span>';
+            }
+            str+=list[i].propertyName+'</p>';
+
+            if( list[i].notNull=="yes" ){
+                var curId=list[i].propertyId;
+                str+='<input type="hidden" id="'+list[i].propertyId+'_radio" value="' ;
+
+                if(  (blockProAll[curId]!==undefined)&&(blockProAll[curId]!=="") ){
+                    str+="1";
+                }else if( list[i].defaultValue!==undefined ){
+                    str+=list[i].defaultValue;
+                }
+                str+='" data-notNull="yes"/>';
+            }
+
             for(var j=0;j<list[i].data.length;j++){
                 str += '<label><input name="'+list[i].propertyId+'" onchange=collectProperty(this) type="radio" value="'+list[i].data[j].value+'" ';
                 var curId=list[i].propertyId;
-                if( blockProAll[curId]!==undefined){
+                if( (blockProAll[curId]!==undefined)&&(blockProAll[curId]!=="") ){
                     if( blockProAll[curId]==list[i].data[j].value ){
                         str+='checked';
                     }
@@ -205,12 +237,31 @@ function propertyRightListCallBack(data){
                 str+='/>'+list[i].data[j].html+'</label> ';
             }
             str+="</div>";
+
         }else if( list[i].propertyType == "checkbox"){
-            str='<div class="row control-group"><p class="control-label col-xs-3 " for="'+list[i].propertyId+'">'+list[i].propertyName+'</p>';
+            str='<div class="row control-group"><p class="control-label col-xs-3 " for="'+list[i].propertyId+'">';
+            if( list[i].notNull=="yes" ){
+                str+='<span class="notNullColor">* </span>';
+            }
+            str+=list[i].propertyName+'</p>';
+
+            if( list[i].notNull=="yes" ){
+
+                var curId=list[i].propertyId;
+                str+='<input type="hidden" id="'+list[i].propertyId+'_checkbox" value="' ;
+                if( (blockProAll[curId]!==undefined)&&(blockProAll[curId]!=="") ){
+                    console.log(blockProAll[curId])
+                    str+="1";
+                }else if( list[i].defaultValue!==undefined ){
+                    str+=list[i].defaultValue;
+                }
+                str+='" data-notNull="yes"/>';
+            }
+
             for(var j=0;j<list[i].data.length;j++){
                 str += '<label><input name="'+list[i].propertyId+'" onclick=collectProperty(this) type="checkbox" value="'+list[i].data[j].value+'" ';
                 var curId=list[i].propertyId;
-                if( blockProAll[curId]!==undefined){
+                if( (blockProAll[curId]!==undefined)&&(blockProAll[curId]!=="") ){
                     for( var k=0;k<blockProAll[curId].length;k++ ){
                         if( blockProAll[curId][k]==list[i].data[j].value ){
                             str+='checked';
@@ -243,21 +294,27 @@ function collectProperty( property,min,max ){
     var showId=$(".appendCur").parent().attr("data-showId");
     //组件
     if( $(property).attr("type")=="radio" ){
+
         var propertyVal=$(property).val();
         var propertyId=$(property).attr("name");
+        $("#"+propertyId+"_radio").val(propertyVal);
+
 
     }else if( $(property).attr("type")=="checkbox" ){
-        var propertyArr=[];
-        var propertyName=$(property).attr("name");
-        var box=$("[name="+propertyName+"]");
+
+        var propertyId=$(property).attr("name");
+        $("#"+propertyId+"_checkbox").val("");
+
+        var propertyVal="";
+        var box=$("[name="+propertyId+"]");
         for( var i=0;i<box.length;i++ ){
             if( $(box[i]).prop("checked") ){
                 var propertyChecked=$(box[i]).val();
-                propertyArr.push(propertyChecked);
+                propertyVal+=propertyChecked+",";
+                $("#"+propertyId+"_checkbox").val("1");
             }
         }
-        var propertyVal=propertyArr;
-        var propertyId=$(property).attr("name");
+        propertyVal=propertyVal.substring(0,propertyVal.length-1);
 
     }else if( $(property).attr("type")=="number" ){
         var val=$(property).val();
@@ -291,16 +348,48 @@ function collectProperty( property,min,max ){
 
     }
 
-
     for(var i= 0;i<obj.section.length;i++){
         if(obj.section[i].showId == showId){
-            obj.section[i][propertyId]=propertyVal;
+            //obj.section[i][propertyId]=propertyVal;
+            //console.log( propertyVal )
+            if( (propertyVal==undefined)||(propertyVal=="") ){
+                //alert(1)
+                delete obj.section[i][propertyId];
+            }else{
+                obj.section[i][propertyId]=propertyVal;
+            }
             break;
         }
     }
 
+    notNull(1);
+}
 
+//nouNull
+function notNull(flag){
+    var notNull=$("[data-notNull]");
+    //console.log(notNull);
+    var notCur='yes';
+    for( var i=0;i<notNull.length;i++ ){
+        if( $(notNull[i]).attr("data-notNull")=="yes" ){
+            if( $(notNull[i]).val()=="" ){
+                if( flag=="1" ) {
+                    //alert($(notNull[i]).val());
+                    //alert("必填项不能为空");
+                }
+                //$(notNull[i]).addClass("notNull");
+                notCur="no";
+            }else{
+                //$(notNull[i]).removeClass("notNull");
+            }
+        }
+    }
 
+    if(  notCur=="no" ){
+        $(".appendCur").addClass("appendNot");
+    }else{
+        $(".appendCur").removeClass("appendNot");
+    }
 
 }
 
@@ -331,32 +420,49 @@ window.onload=function(){
     blockLeftList();
     //保存
     $('#keep').click(function(){
-        var str=(JSON.stringify(obj)),
-            order="";
-        $(".editorBlock .appendStr").each(function(){
-            if( $(this).css("display")!=="none" ){
-                order=order+$(this).attr("data-showId")+',';
+
+        console.log( JSON.stringify(obj) );
+
+        var appendStr=$(".appendStr .panel");
+        var notCur='yes';
+
+        for( var i=0;i<appendStr.length;i++ ){
+            //console.log($(appendStr[i]).hasClass("appendNot"));
+            if( $(appendStr[i]).hasClass("appendNot") ){
+                $(".appendStr .panel").removeClass("appendCur");
+                $(".property").html("");
+                notCur="no";
             }
-        });
-        order=order.substring(0,order.length-1);
-        console.log(str,order);
+        }
 
-        $.ajax({
-            async : false,
-            cache:true,
-            type: 'POST',
-            dataType : "jsonp",
-            data:{strKey:str,order:order,dataType : "jsonp"},  //参数
-            url:"http://192.168.31.156:8080/cmsNews/template_editor/saveTemplate.do",//请求的action路径
-            error: function () {//请求失败处理函数
+        if(notCur=='no'){
+            alert("标记蓝色的组件有必填项没有填写");
+        }else if( notCur=='yes' ){
+            var str=(JSON.stringify(obj)),
+                order="";
+            $(".editorBlock .appendStr").each(function(){
+                if( $(this).css("display")!=="none" ){
+                    order=order+$(this).attr("data-showId")+',';
+                }
+            });
+            order=order.substring(0,order.length-1);
+            console.log(str,order);
 
-            },
-           success:function(data){ //请求成功后处理函数。
-               alert("成功了")
-           }
-        });
+            $.ajax({
+                async : false,
+                cache:true,
+                type: 'POST',
+                dataType : "jsonp",
+                data:{strKey:str,order:order,dataType :"jsonp"},  //参数
+                url:"http://192.168.31.156:8080/cmsNews/template_editor/saveTemplate.do",//请求的action路径
+                error: function () {//请求失败处理函数
 
-
+                },
+                success:function(data){ //请求成功后处理函数。
+                    alert("成功了")
+                }
+            });
+        }
     })
 };
 
