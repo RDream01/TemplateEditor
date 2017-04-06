@@ -279,8 +279,15 @@
 
             var blockId=$col.attr("id");
             var blockShowId=$col.attr("data-showId");
-            var nextShowId =$("[data-showId="+blockShowId+"]").next().attr("data-showId");
-            console.log(nextShowId);
+            var nextShowId;
+            //console.log($("[data-showId="+blockShowId+"]").next());
+
+            if( ($("[data-showId="+blockShowId+"]").next()).hasClass("dragging-col-holder") ) {
+                nextShowId=$("[data-showId="+blockShowId+"]").next().next().attr("data-showId");
+            }else{
+                nextShowId=$("[data-showId="+blockShowId+"]").next().attr("data-showId");
+            }
+
             var mouseMove = function(event) {
                 var x = event.pageX;
                 var grid = Math.max(1, Math.min(12, Math.round(12 * (startWidth + (x - startX)) / rowWidth)));
