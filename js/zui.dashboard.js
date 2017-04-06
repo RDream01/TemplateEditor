@@ -277,23 +277,34 @@
             var lastGrid = oldGrid;
             $col.attr('data-grid', oldGrid);
 
+            var blockId=$col.attr("id");
+            var blockShowId=$col.attr("data-showId");
+
             var mouseMove = function(event) {
                 var x = event.pageX;
+                //console.log(blockId);
+                //console.log(blockShowId);
                 var grid = Math.max(1, Math.min(12, Math.round(12 * (startWidth + (x - startX)) / rowWidth)));
                 if(lastGrid != grid) {
                     if(lastGrid != grid) {
                         if(0<(100*grid/12)&&(100*grid/12)<=33.3){
+                            grid="4";
                             $col.attr('data-grid', grid).css('width', 33.3 + '%');
                             if(messagerAvaliable) dashboardMessager[dashboardMessager.isShow ? 'update' : 'show'](33+"%" );
                         }else if(33.3<(100*grid/12)&&(100*grid/12)<=66.6){
+                            grid="8";
+                            //blockId=blockId.replace("1","2");
+                            //$col.attr("id",blockId);
                             $col.attr('data-grid', grid).css('width', 66.6 + '%');
                             if(messagerAvaliable) dashboardMessager[dashboardMessager.isShow ? 'update' : 'show']( 66.6+"%" );
                         }else{
+                            grid="12";
                             $col.attr('data-grid', grid).css('width', 100+ '%');
                             if(messagerAvaliable) dashboardMessager[dashboardMessager.isShow ? 'update' : 'show']( 100+"%" );
                         }
 
                         lastGrid = grid;
+
                     }
                 }
                 event.preventDefault();
@@ -301,8 +312,35 @@
             };
 
             var mouseUp = function(event) {
+                var lastGrid = $col.attr('data-grid');
+
+                console.log("lastGrid===="+lastGrid);
+                console.log("oldGrid===="+oldGrid);
+                console.log("blockShowId===="+blockShowId);
+
+                if(oldGrid !== lastGrid){
+                    $("[data-showId="+blockShowId+"]").remove();
+                    $(".property").html("");
+                    var pBlockId= blockId.split("_");
+                    pBlockId = pBlockId[0];
+                    if(lastGrid == "4"){
+                        var newBlockId = pBlockId+"_3g1";
+                        importFile(newBlockId,"");
+                    }else if(lastGrid == "8"){
+                        var newBlockId = pBlockId + "_3g2";
+                        importFile(newBlockId,"");
+                    }else{
+                        var newBlockId = pBlockId +"_3g3";
+                        importFile(newBlockId,"");
+                    }
+                }
+
+                oldGrid=lastGrid;
+
+                //return;
                 $col.removeClass('resizing');
                 var lastGrid = $col.attr('data-grid');
+                //console.log(lastGrid)
                 if(oldGrid != lastGrid) {
                     if($.isFunction(onResize)) {
                         var revert = function() {
