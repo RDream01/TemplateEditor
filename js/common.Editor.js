@@ -240,17 +240,15 @@ function propertyRightListCallBack(data){
 
         }else if( list[i].propertyType == "checkbox"){
             str='<div class="row control-group"><p class="control-label col-xs-3 " for="'+list[i].propertyId+'">';
+            //是否必填
             if( list[i].notNull=="yes" ){
                 str+='<span class="notNullColor">* </span>';
             }
             str+=list[i].propertyName+'</p>';
-
             if( list[i].notNull=="yes" ){
-
                 var curId=list[i].propertyId;
                 str+='<input type="hidden" id="'+list[i].propertyId+'_checkbox" value="' ;
                 if( (blockProAll[curId]!==undefined)&&(blockProAll[curId]!=="") ){
-                    console.log(blockProAll[curId])
                     str+="1";
                 }else if( list[i].defaultValue!==undefined ){
                     str+=list[i].defaultValue;
@@ -260,10 +258,10 @@ function propertyRightListCallBack(data){
 
             for(var j=0;j<list[i].data.length;j++){
                 str += '<label><input name="'+list[i].propertyId+'" onclick=collectProperty(this) type="checkbox" value="'+list[i].data[j].value+'" ';
-                var curId=list[i].propertyId;
                 if( (blockProAll[curId]!==undefined)&&(blockProAll[curId]!=="") ){
-                    for( var k=0;k<blockProAll[curId].length;k++ ){
-                        if( blockProAll[curId][k]==list[i].data[j].value ){
+                    var blockPro = blockProAll[curId].split(",");
+                    for( var k=0;k<blockPro.length;k++ ){
+                        if( blockPro[k]==list[i].data[j].value ){
                             str+='checked';
                         }
                     }
