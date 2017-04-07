@@ -33,9 +33,9 @@ function blockLeftListCallBack(data){
                 str = '<div id="listBlock" class="panel panel-default"><div class="panel-heading"><h4 class="panel-title">';
                 str += '<a data-toggle="collapse" data-parent="#accordionPanels" href="#' + list[i].blockType + '">列表组件 </a></h4></div>'
                 str += '<div id="' + list[i].blockType + '" class="panel-collapse collapse in">';
-                str += '<div class="panel-body"><span onclick="importFile(\'' + list[i].blockId + '\',\'\')" class="secPart" id="' + list[i].blockId + '" name="list01">' + list[i].blockName + '</span></div></div></div>';
+                str += '<div class="panel-body"><span onclick="importFile(\'' + list[i].blockId + '\',\'\',\''+list[i].blockSize+'\')" class="secPart" id="' + list[i].blockId + '" name="list01">' + list[i].blockName + '</span></div></div></div>';
             }else{
-                str += '<span onclick="importFile(\'' + list[i].blockId + '\',\'\')" class="secPart" id="' + list[i].blockId + '" name="list01">' + list[i].blockName + '</span>';
+                str += '<span onclick="importFile(\'' + list[i].blockId + '\',\'\',\''+list[i].blockSize+'\')" class="secPart" id="' + list[i].blockId + '" name="list01">' + list[i].blockName + '</span>';
                 $('#listBlock .panel-body').append(str);
                 continue;
             }
@@ -46,9 +46,9 @@ function blockLeftListCallBack(data){
                 str = '<div id="advBlock" class="panel panel-default"><div class="panel-heading"><h4 class="panel-title">';
                 str += '<a data-toggle="collapse" data-parent="#accordionPanels" href="#' + list[i].blockType + '">广告组件</a></h4></div>';
                 str += '<div id="' + list[i].blockType + '" class="panel-collapse collapse in">';
-                str += '<div class="panel-body"><span onclick="importFile(\'' + list[i].blockId + '\',\'\')" class="secPart" id="' + list[i].blockId + '" name="list01">' + list[i].blockName + '</span></div></div></div>';
+                str += '<div class="panel-body"><span onclick="importFile(\'' + list[i].blockId + '\',\'\',\''+list[i].blockSize+'\')" class="secPart" id="' + list[i].blockId + '" name="list01">' + list[i].blockName + '</span></div></div></div>';
             }else{
-                str += '<span onclick="importFile(\'' + list[i].blockId + '\',\'\')" class="secPart" id="' + list[i].blockId + '" name="list01">' + list[i].blockName + '</span>';
+                str += '<span onclick="importFile(\'' + list[i].blockId + '\',\'\',\''+list[i].blockSize+'\')" class="secPart" id="' + list[i].blockId + '" name="list01">' + list[i].blockName + '</span>';
                 $('#advBlock .panel-body').append(str);
                continue;
             }
@@ -62,7 +62,7 @@ var option = [];
 var optionSelect={};
 var obj = {"section":[]};
 //2---引用组件文件
-function importFile(id,nextShowId){
+function importFile(id,nextShowId,size){
     $.get("../editorBlock/" + id + ".html", function (data) {
 
         var block_showId;
@@ -97,7 +97,7 @@ function importFile(id,nextShowId){
         optionSelect.id = id;
         optionSelect.showId = block_showId;
         $(".appendCur").parent().attr("data-showId",optionSelect.showId);
-
+        $(".appendCur").parent().attr("data-size",size);
         obj.section.push(optionSelect);
 
         propertyRightList(id);

@@ -279,29 +279,31 @@
 
             var blockId=$col.attr("id");
             var blockShowId=$col.attr("data-showId");
+            var blockSizes = $col.attr("data-size");
+            var blockSize = blockSizes.split(",");
             var nextShowId;
-            //console.log($("[data-showId="+blockShowId+"]").next());
+            console.log($("[data-showId="+blockShowId+"]").next());
 
             if( ($("[data-showId="+blockShowId+"]").next()).hasClass("dragging-col-holder") ) {
                 nextShowId=$("[data-showId="+blockShowId+"]").next().next().attr("data-showId");
             }else{
                 nextShowId=$("[data-showId="+blockShowId+"]").next().attr("data-showId");
             }
-
+            console.log(nextShowId);
             var mouseMove = function(event) {
                 var x = event.pageX;
                 var grid = Math.max(1, Math.min(12, Math.round(12 * (startWidth + (x - startX)) / rowWidth)));
                 if(lastGrid != grid) {
                     if(lastGrid != grid) {
-                        if(0<(100*grid/12)&&(100*grid/12)<=33.3){
+                        if(0<(100*grid/12)&&(100*grid/12)<=33.3 && (blockSize.indexOf("3g1")>-1)){
                             grid="4";
                             $col.attr('data-grid', grid).css('width', 33.3 + '%');
                             if(messagerAvaliable) dashboardMessager[dashboardMessager.isShow ? 'update' : 'show'](33+"%" );
-                        }else if(33.3<(100*grid/12)&&(100*grid/12)<=66.6){
+                        }else if(33.3<(100*grid/12)&&(100*grid/12)<=66.6 && (blockSize.indexOf("3g2")>-1)){
                             grid="8";
                             $col.attr('data-grid', grid).css('width', 66.6 + '%');
                             if(messagerAvaliable) dashboardMessager[dashboardMessager.isShow ? 'update' : 'show']( 66.6+"%" );
-                        }else{
+                        }else if (66.6<(100*grid/12)&&(100*grid/12)<=100 && (blockSize.indexOf("3g3")>-1)){
                             grid="12";
                             $col.attr('data-grid', grid).css('width', 100+ '%');
                             if(messagerAvaliable) dashboardMessager[dashboardMessager.isShow ? 'update' : 'show']( 100+"%" );
@@ -330,23 +332,23 @@
                     if(lastGrid == "4"){
                         var newBlockId = pBlockId+"_3g1";
                         if(nextShowId !== undefined){
-                            importFile(newBlockId,nextShowId);
+                            importFile(newBlockId,nextShowId,blockSizes);
                         }else{
-                            importFile(newBlockId,"");
+                            importFile(newBlockId,"",blockSizes);
                         }
                     }else if(lastGrid == "8"){
                         var newBlockId = pBlockId + "_3g2";
                         if(nextShowId !== undefined){
-                            importFile(newBlockId,nextShowId);
+                            importFile(newBlockId,nextShowId,blockSizes);
                         }else{
-                            importFile(newBlockId,"");
+                            importFile(newBlockId,"",blockSizes);
                         }
                     }else{
                         var newBlockId = pBlockId +"_3g3";
                         if(nextShowId !== undefined){
-                            importFile(newBlockId,nextShowId);
+                            importFile(newBlockId,nextShowId,blockSizes);
                         }else{
-                            importFile(newBlockId,"");
+                            importFile(newBlockId,"",blockSizes);
                         }
                     }
                 }
@@ -356,7 +358,6 @@
                 //return;
                 $col.removeClass('resizing');
                 var lastGrid = $col.attr('data-grid');
-                //console.log(lastGrid)
                 if(oldGrid != lastGrid) {
                     if($.isFunction(onResize)) {
                         var revert = function() {
@@ -378,7 +379,7 @@
             $('body').on('mousemove.resize', mouseMove).on('mouseup.resize', mouseUp);
             e.preventDefault();
             e.stopPropagation();
-        //}).children('.row').children(':not(.dragging-col-holder)').append('<div class="resize-handle"><i class="icon icon-resize-h"></i></div>');
+            //}).children('.row').children(':not(.dragging-col-holder)').append('<div class="resize-handle"><i class="icon icon-resize-h"></i></div>');
         }).children('.row').children(':not(.dragging-col-holder)').append('');
     };
 
