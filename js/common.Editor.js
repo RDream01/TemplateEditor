@@ -98,6 +98,7 @@ function importFile(id,nextShowId,size){
         optionSelect.showId = block_showId;
         $(".appendCur").parent().attr("data-showId",optionSelect.showId);
         $(".appendCur").parent().attr("data-size",size);
+        $(".appendCur").attr("data-id",optionSelect.showId);
         obj.section.push(optionSelect);
 
         propertyRightList(id);

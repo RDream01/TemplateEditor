@@ -89,6 +89,9 @@
             var panel = $(this).closest('.panel');
             var pCol = panel.parent();
             var row = panel.closest('.row');
+            //var row = panel.parent().parent().parent();
+            console.log(row);
+            //var row = panel.parent().parent();
             var dPanel = panel.clone().addClass('panel-dragging-shadow');
             var pos = panel.offset();
             var dPos = dashboard.offset();
@@ -117,6 +120,8 @@
                 x: event.pageX - pos.left + dPos.left,
                 y: event.pageY - pos.top + dPos.top
             });
+
+            //console.log(left)
 
             if(circleShadow) {
                 dPanel.addClass('circle');
@@ -160,6 +165,7 @@
                         return true;
                     }
                     var p = col.children('.panel');
+                    //var p = col.children().children('.panel');
                     var pP = p.offset(),
                         pW = p.width(),
                         pH = p.height();
@@ -270,6 +276,8 @@
         this.$.on('mousedown', '.resize-handle', function(e) {
             var $col = $(this).parent().addClass('resizing');
             var $row = $col.closest('.row');
+            //var $row = $col.parent().parent().parent();
+            console.log($row )
             var startX = e.pageX;
             var startWidth = $col.width();
             var rowWidth = $row.width();
@@ -282,14 +290,14 @@
             var blockSizes = $col.attr("data-size");
             var blockSize = blockSizes.split(",");
             var nextShowId;
-            console.log($("[data-showId="+blockShowId+"]").next());
+            //console.log($("[data-showId="+blockShowId+"]").next());
 
             if( ($("[data-showId="+blockShowId+"]").next()).hasClass("dragging-col-holder") ) {
                 nextShowId=$("[data-showId="+blockShowId+"]").next().next().attr("data-showId");
             }else{
                 nextShowId=$("[data-showId="+blockShowId+"]").next().attr("data-showId");
             }
-            console.log(nextShowId);
+            //console.log(nextShowId);
             var mouseMove = function(event) {
                 var x = event.pageX;
                 var grid = Math.max(1, Math.min(12, Math.round(12 * (startWidth + (x - startX)) / rowWidth)));
@@ -320,9 +328,9 @@
             var mouseUp = function(event) {
                 var lastGrid = $col.attr('data-grid');
 
-                console.log("lastGrid===="+lastGrid);
-                console.log("oldGrid===="+oldGrid);
-                console.log("blockShowId===="+blockShowId);
+                //console.log("lastGrid===="+lastGrid);
+                //console.log("oldGrid===="+oldGrid);
+                //console.log("blockShowId===="+blockShowId);
 
                 if(oldGrid !== lastGrid){
                     $("[data-showId="+blockShowId+"]").remove();
@@ -442,6 +450,7 @@
     Dashboard.prototype.init = function() {
         var options = this.options, that = this;
         if(options.data) {
+            //var $row = $('<div class="row"/><div class="row"/>');
             var $row = $('<div class="row"/>');
             $.each(options.data, function(idx, config) {
                 var $col = $('<div class="col-sm-' + (config.colWidth || 4) + '"/>', config.colAttrs);

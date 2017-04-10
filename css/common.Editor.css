@@ -242,11 +242,31 @@ nav,#banner,section,footer{
     color:#c33;
 }
 
+/*******************************************************/
+.appendStr{
+    /*position:absolute;*/
+}
 
 
-
-
-
+.adv_3g1_all{
+    position: relative;
+}
+.adv_3g1_mask{
+    position: absolute;
+    bottom:0;
+    right:0;
+    background:rgba(0,0,0,.5);
+    width:40px;
+    height:20px;
+    color:#fff;
+    text-align: center;
+    font-size: 12px;
+    line-height:20px;
+}
+.adv_3g1_all,.adv_3g1_all img{
+    width:308px;
+    height:148px;
+}
 
 
 
