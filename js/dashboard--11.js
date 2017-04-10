@@ -211,14 +211,12 @@
                     dashboard.addClass('dashboard-holding');
                     moveFn = null;
                     nextDropCol = null;
-                }else{
-                    dColShadow.append(".row.xixi");
-                    alert(1);
-
-                    //dashboard.addClass('dashboard-holding');
-                    //moveFn = null;
-                    //nextDropCol = null;
                 }
+                //else if( nextDropCol ){
+                //    nextDropCol.append(".row.xixi");
+                //    alert(1);
+                //}
+                //console.log(nextDropCol);
             }
 
             function mouseUp(event) {
