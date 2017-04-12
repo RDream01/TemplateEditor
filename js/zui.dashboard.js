@@ -88,9 +88,7 @@
         this.$.on('mousedown', '.panel-heading, .panel-drag-handler', function(event) {
             var panel = $(this).closest('.panel');
             var pCol = panel.parent();
-            //var row = panel.closest('.row');
-            var row = panel.parent().parent();
-            //var row = panel.parent().parent();
+            var row = panel.parent().parent().parent();
             var dPanel = panel.clone().addClass('panel-dragging-shadow');
             var pos = panel.offset();
             var dPos = dashboard.offset();
@@ -141,7 +139,6 @@
             event.preventDefault();
 
             function mouseMove(event) {
-                // console.log('......................');
                 var offset = dPanel.data('mouseOffset');
                 sX1 = event.pageX - offset.x;
                 sY1 = event.pageY - offset.y;
@@ -157,7 +154,7 @@
                 dropCol = null;
                 var area = 0,
                     thisArea;
-                row.children(':not(.dragging-col)').each(function() {
+                row.children().children(':not(.dragging-col):not(.sortArea)').each(function() {
                     var col = $(this);
                     if(col.hasClass('dragging-col-holder')) {
                         dropBefore = (!options.sensitive) || (area < 100);
@@ -216,7 +213,7 @@
                 var newOrder = 0;
                 var newOrders = {};
 
-                row.children(':not(.dragging-col-holder)').each(function() {
+                row.children().children(':not(.dragging-col):not(.sortArea)').each(function() {
                     var p = $(this).children('.panel');
                     p.data('order', ++newOrder);
                     newOrders[p.data('id') || p.attr('id')] = newOrder;

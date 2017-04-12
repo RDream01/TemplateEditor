@@ -67,33 +67,48 @@ var obj = {"section":[]};
 function importGroupDiv(num){
     var data="";
     if(num == '1'){
-        data ='<div class="col-xs-4 row groupDiv" data-groupSize="4" style="min-height:100px;">'
-            + '<div class="col-md-12 col-sm-12"  id="groupDiv" style="height: 20px">'
+        data ='<div class="col-xs-4 row groupDiv list-group-item" data-groupSize="4" style="min-height:100px;">'
+            +'<div data-trigger="sortArea" class="sortArea col-md-12 col-sm-12">拖拽我--1</div>'
+            +'<div class="col-md-12 col-sm-12"  id="groupDiv" style="position:absolute;z-index:-1">'
             +'<div class="panel">'
-            +'<span class="title">组合框1</span>'
+            +'<div class="panel-heading">'
+            +'<span class="title"></span>'
+                +'</div>'
+                +'<div class="panel-body"></div>'
             +'</div>'
             +'</div>'
-
             +'</div>';
     }else if(num == '2'){
-        data ='<div class="col-xs-8 row groupDiv" data-groupSize="8" style="min-height:100px;">'
-            + '<div class="col-md-12 col-sm-12"  id="groupDiv" style="height: 20px">'
+        data ='<div class="col-xs-8 row groupDiv list-group-item" data-groupSize="8" style="min-height:100px;">'
+            +'<div data-trigger="sortArea" class="sortArea col-md-12 col-sm-12">拖拽我--2</div>'
+            + '<div class="col-md-12 col-sm-12"  id="groupDiv" style="position:absolute;z-index:-1">'
             +'<div class="panel">'
-            +'<span class="title">组合框2</span>'
+            +'<div class="panel-heading">'
+            +'<span class="title"></span>'
+            +'</div>'
+            +'<div class="panel-body"></div>'
             +'</div>'
             +'</div>'
-        +'</div>'
-        +'</div>'
+            +'</div>'
+            +'</div>';
     }else if(num == '3'){
-        data ='<div class="col-xs-12 row groupDiv"  data-groupSize="12" style="min-height:100px;">'
-            + '<div class="col-md-12 col-sm-12"  id="groupDiv" style="height: 20px">'
+        data ='<div class="col-xs-12 row groupDiv list-group-item"  data-groupSize="12" style="min-height:100px;">'
+            +'<div data-trigger="sortArea" class="sortArea col-md-12 col-sm-12">拖拽我--3</div>'
+            + '<div class="col-md-12 col-sm-12"  id="groupDiv" style="position:absolute;z-index:-1">'
             +'<div class="panel">'
-            +'<span class="title">组合框3</span>'
+            +'<div class="panel-heading">'
+            +'<span class="title"></span>'
+            +'</div>'
+            +'<div class="panel-body"></div>'
             +'</div>'
             +'</div>'
             +'</div>';
     }
     $('.editorBlock>div>div.row').append(data);
+    var options = {
+        trigger: '[data-trigger="sortArea"]'
+    };
+    $('#sortableList').sortable(options);
     $('.newSection').dashboard();
 }
 
