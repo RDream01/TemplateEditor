@@ -123,7 +123,6 @@
                 y: event.pageY - pos.top + dPos.top
             });
 
-            //console.log(left)
 
             if(circleShadow) {
                 dPanel.addClass('circle');
@@ -160,8 +159,7 @@
                 dropCol = null;
                 var area = 0,
                     thisArea;
-                row.children().children(':not(.dragging-col)').each(function() {
-                //row.children(':not(.dragging-col)').each(function() {
+                row.children().children(':not(.dragging-col):not(.sortArea)').each(function() {
                     var col = $(this);
                     if(col.hasClass('dragging-col-holder')) {
                         dropBefore = (!options.sensitive) || (area < 100);
@@ -221,8 +219,7 @@
                 var newOrder = 0;
                 var newOrders = {};
 
-                row.children().children(':not(.dragging-col-holder)').each(function() {
-                //row.children(':not(.dragging-col-holder)').each(function() {
+                row.children().children(':not(.dragging-col):not(.sortArea)').each(function() {
                     var p = $(this).children('.panel');
                     p.data('order', ++newOrder);
                     newOrders[p.data('id') || p.attr('id')] = newOrder;
@@ -454,8 +451,8 @@
     Dashboard.prototype.init = function() {
         var options = this.options, that = this;
         if(options.data) {
-            var $row = $('<div class="row"/><div class="row"/>');
-            //var $row = $('<div class="row"/>');
+            //var $row = $('<div class="row"/><div class="row"/>');
+            var $row = $('<div class="row"/>');
             $.each(options.data, function(idx, config) {
                 var $col = $('<div class="col-sm-' + (config.colWidth || 4) + '"/>', config.colAttrs);
                 var $panel = $('<div class="panel" data-id="' + (config.id || $.zui.uuid()) + '"/>', config.panelAttrs);

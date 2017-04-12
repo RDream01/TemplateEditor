@@ -2,7 +2,7 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title>index</title>
+    <title>list01</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../css/zui.min.Editor.css"/>
@@ -13,7 +13,9 @@
         .editorBlock .row.haha>div{
             border:1px solid #c33;
             margin-bottom:20px;
-
+        }
+        .sortArea{
+            border:1px solid #000;
         }
     </style>
 </head>
@@ -26,18 +28,21 @@
 <!--section-->
 <div class="editorBlock container">
     <div class="newSection dashboard dashboard-draggable" >
-        <div class="row haha ">
-            <div class="col-xs-4 row xixi" style="min-height:100px;">
-                <!--组合框-->
-                <div class="col-md-12 col-sm-12 appendStr" style="display: none;">
+
+        <div class="row haha list-group" id="sortableList">
+
+            <div class="col-xs-4 row xixi list-group-item" style="min-height:100px;">
+                <!--拖拽我-->
+                <div data-trigger="sortArea" class="sortArea col-md-12 col-sm-12">拖拽我--1</div>
+                <!--结构-->
+                <div class="col-md-12 col-sm-12 appendStr" style="position:absolute;z-index:-1;">
                     <div class="panel">
                         <div class="panel-heading">
-                            <span class="title">组合框1</span>
+                            <span class="title"></span>
                         </div>
                         <div class="panel-body">
                         </div>
                     </div>
-                    <!--<div class="resize-handle"><i class="icon icon-resize-h"></i></div>-->
                 </div>
                 <!--1-->
                 <div class="col-md-12 col-sm-12 appendStr adv_3g1"  id="2">
@@ -71,8 +76,19 @@
                 </div>
             </div>
 
-            <!--<div class="row xixi" style="min-height:500px;float:right;width:770px;">-->
-            <div class="col-xs-8 row xixi" style="min-height:100px;">
+            <div class="col-xs-8 row xixi list-group-item" style="min-height:100px;">
+                <!--拖拽我-->
+                <div data-trigger="sortArea" class="sortArea">拖拽我-2</div>
+                <!--结构-->
+                <div class="col-md-12 col-sm-12 appendStr" style="position:absolute;z-index:-1;">
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <span class="title"></span>
+                        </div>
+                        <div class="panel-body">
+                        </div>
+                    </div>
+                </div>
                 <!--1-->
                 <div class="col-md-12 col-sm-12 appendStr adv_3g1" >
                     <div class="panel">
@@ -105,7 +121,20 @@
                 </div>
             </div>
 
-            <div class="col-xs-12" style="min-height:200px">4</div>
+            <div class="col-xs-12 list-group-item" style="min-height:200px">
+                <!--拖拽我-->
+                <div data-trigger="sortArea" class="sortArea">拖拽我-3</div>
+                <!--结构-->
+                <div class="col-md-12 col-sm-12 appendStr" style="position:absolute;z-index:-1;">
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <span class="title"></span>
+                        </div>
+                        <div class="panel-body">
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -115,7 +144,14 @@
 <script src="../js/jquery-1.11.3.js"></script>
 <script src="../js/zui.min.js"></script>
 <script src="../js/dashboard--11.js"></script>
+<script src="../js/zui.sortable.js"></script>
 <script>
+    var options = {
+        trigger: '[data-trigger="sortArea"]'
+    };
+    $('#sortableList').sortable(options);
+
+
     $('.newSection').dashboard();
 </script>
 </body>

@@ -1,69 +1,81 @@
-$(".submitBtn").click(function(){
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>list01</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../css/zui.min.Editor.css"/>
+    <link rel="stylesheet" href="../css/zui.dashboard.Editor.css"/>
+    <link rel="stylesheet" href="../css/common.Editor.css"/>
+    <script src="../js/respond.js"></script>
+    <style>
+        .editorBlock .row.haha>div{
+            border:1px solid #c33;
+            margin-bottom:20px;
 
-var type=$(this).attr("data-group");
-var name=$(this).attr("data-name");
-var id=$('.appendCur #myId').val();
-//        var code=$(".appendCur#"+id).prop("outerHTML");
-
-
-//headGroup
-if( type=="headGroup" ){
-var headName=$("#headName").val(),
-headNum=$("#headNum").val(),
-headData=$("#headData option:selected").val();
-$(".appendCur#"+id+" .title").html(headName);
-var code=$(".appendCur#"+id).prop("outerHTML");
-
-var option = {};
-option.id = id;
-option.showId = id+"_"+$(".editorHeader #"+id).length;
-option.type = type;
-option.code = code;
-option.headNum = headNum;
-option.headData = headData;
-
-$(".appendCur#"+id).attr("showId",option.showId);
-
-obj.header.push(option);
-console.log(  (JSON.stringify(obj)) );
-
-//listGroup
-}else if( type=="listGroup" ){
-var listName=$("#listName").val(),
-listNum=$("#listNum").val(),
-listData=$("#listDataSelect option:selected").val();
-console.log(listData)
-$(".appendCur#"+id+" .title").html( listName );
-var code=$(".appendCur#"+id).prop("outerHTML");
-
-var option = {};
-option.id = id;
-option.showId = id+"_"+$(".editorSection #"+id).length;
-option.type = type;
-option.code = code;
-option.listNum = listNum;
-option.listData = listData;
-
-$(".appendCur#"+id).attr("data-showId",option.showId);
+        }
+    </style>
+</head>
+<body>
 
 
-$(".appendCur#"+id+" #listData01").val(listData);
-//            alert(listData)
-$(".appendCur#"+id+" #listNum01").val(listNum);
+<div class="list-group" id="sortableList">
+    <div class="list-group-item"><b data-trigger="sortable" class="nn">1111</b><i class="icon-move"></i> 猫咪</div>
+    <div class="list-group-item"><b data-trigger="sortable" class="nn">1111</b><i class="icon-move"></i> 小鸡</div>
+    <div class="list-group-item"><b data-trigger="sortable" class="nn">1111</b><i class="icon-move"></i> 大黄</div>
+    <div class="list-group-item"><b data-trigger="sortable" class="nn">1111</b><i class="icon-move"></i> 鹅鹅鹅</div>
+    <div class="list-group-item"><b data-trigger="sortable" class="nn">1111</b><i class="icon-move"></i> 猪王</div>
+</div>
 
-console.log($(".appendCur#"+id+" #listNum01").val());
+<script src="../js/jquery-1.11.3.js"></script>
+<script src="../js/zui.min.js"></script>
+<script src="../js/zui.sortable.js"></script>
+<script>
+//    $('.newSection').dashboard();
 
-
-//            text();
-obj.section.push(option);
-console.log(  (JSON.stringify(obj)) )
+var options = {
+    trigger: '[data-trigger="sortable"]'
+};
+    $('#sortableList').sortable(options);
+</script>
+</body>
+</html>
 
 
 
 
-}
 
 
-//        $(this).parent().parent()[0].reset();
 
-});//anyan来改一下
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -77,6 +77,7 @@
                 if(e.isIn) {
                     var $ele = e.element,
                         $target = e.target;
+                    console.log($target);
                     var eleOrder = $ele.attr('data-order'),
                         targetOrder = $target.attr('data-order');
                     if(eleOrder == targetOrder) return;
@@ -101,7 +102,10 @@
                 });
                 self.removeClass('sortable-sorting');
             }
+
         });
+
+
 
         function markOrders(list) {
             var orders = [];
@@ -124,7 +128,7 @@
                 orders.reverse();
             }
 
-            var listIndex = 0
+            var listIndex = 0;
             list.each(function() {
                 $(this).attr('data-order', orders[listIndex++]);
             });
