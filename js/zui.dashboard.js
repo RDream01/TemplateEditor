@@ -88,9 +88,8 @@
         this.$.on('mousedown', '.panel-heading, .panel-drag-handler', function(event) {
             var panel = $(this).closest('.panel');
             var pCol = panel.parent();
-            var row = panel.closest('.row');
-            //var row = panel.parent().parent().parent();
-            console.log(row);
+            //var row = panel.closest('.row');
+            var row = panel.parent().parent();
             //var row = panel.parent().parent();
             var dPanel = panel.clone().addClass('panel-dragging-shadow');
             var pos = panel.offset();
@@ -212,7 +211,6 @@
 
             function mouseUp(event) {
                 if(moveFn) clearTimeout(moveFn);
-
                 var oldOrder = panel.data('order');
                 panel.parent().insertAfter(dColShadow);
                 var newOrder = 0;
@@ -234,7 +232,6 @@
                 }
 
                 dPanel.remove();
-
                 dashboard.removeClass('dashboard-holding');
                 dashboard.find('.dragging-col').removeClass('dragging-col');
                 dashboard.find('.panel-dragging').removeClass('panel-dragging');

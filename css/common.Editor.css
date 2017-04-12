@@ -268,7 +268,11 @@ nav,#banner,section,footer{
     height:148px;
 }
 
+/*组合框*/
 
+.groupDiv{
+    border:1px solid #26ff16;
+}
 
 
 

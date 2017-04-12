@@ -251,8 +251,7 @@
             var $row = $(this);
             var rowWidth = $row.width();
             var rows = [], row = [], calWidth = 0;
-            $row.children(':not(.dragging-col-holder)').each(function() {
-                var $col = $(this);
+            $row.children(':not(.dragging-col-holder)').each(function() {var $col = $(this);
                 var colWidth = $col.width();
                 if(calWidth + colWidth > rowWidth) {
                     if(row.length) rows.push(row);

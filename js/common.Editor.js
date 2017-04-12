@@ -61,6 +61,42 @@ function blockLeftListCallBack(data){
 var option = [];
 var optionSelect={};
 var obj = {"section":[]};
+
+
+
+function importGroupDiv(num){
+    var data="";
+    if(num == '1'){
+        data ='<div class="col-xs-4 row groupDiv" data-groupSize="4" style="min-height:100px;">'
+            + '<div class="col-md-12 col-sm-12"  id="groupDiv" style="height: 20px">'
+            +'<div class="panel">'
+            +'<span class="title">组合框1</span>'
+            +'</div>'
+            +'</div>'
+
+            +'</div>';
+    }else if(num == '2'){
+        data ='<div class="col-xs-8 row groupDiv" data-groupSize="8" style="min-height:100px;">'
+            + '<div class="col-md-12 col-sm-12"  id="groupDiv" style="height: 20px">'
+            +'<div class="panel">'
+            +'<span class="title">组合框2</span>'
+            +'</div>'
+            +'</div>'
+        +'</div>'
+        +'</div>'
+    }else if(num == '3'){
+        data ='<div class="col-xs-12 row groupDiv"  data-groupSize="12" style="min-height:100px;">'
+            + '<div class="col-md-12 col-sm-12"  id="groupDiv" style="height: 20px">'
+            +'<div class="panel">'
+            +'<span class="title">组合框2</span>'
+            +'</div>'
+            +'</div>'
+            +'</div>';
+    }
+    $('.editorBlock>div>div.row').append(data);
+    $('.newSection').dashboard();
+}
+
 //2---引用组件文件
 function importFile(id,nextShowId,size){
     $.get("../editorBlock/" + id + ".html", function (data) {
@@ -87,24 +123,57 @@ function importFile(id,nextShowId,size){
         data=data.replace(/vData/g,"vData_"+block_showId);
 
         if(nextShowId == ""){
-            $('.editorBlock div.row').append(data);
+            if($('.editorBlock>div>div>div.row').length == 0){
+                alert("请先添加组合框");
+            }else{
+                $('.editorBlock>div>div>div.row:first').append(data);
+            }
         }else{
             $("[data-showId="+nextShowId+"]").before(data);
         }
-
         optionSelect={};
-
         optionSelect.id = id;
         optionSelect.showId = block_showId;
         $(".appendCur").parent().attr("data-showId",optionSelect.showId);
         $(".appendCur").parent().attr("data-size",size);
         $(".appendCur").attr("data-id",optionSelect.showId);
+        var blockSize = $(".appendCur").parent().attr("data-blockSize");
+        var groupDivSize = $(".appendCur").parent().parent().attr("data-groupSize");
+        console.log(blockSize)
+        console.log(groupDivSize)
+        var finalSize = countSize(blockSize,groupDivSize);
+        if(finalSize == -1){
+            console.log("尴尬，放不进去");
+        }else{
+            var md = "col-md-"+finalSize;
+            var sm = "col-sm-"+finalSize;
+            if(blockSize == 4){
+                $(".appendCur").parent().removeClass("col-md-4");
+                $(".appendCur").parent().removeClass("col-sm-4");
+            }else if(blockSize == 8) {
+                $(".appendCur").parent().removeClass("col-md-8");
+                $(".appendCur").parent().removeClass("col-sm-8");
+            }else if(blockSize == 12){
+                $(".appendCur").parent().removeClass("col-md-12");
+                $(".appendCur").parent().removeClass("col-sm-12");
+            }
+            $(".appendCur").parent().addClass(md);
+            $(".appendCur").parent().addClass(sm);
+        }
         obj.section.push(optionSelect);
 
         propertyRightList(id);
         $('.newSection').dashboard();
     });
 
+}
+//占比算法
+function countSize(blockSize,groupDivSize){
+    var finalSize = 12/(groupDivSize/blockSize);
+    if(finalSize >12){
+        return -1;
+    }
+    return finalSize;
 }
 
 //2---组件显示状态
@@ -134,11 +203,8 @@ function propertyRightList(id){
     });
 }
 function propertyRightListCallBack(data){
-    //console.log(data);
     var list=data.dataList;
-
     $(".property").html("");
-
     var showId=$(".appendCur").parent().attr("data-showId");
     var blockProAll;
     for(var i= 0;i<obj.section.length;i++){
@@ -146,7 +212,6 @@ function propertyRightListCallBack(data){
             blockProAll=obj.section[i];
         }
     }
-
     for( var i=0;i<list.length;i++ ){
         var str="";
         if( list[i].propertyType=="text" ){

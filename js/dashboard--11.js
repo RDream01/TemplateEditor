@@ -221,7 +221,6 @@
 
             function mouseUp(event) {
                 if(moveFn) clearTimeout(moveFn);
-
                 var oldOrder = panel.data('order');
                 panel.parent().insertAfter(dColShadow);
                 var newOrder = 0;
