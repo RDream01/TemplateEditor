@@ -1,4 +1,7 @@
 /**
+ * Created by 大丽丽 on 2017/4/12.
+ */
+/**
  * Created by 大丽丽 on 2017/4/7.
  */
 /**
@@ -90,9 +93,14 @@
         var pColClass;
         this.$.on('mousedown', '.panel-heading, .panel-drag-handler', function(event) {
             var panel = $(this).closest('.panel');
+            //console.log(panel);
             var pCol = panel.parent();
-            //var row = panel.closest('.row');
-            var row = panel.parent().parent().parent();
+            //console.log(pCol);
+
+            var row = panel.parent().parent();
+            if( !row.hasClass("haha") ){
+                row = panel.parent().parent().parent().parent();
+            }
             //console.log(row);
             var dPanel = panel.clone().addClass('panel-dragging-shadow');
             var pos = panel.offset();
@@ -160,15 +168,19 @@
                 dropCol = null;
                 var area = 0,
                     thisArea;
-                row.children().children(':not(.dragging-col)').each(function() {
-                //row.children(':not(.dragging-col)').each(function() {
-                    var col = $(this);
+                var childPanel=row.children(':not(.dragging-col)');
+                if( !row.hasClass("haha") ){
+                    childPanel=row.children().children(".panel-body").children(':not(.dragging-col)');
+                }
+                console.log(childPanel);
+                //row.children().children(':not(.dragging-col)').each(function() {
+                childPanel.each(function() {
+                    var col = $(this);//xixi
                     if(col.hasClass('dragging-col-holder')) {
                         dropBefore = (!options.sensitive) || (area < 100);
                         return true;
                     }
                     var p = col.children('.panel');
-                    //var p = col.children().children('.panel');
                     var pP = p.offset(),
                         pW = p.width(),
                         pH = p.height();
@@ -221,8 +233,13 @@
                 var newOrder = 0;
                 var newOrders = {};
 
-                row.children().children(':not(.dragging-col-holder)').each(function() {
-                //row.children(':not(.dragging-col-holder)').each(function() {
+                var childPanel=row.children(':not(.dragging-col)');
+                if( !row.hasClass("haha") ){
+                    childPanel=row.children().children(".panel-body").children(':not(.dragging-col)');
+                }
+                //console.log(childPanel);
+                //row.children().children(':not(.dragging-col-holder)').each(function() {
+                childPanel.each(function() {
                     var p = $(this).children('.panel');
                     p.data('order', ++newOrder);
                     newOrders[p.data('id') || p.attr('id')] = newOrder;
@@ -456,6 +473,9 @@
         if(options.data) {
             var $row = $('<div class="row"/><div class="row"/>');
             //var $row = $('<div class="row"/>');
+
+            //if( ! ){}
+
             $.each(options.data, function(idx, config) {
                 var $col = $('<div class="col-sm-' + (config.colWidth || 4) + '"/>', config.colAttrs);
                 var $panel = $('<div class="panel" data-id="' + (config.id || $.zui.uuid()) + '"/>', config.panelAttrs);
@@ -472,6 +492,7 @@
                 $row.append($col.append($panel.data('url', config.url)));
             });
             that.$.append($row);
+            console.log($row)
         }
 
         that.handlePanelHeight();

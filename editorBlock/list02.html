@@ -1,17 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>02</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../css/zui.min.Editor.css"/>
+    <link rel="stylesheet" href="../css/zui.dashboard.Editor.css"/>
+    <link rel="stylesheet" href="../css/common.Editor.css"/>
+    <script src="../js/respond.js"></script>
+    <style>
+        .editorBlock .row.haha>div{
+            border:1px solid #000;
+            margin-bottom:20px;
 
-    <div class="col-md-4 col-sm-6 appendStr " name="listGroup" id="list02">
-        <input type="hidden" id="myId" value="list02"/>
-        <div class="panel" data-id="2" style="min-height:200px;">
-            <div class="panel-heading">
-                <span class="title">列表2</span>
-                <div class="panel-actions">
-                    <!--<span class="deletePart">删除</span>-->
-                    <button type="button" class="btn remove-panel" data-toggle="tooltip" title="移除面板"><i class="icon-remove"></i></button>
+        }
+        .editorBlock .row.haha>div .panel{
+            border:1px solid #c33;
+            margin-bottom:20px;
+
+        }
+    </style>
+</head>
+<body>
+<!--保存-->
+<div class="keepCon row"><p id="keep" class="col-sm-offset-11 keep">保存</p></div>
+<!--section-->
+
+
+<!--section-->
+<div class="editorBlock container">
+    <div class="newSection dashboard dashboard-draggable" >
+
+        <div class="row haha ">
+
+            <div class="col-md-4 col-sm-4 row xixi" style="min-height:100px;">
+                <div class="panel">
+                    <div class="panel-heading">
+                        <span class="title">组合框1</span>
+                    </div>
+                    <div class="panel-body">
+                        <!--组合框-->
+                        <div class="col-md-12 col-sm-12 appendStr" style="">
+                            <div class="panel">
+                                <div class="panel-heading">
+                                    <span class="title">组合框1</span>
+                                </div>
+                                <div class="panel-body">
+                                </div>
+                            </div>
+                            <div class="resize-handle"><i class="icon icon-resize-h"></i></div>
+                        </div>
+                        <!--1-->
+                        <div class="col-md-12 col-sm-12 appendStr adv_3g1"  id="2">
+                            <div class="panel">
+                                <div class="panel-heading">
+                                    <span class="title">广告1</span>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="adv_3g1_all">
+                                        <p class="adv_3g1_mask">广告</p>
+                                        <img src="../img/adv/adv_3g1.png" alt=""/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="resize-handle"><i class="icon icon-resize-h"></i></div>
+                        </div>
+                        <!--2-->
+                        <div class="col-md-12 col-sm-12 appendStr adv_3g1"  id="1">
+                            <div class="panel">
+                                <div class="panel-heading">
+                                    <span class="title">广告2</span>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="adv_3g1_all">
+                                        <p class="adv_3g1_mask">广告</p>
+                                        <img src="../img/adv/adv_3g1.png" alt=""/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="resize-handle"><i class="icon icon-resize-h"></i></div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="panel-body">
-                <p>2..面板内容。</p>
+
+            <div class="col-xs-8 row xixi" style="min-height:100px;">
+                <div class="panel">
+                    <div class="panel-heading">
+                        <span class="title">组合框2</span>
+                    </div>
+                    <div class="panel-body">
+                        <!--1-->
+                        <div class="col-md-12 col-sm-12 appendStr adv_3g1" >
+                            <div class="panel">
+                                <div class="panel-heading">
+                                    <span class="title">广告3</span>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="adv_3g1_all">
+                                        <p class="adv_3g1_mask">广告</p>
+                                        <img src="../img/adv/adv_3g1.png" alt=""/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="resize-handle"><i class="icon icon-resize-h"></i></div>
+                        </div>
+                        <!--2-->
+                        <div class="col-md-12 col-sm-12 appendStr adv_3g1" name="listGroup" id="adv_3g1">
+                            <div class="panel">
+                                <div class="panel-heading">
+                                    <span class="title">广告4</span>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="adv_3g1_all">
+                                        <p class="adv_3g1_mask">广告</p>
+                                        <img src="../img/adv/adv_3g1.png" alt=""/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="resize-handle"><i class="icon icon-resize-h"></i></div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="resize-handle"><i class="icon icon-resize-h"></i></div>
+
+            <!--<div class="col-xs-12 row xixi" style="min-height:200px">-->
+                <!--<div class="panel">-->
+                    <!--<div class="panel-heading">-->
+                        <!--<span class="title">组合框3</span>-->
+                    <!--</div>-->
+                    <!--<div class="panel-body"></div>-->
+            <!--</div>-->
+        <!--</div>-->
     </div>
+</div>
+</div>
+
+
+<script src="../js/jquery-1.11.3.js"></script>
+<script src="../js/zui.min.js"></script>
+<script src="../js/list02.js"></script>
+<script>
+    $('.newSection').dashboard();
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

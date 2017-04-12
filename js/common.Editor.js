@@ -88,7 +88,7 @@ function importGroupDiv(num){
         data ='<div class="col-xs-12 row groupDiv"  data-groupSize="12" style="min-height:100px;">'
             + '<div class="col-md-12 col-sm-12"  id="groupDiv" style="height: 20px">'
             +'<div class="panel">'
-            +'<span class="title">组合框2</span>'
+            +'<span class="title">组合框3</span>'
             +'</div>'
             +'</div>'
             +'</div>';
