@@ -1,270 +1,317 @@
-/**
- * Created by 大丽丽 on 2017/3/22.
- */
-
-//section--组件
-//$('.secPart').on('click',function() {
-//    var ref = $(this).attr('name');
-//    $.get("editorBlock/" + ref + ".html", function (data) {
-//        $('.editorBlock div.row').append(data);
-//        $('.newSection').dashboard();
-//    })
-//});
-////header--组件
-//$('.headPart').click(function(){
-//    var n=$(this).attr('name');
-//    $.get("editorHeader/"+n+".html",function( data ){
-//        $('.editorHeader').append(data);
-//    });
-//});
-
-//1---引用文件
-function testLeft(){
-    $.ajax({
-        async : false,
-        cache:true,
-        type: 'post',
-        dataType : "jsonp",
-        data:{dataType:"jsonp"},  //参数
-        url:"http://192.168.31.156:8080/cmsNews/demo_data/testLeft.do",//请求的action路径
-        error: function () {//请求失败处理函数
-
-        },
-        success:function(data){ //请求成功后处理函数。
-        }
-    });
-}
-function testLeftCallBack(data){
-    //console.log(data)
-    var list=data.dataList,
-        str="";
-    for( var i=0;i<list.length;i++ ){
-        if( list[i].blockType=="list" ){
-            str= '<div class="panel panel-default"><div class="panel-heading"><h4 class="panel-title">'
-            str+='<a data-toggle="collapse" data-parent="#accordionPanels" href="#'+list[i].blockType+'">列表组件 </a></h4></div>'
-            str+='<div id="'+list[i].blockType+'" class="panel-collapse collapse in">'
-            str+='<div class="panel-body"><span onclick="importFile(\''+list[i].blockId+'\')" class="secPart" id="'+list[i].blockId+'" name="list01">'+list[i].blockName+'</span></div></div></div>'
-
-        }
-        $('.partAll .panel-group').append(str);
-    }
-
-}
-
-function importFile(id ){
-
-    $.get("editorBlock/" + id + ".html", function (data) {
-        $('.editorBlock div.row').append(data);
-        $('.newSection').dashboard();
-    });
-
-}
+/* ========================================================================
+ * ZUI: droppable.js
+ * http://zui.sexy
+ * ========================================================================
+ * Copyright (c) 2014-2016 cnezsoft.com; Licensed MIT
+ * ======================================================================== */
 
 
-//2---组件显示状态
-var option = [];
-var optionSelect={};
-var obj = {"header":[],"section":[],"footer":[]};
+(function($, document, Math) {
+    'use strict';
 
-$('.indexAll').on("click",".appendStr .panel",function(){
+    var NAME     = 'zui.droppable',
+        DEFAULTS = {
+            // container: '',
+            // selector: '',
+            // handle: '',
+            // flex: false,
+            // nested: false,
+            target: '.droppable-target',
+            deviation: 5,
+            sensorOffsetX: 0,
+            sensorOffsetY: 0
+        };
+    var idIncrementer = 0;
 
-    $(".indexAll .appendStr .panel").removeClass('appendCur');
-    $(this).addClass("appendCur");
+    var Droppable = function(element, options) {
+        var that     = this;
+        that.id      = idIncrementer++;
+        that.$       = $(element);
+        that.options = $.extend({}, DEFAULTS, that.$.data(), options);
+        that.init();
+    };
 
-    var id=$(this).parent().attr("id");
-    testRight(id);
+    Droppable.DEFAULTS = DEFAULTS;
+    Droppable.NAME     = NAME;
 
-    //obj.section.push(option);
-    optionSelect={};
+    Droppable.prototype.trigger = function(name, params) {
+        return $.zui.callEvent(this.options[name], params, this);
+    };
 
-    var blockId=$('.appendCur #myId').val();
-    var block_showId=id+"_"+$(".editorBlock #"+$('.appendCur #myId').val()).length;
-    //var block_showId=id+"_"+$(".editorBlock #"+$('.appendCur #myId').val()).index();
-    //var block_showId;
-    //$(".editorBlock #"+$('.appendCur #myId').val()).each(function(index){
-    //    console.log($(this).i)
-    //    block_showId=id+"_"+$(this).index("#"+$('.appendCur #myId').val());
-    //});
+    Droppable.prototype.init = function() {
+        var that           = this,
+            $root          = that.$,
+            setting        = that.options,
+            deviation      = setting.deviation,
+            eventSuffix    = '.' + NAME + '.' + that.id,
+            mouseDownEvent = 'mousedown' + eventSuffix,
+            mouseUpEvent   = 'mouseup' + eventSuffix,
+            mouseMoveEvent = 'mousemove' + eventSuffix,
+            selector       = setting.selector,
+            handle         = setting.handle,
+            flex           = setting.flex,
+            container      = setting.container,
+            $ele           = $root,
+            isMouseDown    = false,
+            $container     = container ? $(setting.container).first() : (selector ? $root : $('body')),
+            $targets,
+            $target,
+            $shadow,
+            isIn,
+            isSelf,
+            oldCssPosition,
+            startOffset,
+            startMouseOffset,
+            containerOffset,
+            clickOffset,
+            mouseOffset,
+            lastMouseOffset,
+            mouseDownBackEventCall;
 
-    optionSelect.id = blockId;
-    optionSelect.showId = block_showId;
+        var mouseMove = function(event) {
+            //alert(1);
+            if(!isMouseDown) return;
 
-});
+            mouseOffset = {left: event.pageX, top: event.pageY};
 
-//right--属性
-function testRight(id){
-    $.ajax({
-        async : false,
-        cache:true,
-        type: 'post',
-        dataType : "jsonp",
-        data:{dataType:"jsonp",blockId:id},  //参数
-        url:"http://192.168.31.156:8080/cmsNews/demo_data/testRight.do",//请求的action路径
-        error: function () {//请求失败处理函数
+            // ignore small move
+            if(Math.abs(mouseOffset.left - startMouseOffset.left) < deviation && Math.abs(mouseOffset.top - startMouseOffset.top) < deviation) return;
 
-        },
-        success:function(data){ //请求成功后处理函数。
-        }
-    });
-}
-function testRightCallBack(data){
-    //console.log(data);
-    var list=data.dataList;
-    $(".property").html("");
-    for( var i=0;i<list.length;i++ ){
-        var str="";
-        if( list[i].propertyType=="text" ){
-            str='<div class="row control-group"><label class="control-label col-xs-3" for="'+list[i].propertyId+'">'+list[i].propertyName+'</label>';
-            str+='<div class="controls col-xs-9"><input onchange="collectProperty(this)" type="text" id="'+list[i].propertyId+'" class="form-input" placeholder="区块名称"></div></div>';
-        }else if( list[i].propertyType=="number" ){
-            str='<div class="row control-group"><label class="control-label col-xs-3" for="'+list[i].propertyId+'">'+list[i].propertyName+'</label>';
-            str+='<div class="controls col-xs-9"><input onchange="collectProperty(this)" type="number" id="'+list[i].propertyId+'" class="form-input" placeholder="区块名称"></div></div>';
-        }else if( list[i].propertyType == "select"){
-            str='<div class="row control-group"><label class="control-label col-xs-3 " for="'+list[i].propertyId+'">'+list[i].propertyName+'</label>';
-            str+='<div class="controls col-xs-9"><select onchange="collectProperty(this)" id="'+list[i].propertyId+'" >';
-            str+= '<option value="">请选择</option>';
-            for(var j=0;j<list[i].data.length;j++){
-                str += '<option value="'+list[i].data[j].value+'">'+list[i].data[j].html+'</option>';
+            if($shadow === null) // create shadow
+            {
+                var cssPosition = $container.css('position');
+                if(cssPosition != 'absolute' && cssPosition != 'relative' && cssPosition != 'fixed') {
+                    oldCssPosition = cssPosition;
+                    $container.css('position', 'relative');
+                }
+
+                $shadow = $ele.clone().removeClass('drag-from').addClass('drag-shadow').css({
+                    position:   'absolute',
+                    width:      $ele.outerWidth(),
+                    transition: 'none'
+                }).appendTo($container);
+                $ele.addClass('dragging');
+
+                that.trigger('start', {
+                    event:   event,
+                    element: $ele
+                });
             }
-            str+='</select></div></div>';
-        }else if( list[i].propertyType == "radio"){
-            str='<div class="row control-group"><label class="control-label col-xs-3 " for="'+list[i].propertyId+'">'+list[i].propertyName+'</label>';
-            for(var j=0;j<list[i].data.length;j++){
-                str += '<label><input name="list[i].propertyId" type="radio" value="'+list[i].data[j].value+'" />'+list[i].data[j].html+'</label> ';
+
+            var offset = {
+                left: mouseOffset.left - clickOffset.left,
+                top:  mouseOffset.top - clickOffset.top
+            };
+            var position = {
+                left: offset.left - containerOffset.left,
+                top:  offset.top - containerOffset.top
+            };
+            $shadow.css(position);
+            $.extend(lastMouseOffset, mouseOffset);
+
+            var isNew = false;
+            isIn = false;
+
+            if(!flex) {
+                $targets.removeClass('drop-to');
             }
-        }else if( list[i].propertyType == "checkbox"){
-            str='<div class="row control-group"><label class="control-label col-xs-3 " for="'+list[i].propertyId+'">'+list[i].propertyName+'</label>';
-            for(var j=0;j<list[i].data.length;j++){
-                str += '<label><input name="list[i].propertyId" type="checkbox" value="'+list[i].data[j].value+'" />'+list[i].data[j].html+'</label> ';
+
+            var $newTarget = null;
+            $targets.each(function() {
+                var t    = $(this),
+                    tPos = t.offset(),
+                    tW   = t.outerWidth(),
+                    tH   = t.outerHeight(),
+                    tX   = tPos.left + setting.sensorOffsetX,
+                    tY   = tPos.top + setting.sensorOffsetY;
+
+                if(mouseOffset.left > tX && mouseOffset.top > tY && mouseOffset.left < (tX + tW) && mouseOffset.top < (tY + tH)) {
+                    if($newTarget) $newTarget.removeClass('drop-to');
+                    $newTarget = t;
+                    if(!setting.nested) return false;
+                }
+            });
+
+            if($newTarget) {
+                isIn = true;
+                var id = $newTarget.data('id');
+                if($ele.data('id') != id) isSelf = false;
+                if($target === null || ($target.data('id') !== id && (!isSelf))) isNew = true;
+                $target = $newTarget;
+                if(flex) {
+                    $targets.removeClass('drop-to');
+                }
+                $target.addClass('drop-to');
             }
+
+            if(!flex) {
+                $ele.toggleClass('drop-in', isIn);
+                $shadow.toggleClass('drop-in', isIn);
+            } else if($target !== null && $target.length) {
+                isIn = true;
+            }
+
+            that.trigger('drag', {
+                event: event,
+                isIn: isIn,
+                target: $target,
+                element: $ele,
+                isNew: isNew,
+                selfTarget: isSelf,
+                clickOffset: clickOffset,
+                offset: offset,
+                position: {
+                    left: offset.left - containerOffset.left,
+                    top: offset.top - containerOffset.top
+                },
+                mouseOffset: mouseOffset
+            });
+            event.preventDefault();
+        };
+
+        var mouseUp = function(event) {
+            $(document).off(eventSuffix);
+            clearTimeout(mouseDownBackEventCall);
+            if(!isMouseDown) return;
+
+            isMouseDown = false;
+
+            if(oldCssPosition) {
+                $container.css('position', oldCssPosition);
+            }
+
+            if($shadow === null) {
+                $ele.removeClass('drag-from');
+                that.trigger('always', {
+                    event: event,
+                    cancel: true
+                });
+                return;
+            }
+
+            if(!isIn) $target = null;
+            var isSure = true;
+            mouseOffset = event ? {
+                left: event.pageX,
+                top: event.pageY
+            } : lastMouseOffset;
+            var offset = {
+                left: mouseOffset.left - clickOffset.left,
+                top: mouseOffset.top - clickOffset.top
+            };
+            var moveOffset = {
+                left: mouseOffset.left - lastMouseOffset.left,
+                top: mouseOffset.top - lastMouseOffset.top
+            };
+            lastMouseOffset.left = mouseOffset.left;
+            lastMouseOffset.top = mouseOffset.top;
+            var eventOptions = {
+                event: event,
+                isIn: isIn,
+                target: $target,
+                element: $ele,
+                isNew: (!isSelf) && $target !== null,
+                selfTarget: isSelf,
+                offset: offset,
+                mouseOffset: mouseOffset,
+                position: {
+                    left: offset.left - containerOffset.left,
+                    top: offset.top - containerOffset.top
+                },
+                lastMouseOffset: lastMouseOffset,
+                moveOffset: moveOffset
+            };
+
+            isSure = that.trigger('beforeDrop', eventOptions);
+
+            if(isSure && isIn) {
+                that.trigger('drop', eventOptions);
+            }
+
+            $targets.removeClass('drop-to');
+            $ele.removeClass('dragging').removeClass('drag-from');
+            $shadow.remove();
+            $shadow = null;
+
+            that.trigger('finish', eventOptions);
+            that.trigger('always', eventOptions);
+
+            if(event) event.preventDefault();
+        };
+
+        var mouseDown = function(event) {
+            var $mouseDownEle = $(this);
+            if(selector) {
+                $ele = handle ? $mouseDownEle.closest(selector) : $mouseDownEle;
+            }
+
+            if($ele.hasClass('drag-shadow')) {
+                return;
+            }
+
+            if(setting['before']) {
+                if(setting['before']({
+                        event: event,
+                        element: $ele
+                    }) === false) return;
+            }
+
+            isMouseDown = true;
+            $targets         = $.isFunction(setting.target) ? setting.target($root) : $container.find(setting.target),
+                $target          = null,
+                $shadow          = null,
+                isIn             = false,
+                isSelf           = true,
+                oldCssPosition   = null,
+                startOffset      = $ele.offset(),
+                containerOffset  = $container.offset();
+            startMouseOffset = {left: event.pageX, top: event.pageY};
+            lastMouseOffset  = $.extend({}, startMouseOffset);
+            clickOffset      = {
+                left: startMouseOffset.left - startOffset.left,
+                top: startMouseOffset.top - startOffset.top
+            };
+
+            $ele.addClass('drag-from');
+            $(document).on(mouseMoveEvent, mouseMove).on(mouseUpEvent, mouseUp);
+            mouseDownBackEventCall = setTimeout(function() {
+                $(document).on(mouseDownEvent, mouseUp);
+            }, 10);
+            event.preventDefault();
+        };
+
+        if(handle) {
+            $root.on(mouseDownEvent, handle, mouseDown);
+        } else if(selector) {
+            $root.on(mouseDownEvent, selector, mouseDown);
+        } else {
+            $root.on(mouseDownEvent, mouseDown);
         }
+    };
 
-        $('.property').append(str);
-    }
-}
+    Droppable.prototype.destroy = function() {
+        var eventSuffix = '.' + NAME + '.' + this.id;
+        this.$.off(eventSuffix);
+        $(document).off(eventSuffix);
+        this.$.data(NAME, null);
+    };
 
-function collectProperty( obj ){
-    //组件
-    var propertyVal=$(obj).val();
-    var propertyId=$(obj).attr("id");
-    optionSelect[propertyId] = propertyVal;
-    $(".appendCur").parent().attr("data-showId",optionSelect.showId);
-    //var removeShowId=optionSelect.showId;
-    //var j="";
-    //for( var i= 0;i<optionSelect.length;i++ ){
-    //    if( optionSelect[i].showId==removeShowId ){
-    //        //console.log("optionSelect[i].showId="+optionSelect[i].showId)
-    //        j=i;
-    //        //console.log("j="+j);
-    //        break;
-    //    }
-    //}
-    //option.splice(j,1);
-    //console.log( section )
-    //console.log( option )
+    Droppable.prototype.reset = function() {
+        this.destroy();
+        this.init();
+    };
 
-    //option.push(optionSelect);
-    //console.log(option);
+    $.fn.droppable = function(option) {
+        return this.each(function() {
+            var $this = $(this);
+            var data = $this.data(NAME);
+            var options = typeof option == 'object' && option;
 
-    //console.log(  (JSON.stringify(obj)) )
-}
+            if(!data) $this.data(NAME, (data = new Droppable(this, options)));
 
-
-//function getChannelList(){
-////    alert("getChannelList")
-//    $.ajax({
-//        async : false,
-//        cache:true,
-//        type: 'post',
-//        dataType : "jsonp",
-//        data:{dataType:"jsonp"},  //参数
-//        url:"http://192.168.31.156:8080/cmsNews/demo_data/channel_list.do",//请求的action路径
-//        error: function () {//请求失败处理函数
-//
-//        },
-//        success:function(data){ //请求成功后处理函数。
-////                    alert("成功了")
-//        }
-//    });
-//}
-function callback( data ){
-    var flag=data.flag;
-    (eval(flag+'CallBack'))(data);
-
-}
-//function getChannelListCallback( data ){
-////    console.log(data)
-////    alert(1)
-//    for( var i=0;i<data.dataList.length;i++ ){
-//        var str="<option value='"+data.dataList[i].channel_id+"'>"+data.dataList[i].channel_name+"</option>"
-//        $("#listDataSelect").append(str);
-//
-//    }
-//}
-
-
-
-
-
-//存储container
-window.onload=function(){
-    //left
-    testLeft();
-
-    $('#keep').click(function(){
-        //alert(1);
-        var section=obj.section;
-        section.push(optionSelect);
-        var str=(JSON.stringify(obj)),
-            order="";
-        $(".editorBlock .appendStr").each(function(){
-            if( $(this).css("display")!=="none" ){
-                order=order+$(this).attr("data-showId")+',';
-            }
-            //console.log($(this))
+            if(typeof option == 'string') data[option]();
         });
-        order=order.substring(0,order.length-1);
+    };
 
-
-        //obj.section.push(option);
-        console.log(obj);
-        console.log(str);
-
-
-        //console.log(str,order);
-
-//        $.ajax({
-//            async : false,
-//            cache:true,
-//            type: 'POST',
-//            dataType : "jsonp",
-//            data:{strKey:str,order:order},  //参数
-//            url:"http://192.168.31.156:8080/cmsNews/demo_data/test.do",//请求的action路径
-//            error: function () {//请求失败处理函数
-//
-//            },
-//            success:function(data){ //请求成功后处理函数。
-////                    alert("成功了")
-//            }
-//        });
-
-        var str=$('.main').html();
-        str = str.replace(/<(script)[\S\s]*?\/\1>/gi, '');
-        $('.main').html( str );
-        $.zui.store.set('name', str);
-        //window.location.href="container.html";
-
-    })
-};
-
-
-//    function callback(){
-//        var str=$('.main').html();
-//        str = str.replace(/<(script)[\S\s]*?\/\1>/gi, '');
-//        $('.main').html( str );
-//        $.zui.store.set('name', str);
-//        window.location.href="container.html";
-//        console.log( $('.main').html() );
-//    }
-
-
+    $.fn.droppable.Constructor = Droppable;
+}(jQuery, document, Math));

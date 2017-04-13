@@ -279,7 +279,17 @@ nav,#banner,section,footer{
 .sortArea{
     border:1px solid #000;
 }
+.groupDiv.list-group-item{
+    padding:0;
+}
+/* 为可拖动的条目应用可移动光标类型 */
+#sortableList > .list-group-item [data-trigger]{cursor: move}
 
+/* 为正在被拖动的条目应用半透明外观 */
+#sortableList > .list-group-item.dragging {
+    /*visibility: visible;*/
+    /*opacity: .8;*/
+}
 
 
 

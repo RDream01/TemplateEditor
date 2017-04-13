@@ -2,7 +2,7 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title>list01</title>
+    <title>1</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../css/zui.min.Editor.css"/>
@@ -10,34 +10,86 @@
     <link rel="stylesheet" href="../css/common.Editor.css"/>
     <script src="../js/respond.js"></script>
     <style>
-        .editorBlock .row.haha>div{
-            border:1px solid #c33;
-            margin-bottom:20px;
-
+        #multiDroppableContainer .btn-droppable {
+            cursor: move; /* 为被拖动的按钮更改光标类型 */
+        }
+        #multiDroppableContainer .area-name {
+            font-size: 50px;
+            line-height: 80px;
+            text-align: center;
+            color: #808080;
         }
     </style>
 </head>
 <body>
 
-
-<div class="list-group" id="sortableList">
-    <div class="list-group-item"><b data-trigger="sortable" class="nn">1111</b><i class="icon-move"></i> 猫咪</div>
-    <div class="list-group-item"><b data-trigger="sortable" class="nn">1111</b><i class="icon-move"></i> 小鸡</div>
-    <div class="list-group-item"><b data-trigger="sortable" class="nn">1111</b><i class="icon-move"></i> 大黄</div>
-    <div class="list-group-item"><b data-trigger="sortable" class="nn">1111</b><i class="icon-move"></i> 鹅鹅鹅</div>
-    <div class="list-group-item"><b data-trigger="sortable" class="nn">1111</b><i class="icon-move"></i> 猪王</div>
+<div class="row" id="multiDroppableContainer">
+    <div class="col-sm-3">
+        <div class="panel">
+            <div class="panel-heading">开始吧</div>
+            <div class="panel-body" style="height: 150px; text-align: center; line-height: 40px">
+                <button type="button" class="btn btn-primary btn-droppable"><i class="icon icon-move"></i> 按钮 #<span class="btn-droppable-id">1</span></button><br>
+                <button type="button" class="btn btn-success btn-droppable"><i class="icon icon-move"></i> 按钮 #<span class="btn-droppable-id">2</span></button><br>
+                <button type="button" class="btn btn-danger btn-droppable"><i class="icon icon-move"></i> 按钮 #<span class="btn-droppable-id">3</span></button>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-3">
+        <div class="panel droppable-target" data-id="1">
+            <div class="panel-heading">拖动到这里。</div>
+            <div class="panel-body" style="height: 150px">
+                <div class="area-name">A</div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-3">
+        <div class="panel droppable-target" data-id="2">
+            <div class="panel-heading">这里。</div>
+            <div class="panel-body" style="height: 150px">
+                <div class="area-name">B</div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-3">
+        <div class="panel droppable-target" data-id="3">
+            <div class="panel-heading">或这里。</div>
+            <div class="panel-body" style="height: 150px">
+                <div class="area-name">C</div>
+            </div>
+        </div>
+    </div>
 </div>
+
+
+
 
 <script src="../js/jquery-1.11.3.js"></script>
 <script src="../js/zui.min.js"></script>
-<script src="../js/zui.sortable.js"></script>
+<script src="../js/1.js"></script>
 <script>
-//    $('.newSection').dashboard();
 
-var options = {
-    trigger: '[data-trigger="sortable"]'
-};
-    $('#sortableList').sortable(options);
+    $('#multiDroppableContainer').droppable({
+        selector: '.btn-droppable', // 定义允许拖放的元素
+        target: '.droppable-target',
+        start: function() {
+            $('#multiDroppableContainer .droppable-target').removeClass('panel-warning').removeClass('panel-success').find('.panel-heading').text('拖动到这里吗？');
+        },
+        drop: function(event) {
+            var msg = '真棒！';
+            $('#multiDroppableContainer .droppable-target').removeClass('panel-success').removeClass('panel-warning');
+            if(event.target) {
+                var elementId = event.element.find('.btn-droppable-id').text();
+                event.target.addClass('panel-success').find('.panel-heading').text('成功将【按钮#' + elementId + '】拖到目的地。');
+                msg += '成功拖动【按钮#' + elementId + '】到区域 ' + event.target.find('.area-name').text();
+            }
+            $.zui.messager.show(msg);
+        },
+        drag: function(event) {
+            $('#multiDroppableContainer .droppable-target').removeClass('panel-success').removeClass('panel-warning');
+            if(event.target) event.target.addClass('panel-warning');
+        }
+    });
+
 </script>
 </body>
 </html>

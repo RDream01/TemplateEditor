@@ -63,7 +63,7 @@ var optionSelect={};
 var obj = {"section":[]};
 
 
-
+//组合框文件引用
 function importGroupDiv(num){
     var data="";
     if(num == '1'){
@@ -112,6 +112,14 @@ function importGroupDiv(num){
     $('.newSection').dashboard();
 }
 
+//删除组合框
+$(".newSection").on("click",'[data-trigger="sortArea"]',function(){
+    if( confirm("确定要删除此组件框（包含其中所有组件）吗？") ){
+        $(this).parent().remove();
+    }
+});
+
+
 //2---引用组件文件
 function importFile(id,nextShowId,size){
     $.get("../editorBlock/" + id + ".html", function (data) {
@@ -140,6 +148,7 @@ function importFile(id,nextShowId,size){
         if(nextShowId == ""){
             if($('.editorBlock>div>div>div.row').length == 0){
                 alert("请先添加组合框");
+                return;
             }else{
                 $('.editorBlock>div>div>div.row:first').append(data);
             }
@@ -447,7 +456,7 @@ function collectProperty( property,min,max ){
     notNull(1);
 }
 
-//nouNull
+//nouNull--
 function notNull(flag){
     var notNull=$("[data-notNull]");
     //console.log(notNull);
