@@ -74,7 +74,7 @@ function importGroupDiv(num){
     var data="";
     if(num == '1'){
         data ='<div class="col-xs-4 row groupDiv list-group-item" data-groupSize="4" style="min-height:100px;">'
-            +'<div data-trigger="sortArea" class="sortArea col-md-12 col-sm-12">拖拽我--1</div>'
+            +'<div data-trigger="sortArea" class="sortArea col-md-12 col-sm-12">拖拽我--1<span class="deleteGroup">X</span></div>'
             +'<div class="col-md-12 col-sm-12"  id="groupDiv" style="position:absolute;z-index:-1">'
             +'<div class="panel">'
             +'<div class="panel-heading">'
@@ -86,7 +86,7 @@ function importGroupDiv(num){
             +'</div>';
     }else if(num == '2'){
         data ='<div class="col-xs-8 row groupDiv list-group-item" data-groupSize="8" style="min-height:100px;">'
-            +'<div data-trigger="sortArea" class="sortArea col-md-12 col-sm-12">拖拽我--2</div>'
+            +'<div data-trigger="sortArea" class="sortArea col-md-12 col-sm-12">拖拽我--2<span class="deleteGroup">X</span></div>'
             + '<div class="col-md-12 col-sm-12"  id="groupDiv" style="position:absolute;z-index:-1">'
             + '<div class="panel">'
             + '<div class="panel-heading">'
@@ -99,7 +99,7 @@ function importGroupDiv(num){
             + '</div>';
     } else if (num == '3') {
         data = '<div class="col-xs-12 row groupDiv list-group-item"  data-groupSize="12" style="min-height:100px;">'
-            + '<div data-trigger="sortArea" class="sortArea col-md-12 col-sm-12">拖拽我--3</div>'
+            + '<div data-trigger="sortArea" class="sortArea col-md-12 col-sm-12">拖拽我--3<span class="deleteGroup">X</span></div>'
             + '<div class="col-md-12 col-sm-12"  id="groupDiv" style="position:absolute;z-index:-1">'
             + '<div class="panel">'
             + '<div class="panel-heading">'
@@ -120,9 +120,9 @@ function importGroupDiv(num){
 }
 
 //删除组合框
-$(".newSection").on("click",'[data-trigger="sortArea"]',function(){
+$(".newSection").on("click",'.deleteGroup',function(){
     if( confirm("确定要删除此组件框（包含其中所有组件）吗？") ){
-        $(this).parent().remove();
+        $(this).parent().parent().remove();
         console.log($(this).parent());
         //if( $(this).parent().find(".appendCur") ){
         //    $(".property").html("");
@@ -184,7 +184,8 @@ function importFile(id, nextShowId, size) {
                         }
                     }
                     if(fla =="no"){
-                        alert("没有合适的组合框")
+                        alert("没有合适的组合框");
+                        return;
                     }
                 }
             } else {
@@ -286,7 +287,6 @@ function propertyRightListCallBack(data) {
             blockProAll = obj.section[i];
         }
     }
-
 
     for (var i = 0; i < list.length; i++) {
         var str = "";
