@@ -22,6 +22,11 @@ function undo(){
         }else{
             $('#sortableList').html(actionStack[actionIndex-1].oldValue1);
             $('#htmlCode2').html(actionStack[actionIndex-1].oldValue2);
+            var options = {
+                trigger: '[data-trigger="sortArea"]'
+            };
+            $('#sortableList').sortable(options);
+            $('.newSection').dashboard();
         }
         obj = actionStack[actionIndex-1].obj;
         actionStack[actionIndex-1].status = "undone";
