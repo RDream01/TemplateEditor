@@ -40,6 +40,11 @@ function redo(){
         if (actionStack[actionIndex].status != "undone") return;
         $('#sortableList').html(actionStack[actionIndex].newValue1);
         $('#htmlCode2').html(actionStack[actionIndex].newValue2);
+        var options = {
+            trigger: '[data-trigger="sortArea"]'
+        };
+        $('#sortableList').sortable(options);
+        $('.newSection').dashboard();
         obj = actionStack[actionIndex].obj;
         actionStack[actionIndex].status = "done";
         actionIndex++;

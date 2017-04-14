@@ -85,6 +85,8 @@
         this.$.on('mousedown', '.panel-heading, .panel-drag-handler', function(event) {
             var panel = $(this).closest('.panel');
             var pCol = panel.parent();
+            var OApanel = pCol.clone();
+            var OArow = panel.parent().parent();
             var row = panel.parent().parent().parent();
             var dPanel = panel.clone().addClass('panel-dragging-shadow');
             var pos = panel.offset();
@@ -93,6 +95,8 @@
             var sWidth = panel.width(),
                 sHeight = panel.height(),
                 sX1, sY1, sX2, sY2, moveFn, dropCol, dropBefore, nextDropCol;
+            var thisSize = $(panel).parent().attr("data-blockSize"); //准备拖动的区块的尺寸
+            console.log(thisSize)
             if(!dColShadow.length) {
                 dColShadow = $('<div class="dragging-col-holder"><div class="panel"></div></div>').removeClass('dragging-col').appendTo(row);
             }
@@ -133,6 +137,16 @@
             event.preventDefault();
 
             function mouseMove(event) {
+                    //高亮显示所有合适的框
+                var divs = $('.editorBlock>div>div>div.row');
+                for(var i=0;i<divs.length;i++){
+                    var rowWidth=  $(divs[i]).attr("data-groupSize");
+                    if(eval(rowWidth) >= eval(thisSize)){
+                        $(divs[i]).addClass("heightLight");
+                    }
+                }
+
+
                 var offset = dPanel.data('mouseOffset');
                 sX1 = event.pageX - offset.x;
                 sY1 = event.pageY - offset.y;
@@ -200,9 +214,10 @@
             }
 
             function mouseUp(event) {
+                row.find('.heightLight').removeClass('heightLight');  //取消高亮框
+                panel.parent().insertAfter(dColShadow);
                 if(moveFn) clearTimeout(moveFn);
                 var oldOrder = panel.data('order');
-                panel.parent().insertAfter(dColShadow);
                 var newOrder = 0;
                 var newOrders = {};
                 row.children().children(':not(.dragging-col):not(.sortArea)').each(function() {
@@ -223,13 +238,11 @@
                 dPanel.remove();
 
                 var blockS =  dashboard.find('.dragging-col');
-                var blockSize  = $(blockS).attr("data-blockSize");
-                console.log(blockSize)
                 var rowSize = $(blockS).parent().attr("data-groupSize");
-                var finalSize = countSize(blockSize,rowSize);
+                var finalSize = countSize(thisSize,rowSize);
                 if(finalSize == "-1"){
-                    alert("不能放入");
-                    return;
+                    dashboard.find('.panel-dragging').parent().remove();
+                    $(OArow).append(OApanel);
                 }else{
                     var md = "col-md-" + finalSize;
                     var sm = "col-sm-" + finalSize;
@@ -242,6 +255,7 @@
                     $(blockS).addClass(md);
                     $(blockS).addClass(sm);
                 }
+
                 dashboard.removeClass('dashboard-holding');
                 dashboard.find('.dragging-col').removeClass('dragging-col');
                 dashboard.find('.panel-dragging').removeClass('panel-dragging');

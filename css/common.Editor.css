@@ -276,9 +276,6 @@ nav,#banner,section,footer{
 
 
 
-.sortArea{
-    border:1px solid #000;
-}
 .groupDiv.list-group-item{
     padding:0;
 }
@@ -291,7 +288,23 @@ nav,#banner,section,footer{
     /*opacity: .8;*/
 }
 
-
-
+/*高亮*/
+.heightLight {
+    border-color: #FF38F8;
+}
+/*删除组件狂*/
+.sortArea{
+    border:1px solid #000;
+    position: relative;
+}
+.deleteGroup{
+    position:absolute;
+    top:0;
+    right:0;
+    cursor: pointer;
+    color:#c33;
+   background:#E7E9ED;
+    padding:0 6px;
+}
 
 
