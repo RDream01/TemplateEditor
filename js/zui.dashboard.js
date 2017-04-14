@@ -310,6 +310,8 @@
             var blockShowId=$col.attr("data-showId");
             var blockSizes = $col.attr("data-size");
             var blockSize = blockSizes.split(",");
+            var GroupDivSize = $col.parent().attr("data-groupSize");
+            var balanceGrid = "4";
             var nextShowId;
             //console.log($("[data-showId="+blockShowId+"]").next());
 
@@ -323,7 +325,7 @@
                 var x = event.pageX;
                 var grid = Math.max(1, Math.min(12, Math.round(12 * (startWidth + (x - startX)) / rowWidth)));
                 if(lastGrid != grid) {
-                    if(lastGrid != grid) {
+                    if(lastGrid != grid && GroupDivSize == '12') {
                         if(0<(100*grid/12)&&(100*grid/12)<=33.3 && (blockSize.indexOf("3g1")>-1)){
                             grid="4";
                             $col.attr('data-grid', grid).css('width', 33.3 + '%');
@@ -339,33 +341,46 @@
                         }
 
                         lastGrid = grid;
-
+                        balanceGrid = grid;
+                    }else if(lastGrid != grid && GroupDivSize == '8'){
+                        if(0<(100*grid/12)&&(100*grid/12)<=33.3 && (blockSize.indexOf("3g1")>-1)){
+                            grid="6";
+                            balanceGrid = "4";
+                            $col.attr('data-grid', grid).css('width', 50 + '%');
+                            if(messagerAvaliable) dashboardMessager[dashboardMessager.isShow ? 'update' : 'show'](50+"%" );
+                        }else if(33.3<(100*grid/12)&&(100*grid/12)<=66.6 && (blockSize.indexOf("3g2")>-1)){
+                            grid="12";
+                            balanceGrid = "8";
+                            $col.attr('data-grid', grid).css('width', 100 + '%');
+                            if(messagerAvaliable) dashboardMessager[dashboardMessager.isShow ? 'update' : 'show']( 100+"%" );
+                        }
                     }
                 }
+                $col.attr("data-balanceGrid",balanceGrid);
                 event.preventDefault();
                 event.stopPropagation();
             };
 
             var mouseUp = function(event) {
                 var lastGrid = $col.attr('data-grid');
-
+                var balanceGrid =  $col.attr("data-balanceGrid");
                 //console.log("lastGrid===="+lastGrid);
                 //console.log("oldGrid===="+oldGrid);
-                //console.log("blockShowId===="+blockShowId);
+                //console.log("balanceGrid===="+balanceGrid);
 
-                if(oldGrid !== lastGrid){
+                if(oldGrid !== balanceGrid){
                     $("[data-showId="+blockShowId+"]").remove();
                     $(".property").html("");
                     var pBlockId= blockId.split("_");
                     pBlockId = pBlockId[0];
-                    if(lastGrid == "4"){
+                    if(balanceGrid == "4"){
                         var newBlockId = pBlockId+"_3g1";
                         if(nextShowId !== undefined){
                             importFile(newBlockId,nextShowId,blockSizes);
                         }else{
                             importFile(newBlockId,"",blockSizes);
                         }
-                    }else if(lastGrid == "8"){
+                    }else if(balanceGrid == "8"){
                         var newBlockId = pBlockId + "_3g2";
                         if(nextShowId !== undefined){
                             importFile(newBlockId,nextShowId,blockSizes);
@@ -382,7 +397,7 @@
                     }
                 }
 
-                oldGrid=lastGrid;
+                oldGrid=balanceGrid;
 
                 //return;
                 $col.removeClass('resizing');
