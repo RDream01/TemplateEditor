@@ -543,7 +543,7 @@ function deleteBlock(removeShowId) {
 
         $("[data-showId=" + removeShowId + "]").remove();
         $(".property").html("")
-
+        saveActionHistory($('#htmlCode1').html().trim(),$('#htmlCode2').html().trim(),obj);//undo redo
     }
 
 
