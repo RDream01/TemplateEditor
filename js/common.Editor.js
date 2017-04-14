@@ -423,6 +423,7 @@ function propertyRightListCallBack(data) {
         $('.property').append(str);
     }
     $(".property").append('<div class="deleteBlockDiv"><button class="deleteBlockBtn btn btn-primary" onclick="deleteBlock(\'' + showId + '\')">删除此组件</button></div>');
+    saveActionHistory($('#sortableList').html().trim(),$('#htmlCode2').html().trim(),obj);//undo redo
 }
 
 //onfocus
@@ -543,7 +544,7 @@ function deleteBlock(removeShowId) {
 
         $("[data-showId=" + removeShowId + "]").remove();
         $(".property").html("")
-        saveActionHistory($('#htmlCode1').html().trim(),$('#htmlCode2').html().trim(),obj);//undo redo
+        saveActionHistory($('#sortableList').html().trim(),$('#htmlCode2').html().trim(),obj);//undo redo
     }
 
 
