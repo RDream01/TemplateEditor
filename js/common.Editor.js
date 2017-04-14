@@ -116,6 +116,7 @@ function importGroupDiv(num){
     };
     $('#sortableList').sortable(options);
     $('.newSection').dashboard();
+    saveActionHistory($('#sortableList').html().trim(),$('#htmlCode2').html().trim(),obj);//undo redo
 }
 
 //删除组合框

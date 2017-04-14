@@ -20,7 +20,7 @@ function undo(){
         }else if(actionStack[actionIndex-1].type == "radio"){
 
         }else{
-            $('#htmlCode1').html(actionStack[actionIndex-1].oldValue1);
+            $('#sortableList').html(actionStack[actionIndex-1].oldValue1);
             $('#htmlCode2').html(actionStack[actionIndex-1].oldValue2);
         }
         obj = actionStack[actionIndex-1].obj;
@@ -33,7 +33,7 @@ function undo(){
 function redo(){
     if (actionIndex<actionStack.length){
         if (actionStack[actionIndex].status != "undone") return;
-        $('#htmlCode1').html(actionStack[actionIndex].newValue1);
+        $('#sortableList').html(actionStack[actionIndex].newValue1);
         $('#htmlCode2').html(actionStack[actionIndex].newValue2);
         obj = actionStack[actionIndex].obj;
         actionStack[actionIndex].status = "done";
