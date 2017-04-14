@@ -99,7 +99,7 @@
 
             var row = panel.parent().parent();
             if( !row.hasClass("haha") ){
-                row = panel.parent().parent().parent().parent();
+                row = panel.parent().parent().parent().parent().parent();
             }
             //console.log(row);
             var dPanel = panel.clone().addClass('panel-dragging-shadow');
@@ -170,7 +170,7 @@
                     thisArea;
                 var childPanel=row.children(':not(.dragging-col)');
                 if( !row.hasClass("haha") ){
-                    childPanel=row.children().children(".panel-body").children(':not(.dragging-col)');
+                    childPanel=row.children().children().children(".panel-body").children(':not(.dragging-col)');
                 }
                 console.log(childPanel);
                 //row.children().children(':not(.dragging-col)').each(function() {
@@ -235,10 +235,8 @@
 
                 var childPanel=row.children(':not(.dragging-col)');
                 if( !row.hasClass("haha") ){
-                    childPanel=row.children().children(".panel-body").children(':not(.dragging-col)');
+                    childPanel=row.children().children().children(".panel-body").children(':not(.dragging-col)');
                 }
-                //console.log(childPanel);
-                //row.children().children(':not(.dragging-col-holder)').each(function() {
                 childPanel.each(function() {
                     var p = $(this).children('.panel');
                     p.data('order', ++newOrder);

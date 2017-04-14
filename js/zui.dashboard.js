@@ -77,13 +77,10 @@
         var circleSize = options.circleShadowSize;
         var halfCircleSize = circleSize / 2;
         var afterOrdered = options.afterOrdered;
-
         this.$.addClass('dashboard-draggable');
-
         this.$.on('mousedown', '.panel-actions, .drag-disabled', function(event) {
             event.stopPropagation();
         });
-
         var pColClass;
         this.$.on('mousedown', '.panel-heading, .panel-drag-handler', function(event) {
             var panel = $(this).closest('.panel');
@@ -118,8 +115,6 @@
                 y: event.pageY - pos.top + dPos.top
             });
 
-            //console.log(left)
-
             if(circleShadow) {
                 dPanel.addClass('circle');
                 setTimeout(function() {
@@ -134,7 +129,6 @@
                     });
                 }, 100);
             }
-
             $(document).bind('mousemove', mouseMove).bind('mouseup', mouseUp);
             event.preventDefault();
 
@@ -148,7 +142,6 @@
                     left: sX1,
                     top: sY1
                 });
-
                 row.find('.dragging-in').removeClass('dragging-in');
                 dropBefore = false;
                 dropCol = null;
@@ -212,7 +205,6 @@
                 panel.parent().insertAfter(dColShadow);
                 var newOrder = 0;
                 var newOrders = {};
-
                 row.children().children(':not(.dragging-col):not(.sortArea)').each(function() {
                     var p = $(this).children('.panel');
                     p.data('order', ++newOrder);
@@ -229,6 +221,27 @@
                 }
 
                 dPanel.remove();
+
+                var blockS =  dashboard.find('.dragging-col');
+                var blockSize  = $(blockS).attr("data-blockSize");
+                console.log(blockSize)
+                var rowSize = $(blockS).parent().attr("data-groupSize");
+                var finalSize = countSize(blockSize,rowSize);
+                if(finalSize == "-1"){
+                    alert("不能放入");
+                    return;
+                }else{
+                    var md = "col-md-" + finalSize;
+                    var sm = "col-sm-" + finalSize;
+                    $(blockS).removeClass("col-md-12");
+                    $(blockS).removeClass("col-md-4");
+                    $(blockS).removeClass("col-md-8");
+                    $(blockS).removeClass("col-sm-4");
+                    $(blockS).removeClass("col-sm-8");
+                    $(blockS).removeClass("col-sm-12");
+                    $(blockS).addClass(md);
+                    $(blockS).addClass(sm);
+                }
                 dashboard.removeClass('dashboard-holding');
                 dashboard.find('.dragging-col').removeClass('dragging-col');
                 dashboard.find('.panel-dragging').removeClass('panel-dragging');

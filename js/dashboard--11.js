@@ -93,7 +93,7 @@
             var pCol = panel.parent();
             //var row = panel.closest('.row');
             var row = panel.parent().parent().parent();
-            //console.log(row);
+            console.log(row);
             var dPanel = panel.clone().addClass('panel-dragging-shadow');
             var pos = panel.offset();
             var dPos = dashboard.offset();
