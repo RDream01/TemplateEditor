@@ -127,6 +127,7 @@ $(".newSection").on("click",'[data-trigger="sortArea"]',function(){
         //if( $(this).parent().find(".appendCur") ){
         //    $(".property").html("");
         //}
+        saveActionHistory($('#sortableList').html().trim(),$('#htmlCode2').html().trim(),obj);//undo redo
     }
 });
 
