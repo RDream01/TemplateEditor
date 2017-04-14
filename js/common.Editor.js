@@ -16,7 +16,7 @@ function blockLeftList(){
         type: 'post',
         dataType : "jsonp",
         data:{dataType:"jsonp",gridSize:"3"},  //参数
-        url:"http://192.168.31.156:8080/cmsNews/template_editor/blockLeftList.do",//请求的action路径
+        url:"http://192.168.31.2/template_editor/blockLeftList.do",//请求的action路径
         error: function () {//请求失败处理函数
         },
         success:function(data){ //请求成功后处理函数。
@@ -61,6 +61,13 @@ function blockLeftListCallBack(data){
 var option = [];
 var optionSelect={};
 var obj = {"section":[]};
+
+$(".partAll").on("mousemove",".secPart",function(){
+    console.log(1);
+});
+$(".partAll").on("mouseup",".secPart",function(){
+    console.log(2);
+});
 
 
 //组合框文件引用
@@ -116,6 +123,10 @@ function importGroupDiv(num){
 $(".newSection").on("click",'[data-trigger="sortArea"]',function(){
     if( confirm("确定要删除此组件框（包含其中所有组件）吗？") ){
         $(this).parent().remove();
+        console.log($(this).parent());
+        //if( $(this).parent().find(".appendCur") ){
+        //    $(".property").html("");
+        //}
     }
 });
 
@@ -218,7 +229,7 @@ function propertyRightList(id){
         type: 'post',
         dataType : "jsonp",
         data:{dataType:"jsonp",blockId:id},  //参数
-        url:"http://192.168.31.156:8080/cmsNews/template_editor/propertyRightList.do",//请求的action路径
+        url:"http://192.168.31.2/template_editor/propertyRightList.do",//请求的action路径
         error: function () {//请求失败处理函数
 
         },
@@ -545,7 +556,7 @@ window.onload=function(){
                 type: 'POST',
                 dataType : "jsonp",
                 data:{strKey:str,order:order,dataType :"jsonp"},  //参数
-                url:"http://192.168.31.156:8080/cmsNews/template_editor/saveTemplate.do",//请求的action路径
+                url:"http://192.168.31.2/template_editor/saveTemplate.do",//请求的action路径
                 error: function () {//请求失败处理函数
 
                 },
