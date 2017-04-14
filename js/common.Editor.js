@@ -306,7 +306,14 @@ function propertyRightListCallBack(data) {
                 str += list[i].defaultValue;
             }
             str += '"';
-            str += ' class="form-input" placeholder="区块名称"></div></div>';
+            str += ' class="form-input" placeholder="区块名称">';
+            str += '<input type="hidden" id="' + list[i].propertyId + '_undoRedo" value="';//undo redo 存储修改之前的属性值
+            if (blockProAll[curId] !== undefined) {
+                str += blockProAll[curId];
+            } else if (list[i].defaultValue !== undefined) {
+                str += list[i].defaultValue;
+            }
+            str += '" /></div></div>';
 
         } else if (list[i].propertyType == "number") {
             str = '<div class="row control-group"><label class="control-label col-xs-4" for="' + list[i].propertyId + '">';
@@ -323,7 +330,14 @@ function propertyRightListCallBack(data) {
                 str += list[i].defaultValue;
             }
             str += '"';
-            str += ' class="form-input" placeholder="区块名称"></div></div>';
+            str += ' class="form-input" placeholder="区块名称">';
+            str += '<input type="hidden" id="' + list[i].propertyId + '_undoRedo" value="';//undo redo 存储修改之前的属性值
+            if (blockProAll[curId] !== undefined) {
+                str += blockProAll[curId];
+            } else if (list[i].defaultValue !== undefined) {
+                str += list[i].defaultValue;
+            }
+            str += '" /></div></div>';
         } else if (list[i].propertyType == "select") {
             str = '<div class="row control-group"><label class="control-label col-xs-4 " for="' + list[i].propertyId + '">';
             if (list[i].notNull == "yes") {
@@ -346,8 +360,20 @@ function propertyRightListCallBack(data) {
                 }
                 str += '>' + list[i].data[j].html + '</option>';
             }
-            str += '</select></div></div>';
-
+            str += '</select>';
+            str += '<input type="hidden" id="' + list[i].propertyId + '_undoRedo" value="';//undo redo 存储修改之前的属性值
+            for (var j = 0; j < list[i].data.length; j++) {
+                if ((blockProAll[curId] !== undefined) && (blockProAll[curId] !== "")) {
+                    if (blockProAll[curId] == list[i].data[j].value) {
+                        str += blockProAll[curId];
+                    }
+                } else if (list[i].defaultValue !== undefined) {
+                    if (list[i].defaultValue == list[i].data[j].value) {
+                        str += list[i].defaultValue;
+                    }
+                }
+            }
+            str += '" /></div></div>';
         } else if (list[i].propertyType == "radio") {
             str = '<div class="row control-group"><p class="control-label col-xs-3 ">';
             if (list[i].notNull == "yes") {
@@ -381,7 +407,19 @@ function propertyRightListCallBack(data) {
                 }
                 str += '/>' + list[i].data[j].html + '</label> ';
             }
-            str += "</div>";
+            str += '<input type="hidden" id="' + list[i].propertyId + '_undoRedo" value="';//undo redo 存储修改之前的属性值
+            for (var j = 0; j < list[i].data.length; j++) {
+                if ((blockProAll[curId] !== undefined) && (blockProAll[curId] !== "")) {
+                    if (blockProAll[curId] == list[i].data[j].value) {
+                        str += blockProAll[curId];
+                    }
+                } else if (list[i].defaultValue !== undefined) {
+                    if (list[i].defaultValue == list[i].data[j].value) {
+                        str += list[i].defaultValue;
+                    }
+                }
+            }
+            str += '" /></div>';
 
         } else if (list[i].propertyType == "checkbox") {
             str = '<div class="row control-group"><p class="control-label col-xs-3 " for="' + list[i].propertyId + '">';
@@ -442,6 +480,12 @@ function collectProperty(property, min, max) {
         var propertyVal = $(property).val();
         var propertyId = $(property).attr("name");
         $("#" + propertyId + "_radio").val(propertyVal);
+        //移除之前选中的option选项
+        //$(".col-xs-3 #" + propertyId + " [value="+$("#" + propertyId + "_undoRedo").val()+"]").removeAttr("checked");
+        //undo redo 当修改属性之后的区块页面在新增区块时使用
+        //$(".col-xs-3 #" + propertyId + " [value="+propertyVal+"]").attr("checked","true");
+        //saveActionHistory($('#sortableList').html().trim(),$('#htmlCode2').html().trim(),obj,'number',propertyVal+"|"+$("#" + propertyId + "_undoRedo").val()+"|"+propertyId);//undo redo save
+        //$("#" + propertyId + "_undoRedo").val(propertyVal);//undo redo 将修改之后的值放入页面中 为了拿到修改之前的值
     } else if ($(property).attr("type") == "checkbox") {
         var propertyId = $(property).attr("name");
         $("#" + propertyId + "_checkbox").val("");
@@ -461,8 +505,11 @@ function collectProperty(property, min, max) {
         var propertyId = $(property).attr("id");
         if (((/^[1-9]\d*$/).test(val)) && (val >= min) && (val <= max)) {
             var propertyVal = val;
+            $(".col-xs-3 #" + propertyId).attr("value",propertyVal);//undo redo 当修改属性之后的区块页面在新增区块时使用
             $(".appendCur .v_" + propertyId).val(propertyVal);
             eval("vData_" + showId)();
+            saveActionHistory($('#sortableList').html().trim(),$('#htmlCode2').html().trim(),obj,'number',propertyVal+"|"+$("#" + propertyId + "_undoRedo").val()+"|"+propertyId);//undo redo save
+            $("#" + propertyId + "_undoRedo").val(propertyVal);//undo redo 将修改之后的值放入页面中 为了拿到修改之前的值
         } else {
             $(property).val($(property).attr("data-prevVal"));
             alert("数量范围为" + min + "~" + max + "的正整数");
@@ -474,8 +521,11 @@ function collectProperty(property, min, max) {
         var propertyId = $(property).attr("id");
         if ((val.length >= min) && (val.length <= max)) {
             var propertyVal = val;
+            $(".col-xs-3 #" + propertyId).attr("value",propertyVal);//undo redo 当修改属性之后的区块页面在新增区块时使用
             $(".appendCur .v_" + propertyId).val(propertyVal);
             eval("vData_" + showId)();
+            saveActionHistory($('#sortableList').html().trim(),$('#htmlCode2').html().trim(),obj,'text',propertyVal+"|"+$("#" + propertyId + "_undoRedo").val()+"|"+propertyId);//undo redo save
+            $("#" + propertyId + "_undoRedo").val(propertyVal);//undo redo 将修改之后的值放入页面中 为了拿到修改之前的值
         } else {
             $(property).val($(property).attr("data-prevVal"));
             alert("范围为" + min + "~" + max + "个文字");
@@ -486,6 +536,13 @@ function collectProperty(property, min, max) {
         var propertyVal = $(property).val();
         var propertyId = $(property).attr("id");
 
+        //移除之前选中的option选项
+        $(".col-xs-3 #" + propertyId + " [value="+$("#" + propertyId + "_undoRedo").val()+"]").removeAttr("selected");
+        //undo redo 当修改属性之后的区块页面在新增区块时使用
+        $(".col-xs-3 #" + propertyId + " [value="+propertyVal+"]").attr("selected","true");
+        saveActionHistory($('#sortableList').html().trim(),$('#htmlCode2').html().trim(),obj,'select',propertyVal+"|"+$("#" + propertyId + "_undoRedo").val()+"|"+propertyId);//undo redo save
+        //undo redo 将修改之后的值放入页面中 为了拿到修改之前的值
+        $("#" + propertyId + "_undoRedo").val(propertyVal);
     }
 
     for (var i = 0; i < obj.section.length; i++) {

@@ -9,12 +9,12 @@ var actionIndex = 0;//操作栈中当前操作的指针
 function undo(){
     if (actionIndex>0){
         if (actionStack[actionIndex-1].status != "done") return;
-        if(actionStack[actionIndex-1].type == "text"){
-
-        }else if(actionStack[actionIndex-1].type == "number"){
-
-        }else if(actionStack[actionIndex-1].type == "select"){
-
+        if(actionStack[actionIndex-1].type == "text" || actionStack[actionIndex-1].type == "number"
+            ||actionStack[actionIndex-1].type == "select"){
+            var propertyId = actionStack[actionIndex-1].value.split("|")[2];//拿到选项ID
+            $(".col-xs-3 #" + propertyId).val(actionStack[actionIndex-1].value.split("|")[1]);//修改页面上的input框变为原来的值
+            $(".appendCur .v_" + propertyId).val(actionStack[actionIndex-1].value.split("|")[1]);//修改区块
+            eval("vData_" + $(".appendCur").parent().attr("data-showId"))();//修改区块
         }else if(actionStack[actionIndex-1].type == "checkbox"){
 
         }else if(actionStack[actionIndex-1].type == "radio"){
@@ -38,13 +38,25 @@ function undo(){
 function redo(){
     if (actionIndex<actionStack.length){
         if (actionStack[actionIndex].status != "undone") return;
-        $('#sortableList').html(actionStack[actionIndex].newValue1);
-        $('#htmlCode2').html(actionStack[actionIndex].newValue2);
-        var options = {
-            trigger: '[data-trigger="sortArea"]'
-        };
-        $('#sortableList').sortable(options);
-        $('.newSection').dashboard();
+        if(actionStack[actionIndex].type == "text" || actionStack[actionIndex].type == "number"
+            || actionStack[actionIndex].type == "select"){
+            var propertyId = actionStack[actionIndex].value.split("|")[2];//拿到选项ID
+            $(".col-xs-3 #" + propertyId).val(actionStack[actionIndex].value.split("|")[0]);//修改页面上的input框变为原来的值
+            $(".appendCur .v_" + propertyId).val(actionStack[actionIndex].value.split("|")[0]);//修改区块
+            eval("vData_" + $(".appendCur").parent().attr("data-showId"))();//修改区块
+        }else if(actionStack[actionIndex].type == "checkbox"){
+
+        }else if(actionStack[actionIndex].type == "radio"){
+
+        }else{
+            $('#sortableList').html(actionStack[actionIndex].newValue1);
+            $('#htmlCode2').html(actionStack[actionIndex].newValue2);
+            var options = {
+                trigger: '[data-trigger="sortArea"]'
+            };
+            $('#sortableList').sortable(options);
+            $('.newSection').dashboard();
+        }
         obj = actionStack[actionIndex].obj;
         actionStack[actionIndex].status = "done";
         actionIndex++;
@@ -52,13 +64,14 @@ function redo(){
 }
 
 //保存html代码
-function saveActionHistory(html1,html2,obj,type){
+function saveActionHistory(html1,html2,obj,type,value){
     if(actionIndex == 0){
         if(actionStack[0]){
             var ChangeAction = {newValue1:html1,
                 oldValue1:actionStack[0].oldValue1,
                 newValue2:html2,
                 oldValue2:actionStack[0].oldValue2,
+                value:value,
                 type:type,
                 obj:obj,
                 status:"done"};
@@ -67,6 +80,7 @@ function saveActionHistory(html1,html2,obj,type){
                 oldValue1:'',
                 newValue2:html2,
                 oldValue2:'',
+                value:value,
                 type:type,
                 obj:obj,
                 status:"done"};
@@ -78,6 +92,7 @@ function saveActionHistory(html1,html2,obj,type){
             oldValue1:actionStack[actionIndex - 1].newValue1,
             newValue2:html2,
             oldValue2:actionStack[actionIndex - 1].newValue2,
+            value:value,
             type:type,
             obj:obj,
             status:"done"};
