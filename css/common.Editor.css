@@ -288,10 +288,12 @@ nav,#banner,section,footer{
     /*opacity: .8;*/
 }
 
+
 /*高亮*/
 .heightLight {
     border-color: #FF38F8;
 }
+
 /*删除组件狂*/
 .sortArea{
     border:1px solid #000;
