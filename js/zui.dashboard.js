@@ -248,8 +248,10 @@
                     var sm = "col-sm-" + finalSize;
                     $(blockS).removeClass("col-md-12");
                     $(blockS).removeClass("col-md-4");
+                    $(blockS).removeClass("col-md-6");
                     $(blockS).removeClass("col-md-8");
                     $(blockS).removeClass("col-sm-4");
+                    $(blockS).removeClass("col-sm-6");
                     $(blockS).removeClass("col-sm-8");
                     $(blockS).removeClass("col-sm-12");
                     $(blockS).addClass(md);
@@ -298,7 +300,7 @@
             var $col = $(this).parent().addClass('resizing');
             var $row = $col.closest('.row');
             //var $row = $col.parent().parent().parent();
-            console.log($row )
+            //console.log($row )
             var startX = e.pageX;
             var startWidth = $col.width();
             var rowWidth = $row.width();
