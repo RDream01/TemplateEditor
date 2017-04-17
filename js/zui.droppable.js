@@ -12,11 +12,11 @@
     var NAME     = 'zui.droppable',
         DEFAULTS = {
             // container: '',
-            // selector: '',
+             selector: '',
             // handle: '',
             // flex: false,
             // nested: false,
-            target: '.droppable-target',
+            target: '',
             deviation: 5,
             sensorOffsetX: 0,
             sensorOffsetY: 0

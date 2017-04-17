@@ -1,217 +1,37 @@
 <!DOCTYPE html>
 <html>
-<head lang="en">
+<head>
     <meta charset="UTF-8">
-    <title>index</title>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../css/zui.min.Editor.css"/>
-    <link rel="stylesheet" href="../css/zui.dashboard.Editor.css"/>
-    <link rel="stylesheet" href="../css/common.Editor.css"/>
-    <script src="../js/respond.js"></script>
-    <script src="../js/jquery-1.11.3.js"></script>
-    <script src="../js/zui.min.js"></script>
-    <script src="../js/zui.dashboard.js"></script>
-    <script src="../js/common.Editor.js"></script>
-    <script src="../js/draggable.js"></script>
+    <title>无标题文档</title>
 </head>
+
 <body>
-            <!--section-->
-            <div class="editorBlock container">
-                <div class="newSection dashboard dashboard-draggable" >
-                    <div class="row commonContainer">
-                        <div class="col-md-4 col-sm-4 appendStr lhbb draggableBox" name="listGroup" id="lhbb" >
+<div id="mydiv" style="width:100px; height:100px; background:#ddd;">out</div>
 
-                            <div class="style">
-                                <style>
-                                    .hot{
-                                        margin-bottom:50px;
-                                        margin-left:15px;
-                                        width:320px;
-                                    }
-                                    .hot>div.hot_top{
-                                        border-bottom:1px solid #E7E9ED;
-                                        padding: 0 10px 3px 10px;
-                                        overflow:hidden;
-                                        margin-top:-3px;
-                                    }
-                                    .hot>div.hot_top>p:first-child{
-                                        font-size:18px;
-                                        color:#cc3333;
-                                    }
-                                    .hot>div.hot_top>p:last-child{
-                                        position: relative;
-                                        width:50px;
-                                        height:20px;
-                                    }
-                                    .hot>div.hot_top>p:last-child>a{
-                                        position: absolute;
-                                        bottom:-6px;
-                                        font-size:14px;
-                                        color:#999;
-                                        letter-spacing:0.42px;
-                                    }
-                                    .hot>div.hot_top>p:last-child>a:hover{
-                                        color:#c33;
-                                    }
-                                    /*利好播报*/
-                                    .lh>p{
-                                        margin:10px 0 0px 20px;
-                                    }
-                                    .lh>p>a{
-                                        line-height:26px;
-                                        font-size:16px;
-                                        color:#333;
-                                    }
-                                    .li_back{
-                                        margin-top:10px;
-                                        position:relative;
-                                    }
-                                    .li_zi{
-                                        position:absolute;
-                                        top:80px;
-                                        right:50px;
-                                        color:#fff;
-                                        font-size:16px;
-                                    }
-                                    .li_back img{
-                                        width:295px;
-                                    }
-                                </style>
-                            </div>
-
-                            <div class="panel" data-id="3">
-                                <!--<input type="hidden" id="myId" value="lhbb" class="myId"/>-->
-                                <input type="hidden" class="v_lhbb_name" value="利好播报"/>
-                                <input type="hidden" class="v_lhbb_num" value="5"/>
-                                <div class="panel-heading">
-                                    <span class="title">列表1</span>
-                                </div>
-                                <div class="panel-body">
-                                    <!--利好播报-->
-                                    <div class="hot ">
-                                        <div class="hot_top">
-                                            <p class="lf" id="lhbb_name">利好播报</p>
-                                            <p class="rt"><a href="#">更多&gt;</a></p>
-                                        </div>
-                                        <p class="li_back">
-                                            <img src="../img/section/li_back_01.png" alt=""/>
-                                            <span class="li_zi">2016.09.12</span>
-                                        </p>
-                                        <div class="lh">
-                                            <!--<p ><a href="#">日防卫相访问东帝汶及印度</a></p>-->
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="resize-handle"><i class="icon icon-resize-h"></i></div>
-
-                            <div class="script">
-                                <script>
-                                    var flag="v";
-                                    if(flag == "v"){
-                                        vData()
-                                    }else{
-                                        var lhbb_name="";
-                                        if(lhbb_name!=""){
-                                            $("#lhbb_name").html(lhbb_name);
-                                        }
-                                        tData();
-                                    }
-
-                                    function vData(){
-//                alert(1)
-                                        $(".appendCur .lh").html("");
-                                        var v_lhbb_name=$(".appendCur .v_lhbb_name").val();
-                                        if(v_lhbb_name!=""){
-                                            $("#lhbb_name").html(v_lhbb_name);
-                                        }
-                                        var v_lhbb_num=$(".appendCur .v_lhbb_num").val();
-
-                                        var title="日防卫相访问东帝汶及印发嘎嘎地方";
-                                        for(var i=0;i<v_lhbb_num;i++){
-//                        var str='&lt;p&gt;&lt;a href="#"/&gt;'+title+'&lt;a/&gt;&lt;p/&gt;';
-                                            var str='<p><a href="#"/>'+title+'<a><p/>';
-                                            $(".appendCur .lh").append(str);
-                                        }
-                                    }
-
-                                    function tData(){
-                                        var lhbb_id="";
-                                        var lhbb_num="";
-                                        $.ajax({
-                                            async : false,
-                                            cache:true,
-                                            type: 'post',
-                                            dataType : "jsonp",
-                                            data:{dataType:"jsonp",channelId:lhbb_id,limit:lhbb_num},  //参数
-                                            url:"http://192.168.31.156:8080/cmsNews/demo_data/channel_article_list_index.do",//请求的action路径
-                                            success:function(data){ //请求成功后处理函数。
-                                            }
-                                        });
-                                    }
-                                    function tDataCallback(data){
-                                        var list = data.dataList;
-                                        for( var i=0;i<list.length;i++ ){
-//                        var str='&lt;p&gt;&lt;a href="#"/&gt;'+list[i].title+'&lt;a/&gt;&lt;p/&gt;';
-                                            var str='<p><a href="#"/>'+list[i].title+'<a><p/>';
-                                            $(".lh").append(str);
-                                        }
-                                    }
-
-
-
-                                </script>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <input type="checkbox" value="1" name="hh" checked/>1
-            <input type="checkbox" value="2" name="hh"/>2
-
+<script src="../js/jquery-1.11.3.js"></script>
 <script>
-    $('.newSection').dashboard();
-    $('#lhbb').draggable();
+    /*设置一个长按的计时器，如果点击这个图层超过2秒则触发，mydiv里面的文字从out变in的动作*/
+    var timeout ;
+
+    $("#mydiv").mousedown(function() {
+        timeout = setTimeout(function() {
+//            alert(1);
+            $("#mydiv").text("in");
+        }, 200);
+    });
+
+    $("#mydiv").mouseup(function() {
+        clearTimeout(timeout);
+        $("#mydiv").text("out");
+    });
+
+//    $("#mydiv").mouseout(function() {
+//        clearTimeout(timeout);
+//        $("#mydiv").text("out");
+//    });
+
 </script>
+
+
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

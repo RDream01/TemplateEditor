@@ -23,8 +23,8 @@
 </head>
 <body>
 
-<div class="row" id="multiDroppableContainer">
-    <div class="col-sm-3">
+<div class="" id="multiDroppableContainer">
+    <div class="01">
         <div class="panel">
             <div class="panel-heading">开始吧</div>
             <div class="panel-body" style="height: 150px; text-align: center; line-height: 40px">
@@ -34,30 +34,30 @@
             </div>
         </div>
     </div>
-    <div class="col-sm-3">
+    <!--<div class="">-->
         <div class="panel droppable-target" data-id="1">
             <div class="panel-heading">拖动到这里。</div>
             <div class="panel-body" style="height: 150px">
                 <div class="area-name">A</div>
             </div>
         </div>
-    </div>
-    <div class="col-sm-3">
+    <!--</div>-->
+    <!--<div class="">-->
         <div class="panel droppable-target" data-id="2">
             <div class="panel-heading">这里。</div>
             <div class="panel-body" style="height: 150px">
                 <div class="area-name">B</div>
             </div>
         </div>
-    </div>
-    <div class="col-sm-3">
+    <!--</div>-->
+    <!--<div class="">-->
         <div class="panel droppable-target" data-id="3">
             <div class="panel-heading">或这里。</div>
             <div class="panel-body" style="height: 150px">
                 <div class="area-name">C</div>
             </div>
         </div>
-    </div>
+    <!--</div>-->
 </div>
 
 
@@ -65,7 +65,7 @@
 
 <script src="../js/jquery-1.11.3.js"></script>
 <script src="../js/zui.min.js"></script>
-<script src="../js/1.js"></script>
+<script src="../js/zui.droppable.js"></script>
 <script>
 
     $('#multiDroppableContainer').droppable({
@@ -81,7 +81,14 @@
                 var elementId = event.element.find('.btn-droppable-id').text();
                 event.target.addClass('panel-success').find('.panel-heading').text('成功将【按钮#' + elementId + '】拖到目的地。');
                 msg += '成功拖动【按钮#' + elementId + '】到区域 ' + event.target.find('.area-name').text();
+
+                event.target.find('.panel-body').append(1 );
+
             }
+//            console.log(event.element);
+//            console.log( event.target.find('.area-name') );
+//            console.log( event.target.find('.panel-body') );
+//            console.log( event.target );//panel
             $.zui.messager.show(msg);
         },
         drag: function(event) {

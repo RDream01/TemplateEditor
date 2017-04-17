@@ -13,7 +13,7 @@
     'use strict';
 
     if(!$.fn.droppable) {
-        console.error('Sortable requires droppable.js');
+        console.error('Sortable requires zui.droppable.js');
         return;
     }
 
@@ -43,6 +43,7 @@
             order = 0;
         var $list = this.$.children(this.options.selector).not('.drag-shadow');
 
+        console.log($list);
         $list.each(function() {
             var $this = $(this);
             if($this.data('zui.droppable')) {
@@ -59,6 +60,8 @@
         var self = this.$,
             options = this.options;
         var isReverse = options.reverse;
+
+
 
         markOrders($list);
         $list.droppable({

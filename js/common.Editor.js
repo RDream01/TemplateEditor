@@ -32,22 +32,21 @@ function blockLeftListCallBack(data) {
                 str = '<div id="listBlock" class="panel panel-default"><div class="panel-heading"><h4 class="panel-title">';
                 str += '<a data-toggle="collapse" data-parent="#accordionPanels" href="#' + list[i].blockType + '">列表组件 </a></h4></div>'
                 str += '<div id="' + list[i].blockType + '" class="panel-collapse collapse in">';
-                str += '<div class="panel-body"><span onclick="importFile(\'' + list[i].blockId + '\',\'\',\'' + list[i].blockSize + '\')" class="secPart" id="' + list[i].blockId + '" name="list01">' + list[i].blockName + '</span></div></div></div>';
+                str += '<div class="panel-body"><span data-blockId="'+list[i].blockId+'"  data-blockSize="'+list[i].blockSize+'" class="secPart btn-droppable" id="' + list[i].blockId + '" name="list01">' + list[i].blockName + '</span></div></div></div>';
             } else {
-                str += '<span onclick="importFile(\'' + list[i].blockId + '\',\'\',\'' + list[i].blockSize + '\')" class="secPart" id="' + list[i].blockId + '" name="list01">' + list[i].blockName + '</span>';
+                str += '<span data-blockId="'+list[i].blockId+'"  data-blockSize="'+list[i].blockSize+'" class="secPart btn-droppable" id="' + list[i].blockId + '" name="list01">' + list[i].blockName + '</span>';
                 $('#listBlock .panel-body').append(str);
                 continue;
             }
-
 
         } else if (list[i].blockType == "adv") {
             if ($("#advBlock").html() == undefined) {
                 str = '<div id="advBlock" class="panel panel-default"><div class="panel-heading"><h4 class="panel-title">';
                 str += '<a data-toggle="collapse" data-parent="#accordionPanels" href="#' + list[i].blockType + '">广告组件</a></h4></div>';
                 str += '<div id="' + list[i].blockType + '" class="panel-collapse collapse in">';
-                str += '<div class="panel-body"><span onclick="importFile(\'' + list[i].blockId + '\',\'\',\'' + list[i].blockSize + '\')" class="secPart" id="' + list[i].blockId + '" name="list01">' + list[i].blockName + '</span></div></div></div>';
+                str += '<div class="panel-body"><span data-blockId="'+list[i].blockId+'"  data-blockSize="'+list[i].blockSize+'" class="secPart btn-droppable" id="' + list[i].blockId + '" name="list01">' + list[i].blockName + '</span></div></div></div>';
             } else {
-                str += '<span onclick="importFile(\'' + list[i].blockId + '\',\'\',\'' + list[i].blockSize + '\')" class="secPart" id="' + list[i].blockId + '" name="list01">' + list[i].blockName + '</span>';
+                str += '<span data-blockId="'+list[i].blockId+'"  data-blockSize="'+list[i].blockSize+'" class="secPart btn-droppable" id="' + list[i].blockId + '" name="list01">' + list[i].blockName + '</span>';
                 $('#advBlock .panel-body').append(str);
                 continue;
             }
@@ -61,20 +60,21 @@ var option = [];
 var optionSelect={};
 var obj = {"section":[]};
 
-$(".partAll").on("mousemove",".secPart",function(){
-    //console.log(1);
-});
-$(".partAll").on("mouseup",".secPart",function(){
-    //console.log(2);
-});
+
+//$(".partAll").on("mousemove",".secPart",function(){
+//    console.log(1);
+//});
+//$(".partAll").on("mouseup",".secPart",function(){
+//    console.log(2);
+//});
 
 
 //组合框文件引用
 function importGroupDiv(num){
     var data="";
     if(num == '1'){
-        data ='<div class="col-xs-4 row groupDiv list-group-item" data-groupSize="4" style="min-height:100px;">'
-            +'<div data-trigger="sortArea" class="sortArea col-md-12 col-sm-12">拖拽我--1<span class="deleteGroup">X</span></div>'
+        data ='<div class="col-xs-4 row groupDiv list-group-item droppable-target" data-groupSize="4" style="min-height:100px;">'
+            +'<div data-trigger="sortArea" class="sortArea col-md-12 col-sm-12"><span class="area-name">组合框1，</span>拖拽我--1<span class="deleteGroup">X</span></div>'
             +'<div class="col-md-12 col-sm-12"  id="groupDiv" style="position:absolute;z-index:-1">'
             +'<div class="panel">'
             +'<div class="panel-heading">'
@@ -85,8 +85,8 @@ function importGroupDiv(num){
             +'</div>'
             +'</div>';
     }else if(num == '2'){
-        data ='<div class="col-xs-8 row groupDiv list-group-item" data-groupSize="8" style="min-height:100px;">'
-            +'<div data-trigger="sortArea" class="sortArea col-md-12 col-sm-12">拖拽我--2<span class="deleteGroup">X</span></div>'
+        data ='<div class="col-xs-8 row groupDiv list-group-item droppable-target" data-groupSize="8" style="min-height:100px;">'
+            +'<div data-trigger="sortArea" class="sortArea col-md-12 col-sm-12"><span class="area-name">组合框2，</span>拖拽我--2<span class="deleteGroup">X</span></div>'
             + '<div class="col-md-12 col-sm-12"  id="groupDiv" style="position:absolute;z-index:-1">'
             + '<div class="panel">'
             + '<div class="panel-heading">'
@@ -98,8 +98,8 @@ function importGroupDiv(num){
             + '</div>'
             + '</div>';
     } else if (num == '3') {
-        data = '<div class="col-xs-12 row groupDiv list-group-item"  data-groupSize="12" style="min-height:100px;">'
-            + '<div data-trigger="sortArea" class="sortArea col-md-12 col-sm-12">拖拽我--3<span class="deleteGroup">X</span></div>'
+        data = '<div class="col-xs-12 row groupDiv list-group-item droppable-target"  data-groupSize="12" style="min-height:100px;">'
+            + '<div data-trigger="sortArea" class="sortArea col-md-12 col-sm-12"><span class="area-name">组合框3，</span>拖拽我--3<span class="deleteGroup">X</span></div>'
             + '<div class="col-md-12 col-sm-12"  id="groupDiv" style="position:absolute;z-index:-1">'
             + '<div class="panel">'
             + '<div class="panel-heading">'
@@ -111,19 +111,52 @@ function importGroupDiv(num){
             + '</div>';
     }
     $('.editorBlock>div>div.row').append(data);
-    var options = {
+    var optionsTrigger = {
+        //selector:'[data-trigger="sortArea"]',
         trigger: '[data-trigger="sortArea"]'
     };
-    $('#sortableList').sortable(options);
+    $('#sortableList').sortable(optionsTrigger);
+    //拖动组件
+    $('#multiDroppableContainer').droppable({
+        selector: '.btn-droppable', // 定义允许拖放的元素
+        target: '.droppable-target',
+        //start: function() {
+        //    $('#multiDroppableContainer .droppable-target').removeClass('panel-warning').removeClass('panel-success').find('.panel-heading').text('拖动到这里吗？');
+        //},
+        drop: function(event) {
+            var msg = '真棒！';
+            //$('#multiDroppableContainer .droppable-target').removeClass('panel-success').removeClass('panel-warning');
+            if(event.target) {
+                //像画布中添加组件方法
+                var id=$(event.element).attr("data-blockId");
+                var size=$(event.element).attr("data-blockSize");
+                importFile(id, '', size);
+
+                var elementId = event.element.text();
+                //event.target.addClass('panel-success').text('成功将【按钮#' + elementId + '】拖到目的地。');
+                msg += '成功拖动【' + elementId + '】到区域 ' + event.target.find('.area-name').text();
+            }
+            //console.log(event.element);//span
+            //console.log( event.target );//panel
+            $.zui.messager.show(msg);
+        }
+        //drag: function(event) {
+        //    $('#multiDroppableContainer .droppable-target').removeClass('panel-success').removeClass('panel-warning');
+        //    if(event.target) event.target.addClass('panel-warning');
+        //}
+    });
+
     $('.newSection').dashboard();
+
     saveActionHistory($('#sortableList').html().trim(),$('#htmlCode2').html().trim(),obj);//undo redo
 }
 
 //删除组合框
 $(".newSection").on("click",'.deleteGroup',function(){
+    //alert(1);
     if( confirm("确定要删除此组件框（包含其中所有组件）吗？") ){
         $(this).parent().parent().remove();
-        console.log($(this).parent());
+        //console.log($(this).parent());
         //if( $(this).parent().find(".appendCur") ){
         //    $(".property").html("");
         //}
@@ -133,6 +166,11 @@ $(".newSection").on("click",'.deleteGroup',function(){
 
 
 //2---引用组件文件
+
+
+
+
+
 function importFile(id, nextShowId, size) {
     //找到源文件
     $.get("../editorBlock/" + id + ".html", function (data) {
@@ -216,7 +254,7 @@ function importFile(id, nextShowId, size) {
                 obj.section.splice(j, 1);
 
                 $("[data-showId=" + block_showId + "]").remove();
-                $(".property").html("")
+                $(".property").html("");
                 return;
             } else {
                 var md = "col-md-" + finalSize;

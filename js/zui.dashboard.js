@@ -137,6 +137,7 @@
             event.preventDefault();
 
             function mouseMove(event) {
+
                     //高亮显示所有合适的框
                 var divs = $('.editorBlock>div>div>div.row');
                 for(var i=0;i<divs.length;i++){
@@ -238,6 +239,8 @@
                 dPanel.remove();
 
                 var blockS =  dashboard.find('.dragging-col');
+
+                var blockSize  = $(blockS).attr("data-blockSize");
                 var rowSize = $(blockS).parent().attr("data-groupSize");
                 var finalSize = countSize(thisSize,rowSize);
                 if(finalSize == "-1"){
