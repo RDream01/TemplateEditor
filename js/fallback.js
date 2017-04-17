@@ -16,9 +16,32 @@ function undo(){
             $(".appendCur .v_" + propertyId).val(actionStack[actionIndex-1].value.split("|")[1]);//修改区块
             eval("vData_" + $(".appendCur").parent().attr("data-showId"))();//修改区块
         }else if(actionStack[actionIndex-1].type == "checkbox"){
-
+            var propertyId = actionStack[actionIndex-1].value.split("|")[2];//拿到选项ID
+            var propertys = actionStack[actionIndex-1].value.split("|")[1].split(',');
+            $(".col-xs-3 input[name="+propertyId+"]").each(function(){
+                //移除之前选中的html代码中checkbox选项中checked属性
+                $(this).removeAttr("checked");
+                //在html代码中checkbox选项中添加checked属性
+                for(var i=0;i<propertys.length;i++){
+                    if(this.value == propertys[i]){
+                        $(this).attr("checked",true);
+                        $(this).prop("checked",true);
+                    }
+                }
+            });
         }else if(actionStack[actionIndex-1].type == "radio"){
-
+            var propertyId = actionStack[actionIndex-1].value.split("|")[2];//拿到选项ID
+            $(".col-xs-3 input[name="+propertyId+"]").each(function() {
+                if (this.checked) {
+                    $(this).removeAttr("checked");
+                }
+            });
+            $(".col-xs-3 input[name="+propertyId+"]").each(function(){
+                if($(this).val() == actionStack[actionIndex-1].value.split("|")[1]){
+                    $(this).prop("checked",true);
+                }
+            });
+            $("#" + propertyId + "_radio").val(actionStack[actionIndex-1].value.split("|")[1]);
         }else{
             $('#sortableList').html(actionStack[actionIndex-1].oldValue1);
             $('#htmlCode2').html(actionStack[actionIndex-1].oldValue2);
@@ -45,9 +68,32 @@ function redo(){
             $(".appendCur .v_" + propertyId).val(actionStack[actionIndex].value.split("|")[0]);//修改区块
             eval("vData_" + $(".appendCur").parent().attr("data-showId"))();//修改区块
         }else if(actionStack[actionIndex].type == "checkbox"){
-
+            var propertyId = actionStack[actionIndex].value.split("|")[2];//拿到选项ID
+            var propertys = actionStack[actionIndex].value.split("|")[0].split(',');
+            $(".col-xs-3 input[name="+propertyId+"]").each(function(){
+                //移除之前选中的html代码中checkbox选项中checked属性
+                $(this).removeAttr("checked");
+                //在html代码中checkbox选项中添加checked属性
+                for(var i=0;i<propertys.length;i++){
+                    if(this.value == propertys[i]){
+                        $(this).attr("checked",true);
+                        $(this).prop("checked",true);
+                    }
+                }
+            });
         }else if(actionStack[actionIndex].type == "radio"){
-
+            var propertyId = actionStack[actionIndex].value.split("|")[2];//拿到选项ID
+            $(".col-xs-3 input[name="+propertyId+"]").each(function() {
+                if (this.checked) {
+                    $(this).removeAttr("checked");
+                }
+            });
+            $(".col-xs-3 input[name="+propertyId+"]").each(function(){
+                if($(this).val() == actionStack[actionIndex].value.split("|")[0]){
+                    $(this).prop("checked",true);
+                }
+            });
+            $("#" + propertyId + "_radio").val(actionStack[actionIndex].value.split("|")[0]);
         }else{
             $('#sortableList').html(actionStack[actionIndex].newValue1);
             $('#htmlCode2').html(actionStack[actionIndex].newValue2);
