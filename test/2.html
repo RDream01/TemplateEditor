@@ -3,33 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <title>无标题文档</title>
+    <link rel="stylesheet" href="../css/zui.min.css"/>
 </head>
 
 <body>
-<div id="mydiv" style="width:100px; height:100px; background:#ddd;">out</div>
+
+<div class="list-group" id="sortableList">
+    <div class="list-group-item"><i class="icon-move"></i> 猫咪<span id="test111" class="test">Xxxxxxxxxxxxxxxxxxxxxxxxxxx</span></div>
+    <div class="list-group-item"><i class="icon-move"></i> 小鸡<span id="test222" class="test">X</span></div>
+    <div class="list-group-item"><i class="icon-move"></i> 大黄<span class="test">X</span></div>
+    <div class="list-group-item"><i class="icon-move"></i> 鹅鹅鹅<span class="test">X</span></div>
+    <div class="list-group-item"><i class="icon-move"></i> 猪王<span class="test">X</span></div>
+</div>
+
 
 <script src="../js/jquery-1.11.3.js"></script>
+<script src="../js/zui.min.js"></script>
+<script src="../js/zui.droppable.js"></script>
+<script src="../js/zui.sortable2.js"></script>
 <script>
-    /*设置一个长按的计时器，如果点击这个图层超过2秒则触发，mydiv里面的文字从out变in的动作*/
-    var timeout ;
+    var options = {
+        selector:".list-group-item",
+        trigger:".test"
+    };
 
-    $("#mydiv").mousedown(function() {
-        timeout = setTimeout(function() {
-//            alert(1);
-            $("#mydiv").text("in");
-        }, 200);
-    });
-
-    $("#mydiv").mouseup(function() {
-        clearTimeout(timeout);
-        $("#mydiv").text("out");
-    });
-
-//    $("#mydiv").mouseout(function() {
-//        clearTimeout(timeout);
-//        $("#mydiv").text("out");
-//    });
-
+    $('#sortableList').sortable(options);
 </script>
 
 

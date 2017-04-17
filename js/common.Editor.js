@@ -75,7 +75,7 @@ function importGroupDiv(num){
     if(num == '1'){
         data ='<div class="col-xs-4 row groupDiv list-group-item droppable-target" data-groupSize="4" style="min-height:100px;">'
             +'<div data-trigger="sortArea" class="sortArea col-md-12 col-sm-12"><span class="area-name">组合框1，</span>拖拽我--1<span class="deleteGroup">X</span></div>'
-            +'<div class="col-md-12 col-sm-12"  id="groupDiv" style="position:absolute;z-index:-1">'
+            +'<div class="col-md-12 col-sm-12 firstLocation"  id="groupDiv" style="position:absolute;z-index:-1">'
             +'<div class="panel">'
             +'<div class="panel-heading">'
             +'<span class="title"></span>'
@@ -86,8 +86,8 @@ function importGroupDiv(num){
             +'</div>';
     }else if(num == '2'){
         data ='<div class="col-xs-8 row groupDiv list-group-item droppable-target" data-groupSize="8" style="min-height:100px;">'
-            +'<div data-trigger="sortArea" class="sortArea col-md-12 col-sm-12"><span class="area-name">组合框2，</span>拖拽我--2<span class="deleteGroup">X</span></div>'
-            + '<div class="col-md-12 col-sm-12"  id="groupDiv" style="position:absolute;z-index:-1">'
+            +'<div data-trigger="sortArea"  class="sortArea col-md-12 col-sm-12"><span class="area-name">组合框2，</span>拖拽我--2<span class="deleteGroup">X</span></div>'
+            + '<div class="col-md-12 col-sm-12 firstLocation" id="groupDiv" style="position:absolute;z-index:-1">'
             + '<div class="panel">'
             + '<div class="panel-heading">'
             + '<span class="title"></span>'
@@ -100,7 +100,7 @@ function importGroupDiv(num){
     } else if (num == '3') {
         data = '<div class="col-xs-12 row groupDiv list-group-item droppable-target"  data-groupSize="12" style="min-height:100px;">'
             + '<div data-trigger="sortArea" class="sortArea col-md-12 col-sm-12"><span class="area-name">组合框3，</span>拖拽我--3<span class="deleteGroup">X</span></div>'
-            + '<div class="col-md-12 col-sm-12"  id="groupDiv" style="position:absolute;z-index:-1">'
+            + '<div class="col-md-12 col-sm-12 firstLocation"  id="groupDiv" style="position:absolute;z-index:-1">'
             + '<div class="panel">'
             + '<div class="panel-heading">'
             + '<span class="title"></span>'
@@ -112,38 +112,45 @@ function importGroupDiv(num){
     }
     $('.editorBlock>div>div.row').append(data);
     var optionsTrigger = {
-        //selector:'[data-trigger="sortArea"]',
-        trigger: '[data-trigger="sortArea"]'
+        selector:'.list-group-item',
+        trigger: '[data-trigger="sortArea"]',
     };
     $('#sortableList').sortable(optionsTrigger);
     //拖动组件
     $('#multiDroppableContainer').droppable({
         selector: '.btn-droppable', // 定义允许拖放的元素
         target: '.droppable-target',
-        //start: function() {
-        //    $('#multiDroppableContainer .droppable-target').removeClass('panel-warning').removeClass('panel-success').find('.panel-heading').text('拖动到这里吗？');
-        //},
         drop: function(event) {
+            $('.editorBlock').find('.heightLight').removeClass('heightLight');  //取消高亮框
             var msg = '真棒！';
-            //$('#multiDroppableContainer .droppable-target').removeClass('panel-success').removeClass('panel-warning');
             if(event.target) {
                 //像画布中添加组件方法
                 var id=$(event.element).attr("data-blockId");
                 var size=$(event.element).attr("data-blockSize");
-                importFile(id, '', size);
 
+                //importFile(id, '', size);
+                console.log($(event.element))
+                addFile(id,'',size,event.target.find('.area-name').parent().parent());
                 var elementId = event.element.text();
-                //event.target.addClass('panel-success').text('成功将【按钮#' + elementId + '】拖到目的地。');
                 msg += '成功拖动【' + elementId + '】到区域 ' + event.target.find('.area-name').text();
             }
-            //console.log(event.element);//span
-            //console.log( event.target );//panel
-            $.zui.messager.show(msg);
+            //$.zui.messager.show(msg);
+        },
+        drag: function(event){
+            var id=$(event.element).attr("data-blockId");
+            var ts= id.split("_");
+            var thisSize = "4";
+            if(ts[1] == '3g2'){
+                thisSize="8";
+            }else if(ts[1] == '3g3') thisSize = "12";
+            var divs = $('.editorBlock>div>div>div.row');
+            for(var i=0;i<divs.length;i++){
+                var rowWidth=  $(divs[i]).attr("data-groupSize");
+                if(eval(rowWidth) >= eval(thisSize)){
+                    $(divs[i]).addClass("heightLight");
+                }
+            }
         }
-        //drag: function(event) {
-        //    $('#multiDroppableContainer .droppable-target').removeClass('panel-success').removeClass('panel-warning');
-        //    if(event.target) event.target.addClass('panel-warning');
-        //}
     });
 
     $('.newSection').dashboard();
@@ -166,12 +173,99 @@ $(".newSection").on("click",'.deleteGroup',function(){
 
 
 //2---引用组件文件
+//拖动到文件制定位置
+function addFile(id,nextShowId,size,parentDiv){
+    $.get("../editorBlock/" + id + ".html", function (data) {
+        var block_showId;
+        var blockCur = $(".editorBlock ." + id);
+        if (blockCur.length == 0) {
+            block_showId = id + "_0";
+        } else {
+            for (var i = 0; i < blockCur.length; i++) {
+                if (i == (blockCur.length - 1)) {
+                    i = i + 1;
+                    block_showId = id + "_" + i;
+                }
+            }
+        }
+        //增加是否填写属性必选项的框
+        notNull();
+        //清楚所有选中框
+        $(".indexAll .appendStr .panel").removeClass('appendCur');
+        //固定替换流程
+        data = data.replace("<html>", '');
+        data = data.replace("</html>", '');
+        data = data.replace("panel", "panel appendCur");
+        data = data.replace(/vData/g, "vData_" + block_showId);
+        //判断区块是否可以添加到组合框内
+        var ids = block_showId.split("_");
+        var blockWidth = 4;
+        if(ids[1] == "3g2"){
+            blockWidth = 8;
+        }else if(ids[1] == "3g3" ){
+            blockWidth = 12;
+        }
+        //通过下一个组件的showID，append到拖拽之前的位置
+        if (nextShowId == "") {
+            $(parentDiv).append(data);
+        } else {
+            $("[data-showId=" + nextShowId + "]").before(data);
+        }
+
+        //增加showId
+        optionSelect = {};
+        optionSelect.id = id;
+        optionSelect.showId = block_showId;
+        $(".appendCur").parent().attr("data-showId", optionSelect.showId);
+        $(".appendCur").parent().attr("data-size", size);
+        $(".appendCur").attr("data-id", optionSelect.showId);  //zui ***
 
 
+        var blockSize = $(".appendCur").parent().attr("data-blockSize");
+        var groupDivSize = $(".appendCur").parent().parent().attr("data-groupSize");
+        var finalSize = countSize(blockSize, groupDivSize);
+        if (finalSize == -1) {
+            console.log("与组合框尺寸不匹配");
+            var j;
+            for (var i = 0; i < obj.section.length; i++) {
+                if (obj.section[i].showId == block_showId) {
+                    j = i;
+                    break;
+                }
+            }
+            obj.section.splice(j, 1);
+
+            $("[data-showId=" + block_showId + "]").remove();
+            $(".property").html("");
+            return;
+        } else {
+            var md = "col-md-" + finalSize;
+            var sm = "col-sm-" + finalSize;
+            if (blockSize == 4) {
+                $(".appendCur").parent().removeClass("col-md-4");
+                $(".appendCur").parent().removeClass("col-sm-4");
+            } else if (blockSize == 8) {
+                $(".appendCur").parent().removeClass("col-md-8");
+                $(".appendCur").parent().removeClass("col-sm-8");
+            } else if (blockSize == 12) {
+                $(".appendCur").parent().removeClass("col-md-12");
+                $(".appendCur").parent().removeClass("col-sm-12");
+            }
+            $(".appendCur").parent().addClass(md);
+            $(".appendCur").parent().addClass(sm);
+        }
+        obj.section.push(optionSelect);
+
+        //属性
+        propertyRightList(id);
+        $('.newSection').dashboard();
+    });
 
 
+}
 
-function importFile(id, nextShowId, size) {
+//拖拽
+function importFile(id, nextShowId, size,groupDiv) {
     //找到源文件
     $.get("../editorBlock/" + id + ".html", function (data) {
             var block_showId;
@@ -191,7 +285,6 @@ function importFile(id, nextShowId, size) {
             notNull();
             //清楚所有选中框
             $(".indexAll .appendStr .panel").removeClass('appendCur');
-
             //固定替换流程
             data = data.replace("<html>", '');
             data = data.replace("</html>", '');
@@ -207,25 +300,7 @@ function importFile(id, nextShowId, size) {
             }
             //通过下一个组件的showID，append到拖拽之前的位置
             if (nextShowId == "") {
-                if ($('.editorBlock>div>div>div.row').length == 0) {
-                    alert("请先添加组合框");
-                    return;
-                } else {
-                    var divs = $('.editorBlock>div>div>div.row');
-                    var fla="no";
-                    for(var i=0;i<divs.length;i++){
-                        var rowWidth=  $(divs[i]).attr("data-groupSize");
-                        if(rowWidth >= blockWidth){
-                            $(divs[i]).append(data);
-                            var fla="yes";
-                            break;
-                        }
-                    }
-                    if(fla =="no"){
-                        alert("没有合适的组合框");
-                        return;
-                    }
-                }
+                $(groupDiv).append(data);
             } else {
                 $("[data-showId=" + nextShowId + "]").before(data);
             }

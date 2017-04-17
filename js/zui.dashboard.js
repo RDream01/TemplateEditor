@@ -96,7 +96,6 @@
                 sHeight = panel.height(),
                 sX1, sY1, sX2, sY2, moveFn, dropCol, dropBefore, nextDropCol;
             var thisSize = $(panel).parent().attr("data-blockSize"); //准备拖动的区块的尺寸
-            console.log(thisSize)
             if(!dColShadow.length) {
                 dColShadow = $('<div class="dragging-col-holder"><div class="panel"></div></div>').removeClass('dragging-col').appendTo(row);
             }
@@ -369,6 +368,7 @@
             var mouseUp = function(event) {
                 var lastGrid = $col.attr('data-grid');
                 var balanceGrid =  $col.attr("data-balanceGrid");
+                var groupDiv = $col.parent();
                 //console.log("lastGrid===="+lastGrid);
                 //console.log("oldGrid===="+oldGrid);
                 //console.log("balanceGrid===="+balanceGrid);
@@ -380,25 +380,22 @@
                     pBlockId = pBlockId[0];
                     if(balanceGrid == "4"){
                         var newBlockId = pBlockId+"_3g1";
-                        if(nextShowId !== undefined){
-                            importFile(newBlockId,nextShowId,blockSizes);
-                        }else{
-                            importFile(newBlockId,"",blockSizes);
+                        if(nextShowId == undefined){
+                            nextShowId="";
                         }
+                        importFile(newBlockId,nextShowId,blockSizes,groupDiv);
                     }else if(balanceGrid == "8"){
                         var newBlockId = pBlockId + "_3g2";
-                        if(nextShowId !== undefined){
-                            importFile(newBlockId,nextShowId,blockSizes);
-                        }else{
-                            importFile(newBlockId,"",blockSizes);
+                        if(nextShowId == undefined){
+                            nextShowId="";
                         }
+                        importFile(newBlockId,nextShowId,blockSizes,groupDiv);
                     }else{
                         var newBlockId = pBlockId +"_3g3";
-                        if(nextShowId !== undefined){
-                            importFile(newBlockId,nextShowId,blockSizes);
-                        }else{
-                            importFile(newBlockId,"",blockSizes);
+                        if(nextShowId == undefined){
+                            nextShowId="";
                         }
+                        importFile(newBlockId,nextShowId,blockSizes,groupDiv);
                     }
                 }
 

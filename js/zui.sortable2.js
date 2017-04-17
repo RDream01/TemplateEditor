@@ -152,13 +152,8 @@
             var options = typeof option == 'object' && option;
 
             if(!data) $this.data(NAME, (data = new Sortable(this, options)));
-            else if(typeof option == 'object') {
-                try{
-                    data.reset();
-                }catch(e){
-                    
-                }
-            }
+            else if(typeof option == 'object') data.reset();
+
             if(typeof option == 'string') data[option]();
         });
     };
