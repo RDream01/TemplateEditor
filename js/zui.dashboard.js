@@ -1,20 +1,6 @@
 /**
 * Created by 大丽丽 on 2017/3/13.
 */
-    /*!
-     * ZUI: 仪表盘 - v1.5.0 - 2016-09-06
-     * http://zui.sexy
-     * GitHub: https://github.com/easysoft/zui.git
-     * Copyright (c) 2016 cnezsoft.com; Licensed MIT
-     */
-
-    /* ========================================================================
-     * ZUI: dashboard.js
-     * http://zui.sexy
-     * ========================================================================
-     * Copyright (c) 2014-2016 cnezsoft.com; Licensed MIT
-     * ======================================================================== */
-
 
 (function($, Math) {
     'use strict';
@@ -69,7 +55,7 @@
             that.refresh(panel, onlyRefreshBody);
         });
     };
-
+    //移动
     Dashboard.prototype.handleDraggable = function() {
         var dashboard = this.$;
         var options = this.options;
@@ -236,9 +222,7 @@
                 }
 
                 dPanel.remove();
-
                 var blockS =  dashboard.find('.dragging-col');
-
                 var blockSize  = $(blockS).attr("data-blockSize");
                 var rowSize = $(blockS).parent().attr("data-groupSize");
                 var finalSize = countSize(thisSize,rowSize);
@@ -258,6 +242,18 @@
                     $(blockS).removeClass("col-sm-12");
                     $(blockS).addClass(md);
                     $(blockS).addClass(sm);
+                    var oldShowId = $(blockS).attr("data-showId");
+                    var olds = oldShowId.split("_");
+                    var newGroupId = $(blockS).parent().attr("data-groupShowId");
+                    $(blockS).attr("data-showId",olds[0]+"_"+olds[1]+"_"+olds[2]+"_"+newGroupId);
+                    $(blockS).find(".appendCur").attr("data-id",olds[0]+"_"+olds[1]+"_"+olds[2]+"_"+newGroupId);
+                    for (var i = 0; i < obj.section.length; i++) {
+                        if (obj.section[i].showId == oldShowId) {
+                                obj.section[i].showId = olds[0]+"_"+olds[1]+"_"+olds[2]+"_"+newGroupId;
+                            break;
+                        }
+                    }
+
                 }
 
                 dashboard.removeClass('dashboard-holding');
@@ -306,8 +302,6 @@
         this.$.on('mousedown', '.resize-handle', function(e) {
             var $col = $(this).parent().addClass('resizing');
             var $row = $col.closest('.row');
-            //var $row = $col.parent().parent().parent();
-            //console.log($row )
             var startX = e.pageX;
             var startWidth = $col.width();
             var rowWidth = $row.width();
@@ -322,14 +316,12 @@
             var GroupDivSize = $col.parent().attr("data-groupSize");
             var balanceGrid = "4";
             var nextShowId;
-            //console.log($("[data-showId="+blockShowId+"]").next());
 
             if( ($("[data-showId="+blockShowId+"]").next()).hasClass("dragging-col-holder") ) {
                 nextShowId=$("[data-showId="+blockShowId+"]").next().next().attr("data-showId");
             }else{
                 nextShowId=$("[data-showId="+blockShowId+"]").next().attr("data-showId");
             }
-            //console.log(nextShowId);
             var mouseMove = function(event) {
                 var x = event.pageX;
                 var grid = Math.max(1, Math.min(12, Math.round(12 * (startWidth + (x - startX)) / rowWidth)));
@@ -374,13 +366,18 @@
                 var lastGrid = $col.attr('data-grid');
                 var balanceGrid =  $col.attr("data-balanceGrid");
                 var groupDiv = $col.parent();
-                //console.log("lastGrid===="+lastGrid);
-                //console.log("oldGrid===="+oldGrid);
-                //console.log("balanceGrid===="+balanceGrid);
 
                 if(oldGrid !== balanceGrid){
                     $("[data-showId="+blockShowId+"]").remove();
                     $(".property").html("");
+                    var deleteNum;
+                    for (var i = 0; i < obj.section.length; i++) {
+                        if (obj.section[i].showId == blockShowId) {
+                            deleteNum = i;
+                            break;
+                        }
+                    }
+                    obj.section.splice(deleteNum, 1);
                     var pBlockId= blockId.split("_");
                     pBlockId = pBlockId[0];
                     if(balanceGrid == "4"){

@@ -1,7 +1,9 @@
-/**
- * Created by 大丽丽 on 2017/3/22.
- */
 
+var option = [];
+var optionSelect={};
+var obj = {"header":[],"section":[],"footer":[]};
+var  baseShowId = 0;
+var  baseGroupId = 0;
 //callback
 function callback(data) {
     var flag = data.flag;
@@ -56,18 +58,6 @@ function blockLeftListCallBack(data) {
     }
 }
 
-var option = [];
-var optionSelect={};
-var obj = {"section":[]};
-
-
-//$(".partAll").on("mousemove",".secPart",function(){
-//    console.log(1);
-//});
-//$(".partAll").on("mouseup",".secPart",function(){
-//    console.log(2);
-//});
-
 
 //组合框文件引用
 function importGroupDiv(num){
@@ -111,10 +101,14 @@ function importGroupDiv(num){
             + '</div>';
     }
     $('.editorBlock>div>div.row').append(data);
+    $('.groupDiv:last-child').attr("data-groupShowId",num+"group"+baseGroupId);
+    baseGroupId++;
     var optionsTrigger = {
         selector:'.list-group-item',
         trigger: '[data-trigger="sortArea"]',
     };
+
+
     $('#sortableList').sortable(optionsTrigger);
     //拖动组件
     $('#multiDroppableContainer').droppable({
@@ -127,10 +121,7 @@ function importGroupDiv(num){
                 //像画布中添加组件方法
                 var id=$(event.element).attr("data-blockId");
                 var size=$(event.element).attr("data-blockSize");
-
-                //importFile(id, '', size);
-                console.log($(event.element))
-                addFile(id,'',size,event.target.find('.area-name').parent().parent());
+                importFile(id,'',size,event.target.find('.area-name').parent().parent());
                 var elementId = event.element.text();
                 msg += '成功拖动【' + elementId + '】到区域 ' + event.target.find('.area-name').text();
             }
@@ -163,124 +154,101 @@ $(".newSection").on("click",'.deleteGroup',function(){
     //alert(1);
     if( confirm("确定要删除此组件框（包含其中所有组件）吗？") ){
         $(this).parent().parent().remove();
-        //console.log($(this).parent());
-        //if( $(this).parent().find(".appendCur") ){
-        //    $(".property").html("");
-        //}
         saveActionHistory($('#sortableList').html().trim(),$('#htmlCode2').html().trim(),obj);//undo redo
     }
 });
 
-
 //2---引用组件文件
-//拖动到文件制定位置
-function addFile(id,nextShowId,size,parentDiv){
-    $.get("../editorBlock/" + id + ".html", function (data) {
-        var block_showId;
-        var blockCur = $(".editorBlock ." + id);
-        if (blockCur.length == 0) {
-            block_showId = id + "_0";
-        } else {
-            for (var i = 0; i < blockCur.length; i++) {
-                if (i == (blockCur.length - 1)) {
-                    i = i + 1;
-                    block_showId = id + "_" + i;
-                }
-            }
-        }
-        //增加是否填写属性必选项的框
-        notNull();
-        //清楚所有选中框
-        $(".indexAll .appendStr .panel").removeClass('appendCur');
-        //固定替换流程
-        data = data.replace("<html>", '');
-        data = data.replace("</html>", '');
-        data = data.replace("panel", "panel appendCur");
-        data = data.replace(/vData/g, "vData_" + block_showId);
-        //判断区块是否可以添加到组合框内
-        var ids = block_showId.split("_");
-        var blockWidth = 4;
-        if(ids[1] == "3g2"){
-            blockWidth = 8;
-        }else if(ids[1] == "3g3" ){
-            blockWidth = 12;
-        }
-        //通过下一个组件的showID，append到拖拽之前的位置
-        if (nextShowId == "") {
-            $(parentDiv).append(data);
-        } else {
-            $("[data-showId=" + nextShowId + "]").before(data);
-        }
-
-        //增加showId
-        optionSelect = {};
-        optionSelect.id = id;
-        optionSelect.showId = block_showId;
-        $(".appendCur").parent().attr("data-showId", optionSelect.showId);
-        $(".appendCur").parent().attr("data-size", size);
-        $(".appendCur").attr("data-id", optionSelect.showId);  //zui ***
-
-
-        var blockSize = $(".appendCur").parent().attr("data-blockSize");
-        var groupDivSize = $(".appendCur").parent().parent().attr("data-groupSize");
-        var finalSize = countSize(blockSize, groupDivSize);
-        if (finalSize == -1) {
-            console.log("与组合框尺寸不匹配");
-            var j;
-            for (var i = 0; i < obj.section.length; i++) {
-                if (obj.section[i].showId == block_showId) {
-                    j = i;
-                    break;
-                }
-            }
-            obj.section.splice(j, 1);
-
-            $("[data-showId=" + block_showId + "]").remove();
-            $(".property").html("");
-            return;
-        } else {
-            var md = "col-md-" + finalSize;
-            var sm = "col-sm-" + finalSize;
-            if (blockSize == 4) {
-                $(".appendCur").parent().removeClass("col-md-4");
-                $(".appendCur").parent().removeClass("col-sm-4");
-            } else if (blockSize == 8) {
-                $(".appendCur").parent().removeClass("col-md-8");
-                $(".appendCur").parent().removeClass("col-sm-8");
-            } else if (blockSize == 12) {
-                $(".appendCur").parent().removeClass("col-md-12");
-                $(".appendCur").parent().removeClass("col-sm-12");
-            }
-            $(".appendCur").parent().addClass(md);
-            $(".appendCur").parent().addClass(sm);
-        }
-        obj.section.push(optionSelect);
-
-        //属性
-        propertyRightList(id);
-        $('.newSection').dashboard();
-    });
-
-
-}
+////拖动到文件制定位置
+//function addFile(id,nextShowId,size,parentDiv){
+//    $.get("../editorBlock/" + id + ".html", function (data) {
+//        var block_showId;
+//        block_showId = id+ "_" + baseShow;
+//        baseShow ++;
+//        //增加是否填写属性必选项的框
+//        notNull();
+//        //清楚所有选中框
+//        $(".indexAll .appendStr .panel").removeClass('appendCur');
+//        //固定替换流程
+//        data = data.replace("<html>", '');
+//        data = data.replace("</html>", '');
+//        data = data.replace("panel", "panel appendCur");
+//        data = data.replace(/vData/g, "vData_" + block_showId);
+//        //判断区块是否可以添加到组合框内
+//        var ids = block_showId.split("_");
+//        var blockWidth = 4;
+//        if(ids[1] == "3g2"){
+//            blockWidth = 8;
+//        }else if(ids[1] == "3g3" ){
+//            blockWidth = 12;
+//        }
+//        //通过下一个组件的showID，append到拖拽之前的位置
+//        if (nextShowId == "") {
+//            $(parentDiv).append(data);
+//        } else {
+//            $("[data-showId=" + nextShowId + "]").before(data);
+//        }
+//
+//        //增加showId
+//        optionSelect = {};
+//        optionSelect.id = id;
+//        optionSelect.showId = block_showId;
+//        $(".appendCur").parent().attr("data-showId", optionSelect.showId);
+//        $(".appendCur").parent().attr("data-size", size);
+//        $(".appendCur").attr("data-id", optionSelect.showId);  //zui ***
+//
+//
+//        var blockSize = $(".appendCur").parent().attr("data-blockSize");
+//        var groupDivSize = $(".appendCur").parent().parent().attr("data-groupSize");
+//        var finalSize = countSize(blockSize, groupDivSize);
+//        if (finalSize == -1) {
+//            console.log("与组合框尺寸不匹配");
+//            var j;
+//            for (var i = 0; i < obj.section.length; i++) {
+//                if (obj.section[i].showId == block_showId) {
+//                    j = i;
+//                    break;
+//                }
+//            }
+//            obj.section.splice(j, 1);
+//
+//            $("[data-showId=" + block_showId + "]").remove();
+//            $(".property").html("");
+//            return;
+//        } else {
+//            var md = "col-md-" + finalSize;
+//            var sm = "col-sm-" + finalSize;
+//            if (blockSize == 4) {
+//                $(".appendCur").parent().removeClass("col-md-4");
+//                $(".appendCur").parent().removeClass("col-sm-4");
+//            } else if (blockSize == 8) {
+//                $(".appendCur").parent().removeClass("col-md-8");
+//                $(".appendCur").parent().removeClass("col-sm-8");
+//            } else if (blockSize == 12) {
+//                $(".appendCur").parent().removeClass("col-md-12");
+//                $(".appendCur").parent().removeClass("col-sm-12");
+//            }
+//            $(".appendCur").parent().addClass(md);
+//            $(".appendCur").parent().addClass(sm);
+//        }
+//        obj.section.push(optionSelect);
+//
+//        //属性
+//        propertyRightList(id);
+//        $('.newSection').dashboard();
+//    });
+//
+//
+//}
 
 //拖拽
 function importFile(id, nextShowId, size,groupDiv) {
     //找到源文件
     $.get("../editorBlock/" + id + ".html", function (data) {
             var block_showId;
-            var blockCur = $(".editorBlock ." + id);
-            //console.log(blockCur)
-            if (blockCur.length == 0) {
-                block_showId = id + "_0";
-            } else {
-                for (var i = 0; i < blockCur.length; i++) {
-                    if (i == (blockCur.length - 1)) {
-                        i = i + 1;
-                        block_showId = id + "_" + i;
-                    }
-                }
-            }
+            var GroupShowId = $(groupDiv).attr("data-groupShowId");
+            block_showId = id+ "_" + baseShowId+"_"+GroupShowId;
+             baseShowId ++;
             //增加是否填写属性必选项的框
             notNull();
             //清楚所有选中框
@@ -311,12 +279,9 @@ function importFile(id, nextShowId, size,groupDiv) {
             $(".appendCur").parent().attr("data-showId", optionSelect.showId);
             $(".appendCur").parent().attr("data-size", size);
             $(".appendCur").attr("data-id", optionSelect.showId);  //zui ***
-
-
             var blockSize = $(".appendCur").parent().attr("data-blockSize");
             var groupDivSize = $(".appendCur").parent().parent().attr("data-groupSize");
             var finalSize = countSize(blockSize, groupDivSize);
-
             if (finalSize == -1) {
                 console.log("尴尬，放不进去");
                 var j;
@@ -348,7 +313,6 @@ function importFile(id, nextShowId, size,groupDiv) {
                 $(".appendCur").parent().addClass(sm);
             }
             obj.section.push(optionSelect);
-
             //属性
             propertyRightList(id);
             $('.newSection').dashboard();
@@ -684,10 +648,7 @@ function collectProperty(property, min, max) {
 
     for (var i = 0; i < obj.section.length; i++) {
         if (obj.section[i].showId == showId) {
-            //obj.section[i][propertyId]=propertyVal;
-            //console.log( propertyVal )
             if ((propertyVal == undefined) || (propertyVal == "")) {
-                //alert(1)
                 delete obj.section[i][propertyId];
             } else {
                 obj.section[i][propertyId] = propertyVal;
@@ -753,14 +714,11 @@ window.onload = function () {
     blockLeftList();
     //保存
     $('#keep').click(function () {
-
         console.log(JSON.stringify(obj));
-
         var appendStr = $(".appendStr .panel");
         var notCur = 'yes';
 
         for (var i = 0; i < appendStr.length; i++) {
-            //console.log($(appendStr[i]).hasClass("appendNot"));
             if ($(appendStr[i]).hasClass("appendNot")) {
                 $(".appendStr .panel").removeClass("appendCur");
                 $(".property").html("");
@@ -779,37 +737,28 @@ window.onload = function () {
                 }
             });
             order = order.substring(0, order.length - 1);
-            console.log(str, order);
-
+            console.log(order)
+            var groupDivOrder ="";
+            for(var i = 0;i<$('.groupDiv').length;i++){
+                var pp = $('.groupDiv')[i];
+                groupDivOrder += $(pp).attr("data-groupShowId")+",";
+            }
+            groupDivOrder = groupDivOrder.substring(0, groupDivOrder.length - 1);
+            console.log(groupDivOrder)
             $.ajax({
                 async: false,
                 cache: true,
                 type: 'POST',
                 dataType : "jsonp",
-                data:{strKey:str,order:order,dataType :"jsonp"},  //参数
+                data:{strKey:str,order:order,groupDivOrder:groupDivOrder,dataType :"jsonp"},  //参数
                 url:"http://192.168.31.2/template_editor/saveTemplate.do",//请求的action路径
-                error: function () {//请求失败处理函数
-
-                },
-                success: function (data) { //请求成功后处理函数。
-                    alert("成功了")
-                }
             });
         }
     })
 };
 
-//function saveTemplateCallBack() {
-//
-//}
-
-//function callback(){
-//        var str=$('.main').html();
-//        str = str.replace(/<(script)[\S\s]*?\/\1>/gi, '');
-//        $('.main').html( str );
-//        $.zui.store.set('name', str);
-//        window.location.href="container.html";
-//        console.log( $('.main').html() );
-//    }
 
 
+function saveTemplateCallBack(data){
+    alert(1)
+}
