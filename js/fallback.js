@@ -111,6 +111,7 @@ function redo(){
 
 //保存html代码
 function saveActionHistory(html1,html2,obj,type,value){
+    var order = createBlockOrder();
     if(actionIndex == 0){
         if(actionStack[0]){
             var ChangeAction = {newValue1:html1,
@@ -120,6 +121,7 @@ function saveActionHistory(html1,html2,obj,type,value){
                 value:value,
                 type:type,
                 obj:obj,
+                order:order,
                 status:"done"};
         }else{
             var ChangeAction = {newValue1:html1,
@@ -129,6 +131,7 @@ function saveActionHistory(html1,html2,obj,type,value){
                 value:value,
                 type:type,
                 obj:obj,
+                order:order,
                 status:"done"};
         }
         actionStack[actionIndex] = ChangeAction;
@@ -141,6 +144,7 @@ function saveActionHistory(html1,html2,obj,type,value){
             value:value,
             type:type,
             obj:obj,
+            order:order,
             status:"done"};
         actionStack[actionIndex] = ChangeAction;
         actionIndex++;
@@ -150,4 +154,15 @@ function saveActionHistory(html1,html2,obj,type,value){
         actionStack.shift();
         --actionIndex;
     }
+}
+
+function createBlockOrder(){
+    var order = "";
+    $(".editorBlock .appendStr").each(function () {
+        if ($(this).css("display") !== "none") {
+            order = order + $(this).attr("data-showId") + ',';
+        }
+    });
+    order = order.substring(0, order.length - 1);
+    return order;
 }
