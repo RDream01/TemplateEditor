@@ -571,7 +571,13 @@ function propertyRightListCallBack(data) {
                 }
                 str += '/>' + list[i].data[j].html + '</label>';
             }
-            str += "</div>";
+            str += '<input type="hidden" id="' + list[i].propertyId + '_undoRedo" value="';//undo redo 存储修改之前的属性值
+            if ((blockProAll[curId] !== undefined) && (blockProAll[curId] !== "")) {
+                str += "1";
+            } else if (list[i].defaultValue !== undefined) {
+                str += list[i].defaultValue;
+            }
+            str += '" /></div>';
         }
         $('.property').append(str);
     }
@@ -593,12 +599,16 @@ function collectProperty(property, min, max) {
         var propertyVal = $(property).val();
         var propertyId = $(property).attr("name");
         $("#" + propertyId + "_radio").val(propertyVal);
-        //移除之前选中的option选项
-        //$(".col-xs-3 #" + propertyId + " [value="+$("#" + propertyId + "_undoRedo").val()+"]").removeAttr("checked");
-        //undo redo 当修改属性之后的区块页面在新增区块时使用
-        //$(".col-xs-3 #" + propertyId + " [value="+propertyVal+"]").attr("checked","true");
-        //saveActionHistory($('#sortableList').html().trim(),$('#htmlCode2').html().trim(),obj,'number',propertyVal+"|"+$("#" + propertyId + "_undoRedo").val()+"|"+propertyId);//undo redo save
-        //$("#" + propertyId + "_undoRedo").val(propertyVal);//undo redo 将修改之后的值放入页面中 为了拿到修改之前的值
+        $(".col-xs-3 input[name="+propertyId+"]").each(function(){
+            if (this.checked) {
+                $(this).removeAttr("checked");
+            }
+            if($(this).val() == propertyVal){
+                $(this).prop("checked",true);
+            }
+        });
+        saveActionHistory($('#sortableList').html().trim(),$('#htmlCode2').html().trim(),obj,'radio',propertyVal+"|"+$("#" + propertyId + "_undoRedo").val()+"|"+propertyId);//undo redo save
+        $("#" + propertyId + "_undoRedo").val(propertyVal);//undo redo 将修改之后的值放入页面中 为了拿到修改之前的值
     } else if ($(property).attr("type") == "checkbox") {
         var propertyId = $(property).attr("name");
         $("#" + propertyId + "_checkbox").val("");
@@ -613,6 +623,20 @@ function collectProperty(property, min, max) {
         }
         propertyVal = propertyVal.substring(0, propertyVal.length - 1);
 
+        var propertys = propertyVal.split(',');
+        $(".col-xs-3 input[name="+propertyId+"]").each(function(){
+            //移除之前选中的html代码中checkbox选项中checked属性
+            $(this).removeAttr("checked");
+            //在html代码中checkbox选项中添加checked属性
+            for(var i=0;i<propertys.length;i++){
+                if(this.value == propertys[i]){
+                    $(this).attr("checked",true);
+                    $(this).prop("checked",true);
+                }
+            }
+        });
+        saveActionHistory($('#sortableList').html().trim(),$('#htmlCode2').html().trim(),obj,'checkbox',propertyVal+"|"+$("#" + propertyId + "_undoRedo").val()+"|"+propertyId);//undo redo save
+        $("#" + propertyId + "_undoRedo").val(propertyVal);//undo redo 将修改之后的值放入页面中 为了拿到修改之前的值
     } else if ($(property).attr("type") == "number") {
         var val = $(property).val();
         var propertyId = $(property).attr("id");
