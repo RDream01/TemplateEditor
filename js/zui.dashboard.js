@@ -1,19 +1,19 @@
 /**
- * Created by 大丽丽 on 2017/3/13.
- */
-/*!
- * ZUI: 仪表盘 - v1.5.0 - 2016-09-06
- * http://zui.sexy
- * GitHub: https://github.com/easysoft/zui.git
- * Copyright (c) 2016 cnezsoft.com; Licensed MIT
- */
+* Created by 大丽丽 on 2017/3/13.
+*/
+    /*!
+     * ZUI: 仪表盘 - v1.5.0 - 2016-09-06
+     * http://zui.sexy
+     * GitHub: https://github.com/easysoft/zui.git
+     * Copyright (c) 2016 cnezsoft.com; Licensed MIT
+     */
 
-/* ========================================================================
- * ZUI: dashboard.js
- * http://zui.sexy
- * ========================================================================
- * Copyright (c) 2014-2016 cnezsoft.com; Licensed MIT
- * ======================================================================== */
+    /* ========================================================================
+     * ZUI: dashboard.js
+     * http://zui.sexy
+     * ========================================================================
+     * Copyright (c) 2014-2016 cnezsoft.com; Licensed MIT
+     * ======================================================================== */
 
 
 (function($, Math) {
@@ -96,7 +96,6 @@
                 sHeight = panel.height(),
                 sX1, sY1, sX2, sY2, moveFn, dropCol, dropBefore, nextDropCol;
             var thisSize = $(panel).parent().attr("data-blockSize"); //准备拖动的区块的尺寸
-            console.log(thisSize)
             if(!dColShadow.length) {
                 dColShadow = $('<div class="dragging-col-holder"><div class="panel"></div></div>').removeClass('dragging-col').appendTo(row);
             }
@@ -137,7 +136,8 @@
             event.preventDefault();
 
             function mouseMove(event) {
-                    //高亮显示所有合适的框
+
+                //高亮显示所有合适的框
                 var divs = $('.editorBlock>div>div>div.row');
                 for(var i=0;i<divs.length;i++){
                     var rowWidth=  $(divs[i]).attr("data-groupSize");
@@ -238,6 +238,8 @@
                 dPanel.remove();
 
                 var blockS =  dashboard.find('.dragging-col');
+
+                var blockSize  = $(blockS).attr("data-blockSize");
                 var rowSize = $(blockS).parent().attr("data-groupSize");
                 var finalSize = countSize(thisSize,rowSize);
                 if(finalSize == "-1"){
@@ -366,6 +368,7 @@
             var mouseUp = function(event) {
                 var lastGrid = $col.attr('data-grid');
                 var balanceGrid =  $col.attr("data-balanceGrid");
+                var groupDiv = $col.parent();
                 //console.log("lastGrid===="+lastGrid);
                 //console.log("oldGrid===="+oldGrid);
                 //console.log("balanceGrid===="+balanceGrid);
@@ -377,25 +380,22 @@
                     pBlockId = pBlockId[0];
                     if(balanceGrid == "4"){
                         var newBlockId = pBlockId+"_3g1";
-                        if(nextShowId !== undefined){
-                            importFile(newBlockId,nextShowId,blockSizes);
-                        }else{
-                            importFile(newBlockId,"",blockSizes);
+                        if(nextShowId == undefined){
+                            nextShowId="";
                         }
+                        importFile(newBlockId,nextShowId,blockSizes,groupDiv);
                     }else if(balanceGrid == "8"){
                         var newBlockId = pBlockId + "_3g2";
-                        if(nextShowId !== undefined){
-                            importFile(newBlockId,nextShowId,blockSizes);
-                        }else{
-                            importFile(newBlockId,"",blockSizes);
+                        if(nextShowId == undefined){
+                            nextShowId="";
                         }
+                        importFile(newBlockId,nextShowId,blockSizes,groupDiv);
                     }else{
                         var newBlockId = pBlockId +"_3g3";
-                        if(nextShowId !== undefined){
-                            importFile(newBlockId,nextShowId,blockSizes);
-                        }else{
-                            importFile(newBlockId,"",blockSizes);
+                        if(nextShowId == undefined){
+                            nextShowId="";
                         }
+                        importFile(newBlockId,nextShowId,blockSizes,groupDiv);
                     }
                 }
 
