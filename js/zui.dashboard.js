@@ -329,20 +329,22 @@
                     if(lastGrid != grid && GroupDivSize == '12') {
                         if(0<(100*grid/12)&&(100*grid/12)<=33.3 && (blockSize.indexOf("3g1")>-1)){
                             grid="4";
+                            balanceGrid = "4";
                             $col.attr('data-grid', grid).css('width', 33.3 + '%');
                             if(messagerAvaliable) dashboardMessager[dashboardMessager.isShow ? 'update' : 'show'](33+"%" );
                         }else if(33.3<(100*grid/12)&&(100*grid/12)<=66.6 && (blockSize.indexOf("3g2")>-1)){
                             grid="8";
+                            balanceGrid = "8";
                             $col.attr('data-grid', grid).css('width', 66.6 + '%');
                             if(messagerAvaliable) dashboardMessager[dashboardMessager.isShow ? 'update' : 'show']( 66.6+"%" );
                         }else if (66.6<(100*grid/12)&&(100*grid/12)<=100 && (blockSize.indexOf("3g3")>-1)){
                             grid="12";
+                            balanceGrid = "12"
                             $col.attr('data-grid', grid).css('width', 100+ '%');
                             if(messagerAvaliable) dashboardMessager[dashboardMessager.isShow ? 'update' : 'show']( 100+"%" );
                         }
-
-                        lastGrid = grid;
-                        balanceGrid = grid;
+                        lastGrid = balanceGrid;
+                        //balanceGrid = grid;
                     }else if(lastGrid != grid && GroupDivSize == '8'){
                         if(0<(100*grid/12)&&(100*grid/12)<=33.3 && (blockSize.indexOf("3g1")>-1)){
                             grid="6";
@@ -357,6 +359,7 @@
                         }
                     }
                 }
+                console.log(balanceGrid)
                 $col.attr("data-balanceGrid",balanceGrid);
                 event.preventDefault();
                 event.stopPropagation();
@@ -366,7 +369,6 @@
                 var lastGrid = $col.attr('data-grid');
                 var balanceGrid =  $col.attr("data-balanceGrid");
                 var groupDiv = $col.parent();
-
                 if(oldGrid !== balanceGrid){
                     $("[data-showId="+blockShowId+"]").remove();
                     $(".property").html("");
