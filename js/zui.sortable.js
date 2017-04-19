@@ -119,6 +119,11 @@
                     list: that.getItems(1),
                     element: e.element
                 });
+                var order1 = createBlockOrder().split('|')[1];
+                var order2 = actionStack[actionIndex-1].order.split('|')[1];
+                if(order1 !== order2){
+                    saveActionHistory($('#sortableList').html().trim(),$('#htmlCode2').html().trim(),obj);//undo redo
+                }
             }
         });
     };

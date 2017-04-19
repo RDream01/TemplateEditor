@@ -164,5 +164,11 @@ function createBlockOrder(){
         }
     });
     order = order.substring(0, order.length - 1);
-    return order;
+    var groupDivOrder ="";
+    for(var i = 0;i<$('.groupDiv').length;i++){
+        var pp = $('.groupDiv')[i];
+        groupDivOrder += $(pp).attr("data-groupShowId")+",";
+    }
+    groupDivOrder = groupDivOrder.substring(0, groupDivOrder.length - 1);
+    return order +"|"+ groupDivOrder;
 }

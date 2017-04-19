@@ -263,8 +263,8 @@
                 dashboard.removeClass('dashboard-dragging');
                 $(document).unbind('mousemove', mouseMove).unbind('mouseup', mouseUp);
                 event.preventDefault();
-                var order1 = createBlockOrder();
-                var order2 = actionStack[actionIndex-1].order;
+                var order1 = createBlockOrder().split('|')[0];
+                var order2 = actionStack[actionIndex-1].order.split('|')[0];
                 if(order1 !== order2){
                     saveActionHistory($('#sortableList').html().trim(),$('#htmlCode2').html().trim(),obj);//undo redo
                 }
