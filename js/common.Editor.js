@@ -194,8 +194,7 @@ function importFile(id, nextShowId, size,groupDiv) {
             //清楚所有选中框
             $(".indexAll .appendStr .panel").removeClass('appendCur');
             //固定替换流程
-            data = data.replace("<html>", '');
-            data = data.replace("</html>", '');
+            data = data.replace('"exist"', '');
             data = data.replace("panel", "panel appendCur");
             data = data.replace(/vData/g, "vData_" + block_showId);
             //判断区块是否可以添加到组合框内
@@ -698,7 +697,7 @@ window.onload = function () {
                 type: 'POST',
                 dataType : "jsonp",
                 data:{strKey:str,order:order,groupDivOrder:groupDivOrder,dataType :"jsonp"},  //参数
-                url:"http://192.168.31.2/template_editor/saveTemplate.do"//请求的action路径
+                url:"http://192.168.31.156:8080/cmsNews/template_editor/saveTemplate.do"//请求的action路径
             });
         }
     })
