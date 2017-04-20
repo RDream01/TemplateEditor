@@ -1,140 +1,42 @@
 <!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title>1</title>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../css/zui.min.Editor.css"/>
-    <link rel="stylesheet" href="../css/zui.dashboard.Editor.css"/>
-    <link rel="stylesheet" href="../css/common.Editor.css"/>
-    <script src="../js/respond.js"></script>
-    <style>
-        #multiDroppableContainer .btn-droppable {
-            cursor: move; /* ä¸ºè¢«æ‹–åŠ¨çš„æŒ‰é’®æ›´æ”¹å…‰æ ‡ç±»å‹ */
-        }
-        #multiDroppableContainer .area-name {
-            font-size: 50px;
-            line-height: 80px;
-            text-align: center;
-            color: #808080;
-        }
-    </style>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+    <title>JS»ñµÃÊó±êÎ»ÖÃ£¨¼æÈİ¶àä¯ÀÀÆ÷ie,firefox£©½Å±¾Ö®¼ÒĞŞÕı°æ</title>
 </head>
+
 <body>
 
-<div class="" id="multiDroppableContainer">
-    <div class="01">
-        <div class="panel">
-            <div class="panel-heading">å¼€å§‹å§</div>
-            <div class="panel-body" style="height: 150px; text-align: center; line-height: 40px">
-                <button type="button" class="btn btn-primary btn-droppable"><i class="icon icon-move"></i> æŒ‰é’® #<span class="btn-droppable-id">1</span></button><br>
-                <button type="button" class="btn btn-success btn-droppable"><i class="icon icon-move"></i> æŒ‰é’® #<span class="btn-droppable-id">2</span></button><br>
-                <button type="button" class="btn btn-danger btn-droppable"><i class="icon icon-move"></i> æŒ‰é’® #<span class="btn-droppable-id">3</span></button>
-            </div>
-        </div>
-    </div>
-    <!--<div class="">-->
-        <div class="panel droppable-target" data-id="1">
-            <div class="panel-heading">æ‹–åŠ¨åˆ°è¿™é‡Œã€‚</div>
-            <div class="panel-body" style="height: 150px">
-                <div class="area-name">A</div>
-            </div>
-        </div>
-    <!--</div>-->
-    <!--<div class="">-->
-        <div class="panel droppable-target" data-id="2">
-            <div class="panel-heading">è¿™é‡Œã€‚</div>
-            <div class="panel-body" style="height: 150px">
-                <div class="area-name">B</div>
-            </div>
-        </div>
-    <!--</div>-->
-    <!--<div class="">-->
-        <div class="panel droppable-target" data-id="3">
-            <div class="panel-heading">æˆ–è¿™é‡Œã€‚</div>
-            <div class="panel-body" style="height: 150px">
-                <div class="area-name">C</div>
-            </div>
-        </div>
-    <!--</div>-->
-</div>
-
-
-
-
-<script src="../js/jquery-1.11.3.js"></script>
-<script src="../js/zui.min.js"></script>
-<script src="../js/zui.droppable.js"></script>
 <script>
+    function mouseMove(ev) {
+        ev= ev || window.event;
+        var mousePos = mouseCoords(ev);
 
-    $('#multiDroppableContainer').droppable({
-        selector: '.btn-droppable', // å®šä¹‰å…è®¸æ‹–æ”¾çš„å…ƒç´ 
-        target: '.droppable-target',
-        start: function() {
-            $('#multiDroppableContainer .droppable-target').removeClass('panel-warning').removeClass('panel-success').find('.panel-heading').text('æ‹–åŠ¨åˆ°è¿™é‡Œå—ï¼Ÿ');
-        },
-        drop: function(event) {
-            var msg = 'çœŸæ£’ï¼';
-            $('#multiDroppableContainer .droppable-target').removeClass('panel-success').removeClass('panel-warning');
-            if(event.target) {
-                var elementId = event.element.find('.btn-droppable-id').text();
-                event.target.addClass('panel-success').find('.panel-heading').text('æˆåŠŸå°†ã€æŒ‰é’®#' + elementId + 'ã€‘æ‹–åˆ°ç›®çš„åœ°ã€‚');
-                msg += 'æˆåŠŸæ‹–åŠ¨ã€æŒ‰é’®#' + elementId + 'ã€‘åˆ°åŒºåŸŸ ' + event.target.find('.area-name').text();
+        console.log( "x"+ mousePos.x);
+        console.log( "y"+ mousePos.y);
+        console.log( "h"+ document.documentElement.clientHeight);
+//        document.getElementById("xxx").value = mousePos.x;
+//        document.getElementById("yyy").value = mousePos.y;
+//        document.getElementById("hhh").value = document.documentElement.clientHeight;
+    }
 
-                event.target.find('.panel-body').append(1 );
-
-            }
-//            console.log(event.element);
-//            console.log( event.target.find('.area-name') );
-//            console.log( event.target.find('.panel-body') );
-//            console.log( event.target );//panel
-            $.zui.messager.show(msg);
-        },
-        drag: function(event) {
-            $('#multiDroppableContainer .droppable-target').removeClass('panel-success').removeClass('panel-warning');
-            if(event.target) event.target.addClass('panel-warning');
+    function mouseCoords(ev) {
+        if(ev.pageX || ev.pageY){
+            return {x:ev.pageX, y:ev.pageY};
         }
-    });
+        return {
+            x:ev.clientX + document.body.scrollLeft - document.body.clientLeft,
+            y:ev.clientY + document.body.scrollTop - document.body.clientTop
+        };
+    }
 
+    document.onmousemove = mouseMove;
 </script>
-</body>
-</html>
+Êó±ê X Öá:
+<input id=xxx type=text>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Êó±ê Y Öá:
+<input id=yyy type=text>
+Êó±ê h Öá:
+<input id=hhh type=text>
+</body> 

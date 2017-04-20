@@ -1,35 +1,35 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
-    <meta charset="UTF-8">
-    <title>无标题文档</title>
-    <link rel="stylesheet" href="../css/zui.min.css"/>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <title>js平滑滚动到顶部、底部、指定地方</title>
+
+
+
+
 </head>
+
 
 <body>
 
-<div class="list-group" id="sortableList">
-    <div class="list-group-item"><i class="icon-move"></i> 猫咪<span id="test111" class="test">Xxxxxxxxxxxxxxxxxxxxxxxxxxx</span></div>
-    <div class="list-group-item"><i class="icon-move"></i> 小鸡<span id="test222" class="test">X</span></div>
-    <div class="list-group-item"><i class="icon-move"></i> 大黄<span class="test">X</span></div>
-    <div class="list-group-item"><i class="icon-move"></i> 鹅鹅鹅<span class="test">X</span></div>
-    <div class="list-group-item"><i class="icon-move"></i> 猪王<span class="test">X</span></div>
+
+
+
+<div class="location" style="width:200px;height:3000px">
+dfgdfgdfgdfgdfgdfgsdfgdfg
+
 </div>
-
-
 <script src="../js/jquery-1.11.3.js"></script>
-<script src="../js/zui.min.js"></script>
-<script src="../js/zui.droppable.js"></script>
-<script src="../js/zui.sortable2.js"></script>
 <script>
-    var options = {
-        selector:".list-group-item",
-        trigger:".test"
-    };
-
-    $('#sortableList').sortable(options);
+    console.log( $("body") )
 </script>
 
 
+
 </body>
+
 </html>

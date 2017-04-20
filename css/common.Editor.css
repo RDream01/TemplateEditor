@@ -44,15 +44,20 @@ nav,#banner,section,footer{
 /*保存*/
 .keepCon{
     padding:10px;
+    text-align: right;
 }
-.keep{
+.blueAction{
     background:#3280FC;
     color:#fff;
     font-size: 14px;
-    padding:8px;
+    padding:5px 0;
     text-align: center;
     cursor: pointer;
+    display: inline-block;
+    width:80px;
+    margin-left:20px;
 }
+
 .partAll{
     padding:0;
 }

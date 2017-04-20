@@ -66,7 +66,7 @@ function blockLeftListCallBack(data) {
         }else if (list[i].blockType == "footer") {
             if ($("#footerBlock").html() == undefined) {
                 str = '<div id="footerBlock" class="panel panel-default"><div class="panel-heading"><h4 class="panel-title">';
-                str += '<a data-toggle="collapse" data-parent="#accordionPanels" href="#' + list[i].blockType + '">头部组件</a></h4></div>';
+                str += '<a data-toggle="collapse" data-parent="#accordionPanels" href="#' + list[i].blockType + '">尾部组件</a></h4></div>';
                 str += '<div id="' + list[i].blockType + '" class="panel-collapse collapse in">';
                 str += '<div class="panel-body"><span data-blockId="'+list[i].blockId+'"  data-blockSize="'+list[i].blockSize+'" class="secPart btn-droppable" id="' + list[i].blockId + '">' + list[i].blockName + '</span></div></div></div>';
             } else {

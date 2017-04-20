@@ -8,11 +8,16 @@
     <link rel="stylesheet" href="../css/zui.min.Editor.css"/>
     <link rel="stylesheet" href="../css/zui.dashboard.Editor.css"/>
     <link rel="stylesheet" href="../css/common.Editor.css"/>
+    <link rel="stylesheet" href="../css/common_red.css"/>
     <script src="../js/respond.js"></script>
 </head>
 <body>
+<div class="box top"></div>
 <!--保存-->
-<div class="keepCon row"><p id="keep" class="col-sm-offset-11 keep">保存</p></div>
+<div class="keepCon row">
+    <p id=" preview" class="blueAction preview">预览</p>
+    <p id="keep" class="blueAction keep">保存</p>
+</div>
 <!--section-->
 <div class="indexAll">
     <div class="row" id="multiDroppableContainer">
@@ -62,6 +67,8 @@
 </div>
 <button onclick="undo()">上一步</button>
 <button onclick="redo()">下一步</button>
+<!--bottom-->
+<div class="box bottom"></div>
 
 <script src="../js/jquery-1.11.3.js"></script>
 <script src="../js/zui.min.js"></script>
