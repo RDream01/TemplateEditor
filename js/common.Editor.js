@@ -34,9 +34,9 @@ function blockLeftListCallBack(data) {
                 str = '<div id="listBlock" class="panel panel-default"><div class="panel-heading"><h4 class="panel-title">';
                 str += '<a data-toggle="collapse" data-parent="#accordionPanels" href="#' + list[i].blockType + '">列表组件 </a></h4></div>'
                 str += '<div id="' + list[i].blockType + '" class="panel-collapse collapse in">';
-                str += '<div class="panel-body"><span data-blockId="'+list[i].blockId+'"  data-blockSize="'+list[i].blockSize+'" class="secPart btn-droppable" id="' + list[i].blockId + '" name="list01">' + list[i].blockName + '</span></div></div></div>';
+                str += '<div class="panel-body"><span data-blockId="'+list[i].blockId+'"  data-blockSize="'+list[i].blockSize+'" class="secPart btn-droppable" id="' + list[i].blockId + '">' + list[i].blockName + '</span></div></div></div>';
             } else {
-                str += '<span data-blockId="'+list[i].blockId+'"  data-blockSize="'+list[i].blockSize+'" class="secPart btn-droppable" id="' + list[i].blockId + '" name="list01">' + list[i].blockName + '</span>';
+                str += '<span data-blockId="'+list[i].blockId+'"  data-blockSize="'+list[i].blockSize+'" class="secPart btn-droppable" id="' + list[i].blockId + '">' + list[i].blockName + '</span>';
                 $('#listBlock .panel-body').append(str);
                 continue;
             }
@@ -46,10 +46,32 @@ function blockLeftListCallBack(data) {
                 str = '<div id="advBlock" class="panel panel-default"><div class="panel-heading"><h4 class="panel-title">';
                 str += '<a data-toggle="collapse" data-parent="#accordionPanels" href="#' + list[i].blockType + '">广告组件</a></h4></div>';
                 str += '<div id="' + list[i].blockType + '" class="panel-collapse collapse in">';
-                str += '<div class="panel-body"><span data-blockId="'+list[i].blockId+'"  data-blockSize="'+list[i].blockSize+'" class="secPart btn-droppable" id="' + list[i].blockId + '" name="list01">' + list[i].blockName + '</span></div></div></div>';
+                str += '<div class="panel-body"><span data-blockId="'+list[i].blockId+'"  data-blockSize="'+list[i].blockSize+'" class="secPart btn-droppable" id="' + list[i].blockId + '">' + list[i].blockName + '</span></div></div></div>';
             } else {
-                str += '<span data-blockId="'+list[i].blockId+'"  data-blockSize="'+list[i].blockSize+'" class="secPart btn-droppable" id="' + list[i].blockId + '" name="list01">' + list[i].blockName + '</span>';
+                str += '<span data-blockId="'+list[i].blockId+'"  data-blockSize="'+list[i].blockSize+'" class="secPart btn-droppable" id="' + list[i].blockId + '">' + list[i].blockName + '</span>';
                 $('#advBlock .panel-body').append(str);
+                continue;
+            }
+        }else if (list[i].blockType == "header") {
+            if ($("#headerBlock").html() == undefined) {
+                str = '<div id="headerBlock" class="panel panel-default"><div class="panel-heading"><h4 class="panel-title">';
+                str += '<a data-toggle="collapse" data-parent="#accordionPanels" href="#' + list[i].blockType + '">头部组件</a></h4></div>';
+                str += '<div id="' + list[i].blockType + '" class="panel-collapse collapse in">';
+                str += '<div class="panel-body"><span data-blockId="'+list[i].blockId+'"  data-blockSize="'+list[i].blockSize+'" class="secPart btn-droppable" id="' + list[i].blockId + '">' + list[i].blockName + '</span></div></div></div>';
+            } else {
+                str += '<span data-blockId="'+list[i].blockId+'"  data-blockSize="'+list[i].blockSize+'" class="secPart btn-droppable" id="' + list[i].blockId + '">' + list[i].blockName + '</span>';
+                $('#headerBlock .panel-body').append(str);
+                continue;
+            }
+        }else if (list[i].blockType == "footer") {
+            if ($("#footerBlock").html() == undefined) {
+                str = '<div id="footerBlock" class="panel panel-default"><div class="panel-heading"><h4 class="panel-title">';
+                str += '<a data-toggle="collapse" data-parent="#accordionPanels" href="#' + list[i].blockType + '">头部组件</a></h4></div>';
+                str += '<div id="' + list[i].blockType + '" class="panel-collapse collapse in">';
+                str += '<div class="panel-body"><span data-blockId="'+list[i].blockId+'"  data-blockSize="'+list[i].blockSize+'" class="secPart btn-droppable" id="' + list[i].blockId + '">' + list[i].blockName + '</span></div></div></div>';
+            } else {
+                str += '<span data-blockId="'+list[i].blockId+'"  data-blockSize="'+list[i].blockSize+'" class="secPart btn-droppable" id="' + list[i].blockId + '">' + list[i].blockName + '</span>';
+                $('#footerBlock .panel-body').append(str);
                 continue;
             }
         }
@@ -105,7 +127,7 @@ function importGroupDiv(num){
     baseGroupId++;
     var optionsTrigger = {
         selector:'.list-group-item',
-        trigger: '[data-trigger="sortArea"]',
+        trigger: '[data-trigger="sortArea"]'
     };
 
 
@@ -158,88 +180,6 @@ $(".newSection").on("click",'.deleteGroup',function(){
     }
 });
 
-//2---引用组件文件
-////拖动到文件制定位置
-//function addFile(id,nextShowId,size,parentDiv){
-//    $.get("../editorBlock/" + id + ".html", function (data) {
-//        var block_showId;
-//        block_showId = id+ "_" + baseShow;
-//        baseShow ++;
-//        //增加是否填写属性必选项的框
-//        notNull();
-//        //清楚所有选中框
-//        $(".indexAll .appendStr .panel").removeClass('appendCur');
-//        //固定替换流程
-//        data = data.replace("<html>", '');
-//        data = data.replace("</html>", '');
-//        data = data.replace("panel", "panel appendCur");
-//        data = data.replace(/vData/g, "vData_" + block_showId);
-//        //判断区块是否可以添加到组合框内
-//        var ids = block_showId.split("_");
-//        var blockWidth = 4;
-//        if(ids[1] == "3g2"){
-//            blockWidth = 8;
-//        }else if(ids[1] == "3g3" ){
-//            blockWidth = 12;
-//        }
-//        //通过下一个组件的showID，append到拖拽之前的位置
-//        if (nextShowId == "") {
-//            $(parentDiv).append(data);
-//        } else {
-//            $("[data-showId=" + nextShowId + "]").before(data);
-//        }
-//
-//        //增加showId
-//        optionSelect = {};
-//        optionSelect.id = id;
-//        optionSelect.showId = block_showId;
-//        $(".appendCur").parent().attr("data-showId", optionSelect.showId);
-//        $(".appendCur").parent().attr("data-size", size);
-//        $(".appendCur").attr("data-id", optionSelect.showId);  //zui ***
-//
-//
-//        var blockSize = $(".appendCur").parent().attr("data-blockSize");
-//        var groupDivSize = $(".appendCur").parent().parent().attr("data-groupSize");
-//        var finalSize = countSize(blockSize, groupDivSize);
-//        if (finalSize == -1) {
-//            console.log("与组合框尺寸不匹配");
-//            var j;
-//            for (var i = 0; i < obj.section.length; i++) {
-//                if (obj.section[i].showId == block_showId) {
-//                    j = i;
-//                    break;
-//                }
-//            }
-//            obj.section.splice(j, 1);
-//
-//            $("[data-showId=" + block_showId + "]").remove();
-//            $(".property").html("");
-//            return;
-//        } else {
-//            var md = "col-md-" + finalSize;
-//            var sm = "col-sm-" + finalSize;
-//            if (blockSize == 4) {
-//                $(".appendCur").parent().removeClass("col-md-4");
-//                $(".appendCur").parent().removeClass("col-sm-4");
-//            } else if (blockSize == 8) {
-//                $(".appendCur").parent().removeClass("col-md-8");
-//                $(".appendCur").parent().removeClass("col-sm-8");
-//            } else if (blockSize == 12) {
-//                $(".appendCur").parent().removeClass("col-md-12");
-//                $(".appendCur").parent().removeClass("col-sm-12");
-//            }
-//            $(".appendCur").parent().addClass(md);
-//            $(".appendCur").parent().addClass(sm);
-//        }
-//        obj.section.push(optionSelect);
-//
-//        //属性
-//        propertyRightList(id);
-//        $('.newSection').dashboard();
-//    });
-//
-//
-//}
 
 //拖拽
 function importFile(id, nextShowId, size,groupDiv) {
@@ -276,6 +216,13 @@ function importFile(id, nextShowId, size,groupDiv) {
             optionSelect = {};
             optionSelect.id = id;
             optionSelect.showId = block_showId;
+
+            if( $(".appendCur").attr("data-header")=="header" ){
+                optionSelect.blockType = "header";
+            }else if( $(".appendCur").attr("data-footer")=="footer" ){
+                optionSelect.blockType = "footer";
+            }
+
             $(".appendCur").parent().attr("data-showId", optionSelect.showId);
             $(".appendCur").parent().attr("data-size", size);
             $(".appendCur").attr("data-id", optionSelect.showId);  //zui ***
@@ -751,7 +698,7 @@ window.onload = function () {
                 type: 'POST',
                 dataType : "jsonp",
                 data:{strKey:str,order:order,groupDivOrder:groupDivOrder,dataType :"jsonp"},  //参数
-                url:"http://192.168.31.2/template_editor/saveTemplate.do",//请求的action路径
+                url:"http://192.168.31.2/template_editor/saveTemplate.do"//请求的action路径
             });
         }
     })
@@ -760,5 +707,34 @@ window.onload = function () {
 
 
 function saveTemplateCallBack(data){
-    alert(1)
+    alert(1);
 }
+
+
+//鼠标拖动上下移动
+function mouseCoords(event) {
+    return {
+        x:event.clientX ,
+        y:event.clientY
+    };
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

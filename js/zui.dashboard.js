@@ -123,6 +123,19 @@
 
             function mouseMove(event) {
 
+                //鼠标移动向下滑
+                event= event || window.event;
+                var mousePos = mouseCoords(event);
+                if( (mousePos.y<document.documentElement.clientHeight)&&( mousePos.y>=document.documentElement.clientHeight-30 ) ){
+                    if( !($(document).scrollTop() >= $(document).height() - $(window).height()) ){
+                        $('html,body').animate({scrollTop:"+=200px"}, 800);
+                    }
+                }else if( ( mousePos.y>=parseInt(0) )&&( mousePos.y<=parseInt(30) ) ){
+                    $('html,body').animate({scrollTop:'0px'}, 800);
+                }else{
+                    $('html,body').stop(true);
+                }
+
                 //高亮显示所有合适的框
                 var divs = $('.editorBlock>div>div>div.row');
                 for(var i=0;i<divs.length;i++){

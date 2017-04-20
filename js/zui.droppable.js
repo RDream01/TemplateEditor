@@ -70,6 +70,21 @@
 
         var mouseMove = function(event) {
             //alert(1);
+
+            //鼠标移动向下滑
+            event= event || window.event;
+            var mousePos = mouseCoords(event);
+            if( (mousePos.y<document.documentElement.clientHeight)&&( mousePos.y>=document.documentElement.clientHeight-30 ) ){
+                if( !($(document).scrollTop() >= $(document).height() - $(window).height())  ){
+                    $('html,body').animate({scrollTop:"+=200px"}, 800);
+                }
+            }else if( ( mousePos.y>=parseInt(0) )&&( mousePos.y<=parseInt(30) ) ){
+                $('html,body').animate({scrollTop:'0px'}, 800);
+            }else{
+                $('html,body').stop(true);
+            }
+
+
             if(!isMouseDown) return;
 
             mouseOffset = {left: event.pageX, top: event.pageY};
@@ -240,6 +255,9 @@
         };
 
         var mouseDown = function(event) {
+
+            //movePart();
+
             var $mouseDownEle = $(this);
             if(selector) {
                 $ele = handle ? $mouseDownEle.closest(selector) : $mouseDownEle;
