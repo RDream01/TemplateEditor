@@ -42,6 +42,50 @@ nav,#banner,section,footer{
 .container{
     padding:0;
 }
+
+
+/*生成之后固定CSS*/
+.rel_header{
+    margin-bottom:32px;
+}
+
+
+.rel_blockDiv{
+    display:inline-block;
+    margin-bottom:32px;
+    margin-left: 8px;
+    margin-right:8px;
+}
+.rel_groupDiv1{
+    display:inline-block;
+    width:324px;
+    min-height:5px;
+    float:left;
+}
+.rel_groupDiv2{
+    display:inline-block;
+    width:648px;
+    min-height:5px;
+    float:left;
+}
+.rel_groupDiv3{
+    display:inline-block;
+    width:972px;
+    min-height:5px;
+    float:left;
+}
+
+.rel_section{
+    width:972px;
+    margin:auto;
+}
+
+.rel_section:after{
+    content: '';
+    display: block;
+    clear: both;
+}
+
 /*————————预览需要的改动元素————————*/
 .header [class*="col-"],.section [class*="col-"],.footer [class*="col-"]{
     padding:0;
