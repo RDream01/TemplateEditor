@@ -706,7 +706,7 @@ window.onload = function () {
 
 
 function saveTemplateCallBack(data){
-    alert(1);
+    alert("保存成功~");
 }
 
 
