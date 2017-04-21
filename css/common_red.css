@@ -115,8 +115,11 @@ nav,#banner,section,footer{
     border:none;
     padding:0 8px;
 }
+.section .groupDiv{
+    min-height:10px;
+}
 
-/*____________header01_3g3______________________*/
+    /*____________header01_3g3______________________*/
 .header01_top{
     background-color: #c33;
 }
@@ -144,9 +147,51 @@ nav,#banner,section,footer{
 }
 
 
+/*_____________ClickRanking_3g1______________*/
+.ClickRanking_RecommendHead{
+    border-left: 3px solid #c33;
+    color:#333333;
+}
+.ClickRanking_title{
+    color:#3c3c3c;
+}
+.ClickRanking_list_news ul li:nth-child(1)  span:nth-child(1),.ClickRanking_list_news ul li:nth-child(2)  span:nth-child(1),.ClickRanking_list_news ul li:nth-child(3)  span:nth-child(1){
+    color:#cc3333;
+}
+.ClickRanking_selected_a{
+    color: #cc3333;
+}
+.ClickRanking_divBakColor{
+    background-color:#ffffff;
+}
+.ClickRanking_list{
+    background-color:#ffffff;
+}
 
+/*HotTopic*/
+.HotTopic_discuss_title{
+    border-left: 3px solid #c33;
+    color:#333333;
+}
+.HotTopic_commentNum{
+    color:#666666;
+}
+.HotTopic_list_title{
+    color:#ffffff;
+    text-shadow:0 1px 1px rgba(0,0,0,0.12);
+}
+.HotTopic_selected_a{
+    background-color:#ea4335;
+}
+.HotTopic_more{
+    color:#999999;
+}
+.HotTopic_whiteColor{
+    background-color:#ffffff;
+}
+.HotTopic_list a:hover>p{background:#ea4335}
 
-
+.HotTopic_list a:hover>span{color: #ea4335}
 
 
 

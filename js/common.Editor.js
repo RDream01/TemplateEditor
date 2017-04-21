@@ -194,6 +194,7 @@ function importFile(id, nextShowId, size,groupDiv) {
             //清楚所有选中框
             $(".indexAll .appendStr .panel").removeClass('appendCur');
             //固定替换流程
+            data = data.replace('showId', '');
             data = data.replace('"exist"', '');
             data = data.replace("panel", "panel appendCur");
             data = data.replace(/vData/g, "vData_" + block_showId);
@@ -733,7 +734,7 @@ $(".preview").click(function(){
 
     var groupDivs=$(main).find(".groupDiv ");
     for( var i=0;i<groupDivs.length;i++ ){
-        if( $(groupDivs[i]).children().hasClass("appendStr") ){
+        //if( $(groupDivs[i]).children().hasClass("appendStr") ){
             $(groupDivs[i]).removeClass("list-group-item");
             $(groupDivs[i]).find(".panel-body").removeClass("panel-body");
 
@@ -747,7 +748,7 @@ $(".preview").click(function(){
 
             $(groupDivs[i]).find(".panel").removeClass("panel");
 
-        }
+        //}
     }
 
     $(main).find(".editorBlock").html("").html(strSection).removeClass("editorBlock").addClass("section");
@@ -758,7 +759,7 @@ $(".preview").click(function(){
 
     $.zui.store.set('name', strAll);
     window.open('preview.html');
-    console.log( $('.main').html() )
+    //console.log( $('.main').html() )
 });
 
 

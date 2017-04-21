@@ -1,0 +1,161 @@
+
+<div class="col-md-4 col-sm-4 appendStr clickRanking_3g1" name="" id="clickRanking_3g1" data-blockSize="4">
+<div class="style" "exist">
+    <style>
+        .clickRankAll{
+            width: 308px;box-shadow: 0 1px 1px rgba(0,0,0,.12);
+        }
+        .week{
+            display: none;margin-left:0;margin-top:13px;list-style-type:decimal;
+        }
+        .month{
+            display: none;margin-left:0;margin-top:13px;list-style-type:decimal;
+        }
+        .clearFloat:after{content:"";display: block;clear: both;}
+        .ClickRanking_title_head{width: 300px;height: 22px;padding-top: 13px;}
+        .ClickRanking_RecommendHead{
+            font-size:20px;
+            line-height:22px;
+            text-align:left;
+            padding-left: 16px;
+                }
+        .ClickRanking_list{margin-top: 12px;width: 292px;padding-left: 16px;}
+        .ClickRanking_title{
+            font-size:16px;
+            text-align:left;margin-bottom: 16px;margin-left: 0px;}
+        .ClickRanking_list-subTitle{display:inline-block;width: 92px;height:30px;text-align: center;padding-top: 3px}
+        .ClickRanking_space_li{padding-bottom: 15px;}
+        .ClickRanking_list_news ul li:nth-child(1)  span:nth-child(1),.ClickRanking_list_news ul li:nth-child(2)  span:nth-child(1), .ClickRanking_list_news ul li:nth-child(3)  span:nth-child(1){
+            font-size:16px;
+            text-align:left;}
+
+        .ClickRanking_selected_a{background: url("../img/section/back-Line.png")}
+
+        .ClickRanking_ranking-ul{display: block;margin-left: 0px;margin-top: 13px;list-style-type: decimal}
+        .ClickRanking_divBakColor{width:308px;height: 48px;}
+    </style>
+</div>
+
+<div class="panel appendNot" data-id="3">
+    <input type="hidden" class="v_ranking_name" value="点击排行"/>
+    <input type="hidden" class="v_ranking_num" value="5"/>
+    <div class="panel-heading">
+        <span class="title">列表1</span>
+    </div>
+    <div class="panel-body">
+        <div class="clickRankAll" "exist">
+            <div class="ClickRanking_divBakColor">
+                <p class="ClickRanking_title_head"><span class="ClickRanking_RecommendHead ranking_name showId" id="ranking_name">点击排行</span></p>
+            </div>
+
+            <input type="hidden" class="v_ranking_name" value="点击排行"/>
+            <input type="hidden" class="v_today_num" value="6"/>
+
+            <div class="ClickRanking_list" >
+                <div>
+                    <a onclick="changeB(this)" class="ClickRanking_list-subTitle ClickRanking_selected_a" id="today">今天</a>
+                    <a onclick="changeB(this)" class="ClickRanking_list-subTitle " id="week">本周</a>
+                    <a onclick="changeB(this)" class="ClickRanking_list-subTitle  \" id="month">本月</a>
+                </div>
+
+                <div class="ClickRanking_list_news">
+                    <ul id="todayul"  class="ClickRanking_ranking-ul showId"  >
+
+                    </ul>
+                    <ul id="weekul" class="week showId">
+
+                    </ul>
+                    <ul class="month" id= "monthul showId">
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="resize-handle"><i class="icon icon-resize-h"></i></div>
+
+
+
+
+<div class="script" "exist">
+    <script>
+        function changeB(obj){
+            $(".ClickRanking_list a").removeClass("ClickRanking_selected_a");
+            $(obj).addClass("ClickRanking_selected_a");
+            var id = $(obj).attr("id");
+            id = id+"ul";
+            for(var i =0 ;i < $(".ClickRanking_list ul").length;i++) {
+                var pp = $(".ClickRanking_list ul")[i];
+                $(pp).css("display","none");
+            }
+            $("#"+id).css("display","block");
+        }
+
+
+        var flag="v";
+        if(flag == "v"){
+            vData()
+        }else{
+            var lhbb_name="";
+            if(lhbb_name!=""){
+                $(".appendCur #lhbb_name").html(lhbb_name);
+            }
+            tData();
+        }
+
+        function vData(){
+            $(".appendCur .ClickRanking_ranking-ul").html("");//   .lh   是你要改数据的div
+            var v_ranking_name=$(".appendCur .v_ranking_name").val();
+            if(v_ranking_name!=""){
+//                $(".appendCur #topic-title").html(v_ranking_name);
+            }
+            var v_today_num=$(".appendCur .v_today_num").val();
+            var title=" 新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题";
+
+            for(var i=0;i<v_today_num;i++){
+                var str= '<li class="ClickRanking_space_li" > <a href="#"><p ><span>01</span><span class="ClickRanking_title">'+title+'</span></p></a> </li>';
+                $(".appendCur .ClickRanking_ranking-ul").append(str);
+            }
+
+            $(".appendCur .week").html("");
+            for(var i=0;i<v_today_num;i++){
+                var str= '<li class="ClickRanking_space_li"><a href="#"><p ><span>01</span><span class="ClickRanking_title">'+title+'</span></p></a> </li>';
+                $(".appendCur .week").append(str);
+            }
+
+            $(".appendCur .month").html("");
+            for(var i=0;i<v_today_num;i++){
+                var str= '<li class="ClickRanking_space_li"><a href="#"><p ><span>01</span><span class="ClickRanking_title">'+title+'</span></p></a> </li>';
+                $(".appendCur .month").append(str);
+            }
+
+        }
+        //真数据 (接口)
+        function tData(){
+            var lhbb_id="";
+            var lhbb_num="";
+            $.ajax({
+                async : false,
+                cache:true,
+                type: 'post',
+                dataType : "jsonp",
+                data:{dataType:"jsonp",channelId:lhbb_id,limit:lhbb_num},  //参数
+                url:"http://192.168.31.2/demo_data/channel_article_list_index.do",//请求的action路径
+                success:function(data){ //请求成功后处理函数。
+                }
+            });
+        }
+        //返回的真实数据
+        function tDataCallback(data){
+            var list = data.dataList;
+            for( var i=0;i<list.length;i++ ){
+//                        var str='&lt;p&gt;&lt;a href="#"/&gt;'+list[i].title+'&lt;a/&gt;&lt;p/&gt;';
+                var str='<p><a href="#"/>'+list[i].title+'<a><p/>';
+                $(".lh.showId").append(str);
+            }
+        }
+    </script>
+</div>
+
+</div>
