@@ -51,6 +51,7 @@ nav,#banner,section,footer{
 
 
 .rel_blockDiv{
+    vertical-align: top;
     display:inline-block;
     margin-bottom:32px;
     margin-left: 8px;

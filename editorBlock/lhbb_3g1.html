@@ -1,60 +1,70 @@
-
 <div class="col-md-4 col-sm-4 appendStr lhbb_3g1" name="listGroup" id="lhbb_3g1" data-blockSize="4">
 
     <!--<div>X</div>-->
-    <div class="style" "exist">
+    <div class="style"
+    "exist">
     <style>
-        .hot{
-            margin-bottom:50px;
-            width:308px;
+        .hot {
+            margin-bottom: 50px;
+            width: 308px;
         }
-        .hot>div.hot_top{
-            border-bottom:1px solid #E7E9ED;
+
+        .hot > div.hot_top {
+            border-bottom: 1px solid #E7E9ED;
             padding: 0 10px 3px 10px;
-            overflow:hidden;
-            margin-top:-3px;
+            overflow: hidden;
+            margin-top: -3px;
         }
-        .hot>div.hot_top>p:first-child{
-            font-size:18px;
-            color:#cc3333;
+
+        .hot > div.hot_top > p:first-child {
+            font-size: 18px;
+            color: #cc3333;
         }
-        .hot>div.hot_top>p:last-child{
+
+        .hot > div.hot_top > p:last-child {
             position: relative;
-            width:50px;
-            height:20px;
+            width: 50px;
+            height: 20px;
         }
-        .hot>div.hot_top>p:last-child>a{
+
+        .hot > div.hot_top > p:last-child > a {
             position: absolute;
-            bottom:-6px;
-            font-size:14px;
-            color:#999;
-            letter-spacing:0.42px;
+            bottom: -6px;
+            font-size: 14px;
+            color: #999;
+            letter-spacing: 0.42px;
         }
-        .hot>div.hot_top>p:last-child>a:hover{
-            color:#c33;
+
+        .hot > div.hot_top > p:last-child > a:hover {
+            color: #c33;
         }
+
         /*利好播报*/
-        .lh>p{
-            margin:10px 0 0px 20px;
+        .lh > p {
+            margin: 10px 0 0px 20px;
         }
-        .lh>p>a{
-            line-height:26px;
-            font-size:16px;
-            color:#333;
+
+        .lh > p > a {
+            line-height: 26px;
+            font-size: 16px;
+            color: #333;
         }
-        .li_back{
-            margin-top:10px;
-            position:relative;
+
+        .li_back {
+            margin-top: 10px;
+            position: relative;
         }
-        .li_zi{
-            position:absolute;
-            top:80px;
-            right:50px;
-            color:#fff;
-            font-size:16px;
+
+        .li_zi {
+            position: absolute;
+            top: 80px;
+            right: 50px;
+            color: #fff;
+            font-size: 16px;
         }
-        .li_back img{
-            width:295px;
+
+        .li_back img {
+            width: 295px;
         }
     </style>
 </div>
@@ -63,20 +73,24 @@
     <!--<input type="hidden" id="myId" value="lhbb" class="myId"/>-->
     <input type="hidden" class="v_lhbb_name" value="利好播报"/>
     <input type="hidden" class="v_lhbb_num" value="5"/>
+
     <div class="panel-heading">
         <span class="title">列表1</span>
     </div>
     <div class="panel-body">
         <!--利好播报-->
-        <div class="hot " "exist">
+        <div class="hot "
+        "exist">
         <div class="hot_top">
             <p class="lf" class="lhbb_name showId">利好播报</p>
+
             <p class="rt"><a href="#">更多&gt;</a></p>
         </div>
         <p class="li_back">
             <img src="../img/section/li_back_01.png" alt=""/>
             <span class="li_zi">2016.09.12</span>
         </p>
+
         <div class="lh showId">
             <!--<p ><a href="#">日防卫相访问东帝汶及印度</a></p>-->
         </div>
@@ -87,52 +101,56 @@
 
 <div class="script" "exist">
 <script>
-    var flag="v";
-    if(flag == "v"){
+    var flag = "v";
+    if (flag == "v") {
         vData()
-    }else{
-        var lhbb_name="";
-        if(lhbb_name!=""){
-            $(".appendCur #lhbb_name").html(lhbb_name);
+    } else {
+        var lhbb_name = "";
+        if (lhbb_name != "") {
+            $(".lhbb_name.showId").html(lhbb_name);
         }
         tData();
     }
 
-    function vData(){
+    function vData() {
         $(".appendCur .lh").html("");
-        var v_lhbb_name=$(".appendCur .v_lhbb_name").val();
-        if(v_lhbb_name!=""){
+        var v_lhbb_name = $(".appendCur .v_lhbb_name").val();
+        if (v_lhbb_name != "") {
             $(".appendCur #lhbb_name").html(v_lhbb_name);
         }
-        var v_lhbb_num=$(".appendCur .v_lhbb_num").val();
+        var v_lhbb_num = $(".appendCur .v_lhbb_num").val();
 
-        var title="日防卫相访问东帝汶及印发嘎嘎地方";
-        for(var i=0;i<v_lhbb_num;i++){
+        var title = "日防卫相访问东帝汶及印发嘎嘎地方";
+        for (var i = 0; i < v_lhbb_num; i++) {
 //                        var str='&lt;p&gt;&lt;a href="#"/&gt;'+title+'&lt;a/&gt;&lt;p/&gt;';
-            var str='<p><a href="#"/>'+title+'<a><p/>';
+            var str = '<p><a href="#"/>' + title + '<a><p/>';
             $(".appendCur .lh").append(str);
         }
     }
-
-    function tData(){
-        var lhbb_id="";
-        var lhbb_num="";
+    function tData() {
+        var lhbb_id = "";
+        var lhbb_num = "";
+        var Callback = "tData";
+//        若有默认值
+        if(lhbb_num == ""){
+            lhbb_num = "5";
+        }
         $.ajax({
-            async : false,
-            cache:true,
+            async: false,
+            cache: true,
             type: 'post',
-            dataType : "jsonp",
-            data:{dataType:"jsonp",channelId:lhbb_id,limit:lhbb_num},  //参数
-            url:"http://192.168.31.2/demo_data/channel_article_list_index.do",//请求的action路径
-            success:function(data){ //请求成功后处理函数。
+            dataType: "jsonp",
+            data: {dataType: "jsonp", channelId: lhbb_id, limit: lhbb_num, Callback: Callback},  //参数
+            url: "http://192.168.31.156:8080/cmsNews/template_editor/channel_article_list_index.do",//请求的action路径
+            success: function (data) { //请求成功后处理函数。
             }
         });
     }
-    function tDataCallback(data){
+    function tDataCallback(data) {
         var list = data.dataList;
-        for( var i=0;i<list.length;i++ ){
+        for (var i = 0; i < list.length; i++) {
 //                        var str='&lt;p&gt;&lt;a href="#"/&gt;'+list[i].title+'&lt;a/&gt;&lt;p/&gt;';
-            var str='<p><a href="#"/>'+list[i].title+'<a><p/>';
+            var str = '<p><a href="#"/>' + list[i].title + '<a><p/>';
             $(".lh.showId").append(str);
         }
     }

@@ -303,6 +303,7 @@ function propertyRightList(id) {
 }
 function propertyRightListCallBack(data) {
     var list = data.dataList;
+    console.log(list)
     $(".property").html("");
     var showId = $(".appendCur").parent().attr("data-showId");
     var blockProAll;
@@ -326,15 +327,15 @@ function propertyRightListCallBack(data) {
             str += 'value="';
             if (blockProAll[curId] !== undefined) {
                 str += blockProAll[curId];
-            } else if (list[i].defaultValue !== undefined) {
+            } else if (list[i].defaultValue !== undefined && list[i].defaultValue != "null") {
                 str += list[i].defaultValue;
             }
             str += '"';
-            str += ' class="form-input" placeholder="区块名称">';
+            str += ' class="form-input" placeholder="'+list[i].propertyName+'">';
             str += '<input type="hidden" id="' + list[i].propertyId + '_undoRedo" value="';//undo redo 存储修改之前的属性值
-            if (blockProAll[curId] !== undefined) {
+            if (blockProAll[curId] !== undefined ) {
                 str += blockProAll[curId];
-            } else if (list[i].defaultValue !== undefined) {
+            } else if (list[i].defaultValue !== undefined && list[i].defaultValue != "null") {
                 str += list[i].defaultValue;
             }
             str += '" /></div></div>';
