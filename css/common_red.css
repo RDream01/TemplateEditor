@@ -194,7 +194,63 @@ nav,#banner,section,footer{
 .HotTopic_list a:hover>span{color: #ea4335}
 
 
+/*_______________listGroupImage_3g2________________________*/
+.listGroupImage_top{
+    background-color: #ffffff;
+}
+.listGroupImage_top_leftRed{
+    border-left: 3px solid #c33;
+    color: #333333;
+}
+.listGroupImage_list_body{
+    background-color: #ffffff;
+}
+.listGroupImage-vertical-action{
+    color: #999999;
+}
+.listGroupImage-vertical-action1{
+    color: #999999;
+}
+.listGroupImage_vertical_title{
+    color: #212121;
+}
+.listGroupImage-imageNumtext{
+    color:#ffffff;
+}
+.listGroupImage-image_shadow{
+    background:#000000;
+}
+.listGroupMore a{
+    color:#999;
+}
 
+/*_____________________listHor_3g2____________________*/
+.listHor_text-title{
+    color:#333333;
+}
+.listHor_text-content{
+    color:#666;
+}
+.listHor_date{
+    color:#999999;
+}
+.listHor_source{
+    color:#999999;
+}
+.listHor_top_title{
+    border-left: 4px  solid #c33;
+    color:#333333;
+}
+.listHor_title_li{
+    color:#666666;
+}
+.listHor_whiteColor{
+    background-color: #ffffff;
+}
+
+.listHor_content_list{
+    background-color: #ffffff;
+}
 
 
 

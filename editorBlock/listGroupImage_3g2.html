@@ -1,0 +1,161 @@
+
+<div class="col-md-8 col-sm-8 appendStr listGroupImage_3g2" name="listGroup" id="listGroupImage_3g2" data-blockSize="8">
+
+<div class="style" "exist">
+    <style>
+        .listGroupAll{
+            width:632px;
+        }
+        .clearFloat:after{content:"";display: block;clear: both;}
+        .listGroupImage_top{width: 632px;height: 48px;}
+        .listGroupImage_top_left{float: left;}
+        .listGroupImage_top_leftRed{
+            font-size: 20px;line-height:22px; text-align:left;margin-top: 13px;padding-left: 15px;
+        }
+        .listGroupImage_top_right{float: right}
+        .listGroupImage_top_right li{
+            float: left;margin-top: 17px;margin-right:16px;margin-left: 12px;
+        }
+        .listGroupMore{
+           padding-right:16px;padding-left: 12px;
+        }
+        .listGroupMore,.listGroupImage_top_right ul{
+            display: inline-block;
+            vertical-align: bottom;
+        }
+        .listGroupImage_list_body{
+            width: 632px;
+            margin-top: 11px; }
+        .listGroupImage_vertical{
+            display: block;float: left;width: 192px;height: 189px;margin-left: 16px;margin-top: 16px;
+        }
+        .listGroupImage_vertical_image{width: 192px;height: 116px;}
+        .listGroupImage_vertical_title{
+            width: 192px;height: 44px;font-size:16px;  letter-spacing:0; text-align:left;
+        }
+        .listGroupImage-vertical-action{
+            display:inline-block;margin-bottom: 0px; font-size: 12px;
+            letter-spacing:0; text-align:left;width: 48%;margin-top: 10px;
+        }
+        .listGroupImage-vertical-action1{
+            display:inline-block;margin-bottom: 0px;
+            font-size: 12px;  letter-spacing:0; text-align:right;width: 50%;margin-top: 10px;
+        }
+        .listGroupImage-image{position: relative;}
+        .listGroupImage-image_shadow{
+            position: absolute; opacity:0.4;
+            width:192px;
+            height:21px;left: 0px;bottom: 0px;
+        }
+        .listGroupImage-imageNum{position: absolute;width: 192px;height: 21px;left: 0px;bottom: 0px;}
+        .listGroupImage-imageNumtext{
+            font-size:12px;
+            letter-spacing:0;
+            height:17px;
+            vertical-align: middle;
+        }
+    </style>
+</div>
+
+<div class="panel appendNot" data-id="3">
+    <input type="hidden" class="v_column_name" value="组图"/>
+    <input type="hidden" class="v_column_num" value="4"/>
+    <input type="hidden" class="v_colAct_num" value="3"/>
+    <div class="panel-heading">
+        <span class="title">列表1</span>
+    </div>
+    <div class="panel-body">
+        <div class="appendCur listGroupAll" "exist">
+            <div class="listGroupImage_top clearFloat">
+                <div class="listGroupImage_top_left">
+                    <p class="listGroupImage_top_leftRed column_name showId">组图</p>
+                </div>
+                <div class="listGroupImage_top_right">
+                    <ul class="listGroupAct showId clearFloat">
+
+                    </ul>
+                    <span class="listGroupMore">|</span>
+                    <span class="listGroupMore"><a href="#">更多</a></span>
+                </div>
+            </div>
+            <div class="listGroupImage_list_body clearFloat showId">
+
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<div class="resize-handle"><i class="icon icon-resize-h"></i></div>
+
+
+
+
+<div class="script" "exist">
+    <script>
+        var flag="v";
+        if(flag == "v"){
+            vData()
+        }else{
+
+            tData();
+        }
+
+        function vData(){
+            $(".appendCur .listGroupImage_list_body").html("");//   .lh   是你要改数据的div
+            $(".appendCur .listGroupAct").html("");//   .lh   是你要改数据的div
+            var v_column_name=$(".appendCur .v_column_name").val();
+            if(v_column_name!=""){
+                $(".appendCur .column_name").html(v_column_name);
+            }
+            var v_column_num=$(".appendCur .v_column_num").val();
+            var title="日防卫相访问东帝汶及印发嘎嘎地方萨达撒多阿萨德阿萨德阿萨德爱上爱上阿萨德啊";
+            for(var i=0;i<v_column_num;i++){
+                var str= '<div class="listGroupImage_vertical"> '+
+                    '<dl class="listGroupImage_vertical_image"> ' +
+                    '<dt class="listGroupImage-image"> <a href="#"> <img src="../img/listGroupImage_3g2/tiger.jpg" > ' +
+                    '<p class="listGroupImage-image_shadow" ></p> <p class="listGroupImage-imageNum"> ' +
+                    '<img src="../img/listGroupImage_3g2/imageNum.png" style="width: 13px;height: 12px;margin-bottom: 3px;margin-left: 8px"> ' +
+                    '<span class="listGroupImage-imageNumtext">11张</span> </p > </a>'+
+                    ' </dt><dd><p class="listGroupImage_vertical_title">'+title+'</p>' +
+                    '<p> <span class="listGroupImage-vertical-action">擎好网</span>' +
+                    '<span class="listGroupImage-vertical-action1">2017-03-20</span></p> ' +
+                    '</dd> ' +
+                    '</dl>' +
+                    ' </div>';
+                $(".appendCur .listGroupImage_list_body").append(str);
+            }
+
+            var actTitle="好消息";
+            var v_colAct_num=$(".appendCur .v_colAct_num").val();
+            for( var i=0;i<v_colAct_num;i++ ){
+                var str=" <li><a>"+actTitle+"</a></li>";
+                $(".appendCur .listGroupAct").append(str);
+            }
+        }
+
+        function tData(){
+            var lhbb_id="";
+            var lhbb_num="";
+            $.ajax({
+                async : false,
+                cache:true,
+                type: 'post',
+                dataType : "jsonp",
+                data:{dataType:"jsonp",channelId:lhbb_id,limit:lhbb_num},  //参数
+                url:"http://192.168.31.2/demo_data/channel_article_list_index.do",//请求的action路径
+                success:function(data){ //请求成功后处理函数。
+                }
+            });
+        }
+        //返回的真实数据
+        function tDataCallback(data){
+            var list = data.dataList;
+            for(var i=0; i<list_3g2.length; i++ ){
+                var str='<p><a href="#"/>'+list_3g2[i].title+'<a><p/>';
+                $(" .lh.showId").append(str);
+            }
+        }
+    </script>
+</div>
+
+</div>
