@@ -719,8 +719,48 @@ function mouseCoords(event) {
     };
 }
 
+//preview---预览
+$(".preview").click(function(){
 
+    var main=$('.main').clone();
+    var strSection="";
+    var strHeader="";
+    var strFooter="";
+    $(main).find(".editorBlock").removeClass("container").addClass("sectionContainer");
+    $(main).find(".panel-heading").remove();
+    $(main).find(".resize-handle").remove();
+    $(main).find(".sortArea").remove();
+    $(main).find(".firstLocation").remove();
 
+    var groupDivs=$(main).find(".groupDiv ");
+    for( var i=0;i<groupDivs.length;i++ ){
+        if( $(groupDivs[i]).children().hasClass("appendStr") ){
+            $(groupDivs[i]).removeClass("list-group-item");
+            $(groupDivs[i]).find(".panel-body").removeClass("panel-body");
+
+            if( $(groupDivs[i]).find(".panel").attr("data-header")=="header" ){
+                strHeader+=$(groupDivs[i]).prop("outerHTML");
+            }else if( $(groupDivs[i]).find(".panel").attr("data-footer")=="footer" ){
+                strFooter+=$(groupDivs[i]).prop("outerHTML");
+            }else{
+                strSection+=$(groupDivs[i]).prop("outerHTML");
+            }
+
+            $(groupDivs[i]).find(".panel").removeClass("panel");
+
+        }
+    }
+
+    $(main).find(".editorBlock").html("").html(strSection).removeClass("editorBlock").addClass("section");
+    $(main).find(".editorHeader").html("").html(strHeader).removeClass("editorHeader").addClass("header");
+    $(main).find(".editorFooter").html("").html(strFooter).removeClass("editorFooter").addClass("footer");
+
+    var strAll=$(main).html();
+
+    $.zui.store.set('name', strAll);
+    window.open('preview.html');
+    console.log( $('.main').html() )
+});
 
 
 

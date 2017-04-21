@@ -37,11 +37,40 @@ nav,#banner,section,footer{
 }
 .row{
     margin:0;
+    /*padding:0;*/
 }
 .container{
     padding:0;
 }
-
+/*————————预览需要的改动元素————————*/
+.header [class*="col-"],.section [class*="col-"],.footer [class*="col-"]{
+    padding:0;
+}
+.header:after,.section:after,.footer:after{
+    content: '';
+    display: block;
+    clear: both;
+}
+.header{
+    margin-bottom:30px;
+}
+.footer{
+    margin-top:30px;
+}
+.header .panel,.section .panel{
+    margin-bottom:32px;
+}
+.footer .panel{
+    margin-bottom:0;
+}
+.sectionContainer{
+    width:972px;
+    margin: 0 auto;
+}
+.section .panel{
+    border:none;
+    padding:0 8px;
+}
 
 /*____________header01_3g3______________________*/
 .header01_top{
