@@ -17,7 +17,7 @@
     max('.listVideo_vertical_title',22);
     max('.listHor_text-title',23);
     max('.listHor_text-content',54);
-    max('.RecommendWithText_list_title',16);
-    max('.RecommendWithImage_list_dd_title',16);
+    //max('.RecommendWithText_list_title a',16);
+    //max('.RecommendWithImage_list_dd_title',16);
 
 //};

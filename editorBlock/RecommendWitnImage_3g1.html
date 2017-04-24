@@ -1,0 +1,110 @@
+<div class="col-md-4 col-sm-4 appendStr RecommendWitnImage_3g1" name="" id="RecommendWitnImage_3g1" data-blockSize="4">
+
+<div class="style" "exist">
+    <style>
+        .clearFloat:after{content:"";display: block;clear: both;}
+        .RecommendWithImage_whiteColor{
+            width: 308px;
+        }
+        .RecommendWithImage_list_li{
+            padding-bottom: 16px;
+        }
+        .RecommendWithImage_head{display:inline-block;height: 22px;
+            font-family:PingFangSC-Regular;
+            font-size:20px;
+            line-height:22px;
+            text-align:left;
+            padding-left: 15px;
+            margin-top: 13px;margin-bottom: 13px}
+        .RecommendWithImage_list_image{width: 120px;height: 72px;margin-left: 16px;margin-top: 12px;margin-bottom: 4px}
+        .RecommendWithImage_list__dt{float: left;}
+        .RecommendWithImage_list_dd{float: left;}
+        .RecommendWithImage_list_dd_title{
+            height: 40px;width: 144px;
+            line-height: 20px;
+            overflow: hidden;
+            font-family:MicrosoftYaHei;
+            font-size:16px;
+            text-align:left;margin-left:12px;margin-top: 27px; }
+        .RecommendWithImage_headName{margin-bottom:12px;width:308px;height: 48px }
+    </style>
+</div>
+
+<div class="panel appendNot" data-id="3">
+    <input type="hidden" class="v_recommendImage_name" value="相关推荐"/>
+    <input type="hidden" class="v_recommendImage_num" value="6"/>
+    <div class="panel-heading">
+        <span class="title">列表1</span>
+    </div>
+    <div class="panel-body">
+        <div class="RecommendWithImage_whiteColor" "exist">
+            <div class="RecommendWithImage_headName  RecommendWithImage_whiteColor ">
+                <p class="RecommendWithImage_head recommendImage_name showId">相关推荐</p>
+            </div>
+            <div class="RecommendWithImage_whiteColor">
+                <ul class="RecommendWithImage_list_li showId">
+
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="resize-handle"><i class="icon icon-resize-h"></i></div>
+
+
+<div class="script" "exist">
+    <script>
+        var flag="v";
+        if(flag == "v"){
+            vData()
+        }else{
+
+            tData();
+        }
+
+        function vData(){
+            $(".appendCur .RecommendWithImage_list_li").html("");//   .lh   是你要改数据的div
+            var v_recommendImage_name=$(".appendCur .v_recommendImage_name").val();
+            if(v_recommendImage_name!=""){
+                $(".appendCur .recommendImage_name").html(v_recommendImage_name);
+            }
+            var v_recommendImage_num=$(".appendCur .v_recommendImage_num").val();
+
+            var title="日防卫相访问东帝汶及印发嘎嘎地方订单撒爱上大叔大叔";
+            for(var i=0;i<v_recommendImage_num;i++){
+                var str= '<li><dl class="clearFloat"> ' +
+                        '<dt class="RecommendWithImage_list__dt"> ' +
+                        '<img src="../img/banner3.png" class="RecommendWithImage_list_image">' +
+                        ' </dt> <dd class="RecommendWithImage_list_dd">' +
+                        ' <p class="RecommendWithImage_list_dd_title"><a href="#">'+title+'</a></p>' +
+                        ' </dd> </dl>';
+                $(".appendCur .RecommendWithImage_list_li").append(str);
+            }
+        }
+        //            真数据 (接口)
+        function tData(){
+            var lhbb_id="";
+            var lhbb_num="";
+            $.ajax({
+                async : false,
+                cache:true,
+                type: 'post',
+                dataType : "jsonp",
+                data:{dataType:"jsonp",channelId:lhbb_id,limit:lhbb_num},  //参数
+                url:"http://192.168.31.2/demo_data/channel_article_list_index.do",//请求的action路径
+                success:function(data){ //请求成功后处理函数。
+                }
+            });
+        }
+        //返回的真实数据
+        function tDataCallback(data){
+            var list = data.dataList;
+            for( var i=0;i<list.length;i++ ){
+                var str='<p><a href="#"/>'+list[i].title+'<a><p/>';
+                $(".lh.showId").append(str);
+            }
+        }
+    </script>
+</div>
+
+</div>

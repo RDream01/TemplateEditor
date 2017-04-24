@@ -301,10 +301,45 @@ nav,#banner,section,footer{
 }
 
 
+/*____________________downPhone_3g1_____________________*/
+.QR_head{
+    color:#333333;
+    border-left: 3px solid #c33;
+}
+.QR_title{
+    background-color: #ffffff;
+}
+.QR_secBack {
+    background-color: #ffffff;
+}
+
+/*______________________RecommendWithText_3g1________________*/
+.RecommendWithText_head{
+    border-left: 3px solid #c33;
+    color:#333333;
+}
+.RecommendWithText_list{
+    background-color: #ffffff;
+}
+.RecommendWithText_list_title{
+    color:#3c3c3c;
+}
+.RecommendWithText_whiteColor{
+    background-color: #ffffff;
+}
 
 
-
-
+/*_____________________RecommendWithImage_3g1____________________*/
+.RecommendWithImage_head{
+    border-left: 3px solid #c33;
+    color:#333333;
+}
+.RecommendWithImage_list_dd_title{
+    color:#3c3c3c;
+}
+.RecommendWithImage_whiteColor{
+    background-color: #ffffff;
+}
 
 
 

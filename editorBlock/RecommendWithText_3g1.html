@@ -1,0 +1,106 @@
+<div class="col-md-4 col-sm-4 appendStr RecommendWithText_3g1" name="" id="RecommendWithText_3g1" data-blockSize="4">
+
+<div class="style" "exist">
+    <style>
+        .RecommendWithText{
+            width: 308px;
+        }
+        .clearFloat:after{content:"";display: block;clear: both;}
+        .RecommendWithText_head{display:inline-block;height: 22px;
+            font-size:20px;
+            line-height:22px;
+            text-align:left;
+            padding-left: 15px;
+            margin-top: 13px;margin-bottom: 13px}
+        .RecommendWithText_list{margin-top: 12px;width: 308px;padding-top: 12px}
+        .RecommendWithText_list_title{
+            font-size: 16px;
+            text-align: left;
+            margin-left: 16px;
+            max-height: 40px;
+            overflow: hidden;
+            letter-spacing: 0.75px;
+            line-height: 20px;
+        }
+        .RecommendWithText_list_li{padding-bottom: 10px;}
+        .RecommendWithText_whiteColor{margin-bottom:13px;width:308px;height: 48px;}
+    </style>
+</div>
+
+<div class="panel appendNot" data-id="3">
+    <input type="hidden" class="v_recommendText_name" value="相关推荐"/>
+    <input type="hidden" class="v_recommendText_num" value="3"/>
+    <div class="panel-heading">
+        <span class="title">列表1</span>
+    </div>
+    <div class="panel-body">
+        <div class="RecommendWithText" "exist">
+            <div  class="RecommendWithText_whiteColor">
+                <p class="RecommendWithText_head recommendText_name showId">相关推荐</p>
+            </div>
+            <div class="RecommendWithText_list">
+                <ul class="RecommendWithText_list-ul showId">
+
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="resize-handle"><i class="icon icon-resize-h"></i></div>
+
+
+
+<div class="script" "exist">
+    <script>
+        var flag="v";
+        if(flag == "v"){
+            vData()
+        }else{
+
+            tData();
+        }
+
+        function vData(){
+            $(".appendCur .RecommendWithText_list-ul").html("");//   .lh   是你要改数据的div
+            var v_recommendText_name=$(".appendCur .v_recommendText_name").val();
+            if(v_recommendText_name!=""){
+                $(".appendCur .recommendText_name").html(v_recommendText_name);
+            }
+            var v_recommendText_num=$(".appendCur .v_recommendText_num").val();
+
+            var title="闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标";
+            for(var i=0;i<v_recommendText_num;i++){
+                var str= '<li class="RecommendWithText_list_li">' +
+                        '<p class="RecommendWithText_list_title" ><a href="#">'+title+'</a></p> ' +
+                        '</li>';
+                $(".appendCur .RecommendWithText_list-ul").append(str);
+            }
+        }
+        //            真数据 (接口)
+        function tData(){
+            var lhbb_id="";
+            var lhbb_num="";
+            $.ajax({
+                async : false,
+                cache:true,
+                type: 'post',
+                dataType : "jsonp",
+                data:{dataType:"jsonp",channelId:lhbb_id,limit:lhbb_num},  //参数
+                url:"http://192.168.31.2/demo_data/channel_article_RecommendWithText_list_index.do",//请求的action路径
+                success:function(data){ //请求成功后处理函数。
+                }
+            });
+        }
+        //返回的真实数据
+        function tDataCallback(data){
+            var RecommendWithText_list = data.dataRecommendWithText_list;
+            for( var i=0;i<RecommendWithText_list.length;i++ ){
+//                        var str='&lt;p&gt;&lt;a href="#"/&gt;'+RecommendWithText_list[i].title+'&lt;a/&gt;&lt;p/&gt;';
+                var str='<p><a href="#"/>'+RecommendWithText_list[i].title+'<a><p/>';
+                $(".lh").append(str);
+            }
+        }
+    </script>
+</div>
+
+</div>
