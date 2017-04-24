@@ -1,0 +1,146 @@
+
+<div class="col-md-8 col-sm-8 appendStr listVideo_3g2" name="" id="listVideo_3g2" data-blockSize="8">
+
+<div class="style" "exist">
+    <style>
+        .clearFloat:after{content:"";display: block;clear: both;}
+        .listVideo_top{width: 632px;height: 48px;}
+        .listVideo3g2All{width:632px;}
+        .listVideo_top_left{float: left}
+        .listVideo_top_left_red{font-family:PingFangSC-Regular; font-size: 20px;  line-height:22px; text-align:left;margin-top: 13px;padding-left: 15px}
+        .listVideo_top_right{float: right}
+        .listVideo_top_right li{display: block;float: left;margin-top: 17px;margin-right:16px;margin-left: 12px;}
+        .listVideo_body{width: 632px;margin-top: 12px;padding-bottom:16px; }
+        .listVideo-vertical{display: block;float: left;width: 192px;height: 188px;margin-left: 16px;margin-top: 16px;}
+        .listVideo_vertical_image{width: 193px;height: 117px;position: relative}
+        .listVideo_vertical_foot{display: block;margin-top:8px;vertical-align: middle;width: 192px;height: 16px;font-family:MicrosoftYaHei; font-size: 12px;  text-align:left;}
+        .listVideo_vertical_title{
+            width: 192px;height: 42px;line-height: 20px;font-size:16px;
+            letter-spacing:0.5px; text-align:left;font-family:PingFangSC-Regular;
+            overflow: hidden;
+        }
+        .listVideo_vertical_action{display:inline-block;vertical-align: middle;font-family:PingFangSC-Regular; font-size: 12px;  letter-spacing:0; text-align:left;width: 48%;}
+        .listVideo_vertical_action1{float:right;display:inline-block;vertical-align: middle;font-family:PingFangSC-Regular; font-size: 12px;  letter-spacing:0; text-align:right;width: 50%;}
+        .listVideo_video_play{width: 19px;height: 16px;margin-right: 3px; }
+        .listVideo_video_suspend{display:block;position:absolute;left: 81px;top:43px}
+        .listVideo_listVideo_video_suspend{display:block;width: 30px;height: 30px;}
+        .listVideo_vido_time{position: absolute;bottom: 5px;left: 4px;font-family:MicrosoftYaHei; font-size: 12px;  text-align:left;}
+        .clearFloat:after{content:"";display: block;clear: both;}
+        .listVideoUl{
+            float: left;
+        }
+        .listVideoMore{
+            display: inline-block;
+            margin-top:17px;
+            margin-right: 12px;
+            margin-left: 12px;
+        }
+
+    </style>
+</div>
+
+
+<div class="panel appendNot" data-id="3">
+    <input type="hidden" class="v_video_name" value="我 的  的"/>
+    <input type="hidden" class="v_video_num" value="4"/>
+    <input type="hidden" class="v_videoAct_num" value="3"/>
+    <div class="panel-heading">
+        <span class="title">列表1</span>
+    </div>
+    <div class="panel-body">
+        <div class="listVideo3g2All" "exist">
+            <div class="listVideo_top clearFloat listVideo_whiteColor">
+                <div  class="listVideo_top_left">
+                    <p class="listVideo_top_left_red video_name showId">暖新闻</p>
+                </div>
+                <div class="listVideo_top_right">
+                    <ul class="clearFloat listVideoUl showId">
+
+                    </ul>
+                    <span class="listVideoMore">|</span>
+                    <span class="listVideoMore"><a href="#">更多</a></span>
+                </div>
+            </div>
+            <div class="listVideo_body clearFloat listVideo_whiteColor showId">
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="resize-handle"><i class="icon icon-resize-h"></i></div>
+
+
+<div class="script" "exist">
+    <script>
+        var flag="v";
+        if(flag == "v"){
+            vData()
+        }else{
+
+            tData();
+        }
+        //            假数据(我写的)
+        function vData(){
+            $(".appendCur .listVideo_body").html("");//   .lh   是你要改数据的div
+            $(".appendCur .listVideoUl").html("");//   .lh   是你要改数据的div
+
+            var v_video_name=$(".appendCur .v_video_name").val();
+
+            if(v_video_name!=""){
+                $(".appendCur #topic-title").html(v_video_name);
+            }
+
+            var v_video_num=$(".appendCur .v_video_num").val();
+            var title="日防卫相访问东帝汶及印发嘎嘎地方撒旦爱上大声地啊的萨达";
+            for(var i=0;i<v_video_num;i++){
+                var str= '<div class="listVideo-vertical">' +
+                        '<dl class="listVideo-vertical-dl">' +
+                        '<dt class="listVideo_vertical_image">'+
+                        '<a href="#"><img src="../img/listVideo_3g2/listVideoBack.png">' +
+                        '<p class="listVideo_video_suspend"><img src="../img/listVideo_3g2/suspend.png" class="listVideo_listVideo_video_suspend"></p>' +
+                        '<p class="listVideo_vido_time">01:10</p></a>' +
+                        '</dt>'+
+                        '<dd ><p class="listVideo_vertical_title"><a href="#">视频名称视频名称视频名称视频名称</a></p>' +
+                        '<p class="listVideo_vertical_foot"><span class="listVideo_vertical_action">' +
+                        '<img src="../img/listVideo_3g2/Shape@3x.png" class="listVideo_video_play">342</span>' +
+                        '<span class="listVideo_vertical_action1">2017-03-20</span></p>'+
+                        '</dd>' +
+                        '</dl>' +
+                        '</div>';
+
+                $(".appendCur .listVideo_body").append(str);
+            }
+
+            var actTitle="好消息";
+            var v_videoAct_num=$(".appendCur .v_videoAct_num").val();
+            for( var i=0;i<v_videoAct_num;i++ ){
+                var str=" <li><a>"+actTitle+"</a></li>";
+                $(".appendCur .listVideoUl").append(str);
+            }
+        }
+        //            真数据 (接口)
+        function tData(){
+            var lhbb_id="";
+            var lhbb_num="";
+            $.ajax({
+                async : false,
+                cache:true,
+                type: 'post',
+                dataType : "jsonp",
+                data:{dataType:"jsonp",channelId:lhbb_id,limit:lhbb_num},  //参数
+                url:"http://192.168.31.2/demo_data/channel_article_list_index.do",//请求的action路径
+                success:function(data){ //请求成功后处理函数。
+                }
+            });
+        }
+        //返回的真实数据
+        function tDataCallback(data){
+            var list = data.dataList;
+            for(var i=0; i<list_3g2.length; i++ ){
+                var str='<p><a href="#"/>'+list_3g2[i].title+'<a><p/>';
+                $(".lh").append(str);
+            }
+        }
+    </script>
+</div>
+</div>

@@ -254,9 +254,51 @@ nav,#banner,section,footer{
 }
 
 
+/*________________________Banner3______________________*/
+.Banner_shadowBig{
+    background:rgba(0,0,0,0.5);
+}
+.Banner_big_title{
+    color: #ffffff;
+}
+.Banner_subheading{
+    color: #ffffff;
+}
+.Banner_shadowSmall1{
+    background:rgba(0,0,0,0.5);
+}
+.Banner_small_title{
+    color:#ffffff;
+}
 
 
+/*______________________listVideo_3g2_____________________*/
+.listVideo_whiteColor{
+    background-color: #ffffff;
+}
+.listVideo_top_left_red{
+    border-left: 3px solid #c33;
+    color: #333333;
+}
 
+.listVideo_vertical_foot{
+    color: #9b9b9b;
+}
+.listVideo_vertical_title{
+    color: #212121;
+}
+.listVideo_vertical_action{
+    color: #999999;
+}
+.listVideo_vertical_action1{
+    color: #999999;
+}
+.listVideo_vido_time{
+    color: #ffffff;
+}
+.listVideoMore a,.listVideoMore{
+    color:#999;
+}
 
 
 

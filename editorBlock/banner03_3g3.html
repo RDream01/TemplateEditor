@@ -1,0 +1,123 @@
+<div class="col-md-12 col-sm-12 appendStr banner03_3g3" name="" id="banner03_3g3" data-blockSize="12">
+<div class="style" "exist">
+    <style>
+        .Banner3All{
+            width:956px;
+        }
+        .clearFloat:after{content:"";display: block;clear: both;}
+        .Banner_mian_body{width:956px }
+        .Banner_bigImage{float: left;position: relative}
+        .Banner_smallImage{float: left;margin-left: 16px}
+        .Banner_shadowBig{position: absolute; left: 0px; bottom: 0px; width: 632px;
+            height:60px;}
+        .Banner_big_title{
+            display: inline-block;
+            font-size: 16px;
+            text-align: left;
+            padding: 0 10px;
+            margin:8px 0 2px 0;
+            height: 22px;
+            overflow: hidden;
+        }
+        .Banner_subheading{
+            font-size: 12px;  text-align:left;padding: 0 10px;font-weight: normal;
+            height: 16px;
+            display: inline-block;
+            overflow: hidden;
+        }
+        .Banner_smallImage1{width: 308px;height:158px;position: relative;}
+        .Banner_smallImage1Two{
+            margin-top:16px;
+        }
+        .Banner_shadowSmall1{position: absolute;
+            left: 0px;bottom:0px;
+
+            width:308px;
+            height:36px;}
+        .Banner_small_title{
+            display: inline-block;
+            font-size: 12px;
+            text-align: left;
+            overflow: hidden;
+            height: 36px;
+            line-height: 36px;
+            padding: 0 5px;
+        }
+        .Banner_bigImage>img{
+            width: 632px;height: 332px
+        }
+        .Banner_smallImage1>img{
+            width:308px;
+            height:158px;
+        }
+    </style>
+</div>
+
+<div class="panel appendNot" data-id="3">
+    <div class="panel-heading">
+        <span class="title">列表1</span>
+    </div>
+    <div class="panel-body">
+        <dl class="clearFloat Banner3All showId" "exist">
+
+        </dl>
+    </div>
+</div>
+</div>
+<div class="resize-handle"><i class="icon icon-resize-h"></i></div>
+
+
+<div class="script" "exist">
+    <script>
+        var flag="v";
+        if(flag == "v"){
+            vData()
+        }else{
+
+            tData();
+        }
+
+        function vData(){
+            $(".appendCur .Banner3All").html("");
+            var title="80后、90后中年未至，中年危机却已提前杀到80后、90后中年未至却已提前杀到？？";
+            var str='<dt class="Banner_bigImage"><img src="../img/banner03_3g3/banner3.png">'+
+                    '<p class="Banner_shadowBig"> ' +
+                    '<span class="Banner_big_title">'+title+'</span><br>'+
+                    '<span class="Banner_subheading">'+title+'</span>'+
+                    '</p></dt>'+
+                    '<dd class="Banner_smallImage"><div class="Banner_smallImage1">'+
+                    '<img src="../img/banner03_3g3/banner-2.png" ><p class="Banner_shadowSmall1" >'+
+                    '<span class="Banner_small_title" >'+title+'</span></p></div>'+
+                    '<div class="Banner_smallImage1 Banner_smallImage1Two"><img src="../img/banner03_3g3/banner3-1.png">'+
+                    '<p class="Banner_shadowSmall1" >'+
+                    '<span class="Banner_small_title">'+title+'</span>'+
+                    '</p></div></dd>';
+                $(".appendCur .Banner3All").append(str);
+        }
+
+        function tData(){
+            var lhbb_id="";
+            var lhbb_num="";
+            $.ajax({
+                async : false,
+                cache:true,
+                type: 'post',
+                dataType : "jsonp",
+                data:{dataType:"jsonp",channelId:lhbb_id,limit:lhbb_num},  //参数
+                url:"http://192.168.31.2/demo_data/channel_article_list_index.do",//请求的action路径
+                success:function(data){ //请求成功后处理函数。
+                }
+            });
+        }
+        function tDataCallback(data){
+            var list = data.dataList;
+            for( var i=0;i<list.length;i++ ){
+    //                        var str='&lt;p&gt;&lt;a href="#"/&gt;'+list[i].title+'&lt;a/&gt;&lt;p/&gt;';
+                var str='<p><a href="#"/>'+list[i].title+'<a><p/>';
+                $(".lh.showId").append(str);
+            }
+        }
+    </script>
+</div>
+</div>
+
