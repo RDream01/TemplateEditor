@@ -78,8 +78,8 @@
 </div>
 
 <div class="panel appendNot" data-id="3">
-    <input type="hidden" class="v_hot-topic_name" value="热门话题"/>
-    <input type="hidden" class="v_hot-topic_num" value="6"/>
+    <input type="hidden" class="v_hotTopic_name" value="话题列表"/>
+    <input type="hidden" class="v_hotTopic_num" value="5"/>
 
     <div class="panel-heading">
         <span class="title">列表1</span>
@@ -115,11 +115,11 @@
         }
         function vData() {
             $(".appendCur .list-li").html("");//   .lh   是你要改数据的div
-            var v_topic_name = $(".appendCur .v_hot-topic_name").val();
+            var v_topic_name = $(".appendCur .v_hotTopic_name").val();
             if (v_topic_name != "") {
                 $(".appendCur .hot-topic_name").html(v_topic_name);
             }
-            var v_topic_num = $(".appendCur .v_hot-topic_num").val();
+            var v_topic_num = $(".appendCur .v_hotTopic_num").val();
 
             var title = "一线房价越来越高一线房价越来越高一线房价越来越高一线房价越来越高一线房价越来越高一线房价越来越高";
             for (var i = 0; i < v_topic_num; i++) {

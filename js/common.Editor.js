@@ -516,10 +516,13 @@ function collectProperty(property, min, max) {
 
         $("#" + propertyId + "_radio").val(propertyVal);
         $("#htmlCode2 input[name="+propertyId+"]").each(function(){
-            if (this.checked) {
+            if (this.checked == false) {
                 $(this).removeAttr("checked");
             }
+        });
+        $("#htmlCode2 input[name="+propertyId+"]").each(function(){
             if($(this).val() == propertyVal){
+                $(this).attr("checked",true);
                 $(this).prop("checked",true);
             }
         });
