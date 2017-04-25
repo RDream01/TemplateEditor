@@ -89,8 +89,8 @@
 </div>
 
 <div class="panel appendNot" data-id="3">
-    <input type="hidden" class="v_ranking_name" value="点击排行"/>
-    <input type="hidden" class="v_ranking_num" value="5"/>
+    <input type="hidden" class="v_clickRanking_name" value="排行榜类型"/>
+    <input type="hidden" class="v_clickRanking_num" value="10"/>
     <div class="panel-heading">
         <span class="title">列表1</span>
     </div>
@@ -144,35 +144,35 @@
         if(flag == "v"){
             vData()
         }else{
-            var ranking_name = "";
-            if(ranking_name!=""){
-                $(".ClickRanking_RecommendHead.ranking_name.showId").html(ranking_name);
+            var v_clickRanking_name = "";
+            if(v_clickRanking_name!=""){
+                $(".ClickRanking_RecommendHead.ranking_name.showId").html(v_clickRanking_name);
             }
             tData();
         }
 
         function vData(){
             $(".appendCur .ClickRanking_ranking-ul").html("");//   .lh   是你要改数据的div
-            var v_ranking_name=$(".appendCur .v_ranking_name").val();
-            if(v_ranking_name!=""){
-                 $(".appendCur .ClickRanking_RecommendHead.ranking_name").html(v_ranking_name);
+            var v_clickRanking_name=$(".appendCur .v_clickRanking_name").val();
+            if(v_clickRanking_name!=""){
+                 $(".appendCur .ClickRanking_RecommendHead.ranking_name").html(v_clickRanking_name);
             }
-            var v_ranking_num=$(".appendCur .v_ranking_num").val();
-            var title=" 新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题";
+            var v_clickRanking_num=$(".appendCur .v_clickRanking_num").val();
+            var title="新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题";
 
-            for(var i=0;i<v_ranking_num;i++){
+            for(var i=0;i<v_clickRanking_num;i++){
                 var str= '<li class="ClickRanking_space_li" > <a href="#"><p ><span>01</span><span class="ClickRanking_title">'+title+'</span></p></a> </li>';
                 $(".appendCur .ClickRanking_ranking-ul").append(str);
             }
 
             $(".appendCur .week").html("");
-            for(var i=0;i<v_ranking_num;i++){
+            for(var i=0;i<v_clickRanking_num;i++){
                 var str= '<li class="ClickRanking_space_li"><a href="#"><p ><span>01</span><span class="ClickRanking_title">'+title+'</span></p></a> </li>';
                 $(".appendCur .week").append(str);
             }
 
             $(".appendCur .month").html("");
-            for(var i=0;i<v_ranking_num;i++){
+            for(var i=0;i<v_clickRanking_num;i++){
                 var str= '<li class="ClickRanking_space_li"><a href="#"><p ><span>01</span><span class="ClickRanking_title">'+title+'</span></p></a> </li>';
                 $(".appendCur .month").append(str);
             }
