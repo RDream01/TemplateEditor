@@ -510,8 +510,12 @@ function collectProperty(property, min, max) {
 
         var propertyVal = $(property).val();
         var propertyId = $(property).attr("name");
+
+        $(".appendCur .v_" + propertyId).val(propertyVal);
+        eval("vData_" + showId)();
+
         $("#" + propertyId + "_radio").val(propertyVal);
-        $(".col-xs-3 input[name="+propertyId+"]").each(function(){
+        $("#htmlCode2 input[name="+propertyId+"]").each(function(){
             if (this.checked) {
                 $(this).removeAttr("checked");
             }
@@ -536,7 +540,7 @@ function collectProperty(property, min, max) {
         propertyVal = propertyVal.substring(0, propertyVal.length - 1);
 
         var propertys = propertyVal.split(',');
-        $(".col-xs-3 input[name="+propertyId+"]").each(function(){
+        $("#htmlCode2 input[name="+propertyId+"]").each(function(){
             //移除之前选中的html代码中checkbox选项中checked属性
             $(this).removeAttr("checked");
             //在html代码中checkbox选项中添加checked属性
@@ -554,7 +558,7 @@ function collectProperty(property, min, max) {
         var propertyId = $(property).attr("id");
         if (((/^[1-9]\d*$/).test(val)) && (val >= min) && (val <= max)) {
             var propertyVal = val;
-            $(".col-xs-3 #" + propertyId).attr("value",propertyVal);//undo redo 当修改属性之后的区块页面在新增区块时使用
+            $("#htmlCode2 #" + propertyId).attr("value",propertyVal);//undo redo 当修改属性之后的区块页面在新增区块时使用
             $(".appendCur .v_" + propertyId).val(propertyVal);
             eval("vData_" + showId)();
             saveActionHistory($('#sortableList').html().trim(),$('#htmlCode2').html().trim(),obj,'number',propertyVal+"|"+$("#" + propertyId + "_undoRedo").val()+"|"+propertyId);//undo redo save
@@ -570,7 +574,7 @@ function collectProperty(property, min, max) {
         var propertyId = $(property).attr("id");
         if ((val.length >= min) && (val.length <= max)) {
             var propertyVal = val;
-            $(".col-xs-3 #" + propertyId).attr("value",propertyVal);//undo redo 当修改属性之后的区块页面在新增区块时使用
+            $("#htmlCode2 #" + propertyId).attr("value",propertyVal);//undo redo 当修改属性之后的区块页面在新增区块时使用
             $(".appendCur .v_" + propertyId).val(propertyVal);
             eval("vData_" + showId)();
             saveActionHistory($('#sortableList').html().trim(),$('#htmlCode2').html().trim(),obj,'text',propertyVal+"|"+$("#" + propertyId + "_undoRedo").val()+"|"+propertyId);//undo redo save
@@ -586,9 +590,11 @@ function collectProperty(property, min, max) {
         var propertyId = $(property).attr("id");
 
         //移除之前选中的option选项
-        $(".col-xs-3 #" + propertyId + " [value="+$("#" + propertyId + "_undoRedo").val()+"]").removeAttr("selected");
+        if($("#" + propertyId + "_undoRedo").val() != undefined && $("#" + propertyId + "_undoRedo").val() != ''){
+            $("#htmlCode2 #" + propertyId + " [value="+$("#" + propertyId + "_undoRedo").val()+"]").removeAttr("selected");
+        }
         //undo redo 当修改属性之后的区块页面在新增区块时使用
-        $(".col-xs-3 #" + propertyId + " [value="+propertyVal+"]").attr("selected","true");
+        $("#htmlCode2 #" + propertyId + " [value="+propertyVal+"]").attr("selected","true");
         saveActionHistory($('#sortableList').html().trim(),$('#htmlCode2').html().trim(),obj,'select',propertyVal+"|"+$("#" + propertyId + "_undoRedo").val()+"|"+propertyId);//undo redo save
         //undo redo 将修改之后的值放入页面中 为了拿到修改之前的值
         $("#" + propertyId + "_undoRedo").val(propertyVal);

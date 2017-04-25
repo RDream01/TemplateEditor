@@ -12,13 +12,13 @@ function undo(){
         if(actionStack[actionIndex-1].type == "text" || actionStack[actionIndex-1].type == "number"
             ||actionStack[actionIndex-1].type == "select"){
             var propertyId = actionStack[actionIndex-1].value.split("|")[2];//拿到选项ID
-            $(".col-xs-3 #" + propertyId).val(actionStack[actionIndex-1].value.split("|")[1]);//修改页面上的input框变为原来的值
+            $("#htmlCode2 #" + propertyId).val(actionStack[actionIndex-1].value.split("|")[1]);//修改页面上的input框变为原来的值
             $(".appendCur .v_" + propertyId).val(actionStack[actionIndex-1].value.split("|")[1]);//修改区块
             eval("vData_" + $(".appendCur").parent().attr("data-showId"))();//修改区块
         }else if(actionStack[actionIndex-1].type == "checkbox"){
             var propertyId = actionStack[actionIndex-1].value.split("|")[2];//拿到选项ID
             var propertys = actionStack[actionIndex-1].value.split("|")[1].split(',');
-            $(".col-xs-3 input[name="+propertyId+"]").each(function(){
+            $("#htmlCode2 input[name="+propertyId+"]").each(function(){
                 //移除之前选中的html代码中checkbox选项中checked属性
                 $(this).removeAttr("checked");
                 //在html代码中checkbox选项中添加checked属性
@@ -31,17 +31,19 @@ function undo(){
             });
         }else if(actionStack[actionIndex-1].type == "radio"){
             var propertyId = actionStack[actionIndex-1].value.split("|")[2];//拿到选项ID
-            $(".col-xs-3 input[name="+propertyId+"]").each(function() {
+            $("#htmlCode2 input[name="+propertyId+"]").each(function() {
                 if (this.checked) {
                     $(this).removeAttr("checked");
                 }
             });
-            $(".col-xs-3 input[name="+propertyId+"]").each(function(){
+            $("#htmlCode2 input[name="+propertyId+"]").each(function(){
                 if($(this).val() == actionStack[actionIndex-1].value.split("|")[1]){
                     $(this).prop("checked",true);
                 }
             });
             $("#" + propertyId + "_radio").val(actionStack[actionIndex-1].value.split("|")[1]);
+            $(".appendCur .v_" + propertyId).val(actionStack[actionIndex-1].value.split("|")[1]);//修改区块
+            eval("vData_" + $(".appendCur").parent().attr("data-showId"))();//修改区块
         }else{
             $('#sortableList').html(actionStack[actionIndex-1].oldValue1);
             $('#htmlCode2').html(actionStack[actionIndex-1].oldValue2);
@@ -64,13 +66,13 @@ function redo(){
         if(actionStack[actionIndex].type == "text" || actionStack[actionIndex].type == "number"
             || actionStack[actionIndex].type == "select"){
             var propertyId = actionStack[actionIndex].value.split("|")[2];//拿到选项ID
-            $(".col-xs-3 #" + propertyId).val(actionStack[actionIndex].value.split("|")[0]);//修改页面上的input框变为原来的值
+            $("#htmlCode2 #" + propertyId).val(actionStack[actionIndex].value.split("|")[0]);//修改页面上的input框变为原来的值
             $(".appendCur .v_" + propertyId).val(actionStack[actionIndex].value.split("|")[0]);//修改区块
             eval("vData_" + $(".appendCur").parent().attr("data-showId"))();//修改区块
         }else if(actionStack[actionIndex].type == "checkbox"){
             var propertyId = actionStack[actionIndex].value.split("|")[2];//拿到选项ID
             var propertys = actionStack[actionIndex].value.split("|")[0].split(',');
-            $(".col-xs-3 input[name="+propertyId+"]").each(function(){
+            $("#htmlCode2 input[name="+propertyId+"]").each(function(){
                 //移除之前选中的html代码中checkbox选项中checked属性
                 $(this).removeAttr("checked");
                 //在html代码中checkbox选项中添加checked属性
@@ -83,17 +85,19 @@ function redo(){
             });
         }else if(actionStack[actionIndex].type == "radio"){
             var propertyId = actionStack[actionIndex].value.split("|")[2];//拿到选项ID
-            $(".col-xs-3 input[name="+propertyId+"]").each(function() {
+            $("#htmlCode2 input[name="+propertyId+"]").each(function() {
                 if (this.checked) {
                     $(this).removeAttr("checked");
                 }
             });
-            $(".col-xs-3 input[name="+propertyId+"]").each(function(){
+            $("#htmlCode2 input[name="+propertyId+"]").each(function(){
                 if($(this).val() == actionStack[actionIndex].value.split("|")[0]){
                     $(this).prop("checked",true);
                 }
             });
             $("#" + propertyId + "_radio").val(actionStack[actionIndex].value.split("|")[0]);
+            $(".appendCur .v_" + propertyId).val(actionStack[actionIndex].value.split("|")[0]);//修改区块
+            eval("vData_" + $(".appendCur").parent().attr("data-showId"))();//修改区块
         }else{
             $('#sortableList').html(actionStack[actionIndex].newValue1);
             $('#htmlCode2').html(actionStack[actionIndex].newValue2);

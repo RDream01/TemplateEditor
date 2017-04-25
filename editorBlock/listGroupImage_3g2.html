@@ -54,13 +54,23 @@
             height:17px;
             vertical-align: middle;
         }
+        .listGroupImage{
+            width: 15px;
+            vertical-alignt: middle;
+            padding-bottom: 3px;
+            margin-right:3px;
+        }
+        .listGroupBar{
+            padding:0 5px;
+        }
     </style>
 </div>
 
 <div class="panel appendNot" data-id="3">
-    <input type="hidden" class="v_column_name" value="组图"/>
-    <input type="hidden" class="v_column_num" value="4"/>
-    <input type="hidden" class="v_colAct_num" value="3"/>
+    <input type="hidden" class="v_listGroupImage_name" value="组图列表"/>
+    <input type="hidden" class="v_listGroupImage_num" value="3"/>
+    <input type="hidden" class="v_listGroupImage_radio" value="Y"/>
+    <!--<input type="hidden" class="v_colAct_num" value="3"/>-->
     <div class="panel-heading">
         <span class="title">列表1</span>
     </div>
@@ -71,10 +81,10 @@
                     <p class="listGroupImage_top_leftRed column_name showId">组图</p>
                 </div>
                 <div class="listGroupImage_top_right">
-                    <ul class="listGroupAct showId clearFloat">
+                    <!--<ul class="listGroupAct showId clearFloat">
 
                     </ul>
-                    <span class="listGroupMore">|</span>
+                    <span class="listGroupMore">|</span>-->
                     <span class="listGroupMore"><a href="#">更多</a></span>
                 </div>
             </div>
@@ -102,14 +112,15 @@
 
         function vData(){
             $(".appendCur .listGroupImage_list_body").html("");//   .lh   是你要改数据的div
-            $(".appendCur .listGroupAct").html("");//   .lh   是你要改数据的div
-            var v_column_name=$(".appendCur .v_column_name").val();
-            if(v_column_name!=""){
-                $(".appendCur .column_name").html(v_column_name);
+            //$(".appendCur .listGroupAct").html("");//   .lh   是你要改数据的div
+            var v_listGroupImage_name=$(".appendCur .v_listGroupImage_name").val();
+            if(v_listGroupImage_name!=""){
+                $(".appendCur .column_name").html(v_listGroupImage_name);
             }
-            var v_column_num=$(".appendCur .v_column_num").val();
-            var title="日防卫相访问东帝汶及印发嘎嘎地方萨达撒多阿萨德阿萨德阿萨德爱上爱上阿萨德啊";
-            for(var i=0;i<v_column_num;i++){
+            var v_listGroupImage_num=$(".appendCur .v_listGroupImage_num").val();
+            var v_listGroupImage_radio=$(".appendCur .v_listGroupImage_radio").val();
+            var title="日防卫相访问东帝汶及印发嘎嘎";
+            for(var i=0;i<v_listGroupImage_num;i++){
                 var str= '<div class="listGroupImage_vertical"> '+
                     '<dl class="listGroupImage_vertical_image"> ' +
                     '<dt class="listGroupImage-image"> <a href="#"> <img src="../img/listGroupImage_3g2/tiger.jpg" > ' +
@@ -117,20 +128,24 @@
                     '<img src="../img/listGroupImage_3g2/imageNum.png" style="width: 13px;height: 12px;margin-bottom: 3px;margin-left: 8px"> ' +
                     '<span class="listGroupImage-imageNumtext">11张</span> </p > </a>'+
                     ' </dt><dd><p class="listGroupImage_vertical_title">'+title+'</p>' +
-                    '<p> <span class="listGroupImage-vertical-action">擎好网</span>' +
-                    '<span class="listGroupImage-vertical-action1">2017-03-20</span></p> ' +
+                    '<p> <span class="listGroupImage-vertical-action">擎好网';
+                    if(v_listGroupImage_radio == 'Y'){
+                        str += '<span class="listGroupBar"> | </span>';
+                        str += '<img src="../img/listGroupImage_3g2/commentImg.png" class="listGroupImage"/>20';
+                    }
+                str += '</span><span class="listGroupImage-vertical-action1">2017-03-20</span></p> ' +
                     '</dd> ' +
                     '</dl>' +
                     ' </div>';
                 $(".appendCur .listGroupImage_list_body").append(str);
             }
 
-            var actTitle="好消息";
-            var v_colAct_num=$(".appendCur .v_colAct_num").val();
-            for( var i=0;i<v_colAct_num;i++ ){
-                var str=" <li><a>"+actTitle+"</a></li>";
-                $(".appendCur .listGroupAct").append(str);
-            }
+//            var actTitle="好消息";
+//            var v_colAct_num=$(".appendCur .v_colAct_num").val();
+//            for( var i=0;i<v_colAct_num;i++ ){
+//                var str=" <li><a>"+actTitle+"</a></li>";
+//                $(".appendCur .listGroupAct").append(str);
+//            }
         }
 
         function tData(){
