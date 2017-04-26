@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/zui.min.Editor.css"/>
+    <link rel="stylesheet" href="../css/editor.css"/>
+    <title>编辑器首页</title>
+</head>
+<body>
+
+<!--header-->
+<div class="editorIndexHeader">
+    <p class="editorAct">
+        <img src="../img/editor/addEditor.png" alt=""/>
+        <img src="../img/editor/leadingIn.png" alt=""/>
+    </p>
+    <p class="editorTxt">模板编辑器</p>
+</div>
+<!--section-->
+<div class="indexAll">
+    <div id="multiDroppableContainer">
+        <!--left--组件-->
+        <div class="partAll">
+            <p class="widget widgetP">模块布局<i class="icon-2x icon-sort-down"></i></p>
+            <div class="widget widgetDiv">
+                <p>组件库</p>
+                <select class="form-control" disabled>
+                    <option value="">所有类型</option>
+                </select>
+            </div>
+            <!--查找-->
+            <div class="widgetBottom">
+                <p class="widgetFixed">
+                    <input type="search" id="searchPart" placeholder="查找组件"/>
+                    <label for="searchPart"><a href="#"><img src="../img/editor/searchPart.png" alt=""/></a></label>
+                </p>
+            </div>
+        </div>
+
+        <!--center--main-->
+        <div class="main ">
+            <!--header-->
+            <div class="editorHeader">
+
+            </div>
+            <!--section-->
+            <div class="editorBlock container">
+                <div class="newSection dashboard dashboard-draggable" >
+                    <div class="row haha list-group" id="sortableList">
+                        <div class="editorFunction">
+                            <p>请 <span class="editorNew">新建</span> 或 <span class="editorLeadIn">导入</span> 模板</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--footer-->
+            <div class="editorFooter">
+
+            </div>
+        </div>
+
+        <!--right--属性-->
+        <div class="property" id="htmlCode2">
+            <p class="widget widgetP">控件属性</p>
+            <p class="widget widgetP">控件数据链接</p>
+            <!--删除-->
+            <div class="widgetBottomDelete">
+                <p class="widgetFixed"><i class="icon icon-trash"></i><span>删除当前控件</span></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<script src="../js/jquery-1.11.3.js"></script>
+<script>
+//    if(  ){}
+
+    $(".main").css("width",(parseFloat( window.screen.availWidth )-230-230)+"px");
+    $(".main").css("height",(parseFloat(window.screen.availHeight)-65-65)+"px");
+    $(".partAll").css("height",(parseFloat(window.screen.availHeight)-65-65)+"px");
+    $(".property").css("height",(parseFloat(window.screen.availHeight)-65-65)+"px");
+
+    $(".editorAct img").click(function(){
+
+    });
+</script>
+</body>
+</html>
