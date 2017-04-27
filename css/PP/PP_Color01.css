@@ -1,0 +1,23 @@
+/*主色*/
+.mainColor{
+    color:#cc3333;
+}
+
+/*标题色*/
+.titleColor{
+    color:#333333;
+}
+/*文章摘要等段落*/
+.abstractColor{
+    color:#666666;
+}
+
+/*文章来源，日期文字色号，及首页投票显示大段文字*/
+.dateColor{
+    color:#999999;
+}
+/*页面背景色*/
+.pageBackGroundColor{
+    background-color:#fafafa;
+}
+

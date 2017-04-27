@@ -1,0 +1,45 @@
+@charset "utf-8";
+/*通用样式*/
+body {
+    /*font: 12px "microsoft yahei", Arial, Helvetica, sans-serif;*/
+    color:#666;
+    margin:0;
+    padding:0;
+    /*background-color:#fafafa;*/
+}
+ul,li,p,h1,h2,h3,h4,h5,h6,dl,dt,dd,input {
+    margin:0;
+    padding:0;
+    border:none;
+    list-style:none;
+}
+iframe{
+    width:0;
+    height:0;
+    margin:0;
+    padding:0;
+}
+input,select,option {border:none;}
+.lf   {float:left;}
+.rt  {float:right;}
+.clear  {clear:both;}
+a{text-decoration:none; color:#1a1a1a;}
+a:hover{color:#CA1E0D;text-decoration: none;}
+img{ vertical-align: bottom; border:none;}
+nav,#banner,section,footer{
+    margin:0 auto;
+}
+
+.Grid4g1{
+    width: 228px;
+  }
+.Grid4g2{
+    width: 468px;
+}
+.Grid4g3{
+    width: 708px;
+}
+
+.Grid4g4{
+    width: 960px;
+}

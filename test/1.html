@@ -1,42 +1,13 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-    <title>JS获得鼠标位置（兼容多浏览器ie,firefox）脚本之家修正版</title>
-</head>
-
-<body>
-
 <script>
-    function mouseMove(ev) {
-        ev= ev || window.event;
-        var mousePos = mouseCoords(ev);
-
-        console.log( "x"+ mousePos.x);
-        console.log( "y"+ mousePos.y);
-        console.log( "h"+ document.documentElement.clientHeight);
-//        document.getElementById("xxx").value = mousePos.x;
-//        document.getElementById("yyy").value = mousePos.y;
-//        document.getElementById("hhh").value = document.documentElement.clientHeight;
-    }
-
-    function mouseCoords(ev) {
-        if(ev.pageX || ev.pageY){
-            return {x:ev.pageX, y:ev.pageY};
-        }
-        return {
-            x:ev.clientX + document.body.scrollLeft - document.body.clientLeft,
-            y:ev.clientY + document.body.scrollTop - document.body.clientTop
-        };
-    }
-
-    document.onmousemove = mouseMove;
+    if (/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent)) {
+        //alert(navigator.userAgent);
+        alert(1)
+        window.location.href ="";
+    } else if (/(Android)/i.test(navigator.userAgent)) {
+        alert(2)
+        window.location.href ="";
+    } else {
+        alert(3)
+        window.location.href ="";
+    };
 </script>
-鼠标 X 轴:
-<input id=xxx type=text>
-
-鼠标 Y 轴:
-<input id=yyy type=text>
-鼠标 h 轴:
-<input id=hhh type=text>
-</body> 

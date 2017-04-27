@@ -1,10 +1,7 @@
 /**
- * Created by 大丽丽 on 2017/4/21.
- */
-/**
  * Created by yiyunshidai on 2017/4/14.
  */
-window.onload= function(){
+//window.onload= function(){
     function max(yuan,len){
         var y=$(yuan);
         for( var i= 0,maxwidth=len;i< y.length;i++ ){
@@ -23,4 +20,4 @@ window.onload= function(){
     max('.RecommendWithText_list_title',16);
     max('.RecommendWithImage_list_dd_title',16);
 
-};
+//};
