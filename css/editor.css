@@ -54,7 +54,7 @@ nav,#banner,section,footer{
 }
 .editorAct{
     position: absolute;
-    z-index: 10;
+    z-index: 10000000;
     float: left;
     margin-left:50px;
     line-height: 45px;
@@ -88,9 +88,14 @@ nav,#banner,section,footer{
 }
 .partAll{
     border-right:2px solid rgba(0,0,0,.12);
+    padding-bottom:65px;
+    color:#333;
 }
 .property{
     border-left:2px solid rgba(0,0,0,.12);
+    padding-bottom:65px;
+    color:#333;
+    font-size:12px;
 }
 .main{
     /*border-right:2px solid rgba(0,0,0,.12);*/
@@ -127,7 +132,7 @@ nav,#banner,section,footer{
     height:75px;
 }
 .widgetDiv p{
-    margin-top:8px;
+    padding-top:8px;
 }
 .widgetDiv select{
     width:90%;
@@ -174,13 +179,15 @@ nav,#banner,section,footer{
 }
 /*widgetBottomDelete*/
 .widgetBottomDelete{
+    cursor: pointer;
     height:65px;
     padding-top: 12px;
     width:225px;
     text-align: center;
     position: fixed;
     bottom:0;
-    right:0;
+    right:3px;
+    background:#fff;
 }
 .widgetBottomDelete .widgetFixed{
     background-color: #f2f2f2;
@@ -202,6 +209,290 @@ nav,#banner,section,footer{
     color:#4285f4;
     cursor: pointer;
 }
+.tooltip-inner{
+    width:70px;
+    height:26px;
+    line-height: 20px;
+}
+/*新建，导入对话框*/
+.myModal .modal-dialog{
+    width:780px;
+    border-radius: 0;
+}
+.modelTitle{
+    background:#4285f4;
+    height:55px;
+    line-height:55px;
+    font-size:20px;
+    letter-spacing: 1px;
+    color:#ffffff;
+    text-align:center;
+}
+.modalOption{
+    width:520px;
+    margin:50px auto 80px;
+}
+.modalAct{
+    border-bottom:1px solid #cbcbcb;
+    padding:4px 30px;
+}
+.modalAct input{
+    width:100%;
+    outline: none;
+    font-size:14px;
+    color:#aaa;
+}
+
+.modalAlter{
+    display: none;
+    max-height: 200px;
+    overflow-y: auto;
+}
+.modalCon{
+    position: relative;
+}
+.modalSelect{
+    padding:15px 30px 10px 30px;
+    cursor: pointer;
+    color:#333;
+}
+.modalBorder{
+    box-shadow:0 2px 2px 0 rgba(0,0,0,0.12), 0 4px 4px 0 rgba(0,0,0,0.24);
+}
+.modalSelect i{
+    float:right;
+}
+.modalAlter{
+    position: absolute;
+    left:0;
+    z-index:1000;
+    width:520px;
+    background:#ffffff;
+    box-shadow:0 2px 2px 0 rgba(0,0,0,0.12), 0 4px 4px 0 rgba(0,0,0,0.24);
+    border-radius:0 0 2px 2px;
+}
+.modalAlter .modalTxt{
+    padding:8px 10px;
+    position: relative;
+    cursor: pointer;
+}
+.modalAlter .modalTxt span{
+    padding-left:22px;
+}
+.modalAlter .modalTxt i{
+    color:#4285f4;
+    position:absolute;
+    top:10px;
+}
+.modalTxtSelect{
+    background:#f1f1f1;
+}
+.modalGrid img{
+    padding-left: 22px;
+}
+.modalGrid i,.modalGrid span{
+    line-height: 50px;
+}
+.modalLayout{
+    display: inline-block;
+    text-align: center;
+}
+.modalLayout img{
+    display: block;
+    padding:0;
+    margin: 10px 20px 5px 20px;
+}
+.modalAlter .modalLayout span{
+    padding:0;
+    line-height: 0;
+}
+.modalColor img{
+    padding-left:22px;
+}
+
+/*modalBottom*/
+.modalBottom{
+    background:#eeeeee;
+    width:100%;
+    height:64px;
+    padding:12px 0;
+    text-align: center;
+}
+.modalCancel{
+    display: inline-block;
+    color:#4285f4;
+    width:112px;
+    height:40px;
+    line-height:40px;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+.modalConfirm{
+    display: inline-block;
+    background:#4285f4;
+    box-shadow:0 2px 2px 0 rgba(0,0,0,0.24);
+    border-radius:2px;
+    width:112px;
+    height:40px;
+    line-height:40px;
+    color:#fff;
+    margin-left:10px;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+/*.layoutImgAll*/
+.layoutImgAll .widgetP{
+    cursor: pointer;
+}
+.layoutImgAll .with-padding{
+    padding:10px 12px;
+}
+.with-padding{
+    text-align: left;
+}
+.layoutImg{
+    display: inline-block;
+    padding:10px ;
+}
+.layoutImg img{
+    width:76px;
+    height:52px;
+}
+/*组件分类*/
+.partOptionTitle{
+    background:#fafafa;
+    width:100%;
+    height:32px;
+    line-height:32px;
+    padding:0 10px;
+}
+.partImg{
+    display: inline-block;
+    padding:5px 3px;
+    text-align: center;
+}
+.partImg img{
+    width:92px;
+    height:52px;
+    display: block;
+}
+.partImg span{
+    font-size: 12px;
+    color:#666;
+}
+/*主页功能*/
+.homePageAct{
+    right:0;
+}
+.homePageAct img{
+    width:30px;
+}
+.modalContent{
+    font-size:20px;
+    color:#333333;
+}
+
+/*属性*/
+.propertyOption{
+    padding:0 15px;
+    height:32px;
+    line-height:32px;
+}
+.propertyLabel{
+    display: inline-block;
+    float: left;
+    font-weight: normal;
+    margin:0;
+}
+.propertyInputSm{
+    display: inline-block;
+    float: right;
+    background:#ffffff;
+    border:1px solid #cccccc;
+    width:40px;
+    height:16px;
+    margin-top:8px;
+    outline: none;
+    padding:2px 5px;
+    font-size: 12px;
+    color:#333;
+}
+.propertyBackDark{
+    background:#f2f2f2;
+}
+.propertyShow{
+    background:#fafafa;
+}
+.propertyRelated{
+    display: none;
+    padding-left:30px;
+    font-size: 12px;
+}
+.propertyInputBig{
+    display: inline-block;
+    float: right;
+    background:#ffffff;
+    border:1px solid #cccccc;
+    width:85px;
+    height:16px;
+    margin-top:8px;
+    outline: none;
+    padding:0 3px;
+    font-size: 12px;
+    color:#333;
+}
+.propertyOptionAll .propertyShow .propertyOption:last-child{
+    margin-bottom:30px;
+}
+.propertyLink .propertyRelated{
+    padding-left:15px;
+}
+
+/*main*/
+.main{
+    position: relative;
+}
+.mainAct{
+    position: absolute;
+    bottom:0;
+    left:0;
+    width:100%;
+    height:65px;
+}
+.mainAct img{
+    width:48px;
+    height:40px;
+}
+.mainAct img.fullScreen{
+    width:55px;
+    height:40px;
+}
+.mainAct .editorAct{
+    top:10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

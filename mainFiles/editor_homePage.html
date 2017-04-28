@@ -2,9 +2,9 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../css/zui.min.Editor.css"/>
+    <link rel="stylesheet" href="../css/zui.css"/>
     <link rel="stylesheet" href="../css/editor.css"/>
-    <title>编辑器首页</title>
+    <title>编辑器--主页</title>
 </head>
 <body>
 
@@ -132,11 +132,39 @@
         </div>
     </div>
 </div>
-
+<!--删除模板-->
+<div class="modal fade myModal" id="modalDelete">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modalOption">
+                <p class="modalContent">确定要删除当前编辑模板吗？</p>
+            </div>
+            <p class="modalBottom">
+                <span class="modalCancel" data-dismiss="modal">取消</span>
+                <span class="modalConfirm">确认</span>
+            </p>
+        </div>
+    </div>
+</div>
+<!--删除组件-->
+<div class="modal fade myModal" id="partDelete">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modalOption">
+                <p class="modalContent">确定要删除当前控件吗？</p>
+            </div>
+            <p class="modalBottom">
+                <span class="modalCancel" data-dismiss="modal">取消</span>
+                <span class="modalConfirm">确认</span>
+            </p>
+        </div>
+    </div>
+</div>
 
 
 <!--header-->
 <div class="editorIndexHeader">
+    <!--left-->
     <p class="editorAct">
         <span data-position="fit" data-toggle="modal" data-target="#modalNewEditor">
             <img src="../img/editor/addEditor.png" alt="" data-toggle="tooltip" data-placement="bottom" title="新建模板"/>
@@ -145,19 +173,75 @@
             <img src="../img/editor/leadingIn.png" alt="" data-toggle="tooltip" data-placement="bottom" title="导入模板"/>
         </span>
     </p>
+    <!--模板编辑器-->
     <p class="editorTxt">模板编辑器</p>
+    <!--right-->
+    <p class="editorAct homePageAct">
+        <span data-position="fit" data-toggle="modal" data-target="#modalDelete">
+            <img src="../img/editor/deleteEditorIcon.png" alt="" data-toggle="tooltip" data-placement="bottom" title="删除模板"/>
+        </span>
+        <span>
+            <img src="../img/editor/draft.png" alt="" data-toggle="tooltip" data-placement="bottom" title="存为草稿"/>
+        </span>
+        <span>
+            <img src="../img/editor/keepIcon.png" alt="" data-toggle="tooltip" data-placement="bottom" title="存为草稿"/>
+        </span>
+        <span>
+            <img src="../img/editor/previewIcon.png" alt="" data-toggle="tooltip" data-placement="bottom" title="存为草稿"/>
+        </span>
+    </p>
 </div>
 <!--section-->
 <div class="indexAll">
     <div id="multiDroppableContainer">
         <!--left--组件-->
         <div class="partAll">
-            <p class="widget widgetP">模块布局<i class="icon-2x icon-sort-down"></i></p>
-            <div class="widget widgetDiv">
-                <p>组件库</p>
-                <select class="form-control" disabled>
-                    <option value="">所有类型</option>
-                </select>
+            <!--模块布局-->
+            <div class="layoutImgAll">
+                <p class="widget widgetP" data-toggle="collapse" data-target="#collapseExample">
+                    模块布局<i class="icon-2x icon-sort-down"></i>
+                </p>
+                <div class="collapse in" id="collapseExample">
+                    <div class="with-padding">
+                        <p class="layoutImg"><img src="../img/editor/layout_3g1.png" alt=""/></p>
+                        <p class="layoutImg"><img src="../img/editor/layout_3g2.png" alt=""/></p>
+                        <p class="layoutImg"><img src="../img/editor/layout_3g3.png" alt=""/></p>
+                    </div>
+                </div>
+            </div>
+            <!--所有组件-->
+            <div>
+                <!--组件库-->
+                <div class="widget widgetDiv">
+                    <p>组件库</p>
+                    <select class="form-control partSelect">
+                        <option value="">所有类型</option>
+                        <option value="headlines">内容头条</option>
+                        <option value="list">列表</option>
+                    </select>
+                </div>
+                <!--组件分类-->
+                <div class="partClassify">
+                    <!--内容头条-->
+                    <div class="partOption">
+                        <p class="partOptionTitle">内容头条</p>
+                        <div class="with-padding">
+                            <p class="partImg"><img src="../img/editor/part01.png" alt=""/><span>内容1</span></p>
+                            <p class="partImg"><img src="../img/editor/part02.png" alt=""/><span>内容2</span></p>
+                            <p class="partImg"><img src="../img/editor/part03.png" alt=""/><span>内容3</span></p>
+                        </div>
+                    </div>
+                    <!--列表-->
+                    <div class="partOption">
+                        <p class="partOptionTitle">列表</p>
+                        <div class="with-padding">
+                            <p class="partImg"><img src="../img/editor/part01.png" alt=""/><span>列表1</span></p>
+                            <p class="partImg"><img src="../img/editor/part02.png" alt=""/><span>列表2</span></p>
+                            <p class="partImg"><img src="../img/editor/part03.png" alt=""/><span>列表3</span></p>
+                            <p class="partImg"><img src="../img/editor/part03.png" alt=""/><span>列表4</span></p>
+                        </div>
+                    </div>
+                </div>
             </div>
             <!--查找-->
             <div class="widgetBottom">
@@ -171,37 +255,119 @@
         <!--center--main-->
         <div class="main ">
             <!--header-->
-            <div class="editorHeader">
-
-            </div>
+            <div class="editorHeader"></div>
             <!--section-->
             <div class="editorBlock container">
                 <div class="newSection dashboard dashboard-draggable" >
                     <div class="row haha list-group" id="sortableList">
-                        <div class="editorFunction">
-                            <p>请
-                                <span class="editorNew" data-position="fit" data-toggle="modal" data-target="#modalNewEditor">新建</span>
-                                或
-                                <span class="editorLeadIn" data-position="fit" data-toggle="modal" data-target="#modalLeadIn">导入</span>
-                                模板
-                            </p>
-                        </div>
+
                     </div>
                 </div>
             </div>
             <!--footer-->
-            <div class="editorFooter">
-
+            <div class="editorFooter"></div>
+            <!--撤销，全屏-->
+            <div class="mainAct">
+                <p class="editorAct">
+                    <span>
+                        <img src="../img/editor/prevIcon.png" alt="" data-toggle="tooltip" data-placement="top" title="上一步"/>
+                    </span>
+                    <span>
+                        <img src="../img/editor/nextIcon.png" alt="" data-toggle="tooltip" data-placement="top" title="下一步"/>
+                    </span>
+                </p>
+                <p class="editorAct homePageAct">
+                    <span>
+                        <img src="../img/editor/fullScreen.png" class="fullScreen" data-toggle="tooltip" data-placement="top" title="全屏操作"/>
+                    </span>
+                </p>
             </div>
         </div>
 
         <!--right--属性-->
         <div class="property" id="htmlCode2">
-            <p class="widget widgetP">控件属性</p>
-            <p class="widget widgetP">控件数据链接</p>
+            <!--控件属性-->
+            <div class="propertyOptionAll">
+                <p class="widget widgetP">控件属性</p>
+                <div class="propertyShow">
+                    <!--显示评论数-->
+                    <div class="switch text-left propertyOption">
+                        <input type="checkbox">
+                        <label>显示评论数</label>
+                    </div>
+                    <!--轮播展示数量-->
+                    <div class="propertyOption">
+                        <label class="propertyLabel">轮播展示数量</label>
+                        <input class="propertyInputSm" type="text" placeholder="6">
+                    </div>
+                    <!--显示评论数-->
+                    <div class="switch text-left propertyOption">
+                        <input type="checkbox" checked>
+                        <label>展示播放数量</label>
+                    </div>
+                    <!--相关内容推荐-->
+                    <div class="propertyRelatedAll">
+                        <div class="switch text-left propertyOption">
+                            <input type="checkbox">
+                            <label>相关内容推荐</label>
+                        </div>
+                        <div class="propertyOption propertyRelated">
+                            <label class="propertyLabel">相关内容展示条数</label>
+                            <input class="propertyInputSm" type="text" placeholder="6">
+                        </div>
+                    </div>
+                    <!--视频展示行数-->
+                    <div class="propertyOption">
+                        <label class="propertyLabel">视频展示行数</label>
+                        <input class="propertyInputSm" type="text" placeholder="6">
+                    </div>
+                    <!--栏目标题-->
+                    <div class="propertyOption">
+                        <label class="propertyLabel">栏目标题</label>
+                        <input class="propertyInputBig" type="text" placeholder="暖新闻">
+                    </div>
+                    <!--列表标题-->
+                    <div class="propertyOption">
+                        <label class="propertyLabel">列表标题</label>
+                        <input class="propertyInputBig" type="text" placeholder="暖新闻">
+                    </div>
+                    <!--列表标题-->
+                    <div class="propertyOption">
+                        <label class="propertyLabel">列表标题</label>
+                        <select class="propertyInputBig">
+                            <option value="">时间倒叙</option>
+                            <option value="">时间正序</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <!--控件数据链接-->
+            <div class="propertyLink">
+                <p class="widget widgetP">控件数据链接</p>
+                <div class="propertyShow">
+                    <!--通用组件-->
+                    <div class="propertyRelatedAll">
+                        <div class="switch text-left propertyOption">
+                            <input type="checkbox">
+                            <label>通用组件</label>
+                        </div>
+                        <!--列表标题-->
+                        <div class="propertyOption propertyRelated">
+                            <label class="propertyLabel">数据源</label>
+                            <select class="propertyInputBig">
+                                <option value="">时间倒叙对对对</option>
+                                <option value="">时间正序</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!--删除-->
             <div class="widgetBottomDelete">
-                <p class="widgetFixed"><i class="icon icon-trash"></i><span>删除当前控件</span></p>
+                <p class="widgetFixed" data-position="fit" data-toggle="modal" data-target="#partDelete">
+                    <i class="icon icon-trash"></i><span>删除当前控件</span>
+                </p>
             </div>
         </div>
     </div>
@@ -213,7 +379,20 @@
 <script src="../js/jquery-1.11.3.js"></script>
 <script src="../js/zui.min.js"></script>
 <script>
-//    悬浮--新建，导入
+//    相关推荐
+    $(".propertyRelatedAll input").change(function(){
+        if( $(this).prop("checked") ){
+            $(this).parent().next().slideDown();
+        }else{
+            $(this).parent().next().slideUp();
+        }
+    });
+
+
+//    属性
+    $(".propertyShow").children(":odd").addClass("propertyBackDark");
+
+    //    悬浮--新建，导入
     $('[data-toggle="tooltip"]').tooltip();
 
     $(".main").css("width",(parseFloat( window.screen.availWidth )-230-230)+"px");
@@ -225,7 +404,7 @@
 
     });
 
-//    对话框
+    //    对话框
     $(".modalCon .modalSelect").click(function(){
         if( $(this).children("i").hasClass("icon-chevron-down") ){
             $(this).children("i").removeClass("icon-chevron-down");
