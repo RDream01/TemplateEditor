@@ -210,7 +210,7 @@
                 </div>
             </div>
             <!--所有组件-->
-            <div>
+            <div class="module">
                 <!--组件库-->
                 <div class="widget widgetDiv">
                     <p>组件库</p>
@@ -277,7 +277,7 @@
                     </span>
                 </p>
                 <p class="editorAct homePageAct">
-                    <span>
+                    <span onClick="window.open(document.location, 'big', 'fullscreen=yes')">
                         <img src="../img/editor/fullScreen.png" class="fullScreen" data-toggle="tooltip" data-placement="top" title="全屏操作"/>
                     </span>
                 </p>
@@ -379,6 +379,60 @@
 <script src="../js/jquery-1.11.3.js"></script>
 <script src="../js/zui.min.js"></script>
 <script>
+//    全屏
+//console.log(window.screen.availHeight );
+//$(document).on('keydown', function (event) {
+//      var e = event || window.event || arguments.callee.caller.arguments[0];
+//      if(e && e.keyCode == 122){//捕捉F11键盘动作
+//            e.preventDefault();  //阻止F11默认动作
+//            var el = document.documentElement;
+//            //定义不同浏览器的全屏API
+//            var rfs = el.requestFullScreen || el.webkitRequestFullScreen || el.mozRequestFullScreen || el.msRequestFullScreen;
+//            //执行全屏
+//            if (typeof rfs != "undefined" && rfs) {
+//                      rfs.call(el);
+//            } else if(typeof window.ActiveXObject != "undefined"){
+//                 var wscript = new ActiveXObject("WScript.Shell");
+//                 if (wscript!=null) {
+//                     wscript.SendKeys("{F11}");
+//                 }
+//            }
+//            //监听不同浏览器的全屏事件，并件执行相应的代码
+//            document.addEventListener("webkitfullscreenchange", function() {
+//                if (document.webkitIsFullScreen) {
+////                        alert(11)
+//                    console.log(window.screen.availHeight );
+//                }else{
+////                    alert(22)
+//　　            }
+//            }, false);
+//
+//            document.addEventListener("fullscreenchange", function() {
+//                if (document.fullscreen) {
+////                    alert(33)
+//                }else{
+////                    alert(44)
+//                }
+//            }, false);
+//
+//            document.addEventListener("mozfullscreenchange", function() {
+//                if (document.mozFullScreen) {
+////                    alert(55)
+//                }else{
+////                   alert(66)
+//                }
+//            }, false);
+//            document.addEventListener("msfullscreenchange", function() {
+//                if (document.msFullscreenElement) {
+////                    alert(77)
+//                }else{
+////                    alert(88)
+//                }
+//            }, false)
+//     }
+//});
+
+
 //    相关推荐
     $(".propertyRelatedAll input").change(function(){
         if( $(this).prop("checked") ){

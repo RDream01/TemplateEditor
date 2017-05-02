@@ -11,72 +11,107 @@ function callback(data) {
 
 }
 //1---引用文件
-function blockLeftList() {
+function blockLeftList(typeName) {
     $.ajax({
         async: false,
         cache: true,
         type: 'post',
         dataType : "jsonp",
-        data:{dataType:"jsonp",gridSize:"3"},  //参数
-        url:"http://192.168.31.2/template_editor/blockLeftList.do",//请求的action路径
+        data:{dataType:"jsonp",gridSize:"3",typeName:typeName},  //参数
+        //url:"http://192.168.31.2/template_editor/blockLeftList.do",//请求的action路径
+        url:"http://192.168.31.156:8080/cmsNews/template_editor/blockLeftList.do",//请求的action路径
         error: function () {//请求失败处理函数
         },
         success: function (data) { //请求成功后处理函数。
         }
     });
 }
-function blockLeftListCallBack(data) {
+//筛选
+function blockTypeList() {
+    $.ajax({
+        async: false,
+        cache: true,
+        type: 'post',
+        dataType : "jsonp",
+        data:{dataType:"jsonp"},  //参数
+        //url:"http://192.168.31.2/template_editor/blockTypeList.do",//请求的action路径
+        url:"http://192.168.31.156:8080/cmsNews/template_editor/blockTypeList.do",//请求的action路径
+        error: function () {//请求失败处理函数
+        },
+        success: function (data) { //请求成功后处理函数。
+        }
+    });
+}
+function blockTypeListCallback(data){
+    console.log(data);
+}
+
+
+function blockLeftListCallback(data) {
+    //$(".partClassify").html("");
     var list = data.dataList;
+    //var data=' <div class="widget widgetDiv"><p>组件库</p>';
+    //    data+='<select class="form-control partSelect" onchange="blockLeftList(this)">';
+    //    data+='<option value="">所有类型</option>';
+    //    data+='</select></div>';
+    //    data+='<div class="partClassify"></div>';
+    //$('.module').append(data);
     for (var i = 0; i < list.length; i++) {
         var str = '';
         if (list[i].blockType == "list") {
             if ($("#listBlock").html() == undefined) {
-                str = '<div id="listBlock" class="panel panel-default"><div class="panel-heading"><h4 class="panel-title">';
-                str += '<a data-toggle="collapse" data-parent="#accordionPanels" href="#' + list[i].blockType + '">列表组件 </a></h4></div>'
-                str += '<div id="' + list[i].blockType + '" class="panel-collapse collapse in">';
-                str += '<div class="panel-body"><span data-blockId="'+list[i].blockId+'"  data-blockSize="'+list[i].blockSize+'" class="secPart btn-droppable" id="' + list[i].blockId + '">' + list[i].blockName + '</span></div></div></div>';
+                str='<div class="partOption" id="listBlock"><p class="partOptionTitle">'+list[i].typeName+'</p>';
+                str+='<div class="with-padding">' ;
+                str+='<p class="partImg secPart btn-droppable" data-blockId="'+list[i].blockId+'" data-blockSize="'+list[i].blockSize+'" id="' + list[i].blockId + '">' ;
+                str+='<img src="../img/editor/part01.png" alt=""/><span>'+ list[i].blockName + '</span></p>';
+                str+='</div></div>';
             } else {
-                str += '<span data-blockId="'+list[i].blockId+'"  data-blockSize="'+list[i].blockSize+'" class="secPart btn-droppable" id="' + list[i].blockId + '">' + list[i].blockName + '</span>';
-                $('#listBlock .panel-body').append(str);
+                str+='<p class="partImg secPart btn-droppable" data-blockId="'+list[i].blockId+'" data-blockSize="'+list[i].blockSize+'" id="' + list[i].blockId + '">' ;
+                str+='<img src="../img/editor/part01.png" alt=""/><span>'+ list[i].blockName + '</span></p>';
+                $('#listBlock .with-padding').append(str);
                 continue;
             }
-
         } else if (list[i].blockType == "adv") {
             if ($("#advBlock").html() == undefined) {
-                str = '<div id="advBlock" class="panel panel-default"><div class="panel-heading"><h4 class="panel-title">';
-                str += '<a data-toggle="collapse" data-parent="#accordionPanels" href="#' + list[i].blockType + '">广告组件</a></h4></div>';
-                str += '<div id="' + list[i].blockType + '" class="panel-collapse collapse in">';
-                str += '<div class="panel-body"><span data-blockId="'+list[i].blockId+'"  data-blockSize="'+list[i].blockSize+'" class="secPart btn-droppable" id="' + list[i].blockId + '">' + list[i].blockName + '</span></div></div></div>';
+                str='<div class="partOption" id="advBlock"><p class="partOptionTitle">'+list[i].typeName+'</p>';
+                str+='<div class="with-padding">' ;
+                str+='<p class="partImg secPart btn-droppable" data-blockId="'+list[i].blockId+'" data-blockSize="'+list[i].blockSize+'" id="' + list[i].blockId + '">' ;
+                str+='<img src="../img/editor/part01.png" alt=""/><span>'+ list[i].blockName + '</span></p>';
+                str+='</div></div>';
             } else {
-                str += '<span data-blockId="'+list[i].blockId+'"  data-blockSize="'+list[i].blockSize+'" class="secPart btn-droppable" id="' + list[i].blockId + '">' + list[i].blockName + '</span>';
-                $('#advBlock .panel-body').append(str);
+                str+='<p class="partImg secPart btn-droppable" data-blockId="'+list[i].blockId+'" data-blockSize="'+list[i].blockSize+'" id="' + list[i].blockId + '">' ;
+                str+='<img src="../img/editor/part01.png" alt=""/><span>'+ list[i].blockName + '</span></p>';
+                $('#advBlock .with-padding').append(str);
                 continue;
             }
         }else if (list[i].blockType == "header") {
             if ($("#headerBlock").html() == undefined) {
-                str = '<div id="headerBlock" class="panel panel-default"><div class="panel-heading"><h4 class="panel-title">';
-                str += '<a data-toggle="collapse" data-parent="#accordionPanels" href="#' + list[i].blockType + '">头部组件</a></h4></div>';
-                str += '<div id="' + list[i].blockType + '" class="panel-collapse collapse in">';
-                str += '<div class="panel-body"><span data-blockId="'+list[i].blockId+'"  data-blockSize="'+list[i].blockSize+'" class="secPart btn-droppable" id="' + list[i].blockId + '">' + list[i].blockName + '</span></div></div></div>';
+                str='<div class="partOption" id="headerBlock"><p class="partOptionTitle">'+list[i].typeName+'</p>';
+                str+='<div class="with-padding">' ;
+                str+='<p class="partImg secPart btn-droppable" data-blockId="'+list[i].blockId+'" data-blockSize="'+list[i].blockSize+'" id="' + list[i].blockId + '">' ;
+                str+='<img src="../img/editor/part01.png" alt=""/><span>'+ list[i].blockName + '</span></p>';
+                str+='</div></div>';
             } else {
-                str += '<span data-blockId="'+list[i].blockId+'"  data-blockSize="'+list[i].blockSize+'" class="secPart btn-droppable" id="' + list[i].blockId + '">' + list[i].blockName + '</span>';
-                $('#headerBlock .panel-body').append(str);
+                str+='<p class="partImg secPart btn-droppable" data-blockId="'+list[i].blockId+'" data-blockSize="'+list[i].blockSize+'" id="' + list[i].blockId + '">' ;
+                str+='<img src="../img/editor/part01.png" alt=""/><span>'+ list[i].blockName + '</span></p>';
+                $('#headerBlock .with-padding').append(str);
                 continue;
             }
         }else if (list[i].blockType == "footer") {
             if ($("#footerBlock").html() == undefined) {
-                str = '<div id="footerBlock" class="panel panel-default"><div class="panel-heading"><h4 class="panel-title">';
-                str += '<a data-toggle="collapse" data-parent="#accordionPanels" href="#' + list[i].blockType + '">尾部组件</a></h4></div>';
-                str += '<div id="' + list[i].blockType + '" class="panel-collapse collapse in">';
-                str += '<div class="panel-body"><span data-blockId="'+list[i].blockId+'"  data-blockSize="'+list[i].blockSize+'" class="secPart btn-droppable" id="' + list[i].blockId + '">' + list[i].blockName + '</span></div></div></div>';
+                str='<div class="partOption" id="footerBlock"><p class="partOptionTitle">'+list[i].typeName+'</p>';
+                str+='<div class="with-padding">' ;
+                str+='<p class="partImg secPart btn-droppable" data-blockId="'+list[i].blockId+'" data-blockSize="'+list[i].blockSize+'" id="' + list[i].blockId + '">' ;
+                str+='<img src="../img/editor/part01.png" alt=""/><span>'+ list[i].blockName + '</span></p>';
+                str+='</div></div>';
             } else {
-                str += '<span data-blockId="'+list[i].blockId+'"  data-blockSize="'+list[i].blockSize+'" class="secPart btn-droppable" id="' + list[i].blockId + '">' + list[i].blockName + '</span>';
-                $('#footerBlock .panel-body').append(str);
+                str+='<p class="partImg secPart btn-droppable" data-blockId="'+list[i].blockId+'" data-blockSize="'+list[i].blockSize+'" id="' + list[i].blockId + '">' ;
+                str+='<img src="../img/editor/part01.png" alt=""/><span>'+ list[i].blockName + '</span></p>';
+                $('#footerBlock .with-padding').append(str);
                 continue;
             }
         }
-
-        $('.partAll .panel-group').append(str);
+        $('.partClassify').append(str);
     }
 }
 
@@ -293,7 +328,8 @@ function propertyRightList(id) {
         type: 'post',
         dataType : "jsonp",
         data:{dataType:"jsonp",blockId:id},  //参数
-        url:"http://192.168.31.2/template_editor/propertyRightList.do",//请求的action路径
+        //url:"http://192.168.31.2/template_editor/propertyRightList.do",//请求的action路径
+        url:"http://192.168.31.156:8080/cmsNews/template_editor/blockLeftList.do",//请求的action路径
         error: function () {//请求失败处理函数
 
         },
@@ -668,7 +704,8 @@ function deleteBlock(removeShowId) {
 //存储container
 window.onload = function () {
     //left
-    blockLeftList();
+    blockLeftList("");
+    blockTypeList();
     //保存
     $('#keep').click(function () {
         console.log(JSON.stringify(obj));
@@ -708,7 +745,7 @@ window.onload = function () {
                 type: 'POST',
                 dataType : "jsonp",
                 data:{strKey:str,order:order,groupDivOrder:groupDivOrder,dataType :"jsonp"},  //参数
-                url:"http://192.168.31.156:8080/cmsNews/template_editor/saveTemplate.do"//请求的action路径
+                url:"http://192.168.31.156:8080/cmsNews/template_editor/blockLeftList.do"//请求的action路径
             });
         }
     })

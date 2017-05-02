@@ -1,62 +1,62 @@
-@charset "utf-8";
-/*通用样式*/
-body {
-    /*font: 12px "microsoft yahei", Arial, Helvetica, sans-serif;*/
-    color:#666;
-    margin:0;
-    padding:0;
-    /*background-color:#fafafa;*/
-}
-ul,li,p,h1,h2,h3,h4,h5,h6,dl,dt,dd,input {
-    margin:0;
-    padding:0;
-    border:none;
-    list-style:none;
-}
-iframe{
-    width:0;
-    height:0;
-    margin:0;
-    padding:0;
-}
-input,select,option {border:none;}
-.lf   {float:left;}
-.rt  {float:right;}
-.clear  {clear:both;}
-a{text-decoration:none; color:#1a1a1a;}
-a:hover{color:#CA1E0D;text-decoration: none;}
-img{ vertical-align: bottom; border:none;}
-nav,#banner,section,footer{
-    margin:0 auto;
-}
-.commonContainer{
-    width:960px;
-    margin:0 auto;
-    overflow: hidden;
-    padding:0;
-}
-.row{
-    margin:0;
-}
-.container{
-    padding:0;
-}
-/*保存*/
-.keepCon{
-    padding:10px;
-    text-align: right;
-}
-.blueAction{
-    background:#3280FC;
-    color:#fff;
-    font-size: 14px;
-    padding:5px 0;
-    text-align: center;
-    cursor: pointer;
-    display: inline-block;
-    width:80px;
-    margin-left:15px;
-}
+/*@charset "utf-8";*/
+/*/!*通用样式*!/*/
+/*body {*/
+    /*/!*font: 12px "microsoft yahei", Arial, Helvetica, sans-serif;*!/*/
+    /*color:#666;*/
+    /*margin:0;*/
+    /*padding:0;*/
+    /*/!*background-color:#fafafa;*!/*/
+/*}*/
+/*ul,li,p,h1,h2,h3,h4,h5,h6,dl,dt,dd,input {*/
+    /*margin:0;*/
+    /*padding:0;*/
+    /*border:none;*/
+    /*list-style:none;*/
+/*}*/
+/*iframe{*/
+    /*width:0;*/
+    /*height:0;*/
+    /*margin:0;*/
+    /*padding:0;*/
+/*}*/
+/*input,select,option {border:none;}*/
+/*.lf   {float:left;}*/
+/*.rt  {float:right;}*/
+/*.clear  {clear:both;}*/
+/*a{text-decoration:none; color:#1a1a1a;}*/
+/*a:hover{color:#CA1E0D;text-decoration: none;}*/
+/*img{ vertical-align: bottom; border:none;}*/
+/*nav,#banner,section,footer{*/
+    /*margin:0 auto;*/
+/*}*/
+/*.commonContainer{*/
+    /*width:960px;*/
+    /*margin:0 auto;*/
+    /*overflow: hidden;*/
+    /*padding:0;*/
+/*}*/
+/*.row{*/
+    /*margin:0;*/
+/*}*/
+/*.container{*/
+    /*padding:0;*/
+/*}*/
+/*/!*保存*!/*/
+/*.keepCon{*/
+    /*padding:10px;*/
+    /*text-align: right;*/
+/*}*/
+/*.blueAction{*/
+    /*background:#3280FC;*/
+    /*color:#fff;*/
+    /*font-size: 14px;*/
+    /*padding:5px 0;*/
+    /*text-align: center;*/
+    /*cursor: pointer;*/
+    /*display: inline-block;*/
+    /*width:80px;*/
+    /*margin-left:15px;*/
+/*}*/
 
 .partAll{
     padding:0;
@@ -65,11 +65,11 @@ nav,#banner,section,footer{
     color:#000;
     cursor: pointer;
 }
-.secPart{
-    display: block;
-    padding:10px 15px;
-    border-bottom: 1px solid #eee;
-}
+/*.secPart{*/
+    /*display: block;*/
+    /*padding:10px 15px;*/
+    /*border-bottom: 1px solid #eee;*/
+/*}*/
 .partAll .panel-group .panel-body{
     padding:0;
 }
@@ -100,10 +100,10 @@ nav,#banner,section,footer{
 /*}*/
 
 /*画布区域*/
-.indexAll>.row>div{
-    border:1px solid #000;
-    min-height:500px;
-}
+/*.indexAll>.row>div{*/
+    /*border:1px solid #000;*/
+    /*min-height:500px;*/
+/*}*/
 .partAll{
     padding:0;
 }
