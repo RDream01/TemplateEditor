@@ -359,12 +359,12 @@
                         lastGrid = balanceGrid;
                         //balanceGrid = grid;
                     }else if(lastGrid != grid && GroupDivSize == '8'){
-                        if(0<(100*grid/12)&&(100*grid/12)<=33.3 && (blockSize.indexOf("3g1")>-1)){
+                        if(0<(100*grid/12)&&(100*grid/12)<=50 && (blockSize.indexOf("3g1")>-1)){
                             grid="6";
                             balanceGrid = "4";
                             $col.attr('data-grid', grid).css('width', 50 + '%');
                             if(messagerAvaliable) dashboardMessager[dashboardMessager.isShow ? 'update' : 'show'](50+"%" );
-                        }else if(33.3<(100*grid/12)&&(100*grid/12)<=66.6 && (blockSize.indexOf("3g2")>-1)){
+                        }else if(50<(100*grid/12)&&(100*grid/12)<=100 && (blockSize.indexOf("3g2")>-1)){
                             grid="12";
                             balanceGrid = "8";
                             $col.attr('data-grid', grid).css('width', 100 + '%');
