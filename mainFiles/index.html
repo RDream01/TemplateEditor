@@ -143,7 +143,7 @@
     <div class="modal-dialog modal-sm">
         <div class="modal-content">
             <div class="modalOption">
-                <p class="modalContent">确定要删除当前编辑模板吗？</p>
+                <p class="modalContent">确定要删除当前编辑模板（包含当前编辑的所有组件）吗？</p>
             </div>
             <p class="modalBottom">
                 <span class="modalCancel" data-dismiss="modal">取消</span>
@@ -153,7 +153,7 @@
     </div>
 </div>
 <!--删除组件-->
-<div class="modal fade myModal" id="partDelete">
+<div class="modal myModal fade" id="partDelete">
     <div class="modal-dialog modal-sm">
         <div class="modal-content">
             <div class="modalOption">
@@ -161,7 +161,21 @@
             </div>
             <p class="modalBottom">
                 <span class="modalCancel" data-dismiss="modal">取消</span>
-                <span class="modalConfirm">确认</span>
+                <span class="modalConfirm" id="deleteBlockBtn">确认</span>
+            </p>
+        </div>
+    </div>
+</div>
+<!--删除组合框-->
+<div class="modal myModal fade" id="groupDelete">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modalOption">
+                <p class="modalContent">确定要删除此组件框（包含其中所有组件）吗？？</p>
+            </div>
+            <p class="modalBottom">
+                <span class="modalCancel" data-dismiss="modal">取消</span>
+                <span class="modalConfirm" id="groupBlockBtn" >确认</span>
             </p>
         </div>
     </div>
@@ -191,7 +205,7 @@
         <span id="keep">
             <img src="../img/editor/keepIcon.png" alt="" data-toggle="tooltip" data-placement="bottom" title="保存文件"/>
         </span>
-        <span id=" preview" class="preview">
+        <span id="preview" class="preview">
             <img src="../img/editor/previewIcon.png" alt="" data-toggle="tooltip" data-placement="bottom" title="预览文件"/>
         </span>
     </p>
@@ -227,14 +241,19 @@
                 <!--组件库-->
                 <div class="widget widgetDiv">
                     <p>组件库</p>
+                    <select class="form-control partSelect" onchange="blockLeftList(this,'')">
+                        <option value="">所有类型</option>
+                    </select>
                 </div>
                 <!--组件分类-->
-                <div class="partClassify"></div>
+                <div class="partClassify">
+
+                </div>
             </div>
             <!--查找-->
             <div class="widgetBottom">
                 <p class="widgetFixed">
-                    <input type="search" id="searchPart" placeholder="查找组件"/>
+                    <input type="search" id="searchPart" placeholder="查找组件" onchange="blockLeftList('',this)"/>
                     <label for="searchPart"><a href="#"><img src="../img/editor/searchPart.png" alt=""/></a></label>
                 </p>
             </div>
@@ -249,9 +268,7 @@
             <!--section-->
             <div class="editorBlock container">
                 <div class="newSection dashboard dashboard-draggable" >
-                    <div class="row haha list-group" id="sortableList">
-                        
-                    </div>
+                    <div class="row haha mainCanvas list-group" id="sortableList"></div>
                 </div>
             </div>
             <!--footer-->
@@ -279,12 +296,27 @@
 
         <!--right--属性-->
         <div class="col-xs-2 property" id="htmlCode2">
+            <!--控件属性-->
+            <div class="propertyOptionAll">
+                <p class="widget widgetP">控件属性</p>
+                <div class="propertyShow">
+
+                </div>
+            </div>
+            <!--控件数据链接-->
+            <div class="propertyLink">
+                <p class="widget widgetP">控件数据链接</p>
+                <div class="propertyShow">
+                </div>
+            </div>
+
             <!--删除-->
-            <!--<div class="widgetBottomDelete">-->
-                <!--<p class="widgetFixed" data-position="fit" data-toggle="modal" data-target="#partDelete">-->
-                    <!--<i class="icon icon-trash"></i><span>删除当前控件</span>-->
-                <!--</p>-->
-            <!--</div>-->
+            <div class="widgetBottomDelete" id="widgetBottomDelete">
+                <!--<p class="widgetFixed" data-position="fit" data-toggle="modal" data-target="#partDelete" >-->
+                <p class="widgetFixed" >
+                    <i class="icon icon-trash"></i><span>删除当前控件</span>
+                </p>
+            </div>
         </div>
     </div>
 </div>
@@ -303,17 +335,18 @@
 <script>
 
     //    相关推荐
-    $(".propertyRelatedAll input").change(function(){
+    $(".propertyShow").on("change",".switchLink input",function(){
         if( $(this).prop("checked") ){
-            $(this).parent().next().slideDown();
-        }else{
             $(this).parent().next().slideUp();
+        }else{
+            $(this).parent().next().slideDown();
         }
     });
 
 
     //    属性
-    $(".propertyShow").children(":odd").addClass("propertyBackDark");
+
+
 
     //    悬浮--新建，导入
     $('[data-toggle="tooltip"]').tooltip();

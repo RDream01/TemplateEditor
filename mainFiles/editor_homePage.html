@@ -295,10 +295,17 @@
                         <input type="checkbox">
                         <label>显示评论数</label>
                     </div>
+                    <!--选择二维码-->
+                    <div class="propertyOption QRCodeProperty">
+                        <b>选择二维码</b>
+                        <input type="file" id="QRCodePropertyFile">
+                        <span></span>
+                        <label for="QRCodePropertyFile"><img src="../img/editor/QRCodeIcon.png" alt=""/></label>
+                    </div>
                     <!--轮播展示数量-->
                     <div class="propertyOption">
                         <label class="propertyLabel">轮播展示数量</label>
-                        <input class="propertyInputSm" type="text" placeholder="6">
+                        <input class="propertyInputSm" type="number" placeholder="6">
                     </div>
                     <!--显示评论数-->
                     <div class="switch text-left propertyOption">
@@ -379,6 +386,19 @@
 <script src="../js/jquery-1.11.3.js"></script>
 <script src="../js/zui.min.js"></script>
 <script>
+//    选择二维码
+    $('.QRCodeProperty input').on("change",function(){
+        if( $(this).val()!=="" ){
+            $(this).siblings("span").html($(this).val());
+            $(this).siblings("label").children().remove();
+        }else{
+            $(this).siblings("span").html("");
+            $(this).siblings("label").html('<img src="../img/editor/QRCodeIcon.png" alt=""/>');
+        }
+
+    });
+
+
 //    全屏
 //console.log(window.screen.availHeight );
 //$(document).on('keydown', function (event) {

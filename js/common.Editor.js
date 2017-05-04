@@ -10,14 +10,17 @@ function callback(data) {
     (eval(flag + 'CallBack'))(data);
 
 }
+
 //1---引用文件
-function blockLeftList(typeName) {
+function blockLeftList( selectObj,inputObj ) {
+    var selectVal=$(selectObj).val();
+    var inputVal=$(inputObj).val();
     $.ajax({
         async: false,
         cache: true,
         type: 'post',
         dataType : "jsonp",
-        data:{dataType:"jsonp",gridSize:"3",typeName:typeName},  //参数
+        data:{dataType:"jsonp",gridSize:"3",blockType:selectVal,searchBlockName:inputVal},  //参数
         //url:"http://192.168.31.2/template_editor/blockLeftList.do",//请求的action路径
         url:"http://192.168.31.156:8080/cmsNews/template_editor/blockLeftList.do",//请求的action路径
         error: function () {//请求失败处理函数
@@ -26,36 +29,10 @@ function blockLeftList(typeName) {
         }
     });
 }
-//筛选
-function blockTypeList() {
-    $.ajax({
-        async: false,
-        cache: true,
-        type: 'post',
-        dataType : "jsonp",
-        data:{dataType:"jsonp"},  //参数
-        //url:"http://192.168.31.2/template_editor/blockTypeList.do",//请求的action路径
-        url:"http://192.168.31.156:8080/cmsNews/template_editor/blockTypeList.do",//请求的action路径
-        error: function () {//请求失败处理函数
-        },
-        success: function (data) { //请求成功后处理函数。
-        }
-    });
-}
-function blockTypeListCallback(data){
-    console.log(data);
-}
-
-
 function blockLeftListCallback(data) {
-    //$(".partClassify").html("");
+    $(".partClassify").html("");
     var list = data.dataList;
-    //var data=' <div class="widget widgetDiv"><p>组件库</p>';
-    //    data+='<select class="form-control partSelect" onchange="blockLeftList(this)">';
-    //    data+='<option value="">所有类型</option>';
-    //    data+='</select></div>';
-    //    data+='<div class="partClassify"></div>';
-    //$('.module').append(data);
+    console.log(list);
     for (var i = 0; i < list.length; i++) {
         var str = '';
         if (list[i].blockType == "list") {
@@ -115,13 +92,38 @@ function blockLeftListCallback(data) {
     }
 }
 
+//左边组件库铺数据
+function blockTypeList() {
+    $.ajax({
+        async: false,
+        cache: true,
+        type: 'post',
+        dataType : "jsonp",
+        data:{dataType:"jsonp"}, //参数
+        //url:"http://192.168.31.2/template_editor/blockTypeList.do",//请求的action路径
+        url:"http://192.168.31.156:8080/cmsNews/template_editor/blockTypeList.do",//请求的action路径
+        error: function () {//请求失败处理函数
+        },
+        success: function (data) { //请求成功后处理函数。
+        }
+    });
+}
+function blockTypeListCallback(data){
+    var list = data.dataList;
+    console.log(list);
+    for (var i = 0; i < list.length; i++) {
+        var data="";
+        data+='<option value="'+list[i].value+'">'+list[i].html+'</option>';
+        $('.partSelect').append(data);
+    }
+}
 
 //组合框文件引用
 function importGroupDiv(num){
     var data="";
     if(num == '1'){
         data ='<div class="col-xs-4 row groupDiv list-group-item droppable-target" data-groupSize="4" style="min-height:100px;">'
-            +'<div data-trigger="sortArea" class="sortArea col-md-12 col-sm-12"><span class="area-name">组合框1，</span>拖拽我--1<span class="deleteGroup">X</span></div>'
+            +'<div data-trigger="sortArea" class="sortArea col-md-12 col-sm-12"><span class="area-name">组合框1，</span>拖拽我--1<span class="deleteGroup" onclick="openGroupConfirm(this)">X</span></div>'
             +'<div class="col-md-12 col-sm-12 firstLocation"  id="groupDiv" style="position:absolute;z-index:-1">'
             +'<div class="panel">'
             +'<div class="panel-heading">'
@@ -133,7 +135,7 @@ function importGroupDiv(num){
             +'</div>';
     }else if(num == '2'){
         data ='<div class="col-xs-8 row groupDiv list-group-item droppable-target" data-groupSize="8" style="min-height:100px;">'
-            +'<div data-trigger="sortArea"  class="sortArea col-md-12 col-sm-12"><span class="area-name">组合框2，</span>拖拽我--2<span class="deleteGroup">X</span></div>'
+            +'<div data-trigger="sortArea"  class="sortArea col-md-12 col-sm-12"><span class="area-name">组合框2，</span>拖拽我--2<span class="deleteGroup" onclick="openGroupConfirm(this)">X</span></div>'
             + '<div class="col-md-12 col-sm-12 firstLocation" id="groupDiv" style="position:absolute;z-index:-1">'
             + '<div class="panel">'
             + '<div class="panel-heading">'
@@ -146,7 +148,7 @@ function importGroupDiv(num){
             + '</div>';
     } else if (num == '3') {
         data = '<div class="col-xs-12 row groupDiv list-group-item droppable-target"  data-groupSize="12" style="min-height:100px;">'
-            + '<div data-trigger="sortArea" class="sortArea col-md-12 col-sm-12"><span class="area-name">组合框3，</span>拖拽我--3<span class="deleteGroup">X</span></div>'
+            + '<div data-trigger="sortArea" class="sortArea col-md-12 col-sm-12"><span class="area-name">组合框3，</span>拖拽我--3<span class="deleteGroup" onclick="openGroupConfirm(this)">X</span></div>'
             + '<div class="col-md-12 col-sm-12 firstLocation"  id="groupDiv" style="position:absolute;z-index:-1">'
             + '<div class="panel">'
             + '<div class="panel-heading">'
@@ -207,14 +209,17 @@ function importGroupDiv(num){
 }
 
 //删除组合框
-$(".newSection").on("click",'.deleteGroup',function(){
-    //alert(1);
-    if( confirm("确定要删除此组件框（包含其中所有组件）吗？") ){
-        $(this).parent().parent().remove();
-        saveActionHistory($('#sortableList').html().trim(),$('#htmlCode2').html().trim(),obj);//undo redo
-    }
-});
-
+function openGroupConfirm(obj){
+    $("#groupDelete").modal('show', 'fit');
+    var groupId=$(obj).parent().parent().attr("data-groupShowId");
+    $("#groupDelete #groupBlockBtn").attr("onclick","deleteGroup('"+groupId+"')");
+}
+function deleteGroup(groupId){
+    console.log(groupId);
+    $("[data-groupshowid='"+groupId+"']").remove();
+    saveActionHistory($('#sortableList').html().trim(),$('#htmlCode2').html().trim(),$("[data-groupshowid='"+groupId+"']").find(".deleteGroup"));//undo redo
+    $("#groupDelete").modal('hide');
+}
 
 //拖拽
 function importFile(id, nextShowId, size,groupDiv) {
@@ -276,7 +281,7 @@ function importFile(id, nextShowId, size,groupDiv) {
                 obj.section.splice(j, 1);
 
                 $("[data-showId=" + block_showId + "]").remove();
-                $(".property").html("");
+                $(".property .propertyShow").html("");
                 return;
             } else {
                 var md = "col-md-" + finalSize;
@@ -329,7 +334,7 @@ function propertyRightList(id) {
         dataType : "jsonp",
         data:{dataType:"jsonp",blockId:id},  //参数
         //url:"http://192.168.31.2/template_editor/propertyRightList.do",//请求的action路径
-        url:"http://192.168.31.156:8080/cmsNews/template_editor/blockLeftList.do",//请求的action路径
+        url:"http://192.168.31.156:8080/cmsNews/template_editor/propertyRightList.do",//请求的action路径
         error: function () {//请求失败处理函数
 
         },
@@ -337,10 +342,10 @@ function propertyRightList(id) {
         }
     });
 }
-function propertyRightListCallBack(data) {
+function propertyRightListCallback(data) {
     var list = data.dataList;
-    console.log(list)
-    $(".property").html("");
+    console.log(list);
+    $(".property .propertyShow").html("");
     var showId = $(".appendCur").parent().attr("data-showId");
     var blockProAll;
     for (var i = 0; i < obj.section.length; i++) {
@@ -352,13 +357,13 @@ function propertyRightListCallBack(data) {
     for (var i = 0; i < list.length; i++) {
         var str = "";
         if (list[i].propertyType == "text") {
-            str = '<div class="row control-group">';
-            str += '<label class="control-label col-xs-4" for="' + list[i].propertyId + '">';
+            str = '<div class="propertyOption">';
+            str += '<label class="propertyLabel" for="' + list[i].propertyId + '">';
             if (list[i].notNull == "yes") {
                 str += '<span class="notNullColor">* </span>';
             }
             str += list[i].propertyName + '</label>';
-            str += '<div class="controls col-xs-8"><input data-notNull="' + list[i].notNull + '" onchange="collectProperty(this,' + list[i].minValue + ',' + list[i].maxValue + ')" type="text" id="' + list[i].propertyId + '"';
+            str += '<input class="propertyInputBig" data-notNull="' + list[i].notNull + '" onchange="collectProperty(this,' + list[i].minValue + ',' + list[i].maxValue + ')" type="text" id="' + list[i].propertyId + '"';
             var curId = list[i].propertyId;
             str += 'value="';
             if (blockProAll[curId] !== undefined) {
@@ -367,22 +372,22 @@ function propertyRightListCallBack(data) {
                 str += list[i].defaultValue;
             }
             str += '"';
-            str += ' class="form-input" placeholder="'+list[i].propertyName+'">';
+            str += ' placeholder="'+list[i].propertyName+'">';
             str += '<input type="hidden" id="' + list[i].propertyId + '_undoRedo" value="';//undo redo 存储修改之前的属性值
             if (blockProAll[curId] !== undefined ) {
                 str += blockProAll[curId];
             } else if (list[i].defaultValue !== undefined && list[i].defaultValue != "null") {
                 str += list[i].defaultValue;
             }
-            str += '" /></div></div>';
+            str += '" /></div>';
 
         } else if (list[i].propertyType == "number") {
-            str = '<div class="row control-group"><label class="control-label col-xs-4" for="' + list[i].propertyId + '">';
+            str = '<div class="propertyOption"><label class="propertyLabel" for="' + list[i].propertyId + '">';
             if (list[i].notNull == "yes") {
                 str += '<span class="notNullColor">* </span>';
             }
             str += list[i].propertyName + '</label>';
-            str += '<div class="controls col-xs-8"><input data-notNull="' + list[i].notNull + '" onchange="collectProperty(this,' + list[i].minValue + ',' + list[i].maxValue + ')" type="number" id="' + list[i].propertyId + '"';
+            str += '<input data-notNull="' + list[i].notNull + '" onchange="collectProperty(this,' + list[i].minValue + ',' + list[i].maxValue + ')" type="number" id="' + list[i].propertyId + '"';
             var curId = list[i].propertyId;
             str += 'value="';
             if (blockProAll[curId] !== undefined) {
@@ -391,21 +396,21 @@ function propertyRightListCallBack(data) {
                 str += list[i].defaultValue;
             }
             str += '"';
-            str += ' class="form-input" placeholder="区块名称">';
+            str += ' class="propertyInputSm" placeholder="'+list[i].propertyName+'">';
             str += '<input type="hidden" id="' + list[i].propertyId + '_undoRedo" value="';//undo redo 存储修改之前的属性值
             if (blockProAll[curId] !== undefined) {
                 str += blockProAll[curId];
             } else if (list[i].defaultValue !== undefined) {
                 str += list[i].defaultValue;
             }
-            str += '" /></div></div>';
+            str += '" /></div>';
         } else if (list[i].propertyType == "select") {
-            str = '<div class="row control-group"><label class="control-label col-xs-4 " for="' + list[i].propertyId + '">';
+            str = '<div class="propertyOption"><label class="propertyLabel" for="' + list[i].propertyId + '">';
             if (list[i].notNull == "yes") {
                 str += '<span class="notNullColor">* </span>';
             }
             str += list[i].propertyName + '</label>';
-            str += '<div class="controls col-xs-8"><select onchange="collectProperty(this)" data-notNull="' + list[i].notNull + '" id="' + list[i].propertyId + '" >';
+            str += '<select class="propertyInputBig" onchange="collectProperty(this)" data-notNull="' + list[i].notNull + '" id="' + list[i].propertyId + '" >';
             str += '<option value="">请选择</option>';
             for (var j = 0; j < list[i].data.length; j++) {
                 str += '<option value="' + list[i].data[j].value + '"';
@@ -434,7 +439,7 @@ function propertyRightListCallBack(data) {
                     }
                 }
             }
-            str += '" /></div></div>';
+            str += '" /></div>';
         } else if (list[i].propertyType == "radio") {
             str = '<div class="row control-group"><p class="control-label col-xs-3 ">';
             if (list[i].notNull == "yes") {
@@ -526,10 +531,39 @@ function propertyRightListCallBack(data) {
                 str += list[i].defaultValue;
             }
             str += '" /></div>';
+        }else if( list[i].propertyType == "switch" ){
+            if( list[i].propertyId=="isCommon" ){
+                str='<div class="switch switchLink text-left propertyOption">' ;
+                str+='<input data-type="switch" type="checkbox" onchange="collectProperty(this)" data-notNull="' + list[i].notNull + '" id="' + list[i].propertyId + '"/><label>';
+                if (list[i].notNull == "yes") {
+                    str += '<span class="notNullColor">* </span>';
+                }
+                str+=''+list[i].propertyName+'</label></div>';
+            }else{
+                str='<div class="switch text-left propertyOption">';
+                str+='<input data-type="switch" type="checkbox" onchange="collectProperty(this)" data-notNull="' + list[i].notNull + '" id="' + list[i].propertyId + '"/><label>' ;
+                if (list[i].notNull == "yes") {
+                    str += '<span class="notNullColor">* </span>';
+                }
+                str+=''+list[i].propertyName+'</label></div>';
+            }
         }
-        $('.property').append(str);
+
+
+        if( list[i].propertyId.indexOf("SS")>=0 ){
+            $('.propertyLink .propertyShow').append(str);//下
+        }else{
+            if( list[i].propertyId=="isCommon" ){
+                $('.propertyLink .propertyShow').prepend(str);//通用的开关
+            }else{
+                $('.propertyOptionAll .propertyShow').append(str); //上
+            }
+
+        }
+
     }
-    $(".property").append('<div class="deleteBlockDiv"><button class="deleteBlockBtn btn btn-primary" onclick="deleteBlock(\'' + showId + '\')">删除此组件</button></div>');
+    $(".propertyShow").children(":odd").addClass("propertyBackDark");
+    //$(".property").append('<div class="deleteBlockDiv"><button class="deleteBlockBtn btn btn-primary" onclick="deleteBlock(\'' + showId + '\')">删除此组件</button></div>');
     saveActionHistory($('#sortableList').html().trim(),$('#htmlCode2').html().trim(),obj);//undo redo
 }
 
@@ -564,7 +598,8 @@ function collectProperty(property, min, max) {
         });
         saveActionHistory($('#sortableList').html().trim(),$('#htmlCode2').html().trim(),obj,'radio',propertyVal+"|"+$("#" + propertyId + "_undoRedo").val()+"|"+propertyId);//undo redo save
         $("#" + propertyId + "_undoRedo").val(propertyVal);//undo redo 将修改之后的值放入页面中 为了拿到修改之前的值
-    } else if ($(property).attr("type") == "checkbox") {
+    } else if (($(property).attr("type") == "checkbox") && ($(property).attr("data-type") !== "switch")  ) {
+        console.log( "checkbox" );
         var propertyId = $(property).attr("name");
         $("#" + propertyId + "_checkbox").val("");
         var propertyVal = "";
@@ -609,6 +644,7 @@ function collectProperty(property, min, max) {
         }
 
     } else if ($(property).attr("type") == "text") {
+        console.log("text");
         var val = $(property).val();
         var propertyId = $(property).attr("id");
         if ((val.length >= min) && (val.length <= max)) {
@@ -622,6 +658,28 @@ function collectProperty(property, min, max) {
             $(property).val($(property).attr("data-prevVal"));
             alert("范围为" + min + "~" + max + "个文字");
             return;
+        }
+
+    } else if( ($(property).attr("data-type") == "switch") && ($(property).attr("type") == "checkbox") ){
+        if( $(property).attr("id")=="isCommon" ){
+            var propertyId = $(property).attr("id");
+            console.log(propertyId);
+            if( $(property).prop("checked") ){
+                var propertyVal = "yes";
+                $(property).parent().next().find("select").attr("data-notNull","no");
+                $(property).parent().next().find("select").val("");
+            }else{
+                var propertyVal = "no";
+                $(property).parent().next().find("select").attr("data-notNull","yes");
+            }
+
+        }else{
+            var propertyId = $(property).attr("id");
+            if( $(property).prop("checked") ){
+                var propertyVal = "yes";
+            }else{
+                var propertyVal = "no";
+            }
         }
 
     } else {
@@ -680,25 +738,47 @@ function notNull(flag) {
 
 }
 
-//deleteBlock
-function deleteBlock(removeShowId) {
-    if (confirm("确认删除此组件")) {
-        var j;
-        for (var i = 0; i < obj.section.length; i++) {
-            if (obj.section[i].showId == removeShowId) {
-                j = i;
-                break;
-            }
-        }
-        obj.section.splice(j, 1);
-
-        $("[data-showId=" + removeShowId + "]").remove();
-        $(".property").html("")
-        saveActionHistory($('#sortableList').html().trim(),$('#htmlCode2').html().trim(),obj);//undo redo
+//deleteBlock---删除组件
+$("#widgetBottomDelete").on('click',function(){
+    var showId = $(".appendCur").parent().attr("data-showId");
+    if( showId==undefined ){
+        $('#partDelete').modal('hide');
+        alert("没有选择组件。");
+    }else{
+        $('#partDelete').modal('show', 'fit');
     }
+});
+$("#deleteBlockBtn").on("click",function(){
+    var showId = $(".appendCur").parent().attr("data-showId");
+    if( showId!==undefined ){
+        deleteBlock(showId);
+    }
+});
+function deleteBlock(removeShowId) {
+    var j;
+    for (var i = 0; i < obj.section.length; i++) {
+        if (obj.section[i].showId == removeShowId) {
+            j = i;
+            break;
+        }
+    }
+    obj.section.splice(j, 1);
 
+    $("[data-showId=" + removeShowId + "]").remove();
+    $(".property .propertyShow").html("");
+    //关闭对话框
+    $('#partDelete').modal('hide');
+    saveActionHistory($('#sortableList').html().trim(),$('#htmlCode2').html().trim(),obj);//undo redo
 
 }
+
+//删除模板
+$(".modalConfirm").click(function(){
+    $(".main .mainCanvas").html("");
+    $("#modalDelete").modal("hide");
+
+    obj.section=[];
+});
 
 
 //存储container
@@ -708,52 +788,56 @@ window.onload = function () {
     blockTypeList();
     //保存
     $('#keep').click(function () {
-        console.log(JSON.stringify(obj));
-        var appendStr = $(".appendStr .panel");
-        var notCur = 'yes';
+        if( $(".mainCanvas").text()!=="" ){
+            var appendStr = $(".appendStr .panel");
+            var notCur = 'yes';
 
-        for (var i = 0; i < appendStr.length; i++) {
-            if ($(appendStr[i]).hasClass("appendNot")) {
-                $(".appendStr .panel").removeClass("appendCur");
-                $(".property").html("");
-                notCur = "no";
-            }
-        }
-
-        if (notCur == 'no') {
-            alert("标记蓝色的组件有必填项没有填写");
-        } else if (notCur == 'yes') {
-            var str = (JSON.stringify(obj)),
-                order = "";
-            $(".editorBlock .appendStr").each(function () {
-                if ($(this).css("display") !== "none") {
-                    order = order + $(this).attr("data-showId") + ',';
+            for (var i = 0; i < appendStr.length; i++) {
+                if ($(appendStr[i]).hasClass("appendNot")) {
+                    $(".appendStr .panel").removeClass("appendCur");
+                    $(".property .propertyShow").html("");
+                    notCur = "no";
                 }
-            });
-            order = order.substring(0, order.length - 1);
-            console.log(order)
-            var groupDivOrder ="";
-            for(var i = 0;i<$('.groupDiv').length;i++){
-                var pp = $('.groupDiv')[i];
-                groupDivOrder += $(pp).attr("data-groupShowId")+",";
             }
-            groupDivOrder = groupDivOrder.substring(0, groupDivOrder.length - 1);
-            console.log(groupDivOrder)
-            $.ajax({
-                async: false,
-                cache: true,
-                type: 'POST',
-                dataType : "jsonp",
-                data:{strKey:str,order:order,groupDivOrder:groupDivOrder,dataType :"jsonp"},  //参数
-                url:"http://192.168.31.156:8080/cmsNews/template_editor/blockLeftList.do"//请求的action路径
-            });
+
+            if (notCur == 'no') {
+                alert("标记蓝色的组件有必填项没有填写");
+            } else if (notCur == 'yes') {
+                var str = (JSON.stringify(obj)),
+                    order = "";
+                $(".editorBlock .appendStr").each(function () {
+                    if ($(this).css("display") !== "none") {
+                        order = order + $(this).attr("data-showId") + ',';
+                    }
+                });
+                order = order.substring(0, order.length - 1);
+                console.log(order);
+                console.log(JSON.stringify(obj));
+                var groupDivOrder ="";
+                for(var i = 0;i<$('.groupDiv').length;i++){
+                    var pp = $('.groupDiv')[i];
+                    groupDivOrder += $(pp).attr("data-groupShowId")+",";
+                }
+                groupDivOrder = groupDivOrder.substring(0, groupDivOrder.length - 1);
+                //console.log(groupDivOrder)
+                $.ajax({
+                    async: false,
+                    cache: true,
+                    type: 'POST',
+                    dataType : "jsonp",
+                    data:{strKey:str,order:order,groupDivOrder:groupDivOrder,dataType :"jsonp"},  //参数
+                    url:"http://192.168.31.156:8080/cmsNews/template_editor/saveTemplate.do"//请求的action路径
+                });
+            }
+        }else{
+            alert("当前没有可保存项");
         }
     })
 };
 
 
 
-function saveTemplateCallBack(data){
+function saveTemplateCallback(data){
     alert("保存成功~");
 }
 
@@ -778,6 +862,7 @@ $(".preview").click(function(){
     $(main).find(".resize-handle").remove();
     $(main).find(".sortArea").remove();
     $(main).find(".firstLocation").remove();
+    $(main).find(".mainAct").remove();
 
     var groupDivs=$(main).find(".groupDiv ");
     for( var i=0;i<groupDivs.length;i++ ){
