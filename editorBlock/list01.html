@@ -1,297 +1,118 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title>index</title>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../css/zui.min.css"/>
-    <link rel="stylesheet" href="../css/common.Editor.css"/>
-    <script src="../js/jquery-1.11.3.js"></script>
-    <script src="../js/zui.min.js"></script>
-
+<div class="style"></div>
     <style>
-        /**********************组件---header01************************/
-        .header01{
-            width: 100%;
-        }
-        /*top--红*/
-        .header01_top{
-            height:40px;
-            background-color: #c33;
-        }
-        .header01_action li{
-            display: inline-block;
-            line-height:40px;
-            color:#fff;
-            margin-right:15px;
-            font-size:14px;
-        }
-        .header01_searchCon{
-            display: inline-block;
-            width:112px;
-            height:20px;
-            margin:10px 0;
-            position:relative;
-        }
-        .header01_searchInput{
-            border-radius: 36px;
-            width:112px;
-            padding:0 5px;
-            letter-spacing: 1px;
-            outline: none;
-            font-size:14px;
-        }
-        .header01_searchCon label{
-            display: inline-block;
-            position:absolute;
-            right:5px;
-            top:-3px;
-        }
-        .header01_searchCon label a{
-            display: inline-block;
-        }
-        .header01_phone,.header01_login{
-            display: inline-block;
-            margin-left:20px;
-        }
-        .header01_phone span{
-            color:#fff;
-            font-size:14px;
-            padding-left:3px;
-        }
-        .header01_phone img{
-            padding-bottom:2px;
-        }
-        .header01_login a{
-            color:#fff;
-            font-size:14px;
-        }
-        /*logo*/
-        .header01_logo{
-            text-align:center;
-        }
-        .header01_logo>img{
-            width:256px;
-            margin:20px 0;
-        }
-        /*导航*/
-        .header01_nav{
-            background-color: #fafafa;
-            height:50px;
-        }
-        .header01_navChanel{
-            text-align: center;
-        }
-        .header01_navChanel:after{
-            display: table;
-            content: '';
-            clear: both;
-        }
-        .header01_navChanel>li{
-            float: left;
-            /*position:relative;*/
-        }
-        .header01_navChanel>li>a{
-            display: inline-block;
-            height:50px;
-            border-bottom:2px solid transparent;
-            line-height: 50px;
-            width:116px;
-            font-size:18px;
-            color:#999;
-            text-decoration: none;
-        }
-        .header01_navChanel>li>a.header01_active{
-            color:#333;
-            border-bottom-color:#c33;
-        }
-        .header01_active{
-            color:#333;
-            border-bottom-color:#c33;
-        }
-        .header01_navChanel>li>a.header01_cur{
-            color:#c33;
-        }
-        /*二级菜单*/
-        .header01_tan{
-            display: none;
-            width: 100%;
-            min-height: 20px;
-            text-align: center;
-            margin-top:-3px;
-            margin-bottom:5px;
-            background:#ffffff;
-            border:1px solid #fafafa;
-            box-shadow:0 2px 4px 0 rgba(0,0,0,0.24);
-            position: relative;
-            z-index:10;
-        }
-        /*箭头*/
-        .header01_arrow{
-            position:absolute;
-            left:0;
-            width:95%;
-            text-align: center;
-            height:7px;
-        }
-        .header01_arrow img{
-            position: absolute;
-            width:8px;
-            top:-7px;
-        }
-        /*li*/
-        .header01_tan li a{
-            color:#9b9b9b;
-            font-size: 14px;
-            display: inline-block;
-            line-height: 35px;
-            text-decoration: none;
-        }
-        .header01_tan li a.header01_tanActive{
-            color:#c33;
-        }
+        /*.QR code*/
 
+
+
+        .QR_All{
+            width: 308px;height: 180px;
+        }
+        .QR_head{display: inline-block;height: 22px;width: 300px;
+            font-size:20px;
+            line-height:22px;
+            text-align:left;
+            padding-left: 15px;
+            margin-top: 13px;
+        }
+        .QR_image{ width:100px;height: 100px;margin-top:12px;margin-left: 104px }
+        .QR_title{height: 48px; width: 308px}
+        .QR_secBack{height: 124px;margin-top: 8px;}
     </style>
 </head>
 <body>
-<div class="header01">
-    <!--top-->
-    <div class="header01_top">
-        <div class="commonContainer">
-            <ul class="header01_action lf">
-                <li class="header01_GPS">北京</li>
-                <li class="header01_time">2017年3月20日 周四</li>
-                <li class="header01_TEMP">27℃</li>
-            </ul>
-            <div class="rt">
-                <p class="header01_searchCon ">
-                    <input type="text" id="header01_searchInput" placeholder="" class="header01_searchInput "/>
-                    <label for="header01_searchInput"><a href="#"><img src="../img/header01/search_index.png" alt=""/></a></label>
-                </p>
-                <p class="header01_phone"><img src="../img/header01/phone_index.png" alt=""/><span>下载客户端</span></p>
-                <p class="header01_login"><a href="#">登录</a></p>
-            </div>
-        </div>
+
+<div class="QR_All appendCur">
+    <div class="QR_title">
+        <p class="QR_head">下载客户端</p>
     </div>
-    <!--logo-->
-    <div class="header01_logo">
-        <img src="../img/header01/header01_logo.png">
-    </div>
-    <!--nav-->
-    <div class="header01_nav">
-        <ul class="commonContainer header01_navChanel">
-            <li><a href="#"  class="header01_active">首页</a></li>
-            <li>
-                <a href="#">经济</a>
-                <ul class="header01_tan">
-                    <li class="header01_arrow"><img src="../img/header01/header01_arrow.png" alt=""/></li>
-                    <li><a href="#">图书馆</a></li>
-                    <li><a href="#">编辑推荐</a></li>
-                    <li><a href="#">新书速递</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="#">经济</a>
-                <ul class="header01_tan">
-                    <li class="header01_arrow"><img src="../img/header01/header01_arrow.png" alt=""/></li>
-                    <li><a href="#">图书馆</a></li>
-                    <li><a href="#">编辑推荐</a></li>
-                    <li><a href="#">新书速递</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="#">经济</a>
-                <ul class="header01_tan">
-                    <li class="header01_arrow"><img src="../img/header01/header01_arrow.png" alt=""/></li>
-                    <li><a href="#">图书馆</a></li>
-                    <li><a href="#">编辑推荐</a></li>
-                    <li><a href="#">新书速递</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="#">经济</a>
-                <ul class="header01_tan">
-                    <li class="header01_arrow"><img src="../img/header01/header01_arrow.png" alt=""/></li>
-                    <li><a href="#">图书馆</a></li>
-                    <li><a href="#">编辑推荐</a></li>
-                    <li><a href="#">新书速递</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="#">经济</a>
-                <ul class="header01_tan">
-                    <li class="header01_arrow"><img src="../img/header01/header01_arrow.png" alt=""/></li>
-                    <li><a href="#">图书馆</a></li>
-                    <li><a href="#">编辑推荐</a></li>
-                    <li><a href="#">新书速递</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="#">经济</a>
-                <ul class="header01_tan">
-                    <li class="header01_arrow"><img src="../img/header01/header01_arrow.png" alt=""/></li>
-                    <li><a href="#">图书馆</a></li>
-                    <li><a href="#">编辑推荐</a></li>
-                    <li><a href="#">新书速递</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="#">经济天天</a>
-                <ul class="header01_tan">
-                    <li class="header01_arrow"><img src="../img/header01/header01_arrow.png" alt=""/></li>
-                    <li><a href="#">图书馆1</a></li>
-                    <li><a href="#">编辑推荐</a></li>
-                    <li><a href="#">新书速递</a></li>
-                </ul>
-            </li>
-        </ul>
+    <div class="QR_secBack">
+        <input type="hidden" class="v_QR_image" value="../img/QR_code_3g1/QR_code.png"/>
+        <img src="../img/QR_code_3g1/QR_code.png" class="QR_image">
     </div>
 </div>
-<div class="script">
-    <script>
-        //首页一级点击
-        $('.header01_navChanel>li>a').click(function(e){
-            e=e||window.event;
-            var target=e.target||e.srcElement;
-            var a=$(".header01_active");
-            a.removeClass('header01_active');
-            target.className='header01_active';
 
-            $('.header01_tan>li>a').removeClass("header01_tanActive")
-        });
-        $('.header01_navChanel>li>a').mousemove(function(){
-            if( $(this).next()!==null ){
-                $(this).next().show();
-                $(this).addClass("header01_cur");
-            }
-        });
-        $('.header01_navChanel>li>a').mouseout(function(){
-            if( $(this).next()!==null ){
-                $(this).next().hide();
-                $(this).removeClass("header01_cur");
-            }
-        });
-        //首页二级点击
-        $('.header01_tan').mouseover(function(){
-            $(this).siblings().addClass("header01_cur");
-            $(this).css('display','block');
-        });
-        $('.header01_tan').mouseout(function(){
-            $(this).siblings().removeClass("header01_cur");
-            $(this).css('display','none');
-        });
-        $('.header01_tan>li>a').click(function(){
-            var a=$(".header01_active");
-            a.removeClass('header01_active');
-            $(this).parent().parent().prev().addClass("header01_active");
-            var cur=$(".header01_tanActive");
-            cur.removeClass("header01_tanActive");
-            $(this).addClass('header01_tanActive');
-            $(this).parent().siblings().children().removeClass('header01_tanActive');
-        });
-    </script>
+<div>
+    <form action="personal/update.do" name="Form" id="Form" method="post" onsubmit="return PostData()">
+        <input type="file" class="file" onchange="picChange(this)"/>
+    </form>
 </div>
 
+<script src="../js/jquery-1.11.3.js"></script>
+<script>
+    //$(top.hangge());//关闭加载状态
+    function picChange(target){
+        var f=target.files[0];
+        var img = new Image();
+        img.file = f;
+        img.onload=function(){
+            $(".appendCur .v_QR_image").val(img.src);
+            console.log($(".appendCur .v_QR_image").val());
+        };
+        var reader = new FileReader();
+        reader.onload = function(e){
+            img.src = e.target.result;
+        };
+        reader.readAsDataURL(f);
+
+        $("#Form").submit();
+    }
+    function PostData() {
+        var formData = new FormData($("#Form")[0]);
+        $.ajax({
+            type: "POST",
+            url: "<%=basePath%>personal/update.do",
+            data:formData,
+            async: false,
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function(data) {
+                if("success" == data.msg){
+                    alert("保存成功！");
+                }
+            }
+        });
+        return false;
+    }
+
+
+
+    var flag = "v";
+    if (flag == "v") {
+        vData()
+    } else {
+        var lhbb_name = "";
+        if (lhbb_name != "") {
+
+        }
+        tData();
+    }
+
+    function vData() {
+        var v_QR_image = $(".appendCur .v_QR_image").val();
+        console.log(v_QR_image);
+        if (v_QR_image != "") {
+            $(".appendCur .QR_image").attr("src",v_QR_image);
+        }
+    }
+    function tData() {
+        $.ajax({
+            async: false,
+            cache: true,
+            type: 'post',
+            dataType: "jsonp",
+            data: {dataType: "jsonp", channelId: lhbb_id, limit: lhbb_num, Callback: Callback},  //参数
+            url: "http://192.168.31.156:8080/cmsNews/template_editor/channel_article_list_index.do",//请求的action路径
+            success: function (data) { //请求成功后处理函数。
+            }
+        });
+    }
+    function tDataCallback(data) {
+        var list = data.dataList;
+    }
+
+
+
+</script>
 </body>
 </html>

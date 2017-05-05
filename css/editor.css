@@ -89,8 +89,11 @@ nav,#banner,section,footer{
 }
 .partAll{
     border-right:2px solid rgba(0,0,0,.12);
-    padding:0 0 65px 0;
+    /*padding:0 0 150px 0;*/
     color:#333;
+}
+.partClassify .partOption:last-child{
+    margin-bottom:100px;
 }
 .property{
     border-left:2px solid rgba(0,0,0,.12);
@@ -374,10 +377,13 @@ nav,#banner,section,footer{
     cursor: pointer;
 }
 .layoutImgAll .with-padding{
-    padding:10px 12px;
+    /*padding:10px 12px;*/
+    padding:0;
+
 }
 .with-padding{
     text-align: left;
+    padding:0;
 }
 .layoutImg{
     display: inline-block;
@@ -440,6 +446,7 @@ nav,#banner,section,footer{
     border:1px solid #cccccc;
     width:40px;
     height:16px;
+    line-height:16px;
     margin-top:8px;
     outline: none;
     padding:2px 5px;
@@ -464,6 +471,7 @@ nav,#banner,section,footer{
     border:1px solid #cccccc;
     width:85px;
     height:16px;
+    line-height:16px;
     margin-top:8px;
     outline: none;
     padding:0 3px;

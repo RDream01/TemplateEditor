@@ -277,7 +277,7 @@
                     </span>
                 </p>
                 <p class="editorAct homePageAct">
-                    <span onClick="window.open(document.location, 'big', 'fullscreen=yes')">
+                    <span>
                         <img src="../img/editor/fullScreen.png" class="fullScreen" data-toggle="tooltip" data-placement="top" title="全屏操作"/>
                     </span>
                 </p>
@@ -386,6 +386,16 @@
 <script src="../js/jquery-1.11.3.js"></script>
 <script src="../js/zui.min.js"></script>
 <script>
+//    function open(){
+//        var url=document.location.href; //获得本窗口属性名
+//        console.log(url);
+//        newWin=window.open(url,'','fullscreen=1,scrollbars=0');
+//        window.opener=null;//出掉关闭时候的提示窗口
+//        window.open('','_self'); //ie7
+//        window.close();
+//    }
+
+
 //    选择二维码
     $('.QRCodeProperty input').on("change",function(){
         if( $(this).val()!=="" ){
@@ -397,60 +407,6 @@
         }
 
     });
-
-
-//    全屏
-//console.log(window.screen.availHeight );
-//$(document).on('keydown', function (event) {
-//      var e = event || window.event || arguments.callee.caller.arguments[0];
-//      if(e && e.keyCode == 122){//捕捉F11键盘动作
-//            e.preventDefault();  //阻止F11默认动作
-//            var el = document.documentElement;
-//            //定义不同浏览器的全屏API
-//            var rfs = el.requestFullScreen || el.webkitRequestFullScreen || el.mozRequestFullScreen || el.msRequestFullScreen;
-//            //执行全屏
-//            if (typeof rfs != "undefined" && rfs) {
-//                      rfs.call(el);
-//            } else if(typeof window.ActiveXObject != "undefined"){
-//                 var wscript = new ActiveXObject("WScript.Shell");
-//                 if (wscript!=null) {
-//                     wscript.SendKeys("{F11}");
-//                 }
-//            }
-//            //监听不同浏览器的全屏事件，并件执行相应的代码
-//            document.addEventListener("webkitfullscreenchange", function() {
-//                if (document.webkitIsFullScreen) {
-////                        alert(11)
-//                    console.log(window.screen.availHeight );
-//                }else{
-////                    alert(22)
-//　　            }
-//            }, false);
-//
-//            document.addEventListener("fullscreenchange", function() {
-//                if (document.fullscreen) {
-////                    alert(33)
-//                }else{
-////                    alert(44)
-//                }
-//            }, false);
-//
-//            document.addEventListener("mozfullscreenchange", function() {
-//                if (document.mozFullScreen) {
-////                    alert(55)
-//                }else{
-////                   alert(66)
-//                }
-//            }, false);
-//            document.addEventListener("msfullscreenchange", function() {
-//                if (document.msFullscreenElement) {
-////                    alert(77)
-//                }else{
-////                    alert(88)
-//                }
-//            }, false)
-//     }
-//});
 
 
 //    相关推荐
@@ -474,9 +430,69 @@
     $(".partAll").css("height",(parseFloat(window.screen.availHeight)-65-65)+"px");
     $(".property").css("height",(parseFloat(window.screen.availHeight)-65-65)+"px");
 
-    $(".editorAct img").click(function(){
+////    全屏
+//console.log(window.screen.availHeight );
+//$(document).on('keydown', function (event) {
+//    var e = event || window.event || arguments.callee.caller.arguments[0];
+//    if(e && e.keyCode == 122){//捕捉F11键盘动作
+//        e.preventDefault();  //阻止F11默认动作
+//        var el = document.documentElement;
+//        //定义不同浏览器的全屏API
+//        var rfs = el.requestFullScreen || el.webkitRequestFullScreen || el.mozRequestFullScreen || el.msRequestFullScreen;
+//        //执行全屏
+//        if (typeof rfs != "undefined" && rfs) {
+//            rfs.call(el);
+//        } else if(typeof window.ActiveXObject != "undefined"){
+//            var wscript = new ActiveXObject("WScript.Shell");
+//            if (wscript!=null) {
+//                wscript.SendKeys("{F11}");
+//            }
+//        }
+//        //监听不同浏览器的全屏事件，并件执行相应的代码
+//        document.addEventListener("webkitfullscreenchange", function() {
+//            if (document.webkitIsFullScreen) {
+//                alert(1);
+//                $(".main").css("height",(parseFloat(window.screen.availHeight)-20)+"px");
+//                $(".partAll").css("height",(parseFloat(window.screen.availHeight)-20)+"px");
+//                $(".property").css("height",(parseFloat(window.screen.availHeight)-20)+"px");
+//                console.log(window.screen.availHeight );
+//            }else{
+//                $(".main").css("height",(parseFloat(window.screen.availHeight)-65-65)+"px");
+//                $(".partAll").css("height",(parseFloat(window.screen.availHeight)-65-65)+"px");
+//                $(".property").css("height",(parseFloat(window.screen.availHeight)-65-65)+"px");
+//            }
+//        }, false);
+//
+//        document.addEventListener("fullscreenchange", function() {
+//            if (document.fullscreen) {
+//                    alert(33)
+//            }else{
+//                    alert(44)
+//            }
+//        }, false);
+//
+//        document.addEventListener("mozfullscreenchange", function() {
+//            if (document.mozFullScreen) {
+//                alert("moz");
+//                $(".main").css("height",(parseFloat(window.screen.availHeight)-20)+"px");
+//                $(".partAll").css("height",(parseFloat(window.screen.availHeight)-20)+"px");
+//                $(".property").css("height",(parseFloat(window.screen.availHeight)-20)+"px");
+//            }else{
+//                $(".main").css("height",(parseFloat(window.screen.availHeight)-65-65)+"px");
+//                $(".partAll").css("height",(parseFloat(window.screen.availHeight)-65-65)+"px");
+//                $(".property").css("height",(parseFloat(window.screen.availHeight)-65-65)+"px");
+//            }
+//        }, false);
+//        document.addEventListener("msfullscreenchange", function() {
+//            if (document.msFullscreenElement) {
+//                    alert(77);
+//            }else{
+//                    alert(88);
+//            }
+//        }, false)
+//    }
+//});
 
-    });
 
     //    对话框
     $(".modalCon .modalSelect").click(function(){

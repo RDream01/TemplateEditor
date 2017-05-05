@@ -1,0 +1,79 @@
+<div class="col-md-4 col-sm-4 appendStr QR_code_3g1" name="" id="QR_code_3g1" data-blockSize="4">
+<div class="style" "exist">
+    <style>
+        .QR_All{
+            width: 308px;height: 180px;
+        }
+        .QR_head{display: inline-block;height: 22px;width: 300px;
+            font-size:20px;
+            line-height:22px;
+            text-align:left;
+            padding-left: 15px;
+            margin-top: 13px;
+            }
+        .QR_image{ width:100px;height: 100px;margin-top:12px;margin-left: 104px }
+        .QR_title{height: 48px; width: 308px}
+        .QR_secBack{height: 124px;margin-top: 8px;}
+    </style>
+</div>
+
+<div class="panel appendNot" data-id="3">
+    <input type="hidden" class="v_QR_image" value="../img/QR_code_3g1/QR_code.png"/>
+    <div class="panel-heading">
+        <span class="title">列表1</span>
+    </div>
+    <div class="panel-body">
+        <div class="QR_All appendCur" "exist">
+            <div class="QR_title">
+                <p class="QR_head">下载客户端</p>
+            </div>
+            <div class="QR_secBack">
+                <img src="../img/QR_code_3g1/QR_code.png" class="QR_image">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="resize-handle"><i class="icon icon-resize-h"></i></div>
+
+<div class="script" "exist">
+    <script>
+        var flag = "v";
+        if (flag == "v") {
+            vData()
+        } else {
+            var lhbb_name = "";
+            if (lhbb_name != "") {
+
+            }
+            tData();
+        }
+
+        function vData() {
+            var v_QR_image = $(".appendCur .v_QR_image").val();
+            console.log(v_QR_image);
+            if (v_QR_image != "") {
+                $(".appendCur .QR_image").attr("src",v_QR_image);
+            }
+        }
+        function tData() {
+            $.ajax({
+                async: false,
+                cache: true,
+                type: 'post',
+                dataType: "jsonp",
+                data: {dataType: "jsonp", channelId: lhbb_id, limit: lhbb_num, Callback: Callback},  //参数
+                url: "http://192.168.31.156:8080/cmsNews/template_editor/channel_article_list_index.do",//请求的action路径
+                success: function (data) { //请求成功后处理函数。
+                }
+            });
+        }
+        function tDataCallback(data) {
+            var list = data.dataList;
+        }
+
+
+    </script>
+</div>
+
+
+

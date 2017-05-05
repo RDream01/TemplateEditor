@@ -599,7 +599,7 @@ function collectProperty(property, min, max) {
         saveActionHistory($('#sortableList').html().trim(),$('#htmlCode2').html().trim(),obj,'radio',propertyVal+"|"+$("#" + propertyId + "_undoRedo").val()+"|"+propertyId);//undo redo save
         $("#" + propertyId + "_undoRedo").val(propertyVal);//undo redo 将修改之后的值放入页面中 为了拿到修改之前的值
     } else if (($(property).attr("type") == "checkbox") && ($(property).attr("data-type") !== "switch")  ) {
-        console.log( "checkbox" );
+        //console.log( "checkbox" );
         var propertyId = $(property).attr("name");
         $("#" + propertyId + "_checkbox").val("");
         var propertyVal = "";
@@ -750,6 +750,7 @@ $("#widgetBottomDelete").on('click',function(){
 });
 $("#deleteBlockBtn").on("click",function(){
     var showId = $(".appendCur").parent().attr("data-showId");
+    console.log( showId );
     if( showId!==undefined ){
         deleteBlock(showId);
     }
@@ -773,7 +774,7 @@ function deleteBlock(removeShowId) {
 }
 
 //删除模板
-$(".modalConfirm").click(function(){
+$("#deleteModuleBtn").click(function(){
     $(".main .mainCanvas").html("");
     $("#modalDelete").modal("hide");
 

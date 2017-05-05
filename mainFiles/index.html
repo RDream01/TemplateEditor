@@ -147,7 +147,7 @@
             </div>
             <p class="modalBottom">
                 <span class="modalCancel" data-dismiss="modal">取消</span>
-                <span class="modalConfirm">确认</span>
+                <span class="modalConfirm" id="deleteModuleBtn">确认</span>
             </p>
         </div>
     </div>
@@ -216,7 +216,7 @@
 <div class="indexAll">
     <div class="row" id="multiDroppableContainer">
         <!--left--组件-->
-        <div class="col-xs-2 partAll">
+        <div class="col-xs-2 partAll" id="partAll">
             <!--模块布局-->
             <div class="layoutImgAll">
                 <p class="widget widgetP" data-toggle="collapse" data-target="#collapseExample">
@@ -342,12 +342,6 @@
             $(this).parent().next().slideDown();
         }
     });
-
-
-    //    属性
-
-
-
     //    悬浮--新建，导入
     $('[data-toggle="tooltip"]').tooltip();
 
