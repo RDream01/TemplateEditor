@@ -1,7 +1,11 @@
-
 var option = [];
 var optionSelect={};
-var obj = {"header":[],"section":[],"footer":[]};
+//var obj = {"header":[],"section":[],"footer":[]};
+var obj ="";
+var input=$("#objInput").val();
+var objInput=eval("("+input+")");
+obj=objInput;
+
 var  baseShowId = 0;
 var  baseGroupId = 0;
 //callback
@@ -781,12 +785,70 @@ $("#deleteModuleBtn").click(function(){
     obj.section=[];
 });
 
+//存为草稿
+function saveDraft(draftBtn){
+    $("#WhetherDraft").val("1");
+    $(draftBtn).find("img").tooltip('hide');
+    $(draftBtn).find("img").next().remove();
+    var str = (JSON.stringify(obj));
+    $("#objInput").val(str);
+
+    //草稿str
+    var draft=$("html").prop("outerHTML");
+    console.log(draft);
+    $.zui.store.set('draft', draft);
+    window.open('draft.html');
+
+}
+
+
+//移动
+$('.newSection').dashboard();
+var optionsTrigger = {
+    selector:'.list-group-item',
+    trigger: '[data-trigger="sortArea"]'
+};
+$('#sortableList').sortable(optionsTrigger);
+//拖动组件
+$('#multiDroppableContainer').droppable({
+    selector: '.btn-droppable', // 定义允许拖放的元素
+    target: '.droppable-target',
+    drop: function(event) {
+        $('.editorBlock').find('.heightLight').removeClass('heightLight');  //取消高亮框
+        var msg = '真棒！';
+        if(event.target) {
+            //像画布中添加组件方法
+            var id=$(event.element).attr("data-blockId");
+            var size=$(event.element).attr("data-blockSize");
+            importFile(id,'',size,event.target.find('.area-name').parent().parent());
+            var elementId = event.element.text();
+            msg += '成功拖动【' + elementId + '】到区域 ' + event.target.find('.area-name').text();
+        }
+        //$.zui.messager.show(msg);
+    },
+    drag: function(event){
+        var id=$(event.element).attr("data-blockId");
+        var ts= id.split("_");
+        var thisSize = "4";
+        if(ts[1] == '3g2'){
+            thisSize="8";
+        }else if(ts[1] == '3g3') thisSize = "12";
+        var divs = $('.editorBlock>div>div>div.row');
+        for(var i=0;i<divs.length;i++){
+            var rowWidth=  $(divs[i]).attr("data-groupSize");
+            if(eval(rowWidth) >= eval(thisSize)){
+                $(divs[i]).addClass("heightLight");
+            }
+        }
+    }
+});
 
 //存储container
 window.onload = function () {
     //left
     blockLeftList("");
     blockTypeList();
+
     //保存
     $('#keep').click(function () {
         if( $(".mainCanvas").text()!=="" ){
@@ -812,15 +874,14 @@ window.onload = function () {
                     }
                 });
                 order = order.substring(0, order.length - 1);
-                console.log(order);
-                console.log(JSON.stringify(obj));
                 var groupDivOrder ="";
                 for(var i = 0;i<$('.groupDiv').length;i++){
                     var pp = $('.groupDiv')[i];
                     groupDivOrder += $(pp).attr("data-groupShowId")+",";
                 }
                 groupDivOrder = groupDivOrder.substring(0, groupDivOrder.length - 1);
-                //console.log(groupDivOrder)
+                console.log(order);
+                console.log(str);
                 $.ajax({
                     async: false,
                     cache: true,

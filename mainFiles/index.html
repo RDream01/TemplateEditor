@@ -11,9 +11,14 @@
     <link rel="stylesheet" href="../css/common.Editor.css"/>
     <link rel="stylesheet" href="../css/common_red.css"/>
     <script src="../js/respond.js"></script>
+    <script src="../js/jquery-1.11.3.js"></script>
 </head>
 <body>
 
+<!--obj-->
+<input type="hidden" id="objInput" value='{"header":[],"section":[],"footer":[]}'/>
+<!--草稿-->
+<input type="hidden" id="WhetherDraft" value="0"/>
 <!-- 新建模板 -->
 <div class="modal fade myModal" id="modalNewEditor">
     <div class="modal-dialog">
@@ -199,7 +204,7 @@
         <span data-position="fit" data-toggle="modal" data-target="#modalDelete">
             <img src="../img/editor/deleteEditorIcon.png" alt="" data-toggle="tooltip" data-placement="bottom" title="删除模板"/>
         </span>
-        <span>
+        <span onclick="saveDraft(this)">
             <img src="../img/editor/draft.png" alt="" data-toggle="tooltip" data-placement="bottom" title="存为草稿"/>
         </span>
         <span id="keep">
@@ -323,12 +328,11 @@
 
 
 
-<script src="../js/jquery-1.11.3.js"></script>
 <script src="../js/zui.min.js"></script>
-<script src="../js/common.Editor.js"></script>
 <script src="../js/zui.dashboard.js"></script>
 <script src="../js/zui.droppable.js"></script>
 <script src="../js/zui.sortable.js"></script>
+<script src="../js/common.Editor.js"></script>
 <script src="../js/fallback.js"></script>
 <script src="../js/wordNumber.js"></script>
 

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../css/zui.min.Editor.css"/>
     <link rel="stylesheet" href="../css/editor.css"/>
-    <title>编辑器首页</title>
+    <title>编辑器选择页</title>
 </head>
 <body>
 
@@ -15,75 +15,122 @@
             <p class="modelTitle">新建模板</p>
             <div class="modalOption">
                 <!--模板名称-->
-                <p class="modalAct"><input type="text" placeholder="输入模板名称（可输入24个汉字）"/></p>
+                <p class="modalAct">
+                    <input id="templateName" onchange="templateNameChange(this)" type="text" placeholder="输入模板名称（可输入24个汉字）" data-must="no" class="dataMust" data-option="templateName"/>
+                </p>
                 <!--选择模板类型-->
                 <div class="modalCon">
-                    <p class="modalSelect modalAct"><span>选择模板类型</span><i class="icon icon-chevron-down"></i></p>
+                    <p class="modalSelect modalAct">
+                        <span class="dataMust" data-option="templateType" data-value="" data-must="no">选择模板类型</span>
+                        <i class="icon icon-chevron-down"></i>
+                    </p>
                     <div class="modalAlter">
-                        <p class="modalTxt "><i class="icon"></i><span>选择模板类型</span></p>
-                        <p class="modalTxt "><i class="icon"></i><span>模板类型1</span></p>
-                        <p class="modalTxt"><i class="icon"></i><span>模板类型2</span></p>
-                        <p class="modalTxt"><i class="icon"></i><span>+ 新建模板类型</span></p>
+                        <p class="modalTxt">
+                            <i class="icon"></i>
+                            <span data-value="">选择模板类型</span>
+                        </p>
+                        <p class="modalTxt">
+                            <i class="icon"></i>
+                            <span data-value="template01">模板类型1</span>
+                        </p>
+                        <p class="modalTxt">
+                            <i class="icon"></i>
+                            <span data-value="template02">模板类型2</span>
+                        </p>
+                        <p class="modalTxt">
+                            <i class="icon"></i>
+                            <span data-value="templateCustom">+ 新建模板类型</span>
+                        </p>
                     </div>
                 </div>
                 <!--选择界面风格-->
                 <div class="modalCon">
-                    <p class="modalSelect modalAct"><span>选择界面风格</span><i class="icon icon-chevron-down"></i></p>
+                    <p class="modalSelect modalAct">
+                        <span class="dataMust" data-option="blockStyle" data-value="" data-must="no">选择界面风格</span>
+                        <i class="icon icon-chevron-down"></i>
+                    </p>
                     <div class="modalAlter">
-                        <p class="modalTxt "><i class="icon"></i><span>选择界面风格</span></p>
-                        <p class="modalTxt "><i class="icon"></i><span>界面风格1</span></p>
-                        <p class="modalTxt"><i class="icon"></i><span>界面风格2</span></p>
+                        <p class="modalTxt">
+                            <i class="icon"></i>
+                            <span data-value="">选择界面风格</span>
+                        </p>
+                        <p class="modalTxt">
+                            <i class="icon"></i>
+                            <span data-value="style01">界面风格1</span>
+                        </p>
+                        <p class="modalTxt">
+                            <i class="icon"></i>
+                            <span data-value="style02">界面风格2</span>
+                        </p>
                     </div>
                 </div>
                 <!--选择栅格系统-->
                 <div class="modalCon">
-                    <p class="modalSelect modalAct"><span>选择栅格系统</span><i class="icon icon-chevron-down"></i></p>
+                    <p class="modalSelect modalAct">
+                        <span class="dataMust" data-option="gridSize" data-value="" data-must="no">选择栅格系统</span>
+                        <i class="icon icon-chevron-down"></i>
+                    </p>
                     <div class="modalAlter">
                         <p class="modalTxt modalGrid">
-                            <i class="icon"></i><img src="../img/editor/gird_3.png" alt=""/><span>1:1:1</span>
+                            <i class="icon"></i><img src="../img/editor/gird_3.png" alt=""/>
+                            <span data-value="3">1:1:1</span>
                         </p>
                         <p class="modalTxt modalGrid">
-                            <i class="icon"></i><img src="../img/editor/gird_4.png" alt=""/><span>1:1:1:1</span>
+                            <i class="icon"></i><img src="../img/editor/gird_4.png" alt=""/>
+                            <span data-value="4">1:1:1:1</span>
                         </p>
                     </div>
                 </div>
                 <!--选择页面布局-->
                 <div class="modalCon">
-                    <p class="modalSelect modalAct"><span>选择页面布局</span><i class="icon icon-chevron-down"></i></p>
+                    <p class="modalSelect modalAct">
+                        <span class="dataMust" data-option="blockLayout" data-value="" data-must="no">选择页面布局</span>
+                        <i class="icon icon-chevron-down"></i>
+                    </p>
                     <div class="modalAlter">
                         <p class="modalTxt modalLayout">
-                            <img src="../img/editor/layout01.png" alt=""/><span>界面布局1</span>
+                            <img src="../img/editor/layout01.png" alt=""/>
+                            <span data-value="layout01">界面布局1</span>
                         </p>
                         <p class="modalTxt modalImg modalLayout">
-                            <img src="../img/editor/layout02.png" alt=""/><span>界面布局2</span>
+                            <img src="../img/editor/layout02.png" alt=""/>
+                            <span data-value="layout01">界面布局2</span>
                         </p>
                         <p class="modalTxt modalImg modalLayout">
-                            <img src="../img/editor/layout03.png" alt=""/><span>界面布局3</span>
+                            <img src="../img/editor/layout03.png" alt=""/>
+                            <span data-value="layout01">界面布局3</span>
                         </p>
                         <p class="modalTxt modalImg modalLayout">
-                            <img src="../img/editor/layoutNew.png" alt=""/><span>自定义布局</span>
+                            <img src="../img/editor/layoutNew.png" alt=""/>
+                            <span  data-value="layoutCustom">自定义布局</span>
                         </p>
                     </div>
                 </div>
                 <!--选择界面配色-->
                 <div class="modalCon">
-                    <p class="modalSelect modalAct"><span>选择界面配色</span><i class="icon icon-chevron-down"></i></p>
+                    <p class="modalSelect modalAct">
+                        <span class="dataMust" data-option="blockColor" data-value="" data-must="no">选择界面配色</span>
+                        <i class="icon icon-chevron-down"></i>
+                    </p>
                     <div class="modalAlter">
                         <p class="modalTxt modalColor">
-                            <i class="icon"></i><img src="../img/editor/color_red.png" alt=""/><span>红</span>
+                            <i class="icon"></i><img src="../img/editor/color_red.png" alt=""/>
+                            <span data-value="red">红</span>
                         </p>
                         <p class="modalTxt modalColor">
-                            <i class="icon"></i><img src="../img/editor/color_yellow.png" alt=""/><span>黄</span>
+                            <i class="icon"></i><img src="../img/editor/color_yellow.png" alt=""/>
+                            <span data-value="yellow">黄</span>
                         </p>
                         <p class="modalTxt modalColor">
-                            <i class="icon"></i><img src="../img/editor/color_blue.png" alt=""/><span>蓝</span>
+                            <i class="icon"></i><img src="../img/editor/color_blue.png" alt=""/>
+                            <span data-value="blue">蓝</span>
                         </p>
                     </div>
                 </div>
             </div>
             <p class="modalBottom">
                 <span class="modalCancel" data-dismiss="modal">取消</span>
-                <span class="modalConfirm">确认</span>
+                <span class="modalConfirm" id="modalNewEditorBtn">确认</span>
             </p>
         </div>
     </div>
@@ -98,8 +145,8 @@
                 <div class="modalCon">
                     <p class="modalSelect modalAct"><span>选择模板类型</span><i class="icon icon-chevron-down"></i></p>
                     <div class="modalAlter">
-                        <p class="modalTxt "><i class="icon"></i><span>选择模板类型</span></p>
-                        <p class="modalTxt "><i class="icon"></i><span>模板类型1</span></p>
+                        <p class="modalTxt"><i class="icon"></i><span>选择模板类型</span></p>
+                        <p class="modalTxt"><i class="icon"></i><span>模板类型1</span></p>
                         <p class="modalTxt"><i class="icon"></i><span>模板类型2</span></p>
                         <p class="modalTxt"><i class="icon"></i><span>+ 新建模板类型</span></p>
                     </div>
@@ -108,8 +155,8 @@
                 <div class="modalCon">
                     <p class="modalSelect modalAct"><span>选择要导入的模板</span><i class="icon icon-chevron-down"></i></p>
                     <div class="modalAlter">
-                        <p class="modalTxt "><i class="icon"></i><span>选择要导入的模板</span></p>
-                        <p class="modalTxt "><i class="icon"></i><span>导入1</span></p>
+                        <p class="modalTxt"><i class="icon"></i><span>选择要导入的模板</span></p>
+                        <p class="modalTxt"><i class="icon"></i><span>导入1</span></p>
                         <p class="modalTxt"><i class="icon"></i><span>导入2</span></p>
                         <p class="modalTxt"><i class="icon"></i><span>导入2</span></p>
                         <p class="modalTxt"><i class="icon"></i><span>导入2</span></p>
@@ -212,48 +259,7 @@
 
 <script src="../js/jquery-1.11.3.js"></script>
 <script src="../js/zui.min.js"></script>
-<script>
-//    悬浮--新建，导入
-    $('[data-toggle="tooltip"]').tooltip();
+<script src="../js/editor_index.js"></script>
 
-    $(".main").css("width",(parseFloat( window.screen.availWidth )-230-230)+"px");
-    $(".main").css("height",(parseFloat(window.screen.availHeight)-65-65)+"px");
-    $(".partAll").css("height",(parseFloat(window.screen.availHeight)-65-65)+"px");
-    $(".property").css("height",(parseFloat(window.screen.availHeight)-65-65)+"px");
-
-    $(".editorAct img").click(function(){
-
-    });
-
-//    对话框
-    $(".modalCon .modalSelect").click(function(){
-        if( $(this).children("i").hasClass("icon-chevron-down") ){
-            $(this).children("i").removeClass("icon-chevron-down");
-            $(this).children("i").addClass("icon-chevron-up");
-            $(this).addClass("modalBorder");
-
-        }else if( $(this).children("i").hasClass("icon-chevron-up") ){
-            $(this).children("i").removeClass("icon-chevron-up");
-            $(this).children("i").addClass("icon-chevron-down");
-            $(this).removeClass("modalBorder");
-        }
-        $(this).parent().siblings().children(".modalAlter").hide();
-        $(this).parent().siblings().children(".modalSelect").removeClass("modalBorder");
-        $(this).parent().siblings().children(".modalSelect").children("i").removeClass("icon-chevron-up").addClass("icon-chevron-down");
-        $(this).next().slideToggle();
-    });
-    $(".modalAlter .modalTxt").click(function(){
-        $(this).siblings().removeClass("modalTxtSelect");
-        $(this).siblings().children("i").removeClass("icon-check");
-        $(this).children("i").addClass("icon-check");
-        $(this).addClass("modalTxtSelect");
-        $(this).parent().slideUp();
-        $(this).parent().prev().removeClass("modalBorder");
-        $(this).parent().prev().children("i").removeClass("icon-chevron-up").addClass("icon-chevron-down");
-        $(this).parent().prev().children("span").html( $(this).children("span").html() );
-    });
-
-
-</script>
 </body>
 </html>

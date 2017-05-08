@@ -89,7 +89,7 @@ nav,#banner,section,footer{
 }
 .partAll{
     border-right:2px solid rgba(0,0,0,.12);
-    /*padding:0 0 150px 0;*/
+    padding:0;
     color:#333;
 }
 .partClassify .partOption:last-child{
