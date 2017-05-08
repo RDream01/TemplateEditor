@@ -1,3 +1,11 @@
+//新建编辑器带过来的数据
+if( $.zui.store.get('modalNewEditorName')!==undefined ){
+    var modalNewEditor=$.zui.store.get('modalNewEditorName');
+    console.log(modalNewEditor);
+    //$.zui.store.remove('modalNewEditorName');
+}
+
+
 var option = [];
 var optionSelect={};
 //var obj = {"header":[],"section":[],"footer":[]};
@@ -9,24 +17,26 @@ obj=objInput;
 var  baseShowId = 0;
 var  baseGroupId = 0;
 //callback
-function callback(data) {
-    var flag = data.flag;
-    (eval(flag + 'CallBack'))(data);
-
-}
+//function callback(data) {
+//    var flag = data.flag;
+//    (eval(flag + 'CallBack'))(data);
+//
+//}
 
 //1---引用文件
 function blockLeftList( selectObj,inputObj ) {
+    //左边组件类型
     var selectVal=$(selectObj).val();
+    //左边查询组件
     var inputVal=$(inputObj).val();
     $.ajax({
         async: false,
         cache: true,
         type: 'post',
         dataType : "jsonp",
-        data:{dataType:"jsonp",gridSize:"3",blockType:selectVal,searchBlockName:inputVal},  //参数
+        data:{gridSize:"3",blockType:selectVal,searchBlockName:inputVal,callBack:"blockLeftListCallback"},  //参数
         //url:"http://192.168.31.2/template_editor/blockLeftList.do",//请求的action路径
-        url:"http://192.168.31.156:8080/cmsNews/template_editor/blockLeftList.do",//请求的action路径
+        url:"http://192.168.31.156:10000/api-template/template_editor/blockLeftList",//请求的action路径
         error: function () {//请求失败处理函数
         },
         success: function (data) { //请求成功后处理函数。
@@ -35,7 +45,7 @@ function blockLeftList( selectObj,inputObj ) {
 }
 function blockLeftListCallback(data) {
     $(".partClassify").html("");
-    var list = data.dataList;
+    var list = data;
     console.log(list);
     for (var i = 0; i < list.length; i++) {
         var str = '';
@@ -103,9 +113,9 @@ function blockTypeList() {
         cache: true,
         type: 'post',
         dataType : "jsonp",
-        data:{dataType:"jsonp"}, //参数
+        data:{callBack:"blockTypeListCallback"}, //参数
         //url:"http://192.168.31.2/template_editor/blockTypeList.do",//请求的action路径
-        url:"http://192.168.31.156:8080/cmsNews/template_editor/blockTypeList.do",//请求的action路径
+        url:"http://192.168.31.156:10000/api-template/template_editor/blockTypeList",//请求的action路径
         error: function () {//请求失败处理函数
         },
         success: function (data) { //请求成功后处理函数。
@@ -113,7 +123,7 @@ function blockTypeList() {
     });
 }
 function blockTypeListCallback(data){
-    var list = data.dataList;
+    var list = data;
     console.log(list);
     for (var i = 0; i < list.length; i++) {
         var data="";
@@ -336,9 +346,9 @@ function propertyRightList(id) {
         cache: true,
         type: 'post',
         dataType : "jsonp",
-        data:{dataType:"jsonp",blockId:id},  //参数
+        data:{blockId:id,callBack:'propertyRightListCallback'},  //参数
         //url:"http://192.168.31.2/template_editor/propertyRightList.do",//请求的action路径
-        url:"http://192.168.31.156:8080/cmsNews/template_editor/propertyRightList.do",//请求的action路径
+        url:"http://192.168.31.156:10000/api-template/template_editor/propertyRightList",//请求的action路径
         error: function () {//请求失败处理函数
 
         },
@@ -347,7 +357,7 @@ function propertyRightList(id) {
     });
 }
 function propertyRightListCallback(data) {
-    var list = data.dataList;
+    var list = data;
     console.log(list);
     $(".property .propertyShow").html("");
     var showId = $(".appendCur").parent().attr("data-showId");
@@ -887,8 +897,8 @@ window.onload = function () {
                     cache: true,
                     type: 'POST',
                     dataType : "jsonp",
-                    data:{strKey:str,order:order,groupDivOrder:groupDivOrder,dataType :"jsonp"},  //参数
-                    url:"http://192.168.31.156:8080/cmsNews/template_editor/saveTemplate.do"//请求的action路径
+                    data:{strKey:str,order:order,groupDivOrder:groupDivOrder},  //参数
+                    url:"http://192.168.31.156:10000/api-template/template_editor/saveTemplate"//请求的action路径
                 });
             }
         }else{
@@ -955,8 +965,6 @@ $(".preview").click(function(){
     window.open('preview.html');
     //console.log( $('.main').html() )
 });
-
-
 
 
 

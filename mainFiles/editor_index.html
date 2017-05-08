@@ -15,55 +15,14 @@
             <p class="modelTitle">新建模板</p>
             <div class="modalOption">
                 <!--模板名称-->
-                <p class="modalAct">
+                <p class="modalAct templateNameCon">
                     <input id="templateName" onchange="templateNameChange(this)" type="text" placeholder="输入模板名称（可输入24个汉字）" data-must="no" class="dataMust" data-option="templateName"/>
+                    <span class="existAlert"><img src="../img/editor/nameExist.png" alt=""/>已存在该名称，请更换名称</span>
                 </p>
                 <!--选择模板类型-->
-                <div class="modalCon">
-                    <p class="modalSelect modalAct">
-                        <span class="dataMust" data-option="templateType" data-value="" data-must="no">选择模板类型</span>
-                        <i class="icon icon-chevron-down"></i>
-                    </p>
-                    <div class="modalAlter">
-                        <p class="modalTxt">
-                            <i class="icon"></i>
-                            <span data-value="">选择模板类型</span>
-                        </p>
-                        <p class="modalTxt">
-                            <i class="icon"></i>
-                            <span data-value="template01">模板类型1</span>
-                        </p>
-                        <p class="modalTxt">
-                            <i class="icon"></i>
-                            <span data-value="template02">模板类型2</span>
-                        </p>
-                        <p class="modalTxt">
-                            <i class="icon"></i>
-                            <span data-value="templateCustom">+ 新建模板类型</span>
-                        </p>
-                    </div>
-                </div>
+                <div class="modalCon templateTypeList"></div>
                 <!--选择界面风格-->
-                <div class="modalCon">
-                    <p class="modalSelect modalAct">
-                        <span class="dataMust" data-option="blockStyle" data-value="" data-must="no">选择界面风格</span>
-                        <i class="icon icon-chevron-down"></i>
-                    </p>
-                    <div class="modalAlter">
-                        <p class="modalTxt">
-                            <i class="icon"></i>
-                            <span data-value="">选择界面风格</span>
-                        </p>
-                        <p class="modalTxt">
-                            <i class="icon"></i>
-                            <span data-value="style01">界面风格1</span>
-                        </p>
-                        <p class="modalTxt">
-                            <i class="icon"></i>
-                            <span data-value="style02">界面风格2</span>
-                        </p>
-                    </div>
-                </div>
+                <div class="modalCon" id="blockStyleList"></div>
                 <!--选择栅格系统-->
                 <div class="modalCon">
                     <p class="modalSelect modalAct">
@@ -71,11 +30,11 @@
                         <i class="icon icon-chevron-down"></i>
                     </p>
                     <div class="modalAlter">
-                        <p class="modalTxt modalGrid">
+                        <p class="modalTxt modalGrid modalNew">
                             <i class="icon"></i><img src="../img/editor/gird_3.png" alt=""/>
                             <span data-value="3">1:1:1</span>
                         </p>
-                        <p class="modalTxt modalGrid">
+                        <p class="modalTxt modalGrid modalNew">
                             <i class="icon"></i><img src="../img/editor/gird_4.png" alt=""/>
                             <span data-value="4">1:1:1:1</span>
                         </p>
@@ -84,23 +43,23 @@
                 <!--选择页面布局-->
                 <div class="modalCon">
                     <p class="modalSelect modalAct">
-                        <span class="dataMust" data-option="blockLayout" data-value="" data-must="no">选择页面布局</span>
+                        <span class="dataMust" data-option="templateLayout" data-value="" data-must="no">选择页面布局</span>
                         <i class="icon icon-chevron-down"></i>
                     </p>
                     <div class="modalAlter">
-                        <p class="modalTxt modalLayout">
+                        <p class="modalTxt modalLayout modalNew">
                             <img src="../img/editor/layout01.png" alt=""/>
                             <span data-value="layout01">界面布局1</span>
                         </p>
-                        <p class="modalTxt modalImg modalLayout">
+                        <p class="modalTxt modalImg modalLayout modalNew">
                             <img src="../img/editor/layout02.png" alt=""/>
                             <span data-value="layout01">界面布局2</span>
                         </p>
-                        <p class="modalTxt modalImg modalLayout">
+                        <p class="modalTxt modalImg modalLayout modalNew">
                             <img src="../img/editor/layout03.png" alt=""/>
                             <span data-value="layout01">界面布局3</span>
                         </p>
-                        <p class="modalTxt modalImg modalLayout">
+                        <p class="modalTxt modalImg modalLayout modalNew">
                             <img src="../img/editor/layoutNew.png" alt=""/>
                             <span  data-value="layoutCustom">自定义布局</span>
                         </p>
@@ -113,15 +72,15 @@
                         <i class="icon icon-chevron-down"></i>
                     </p>
                     <div class="modalAlter">
-                        <p class="modalTxt modalColor">
+                        <p class="modalTxt modalColor modalNew">
                             <i class="icon"></i><img src="../img/editor/color_red.png" alt=""/>
                             <span data-value="red">红</span>
                         </p>
-                        <p class="modalTxt modalColor">
+                        <p class="modalTxt modalColor modalNew">
                             <i class="icon"></i><img src="../img/editor/color_yellow.png" alt=""/>
                             <span data-value="yellow">黄</span>
                         </p>
-                        <p class="modalTxt modalColor">
+                        <p class="modalTxt modalColor modalNew">
                             <i class="icon"></i><img src="../img/editor/color_blue.png" alt=""/>
                             <span data-value="blue">蓝</span>
                         </p>
@@ -139,42 +98,16 @@
 <div class="modal fade myModal" id="modalLeadIn">
     <div class="modal-dialog">
         <div class="modal-content">
-            <p class="modelTitle">新建模板</p>
+            <p class="modelTitle">导入模板</p>
             <div class="modalOption">
                 <!--选择模板类型-->
-                <div class="modalCon">
-                    <p class="modalSelect modalAct"><span>选择模板类型</span><i class="icon icon-chevron-down"></i></p>
-                    <div class="modalAlter">
-                        <p class="modalTxt"><i class="icon"></i><span>选择模板类型</span></p>
-                        <p class="modalTxt"><i class="icon"></i><span>模板类型1</span></p>
-                        <p class="modalTxt"><i class="icon"></i><span>模板类型2</span></p>
-                        <p class="modalTxt"><i class="icon"></i><span>+ 新建模板类型</span></p>
-                    </div>
-                </div>
-                <!--选择界面风格-->
-                <div class="modalCon">
-                    <p class="modalSelect modalAct"><span>选择要导入的模板</span><i class="icon icon-chevron-down"></i></p>
-                    <div class="modalAlter">
-                        <p class="modalTxt"><i class="icon"></i><span>选择要导入的模板</span></p>
-                        <p class="modalTxt"><i class="icon"></i><span>导入1</span></p>
-                        <p class="modalTxt"><i class="icon"></i><span>导入2</span></p>
-                        <p class="modalTxt"><i class="icon"></i><span>导入2</span></p>
-                        <p class="modalTxt"><i class="icon"></i><span>导入2</span></p>
-                        <p class="modalTxt"><i class="icon"></i><span>导入2</span></p>
-                        <p class="modalTxt"><i class="icon"></i><span>导入2</span></p>
-                        <p class="modalTxt"><i class="icon"></i><span>导入2</span></p>
-                        <p class="modalTxt"><i class="icon"></i><span>导入2</span></p>
-                        <p class="modalTxt"><i class="icon"></i><span>导入2</span></p>
-                        <p class="modalTxt"><i class="icon"></i><span>导入2</span></p>
-                        <p class="modalTxt"><i class="icon"></i><span>导入2</span></p>
-                        <p class="modalTxt"><i class="icon"></i><span>导入2</span></p>
-                        <p class="modalTxt"><i class="icon"></i><span>导入2</span></p>
-                    </div>
-                </div>
+                <div class="modalCon templateTypeList"></div>
+                <!--选择要导入的模板-->
+                <div class="modalCon templateLeadIn"></div>
             </div>
             <p class="modalBottom">
                 <span class="modalCancel" data-dismiss="modal">取消</span>
-                <span class="modalConfirm">确认</span>
+                <span class="modalConfirm" id="modalLeadInBtn">确认</span>
             </p>
         </div>
     </div>
