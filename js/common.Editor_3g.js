@@ -1,14 +1,6 @@
-//新建编辑器带过来的数据
-if( $.zui.store.get('modalNewEditorName')!==undefined ){
-    var modalNewEditor=$.zui.store.get('modalNewEditorName');
-    console.log(modalNewEditor);
-    //$.zui.store.remove('modalNewEditorName');
-}
-
 
 var option = [];
 var optionSelect={};
-//var obj = {"header":[],"section":[],"footer":[]};
 var obj ="";
 var input=$("#objInput").val();
 var objInput=eval("("+input+")");
@@ -16,12 +8,6 @@ obj=objInput;
 
 var  baseShowId = 0;
 var  baseGroupId = 0;
-//callback
-//function callback(data) {
-//    var flag = data.flag;
-//    (eval(flag + 'CallBack'))(data);
-//
-//}
 
 //1---引用文件
 function blockLeftList( selectObj,inputObj ) {
@@ -29,14 +15,16 @@ function blockLeftList( selectObj,inputObj ) {
     var selectVal=$(selectObj).val();
     //左边查询组件
     var inputVal=$(inputObj).val();
+    console.log(gridSizeVal);
+    console.log(blockStyleVal);
     $.ajax({
         async: false,
         cache: true,
         type: 'post',
         dataType : "jsonp",
-        data:{gridSize:"3",blockType:selectVal,searchBlockName:inputVal,callBack:"blockLeftListCallback"},  //参数
+        data:{gridSize:gridSizeVal,blockType:selectVal,searchBlockName:inputVal,blockStyle:blockStyleVal,callBack:"blockLeftListCallback"},  //参数
         //url:"http://192.168.31.2/template_editor/blockLeftList.do",//请求的action路径
-        url:"http://192.168.31.156:10000/api-template/template_editor/blockLeftList",//请求的action路径
+        url:"http://192.168.31.160:10000/api-template/template_editor/blockLeftList",//请求的action路径
         error: function () {//请求失败处理函数
         },
         success: function (data) { //请求成功后处理函数。
@@ -115,7 +103,7 @@ function blockTypeList() {
         dataType : "jsonp",
         data:{callBack:"blockTypeListCallback"}, //参数
         //url:"http://192.168.31.2/template_editor/blockTypeList.do",//请求的action路径
-        url:"http://192.168.31.156:10000/api-template/template_editor/blockTypeList",//请求的action路径
+        url:"http://192.168.31.160:10000/api-template/template_editor/blockTypeList",//请求的action路径
         error: function () {//请求失败处理函数
         },
         success: function (data) { //请求成功后处理函数。
@@ -348,7 +336,7 @@ function propertyRightList(id) {
         dataType : "jsonp",
         data:{blockId:id,callBack:'propertyRightListCallback'},  //参数
         //url:"http://192.168.31.2/template_editor/propertyRightList.do",//请求的action路径
-        url:"http://192.168.31.156:10000/api-template/template_editor/propertyRightList",//请求的action路径
+        url:"http://192.168.31.160:10000/api-template/template_editor/propertyRightList",//请求的action路径
         error: function () {//请求失败处理函数
 
         },
@@ -898,7 +886,7 @@ window.onload = function () {
                     type: 'POST',
                     dataType : "jsonp",
                     data:{strKey:str,order:order,groupDivOrder:groupDivOrder},  //参数
-                    url:"http://192.168.31.156:10000/api-template/template_editor/saveTemplate"//请求的action路径
+                    url:"http://192.168.31.160:10000/api-template/template_editor/saveTemplate"//请求的action路径
                 });
             }
         }else{

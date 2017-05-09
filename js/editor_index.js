@@ -9,7 +9,7 @@ function templateType() {
         type: 'post',
         dataType : "jsonp",
         data:{callBack:"templateTypeCallback"},  //参数
-        url:"http://192.168.31.156:10000/api-template/template_editor/templateType.do"//请求的action路径
+        url:"http://192.168.31.160:10000/api-template/template_editor/templateType.do"//请求的action路径
     });
 }
 function templateTypeCallback(data) {
@@ -40,21 +40,21 @@ templateType();
 function templateSonList() {
     var templateType=$("#modalLeadIn [data-option='templateType']").attr("data-value");
     if( (templateType!=='')&&(templateType!==undefined) ){
-        console.log( templateType );
+        //console.log( templateType );
         $.ajax({
             async: false,
             cache: true,
             type: 'post',
             dataType : "jsonp",
             data:{callBack:"templateSonListCallback",templateType:templateType},  //参数
-            url:"http://192.168.31.156:10000/api-template/template_editor/templateSonList.do"//请求的action路径
+            url:"http://192.168.31.160:10000/api-template/template_editor/templateSonList.do"//请求的action路径
         });
     }
 }
 function templateSonListCallback(data) {
-    console.log("ok");
+    //console.log("ok");
     var list=data;
-    console.log(list);
+    //console.log(list);
     $(".templateLeadIn").html("");
     var str='<p class="modalSelect modalAct">';
     str+='<span class="dataMust" data-option="templateLeadIn" data-value="" data-must="no">选择要导入的模板</span>';
@@ -85,7 +85,7 @@ function blockStyleList() {
         type: 'post',
         dataType : "jsonp",
         data:{callBack:"blockStyleListCallback"},  //参数
-        url:"http://192.168.31.156:10000/api-template/template_editor/blockStyleList.do"//请求的action路径
+        url:"http://192.168.31.160:10000/api-template/template_editor/blockStyleList.do"//请求的action路径
     });
 }
 function blockStyleListCallback(data) {
@@ -93,7 +93,7 @@ function blockStyleListCallback(data) {
     //console.log(list);
     $("#blockStyleList").html("");
     var str='<p class="modalSelect modalAct">';
-    str+='<span class="dataMust" data-option="templateStyle" data-value="" data-must="no">选择界面风格</span>';
+    str+='<span class="dataMust" data-option="blockStyle" data-value="" data-must="no">选择界面风格</span>';
     str+='<i class="icon icon-chevron-down"></i>';
     str+='</p>';
     str+='<div class="modalAlter">';
@@ -125,7 +125,7 @@ function judgeTemplateName() {
             type: 'post',
             dataType : "jsonp",
             data:{callBack:"judgeTemplateNameCallback",templateName:templateName,templateType:templateType},  //参数
-            url:"http://192.168.31.156:10000/api-template/template_editor/judgeTemplateName.do"//请求的action路径
+            url:"http://192.168.31.160:10000/api-template/template_editor/judgeTemplateName.do"//请求的action路径
         });
     }
 }
@@ -205,7 +205,7 @@ $(".myModal").on("click",".modalAlter .modalTxt",function(){
 
     if( (($(this).parents("div")[$(this).parents("div").length-1].id)=="modalLeadIn")&&($(this).hasClass("modalNew"))&&($(this).hasClass("modalLeadIn")) ){
         templateSonList();
-        console.log($(this));
+        //console.log($(this));
     }
 
 });
@@ -213,10 +213,9 @@ $(".myModal").on("click",".modalAlter .modalTxt",function(){
 
 //新建--input
 function templateNameChange(obj){
-    console.log($(obj).next().css("display"));
     if( ($(obj).val()!=="") ) {
-        console.log("yes");
-        console.log( $(obj).val() );
+        //console.log("yes");
+        //console.log( $(obj).val() );
         $(obj).attr("data-must","yes");
         //$(obj).parent().css("borderColor","#cbcbcb");
         var spanValue=$(obj).val();
@@ -228,11 +227,11 @@ function templateNameChange(obj){
         //$(obj).parent().css("borderColor","#c33");
         console.log("no");
     }
-    //console.log( $(obj).val() );
 }
 //
 // 新建确认按钮---判断
 $("#modalNewEditorBtn").click(function(){
+
     var dataMusts=$("#modalNewEditor .dataMust");
     var must="yes";
     for( var i=0;i<dataMusts.length;i++ ){
@@ -244,6 +243,7 @@ $("#modalNewEditorBtn").click(function(){
     if( (must=="no")||($(".existAlert").css("display")=="block") ){
         alert("请填写完整");
     }else{
+        console.log( judgeTemplateName() );
         $("#modalNewEditor").modal("hide");
         console.log( modalNewEditor );
         $.zui.store.set('modalNewEditorName', modalNewEditor);
@@ -269,6 +269,8 @@ $("#modalLeadInBtn").click(function(){
     }else{
         $("#modalLeadIn").modal("hide");
         console.log( modalLeadIn );
+        $.zui.store.set('modalLeadInName', modalLeadIn);
+        window.open('index.html');
     }
 });
 

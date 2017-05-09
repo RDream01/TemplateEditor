@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../css/editor.css"/>
     <link rel="stylesheet" href="../css/zui.dashboard.Editor.css"/>
     <link rel="stylesheet" href="../css/common.Editor.css"/>
-    <link rel="stylesheet" href="../css/common_red.css"/>
+    <link id="templateColorLink" rel="stylesheet" href=""/>
     <script src="../js/respond.js"></script>
     <script src="../js/jquery-1.11.3.js"></script>
 </head>
@@ -17,6 +17,17 @@
 
 <!--obj-->
 <input type="hidden" id="objInput" value='{"header":[],"section":[],"footer":[]}'/>
+<!--新建编辑器--数据-->
+<input type="hidden" id="blockStyle"/>
+<input type="hidden" id="gridSize"/>
+<input type="hidden" id="templateColor"/>
+<input type="hidden" id="templateLayout"/>
+<input type="hidden" id="templateName"/>
+<input type="hidden" id="templateTypeNew"/>
+<!--导入编辑器--数据-->
+<input type="hidden" id="templateTypeLeadIn"/>
+<input type="hidden" id="templateLeadIn"/>
+
 <!--草稿-->
 <input type="hidden" id="WhetherDraft" value="0"/>
 <!-- 新建模板 -->
@@ -329,12 +340,17 @@
 
 
 <script src="../js/zui.min.js"></script>
-<script src="../js/zui.dashboard.js"></script>
+<script id="gridDashboardScript"></script>
 <script src="../js/zui.droppable.js"></script>
 <script src="../js/zui.sortable.js"></script>
-<script src="../js/common.Editor.js"></script>
+<!--<script id="gridSizeScript" src="../js/common.Editor_3g.js"></script>-->
+<script id="gridSizeScript"></script>
 <script src="../js/fallback.js"></script>
 <script src="../js/wordNumber.js"></script>
+
+<script src="../js/common.js"></script>
+
+
 
 <script>
 
