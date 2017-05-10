@@ -2,15 +2,70 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../css/zui.min.Editor.css"/>
+    <title>index</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../css/zui.css"/>
     <link rel="stylesheet" href="../css/editor.css"/>
-    <title>编辑器选择页</title>
+    <link rel="stylesheet" href="../css/zui.dashboard.Editor.css"/>
+    <link rel="stylesheet" href="../css/common.Editor.css"/>
+    <link id="templateColorLink" rel="stylesheet" href=""/>
+    <script src="../js/respond.js"></script>
+    <script src="../js/jquery-1.11.3.js"></script>
 </head>
 <body>
-<script src="../js/FileSaver.js"></script>
+
+<div class="list-group" id="sortableList">
+    <div class="list-group-item"><i class="icon-move"></i> 猫咪</div>
+    <div class="list-group-item"><i class="icon-move"></i> 小鸡</div>
+    <div class="list-group-item"><i class="icon-move"></i> 大黄</div>
+    <div class="list-group-item"><i class="icon-move"></i> 鹅鹅鹅</div>
+    <div class="list-group-item"><i class="icon-move"></i> 猪王</div>
+</div>
+<script src="../js/jquery-1.11.3.js"></script>
+<script src="../js/zui.min-1.5.js"></script>
+<script src="../js/zui.droppable.js"></script>
+<script src="../js/zui.sortable.js"></script>
 <script>
-    var blob = new Blob(["Hello, world!"], {type: "text/plain;charset=utf-8"});
-    saveAs(blob, "hello world.txt");
+    $('#sortableList').sortable();
 </script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

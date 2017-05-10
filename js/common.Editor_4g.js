@@ -1,138 +1,199 @@
 
 var option = [];
 var optionSelect={};
-var obj = {"header":[],"section":[],"footer":[]};
+var obj ="";
+var input=$("#objInput").val();
+var objInput=eval("("+input+")");
+obj=objInput;
+
 var  baseShowId = 0;
 var  baseGroupId = 0;
-//callback
-function callback(data) {
-    var flag = data.flag;
-    (eval(flag + 'CallBack'))(data);
 
+//页面布局
+function layout(){
+    var layoutStr='';
+    console.log(templateLayoutVal);
+    if( templateLayoutVal=="layout01" ){
+        console.log(1);
+        layoutStr='<div class="col-xs-12 row groupDiv list-group-item droppable-target" data-groupsize="12" style="min-height:100px;" data-groupshowid="3group0"><div data-trigger="sortArea" class="sortArea col-md-12 col-sm-12"><span class="area-name">组合框3，</span>拖拽我--3<span class="deleteGroup" onclick="openGroupConfirm(this)">X</span></div><div class="col-md-12 col-sm-12 firstLocation" id="groupDiv" style="position:absolute;z-index:-1"><div class="panel"><div class="panel-heading"><span class="title"></span></div><div class="panel-body"></div></div></div></div><div class="col-xs-8 row groupDiv list-group-item droppable-target" data-groupsize="8" style="min-height:100px;" data-groupshowid="2group1"><div data-trigger="sortArea" class="sortArea col-md-12 col-sm-12"><span class="area-name">组合框2，</span>拖拽我--2<span class="deleteGroup" onclick="openGroupConfirm(this)">X</span></div><div class="col-md-12 col-sm-12 firstLocation" id="groupDiv" style="position:absolute;z-index:-1"><div class="panel"><div class="panel-heading"><span class="title"></span></div><div class="panel-body"></div></div></div></div><div class="col-xs-4 row groupDiv list-group-item droppable-target" data-groupsize="4" style="min-height:100px;" data-groupshowid="1group2"><div data-trigger="sortArea" class="sortArea col-md-12 col-sm-12"><span class="area-name">组合框1，</span>拖拽我--1<span class="deleteGroup" onclick="openGroupConfirm(this)">X</span></div><div class="col-md-12 col-sm-12 firstLocation" id="groupDiv" style="position:absolute;z-index:-1"><div class="panel"><div class="panel-heading"><span class="title"></span></div><div class="panel-body"></div></div></div></div><div class="col-xs-12 row groupDiv list-group-item droppable-target" data-groupsize="12" style="min-height:100px;"><div data-trigger="sortArea" class="sortArea col-md-12 col-sm-12"><span class="area-name">组合框3，</span>拖拽我--3<span class="deleteGroup" onclick="openGroupConfirm(this)">X</span></div><div class="col-md-12 col-sm-12 firstLocation" id="groupDiv" style="position:absolute;z-index:-1"><div class="panel"><div class="panel-heading"><span class="title"></span></div><div class="panel-body"></div></div></div></div>';
+        $('.editorBlock>div>div.row').append(layoutStr);
+    }else if( templateLayoutVal=="layout02" ){
+        console.log(2);
+        layoutStr='<div class="col-xs-12 row groupDiv list-group-item droppable-target" data-groupsize="12" style="min-height:100px;" data-groupshowid="3group0"><div data-trigger="sortArea" class="sortArea col-md-12 col-sm-12"><span class="area-name">组合框3，</span>拖拽我--3<span class="deleteGroup" onclick="openGroupConfirm(this)">X</span></div><div class="col-md-12 col-sm-12 firstLocation" id="groupDiv" style="position:absolute;z-index:-1"><div class="panel"><div class="panel-heading"><span class="title"></span></div><div class="panel-body"></div></div></div></div><div class="col-xs-4 row groupDiv list-group-item droppable-target" data-groupsize="4" style="min-height:300px;" data-groupshowid="1group1"><div data-trigger="sortArea" class="sortArea col-md-12 col-sm-12"><span class="area-name">组合框1，</span>拖拽我--1<span class="deleteGroup" onclick="openGroupConfirm(this)">X</span></div><div class="col-md-12 col-sm-12 firstLocation" id="groupDiv" style="position:absolute;z-index:-1"><div class="panel"><div class="panel-heading"><span class="title"></span></div><div class="panel-body"></div></div></div></div><div class="col-xs-4 row groupDiv list-group-item droppable-target" data-groupsize="4" style="min-height:300px;" data-groupshowid="1group2"><div data-trigger="sortArea" class="sortArea col-md-12 col-sm-12"><span class="area-name">组合框1，</span>拖拽我--1<span class="deleteGroup" onclick="openGroupConfirm(this)">X</span></div><div class="col-md-12 col-sm-12 firstLocation" id="groupDiv" style="position:absolute;z-index:-1"><div class="panel"><div class="panel-heading"><span class="title"></span></div><div class="panel-body"></div></div></div></div><div class="col-xs-4 row groupDiv list-group-item droppable-target" data-groupsize="4" style="min-height:300px;" data-groupshowid="1group3"><div data-trigger="sortArea" class="sortArea col-md-12 col-sm-12"><span class="area-name">组合框1，</span>拖拽我--1<span class="deleteGroup" onclick="openGroupConfirm(this)">X</span></div><div class="col-md-12 col-sm-12 firstLocation" id="groupDiv" style="position:absolute;z-index:-1"><div class="panel"><div class="panel-heading"><span class="title"></span></div><div class="panel-body"></div></div></div></div><div class="col-xs-12 row groupDiv list-group-item droppable-target" data-groupsize="12" style="min-height:100px;"><div data-trigger="sortArea" class="sortArea col-md-12 col-sm-12"><span class="area-name">组合框3，</span>拖拽我--3<span class="deleteGroup" onclick="openGroupConfirm(this)">X</span></div><div class="col-md-12 col-sm-12 firstLocation" id="groupDiv" style="position:absolute;z-index:-1"><div class="panel"><div class="panel-heading"><span class="title"></span></div><div class="panel-body"></div></div></div></div>';
+        $('.editorBlock>div>div.row').append(layoutStr);
+    }else if( templateLayoutVal=="layout03" ){
+        console.log(3);
+        layoutStr='<div class="col-xs-12 row groupDiv list-group-item droppable-target" data-groupsize="12" style="min-height:100px;" data-groupshowid="3group0"><div data-trigger="sortArea" class="sortArea col-md-12 col-sm-12"><span class="area-name">组合框3，</span>拖拽我--3<span class="deleteGroup" onclick="openGroupConfirm(this)">X</span></div><div class="col-md-12 col-sm-12 firstLocation" id="groupDiv" style="position:absolute;z-index:-1"><div class="panel"><div class="panel-heading"><span class="title"></span></div><div class="panel-body"></div></div></div></div><div class="col-xs-4 row groupDiv list-group-item droppable-target" data-groupsize="4" style="min-height:300px;" data-groupshowid="1group1"><div data-trigger="sortArea" class="sortArea col-md-12 col-sm-12"><span class="area-name">组合框1，</span>拖拽我--1<span class="deleteGroup" onclick="openGroupConfirm(this)">X</span></div><div class="col-md-12 col-sm-12 firstLocation" id="groupDiv" style="position:absolute;z-index:-1"><div class="panel"><div class="panel-heading"><span class="title"></span></div><div class="panel-body"></div></div></div></div><div class="col-xs-8 row groupDiv list-group-item droppable-target" data-groupsize="8" style="min-height:300px;" data-groupshowid="2group2"><div data-trigger="sortArea" class="sortArea col-md-12 col-sm-12"><span class="area-name">组合框2，</span>拖拽我--2<span class="deleteGroup" onclick="openGroupConfirm(this)">X</span></div><div class="col-md-12 col-sm-12 firstLocation" id="groupDiv" style="position:absolute;z-index:-1"><div class="panel"><div class="panel-heading"><span class="title"></span></div><div class="panel-body"></div></div></div></div><div class="col-xs-12 row groupDiv list-group-item droppable-target" data-groupsize="12" style="min-height:100px;"><div data-trigger="sortArea" class="sortArea col-md-12 col-sm-12"><span class="area-name">组合框3，</span>拖拽我--3<span class="deleteGroup" onclick="openGroupConfirm(this)">X</span></div><div class="col-md-12 col-sm-12 firstLocation" id="groupDiv" style="position:absolute;z-index:-1"><div class="panel"><div class="panel-heading"><span class="title"></span></div><div class="panel-body"></div></div></div></div>';
+        $('.editorBlock>div>div.row').append(layoutStr);
+    }else if( templateLayoutVal=="layoutCustom" ){
+        console.log("自定义");
+        layoutStr='';
+    }
 }
+
 //1---引用文件
-function blockLeftList() {
+function blockLeftList( selectObj,inputObj ) {
+    //左边组件类型
+    var selectVal=$(selectObj).val();
+    //左边查询组件
+    var inputVal=$(inputObj).val();
+    console.log(gridSizeVal);
+    console.log(blockStyleVal);
     $.ajax({
         async: false,
         cache: true,
         type: 'post',
         dataType : "jsonp",
-        data:{dataType:"jsonp",gridSize:"3"},  //参数
-        url:"http://192.168.31.2/template_editor/blockLeftList.do",//请求的action路径
+        data:{gridSize:gridSizeVal,blockType:selectVal,searchBlockName:inputVal,blockStyle:blockStyleVal,callBack:"blockLeftListCallback"},  //参数
+        //url:"http://192.168.31.2/template_editor/blockLeftList.do",//请求的action路径
+        url:basePath+"template_editor/blockLeftList",//请求的action路径
         error: function () {//请求失败处理函数
         },
         success: function (data) { //请求成功后处理函数。
         }
     });
 }
-function blockLeftListCallBack(data) {
-    var list = data.dataList;
+function blockLeftListCallback(data) {
+    $(".partClassify").html("");
+    var list = data;
+    console.log(list);
     for (var i = 0; i < list.length; i++) {
         var str = '';
         if (list[i].blockType == "list") {
             if ($("#listBlock").html() == undefined) {
-                str = '<div id="listBlock" class="panel panel-default"><div class="panel-heading"><h4 class="panel-title">';
-                str += '<a data-toggle="collapse" data-parent="#accordionPanels" href="#' + list[i].blockType + '">列表组件 </a></h4></div>'
-                str += '<div id="' + list[i].blockType + '" class="panel-collapse collapse in">';
-                str += '<div class="panel-body"><span data-blockId="'+list[i].blockId+'"  data-blockSize="'+list[i].blockSize+'" class="secPart btn-droppable" id="' + list[i].blockId + '">' + list[i].blockName + '</span></div></div></div>';
+                str='<div class="partOption" id="listBlock"><p class="partOptionTitle">'+list[i].typeName+'</p>';
+                str+='<div class="with-padding">' ;
+                str+='<p class="partImg secPart btn-droppable" data-blockId="'+list[i].blockId+'" data-blockSize="'+list[i].blockSize+'" id="' + list[i].blockId + '">' ;
+                str+='<img src="../img/editor/part01.png" alt=""/><span>'+ list[i].blockName + '</span></p>';
+                str+='</div></div>';
             } else {
-                str += '<span data-blockId="'+list[i].blockId+'"  data-blockSize="'+list[i].blockSize+'" class="secPart btn-droppable" id="' + list[i].blockId + '">' + list[i].blockName + '</span>';
-                $('#listBlock .panel-body').append(str);
+                str+='<p class="partImg secPart btn-droppable" data-blockId="'+list[i].blockId+'" data-blockSize="'+list[i].blockSize+'" id="' + list[i].blockId + '">' ;
+                str+='<img src="../img/editor/part01.png" alt=""/><span>'+ list[i].blockName + '</span></p>';
+                $('#listBlock .with-padding').append(str);
                 continue;
             }
-
         } else if (list[i].blockType == "adv") {
             if ($("#advBlock").html() == undefined) {
-                str = '<div id="advBlock" class="panel panel-default"><div class="panel-heading"><h4 class="panel-title">';
-                str += '<a data-toggle="collapse" data-parent="#accordionPanels" href="#' + list[i].blockType + '">广告组件</a></h4></div>';
-                str += '<div id="' + list[i].blockType + '" class="panel-collapse collapse in">';
-                str += '<div class="panel-body"><span data-blockId="'+list[i].blockId+'"  data-blockSize="'+list[i].blockSize+'" class="secPart btn-droppable" id="' + list[i].blockId + '">' + list[i].blockName + '</span></div></div></div>';
+                str='<div class="partOption" id="advBlock"><p class="partOptionTitle">'+list[i].typeName+'</p>';
+                str+='<div class="with-padding">' ;
+                str+='<p class="partImg secPart btn-droppable" data-blockId="'+list[i].blockId+'" data-blockSize="'+list[i].blockSize+'" id="' + list[i].blockId + '">' ;
+                str+='<img src="../img/editor/part01.png" alt=""/><span>'+ list[i].blockName + '</span></p>';
+                str+='</div></div>';
             } else {
-                str += '<span data-blockId="'+list[i].blockId+'"  data-blockSize="'+list[i].blockSize+'" class="secPart btn-droppable" id="' + list[i].blockId + '">' + list[i].blockName + '</span>';
-                $('#advBlock .panel-body').append(str);
+                str+='<p class="partImg secPart btn-droppable" data-blockId="'+list[i].blockId+'" data-blockSize="'+list[i].blockSize+'" id="' + list[i].blockId + '">' ;
+                str+='<img src="../img/editor/part01.png" alt=""/><span>'+ list[i].blockName + '</span></p>';
+                $('#advBlock .with-padding').append(str);
                 continue;
             }
         }else if (list[i].blockType == "header") {
             if ($("#headerBlock").html() == undefined) {
-                str = '<div id="headerBlock" class="panel panel-default"><div class="panel-heading"><h4 class="panel-title">';
-                str += '<a data-toggle="collapse" data-parent="#accordionPanels" href="#' + list[i].blockType + '">头部组件</a></h4></div>';
-                str += '<div id="' + list[i].blockType + '" class="panel-collapse collapse in">';
-                str += '<div class="panel-body"><span data-blockId="'+list[i].blockId+'"  data-blockSize="'+list[i].blockSize+'" class="secPart btn-droppable" id="' + list[i].blockId + '">' + list[i].blockName + '</span></div></div></div>';
+                str='<div class="partOption" id="headerBlock"><p class="partOptionTitle">'+list[i].typeName+'</p>';
+                str+='<div class="with-padding">' ;
+                str+='<p class="partImg secPart btn-droppable" data-blockId="'+list[i].blockId+'" data-blockSize="'+list[i].blockSize+'" id="' + list[i].blockId + '">' ;
+                str+='<img src="../img/editor/part01.png" alt=""/><span>'+ list[i].blockName + '</span></p>';
+                str+='</div></div>';
             } else {
-                str += '<span data-blockId="'+list[i].blockId+'"  data-blockSize="'+list[i].blockSize+'" class="secPart btn-droppable" id="' + list[i].blockId + '">' + list[i].blockName + '</span>';
-                $('#headerBlock .panel-body').append(str);
+                str+='<p class="partImg secPart btn-droppable" data-blockId="'+list[i].blockId+'" data-blockSize="'+list[i].blockSize+'" id="' + list[i].blockId + '">' ;
+                str+='<img src="../img/editor/part01.png" alt=""/><span>'+ list[i].blockName + '</span></p>';
+                $('#headerBlock .with-padding').append(str);
                 continue;
             }
         }else if (list[i].blockType == "footer") {
             if ($("#footerBlock").html() == undefined) {
-                str = '<div id="footerBlock" class="panel panel-default"><div class="panel-heading"><h4 class="panel-title">';
-                str += '<a data-toggle="collapse" data-parent="#accordionPanels" href="#' + list[i].blockType + '">尾部组件</a></h4></div>';
-                str += '<div id="' + list[i].blockType + '" class="panel-collapse collapse in">';
-                str += '<div class="panel-body"><span data-blockId="'+list[i].blockId+'"  data-blockSize="'+list[i].blockSize+'" class="secPart btn-droppable" id="' + list[i].blockId + '">' + list[i].blockName + '</span></div></div></div>';
+                str='<div class="partOption" id="footerBlock"><p class="partOptionTitle">'+list[i].typeName+'</p>';
+                str+='<div class="with-padding">' ;
+                str+='<p class="partImg secPart btn-droppable" data-blockId="'+list[i].blockId+'" data-blockSize="'+list[i].blockSize+'" id="' + list[i].blockId + '">' ;
+                str+='<img src="../img/editor/part01.png" alt=""/><span>'+ list[i].blockName + '</span></p>';
+                str+='</div></div>';
             } else {
-                str += '<span data-blockId="'+list[i].blockId+'"  data-blockSize="'+list[i].blockSize+'" class="secPart btn-droppable" id="' + list[i].blockId + '">' + list[i].blockName + '</span>';
-                $('#footerBlock .panel-body').append(str);
+                str+='<p class="partImg secPart btn-droppable" data-blockId="'+list[i].blockId+'" data-blockSize="'+list[i].blockSize+'" id="' + list[i].blockId + '">' ;
+                str+='<img src="../img/editor/part01.png" alt=""/><span>'+ list[i].blockName + '</span></p>';
+                $('#footerBlock .with-padding').append(str);
                 continue;
             }
         }
-
-        $('.partAll .panel-group').append(str);
+        $('.partClassify').append(str);
     }
 }
 
+//左边组件库铺数据
+function blockTypeList() {
+    $.ajax({
+        async: false,
+        cache: true,
+        type: 'post',
+        dataType : "jsonp",
+        data:{callBack:"blockTypeListCallback"}, //参数
+        //url:"http://192.168.31.2/template_editor/blockTypeList.do",//请求的action路径
+        url:basePath+"template_editor/blockTypeList",//请求的action路径
+        error: function () {//请求失败处理函数
+        },
+        success: function (data) { //请求成功后处理函数。
+        }
+    });
+}
+function blockTypeListCallback(data){
+    var list = data;
+    console.log(list);
+    for (var i = 0; i < list.length; i++) {
+        var data="";
+        data+='<option value="'+list[i].value+'">'+list[i].html+'</option>';
+        $('.partSelect').append(data);
+    }
+}
 
 //组合框文件引用
 function importGroupDiv(num){
     var data="";
     if(num == '1'){
-        data ='<div class="col-xs-3 row groupDiv list-group-item droppable-target" data-groupSize="3" style="min-height:100px;">'
-            +'<div data-trigger="sortArea" class="sortArea col-md-12 col-sm-12"><span class="area-name">组合框1，</span>拖拽我--1<span class="deleteGroup">X</span></div>'
-            +'<div class="col-md-12 col-sm-12 firstLocation"  id="groupDiv" style="position:absolute;z-index:-1">'
-            +'<div class="panel">'
-            +'<div class="panel-heading">'
-            +'<span class="title"></span>'
-                +'</div>'
-                +'<div class="panel-body"></div>'
-            +'</div>'
-            +'</div>'
-            +'</div>';
+        data ='<div class="col-xs-3 row groupDiv list-group-item droppable-target" data-groupSize="3" style="min-height:300px;">'
+        +'<div data-trigger="sortArea" class="sortArea col-md-12 col-sm-12"><span class="area-name">组合框1，</span>拖拽我--1<span class="deleteGroup">X</span></div>'
+        +'<div class="col-md-12 col-sm-12 firstLocation"  id="groupDiv" style="position:absolute;z-index:-1">'
+        +'<div class="panel">'
+        +'<div class="panel-heading">'
+        +'<span class="title"></span>'
+        +'</div>'
+        +'<div class="panel-body"></div>'
+        +'</div>'
+        +'</div>'
+        +'</div>';
     }else if(num == '2'){
-        data ='<div class="col-xs-6 row groupDiv list-group-item droppable-target" data-groupSize="6" style="min-height:100px;">'
-            +'<div data-trigger="sortArea"  class="sortArea col-md-12 col-sm-12"><span class="area-name">组合框2，</span>拖拽我--2<span class="deleteGroup">X</span></div>'
-            + '<div class="col-md-12 col-sm-12 firstLocation" id="groupDiv" style="position:absolute;z-index:-1">'
-            + '<div class="panel">'
-            + '<div class="panel-heading">'
-            + '<span class="title"></span>'
-            + '</div>'
-            + '<div class="panel-body"></div>'
-            + '</div>'
-            + '</div>'
-            + '</div>'
-            + '</div>';
+        data ='<div class="col-xs-6 row groupDiv list-group-item droppable-target" data-groupSize="6" style="min-height:300px;">'
+        +'<div data-trigger="sortArea"  class="sortArea col-md-12 col-sm-12"><span class="area-name">组合框2，</span>拖拽我--2<span class="deleteGroup">X</span></div>'
+        + '<div class="col-md-12 col-sm-12 firstLocation" id="groupDiv" style="position:absolute;z-index:-1">'
+        + '<div class="panel">'
+        + '<div class="panel-heading">'
+        + '<span class="title"></span>'
+        + '</div>'
+        + '<div class="panel-body"></div>'
+        + '</div>'
+        + '</div>'
+        + '</div>'
+        + '</div>';
     } else if (num == '3') {
-        data = '<div class="col-xs-9 row groupDiv list-group-item droppable-target"  data-groupSize="9" style="min-height:100px;">'
-            + '<div data-trigger="sortArea" class="sortArea col-md-12 col-sm-12"><span class="area-name">组合框3，</span>拖拽我--3<span class="deleteGroup">X</span></div>'
-            + '<div class="col-md-12 col-sm-12 firstLocation"  id="groupDiv" style="position:absolute;z-index:-1">'
-            + '<div class="panel">'
-            + '<div class="panel-heading">'
-            + '<span class="title"></span>'
-            + '</div>'
-            + '<div class="panel-body"></div>'
-            + '</div>'
-            + '</div>'
-            + '</div>';
+        data = '<div class="col-xs-9 row groupDiv list-group-item droppable-target"  data-groupSize="9" style="min-height:300px;">'
+        + '<div data-trigger="sortArea" class="sortArea col-md-12 col-sm-12"><span class="area-name">组合框3，</span>拖拽我--3<span class="deleteGroup">X</span></div>'
+        + '<div class="col-md-12 col-sm-12 firstLocation"  id="groupDiv" style="position:absolute;z-index:-1">'
+        + '<div class="panel">'
+        + '<div class="panel-heading">'
+        + '<span class="title"></span>'
+        + '</div>'
+        + '<div class="panel-body"></div>'
+        + '</div>'
+        + '</div>'
+        + '</div>';
     }else if (num == '4') {
         data = '<div class="col-xs-12 row groupDiv list-group-item droppable-target"  data-groupSize="12" style="min-height:100px;">'
-            + '<div data-trigger="sortArea" class="sortArea col-md-12 col-sm-12"><span class="area-name">组合框4，</span>拖拽我--4<span class="deleteGroup">X</span></div>'
-            + '<div class="col-md-12 col-sm-12 firstLocation"  id="groupDiv" style="position:absolute;z-index:-1">'
-            + '<div class="panel">'
-            + '<div class="panel-heading">'
-            + '<span class="title"></span>'
-            + '</div>'
-            + '<div class="panel-body"></div>'
-            + '</div>'
-            + '</div>'
-            + '</div>';
+        + '<div data-trigger="sortArea" class="sortArea col-md-12 col-sm-12"><span class="area-name">组合框4，</span>拖拽我--4<span class="deleteGroup">X</span></div>'
+        + '<div class="col-md-12 col-sm-12 firstLocation"  id="groupDiv" style="position:absolute;z-index:-1">'
+        + '<div class="panel">'
+        + '<div class="panel-heading">'
+        + '<span class="title"></span>'
+        + '</div>'
+        + '<div class="panel-body"></div>'
+        + '</div>'
+        + '</div>'
+        + '</div>';
     }
     $('.editorBlock>div>div.row').append(data);
     $('.groupDiv:last-child').attr("data-groupShowId",num+"group"+baseGroupId);
@@ -141,7 +202,6 @@ function importGroupDiv(num){
         selector:'.list-group-item',
         trigger: '[data-trigger="sortArea"]'
     };
-
 
     $('#sortableList').sortable(optionsTrigger);
     //拖动组件
@@ -184,101 +244,135 @@ function importGroupDiv(num){
 
     saveActionHistory($('#sortableList').html().trim(),$('#htmlCode2').html().trim(),obj);//undo redo
 }
+//栅格系统
+function gridSize(){
+    var gridSizeStr='';
+    if( gridSizeVal=="3" ){
+        gridSizeStr='<p onclick="importGroupDiv(\''+1+'\')" class="secPart layoutImg" id="groupDiv1">';
+        gridSizeStr+='<img src="../img/editor/layout_3g1.png" alt=""/>';
+        gridSizeStr+='</p>';
+        gridSizeStr+='<p onclick="importGroupDiv(\''+2+'\')" class="secPart layoutImg" id="groupDiv2">';
+        gridSizeStr+='<img src="../img/editor/layout_3g2.png" alt=""/>';
+        gridSizeStr+='</p>';
+        gridSizeStr+='<p onclick="importGroupDiv(\''+3+'\')" class="secPart layoutImg" id="groupDiv3">';
+        gridSizeStr+='<img src="../img/editor/layout_3g3.png" alt=""/>';
+        gridSizeStr+='</p>';
+        $('#gridSizeStr').append(gridSizeStr);
+    }else if( gridSizeVal=="4" ){
+        gridSizeStr='<p onclick="importGroupDiv(\''+1+'\')" class="secPart layoutImg" id="groupDiv1">';
+        gridSizeStr+='<img src="../img/editor/layout_4g1.png" alt=""/>';
+        gridSizeStr+='</p>';
+        gridSizeStr+='<p onclick="importGroupDiv(\''+2+'\')" class="secPart layoutImg" id="groupDiv2">';
+        gridSizeStr+='<img src="../img/editor/layout_4g2.png" alt=""/>';
+        gridSizeStr+='</p>';
+        gridSizeStr+='<p onclick="importGroupDiv(\''+3+'\')" class="secPart layoutImg" id="groupDiv3">';
+        gridSizeStr+='<img src="../img/editor/layout_4g3.png" alt=""/>';
+        gridSizeStr+='</p>';
+        gridSizeStr+='<p onclick="importGroupDiv(\''+4+'\')" class="secPart layoutImg" id="groupDiv3">';
+        gridSizeStr+='<img src="../img/editor/layout_4g4.png" alt=""/>';
+        gridSizeStr+='</p>';
+        //console.log(gridSizeStr);
+        $('#gridSizeStr').append(gridSizeStr);
+    }
+}
 
 //删除组合框
-$(".newSection").on("click",'.deleteGroup',function(){
-    //alert(1);
-    if( confirm("确定要删除此组件框（包含其中所有组件）吗？") ){
-        $(this).parent().parent().remove();
-        saveActionHistory($('#sortableList').html().trim(),$('#htmlCode2').html().trim(),obj);//undo redo
-    }
-});
-
+function openGroupConfirm(obj){
+    $("#groupDelete").modal('show', 'fit');
+    var groupId=$(obj).parent().parent().attr("data-groupShowId");
+    $("#groupDelete #groupBlockBtn").attr("onclick","deleteGroup('"+groupId+"')");
+}
+function deleteGroup(groupId){
+    console.log(groupId);
+    $("[data-groupshowid='"+groupId+"']").remove();
+    saveActionHistory($('#sortableList').html().trim(),$('#htmlCode2').html().trim(),$("[data-groupshowid='"+groupId+"']").find(".deleteGroup"));//undo redo
+    $("#groupDelete").modal('hide');
+}
 
 //拖拽
 function importFile(id, nextShowId, size,groupDiv) {
     //找到源文件
     $.get("../editorBlock/" + id + ".html", function (data) {
-            var block_showId;
-            var GroupShowId = $(groupDiv).attr("data-groupShowId");
-            block_showId = id+ "_" + baseShowId+"_"+GroupShowId;
-             baseShowId ++;
-            //增加是否填写属性必选项的框
-            notNull();
-            //清楚所有选中框
-            $(".indexAll .appendStr .panel").removeClass('appendCur');
-            //固定替换流程
-            data = data.replace(/showId/g, '');
-            data = data.replace(/"exist"/g, '');
-            data = data.replace("panel", "panel appendCur");
-            data = data.replace(/vData/g, "vData_" + block_showId);
-            //判断区块是否可以添加到组合框内
-            var ids = block_showId.split("_");
-            var blockWidth = 3;
-            if(ids[1] == "4g2"){
-                blockWidth = 6;
-            }else if(ids[1] == "4g3" ){
-                blockWidth = 9;
-            }else if(ids[1] == "4g4"){
-                blockWidth = 12;
-            }
-            //通过下一个组件的showID，append到拖拽之前的位置
-            if (nextShowId == "") {
-                $(groupDiv).append(data);
-            } else {
-                $("[data-showId=" + nextShowId + "]").before(data);
-            }
-            //增加showId
-            optionSelect = {};
-            optionSelect.id = id;
-            optionSelect.showId = block_showId;
+        var block_showId;
+        var GroupShowId = $(groupDiv).attr("data-groupShowId");
+        block_showId = id+ "_" + baseShowId+"_"+GroupShowId;
+        baseShowId ++;
+        //增加是否填写属性必选项的框
+        notNull();
+        //清楚所有选中框
+        $(".indexAll .appendStr .panel").removeClass('appendCur');
+        //固定替换流程
+        data = data.replace(/showId/g, '');
+        data = data.replace(/"exist"/g, '');
+        data = data.replace("panel", "panel appendCur");
+        data = data.replace(/vData/g, "vData_" + block_showId);
+        //判断区块是否可以添加到组合框内
+        var ids = block_showId.split("_");
+        var blockWidth = 3;
+        if(ids[1] == "4g2"){
+            blockWidth = 6;
+        }else if(ids[1] == "4g3" ){
+            blockWidth = 9;
+        }else if(ids[1] == "4g4"){
+            blockWidth = 12;
+        }
+        //通过下一个组件的showID，append到拖拽之前的位置
+        if (nextShowId == "") {
+            $(groupDiv).append(data);
+        } else {
+            $("[data-showId=" + nextShowId + "]").before(data);
+        }
+        //增加showId
+        optionSelect = {};
+        optionSelect.id = id;
+        optionSelect.showId = block_showId;
 
-            if( $(".appendCur").attr("data-header")=="header" ){
-                optionSelect.blockType = "header";
-            }else if( $(".appendCur").attr("data-footer")=="footer" ){
-                optionSelect.blockType = "footer";
-            }
+        if( $(".appendCur").attr("data-header")=="header" ){
+            optionSelect.blockType = "header";
+        }else if( $(".appendCur").attr("data-footer")=="footer" ){
+            optionSelect.blockType = "footer";
+        }
 
-            $(".appendCur").parent().attr("data-showId", optionSelect.showId);
-            $(".appendCur").parent().attr("data-size", size);
-            $(".appendCur").attr("data-id", optionSelect.showId);  //zui ***
-            var blockSize = $(".appendCur").parent().attr("data-blockSize");
-            var groupDivSize = $(".appendCur").parent().parent().attr("data-groupSize");
-            var finalSize = countSize(blockSize, groupDivSize);
-            if (finalSize == -1) {
-                console.log("尴尬，放不进去");
-                var j;
-                for (var i = 0; i < obj.section.length; i++) {
-                    if (obj.section[i].showId == block_showId) {
-                        j = i;
-                        break;
-                    }
+        $(".appendCur").parent().attr("data-showId", optionSelect.showId);
+        $(".appendCur").parent().attr("data-size", size);
+        $(".appendCur").attr("data-id", optionSelect.showId);  //zui ***
+        var blockSize = $(".appendCur").parent().attr("data-blockSize");
+        var groupDivSize = $(".appendCur").parent().parent().attr("data-groupSize");
+        var finalSize = countSize(blockSize, groupDivSize);
+        if (finalSize == -1) {
+            console.log("尴尬，放不进去");
+            var j;
+            for (var i = 0; i < obj.section.length; i++) {
+                if (obj.section[i].showId == block_showId) {
+                    j = i;
+                    break;
                 }
-                obj.section.splice(j, 1);
-
-                $("[data-showId=" + block_showId + "]").remove();
-                $(".property").html("");
-                return;
-            } else {
-                var md = "col-md-" + finalSize;
-                var sm = "col-sm-" + finalSize;
-                if (blockSize == 4) {
-                    $(".appendCur").parent().removeClass("col-md-4");
-                    $(".appendCur").parent().removeClass("col-sm-4");
-                } else if (blockSize == 8) {
-                    $(".appendCur").parent().removeClass("col-md-8");
-                    $(".appendCur").parent().removeClass("col-sm-8");
-                } else if (blockSize == 12) {
-                    $(".appendCur").parent().removeClass("col-md-12");
-                    $(".appendCur").parent().removeClass("col-sm-12");
-                }
-                $(".appendCur").parent().addClass(md);
-                $(".appendCur").parent().addClass(sm);
             }
-            obj.section.push(optionSelect);
-            //属性
-            propertyRightList(id);
-            $('.newSection').dashboard();
+            obj.section.splice(j, 1);
+
+            $("[data-showId=" + block_showId + "]").remove();
+            $(".property").html("");
+            return;
+        } else {
+            var md = "col-md-" + finalSize;
+            var sm = "col-sm-" + finalSize;
+            if (blockSize == 4) {
+                $(".appendCur").parent().removeClass("col-md-4");
+                $(".appendCur").parent().removeClass("col-sm-4");
+            } else if (blockSize == 8) {
+                $(".appendCur").parent().removeClass("col-md-8");
+                $(".appendCur").parent().removeClass("col-sm-8");
+            } else if (blockSize == 12) {
+                $(".appendCur").parent().removeClass("col-md-12");
+                $(".appendCur").parent().removeClass("col-sm-12");
+            }
+            $(".appendCur").parent().addClass(md);
+            $(".appendCur").parent().addClass(sm);
+        }
+        obj.section.push(optionSelect);
+        //属性
+        propertyRightList(id);
+        $('.newSection').dashboard();
     });
 
 }
@@ -291,6 +385,7 @@ function countSize(blockSize, groupDivSize) {
     return finalSize;
 }
 
+
 //2---组件显示状态
 $('.indexAll').on("click", ".appendStr", function () {
     notNull();
@@ -301,15 +396,16 @@ $('.indexAll').on("click", ".appendStr", function () {
 
 });
 
-//______________________________________right--属性
+//right--属性
 function propertyRightList(id) {
     $.ajax({
         async: false,
         cache: true,
         type: 'post',
         dataType : "jsonp",
-        data:{dataType:"jsonp",blockId:id},  //参数
-        url:"http://192.168.31.2/template_editor/propertyRightList.do",//请求的action路径
+        data:{blockId:id,callBack:'propertyRightListCallback'},  //参数
+        //url:"http://192.168.31.2/template_editor/propertyRightList.do",//请求的action路径
+        url:basePath+"template_editor/propertyRightList",//请求的action路径
         error: function () {//请求失败处理函数
 
         },
@@ -317,10 +413,10 @@ function propertyRightList(id) {
         }
     });
 }
-function propertyRightListCallBack(data) {
-    var list = data.dataList;
-    console.log(list)
-    $(".property").html("");
+function propertyRightListCallback(data) {
+    var list = data;
+    //console.log(list);
+    $(".property .propertyShow").html("");
     var showId = $(".appendCur").parent().attr("data-showId");
     var blockProAll;
     for (var i = 0; i < obj.section.length; i++) {
@@ -332,13 +428,13 @@ function propertyRightListCallBack(data) {
     for (var i = 0; i < list.length; i++) {
         var str = "";
         if (list[i].propertyType == "text") {
-            str = '<div class="row control-group">';
-            str += '<label class="control-label col-xs-4" for="' + list[i].propertyId + '">';
+            str = '<div class="propertyOption">';
+            str += '<label class="propertyLabel" for="' + list[i].propertyId + '">';
             if (list[i].notNull == "yes") {
                 str += '<span class="notNullColor">* </span>';
             }
             str += list[i].propertyName + '</label>';
-            str += '<div class="controls col-xs-8"><input data-notNull="' + list[i].notNull + '" onchange="collectProperty(this,' + list[i].minValue + ',' + list[i].maxValue + ')" type="text" id="' + list[i].propertyId + '"';
+            str += '<input class="propertyInputBig" data-notNull="' + list[i].notNull + '" onchange="collectProperty(this,' + list[i].minValue + ',' + list[i].maxValue + ')" type="text" id="' + list[i].propertyId + '"';
             var curId = list[i].propertyId;
             str += 'value="';
             if (blockProAll[curId] !== undefined) {
@@ -347,22 +443,22 @@ function propertyRightListCallBack(data) {
                 str += list[i].defaultValue;
             }
             str += '"';
-            str += ' class="form-input" placeholder="'+list[i].propertyName+'">';
+            str += ' placeholder="'+list[i].propertyName+'">';
             str += '<input type="hidden" id="' + list[i].propertyId + '_undoRedo" value="';//undo redo 存储修改之前的属性值
             if (blockProAll[curId] !== undefined ) {
                 str += blockProAll[curId];
             } else if (list[i].defaultValue !== undefined && list[i].defaultValue != "null") {
                 str += list[i].defaultValue;
             }
-            str += '" /></div></div>';
+            str += '" /></div>';
 
         } else if (list[i].propertyType == "number") {
-            str = '<div class="row control-group"><label class="control-label col-xs-4" for="' + list[i].propertyId + '">';
+            str = '<div class="propertyOption"><label class="propertyLabel" for="' + list[i].propertyId + '">';
             if (list[i].notNull == "yes") {
                 str += '<span class="notNullColor">* </span>';
             }
             str += list[i].propertyName + '</label>';
-            str += '<div class="controls col-xs-8"><input data-notNull="' + list[i].notNull + '" onchange="collectProperty(this,' + list[i].minValue + ',' + list[i].maxValue + ')" type="number" id="' + list[i].propertyId + '"';
+            str += '<input data-notNull="' + list[i].notNull + '" onchange="collectProperty(this,' + list[i].minValue + ',' + list[i].maxValue + ')" type="number" id="' + list[i].propertyId + '"';
             var curId = list[i].propertyId;
             str += 'value="';
             if (blockProAll[curId] !== undefined) {
@@ -371,21 +467,21 @@ function propertyRightListCallBack(data) {
                 str += list[i].defaultValue;
             }
             str += '"';
-            str += ' class="form-input" placeholder="区块名称">';
+            str += ' class="propertyInputSm" placeholder="'+list[i].propertyName+'">';
             str += '<input type="hidden" id="' + list[i].propertyId + '_undoRedo" value="';//undo redo 存储修改之前的属性值
             if (blockProAll[curId] !== undefined) {
                 str += blockProAll[curId];
             } else if (list[i].defaultValue !== undefined) {
                 str += list[i].defaultValue;
             }
-            str += '" /></div></div>';
+            str += '" /></div>';
         } else if (list[i].propertyType == "select") {
-            str = '<div class="row control-group"><label class="control-label col-xs-4 " for="' + list[i].propertyId + '">';
+            str = '<div class="propertyOption"><label class="propertyLabel" for="' + list[i].propertyId + '">';
             if (list[i].notNull == "yes") {
                 str += '<span class="notNullColor">* </span>';
             }
             str += list[i].propertyName + '</label>';
-            str += '<div class="controls col-xs-8"><select onchange="collectProperty(this)" data-notNull="' + list[i].notNull + '" id="' + list[i].propertyId + '" >';
+            str += '<select class="propertyInputBig" onchange="collectProperty(this)" data-notNull="' + list[i].notNull + '" id="' + list[i].propertyId + '" >';
             str += '<option value="">请选择</option>';
             for (var j = 0; j < list[i].data.length; j++) {
                 str += '<option value="' + list[i].data[j].value + '"';
@@ -414,7 +510,7 @@ function propertyRightListCallBack(data) {
                     }
                 }
             }
-            str += '" /></div></div>';
+            str += '" /></div>';
         } else if (list[i].propertyType == "radio") {
             str = '<div class="row control-group"><p class="control-label col-xs-3 ">';
             if (list[i].notNull == "yes") {
@@ -506,10 +602,39 @@ function propertyRightListCallBack(data) {
                 str += list[i].defaultValue;
             }
             str += '" /></div>';
+        }else if( list[i].propertyType == "switch" ){
+            if( list[i].propertyId=="isCommon" ){
+                str='<div class="switch switchLink text-left propertyOption">' ;
+                str+='<input data-type="switch" type="checkbox" onchange="collectProperty(this)" data-notNull="' + list[i].notNull + '" id="' + list[i].propertyId + '"/><label>';
+                if (list[i].notNull == "yes") {
+                    str += '<span class="notNullColor">* </span>';
+                }
+                str+=''+list[i].propertyName+'</label></div>';
+            }else{
+                str='<div class="switch text-left propertyOption">';
+                str+='<input data-type="switch" type="checkbox" onchange="collectProperty(this)" data-notNull="' + list[i].notNull + '" id="' + list[i].propertyId + '"/><label>' ;
+                if (list[i].notNull == "yes") {
+                    str += '<span class="notNullColor">* </span>';
+                }
+                str+=''+list[i].propertyName+'</label></div>';
+            }
         }
-        $('.property').append(str);
+
+
+        if( list[i].propertyId.indexOf("SS")>=0 ){
+            $('.propertyLink .propertyShow').append(str);//下
+        }else{
+            if( list[i].propertyId=="isCommon" ){
+                $('.propertyLink .propertyShow').prepend(str);//通用的开关
+            }else{
+                $('.propertyOptionAll .propertyShow').append(str); //上
+            }
+
+        }
+
     }
-    $(".property").append('<div class="deleteBlockDiv"><button class="deleteBlockBtn btn btn-primary" onclick="deleteBlock(\'' + showId + '\')">删除此组件</button></div>');
+    $(".propertyShow").children(":odd").addClass("propertyBackDark");
+    //$(".property").append('<div class="deleteBlockDiv"><button class="deleteBlockBtn btn btn-primary" onclick="deleteBlock(\'' + showId + '\')">删除此组件</button></div>');
     saveActionHistory($('#sortableList').html().trim(),$('#htmlCode2').html().trim(),obj);//undo redo
 }
 
@@ -544,7 +669,8 @@ function collectProperty(property, min, max) {
         });
         saveActionHistory($('#sortableList').html().trim(),$('#htmlCode2').html().trim(),obj,'radio',propertyVal+"|"+$("#" + propertyId + "_undoRedo").val()+"|"+propertyId);//undo redo save
         $("#" + propertyId + "_undoRedo").val(propertyVal);//undo redo 将修改之后的值放入页面中 为了拿到修改之前的值
-    } else if ($(property).attr("type") == "checkbox") {
+    } else if (($(property).attr("type") == "checkbox") && ($(property).attr("data-type") !== "switch")  ) {
+        //console.log( "checkbox" );
         var propertyId = $(property).attr("name");
         $("#" + propertyId + "_checkbox").val("");
         var propertyVal = "";
@@ -589,6 +715,7 @@ function collectProperty(property, min, max) {
         }
 
     } else if ($(property).attr("type") == "text") {
+        console.log("text");
         var val = $(property).val();
         var propertyId = $(property).attr("id");
         if ((val.length >= min) && (val.length <= max)) {
@@ -602,6 +729,28 @@ function collectProperty(property, min, max) {
             $(property).val($(property).attr("data-prevVal"));
             alert("范围为" + min + "~" + max + "个文字");
             return;
+        }
+
+    } else if( ($(property).attr("data-type") == "switch") && ($(property).attr("type") == "checkbox") ){
+        if( $(property).attr("id")=="isCommon" ){
+            var propertyId = $(property).attr("id");
+            console.log(propertyId);
+            if( $(property).prop("checked") ){
+                var propertyVal = "yes";
+                $(property).parent().next().find("select").attr("data-notNull","no");
+                $(property).parent().next().find("select").val("");
+            }else{
+                var propertyVal = "no";
+                $(property).parent().next().find("select").attr("data-notNull","yes");
+            }
+
+        }else{
+            var propertyId = $(property).attr("id");
+            if( $(property).prop("checked") ){
+                var propertyVal = "yes";
+            }else{
+                var propertyVal = "no";
+            }
         }
 
     } else {
@@ -660,80 +809,199 @@ function notNull(flag) {
 
 }
 
-//deleteBlock
-function deleteBlock(removeShowId) {
-    if (confirm("确认删除此组件")) {
-        var j;
-        for (var i = 0; i < obj.section.length; i++) {
-            if (obj.section[i].showId == removeShowId) {
-                j = i;
-                break;
-            }
-        }
-        obj.section.splice(j, 1);
-
-        $("[data-showId=" + removeShowId + "]").remove();
-        $(".property").html("")
-        saveActionHistory($('#sortableList').html().trim(),$('#htmlCode2').html().trim(),obj);//undo redo
+//deleteBlock---删除组件
+$("#widgetBottomDelete").on('click',function(){
+    var showId = $(".appendCur").parent().attr("data-showId");
+    if( showId==undefined ){
+        $('#partDelete').modal('hide');
+        alert("没有选择组件。");
+    }else{
+        $('#partDelete').modal('show', 'fit');
     }
+});
+$("#deleteBlockBtn").on("click",function(){
+    var showId = $(".appendCur").parent().attr("data-showId");
+    console.log( showId );
+    if( showId!==undefined ){
+        deleteBlock(showId);
+    }
+});
+function deleteBlock(removeShowId) {
+    var j;
+    for (var i = 0; i < obj.section.length; i++) {
+        if (obj.section[i].showId == removeShowId) {
+            j = i;
+            break;
+        }
+    }
+    obj.section.splice(j, 1);
+
+    $("[data-showId=" + removeShowId + "]").remove();
+    $(".property .propertyShow").html("");
+    //关闭对话框
+    $('#partDelete').modal('hide');
+    saveActionHistory($('#sortableList').html().trim(),$('#htmlCode2').html().trim(),obj);//undo redo
+
+}
+
+//删除模板
+$("#deleteModuleBtn").click(function(){
+    $.ajax({
+        async: false,
+        cache: true,
+        type: 'post',
+        dataType : "jsonp",
+        data:{callBack:"deleteTemplateCallback",templateId:templateIdVal},  //参数
+        url:basePath+"template_editor/deleteTemplate.do"//请求的action路径
+    });
+});
+function deleteTemplateCallback(data){
+    if( data.exist=="yes" ){
+        $(".main .mainCanvas").html("");
+        $("#modalDelete").modal("hide");
+        obj.section=[];
+        $.zui.store.remove('modalNewEditorName');
+        $.zui.store.remove('modalLeadInName');
+        window.location.href="editor_index.html";
+        console.log(1);
+    }
+}
+
+//存为草稿
+function saveDraft(draftBtn){
+    $("#WhetherDraft").val("1");
+    $(draftBtn).find("img").tooltip('hide');
+    $(draftBtn).find("img").next().remove();
+    var str = (JSON.stringify(obj));
+    $("#objInput").val(str);
+    //草稿str
+    var draft=$("html").prop("outerHTML");
+    //var draft='<span>回答是否</span>';
+    console.log('saveTemplateCodeCallback');
+    console.log(templateIdVal);
+    console.log(draft);
+
+    $.ajax({
+        async: false,
+        cache: true,
+        type: 'post',
+        dataType : "jsonp",
+        //contentType: false,
+        //processData: false,
+        //data:formdata,  //参数
+        data:{callBack:"saveTemplateCodeCallback",templateId:templateIdVal,templateCode:draft},  //参数
+        url:basePath+"template_editor/saveTemplateCode.do"//请求的action路径
+    });
+
 
 
 }
 
+function saveTemplateCodeCallback(data){
+    console.log(data);
+}
+
+
+//移动
+$('.newSection').dashboard();
+var optionsTrigger = {
+    selector:'.list-group-item',
+    trigger: '[data-trigger="sortArea"]'
+};
+$('#sortableList').sortable(optionsTrigger);
+//拖动组件
+$('#multiDroppableContainer').droppable({
+    selector: '.btn-droppable', // 定义允许拖放的元素
+    target: '.droppable-target',
+    drop: function(event) {
+        $('.editorBlock').find('.heightLight').removeClass('heightLight');  //取消高亮框
+        var msg = '真棒！';
+        if(event.target) {
+            //像画布中添加组件方法
+            var id=$(event.element).attr("data-blockId");
+            var size=$(event.element).attr("data-blockSize");
+            importFile(id,'',size,event.target.find('.area-name').parent().parent());
+            var elementId = event.element.text();
+            msg += '成功拖动【' + elementId + '】到区域 ' + event.target.find('.area-name').text();
+        }
+        //$.zui.messager.show(msg);
+    },
+    drag: function(event){
+        var id=$(event.element).attr("data-blockId");
+        var ts= id.split("_");
+        var thisSize = "4";
+        if(ts[1] == '3g2'){
+            thisSize="8";
+        }else if(ts[1] == '3g3') thisSize = "12";
+        var divs = $('.editorBlock>div>div>div.row');
+        for(var i=0;i<divs.length;i++){
+            var rowWidth=  $(divs[i]).attr("data-groupSize");
+            if(eval(rowWidth) >= eval(thisSize)){
+                $(divs[i]).addClass("heightLight");
+            }
+        }
+    }
+});
 
 //存储container
 window.onload = function () {
     //left
-    blockLeftList();
+    blockLeftList("");
+    blockTypeList();
+    //layout();
+    gridSize();
+
     //保存
     $('#keep').click(function () {
-        console.log(JSON.stringify(obj));
-        var appendStr = $(".appendStr .panel");
-        var notCur = 'yes';
+        if( $(".mainCanvas").text()!=="" ){
+            var appendStr = $(".appendStr .panel");
+            var notCur = 'yes';
 
-        for (var i = 0; i < appendStr.length; i++) {
-            if ($(appendStr[i]).hasClass("appendNot")) {
-                $(".appendStr .panel").removeClass("appendCur");
-                $(".property").html("");
-                notCur = "no";
-            }
-        }
-
-        if (notCur == 'no') {
-            alert("标记蓝色的组件有必填项没有填写");
-        } else if (notCur == 'yes') {
-            var str = (JSON.stringify(obj)),
-                order = "";
-            $(".editorBlock .appendStr").each(function () {
-                if ($(this).css("display") !== "none") {
-                    order = order + $(this).attr("data-showId") + ',';
+            for (var i = 0; i < appendStr.length; i++) {
+                if ($(appendStr[i]).hasClass("appendNot")) {
+                    $(".appendStr .panel").removeClass("appendCur");
+                    $(".property .propertyShow").html("");
+                    notCur = "no";
                 }
-            });
-            order = order.substring(0, order.length - 1);
-            console.log(order)
-            var groupDivOrder ="";
-            for(var i = 0;i<$('.groupDiv').length;i++){
-                var pp = $('.groupDiv')[i];
-                groupDivOrder += $(pp).attr("data-groupShowId")+",";
             }
-            groupDivOrder = groupDivOrder.substring(0, groupDivOrder.length - 1);
-            console.log(groupDivOrder)
-            $.ajax({
-                async: false,
-                cache: true,
-                type: 'POST',
-                dataType : "jsonp",
-                data:{strKey:str,order:order,groupDivOrder:groupDivOrder,dataType :"jsonp"},  //参数
-                url:"http://192.168.31.156:8080/cmsNews/template_editor/saveTemplate.do"//请求的action路径
-            });
+
+            if (notCur == 'no') {
+                alert("标记蓝色的组件有必填项没有填写");
+            } else if (notCur == 'yes') {
+                var str = (JSON.stringify(obj)),
+                    order = "";
+                $(".editorBlock .appendStr").each(function () {
+                    if ($(this).css("display") !== "none") {
+                        order = order + $(this).attr("data-showId") + ',';
+                    }
+                });
+                order = order.substring(0, order.length - 1);
+                var groupDivOrder ="";
+                for(var i = 0;i<$('.groupDiv').length;i++){
+                    var pp = $('.groupDiv')[i];
+                    groupDivOrder += $(pp).attr("data-groupShowId")+",";
+                }
+                groupDivOrder = groupDivOrder.substring(0, groupDivOrder.length - 1);
+                console.log(order);
+                console.log(str);
+                $.ajax({
+                    async: false,
+                    cache: true,
+                    type: 'POST',
+                    dataType : "jsonp",
+                    data:{callBack:"saveTemplateCallback",strKey:str,order:order,groupDivOrder:groupDivOrder,
+                        templateId:templateIdVal,templateColor:templateColorVal,gridSize:gridSizeVal },  //参数
+                    url:basePath+"template_editor/saveTemplate"//请求的action路径
+                });
+            }
+        }else{
+            alert("当前没有可保存项");
         }
     })
 };
-
-
-
-function saveTemplateCallBack(data){
+function saveTemplateCallback(data){
     alert("保存成功~");
+    window.location.href="editor_index.html";
 }
 
 
@@ -757,22 +1025,23 @@ $(".preview").click(function(){
     $(main).find(".resize-handle").remove();
     $(main).find(".sortArea").remove();
     $(main).find(".firstLocation").remove();
+    $(main).find(".mainAct").remove();
 
     var groupDivs=$(main).find(".groupDiv ");
     for( var i=0;i<groupDivs.length;i++ ){
         //if( $(groupDivs[i]).children().hasClass("appendStr") ){
-            $(groupDivs[i]).removeClass("list-group-item");
-            $(groupDivs[i]).find(".panel-body").removeClass("panel-body");
+        $(groupDivs[i]).removeClass("list-group-item");
+        $(groupDivs[i]).find(".panel-body").removeClass("panel-body");
 
-            if( $(groupDivs[i]).find(".panel").attr("data-header")=="header" ){
-                strHeader+=$(groupDivs[i]).prop("outerHTML");
-            }else if( $(groupDivs[i]).find(".panel").attr("data-footer")=="footer" ){
-                strFooter+=$(groupDivs[i]).prop("outerHTML");
-            }else{
-                strSection+=$(groupDivs[i]).prop("outerHTML");
-            }
+        if( $(groupDivs[i]).find(".panel").attr("data-header")=="header" ){
+            strHeader+=$(groupDivs[i]).prop("outerHTML");
+        }else if( $(groupDivs[i]).find(".panel").attr("data-footer")=="footer" ){
+            strFooter+=$(groupDivs[i]).prop("outerHTML");
+        }else{
+            strSection+=$(groupDivs[i]).prop("outerHTML");
+        }
 
-            $(groupDivs[i]).find(".panel").removeClass("panel");
+        $(groupDivs[i]).find(".panel").removeClass("panel");
 
         //}
     }
@@ -787,8 +1056,6 @@ $(".preview").click(function(){
     window.open('preview.html');
     //console.log( $('.main').html() )
 });
-
-
 
 
 

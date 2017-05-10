@@ -384,7 +384,7 @@
                 var groupDiv = $col.parent();
                 if(oldGrid !== balanceGrid){
                     $("[data-showId="+blockShowId+"]").remove();
-                    $(".property").html("");
+                    $(".property .propertyShow").html("");
                     var deleteNum;
                     for (var i = 0; i < obj.section.length; i++) {
                         if (obj.section[i].showId == blockShowId) {

@@ -2,7 +2,7 @@
  * Created by 大丽丽 on 2017/5/5.
  */
 //模板类型
-var basePath="http://192.168.31.160:8400/template_editor/";
+var basePath="http://192.168.31.160:8400/";
 function templateType() {
     $.ajax({
         async: false,
@@ -10,7 +10,7 @@ function templateType() {
         type: 'post',
         dataType : "jsonp",
         data:{callBack:"templateTypeCallback"},  //参数
-        url:basePath+"templateType.do"//请求的action路径
+        url:basePath+"template_editor/templateType.do"//请求的action路径
     });
 }
 function templateTypeCallback(data) {
@@ -48,7 +48,7 @@ function templateSonList() {
             type: 'post',
             dataType : "jsonp",
             data:{callBack:"templateSonListCallback",templateType:templateType},  //参数
-            url:basePath+"templateSonList.do"//请求的action路径
+            url:basePath+"template_editor/templateSonList.do"//请求的action路径
         });
     }
 }
@@ -86,7 +86,7 @@ function blockStyleList() {
         type: 'post',
         dataType : "jsonp",
         data:{callBack:"blockStyleListCallback"},  //参数
-        url:basePath+"blockStyleList.do"//请求的action路径
+        url:basePath+"template_editor/blockStyleList.do"//请求的action路径
     });
 }
 function blockStyleListCallback(data) {
@@ -126,7 +126,7 @@ function judgeTemplateName() {
             type: 'post',
             dataType : "jsonp",
             data:{callBack:"judgeTemplateNameCallback",templateName:templateName,templateType:templateType},  //参数
-            url:basePath+"judgeTemplateName.do"//请求的action路径
+            url:basePath+"template_editor/judgeTemplateName.do"//请求的action路径
         });
     }
 }
@@ -252,10 +252,10 @@ $("#modalNewEditorBtn").click(function(){
             type: 'post',
             dataType : "jsonp",
             data:{callBack:"saveTemplateDataCallback",templateName:templateName,templateType:templateType},  //参数
-            url:basePath+"saveTemplateData.do"//请求的action路径
+            url:basePath+"template_editor/saveTemplateData.do"//请求的action路径
         });
-        //window.open('index.html');
-        window.location.href="index.html";
+
+
 
     }
 });
@@ -269,8 +269,11 @@ function saveTemplateDataCallback(data){
         templateId=data.templateId;
         modalNewEditor["templateId"]=templateId;
         $("#modalNewEditor").modal("hide");
+
         $.zui.store.set('modalNewEditorName', modalNewEditor);
         console.log( modalNewEditor );
+        //window.open('index.html');
+        window.location.href="index.html";
     }
 }
 
