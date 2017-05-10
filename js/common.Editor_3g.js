@@ -24,7 +24,7 @@ function blockLeftList( selectObj,inputObj ) {
         dataType : "jsonp",
         data:{gridSize:gridSizeVal,blockType:selectVal,searchBlockName:inputVal,blockStyle:blockStyleVal,callBack:"blockLeftListCallback"},  //参数
         //url:"http://192.168.31.2/template_editor/blockLeftList.do",//请求的action路径
-        url:"http://192.168.31.160:10000/api-template/template_editor/blockLeftList",//请求的action路径
+        url:basePath+"blockLeftList",//请求的action路径
         error: function () {//请求失败处理函数
         },
         success: function (data) { //请求成功后处理函数。
@@ -103,7 +103,7 @@ function blockTypeList() {
         dataType : "jsonp",
         data:{callBack:"blockTypeListCallback"}, //参数
         //url:"http://192.168.31.2/template_editor/blockTypeList.do",//请求的action路径
-        url:"http://192.168.31.160:10000/api-template/template_editor/blockTypeList",//请求的action路径
+        url:basePath+"blockTypeList",//请求的action路径
         error: function () {//请求失败处理函数
         },
         success: function (data) { //请求成功后处理函数。
@@ -327,7 +327,7 @@ $('.indexAll').on("click", ".appendStr", function () {
 
 });
 
-//______________________________________right--属性
+//right--属性
 function propertyRightList(id) {
     $.ajax({
         async: false,
@@ -336,7 +336,7 @@ function propertyRightList(id) {
         dataType : "jsonp",
         data:{blockId:id,callBack:'propertyRightListCallback'},  //参数
         //url:"http://192.168.31.2/template_editor/propertyRightList.do",//请求的action路径
-        url:"http://192.168.31.160:10000/api-template/template_editor/propertyRightList",//请求的action路径
+        url:basePath+"propertyRightList",//请求的action路径
         error: function () {//请求失败处理函数
 
         },
@@ -346,7 +346,7 @@ function propertyRightList(id) {
 }
 function propertyRightListCallback(data) {
     var list = data;
-    console.log(list);
+    //console.log(list);
     $(".property .propertyShow").html("");
     var showId = $(".appendCur").parent().attr("data-showId");
     var blockProAll;
@@ -777,11 +777,26 @@ function deleteBlock(removeShowId) {
 
 //删除模板
 $("#deleteModuleBtn").click(function(){
-    $(".main .mainCanvas").html("");
-    $("#modalDelete").modal("hide");
-
-    obj.section=[];
+    $.ajax({
+        async: false,
+        cache: true,
+        type: 'post',
+        dataType : "jsonp",
+        data:{callBack:"deleteTemplateCallback",templateId:templateIdVal},  //参数
+        url:basePath+"deleteTemplate.do"//请求的action路径
+    });
 });
+function deleteTemplateCallback(data){
+   if( data.exist=="yes" ){
+       $(".main .mainCanvas").html("");
+       $("#modalDelete").modal("hide");
+       obj.section=[];
+       $.zui.store.remove('modalNewEditorName');
+       $.zui.store.remove('modalNewEditor');
+       window.location.href="editor_index.html";
+       console.log(1);
+   }
+}
 
 //存为草稿
 function saveDraft(draftBtn){
@@ -790,13 +805,32 @@ function saveDraft(draftBtn){
     $(draftBtn).find("img").next().remove();
     var str = (JSON.stringify(obj));
     $("#objInput").val(str);
-
     //草稿str
     var draft=$("html").prop("outerHTML");
-    console.log(draft);
-    $.zui.store.set('draft', draft);
-    window.open('draft.html');
+    var formdata=new FormData();
+    console.log(formdata);
+    formdata.append('templateCode',draft);
+    formdata.append('templateId',templateIdVal);
+    formdata.append('callBack',"saveTemplateCodeCallback");
+    console.log(formdata);
 
+    $.ajax({
+        async: false,
+        cache: true,
+        type: 'post',
+        dataType : "jsonp",
+        contentType: false,
+        processData: false,
+        data:formdata,  //参数
+        url:basePath+"saveTemplateCode.do"//请求的action路径
+    });
+
+
+
+}
+
+function saveTemplateCodeCallback(data){
+    console.log(data);
 }
 
 
@@ -885,8 +919,9 @@ window.onload = function () {
                     cache: true,
                     type: 'POST',
                     dataType : "jsonp",
-                    data:{strKey:str,order:order,groupDivOrder:groupDivOrder},  //参数
-                    url:"http://192.168.31.160:10000/api-template/template_editor/saveTemplate"//请求的action路径
+                    data:{callBack:"saveTemplateCallback",strKey:str,order:order,groupDivOrder:groupDivOrder,
+                          templateId:templateIdVal,templateColor:templateColorVal,gridSize:gridSizeVal },  //参数
+                    url:basePath+"saveTemplate"//请求的action路径
                 });
             }
         }else{
@@ -899,6 +934,8 @@ window.onload = function () {
 
 function saveTemplateCallback(data){
     alert("保存成功~");
+    window.location.href="editor_index.html";
+
 }
 
 

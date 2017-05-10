@@ -2,6 +2,7 @@
  * Created by 大丽丽 on 2017/5/5.
  */
 //模板类型
+var basePath="http://192.168.31.160:8400/template_editor/";
 function templateType() {
     $.ajax({
         async: false,
@@ -9,7 +10,7 @@ function templateType() {
         type: 'post',
         dataType : "jsonp",
         data:{callBack:"templateTypeCallback"},  //参数
-        url:"http://192.168.31.160:10000/api-template/template_editor/templateType.do"//请求的action路径
+        url:basePath+"templateType.do"//请求的action路径
     });
 }
 function templateTypeCallback(data) {
@@ -47,7 +48,7 @@ function templateSonList() {
             type: 'post',
             dataType : "jsonp",
             data:{callBack:"templateSonListCallback",templateType:templateType},  //参数
-            url:"http://192.168.31.160:10000/api-template/template_editor/templateSonList.do"//请求的action路径
+            url:basePath+"templateSonList.do"//请求的action路径
         });
     }
 }
@@ -85,7 +86,7 @@ function blockStyleList() {
         type: 'post',
         dataType : "jsonp",
         data:{callBack:"blockStyleListCallback"},  //参数
-        url:"http://192.168.31.160:10000/api-template/template_editor/blockStyleList.do"//请求的action路径
+        url:basePath+"blockStyleList.do"//请求的action路径
     });
 }
 function blockStyleListCallback(data) {
@@ -114,10 +115,10 @@ function blockStyleListCallback(data) {
 blockStyleList();
 
 
-//新建模板--名字
+//新建模板--名字的重复判断
 function judgeTemplateName() {
     var templateName=$("#templateName").val();
-    var templateType=$("[data-option='templateType']").attr("data-value");
+    var templateType=$("#modalNewEditor [data-option='templateType']").attr("data-value");
     if( (templateName!==undefined)&&(templateName!=='')&&(templateType!=='')&&(templateType!==undefined) ){
         $.ajax({
             async: false,
@@ -125,7 +126,7 @@ function judgeTemplateName() {
             type: 'post',
             dataType : "jsonp",
             data:{callBack:"judgeTemplateNameCallback",templateName:templateName,templateType:templateType},  //参数
-            url:"http://192.168.31.160:10000/api-template/template_editor/judgeTemplateName.do"//请求的action路径
+            url:basePath+"judgeTemplateName.do"//请求的action路径
         });
     }
 }
@@ -228,10 +229,12 @@ function templateNameChange(obj){
         console.log("no");
     }
 }
-//
+
+var templateId;
 // 新建确认按钮---判断
 $("#modalNewEditorBtn").click(function(){
-
+    var templateName=$("#templateName").val();
+    var templateType=$("#modalNewEditor [data-option='templateType']").attr("data-value");
     var dataMusts=$("#modalNewEditor .dataMust");
     var must="yes";
     for( var i=0;i<dataMusts.length;i++ ){
@@ -243,16 +246,35 @@ $("#modalNewEditorBtn").click(function(){
     if( (must=="no")||($(".existAlert").css("display")=="block") ){
         alert("请填写完整");
     }else{
-        console.log( judgeTemplateName() );
-        $("#modalNewEditor").modal("hide");
-        console.log( modalNewEditor );
-        $.zui.store.set('modalNewEditorName', modalNewEditor);
-        window.open('index.html');
+        $.ajax({
+            async: false,
+            cache: true,
+            type: 'post',
+            dataType : "jsonp",
+            data:{callBack:"saveTemplateDataCallback",templateName:templateName,templateType:templateType},  //参数
+            url:basePath+"saveTemplateData.do"//请求的action路径
+        });
+        //window.open('index.html');
+        window.location.href="index.html";
+
     }
-
-
-
 });
+function saveTemplateDataCallback(data){
+    if(data.templateId=="no"){
+        $(".existAlert").css("display","block");
+        $(".templateNameCon").css("borderBottomColor","#ea4335");
+    }else{
+        $(".existAlert").css("display","none");
+        $(".templateNameCon").css("borderBottomColor","#cbcbcb");
+        templateId=data.templateId;
+        modalNewEditor["templateId"]=templateId;
+        $("#modalNewEditor").modal("hide");
+        $.zui.store.set('modalNewEditorName', modalNewEditor);
+        console.log( modalNewEditor );
+    }
+}
+
+
 
 // 导入确认按钮---判断
 $("#modalLeadInBtn").click(function(){
@@ -268,9 +290,9 @@ $("#modalLeadInBtn").click(function(){
         alert("请填写完整");
     }else{
         $("#modalLeadIn").modal("hide");
-        console.log( modalLeadIn );
+        //console.log( modalLeadIn );
         $.zui.store.set('modalLeadInName', modalLeadIn);
-        window.open('index.html');
+        window.location.href="index.html";
     }
 });
 
