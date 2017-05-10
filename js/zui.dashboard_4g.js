@@ -327,7 +327,7 @@
             var blockSizes = $col.attr("data-size");
             var blockSize = blockSizes.split(",");
             var GroupDivSize = $col.parent().attr("data-groupSize");
-            var balanceGrid = "34";
+            var balanceGrid = "3";
             var nextShowId;
 
             if( ($("[data-showId="+blockShowId+"]").next()).hasClass("dragging-col-holder") ) {
@@ -338,6 +338,14 @@
             var mouseMove = function(event) {
                 var x = event.pageX;
                 var grid = Math.max(1, Math.min(12, Math.round(12 * (startWidth + (x - startX)) / rowWidth)));
+                var IDS = blockId.split("_");
+                if(IDS[1] == "4g2"){
+                    balanceGrid ="6";
+                }else if(IDS[1] == "4g3"){
+                    balanceGrid = "9";
+                }else if(IDS[1] == "4g4"){
+                    balanceGrid = "12";
+                }
                 if(lastGrid != grid) {
                     if(lastGrid != grid && GroupDivSize == '12') {
                         if(0<(100*grid/12)&&(100*grid/12)<=25 && (blockSize.indexOf("4g1")>-1)){

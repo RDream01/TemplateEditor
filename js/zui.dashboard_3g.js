@@ -336,6 +336,12 @@
                 nextShowId=$("[data-showId="+blockShowId+"]").next().attr("data-showId");
             }
             var mouseMove = function(event) {
+                var IDS = blockId.split("_");
+                if(IDS[1] == "3g2"){
+                    balanceGrid ="8";
+                }else if(IDS[1] == "3g3"){
+                    balanceGrid = "12";
+                }
                 var x = event.pageX;
                 var grid = Math.max(1, Math.min(12, Math.round(12 * (startWidth + (x - startX)) / rowWidth)));
                 if(lastGrid != grid) {
