@@ -16,20 +16,26 @@ function layout(){
     console.log(templateLayoutVal);
     console.log(gridSizeVal);
     if( templateLayoutVal=="layout01" ){
-        console.log(1);
-        layoutStr='<div class="col-xs-12 row groupDiv list-group-item droppable-target" data-groupsize="12" style="min-height:100px;" data-groupshowid="3group0"><div data-trigger="sortArea" class="sortArea col-md-12 col-sm-12"><span class="area-name">组合框3，</span>拖拽我--3<span class="deleteGroup" onclick="openGroupConfirm(this)">X</span></div><div class="col-md-12 col-sm-12 firstLocation" id="groupDiv" style="position:absolute;z-index:-1"><div class="panel"><div class="panel-heading"><span class="title"></span></div><div class="panel-body"></div></div></div></div><div class="col-xs-8 row groupDiv list-group-item droppable-target" data-groupsize="8" style="min-height:100px;" data-groupshowid="2group1"><div data-trigger="sortArea" class="sortArea col-md-12 col-sm-12"><span class="area-name">组合框2，</span>拖拽我--2<span class="deleteGroup" onclick="openGroupConfirm(this)">X</span></div><div class="col-md-12 col-sm-12 firstLocation" id="groupDiv" style="position:absolute;z-index:-1"><div class="panel"><div class="panel-heading"><span class="title"></span></div><div class="panel-body"></div></div></div></div><div class="col-xs-4 row groupDiv list-group-item droppable-target" data-groupsize="4" style="min-height:100px;" data-groupshowid="1group2"><div data-trigger="sortArea" class="sortArea col-md-12 col-sm-12"><span class="area-name">组合框1，</span>拖拽我--1<span class="deleteGroup" onclick="openGroupConfirm(this)">X</span></div><div class="col-md-12 col-sm-12 firstLocation" id="groupDiv" style="position:absolute;z-index:-1"><div class="panel"><div class="panel-heading"><span class="title"></span></div><div class="panel-body"></div></div></div></div><div class="col-xs-12 row groupDiv list-group-item droppable-target" data-groupsize="12" style="min-height:100px;"><div data-trigger="sortArea" class="sortArea col-md-12 col-sm-12"><span class="area-name">组合框3，</span>拖拽我--3<span class="deleteGroup" onclick="openGroupConfirm(this)">X</span></div><div class="col-md-12 col-sm-12 firstLocation" id="groupDiv" style="position:absolute;z-index:-1"><div class="panel"><div class="panel-heading"><span class="title"></span></div><div class="panel-body"></div></div></div></div>';
-        $('.editorBlock>div>div.row').append(layoutStr);
+
+        importGroupDiv(3);
+        importGroupDiv(2);
+        importGroupDiv(1);
+        importGroupDiv(3);
+
     }else if( templateLayoutVal=="layout02" ){
-        console.log(2);
-        layoutStr='<div class="col-xs-12 row groupDiv list-group-item droppable-target" data-groupsize="12" style="min-height:100px;" data-groupshowid="3group0"><div data-trigger="sortArea" class="sortArea col-md-12 col-sm-12"><span class="area-name">组合框3，</span>拖拽我--3<span class="deleteGroup" onclick="openGroupConfirm(this)">X</span></div><div class="col-md-12 col-sm-12 firstLocation" id="groupDiv" style="position:absolute;z-index:-1"><div class="panel"><div class="panel-heading"><span class="title"></span></div><div class="panel-body"></div></div></div></div><div class="col-xs-4 row groupDiv list-group-item droppable-target" data-groupsize="4" style="min-height:300px;" data-groupshowid="1group1"><div data-trigger="sortArea" class="sortArea col-md-12 col-sm-12"><span class="area-name">组合框1，</span>拖拽我--1<span class="deleteGroup" onclick="openGroupConfirm(this)">X</span></div><div class="col-md-12 col-sm-12 firstLocation" id="groupDiv" style="position:absolute;z-index:-1"><div class="panel"><div class="panel-heading"><span class="title"></span></div><div class="panel-body"></div></div></div></div><div class="col-xs-4 row groupDiv list-group-item droppable-target" data-groupsize="4" style="min-height:300px;" data-groupshowid="1group2"><div data-trigger="sortArea" class="sortArea col-md-12 col-sm-12"><span class="area-name">组合框1，</span>拖拽我--1<span class="deleteGroup" onclick="openGroupConfirm(this)">X</span></div><div class="col-md-12 col-sm-12 firstLocation" id="groupDiv" style="position:absolute;z-index:-1"><div class="panel"><div class="panel-heading"><span class="title"></span></div><div class="panel-body"></div></div></div></div><div class="col-xs-4 row groupDiv list-group-item droppable-target" data-groupsize="4" style="min-height:300px;" data-groupshowid="1group3"><div data-trigger="sortArea" class="sortArea col-md-12 col-sm-12"><span class="area-name">组合框1，</span>拖拽我--1<span class="deleteGroup" onclick="openGroupConfirm(this)">X</span></div><div class="col-md-12 col-sm-12 firstLocation" id="groupDiv" style="position:absolute;z-index:-1"><div class="panel"><div class="panel-heading"><span class="title"></span></div><div class="panel-body"></div></div></div></div><div class="col-xs-12 row groupDiv list-group-item droppable-target" data-groupsize="12" style="min-height:100px;"><div data-trigger="sortArea" class="sortArea col-md-12 col-sm-12"><span class="area-name">组合框3，</span>拖拽我--3<span class="deleteGroup" onclick="openGroupConfirm(this)">X</span></div><div class="col-md-12 col-sm-12 firstLocation" id="groupDiv" style="position:absolute;z-index:-1"><div class="panel"><div class="panel-heading"><span class="title"></span></div><div class="panel-body"></div></div></div></div>';
-        $('.editorBlock>div>div.row').append(layoutStr);
+
+        importGroupDiv(3);
+        importGroupDiv(1);
+        importGroupDiv(1);
+        importGroupDiv(1);
+        importGroupDiv(3);
+
     }else if( templateLayoutVal=="layout03" ){
-        console.log(3);
-        layoutStr='<div class="col-xs-12 row groupDiv list-group-item droppable-target" data-groupsize="12" style="min-height:100px;" data-groupshowid="3group0"><div data-trigger="sortArea" class="sortArea col-md-12 col-sm-12"><span class="area-name">组合框3，</span>拖拽我--3<span class="deleteGroup" onclick="openGroupConfirm(this)">X</span></div><div class="col-md-12 col-sm-12 firstLocation" id="groupDiv" style="position:absolute;z-index:-1"><div class="panel"><div class="panel-heading"><span class="title"></span></div><div class="panel-body"></div></div></div></div><div class="col-xs-4 row groupDiv list-group-item droppable-target" data-groupsize="4" style="min-height:300px;" data-groupshowid="1group1"><div data-trigger="sortArea" class="sortArea col-md-12 col-sm-12"><span class="area-name">组合框1，</span>拖拽我--1<span class="deleteGroup" onclick="openGroupConfirm(this)">X</span></div><div class="col-md-12 col-sm-12 firstLocation" id="groupDiv" style="position:absolute;z-index:-1"><div class="panel"><div class="panel-heading"><span class="title"></span></div><div class="panel-body"></div></div></div></div><div class="col-xs-8 row groupDiv list-group-item droppable-target" data-groupsize="8" style="min-height:300px;" data-groupshowid="2group2"><div data-trigger="sortArea" class="sortArea col-md-12 col-sm-12"><span class="area-name">组合框2，</span>拖拽我--2<span class="deleteGroup" onclick="openGroupConfirm(this)">X</span></div><div class="col-md-12 col-sm-12 firstLocation" id="groupDiv" style="position:absolute;z-index:-1"><div class="panel"><div class="panel-heading"><span class="title"></span></div><div class="panel-body"></div></div></div></div><div class="col-xs-12 row groupDiv list-group-item droppable-target" data-groupsize="12" style="min-height:100px;"><div data-trigger="sortArea" class="sortArea col-md-12 col-sm-12"><span class="area-name">组合框3，</span>拖拽我--3<span class="deleteGroup" onclick="openGroupConfirm(this)">X</span></div><div class="col-md-12 col-sm-12 firstLocation" id="groupDiv" style="position:absolute;z-index:-1"><div class="panel"><div class="panel-heading"><span class="title"></span></div><div class="panel-body"></div></div></div></div>';
-        $('.editorBlock>div>div.row').append(layoutStr);
-    }else if( templateLayoutVal=="layoutCustom" ){
-        console.log("自定义");
-        layoutStr='';
+
+        importGroupDiv(3);
+        importGroupDiv(1);
+        importGroupDiv(2);
+        importGroupDiv(3);
     }
 }
 
@@ -148,19 +154,20 @@ function blockTypeListCallback(data){
 function importGroupDiv(num){
     var data="";
     if(num == '1'){
-        data ='<div class="col-xs-4 row groupDiv list-group-item droppable-target" data-groupSize="4" style="min-height:100px;">'
-            +'<div data-trigger="sortArea" class="sortArea col-md-12 col-sm-12"><span class="area-name">组合框1，</span>拖拽我--1<span class="deleteGroup" onclick="openGroupConfirm(this)">X</span></div>'
+        data ='<div class="col-xs-4 row groupDiv list-group-item droppable-target" data-groupSize="4" style="min-height:300px">'
+            +'<div data-trigger="sortArea" class="sortArea col-md-12 col-sm-12">'
+            +'<span class="area-name">组合框1，</span>拖拽我--1<span class="deleteGroup" onclick="openGroupConfirm(this)">X</span></div>'
             +'<div class="col-md-12 col-sm-12 firstLocation"  id="groupDiv" style="position:absolute;z-index:-1">'
             +'<div class="panel">'
             +'<div class="panel-heading">'
             +'<span class="title"></span>'
-                +'</div>'
-                +'<div class="panel-body"></div>'
+            +'</div>'
+            +'<div class="panel-body"></div>'
             +'</div>'
             +'</div>'
             +'</div>';
     }else if(num == '2'){
-        data ='<div class="col-xs-8 row groupDiv list-group-item droppable-target" data-groupSize="8" style="min-height:100px;">'
+        data ='<div class="col-xs-8 row groupDiv list-group-item droppable-target" data-groupSize="8" style="min-height:300px;">'
             +'<div data-trigger="sortArea"  class="sortArea col-md-12 col-sm-12"><span class="area-name">组合框2，</span>拖拽我--2<span class="deleteGroup" onclick="openGroupConfirm(this)">X</span></div>'
             + '<div class="col-md-12 col-sm-12 firstLocation" id="groupDiv" style="position:absolute;z-index:-1">'
             + '<div class="panel">'
@@ -188,48 +195,14 @@ function importGroupDiv(num){
     $('.editorBlock>div>div.row').append(data);
     $('.groupDiv:last-child').attr("data-groupShowId",num+"group"+baseGroupId);
     baseGroupId++;
+
+    moveAll();
     var optionsTrigger = {
         selector:'.list-group-item',
-        trigger: '[data-trigger="sortArea"]',
-         finish: function(e) {
-             console.log(1);
-         }
+        trigger: '[data-trigger="sortArea"]'
     };
     $('#sortableList').sortable(optionsTrigger);
-    //拖动组件
-    $('#multiDroppableContainer').droppable({
-        selector: '.btn-droppable', // 定义允许拖放的元素
-        target: '.droppable-target',
-        drop: function(event) {
-            $('.editorBlock').find('.heightLight').removeClass('heightLight');  //取消高亮框
-            var msg = '真棒！';
-            if(event.target) {
-                //像画布中添加组件方法
-                var id=$(event.element).attr("data-blockId");
-                var size=$(event.element).attr("data-blockSize");
-                importFile(id,'',size,event.target.find('.area-name').parent().parent());
-                var elementId = event.element.text();
-                msg += '成功拖动【' + elementId + '】到区域 ' + event.target.find('.area-name').text();
-            }
-            //$.zui.messager.show(msg);
-        },
-        drag: function(event){
-            var id=$(event.element).attr("data-blockId");
-            var ts= id.split("_");
-            var thisSize = "4";
-            if(ts[1] == '3g2'){
-                thisSize="8";
-            }else if(ts[1] == '3g3') thisSize = "12";
-            var divs = $('.editorBlock>div>div>div.row');
-            for(var i=0;i<divs.length;i++){
-                var rowWidth=  $(divs[i]).attr("data-groupSize");
-                if(eval(rowWidth) >= eval(thisSize)){
-                    $(divs[i]).addClass("heightLight");
-                }
-            }
-        }
-    });
-    $('.newSection').dashboard();
+
     saveActionHistory($('#sortableList').html().trim(),$('#htmlCode2').html().trim(),obj);//undo redo
 }
 //栅格系统普数据
@@ -245,6 +218,8 @@ function gridSize(){
         gridSizeStr+='<p onclick="importGroupDiv(\''+3+'\')" class="secPart layoutImg" id="groupDiv3">';
         gridSizeStr+='<img src="../img/editor/layout_3g3.png" alt=""/>';
         gridSizeStr+='</p>';
+        $(".main").addClass("gridSizeThree");
+        $(".main").removeClass("gridSizeFour");
         $('#gridSizeStr').append(gridSizeStr);
     }else if( gridSizeVal=="4" ){
         gridSizeStr='<p onclick="importGroupDiv(\''+1+'\')" class="secPart layoutImg" id="groupDiv1">';
@@ -259,6 +234,8 @@ function gridSize(){
         gridSizeStr+='<p onclick="importGroupDiv(\''+4+'\')" class="secPart layoutImg" id="groupDiv3">';
         gridSizeStr+='<img src="../img/editor/layout_4g4.png" alt=""/>';
         gridSizeStr+='</p>';
+        $(".main").addClass("gridSizeFour");
+        $(".main").removeClass("gridSizeThree");
         $('#gridSizeStr').append(gridSizeStr);
     }
 }
@@ -846,60 +823,21 @@ function deleteTemplateCallback(data){
        $("#modalDelete").modal("hide");
        obj.section=[];
        $.zui.store.remove('modalNewEditorName');
-       $.zui.store.remove('modalLeadInName');
+       //$.zui.store.remove('modalLeadInName');
        window.location.href="editor_index.html";
        console.log(1);
    }
 }
 
-//存为草稿
-function saveDraft(draftBtn){
-    $("#WhetherDraft").val("1");
-    $(draftBtn).find("img").tooltip('hide');
-    $(draftBtn).find("img").next().remove();
-    var str = (JSON.stringify(obj));
-    $("#objInput").val(str);
-    //草稿str
-    var draft=$("html").prop("outerHTML");
-    //var draft='<span>回答是否</span>';
-    console.log('saveTemplateCodeCallback');
-    console.log(templateIdVal);
-    console.log(draft);
-
-    $.ajax({
-        async: false,
-        cache: true,
-        type: 'post',
-        dataType : "jsonp",
-        //contentType: false,
-        //processData: false,
-        //data:formdata,  //参数
-        data:{callBack:"saveTemplateCodeCallback",templateId:templateIdVal,templateCode:draft},  //参数
-        url:basePath+"template_editor/saveTemplateCode.do"//请求的action路径
-    });
-
-
-
-}
-function saveTemplateCodeCallback(data){
-    console.log(data);
-}
-
-//存储container
-window.onload = function () {
-    //left
-    blockLeftList("");
-    blockTypeList();
-    //layout();
-    //gridSize();
-
+//所有移动的js
+function moveAll(){
     $('.newSection').dashboard();
-    var optionsTrigger = {
-        selector:'.list-group-item',
-        trigger: '[data-trigger="sortArea"]'
-    };
-    $('#sortableList').sortable(optionsTrigger);
-//拖动组件
+    //var optionsTrigger = {
+    //    selector:'.list-group-item',
+    //    trigger: '[data-trigger="sortArea"]'
+    //};
+    //$('#sortableList').sortable(optionsTrigger);
+    //拖动组件
     $('#multiDroppableContainer').droppable({
         selector: '.btn-droppable', // 定义允许拖放的元素
         target: '.droppable-target',
@@ -932,69 +870,91 @@ window.onload = function () {
             }
         }
     });
+}
 
-
-
-    //保存
-    $('#keep').click(function () {
-        if( $(".mainCanvas").text()!=="" ){
-            var appendStr = $(".appendStr .panel");
-            var notCur = 'yes';
-
-            for (var i = 0; i < appendStr.length; i++) {
-                if ($(appendStr[i]).hasClass("appendNot")) {
-                    $(".appendStr .panel").removeClass("appendCur");
-                    $(".property .propertyShow").html("");
-                    notCur = "no";
-                }
+//存为草稿
+function saveDraft(draftBtn){
+    $("#WhetherDraft").val("1");
+    $(draftBtn).find("img").tooltip('hide');
+    $(draftBtn).find("img").next().remove();
+    var str = (JSON.stringify(obj));
+    $("#objInput").val(str);
+    //草稿str
+    var draft=$("html").prop("outerHTML");
+    console.log(draft);
+    var formdata=new FormData();
+    formdata.append('templateId',templateIdVal);
+    formdata.append('templateCode',draft);
+    $.ajax({
+        url:basePath+"template_editor/saveTemplateCode.do",//远程url
+        async :false,
+        type:"POST",
+        dataType: 'json',
+        contentType: false,
+        processData: false,
+        data: formdata,
+        success:function(data){
+            if( data.exist=="yes" ){
+                alert("草稿保存成功");
+                window.open("editor_index.html");
+                //window.location.href="editor_index.html";
+            }else{
+                alert("程序异常");
             }
-
-            if (notCur == 'no') {
-                alert("标记蓝色的组件有必填项没有填写");
-            } else if (notCur == 'yes') {
-                var str = (JSON.stringify(obj)),
-                    order = "";
-                $(".editorBlock .appendStr").each(function () {
-                    if ($(this).css("display") !== "none") {
-                        order = order + $(this).attr("data-showId") + ',';
-                    }
-                });
-                order = order.substring(0, order.length - 1);
-                var groupDivOrder ="";
-                for(var i = 0;i<$('.groupDiv').length;i++){
-                    var pp = $('.groupDiv')[i];
-                    groupDivOrder += $(pp).attr("data-groupShowId")+",";
-                }
-                groupDivOrder = groupDivOrder.substring(0, groupDivOrder.length - 1);
-                console.log(order);
-                console.log(str);
-                $.ajax({
-                    async: false,
-                    cache: true,
-                    type: 'POST',
-                    dataType : "jsonp",
-                    data:{callBack:"saveTemplateCallback",strKey:str,order:order,groupDivOrder:groupDivOrder,
-                          templateId:templateIdVal,templateColor:templateColorVal,gridSize:gridSizeVal },  //参数
-                    url:basePath+"template_editor/saveTemplate"//请求的action路径
-                });
-            }
-        }else{
-            alert("当前没有可保存项");
         }
-    })
-};
+    });
+}
+
+//保存
+$('#keep').click(function () {
+    if( $(".mainCanvas").text()!=="" ){
+        var appendStr = $(".appendStr .panel");
+        var notCur = 'yes';
+
+        for (var i = 0; i < appendStr.length; i++) {
+            if ($(appendStr[i]).hasClass("appendNot")) {
+                $(".appendStr .panel").removeClass("appendCur");
+                $(".property .propertyShow").html("");
+                notCur = "no";
+            }
+        }
+
+        if (notCur == 'no') {
+            alert("标记蓝色的组件有必填项没有填写");
+        } else if (notCur == 'yes') {
+            var str = (JSON.stringify(obj)),
+                order = "";
+            $(".editorBlock .appendStr").each(function () {
+                if ($(this).css("display") !== "none") {
+                    order = order + $(this).attr("data-showId") + ',';
+                }
+            });
+            order = order.substring(0, order.length - 1);
+            var groupDivOrder ="";
+            for(var i = 0;i<$('.groupDiv').length;i++){
+                var pp = $('.groupDiv')[i];
+                groupDivOrder += $(pp).attr("data-groupShowId")+",";
+            }
+            groupDivOrder = groupDivOrder.substring(0, groupDivOrder.length - 1);
+            console.log(order);
+            console.log(str);
+            $.ajax({
+                async: false,
+                cache: true,
+                type: 'POST',
+                dataType : "jsonp",
+                data:{callBack:"saveTemplateCallback",strKey:str,order:order,groupDivOrder:groupDivOrder,
+                    templateId:templateIdVal,templateColor:templateColorVal,gridSize:gridSizeVal },  //参数
+                url:basePath+"template_editor/saveTemplate"//请求的action路径
+            });
+        }
+    }else{
+        alert("当前没有可保存项");
+    }
+})
 function saveTemplateCallback(data){
     alert("保存成功~");
     window.location.href="editor_index.html";
-}
-
-
-//鼠标拖动上下移动
-function mouseCoords(event) {
-    return {
-        x:event.clientX ,
-        y:event.clientY
-    };
 }
 
 //preview---预览
@@ -1013,18 +973,18 @@ $(".preview").click(function(){
     var groupDivs=$(main).find(".groupDiv ");
     for( var i=0;i<groupDivs.length;i++ ){
         //if( $(groupDivs[i]).children().hasClass("appendStr") ){
-            $(groupDivs[i]).removeClass("list-group-item");
-            $(groupDivs[i]).find(".panel-body").removeClass("panel-body");
+        $(groupDivs[i]).removeClass("list-group-item");
+        $(groupDivs[i]).find(".panel-body").removeClass("panel-body");
 
-            if( $(groupDivs[i]).find(".panel").attr("data-header")=="header" ){
-                strHeader+=$(groupDivs[i]).prop("outerHTML");
-            }else if( $(groupDivs[i]).find(".panel").attr("data-footer")=="footer" ){
-                strFooter+=$(groupDivs[i]).prop("outerHTML");
-            }else{
-                strSection+=$(groupDivs[i]).prop("outerHTML");
-            }
+        if( $(groupDivs[i]).find(".panel").attr("data-header")=="header" ){
+            strHeader+=$(groupDivs[i]).prop("outerHTML");
+        }else if( $(groupDivs[i]).find(".panel").attr("data-footer")=="footer" ){
+            strFooter+=$(groupDivs[i]).prop("outerHTML");
+        }else{
+            strSection+=$(groupDivs[i]).prop("outerHTML");
+        }
 
-            $(groupDivs[i]).find(".panel").removeClass("panel");
+        $(groupDivs[i]).find(".panel").removeClass("panel");
 
         //}
     }
@@ -1039,6 +999,29 @@ $(".preview").click(function(){
     window.open('preview.html');
     //console.log( $('.main').html() )
 });
+
+//鼠标拖动上下移动
+function mouseCoords(event) {
+    return {
+        x:event.clientX ,
+        y:event.clientY
+    };
+}
+
+//存储container
+window.onload = function () {
+    //left
+    blockLeftList("");
+    blockTypeList();
+    layout();
+    gridSize();
+    moveAll();
+    var optionsTrigger = {
+        selector:'.list-group-item',
+        trigger: '[data-trigger="sortArea"]'
+    };
+    $('#sortableList').sortable(optionsTrigger);
+};
 
 
 

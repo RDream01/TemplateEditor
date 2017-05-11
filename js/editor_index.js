@@ -2,7 +2,7 @@
  * Created by 大丽丽 on 2017/5/5.
  */
 //模板类型
-var basePath="http://192.168.31.160:8400/";
+var basePath="http://192.168.31.2:8400/";
 function templateType() {
     $.ajax({
         async: false,
@@ -292,13 +292,27 @@ $("#modalLeadInBtn").click(function(){
     if( (must=="no")||($(".existAlert").css("display")=="block") ){
         alert("请填写完整");
     }else{
-        $("#modalLeadIn").modal("hide");
-        //console.log( modalLeadIn );
-        $.zui.store.set('modalLeadInName', modalLeadIn);
-        window.location.href="index.html";
+        var templateIdVal=$('[data-option="templateLeadIn"]').attr("data-value");
+        $.ajax({
+            async: false,
+            cache: true,
+            type: 'post',
+            dataType : "jsonp",
+            data:{callBack:"getTemplateCodeCallback",templateId:templateIdVal},  //参数
+            url:basePath+"template_editor/getTemplateCode.do"//请求的action路径
+        });
     }
 });
 
+function getTemplateCodeCallback(data){
+    var templateIdVal=$('[data-option="templateLeadIn"]').attr("data-value");
+    $("#modalLeadIn").modal("hide");
+    var importData=data;
+    console.log(importData);
+    $.zui.store.set('importName', importData);
+    window.open("import.html?templateId="+templateIdVal);
+    //window.location.href="index.html";
+}
 
 
 

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/zui.min.css"/>
+    <link rel="stylesheet" href="../css/common_red.css"/>
+    <title>导入文件</title>
+</head>
+<body>
+
+
+<script src="../js/jquery-1.11.3.js"></script>
+<script src="../js/zui.min.js"></script>
+<script>
+    var basePath="http://192.168.31.2:8400/";
+    if( $.zui.store.get('importName')!==undefined ){
+        var importData=($.zui.store.get('importName')).templateCode;
+        console.log(importData);
+        $('html').html("");
+        $('html').html(importData);
+//        $.zui.store.pageRemove('importName');
+    }else{
+        var templateIdVal=window.location.href;
+        var index = templateIdVal .lastIndexOf("=");
+        templateIdVal  = templateIdVal .substring(index + 1, templateIdVal .length);
+        console.log(templateIdVal);
+        $.ajax({
+            async: false,
+            cache: true,
+            type: 'post',
+            dataType : "jsonp",
+            data:{callBack:"getTemplateCodeCallback",templateId:templateIdVal},  //参数
+            url:basePath+"template_editor/getTemplateCode.do"//请求的action路径
+        });
+    }
+    function getTemplateCodeCallback(data){
+        $('html').html("");
+        $('html').html(data.templateCode);
+    }
+</script>
+</body>
+</html>

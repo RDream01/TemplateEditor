@@ -2,9 +2,9 @@
  * Created by 大丽丽 on 2017/5/9.
  */
 //新建编辑器--带过来的数据
-var basePath="http://192.168.31.160:8400/";
+var basePath="http://192.168.31.2:8400/";
 var modalNewEditor;
-var modalLeadIn;
+//var modalLeadIn;
 if( $.zui.store.get('modalNewEditorName')!==undefined ){
     modalNewEditor=$.zui.store.get('modalNewEditorName');
     console.log(modalNewEditor);
@@ -34,13 +34,13 @@ var templateIdVal=$("#templateId").val();
 var templateLayoutVal=$("#templateLayout").val();
 
 //导入编辑器--带过来的数据
-if( $.zui.store.get('modalLeadInName')!==undefined ){
-    modalLeadIn=$.zui.store.get('modalLeadInName');
+//if( $.zui.store.get('modalLeadInName')!==undefined ){
+//    modalLeadIn=$.zui.store.get('modalLeadInName');
     //console.log(modalLeadIn);
     //$.zui.store.pageRemove('modalLeadInName');
     //$.zui.store.remove('modalNewEditor');
-    $("#templateLeadIn").val(modalLeadIn.templateLeadIn);
-}
-var modalLeadInVal=$("#templateLeadIn").val();
+    //$("#templateLeadIn").val(modalLeadIn.templateLeadIn);
+//}
+//var modalLeadInVal=$("#templateLeadIn").val();
 //console.log(modalLeadInVal);
 //console.log(modalLeadIn);

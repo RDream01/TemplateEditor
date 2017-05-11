@@ -101,10 +101,12 @@ nav,#banner,section,footer{
     color:#333;
     font-size:13px;
 }
-.main{
-    /*border-right:2px solid rgba(0,0,0,.12);*/
-    /*border-left:2px solid rgba(0,0,0,.12);*/
+.gridSizeThree{
     background:url("../img/editor/groupBack_3.png") no-repeat;
+    background-size:  100%  100%;
+}
+.gridSizeFour{
+    background:url("../img/editor/groupBack_4.png") no-repeat;
     background-size:  100%  100%;
 }
 .partAll::-webkit-scrollbar,.property::-webkit-scrollbar,.main::-webkit-scrollbar{width:3px;}
