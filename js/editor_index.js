@@ -305,13 +305,13 @@ $("#modalLeadInBtn").click(function(){
 });
 
 function getTemplateCodeCallback(data){
+    console.log(1);
     var templateIdVal=$('[data-option="templateLeadIn"]').attr("data-value");
     $("#modalLeadIn").modal("hide");
-    var importData=data;
+    var importData=data.templateCode;
     console.log(importData);
-    $.zui.store.set('importName', importData);
-    window.open("import.html?templateId="+templateIdVal);
-    //window.location.href="index.html";
+    $.zui.store.set('importName',importData);
+    window.location.href="import.html?templateId="+templateIdVal;
 }
 
 

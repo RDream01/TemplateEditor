@@ -12,11 +12,10 @@
 <script src="../js/jquery-1.11.3.js"></script>
 <script src="../js/zui.min.js"></script>
 <script>
-    if( $.zui.store.get('name')!==undefined ){
+    if( $.zui.store.get('previewName')!==undefined ){
         $('body').html("");
-        $('body').html($.zui.store.get('name'));
-        $.zui.store.pageRemove('name');
-//        console.log( $.zui.store.pageRemove('name') )
+        $('body').html($.zui.store.get('previewName'));
+        $.zui.store.pageRemove('previewName');
     }
 </script>
 </body>

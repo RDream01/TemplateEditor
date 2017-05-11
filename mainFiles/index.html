@@ -5,6 +5,10 @@
     <title>index</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="expires" content="0">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache">
+
     <link rel="stylesheet" href="../css/zui.css"/>
     <link rel="stylesheet" href="../css/editor.css"/>
     <link rel="stylesheet" href="../css/zui.dashboard.Editor.css"/>
@@ -18,21 +22,20 @@
 <!--obj-->
 <input type="hidden" id="objInput" value='{"header":[],"section":[],"footer":[]}'/>
 
+<!--baseShowId-->
+<input type="hidden" id="baseShowId" value="0"/>
+<!--baseGroupId-->
+<input type="hidden" id="baseGroupId" value="0"/>
 <!--新建编辑器--数据-->
 <input type="hidden" id="blockStyle"/>
 <input type="hidden" id="gridSize"/>
 <input type="hidden" id="templateColor"/>
 <input type="hidden" id="templateLayout"/>
-<!--<input type="hidden" id="templateName"/>-->
-<!--<input type="hidden" id="templateTypeNew"/>-->
 <input type="hidden" id="templateId"/>
-
-<!--导入编辑器--数据-->
-<!--<input type="hidden" id="templateTypeLeadIn"/>-->
-<!--<input type="hidden" id="templateLeadIn"/>-->
-
-<!--草稿-->
+<!--草稿状态-->
 <input type="hidden" id="WhetherDraft" value="0"/>
+
+
 <!-- 新建模板 -->
 <div class="modal fade myModal" id="modalNewEditor">
     <div class="modal-dialog">
@@ -157,6 +160,7 @@
         </div>
     </div>
 </div>
+
 <!--删除模板-->
 <div class="modal fade myModal" id="modalDelete">
     <div class="modal-dialog modal-sm">
@@ -224,7 +228,7 @@
         <span id="keep">
             <img src="../img/editor/keepIcon.png" alt="" data-toggle="tooltip" data-placement="bottom" title="保存文件"/>
         </span>
-        <span id="preview" class="preview">
+        <span id="previewtest" class="preview">
             <img src="../img/editor/previewIcon.png" alt="" data-toggle="tooltip" data-placement="bottom" title="预览文件"/>
         </span>
     </p>
@@ -242,17 +246,7 @@
                     模块布局<i class="icon-2x icon-sort-down"></i>
                 </p>
                 <div class="collapse in" id="collapseExample">
-                    <div class="with-padding" id="gridSizeStr">
-                        <!--<p onclick="importGroupDiv('1')" class="secPart layoutImg" id="groupDiv1">-->
-                            <!--<img src="../img/editor/layout_3g1.png" alt=""/>-->
-                        <!--</p>-->
-                        <!--<p onclick="importGroupDiv('2')" class="secPart layoutImg" id="groupDiv2">-->
-                            <!--<img src="../img/editor/layout_3g2.png" alt=""/>-->
-                        <!--</p>-->
-                        <!--<p onclick="importGroupDiv('3')" class="secPart layoutImg" id="groupDiv3">-->
-                            <!--<img src="../img/editor/layout_3g3.png" alt=""/>-->
-                        <!--</p>-->
-                    </div>
+                    <div class="with-padding" id="gridSizeStr"></div>
                 </div>
             </div>
             <!--所有组件-->
@@ -273,7 +267,7 @@
             <div class="widgetBottom">
                 <p class="widgetFixed">
                     <input type="search" id="searchPart" placeholder="查找组件" onchange="blockLeftList('',this)"/>
-                    <label for="searchPart"><a href="#"><img src="../img/editor/searchPart.png" alt=""/></a></label>
+                    <label for="searchPart"><a><img src="../img/editor/searchPart.png" alt=""/></a></label>
                 </p>
             </div>
         </div>
@@ -339,11 +333,14 @@
         </div>
     </div>
 </div>
-<script src="../js/zui.min.js"></script>
-<script id="gridDashboardScript"></script>
+
+<script src="../js/zui.min.js" ></script>
+<div id="gridDashboardScript"></div>
+<!--<script id="gridDashboardScript" src="../js/zui.dashboard_3g.js"></script>-->
 <script src="../js/zui.droppable.js"></script>
-<script src="../js/zui.sortable.js"></script>
-<script id="gridSizeScript"></script>
+<script src="../js/zui.sortable.js" ></script>
+<div id="gridSizeScript"></div>
+<!--<script id="gridSizeScript" src="../js/common.Editor_3g.js"></script>-->
 <script src="../js/fallback.js"></script>
 <script src="../js/wordNumber.js"></script>
 
@@ -353,112 +350,7 @@
 
 <script>
 
-    //    相关推荐
-    $(".propertyShow").on("change",".switchLink input",function(){
-        if( $(this).prop("checked") ){
-            $(this).parent().next().slideUp();
-        }else{
-            $(this).parent().next().slideDown();
-        }
-    });
-    //    悬浮--新建，导入
-    $('[data-toggle="tooltip"]').tooltip();
 
-    $(".main").css("width",(parseFloat( window.screen.availWidth )-230-230)+"px");
-    autoHeight();
-    function autoHeight(){
-        $(".main").css("height",(parseFloat(window.screen.availHeight)-65-65)+"px");
-        $(".partAll").css("height",(parseFloat(window.screen.availHeight)-65-65)+"px");
-        $(".property").css("height",(parseFloat(window.screen.availHeight)-65-65)+"px");
-    }
-
-    $(".editorAct img").click(function(){
-
-    });
-
-    //    对话框
-    $(".modalCon .modalSelect").click(function(){
-        if( $(this).children("i").hasClass("icon-chevron-down") ){
-            $(this).children("i").removeClass("icon-chevron-down");
-            $(this).children("i").addClass("icon-chevron-up");
-            $(this).addClass("modalBorder");
-
-        }else if( $(this).children("i").hasClass("icon-chevron-up") ){
-            $(this).children("i").removeClass("icon-chevron-up");
-            $(this).children("i").addClass("icon-chevron-down");
-            $(this).removeClass("modalBorder");
-        }
-        $(this).parent().siblings().children(".modalAlter").hide();
-        $(this).parent().siblings().children(".modalSelect").removeClass("modalBorder");
-        $(this).parent().siblings().children(".modalSelect").children("i").removeClass("icon-chevron-up").addClass("icon-chevron-down");
-        $(this).next().slideToggle();
-    });
-    $(".modalAlter .modalTxt").click(function(){
-        $(this).siblings().removeClass("modalTxtSelect");
-        $(this).siblings().children("i").removeClass("icon-check");
-        $(this).children("i").addClass("icon-check");
-        $(this).addClass("modalTxtSelect");
-        $(this).parent().slideUp();
-        $(this).parent().prev().removeClass("modalBorder");
-        $(this).parent().prev().children("i").removeClass("icon-chevron-up").addClass("icon-chevron-down");
-        $(this).parent().prev().children("span").html( $(this).children("span").html() );
-    });
-    //全屏
-    var fullS_flag = "no";
-    function gofullScreen(){
-        var content = document.documentElement;
-        if(fullS_flag == "no"){
-            fullScreen(content);
-            fullS_flag ="yes";
-            $(".fullScreen").attr("src","../img/editor/existFullScreen.png");
-            $(".partAll").css("height",(parseFloat(window.screen.height))+"px");
-            $(".main").css("height",(parseFloat(window.screen.height))+"px");
-            $(".property").css("height",(parseFloat(window.screen.height))+"px");
-
-        }else{
-            exitFullScreen();
-            fullS_flag ="no";
-            $(".fullScreen").attr("src","../img/editor/fullScreen.jpg");
-            autoHeight();
-        }
-    }
-
-    function fullScreen(el) {
-
-        var rfs = el.requestFullScreen || el.webkitRequestFullScreen || el.mozRequestFullScreen || el.msRequestFullScreen,
-                wscript;
-        if(typeof rfs != "undefined" && rfs) {
-            rfs.call(el);
-            return;
-        }
-
-        if(typeof window.ActiveXObject != "undefined") {
-            wscript = new ActiveXObject("WScript.Shell");
-            if(wscript) {
-                wscript.SendKeys("{F11}");
-
-            }
-        }
-
-    }
-
-    function exitFullScreen(el) {
-        var el= document,
-                cfs = el.cancelFullScreen || el.webkitCancelFullScreen || el.mozCancelFullScreen || el.exitFullScreen,
-                wscript;
-
-        if (typeof cfs != "undefined" && cfs) {
-            cfs.call(el);
-            return;
-        }
-
-        if (typeof window.ActiveXObject != "undefined") {
-            wscript = new ActiveXObject("WScript.Shell");
-            if (wscript != null) {
-                wscript.SendKeys("{F11}");
-            }
-        }
-    }
 </script>
 
 </body>
