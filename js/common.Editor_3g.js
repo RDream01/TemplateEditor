@@ -247,7 +247,7 @@ function openGroupConfirm(obj){
     $("#groupDelete #groupBlockBtn").attr("onclick","deleteGroup('"+groupId+"')");
 }
 function deleteGroup(groupId){
-    console.log(groupId);
+    //console.log(groupId);
     $("[data-groupshowid='"+groupId+"']").remove();
     saveActionHistory($('#sortableList').html().trim(),$('#htmlCode2').html().trim(),$("[data-groupshowid='"+groupId+"']").find(".deleteGroup"));//undo redo
     $("#groupDelete").modal('hide');
@@ -256,7 +256,7 @@ function deleteGroup(groupId){
 //拖拽
 function importFile(id, nextShowId, size,groupDiv) {
     //找到源文件
-    $.get("../editorBlock/" + id + ".html", function (data) {
+    $.get("../editorBlock/"+blockStyleVal+"/"+id + ".html", function (data) {
             var block_showId;
             var GroupShowId = $(groupDiv).attr("data-groupShowId");
             block_showId = id+ "_" + baseShowId+"_"+GroupShowId;

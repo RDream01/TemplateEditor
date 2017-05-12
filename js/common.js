@@ -99,7 +99,7 @@ function exitFullScreen(el) {
 
 
 //新建编辑器--带过来的数据
-var basePath="http://192.168.31.2:8400/";
+var basePath="http://192.168.31.156:8400/";
 var modalNewEditor;
 //var modalLeadIn;
 if( $.zui.store.get('modalNewEditorName')!==undefined ){

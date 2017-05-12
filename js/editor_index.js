@@ -2,7 +2,7 @@
  * Created by 大丽丽 on 2017/5/5.
  */
 //模板类型
-var basePath="http://192.168.31.2:8400/";
+var basePath="http://192.168.31.156:8400/";
 function templateType() {
     $.ajax({
         async: false,
