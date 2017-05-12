@@ -72,11 +72,11 @@ function blockLeftListCallback(data) {
                 str='<div class="partOption" id="'+list[i].blockType+'Block"><p class="partOptionTitle">'+list[i].typeName+'</p>';
                 str+='<div class="with-padding">' ;
                 str+='<p class="partImg secPart btn-droppable" data-blockId="'+list[i].blockId+'" data-blockSize="'+list[i].blockSize+'" id="' + list[i].blockId + '">' ;
-                str+='<img src="../img/editor/part01.png" alt=""/><span>'+ list[i].blockName + '</span></p>';
+                str+='<img src="../../img/editor/part01.png" alt=""/><span>'+ list[i].blockName + '</span></p>';
                 str+='</div></div>';
             } else {
                 str+='<p class="partImg secPart btn-droppable" data-blockId="'+list[i].blockId+'" data-blockSize="'+list[i].blockSize+'" id="' + list[i].blockId + '">' ;
-                str+='<img src="../img/editor/part01.png" alt=""/><span>'+ list[i].blockName + '</span></p>';
+                str+='<img src="../../img/editor/part01.png" alt=""/><span>'+ list[i].blockName + '</span></p>';
                 $('#'+list[i].blockType+'Block .with-padding').append(str);
                 continue;
             }
@@ -85,11 +85,11 @@ function blockLeftListCallback(data) {
         //        str='<div class="partOption" id="advBlock"><p class="partOptionTitle">'+list[i].typeName+'</p>';
         //        str+='<div class="with-padding">' ;
         //        str+='<p class="partImg secPart btn-droppable" data-blockId="'+list[i].blockId+'" data-blockSize="'+list[i].blockSize+'" id="' + list[i].blockId + '">' ;
-        //        str+='<img src="../img/editor/part01.png" alt=""/><span>'+ list[i].blockName + '</span></p>';
+        //        str+='<img src="../../img/editor/part01.png" alt=""/><span>'+ list[i].blockName + '</span></p>';
         //        str+='</div></div>';
         //    } else {
         //        str+='<p class="partImg secPart btn-droppable" data-blockId="'+list[i].blockId+'" data-blockSize="'+list[i].blockSize+'" id="' + list[i].blockId + '">' ;
-        //        str+='<img src="../img/editor/part01.png" alt=""/><span>'+ list[i].blockName + '</span></p>';
+        //        str+='<img src="../../img/editor/part01.png" alt=""/><span>'+ list[i].blockName + '</span></p>';
         //        $('#advBlock .with-padding').append(str);
         //        continue;
         //    }
@@ -98,11 +98,11 @@ function blockLeftListCallback(data) {
         //        str='<div class="partOption" id="headerBlock"><p class="partOptionTitle">'+list[i].typeName+'</p>';
         //        str+='<div class="with-padding">' ;
         //        str+='<p class="partImg secPart btn-droppable" data-blockId="'+list[i].blockId+'" data-blockSize="'+list[i].blockSize+'" id="' + list[i].blockId + '">' ;
-        //        str+='<img src="../img/editor/part01.png" alt=""/><span>'+ list[i].blockName + '</span></p>';
+        //        str+='<img src="../../img/editor/part01.png" alt=""/><span>'+ list[i].blockName + '</span></p>';
         //        str+='</div></div>';
         //    } else {
         //        str+='<p class="partImg secPart btn-droppable" data-blockId="'+list[i].blockId+'" data-blockSize="'+list[i].blockSize+'" id="' + list[i].blockId + '">' ;
-        //        str+='<img src="../img/editor/part01.png" alt=""/><span>'+ list[i].blockName + '</span></p>';
+        //        str+='<img src="../../img/editor/part01.png" alt=""/><span>'+ list[i].blockName + '</span></p>';
         //        $('#headerBlock .with-padding').append(str);
         //        continue;
         //    }
@@ -111,11 +111,11 @@ function blockLeftListCallback(data) {
         //        str='<div class="partOption" id="footerBlock"><p class="partOptionTitle">'+list[i].typeName+'</p>';
         //        str+='<div class="with-padding">' ;
         //        str+='<p class="partImg secPart btn-droppable" data-blockId="'+list[i].blockId+'" data-blockSize="'+list[i].blockSize+'" id="' + list[i].blockId + '">' ;
-        //        str+='<img src="../img/editor/part01.png" alt=""/><span>'+ list[i].blockName + '</span></p>';
+        //        str+='<img src="../../img/editor/part01.png" alt=""/><span>'+ list[i].blockName + '</span></p>';
         //        str+='</div></div>';
         //    } else {
         //        str+='<p class="partImg secPart btn-droppable" data-blockId="'+list[i].blockId+'" data-blockSize="'+list[i].blockSize+'" id="' + list[i].blockId + '">' ;
-        //        str+='<img src="../img/editor/part01.png" alt=""/><span>'+ list[i].blockName + '</span></p>';
+        //        str+='<img src="../../img/editor/part01.png" alt=""/><span>'+ list[i].blockName + '</span></p>';
         //        $('#footerBlock .with-padding').append(str);
         //        continue;
         //    }
@@ -210,29 +210,29 @@ function gridSize(){
     var gridSizeStr='';
     if( gridSizeVal=="3" ){
         gridSizeStr='<p onclick="importGroupDiv(\''+1+'\')" class="secPart layoutImg" id="groupDiv1">';
-        gridSizeStr+='<img src="../img/editor/layout_3g1.png" alt=""/>';
+        gridSizeStr+='<img src="../../img/editor/layout_3g1.png" alt=""/>';
         gridSizeStr+='</p>';
         gridSizeStr+='<p onclick="importGroupDiv(\''+2+'\')" class="secPart layoutImg" id="groupDiv2">';
-        gridSizeStr+='<img src="../img/editor/layout_3g2.png" alt=""/>';
+        gridSizeStr+='<img src="../../img/editor/layout_3g2.png" alt=""/>';
         gridSizeStr+='</p>';
         gridSizeStr+='<p onclick="importGroupDiv(\''+3+'\')" class="secPart layoutImg" id="groupDiv3">';
-        gridSizeStr+='<img src="../img/editor/layout_3g3.png" alt=""/>';
+        gridSizeStr+='<img src="../../img/editor/layout_3g3.png" alt=""/>';
         gridSizeStr+='</p>';
         $(".main").addClass("gridSizeThree");
         $(".main").removeClass("gridSizeFour");
         $('#gridSizeStr').append(gridSizeStr);
     }else if( gridSizeVal=="4" ){
         gridSizeStr='<p onclick="importGroupDiv(\''+1+'\')" class="secPart layoutImg" id="groupDiv1">';
-        gridSizeStr+='<img src="../img/editor/layout_4g1.png" alt=""/>';
+        gridSizeStr+='<img src="../../img/editor/layout_4g1.png" alt=""/>';
         gridSizeStr+='</p>';
         gridSizeStr+='<p onclick="importGroupDiv(\''+2+'\')" class="secPart layoutImg" id="groupDiv2">';
-        gridSizeStr+='<img src="../img/editor/layout_4g2.png" alt=""/>';
+        gridSizeStr+='<img src="../../img/editor/layout_4g2.png" alt=""/>';
         gridSizeStr+='</p>';
         gridSizeStr+='<p onclick="importGroupDiv(\''+3+'\')" class="secPart layoutImg" id="groupDiv3">';
-        gridSizeStr+='<img src="../img/editor/layout_4g3.png" alt=""/>';
+        gridSizeStr+='<img src="../../img/editor/layout_4g3.png" alt=""/>';
         gridSizeStr+='</p>';
         gridSizeStr+='<p onclick="importGroupDiv(\''+4+'\')" class="secPart layoutImg" id="groupDiv3">';
-        gridSizeStr+='<img src="../img/editor/layout_4g4.png" alt=""/>';
+        gridSizeStr+='<img src="../../img/editor/layout_4g4.png" alt=""/>';
         gridSizeStr+='</p>';
         $(".main").addClass("gridSizeFour");
         $(".main").removeClass("gridSizeThree");
@@ -256,7 +256,7 @@ function deleteGroup(groupId){
 //拖拽
 function importFile(id, nextShowId, size,groupDiv) {
     //找到源文件
-    $.get("../editorBlock/"+blockStyleVal+"/"+id + ".html", function (data) {
+    $.get("../../editorBlock/"+blockStyleVal+"/"+id + ".html", function (data) {
             var block_showId;
             var GroupShowId = $(groupDiv).attr("data-groupShowId");
             block_showId = id+ "_" + baseShowId+"_"+GroupShowId;

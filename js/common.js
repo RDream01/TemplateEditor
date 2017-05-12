@@ -119,12 +119,12 @@ var gridSizeVal=$("#gridSize").val();
 //创建script标签并引入js文件\
 if( $("#WhetherDraft").val()=="0" ){
     var oS = document.createElement('script');
-    oS.src = "../js/common.Editor_"+gridSizeVal+"g.js";
+    oS.src = "../../js/common.Editor_"+gridSizeVal+"g.js";
     document.getElementById("gridSizeScript").innerHTML="";
     document.getElementById("gridSizeScript").appendChild(oS);
 
     var oS2 = document.createElement('script');
-    oS2.src = "../js/zui.dashboard_"+gridSizeVal+"g.js";
+    oS2.src = "../../js/zui.dashboard_"+gridSizeVal+"g.js";
     document.getElementById("gridDashboardScript").innerHTML="";
     document.getElementById("gridDashboardScript").appendChild(oS2);
 }
@@ -132,7 +132,7 @@ if( $("#WhetherDraft").val()=="0" ){
 var blockStyleVal=$("#blockStyle").val();
 //模板配色
 var templateColorVal=$("#templateColor").val();
-$("#templateColorLink").attr("href","../css/"+templateColorVal+".css");
+$("#templateColorLink").attr("href","../../css/"+templateColorVal+".css");
 //模板Id
 var templateIdVal=$("#templateId").val();
 //模板布局
