@@ -185,6 +185,7 @@
         };
 
         var mouseUp = function(event) {
+            $('.editorBlock').find('.heightLight').removeClass('heightLight');  //取消高亮框
             $(document).off(eventSuffix);
             clearTimeout(mouseDownBackEventCall);
             if(!isMouseDown) return;
