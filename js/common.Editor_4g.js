@@ -331,13 +331,16 @@ function importFile(id, nextShowId, size,groupDiv) {
         } else {
             var md = "col-md-" + finalSize;
             var sm = "col-sm-" + finalSize;
-            if (blockSize == 4) {
-                $(".appendCur").parent().removeClass("col-md-4");
-                $(".appendCur").parent().removeClass("col-sm-4");
-            } else if (blockSize == 8) {
-                $(".appendCur").parent().removeClass("col-md-8");
-                $(".appendCur").parent().removeClass("col-sm-8");
-            } else if (blockSize == 12) {
+            if (blockSize == 3) {
+                $(".appendCur").parent().removeClass("col-md-3");
+                $(".appendCur").parent().removeClass("col-sm-3");
+            } else if (blockSize == 6) {
+                $(".appendCur").parent().removeClass("col-md-6");
+                $(".appendCur").parent().removeClass("col-sm-6");
+            } else if (blockSize == 9) {
+                $(".appendCur").parent().removeClass("col-md-9");
+                $(".appendCur").parent().removeClass("col-sm-9");
+            }else if (blockSize == 12) {
                 $(".appendCur").parent().removeClass("col-md-12");
                 $(".appendCur").parent().removeClass("col-sm-12");
             }
