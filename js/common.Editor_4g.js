@@ -67,59 +67,59 @@ function blockLeftListCallback(data) {
     console.log(list);
     for (var i = 0; i < list.length; i++) {
         var str = '';
-        if (list[i].blockType == "list") {
-            if ($("#listBlock").html() == undefined) {
-                str='<div class="partOption" id="listBlock"><p class="partOptionTitle">'+list[i].typeName+'</p>';
+        //if (list[i].blockType == "list") {
+            if ($("#"+list[i].blockType +"Block").html() == undefined) {
+                str='<div class="partOption" id="'+list[i].blockType +'Block"><p class="partOptionTitle">'+list[i].typeName+'</p>';
                 str+='<div class="with-padding">' ;
                 str+='<p class="partImg secPart btn-droppable" data-blockId="'+list[i].blockId+'" data-blockSize="'+list[i].blockSize+'" id="' + list[i].blockId + '">' ;
                 str+='<img src="../img/editor/part01.png" alt=""/><span>'+ list[i].blockName + '</span></p>';
                 str+='</div></div>';
-            } else {
+            }else{
                 str+='<p class="partImg secPart btn-droppable" data-blockId="'+list[i].blockId+'" data-blockSize="'+list[i].blockSize+'" id="' + list[i].blockId + '">' ;
                 str+='<img src="../img/editor/part01.png" alt=""/><span>'+ list[i].blockName + '</span></p>';
-                $('#listBlock .with-padding').append(str);
+                $('#'+list[i].blockType +'Block .with-padding').append(str);
                 continue;
             }
-        } else if (list[i].blockType == "adv") {
-            if ($("#advBlock").html() == undefined) {
-                str='<div class="partOption" id="advBlock"><p class="partOptionTitle">'+list[i].typeName+'</p>';
-                str+='<div class="with-padding">' ;
-                str+='<p class="partImg secPart btn-droppable" data-blockId="'+list[i].blockId+'" data-blockSize="'+list[i].blockSize+'" id="' + list[i].blockId + '">' ;
-                str+='<img src="../img/editor/part01.png" alt=""/><span>'+ list[i].blockName + '</span></p>';
-                str+='</div></div>';
-            } else {
-                str+='<p class="partImg secPart btn-droppable" data-blockId="'+list[i].blockId+'" data-blockSize="'+list[i].blockSize+'" id="' + list[i].blockId + '">' ;
-                str+='<img src="../img/editor/part01.png" alt=""/><span>'+ list[i].blockName + '</span></p>';
-                $('#advBlock .with-padding').append(str);
-                continue;
-            }
-        }else if (list[i].blockType == "header") {
-            if ($("#headerBlock").html() == undefined) {
-                str='<div class="partOption" id="headerBlock"><p class="partOptionTitle">'+list[i].typeName+'</p>';
-                str+='<div class="with-padding">' ;
-                str+='<p class="partImg secPart btn-droppable" data-blockId="'+list[i].blockId+'" data-blockSize="'+list[i].blockSize+'" id="' + list[i].blockId + '">' ;
-                str+='<img src="../img/editor/part01.png" alt=""/><span>'+ list[i].blockName + '</span></p>';
-                str+='</div></div>';
-            } else {
-                str+='<p class="partImg secPart btn-droppable" data-blockId="'+list[i].blockId+'" data-blockSize="'+list[i].blockSize+'" id="' + list[i].blockId + '">' ;
-                str+='<img src="../img/editor/part01.png" alt=""/><span>'+ list[i].blockName + '</span></p>';
-                $('#headerBlock .with-padding').append(str);
-                continue;
-            }
-        }else if (list[i].blockType == "footer") {
-            if ($("#footerBlock").html() == undefined) {
-                str='<div class="partOption" id="footerBlock"><p class="partOptionTitle">'+list[i].typeName+'</p>';
-                str+='<div class="with-padding">' ;
-                str+='<p class="partImg secPart btn-droppable" data-blockId="'+list[i].blockId+'" data-blockSize="'+list[i].blockSize+'" id="' + list[i].blockId + '">' ;
-                str+='<img src="../img/editor/part01.png" alt=""/><span>'+ list[i].blockName + '</span></p>';
-                str+='</div></div>';
-            } else {
-                str+='<p class="partImg secPart btn-droppable" data-blockId="'+list[i].blockId+'" data-blockSize="'+list[i].blockSize+'" id="' + list[i].blockId + '">' ;
-                str+='<img src="../img/editor/part01.png" alt=""/><span>'+ list[i].blockName + '</span></p>';
-                $('#footerBlock .with-padding').append(str);
-                continue;
-            }
-        }
+        //} else if (list[i].blockType == "adv") {
+        //    if ($("#advBlock").html() == undefined) {
+        //        str='<div class="partOption" id="advBlock"><p class="partOptionTitle">'+list[i].typeName+'</p>';
+        //        str+='<div class="with-padding">' ;
+        //        str+='<p class="partImg secPart btn-droppable" data-blockId="'+list[i].blockId+'" data-blockSize="'+list[i].blockSize+'" id="' + list[i].blockId + '">' ;
+        //        str+='<img src="../img/editor/part01.png" alt=""/><span>'+ list[i].blockName + '</span></p>';
+        //        str+='</div></div>';
+        //    } else {
+        //        str+='<p class="partImg secPart btn-droppable" data-blockId="'+list[i].blockId+'" data-blockSize="'+list[i].blockSize+'" id="' + list[i].blockId + '">' ;
+        //        str+='<img src="../img/editor/part01.png" alt=""/><span>'+ list[i].blockName + '</span></p>';
+        //        $('#advBlock .with-padding').append(str);
+        //        continue;
+        //    }
+        //}else if (list[i].blockType == "header") {
+        //    if ($("#headerBlock").html() == undefined) {
+        //        str='<div class="partOption" id="headerBlock"><p class="partOptionTitle">'+list[i].typeName+'</p>';
+        //        str+='<div class="with-padding">' ;
+        //        str+='<p class="partImg secPart btn-droppable" data-blockId="'+list[i].blockId+'" data-blockSize="'+list[i].blockSize+'" id="' + list[i].blockId + '">' ;
+        //        str+='<img src="../img/editor/part01.png" alt=""/><span>'+ list[i].blockName + '</span></p>';
+        //        str+='</div></div>';
+        //    } else {
+        //        str+='<p class="partImg secPart btn-droppable" data-blockId="'+list[i].blockId+'" data-blockSize="'+list[i].blockSize+'" id="' + list[i].blockId + '">' ;
+        //        str+='<img src="../img/editor/part01.png" alt=""/><span>'+ list[i].blockName + '</span></p>';
+        //        $('#headerBlock .with-padding').append(str);
+        //        continue;
+        //    }
+        //}else if (list[i].blockType == "footer") {
+        //    if ($("#footerBlock").html() == undefined) {
+        //        str='<div class="partOption" id="footerBlock"><p class="partOptionTitle">'+list[i].typeName+'</p>';
+        //        str+='<div class="with-padding">' ;
+        //        str+='<p class="partImg secPart btn-droppable" data-blockId="'+list[i].blockId+'" data-blockSize="'+list[i].blockSize+'" id="' + list[i].blockId + '">' ;
+        //        str+='<img src="../img/editor/part01.png" alt=""/><span>'+ list[i].blockName + '</span></p>';
+        //        str+='</div></div>';
+        //    } else {
+        //        str+='<p class="partImg secPart btn-droppable" data-blockId="'+list[i].blockId+'" data-blockSize="'+list[i].blockSize+'" id="' + list[i].blockId + '">' ;
+        //        str+='<img src="../img/editor/part01.png" alt=""/><span>'+ list[i].blockName + '</span></p>';
+        //        $('#footerBlock .with-padding').append(str);
+        //        continue;
+        //    }
+        //}
         $('.partClassify').append(str);
     }
 }
