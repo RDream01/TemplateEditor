@@ -114,6 +114,63 @@ function blockStyleListCallback(data) {
 }
 blockStyleList();
 
+//栅格+布局
+function templateLayoutStr(){
+    var templateLayoutStr='';
+    console.log($('[data-option="gridSize"]').attr("data-value"));
+    if( $('[data-option="gridSize"]').attr("data-value")=="3" ){
+        console.log(3);
+        templateLayoutStr='';
+        $("#templateLayoutList .modalAlter").html("");
+        $('[data-option="templateLayout"]').html("选择页面布局");
+        $('[data-option="templateLayout"]').attr("data-value","");
+        templateLayoutStr='<p class="modalTxt modalLayout modalNew">';
+        templateLayoutStr+='<img src="../../img/editor/layout01.png" alt=""/>';
+        templateLayoutStr+='<span data-value="layout01_3g">界面布局1</span>';
+        templateLayoutStr+='</p>';
+        templateLayoutStr+='<p class="modalTxt modalImg modalLayout modalNew">';
+        templateLayoutStr+='<img src="../../img/editor/layout02.png" alt=""/>';
+        templateLayoutStr+='<span data-value="layout02_3g">界面布局2</span>';
+        templateLayoutStr+='</p>';
+        templateLayoutStr+='<p class="modalTxt modalImg modalLayout modalNew">';
+        templateLayoutStr+='<img src="../../img/editor/layout03.png" alt=""/>';
+        templateLayoutStr+='<span data-value="layout03_3g">界面布局3</span>';
+        templateLayoutStr+='</p>';
+        templateLayoutStr+='<p class="modalTxt modalImg modalLayout modalNew">';
+        templateLayoutStr+=' <img src="../../img/editor/layoutNew.png" alt=""/>';
+        templateLayoutStr+='<span  data-value="layoutCustom_3g">自定义布局</span>';
+        templateLayoutStr+='</p>';
+        $("#templateLayoutList .modalAlter").append(templateLayoutStr);
+    }else if( $('[data-option="gridSize"]').attr("data-value")=="4" ){
+        console.log(4);
+        templateLayoutStr='';
+        $("#templateLayoutList .modalAlter").html("");
+        $('[data-option="templateLayout"]').html("选择页面布局");
+        $('[data-option="templateLayout"]').attr("data-value","");
+        templateLayoutStr='<p class="modalTxt modalLayout modalNew">';
+        templateLayoutStr+='<img src="../../img/editor/layout01.png" alt=""/>';
+        templateLayoutStr+='<span data-value="layout01_4g">界面布局1</span>';
+        templateLayoutStr+='</p>';
+        templateLayoutStr+='<p class="modalTxt modalImg modalLayout modalNew">';
+        templateLayoutStr+='<img src="../../img/editor/layout02.png" alt=""/>';
+        templateLayoutStr+='<span data-value="layout02_4g">界面布局2</span>';
+        templateLayoutStr+='</p>';
+        templateLayoutStr+='<p class="modalTxt modalImg modalLayout modalNew">';
+        templateLayoutStr+='<img src="../../img/editor/layout03.png" alt=""/>';
+        templateLayoutStr+='<span data-value="layout03_4g">界面布局3</span>';
+        templateLayoutStr+='</p>';
+        templateLayoutStr+='<p class="modalTxt modalImg modalLayout modalNew">';
+        templateLayoutStr+=' <img src="../../img/editor/layoutNew.png" alt=""/>';
+        templateLayoutStr+='<span  data-value="layoutCustom_4g">自定义布局</span>';
+        templateLayoutStr+='</p>';
+        $("#templateLayoutList .modalAlter").append(templateLayoutStr);
+    }
+}
+
+
+
+
+
 
 //新建模板--名字的重复判断
 function judgeTemplateName() {
@@ -185,6 +242,10 @@ $(".myModal").on("click",".modalAlter .modalTxt",function(){
 
     var spanValue=$(this).parent().prev().children("span").attr("data-value");
     var spanOption=$(this).parent().prev().children("span").attr("data-option");
+
+    if( $(this).parent().attr("id")=="gridSizeParent" ){
+        templateLayoutStr();
+    }
 
     //收集数据
     if( (spanValue == undefined) || (spanValue == "")  ){
@@ -314,12 +375,28 @@ function getTemplateCodeCallback(data){
     window.location.href="import.html?templateId="+templateIdVal;
 }
 
+//
+//window.onbeforeunload=function(e){
+//    return "我在这写点东西";
+//}
+//window.onunload=function(){
+//    alert("离开")
+//}
 
-
-
-
-
-
+var MSG_UNLOAD="如果你此时离开档案系统，所做操作信息将全部丢失，是否离开?";
+var UnloadConfirm = {};
+//启用监听浏览器刷新、关闭的方法
+UnloadConfirm.set = function(confirm_msg){
+    window.onbeforeunload = function(event){
+        event = event || window.event;
+        event.returnValue = confirm_msg;
+    }
+}
+//关闭监听浏览器刷新、关闭的方法
+UnloadConfirm.clear = function(){
+    window.onbeforeunload = function(){};
+}
+UnloadConfirm.set(MSG_UNLOAD);
 
 
 

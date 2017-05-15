@@ -15,28 +15,46 @@ function layout(){
     var layoutStr='';
     console.log(templateLayoutVal);
     console.log(gridSizeVal);
-    if( templateLayoutVal=="layout01" ){
-
-        importGroupDiv(3);
-        importGroupDiv(2);
-        importGroupDiv(1);
-        importGroupDiv(3);
-
-    }else if( templateLayoutVal=="layout02" ){
-
-        importGroupDiv(3);
-        importGroupDiv(1);
-        importGroupDiv(1);
-        importGroupDiv(1);
-        importGroupDiv(3);
-
-    }else if( templateLayoutVal=="layout03" ){
-
-        importGroupDiv(3);
-        importGroupDiv(1);
-        importGroupDiv(2);
-        importGroupDiv(3);
+    if( gridSizeVal=="3" ){
+        if( templateLayoutVal=="layout01_3g" ){
+            importGroupDiv(3);
+            importGroupDiv(2);
+            importGroupDiv(1);
+            importGroupDiv(3);
+        }else if( templateLayoutVal=="layout02_3g" ){
+            importGroupDiv(3);
+            importGroupDiv(1);
+            importGroupDiv(1);
+            importGroupDiv(1);
+            importGroupDiv(3);
+        }else if( templateLayoutVal=="layout03_3g" ){
+            importGroupDiv(3);
+            importGroupDiv(1);
+            importGroupDiv(2);
+            importGroupDiv(3);
+        }
+    }else if( gridSizeVal=="4" ){
+        if( templateLayoutVal=="layout01_4g" ){
+            importGroupDiv(4);
+            importGroupDiv(2);
+            importGroupDiv(1);
+            importGroupDiv(1);
+            importGroupDiv(4);
+        }else if( templateLayoutVal=="layout02_4g" ){
+            importGroupDiv(4);
+            importGroupDiv(1);
+            importGroupDiv(1);
+            importGroupDiv(1);
+            importGroupDiv(1);
+            importGroupDiv(4);
+        }else if( templateLayoutVal=="layout03_4g" ){
+            importGroupDiv(4);
+            importGroupDiv(3);
+            importGroupDiv(1);
+            importGroupDiv(4);
+        }
     }
+
 }
 
 //1---引用文件
@@ -52,7 +70,7 @@ function blockLeftList( selectObj,inputObj ) {
         cache: true,
         type: 'post',
         dataType : "jsonp",
-        data:{gridSize:gridSizeVal,blockType:selectVal,searchBlockName:inputVal,blockStyle:blockStyleVal,callBack:"blockLeftListCallback"},  //参数
+        data:{gridSize:gridSizeVal,blockType:selectVal,searchBlockName:inputVal,blockStyleEng:blockStyleVal,callBack:"blockLeftListCallback"},  //参数
         //url:"http://192.168.31.2/template_editor/blockLeftList.do",//请求的action路径
         url:basePath+"template_editor/blockLeftList",//请求的action路径
         error: function () {//请求失败处理函数
@@ -85,11 +103,11 @@ function blockLeftListCallback(data) {
         //        str='<div class="partOption" id="advBlock"><p class="partOptionTitle">'+list[i].typeName+'</p>';
         //        str+='<div class="with-padding">' ;
         //        str+='<p class="partImg secPart btn-droppable" data-blockId="'+list[i].blockId+'" data-blockSize="'+list[i].blockSize+'" id="' + list[i].blockId + '">' ;
-        //        str+='<img src="../img/editor/part01.png" alt=""/><span>'+ list[i].blockName + '</span></p>';
+        //        str+='<img src="../../img/editor/part01.png" alt=""/><span>'+ list[i].blockName + '</span></p>';
         //        str+='</div></div>';
         //    } else {
         //        str+='<p class="partImg secPart btn-droppable" data-blockId="'+list[i].blockId+'" data-blockSize="'+list[i].blockSize+'" id="' + list[i].blockId + '">' ;
-        //        str+='<img src="../img/editor/part01.png" alt=""/><span>'+ list[i].blockName + '</span></p>';
+        //        str+='<img src="../../img/editor/part01.png" alt=""/><span>'+ list[i].blockName + '</span></p>';
         //        $('#advBlock .with-padding').append(str);
         //        continue;
         //    }
@@ -98,11 +116,11 @@ function blockLeftListCallback(data) {
         //        str='<div class="partOption" id="headerBlock"><p class="partOptionTitle">'+list[i].typeName+'</p>';
         //        str+='<div class="with-padding">' ;
         //        str+='<p class="partImg secPart btn-droppable" data-blockId="'+list[i].blockId+'" data-blockSize="'+list[i].blockSize+'" id="' + list[i].blockId + '">' ;
-        //        str+='<img src="../img/editor/part01.png" alt=""/><span>'+ list[i].blockName + '</span></p>';
+        //        str+='<img src="../../img/editor/part01.png" alt=""/><span>'+ list[i].blockName + '</span></p>';
         //        str+='</div></div>';
         //    } else {
         //        str+='<p class="partImg secPart btn-droppable" data-blockId="'+list[i].blockId+'" data-blockSize="'+list[i].blockSize+'" id="' + list[i].blockId + '">' ;
-        //        str+='<img src="../img/editor/part01.png" alt=""/><span>'+ list[i].blockName + '</span></p>';
+        //        str+='<img src="../../img/editor/part01.png" alt=""/><span>'+ list[i].blockName + '</span></p>';
         //        $('#headerBlock .with-padding').append(str);
         //        continue;
         //    }
@@ -111,11 +129,11 @@ function blockLeftListCallback(data) {
         //        str='<div class="partOption" id="footerBlock"><p class="partOptionTitle">'+list[i].typeName+'</p>';
         //        str+='<div class="with-padding">' ;
         //        str+='<p class="partImg secPart btn-droppable" data-blockId="'+list[i].blockId+'" data-blockSize="'+list[i].blockSize+'" id="' + list[i].blockId + '">' ;
-        //        str+='<img src="../img/editor/part01.png" alt=""/><span>'+ list[i].blockName + '</span></p>';
+        //        str+='<img src="../../img/editor/part01.png" alt=""/><span>'+ list[i].blockName + '</span></p>';
         //        str+='</div></div>';
         //    } else {
         //        str+='<p class="partImg secPart btn-droppable" data-blockId="'+list[i].blockId+'" data-blockSize="'+list[i].blockSize+'" id="' + list[i].blockId + '">' ;
-        //        str+='<img src="../img/editor/part01.png" alt=""/><span>'+ list[i].blockName + '</span></p>';
+        //        str+='<img src="../../img/editor/part01.png" alt=""/><span>'+ list[i].blockName + '</span></p>';
         //        $('#footerBlock .with-padding').append(str);
         //        continue;
         //    }
@@ -155,7 +173,7 @@ function importGroupDiv(num){
     var data="";
     if(num == '1'){
         data ='<div class="col-xs-3 row groupDiv list-group-item droppable-target" data-groupSize="3" style="min-height:300px;">'
-        +'<div data-trigger="sortArea" class="sortArea col-md-12 col-sm-12"><span class="area-name">组合框1，</span>拖拽我--1<span class="deleteGroup">X</span></div>'
+        +'<div data-trigger="sortArea" class="sortArea col-md-12 col-sm-12"><span class="area-name">组合框1，</span>拖拽我--1<span class="deleteGroup" onclick="openGroupConfirm(this)">X</span></div>'
         +'<div class="col-md-12 col-sm-12 firstLocation"  id="groupDiv" style="position:absolute;z-index:-1">'
         +'<div class="panel">'
         +'<div class="panel-heading">'
@@ -167,7 +185,7 @@ function importGroupDiv(num){
         +'</div>';
     }else if(num == '2'){
         data ='<div class="col-xs-6 row groupDiv list-group-item droppable-target" data-groupSize="6" style="min-height:300px;">'
-        +'<div data-trigger="sortArea"  class="sortArea col-md-12 col-sm-12"><span class="area-name">组合框2，</span>拖拽我--2<span class="deleteGroup">X</span></div>'
+        +'<div data-trigger="sortArea"  class="sortArea col-md-12 col-sm-12"><span class="area-name">组合框2，</span>拖拽我--2<span class="deleteGroup" onclick="openGroupConfirm(this)">X</span></div>'
         + '<div class="col-md-12 col-sm-12 firstLocation" id="groupDiv" style="position:absolute;z-index:-1">'
         + '<div class="panel">'
         + '<div class="panel-heading">'
@@ -180,7 +198,7 @@ function importGroupDiv(num){
         + '</div>';
     } else if (num == '3') {
         data = '<div class="col-xs-9 row groupDiv list-group-item droppable-target"  data-groupSize="9" style="min-height:300px;">'
-        + '<div data-trigger="sortArea" class="sortArea col-md-12 col-sm-12"><span class="area-name">组合框3，</span>拖拽我--3<span class="deleteGroup">X</span></div>'
+        + '<div data-trigger="sortArea" class="sortArea col-md-12 col-sm-12"><span class="area-name">组合框3，</span>拖拽我--3<span class="deleteGroup" onclick="openGroupConfirm(this)">X</span></div>'
         + '<div class="col-md-12 col-sm-12 firstLocation"  id="groupDiv" style="position:absolute;z-index:-1">'
         + '<div class="panel">'
         + '<div class="panel-heading">'
@@ -192,7 +210,7 @@ function importGroupDiv(num){
         + '</div>';
     }else if (num == '4') {
         data = '<div class="col-xs-12 row groupDiv list-group-item droppable-target"  data-groupSize="12" style="min-height:100px;">'
-        + '<div data-trigger="sortArea" class="sortArea col-md-12 col-sm-12"><span class="area-name">组合框4，</span>拖拽我--4<span class="deleteGroup">X</span></div>'
+        + '<div data-trigger="sortArea" class="sortArea col-md-12 col-sm-12"><span class="area-name">组合框4，</span>拖拽我--4<span class="deleteGroup" onclick="openGroupConfirm(this)">X</span></div>'
         + '<div class="col-md-12 col-sm-12 firstLocation"  id="groupDiv" style="position:absolute;z-index:-1">'
         + '<div class="panel">'
         + '<div class="panel-heading">'
@@ -1039,11 +1057,11 @@ window.onload = function () {
     }
 
     moveAll();
-    var optionsTrigger = {
-        selector:'.list-group-item',
-        trigger: '[data-trigger="sortArea"]'
-    };
-    $('#sortableList').sortable(optionsTrigger);
+    //var optionsTrigger = {
+    //    selector:'.list-group-item',
+    //    trigger: '[data-trigger="sortArea"]'
+    //};
+    //$('#sortableList').sortable(optionsTrigger);
 };
 
 
