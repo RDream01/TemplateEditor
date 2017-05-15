@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>我参与过的</title>
+    <style>
+        .myJoined_4g3_list{
+            margin-left: 84px;
+            width: 540px;
+        }
+        .myJoined_4g3_image{
+            /*border:1px solid #f1f1f1;*/
+            width:137px;
+            height:90px;
+            margin-left: 24px;
+            margin-top: 12px;
+        }
+        .myJoined_4g3_list li{
+            height: 115px;
+            /*border-bottom: 1px solid #dddddd;*/
+            position: relative;
+        }
+        .myJoined_4g3_list dd{
+            float: left;
+        }
+        .myJoined_4g3_list dt{
+            float: left;
+            margin-left:8px ;
+            padding-top: 14px;
+        }
+        .myJoined_4g3_list_title{
+            font-size:14px;
+            text-align:left;
+            width: 368px;
+            height: 39px;
+            overflow: hidden;
+        }
+        .myJoined_4g3_list_content{
+            font-size:12px;
+            width: 368px;
+            height:23px;
+            line-height:21px;
+            text-align:left;
+            margin-top: 8px;
+            overflow: hidden;
+        }
+        .myJoined_4g3_listSource{
+            font-size:12px;
+            text-align:left;
+            float: left;
+            line-height:12px;
+        }
+        .myJoined_4g3_contentImage{
+            width: 12px;
+            height: 10px;
+        }
+        .myJoined_4g3_contNum{
+            float: left;
+            margin-left:9px ;
+            margin-bottom: 0;
+            font-size:12px;
+            line-height:12px;
+            text-align:left;
+        }
+        .myJoined_4g3_list_time {
+            font-size: 12px;
+            line-height: 12px;
+            text-align: right;
+        }
+        .myJoined_4g3_listfoot{
+            margin-top:4px ;
+            height: 12px;
+        }
+        .myJoined_4g3_label{
+            position: absolute;
+            width: 42px;
+            height: 22px;
+            left: 20px;
+            top:19px;
+            background: url("../../img/PP/myJoined/redIcon.png") no-repeat;
+            font-size:12px;
+            color:#ffffff;
+            text-align:center;
+        }
+    </style>
+</head>
+<body>
+<div class="Grid4g3 appendCur">
+    <input type="hidden" class="v_myJoined_4g4_num" value="4"/>
+    <div class="myJoined_4g3_list">
+        <ul class="showId"></ul>
+    </div>
+</div>
+<script>
+    var flag="v";
+    if(flag == "v"){
+        vData()
+    }else{
+        tData();
+    }
+    function vData() {
+
+        $(".appendCur .myJoined_4g3_list ul").html("");
+        var v_myJoined_4g4_num = $(".appendCur .v_myJoined_4g4_num").val();
+
+        var title = "国家主席习近平同美国总统特统特朗普通电话国家主席习近平同美国总统特朗普通";
+        var content = "挥洒点就放啦杀对方空间撒扣得分打开房间爱好撒的飞速地服对付而言";
+        var str = "";
+        for (var i = 0; i < v_myJoined_4g4_num; i++) {
+            str = str +'<li>' +
+                    ' <span class="myJoined_4g3_label">话题</span>' +
+                        ' <dl class="clearFloat"> ' +
+                            '<dd><a href="#"> ' +
+                                '<img  class="myJoined_4g3_image" src="../../img/PP/myJoined/pic.png"> ' +
+                            '</a></dd>' +
+                            ' <dt>' +
+                                ' <p class="myJoined_4g3_list_title titleColor"><a href="#">'+title+'</a></p>' +
+                                ' <p class="myJoined_4g3_list_content abstractColor">'+content+'</p>' +
+                                ' <div  class="clearFloat myJoined_4g3_listfoot" > <p class="myJoined_4g3_listSource dateColor">擎好网</p>' +
+                                    '<p class="myJoined_4g3_contNum dateColor">' +
+                                    '<img src="../../img/PP/myJoined/contentNum.png" class="myJoined_4g3_contentImage">30</p>' +
+                                    ' <p class="myJoined_4g3_list_time dateColor">2017-04-12</p> ' +
+                                '</div> ' +
+                            '</dt> ' +
+                        '</dl> ' +
+                    '</li>';
+        }
+        $(".appendCur .myJoined_4g3_list ul").append(str);
+
+
+    }
+    //返回的真实数据
+    function tDataCallback(data){
+        var list = data.dataList;
+        for( var i=0;i<list.length;i++ ){
+            var str='<p><a href="#"/>'+list[i].title+'<a><p/>';
+            $(".lh.showId").append(str);
+        }
+    }
+
+</script>
+</body>
+</html>

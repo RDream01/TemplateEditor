@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>我的信息</title>
+    <style>
+        .myInformation_4g3_list{
+            margin-left: 84px;
+            width: 540px;
+        }
+        .myInformation_4g3_list li{
+            padding-top: 12px;
+            padding-bottom: 12px;
+            padding-left: 10px;
+        }
+        .myInformation_4g3_head{
+            float: left;
+            font-size:14px;
+            text-align:center;
+            align-content: center;
+            height: 20px;
+            width: 28px;
+            margin-top: 18px;
+        }
+        .myInformation_4g3_headImage{
+            border:1px solid #f1f1f1;
+            width:51px;
+            height:51px;
+            border-radius:100%;
+            margin-left: 64px;
+            vertical-align: middle;
+        }
+        .myInformation_4g3_editImage{
+            width: 62px;
+            height: 20px;
+            margin-left: 311px;
+            color:#ffffff;
+            border-radius:2px;
+        }
+        .myInformation_4g3_name{
+            font-size:14px;
+            text-align:left;
+            float: left;
+        }
+        .myInformation_4g3_nameinput{
+            float: left;
+            margin-left: 64px;
+            width: 400px;
+            height: 20px;
+            outline: medium;
+        }
+        .myInformation_4g3_sex{
+            font-size:14px;
+            text-align:left;
+            float: left;
+            height: 20px;
+        }
+        .myInformation_4g3_sexSelect{
+            margin-left: 64px;
+            float: left;
+            height:20px;
+        }
+        .myInformation_4g3_nicput{
+            margin-left: 64px;
+            width: 400px;
+            height: 20px;
+            outline: medium;
+        }
+        .myInformation_4g3_birthput{
+            margin-left: 64px;
+            width: 400px;
+            height: 20px;
+            outline: medium;
+        }
+        .myInformation_4g3_phoneput{
+            margin-left: 50px;
+            width: 400px;
+            height: 20px;
+            outline: medium;
+        }
+        .myInformation_4g3_emailput{
+            margin-left: 64px;
+            width: 400px;
+            height: 20px;
+            outline: medium;
+        }
+        .myInformation_4g3_addressput{
+            margin-left: 40px;
+            width: 400px;
+            height: 20px;
+            outline: medium;
+        }
+        .dropdown-menu{
+            padding:5px 15px;
+        }
+        .table-condensed tbody tr,.table-condensed tfoot tr{
+            cursor: pointer;
+        }
+        .table-condensed th{text-align: center;}
+        .myInformation_4g3_sexWom{margin-left: 24px;}
+    </style>
+</head>
+<body>
+    <div class="Grid4g3">
+        <div class="myInformation_4g3_list">
+            <form>
+                <ul>
+                    <li class="clearFloat">
+                        <div >
+                            <p class="myInformation_4g3_head titleColor">头像</p>
+                            <img src="../../img/PP/myJoined/pic.png" class="myInformation_4g3_headImage">
+                            <input type="button" value="修改头像" onclick="path.click()" class="myInformation_4g3_editImage">
+                            <input type="file" id="path" style="display:none" onchange="changeImg(this)">
+                        </div>
+                    </li>
+                    <li class="clearFloat">
+                        <p class="myInformation_4g3_name titleColor">姓名</p>
+                        <input type="text" class="myInformation_4g3_nameinput" placeholder="张三的">
+                    </li>
+                    <li class="clearFloat">
+                        <p class="myInformation_4g3_name titleColor">昵称</p>
+                        <input type="text" class="myInformation_4g3_nicput" placeholder="tom">
+                    </li>
+                    <li class="clearFloat">
+                        <p class="myInformation_4g3_sex titleColor" >性别</p>
+                        <div class="myInformation_4g3_sexSelect">
+                             <input type="radio" name="sex" value="" checked/> 男
+                             <input type="radio" name="sex" value="" class="myInformation_4g3_sexWom"/> 女
+                        </div>
+
+                    </li>
+                    <li class="clearFloat">
+                        <p class="myInformation_4g3_name titleColor">生日</p>
+                        <input type="text" class="myInformation_4g3_birthput form-date" placeholder="选择或者输入一个日期">
+                    </li>
+                    <li class="clearFloat">
+                        <p class="myInformation_4g3_name titleColor">手机号</p>
+                        <input type="text" class="myInformation_4g3_phoneput" placeholder="13000000000">
+                    </li>
+                    <li class="clearFloat">
+                        <p class="myInformation_4g3_name titleColor">邮箱</p>
+                        <input type="text" class="myInformation_4g3_emailput" placeholder="111111111@qq.com">
+                    </li>
+                    <li class="clearFloat">
+                        <p class="myInformation_4g3_name titleColor">通讯地址</p>
+                        <input type="text" class="myInformation_4g3_addressput" placeholder="北京市海淀区爱哪儿哪儿">
+                    </li>
+                </ul>
+            </form>
+        </div>
+    </div>
+
+<script src="../../js/datetimepicker.js"></script>
+<script>
+    // 仅选择日期
+    $(".form-date").datetimepicker({
+        language:  "zh-CN",
+        weekStart: 1,
+        todayBtn:  1,
+        autoclose: 1,
+        todayHighlight: 1,
+        startView: 2,
+        minView: 2,
+        forceParse: 0,
+        format: "yyyy-mm-dd"
+    });
+    function changeImg(target){
+        var f=target.files[0];
+        var img = new Image();
+        img.file = f;
+        img.onload=function(){
+            $(".myInformation_4g3_headImage").attr("src", img.src);
+        };
+        var reader = new FileReader();
+        reader.onload = function(e){
+            img.src = e.target.result;
+        };
+        reader.readAsDataURL(f);
+    }
+
+    var flag="v";
+    if(flag == "v"){
+        vData()
+    }else{
+        tData();
+    }
+    function vData() {
+    }
+    //返回的真实数据
+    function tDataCallback(data){
+        var list = data.dataList;
+        for( var i=0;i<list.length;i++ ){
+            var str='<p><a href="#"/>'+list[i].title+'<a><p/>';
+            $(".lh.showId").append(str);
+        }
+    }
+
+
+</script>
+</body>
+</html>

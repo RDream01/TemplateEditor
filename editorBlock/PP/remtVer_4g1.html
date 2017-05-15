@@ -1,0 +1,94 @@
+<div class="col-md-3 col-sm-3 appendStr remtVer_4g1" id="remtVer_4g1" data-blockSize="3">
+
+<div class="style">
+    <style>
+        .rmetVer_4g1_head{
+            height: 40px;
+            line-height: 40px;
+            background:#ffffff;
+            /*box-shadow:0 2px 2px 0 rgba(0,0,0,0.24);*/
+            width:228px;
+            margin-bottom:11px;
+        }
+        .rmetVer_4g1_headTitle{
+            font-size:18px;
+            text-align:left;
+            margin-left: 16px;
+            margin-top: 7px;
+            height: 26px;
+            /*color:#c33;*/
+        }
+        .rmetVer_4g1_list li{
+            margin-bottom:8px;
+        }
+        .rmetVer_4g1_listImg{
+            width: 226px;
+            height: 135px;
+            margin:0 auto 2px;
+        }
+        .rmetVer_4g1_listTit{
+            font-size:14px;
+            text-align:left;
+            height: 45px;
+            overflow: hidden;
+            width:228px ;
+        }
+    </style>
+</div>
+
+
+<div class="panel appendNot" data-id="3">
+    <input type="hidden" class="v_rmetVer_4g1_num" value="3" align="center"/>
+    <input type="hidden" class="v_rmetVer_4g1_headTitle" value="相关推荐"/>
+    <div class="panel-heading">
+        <span class="title">相关推荐1</span>
+    </div>
+    <div class="panel-body">
+        <div class="Grid4g1 appendCur">
+            <div class="rmetVer_4g1_head">
+                <p class="rmetVer_4g1_headTitle showId"></p>
+            </div>
+            <div class="rmetVer_4g1_list">
+                <ul class="showId"></ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="resize-handle"><i class="icon icon-resize-h"></i></div>
+
+<div class="script">
+    <script>
+        var flag="v";
+        if(flag == "v"){
+            vData()
+        }else{
+            tData();
+        }
+        function vData() {
+            $(".appendCur .rmetVer_4g1_list ul").html("");
+            $(".appendCur .v_rmetVer_4g1_headTitle").html("");
+            var v_rmetVer_4g1_num = $(".appendCur .v_rmetVer_4g1_num").val();
+            var v_rmetVer_4g1_headTitle = $(".appendCur .v_rmetVer_4g1_headTitle").val();
+            console.log(v_rmetVer_4g1_headTitle);
+            var title = "国家主席习近平同美国总统普通电话家主席习近平同美国总统特朗普通电话国家主席习近平同美国总统特朗普通";
+            var str = "";
+            for (var i = 0; i < v_rmetVer_4g1_num; i++){
+                str +='<li><a href="#">' +
+                '<img src="../../img/PP/remtVer_4g1/pic.png" class="rmetVer_4g1_listImg"> ' +
+                '<p class="titleColor rmetVer_4g1_listTit">'+title+'</p></a>  ' +
+                '</li>';
+            }
+            $(".appendCur .rmetVer_4g1_list ul").append(str);
+            $(".appendCur .rmetVer_4g1_headTitle").html(v_rmetVer_4g1_headTitle);
+        }
+        //返回的真实数据
+        function tDataCallback(data){
+            var list = data.dataList;
+            for( var i=0;i<list.length;i++ ){
+                var str='<p><a href="#"/>'+list[i].title+'<a><p/>';
+                $(".lh").append(str);
+            }
+        }
+    </script>
+</div>
+

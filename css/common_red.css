@@ -353,6 +353,152 @@ nav,#banner,section,footer{
     background-color: #ffffff;
 }
 
+/*******************************栅格4***************************/
+/*主色*/
+.mainColor{
+    color:#cc3333;
+}
+/*标题色*/
+.titleColor{
+    color:#333333;
+}
+/*文章摘要等段落*/
+.abstractColor{
+    color:#666666;
+}
+/*文章来源，日期文字色号，及首页投票显示大段文字*/
+.dateColor{
+    color:#999999;
+}
+/*页面背景色*/
+.pageBackGroundColor{
+    background-color:#fafafa;
+}
+
+.fistP:first-letter{
+    color:#cc3333;
+}
+.Grid4g1{
+    width: 228px;
+}
+.Grid4g2{
+    width: 468px;
+}
+.Grid4g3{
+    width: 708px;
+}
+
+.Grid4g4{
+    width: 960px;
+}
+.clearFloat:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+/*________bottom_4g4________*/
+.bottom_4g4_verList,.bottom_4g4_verList a{
+    color:#505050;
+}
+.bottom_4g4_verList_liBor{
+    border-left: 2px solid #505050;;
+}
+/*______discuss_4g3________*/
+.discuss_4g3_title{
+    border-bottom: 2px solid #dddddd;
+}
+.discuss_4g3_redLine{
+    border-bottom: 4px solid #cc3333;
+}
+.discuss_4g3_list ul{
+    border-top:1px solid #999999 ;
+}
+.discuss_4g3_list li{
+    border-bottom: 1px solid #999999 ;
+}
+.discuss_4g3_listImg{
+    border:2px solid #ffffff;
+    box-shadow:0 2px 4px 0 rgba(0,0,0,0.24);
+}
+/*————————个人中心_________*/
+.PersonnalCenter_4g3_head{
+    border-bottom: 1px solid #dddddd;
+}
+.PersonnalCenter_4g3_bottomClor{
+    border-bottom: 2px solid #cc3333;
+}
+/*信息*/
+.myInformation_4g3_list li{
+    border-bottom: 1px dashed #dddddd;
+}
+.myInformation_4g3_editImage{
+    background-color:#cc3333;
+}
+/*评论*/
+.myComment_4g3_delSpan{
+    border-left: 1px solid #dddddd;
+}
+.myComment_4g3_list ul{
+    border-top: 1px solid #dddddd;
+}
+.myComment_4g3_list li{
+    border-bottom: 1px solid #dddddd;
+}
+/*收藏*/
+.myCollect_4g3_image{
+    border:1px solid #f1f1f1;
+}
+.myCollect_4g3_list ul{
+    border-top: 1px solid #dddddd;
+}
+.myCollect_4g3_list li{
+    border-bottom: 1px solid #dddddd;
+}
+.myCollect_4g3_delSpan{
+    border-left: 1px solid #dddddd;
+}
+/*参与过的*/
+.myJoined_4g3_image{
+    border:1px solid #f1f1f1;
+}
+.myJoined_4g3_list li{
+    border-bottom: 1px solid #dddddd;
+}
+/*积分*/
+.myScore_4g3_head{
+    border-bottom: 1px solid #dddddd;
+}
+/*__________remtThreeImg_4g3--相关推荐3_________*/
+.remtThreeImg_4g3_title{
+    border-bottom: 2px solid #dddddd;
+}
+.remtThreeImg_4g3_redLine{
+    border-bottom: 4px solid #cc3333;
+}
+/*—————remtVer_4g1--相关推荐1————*/
+.rmetVer_4g1_head{
+    box-shadow:0 2px 2px 0 rgba(0,0,0,0.24);
+}
+.rmetVer_4g1_headTitle{
+    color:#c33;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
