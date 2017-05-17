@@ -5,7 +5,7 @@ body {
     color:#666;
     margin:0;
     padding:0;
-    /*background-color:#fafafa;*/
+    background-color:#fafafa;
 }
 ul,li,p,h1,h2,h3,h4,h5,h6,dl,dt,dd,input {
     margin:0;
@@ -24,7 +24,11 @@ input,select,option {border:none;}
 .rt  {float:right;}
 .clear  {clear:both;}
 a{text-decoration:none; color:#1a1a1a;}
-a:hover{color:#CA1E0D;text-decoration: none;}
+/*a:hover{color:#c33;text-decoration: none;}*/
+a:focus, a:hover {
+    color: #c33;
+    text-decoration: none;
+}
 img{ vertical-align: bottom; border:none;}
 nav,#banner,section,footer{
     margin:0 auto;
@@ -362,6 +366,16 @@ nav,#banner,section,footer{
 .titleColor{
     color:#333333;
 }
+/*时间颜色*/
+.articleTitleColor{
+    color:#3c3c3c;
+}
+.infoColor{
+    color:#7b7b7b;
+}
+.articleTextColor{
+    color:#262626;
+}
 /*文章摘要等段落*/
 .abstractColor{
     color:#666666;
@@ -369,6 +383,14 @@ nav,#banner,section,footer{
 /*文章来源，日期文字色号，及首页投票显示大段文字*/
 .dateColor{
     color:#999999;
+}
+/*文章颜色*/
+.txtColor{
+    color:#3c3c3c;
+}
+/*功能颜色*/
+.actColor{
+    color:#9b9b9b;
 }
 /*页面背景色*/
 .pageBackGroundColor{
@@ -387,7 +409,6 @@ nav,#banner,section,footer{
 .Grid4g3{
     width: 708px;
 }
-
 .Grid4g4{
     width: 960px;
 }
@@ -482,12 +503,26 @@ nav,#banner,section,footer{
 .rmetVer_4g1_headTitle{
     color:#c33;
 }
-
-
-
-
-
-
+/*__________searchResult_4g3___________*/
+.searchResult_4g3_head{
+    background:#f1f1f1;
+}
+.searchResult_4g3_mian ul{
+    border-bottom:1px solid #999999;
+}
+.searchResult_4g3_mian li{
+    border-top:1px solid #999999;
+}
+.searchResult_4g3_liSel{
+    border-bottom:2px solid #cc3333;
+}
+/*____________topicFloat_4g3__________*/
+.topicFloat_4g3_bottomBtn{
+    background:#cc3333;
+}
+.topicFloat_4g3_redLine{
+    border-bottom: 4px solid #cc3333;
+}
 
 
 

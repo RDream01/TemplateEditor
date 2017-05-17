@@ -1,0 +1,244 @@
+<div class="col-md-9 col-sm-9 appendStr voteTexted_4g3" id="voteTexted_4g3" data-blockSize="9">
+<div class="style" "exist">
+    <style>
+        .voteTexted_4g3_amin{
+            margin-left: 84px;
+            width: 540px;
+        }
+        .voteTexted_4g3_headImg{
+            width:540px;
+            height:350px;
+            position: relative;
+        }
+        .voteTexted_4g3_headImg{
+            width:540px;
+            height:350px;
+        }
+        .voteTexted_4g3_shadow{
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            background:rgba(0,0,0,0.60);
+            width:540px;
+            padding:10px 10px 6px;
+        }
+        .voteTexted_4g3_title{
+            font-size:16px;
+            color:#ffffff;
+            width: 100%;
+            max-height: 50px;
+            overflow: hidden;
+            margin-bottom:5px;
+        }
+        .voteTexted_4g3_Act{
+            width:100%;
+            text-align: right;
+        }
+        .voteTexted_4g3_collect{
+            width: 22px;
+            height: 20px;
+        }
+        .voteTexted_4g3_share{
+            width: 20px;
+            height:22px;
+            margin-left: 8px;
+        }
+        .voteTexted_4g3_time{
+            margin-top: 5px;
+            font-size:12px;
+            color:#ffffff;
+        }
+        .voteTexted_4g3_joinNum{
+            float: right;
+            display: inline-block;
+            font-size:12px;
+            color:#ffffff;
+        }
+        .voteTexted_4g3_newsCont{
+            margin:15px 0;
+            border-bottom:1px solid #f2f2f2;
+            padding-bottom:20px;
+        }
+        .voteTexted_4g3_newsCont p{
+            font-size:14px;
+            text-indent: 2em;
+            margin-bottom:3px;
+            letter-spacing: 0.7px;
+        }
+        .voteTexted_4g3_voteTitle{
+            margin-left: 36px;
+            font-size:14px;
+            text-align:left;
+        }
+        .voteTexted_4g3_redTitle{
+            font-size:16px;
+        }
+        .voteTexted_4g3_voteList{
+            margin-top:25px;
+        }
+        .voteTexted_4g3_footDes{
+            width: 540px;
+            font-size:14px;
+            text-align:center;
+            margin-top: 32px;
+            margin-bottom: 56px;
+        }
+
+        /*投票结果*/
+        .voteTexted_4g3_voteResult{
+            overflow:hidden;
+        }
+        .voteTexted_4g3_voteResult li{
+            float:left;
+            margin:20px;
+            font-size:14px;
+        }
+        .voteTexted_4g3_voteResult li:first-child{
+            width:100px;
+        }
+        .voteTexted_4g3_voteResult li:first-child img{
+            width:130px;
+            height:100px;
+            /*border:2px solid #FF6766;*/
+            border-radius:8px;
+        }
+        .voteTexted_4g3_voteResult li:first-child span{
+            display: block;
+            font-size:12px;
+            text-align:center;
+            margin-top:5px;
+        }
+        .voteTexted_4g3_voteMeter{
+            width:180px;
+            height:12px;
+            background: #fff;
+        }
+        .voteTexted_4g3_voteMeter span{
+            display:block;
+            width:63px;
+            height:12px;
+            /*background:#000;*/
+        }
+    </style>
+</div>
+
+<div class="panel appendNot" data-id="3">
+    <div class="panel-heading">
+        <span class="title">投票结果--文字</span>
+    </div>
+    <div class="panel-body">
+        <div class="grid4g3" "exist">
+            <div class="voteTexted_4g3_amin">
+                <!--img+txt-->
+                <div class="voteTexted_4g3_headAll"></div>
+                <!--投票信息-->
+                <div class="voteTexted_4g3_voteList">
+                    <!--name-->
+                    <p class="titleColor voteTexted_4g3_voteTitle">您认为&nbsp;&nbsp;
+                        <span class="voteTexted_4g3_redTitle mainColor"></span>
+                    </p>
+                    <!--option-->
+                    <div class="voteTexted_4g3_voteResultAll"></div>
+                    <!--info-->
+                    <p class="voteTexted_4g3_footDes actColor"> 您已参与过该投票</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="resize-handle"><i class="icon icon-resize-h"></i></div>
+
+
+
+<div class="script" "exist">
+    <script>
+        var flag = "v";
+        if (flag == "v") {
+            vData()
+        } else {
+            tData();
+        }
+        function vData() {
+            //图文信息
+            $(".voteTexted_4g3_headAll").html('');
+            var textResultStr="";
+            textResultStr='<div class="voteTexted_4g3_headImg">'+
+            '<img class="voteTexted_4g3_img" src="../../img/PP/vote/vote.png">'+
+            '<div class="voteTexted_4g3_shadow">'+
+            '<p class="voteTexted_4g3_title">郑州到北京高铁提速至时速350公里 两小时铁吗？标题标题标题标题</p>'+
+            '<p class="voteTexted_4g3_Act">'+
+            '<a href="#"><img src="../../img/PP/topic/collect.png" class="voteTexted_4g3_collect"></a>'+
+            '<a href="#"><img src="../../img/PP/topic/share.png" class="voteTexted_4g3_share"></a>'+
+            '</p>'+
+            '<p class="voteTexted_4g3_time clearFloat">投票时间：<span>2017.3.1-2017.3.31</span> ' +
+            '<span class="voteTexted_4g3_joinNum">参与人数 <span>109</span> 人</span>' +
+            '</p></div></div>'+
+            '<div class="voteTexted_4g3_newsCont">';
+            for( var i=0;i<3;i++ ){
+                textResultStr+='<p class="txtColor">郑州到北京高铁提速至时速350公里 两小时能到吗</p>';
+            }
+            textResultStr+='</div>';
+            $(".voteTexted_4g3_headAll").html(textResultStr);
+
+            //name
+            $(".voteTexted_4g3_redTitle").html('');
+            var txtResultNameStr='';
+            txtResultNameStr='郑州到北京高铁提速至时速350公里 两小时能到吗？';
+            $(".voteTexted_4g3_redTitle").html(txtResultNameStr);
+
+            //option
+            $(".voteTexted_4g3_voteResultAll").html("");
+            var voteResultAllStr='';
+            for( var i=0;i<3;i++ ){
+                voteResultAllStr+='<ul class="voteTexted_4g3_voteResult">'+
+                '<li class="voteTexted_4g3_voteNum01 txtColor">世界杯16强</li>'+
+                '<li class="voteTexted_4g3_voteMeter">'+
+                '<span></span>'+
+                '</li>'+
+                '<li class="percent titleColor">60%</li>'+
+                '</ul>';
+            }
+            $(".voteTexted_4g3_voteResultAll").html(voteResultAllStr);
+
+        }
+        function tData() {
+            $.ajax({
+                async: false,
+                cache: true,
+                type: 'post',
+                dataType: "jsonp",
+                data: {dataType: "jsonp", channelId: lhbb_id, limit: lhbb_num, Callback: Callback},  //参数
+                url: "http://192.168.31.156:8080/cmsNews/template_editor/channel_article_list_index.do",//请求的action路径
+                success: function (data) { //请求成功后处理函数。
+                }
+            });
+        }
+        function tDataCallback(data) {
+            var list = data.dataList;
+            for (var i = 0; i < list.length; i++) {
+                var str = '<p><a href="#"/>' + list[i].title + '<a><p/>';
+                $(".lh.showId").append(str);
+            }
+        }
+
+        //颜色+长度
+        //    var colorList = ["#FFFF99","#B5FF91","#94DBFF","#FFBAFF","#FFBD9D","#C7A3ED","#CC9898","#8AC007","#CCC007","#FFAD5C"],
+        var colorList = ["#fbbc05","#34a826","#4285f4","#cc3333"],
+                spans=$('.voteTexted_4g3_voteMeter>span'),
+                percent=$('.percent');
+        //voteTexted_4g3_voteMeter=$('.voteTexted_4g3_voteMeter')[0];
+        for( var i=0;i<spans.length;i++ ){
+            spans[i].style.backgroundColor=getColorByRandom(colorList);
+            //console.log( spans[i].style.backgroundColor );
+            spans[i].style.width=parseFloat($('.voteTexted_4g3_voteMeter').css('width'))/100*parseFloat(percent[i].innerHTML)+'px';
+        }
+        function getColorByRandom(colorList){
+            var colorIndex = Math.floor(Math.random()*colorList.length);
+            var color = colorList[colorIndex];
+            colorList.splice(colorIndex,1);
+            return color;
+        }
+
+    </script>
+</div>
+</div>
