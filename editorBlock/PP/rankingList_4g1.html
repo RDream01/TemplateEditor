@@ -1,222 +1,178 @@
-<!DOCTYPE html>
-<html lang="en">
-<meta charset="UTF-8">
-<title>index</title>
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="../../css/zui.min.css"/>
-<link rel="stylesheet" href="../../css/PP/PP_color01.css"/>
-<link rel="stylesheet" href="../../css/PP/PP_common.css"/>
-<!--<link rel="stylesheet" href="../css/common.Editor.css"/>-->
-<script src="../../js/jquery-1.11.3.js"></script>
-<script src="../../js/zui.min.js"></script>
-<script src="../../js/wordNumber.js"></script>
-<style>
+<div class="col-md-3 col-sm-3 appendStr rankingList_4g1" id="rankingList_4g1" data-blockSize="3">
+<div class="style" "exist">
+    <style>
+        .rankingList_top{
+            width: 228px;
+            height: 40px;
+            background:#ffffff;
+            box-shadow: 0 2px 2px 0 rgba(0,0,0,0.24);
+        }
+        .rankingList_title{
+            line-height: 40px;
+            font-size: 20px;
+            margin-left: 16px;
+        }
 
-    .rankingList_top{
-        width: 228px;
-        height: 40px;
-        background:#ffffff;
-        box-shadow: 0 2px 2px 0 rgba(0,0,0,0.24);
-    }
-    .rankingList_title{
-        line-height: 40px;
-        font-size: 20px;
-        margin-left: 16px;
-    }
+        .rankingList_title:first-letter{
+            font-size: 22px;
+        }
 
-    .rankingList_title:first-letter{
-        font-size: 22px;
-    }
+        .rankingList_li{
+            width: 228px;
+            height: 62px;
+            border-top: 1px solid #dddddd;
+        }
+        .rankingList_li_content{
+            height: 38px;
+            line-height: 19px;
+            font-size: 14px;
+            margin: 12px auto;
+        }
+        .rankingList_li_index{
+            float: left;
+            line-height: 62px;
+            width: 20px;
+        }
+        .rankingList_select{
+            border-bottom: 2px solid #cccccc;
+            border-left:1px solid #ddd;
+            border-right:1px solid #ddd;
+            height: 43px;
+            line-height: 44px;
+        }
+        .rankingList_select_option{
+            font-size: 16px;
+            display: inline-block;
+            width: 73px;
+            text-align: center;
+            height:42px;
+        }
 
-    .rankingList_li{
-        width: 228px;
-        height: 62px;
-        border-top: 1px solid #dddddd;
-    }
-    .rankingList_li_content{
-        height: 38px;
-        line-height: 19px;
-        font-size: 14px;
-        margin: 12px auto;
-    }
-    .rankingList_li_index{
-        float: left;
-        line-height: 62px;
-        margin-right: 8px;
-    }
-    .rankingList_ul{
-
-    }
-    .rankingList_select{
-        margin-top:12px;
-        border-bottom: 2px solid #cccccc;
-        height: 32px;
-    }
-
-    .rankingList_select_option{
-        line-height: 32px;
-        font-size: 16px;
-        display: inline-block;
-        width: 72px;
-        text-align: center;
-    }
-
-    .rankingList_select_option img{
-        position: relative;
-        top: -32px;
-    }
-    .rankingList ul{
-        display: none;
-    }
-</style>
-<head>
-</head>
-<body>
-<div class="Grid4g1 pageBackGroundColor rankingList">
-    <div class="rankingList_top">
-        <p class="rankingList_title titleColor fistP">点击排行</p>
-    </div>
-    <div class="rankingList_select">
-        <a href="javascript:selectOption('today')">
-                <span class="rankingList_select_option mainColor rankingList_today">今天
-                    <img src="../../img/PP/rankingList/selected.png">
-                </span>
-        </a>
-        <a href="javascript:selectOption('week')">
-                <span class="rankingList_select_option dateColor rankingList_week">本周
-                    <img src="../../img/PP/rankingList/un_selected.png">
-                </span></a>
-        <a href="javascript:selectOption('month')">
-                <span class="rankingList_select_option dateColor rankingList_month">本月
-                    <img src="../../img/PP/rankingList/un_selected.png">
-                </span></a>
-    </div>
-    <ul class="rankingList_today_ul" style="display: block;">
-        <li class="rankingList_li">
-            <p class="rankingList_li_index mainColor">1</p>
-            <p class="rankingList_li_content abstractColor">国家主席习近平同美国总统特朗普通电话国家主席习近平同美国总统特朗普通电话国家主席习近平同美国总统特朗普通电话</p>
-        </li>
-        <li class="rankingList_li">
-            <p class="rankingList_li_index mainColor">2</p>
-            <p class="rankingList_li_content abstractColor">国家主席习近平同美国总统特朗普通电话</p>
-        </li>
-        <li class="rankingList_li">
-            <p class="rankingList_li_index mainColor">3</p>
-            <p class="rankingList_li_content abstractColor">国家主席习近平同美国总统特朗普通电话</p>
-        </li>
-        <li class="rankingList_li">
-            <p class="rankingList_li_index mainColor">4</p>
-            <p class="rankingList_li_content abstractColor">国家主席习近平同美国总统特朗普通电话</p>
-        </li>
-        <li class="rankingList_li">
-            <p class="rankingList_li_index mainColor">5</p>
-            <p class="rankingList_li_content abstractColor">国家主席习近平同美国总统特朗普通电话</p>
-        </li>
-        <li class="rankingList_li">
-            <p class="rankingList_li_index mainColor">6</p>
-            <p class="rankingList_li_content abstractColor">国家主席习近平同美国总统特朗普通电话</p>
-        </li>
-        <li class="rankingList_li">
-            <p class="rankingList_li_index mainColor">7</p>
-            <p class="rankingList_li_content abstractColor">国家主席习近平同美国总统特朗普通电话</p>
-        </li>
-        <li class="rankingList_li">
-            <p class="rankingList_li_index mainColor">8</p>
-            <p class="rankingList_li_content abstractColor">国家主席习近平同美国总统特朗普通电话</p>
-        </li>
-        <li class="rankingList_li">
-            <p class="rankingList_li_index mainColor">9</p>
-            <p class="rankingList_li_content abstractColor">国家主席习近平同美国总统特朗普通电话</p>
-        </li>
-    </ul>
-    <ul class="rankingList_week_ul">
-        <li class="rankingList_li">
-            <p class="rankingList_li_index mainColor">1</p>
-            <p class="rankingList_li_content abstractColor">2国家主席习近平同美国总统特朗普通电话国家主席习近平同美国总统特朗普通电话国家主席习近平同美国总统特朗普通电话</p>
-        </li>
-        <li class="rankingList_li">
-            <p class="rankingList_li_index mainColor">2</p>
-            <p class="rankingList_li_content abstractColor">国家主席习近平同美国总统特朗普通电话</p>
-        </li>
-        <li class="rankingList_li">
-            <p class="rankingList_li_index mainColor">3</p>
-            <p class="rankingList_li_content abstractColor">国家主席习近平同美国总统特朗普通电话</p>
-        </li>
-        <li class="rankingList_li">
-            <p class="rankingList_li_index mainColor">4</p>
-            <p class="rankingList_li_content abstractColor">国家主席习近平同美国总统特朗普通电话</p>
-        </li>
-        <li class="rankingList_li">
-            <p class="rankingList_li_index mainColor">5</p>
-            <p class="rankingList_li_content abstractColor">国家主席习近平同美国总统特朗普通电话</p>
-        </li>
-        <li class="rankingList_li">
-            <p class="rankingList_li_index mainColor">6</p>
-            <p class="rankingList_li_content abstractColor">国家主席习近平同美国总统特朗普通电话</p>
-        </li>
-        <li class="rankingList_li">
-            <p class="rankingList_li_index mainColor">7</p>
-            <p class="rankingList_li_content abstractColor">国家主席习近平同美国总统特朗普通电话</p>
-        </li>
-        <li class="rankingList_li">
-            <p class="rankingList_li_index mainColor">8</p>
-            <p class="rankingList_li_content abstractColor">国家主席习近平同美国总统特朗普通电话</p>
-        </li>
-        <li class="rankingList_li">
-            <p class="rankingList_li_index mainColor">9</p>
-            <p class="rankingList_li_content abstractColor">国家主席习近平同美国总统特朗普通电话</p>
-        </li>
-    </ul>
-    <ul class="rankingList_month_ul">
-        <li class="rankingList_li">
-            <p class="rankingList_li_index mainColor">1</p>
-            <p class="rankingList_li_content abstractColor">3国家主席习近平同美国总统特朗普通电话国家主席习近平同美国总统特朗普通电话国家主席习近平同美国总统特朗普通电话</p>
-        </li>
-        <li class="rankingList_li">
-            <p class="rankingList_li_index mainColor">2</p>
-            <p class="rankingList_li_content abstractColor">国家主席习近平同美国总统特朗普通电话</p>
-        </li>
-        <li class="rankingList_li">
-            <p class="rankingList_li_index mainColor">3</p>
-            <p class="rankingList_li_content abstractColor">国家主席习近平同美国总统特朗普通电话</p>
-        </li>
-        <li class="rankingList_li">
-            <p class="rankingList_li_index mainColor">4</p>
-            <p class="rankingList_li_content abstractColor">国家主席习近平同美国总统特朗普通电话</p>
-        </li>
-        <li class="rankingList_li">
-            <p class="rankingList_li_index mainColor">5</p>
-            <p class="rankingList_li_content abstractColor">国家主席习近平同美国总统特朗普通电话</p>
-        </li>
-        <li class="rankingList_li">
-            <p class="rankingList_li_index mainColor">6</p>
-            <p class="rankingList_li_content abstractColor">国家主席习近平同美国总统特朗普通电话</p>
-        </li>
-        <li class="rankingList_li">
-            <p class="rankingList_li_index mainColor">7</p>
-            <p class="rankingList_li_content abstractColor">国家主席习近平同美国总统特朗普通电话</p>
-        </li>
-        <li class="rankingList_li">
-            <p class="rankingList_li_index mainColor">8</p>
-            <p class="rankingList_li_content abstractColor">国家主席习近平同美国总统特朗普通电话</p>
-        </li>
-        <li class="rankingList_li">
-            <p class="rankingList_li_index mainColor">9</p>
-            <p class="rankingList_li_content abstractColor">国家主席习近平同美国总统特朗普通电话</p>
-        </li>
-    </ul>
+        .rankingList_select_option img{
+            position: relative;
+            bottom: 45px;
+            width:78px;
+        }
+        .rankingList ul{
+            display: none;
+            border:1px solid #ddd;
+            border-top:none;
+        }
+    </style>
 </div>
-</body>
-<script>
-    max(".rankingList_li_content",28);
-    function selectOption(id){
-        $(".rankingList_select img").attr("src","../../img/PP/rankingList/un_selected.png");
-        $(".rankingList_select").find(".mainColor").removeClass("mainColor").addClass("dateColor");
-        $(".rankingList_"+id).removeClass("dateColor").addClass("mainColor");
-        $(".rankingList_"+id+" img").attr("src","../../img/PP/rankingList/selected.png");
-        $(".rankingList ul").css("display","none");
-        $(".rankingList_"+id+"_ul").css("display","block");
-    }
-</script>
-</html>
+
+<div class="panel appendNot" data-id="3">
+    <input type="hidden" value="点击排行" class="v_rankingList_title"/>
+    <input type="hidden" value="7" class="v_rankingList_num"/>
+    <div class="panel-heading">
+        <span class="title">点击排行</span>
+    </div>
+    <div class="panel-body">
+        <div class="Grid4g1 pageBackGroundColor rankingList appendCur">
+            <div class="rankingList_top">
+                <p class="rankingList_title titleColor fistP showId"></p>
+            </div>
+            <div class="rankingList_select">
+                <a href="javascript:selectOption('today')">
+                    <span class="rankingList_select_option mainColor rankingList_today">
+                        今天<img src="../../img/PP/rankingList/selected.png">
+                    </span>
+                </a>
+                <a href="javascript:selectOption('week')">
+                    <span class="rankingList_select_option dateColor rankingList_week">
+                        本周<img src="../../img/PP/rankingList/un_selected.png">
+                    </span>
+                </a>
+                <a href="javascript:selectOption('month')">
+                    <span class="rankingList_select_option dateColor rankingList_month">
+                        本月<img src="../../img/PP/rankingList/un_selected.png">
+                    </span>
+                </a>
+            </div>
+            <!--today-->
+            <ul class="rankingList_today_ul showId" style="display: block;"></ul>
+            <!--week-->
+            <ul class="rankingList_week_ul showId"></ul>
+            <!--mouth-->
+            <ul class="rankingList_month_ul showId"></ul>
+        </div>
+    </div>
+</div>
+<div class="resize-handle"><i class="icon icon-resize-h"></i></div>
+
+<div class="script" "exist">
+    <script>
+        var flag = "v";
+        if (flag == "v") {
+            vData()
+        } else {
+            tData();
+        }
+        function vData() {
+            //name
+            $(".appendCur .rankingList_title").html("");
+            var v_rankingList_title = $(".appendCur .v_rankingList_title").val();
+            if (v_rankingList_title != "") {
+                $(".appendCur .rankingList_title.showId").html(v_rankingList_title);
+            }
+            //ul
+            var v_rankingList_num = $(".appendCur .v_rankingList_num").val();
+            $(".appendCur .rankingList_today_ul").html("");
+            $(".appendCur .rankingList_week_ul").html("");
+            $(".appendCur .rankingList_month_ul").html("");
+            var todayStr='',weekStr='',monthStr='';
+            var title = "日防卫相访问东帝汶及印发嘎嘎地方";
+            for (var i=0;i<v_rankingList_num;i++) {
+                todayStr+='<li class="rankingList_li">'+
+                '<p class="rankingList_li_index mainColor">'+(i+1)+'</p>'+
+                '<p class="rankingList_li_content abstractColor">'+title+'</p>'+
+                '</li>';
+            }
+            $(".appendCur .rankingList_today_ul.showId").append(todayStr);
+            for (var i=0;i<v_rankingList_num;i++) {
+                weekStr+='<li class="rankingList_li">'+
+                '<p class="rankingList_li_index mainColor">'+(i+1)+'</p>'+
+                '<p class="rankingList_li_content abstractColor">'+title+'</p>'+
+                '</li>';
+            }
+            $(".appendCur .rankingList_week_ul.showId").append(weekStr);
+            for (var i=0;i<v_rankingList_num;i++) {
+                monthStr+='<li class="rankingList_li">'+
+                '<p class="rankingList_li_index mainColor">'+(i+1)+'</p>'+
+                '<p class="rankingList_li_content abstractColor">'+title+'</p>'+
+                '</li>';
+            }
+            $(".appendCur .rankingList_month_ul.showId").append(monthStr);
+        }
+        function tData() {
+            $.ajax({
+                async: false,
+                cache: true,
+                type: 'post',
+                dataType: "jsonp",
+                data: {dataType: "jsonp", channelId: lhbb_id, limit: lhbb_num, Callback: Callback},  //参数
+                url: "http://192.168.31.156:8080/cmsNews/template_editor/channel_article_list_index.do",//请求的action路径
+                success: function (data) { //请求成功后处理函数。
+                }
+            });
+        }
+        function tDataCallback(data) {
+            var list = data.dataList;
+            for (var i = 0; i < list.length; i++) {
+                var str = '<p><a href="#"/>' + list[i].title + '<a><p/>';
+                $(".lh.showId").append(str);
+            }
+        }
+//        act
+        max(".rankingList_li_content",28);
+        function selectOption(id){
+            $(".rankingList_select img").attr("src","../../img/PP/rankingList/un_selected.png");
+            $(".rankingList_select").find(".mainColor").removeClass("mainColor").addClass("dateColor");
+            $(".rankingList_"+id).removeClass("dateColor").addClass("mainColor");
+            $(".rankingList_"+id+" img").attr("src","../../img/PP/rankingList/selected.png");
+            $(".rankingList ul").css("display","none");
+            $(".rankingList_"+id+"_ul").css("display","block");
+        }
+    </script>
+</div>
+</div>

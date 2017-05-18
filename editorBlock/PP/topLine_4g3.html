@@ -1,83 +1,118 @@
-<!DOCTYPE html>
-<html lang="en">
-<meta charset="UTF-8">
-<title>index</title>
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="../../css/zui.min.css"/>
-<link rel="stylesheet" href="../../css/PP/PP_color01.css"/>
-<link rel="stylesheet" href="../../css/PP/PP_common.css"/>
-<!--<link rel="stylesheet" href="../css/common.Editor.css"/>-->
-<script src="../../js/jquery-1.11.3.js"></script>
-<script src="../../js/zui.min.js"></script>
-<script src="../../js/wordNumber.js"></script>
-<style>
-    .topLine_left{
-        width:420px;
-        height: 252px;
-    }
-    .topLine_left img{
-        width:100%
-    height:100%
-    }
+<div class="col-md-9 col-sm-9 appendStr topLine_4g3" id="topLine_4g3" data-blockSize="9">
+<div class="style" "exist">
+    <style>
+        .topLine_4g3All{
+            background:#ffffff;
+            box-shadow:0 2px 2px 0 rgba(0,0,0,0.24);
+            width:708px;
+            height:252px;
+            margin-bottom:25px;
+        }
+        .topLine_4g3All:hover{
+            transform: scale(1.01);
+            transition: transform .3s;
+        }
+        .topLine_left,.topLine_left img{
+            width:420px;
+            height: 252px;
+        }
+        .topLine_right{
+            width:288px;
+            height: 252px;
+            background: #ffffff;
+        }
+        .topLine_content{
+            width: 256px;
+            height: 120px;
+            font-size: 13px;
+            line-height: 24px;
+            margin: 11px auto 26px auto;
+        }
+        .topLine_title{
+            font-size: 19px;
+            line-height: 25px;
+            height: 50px;
+            overflow: hidden;
+            margin: 11px auto 0 auto;
+            width: 256px;
+        }
+        .topicLine_bottom{
+            width: 256px;
+            height: 14px;
+            margin: auto;
+            font-size: 14px;
+            line-height: 14px;
+        }
+        .topLine_source{
+            margin-right: 6px;
+        }
+        .topLine_count img{
+            width: 12px;
+            height: 10px;
+            margin: 0 4px 2px 8px;
+        }
+    </style>
+</div>
 
-    .topLine_right{
-        width:288px;
-        height: 252px;
-        background: #ffffff;
-    }
-    .topLine_content{
-        width: 256px;
-        height: 120px;
-        font-size: 14px;
-        line-height: 24px;
-        margin: 11px auto 26px auto;
-        font-family: MicrosoftYaHei;
-    }
-    .topLine_title{
-        font-family: MicrosoftYaHei;
-        font-size: 20px;
-        color: #333333;
-        line-height: 26px;
-        height: 52px;
-        margin: 11px auto 0px auto;
-        width: 256px;
-    }
-    .topicLine_bottom{
-        width: 256px;
-        height: 14px;
-        margin: auto;
-        font-family: MicrosoftYaHei;
-        font-size: 14px;
-        line-height: 14px;
-    }
-    .topLine_source{
-        margin-right: 8px;
-    }
-
-    .topLine_count img{
-        width: 12px;
-        height: 10px;
-        margin: 0px 4px 2px 8px;
-    }
-
-</style>
-<head>
-</head>
-<body>
-<div class="Grid4g3 pageBackGroundColor clear">
-    <div class="topLine_left lf">
-        </a><img src="../../img/PP/topLine/topLine_img.png">
+<div class="panel appendNot" data-id="3">
+    <div class="panel-heading">
+        <span class="title">内容头条</span>
     </div>
-    <div class="topLine_right lf">
-        <a><p class="topLine_title">美议员带问题而来问题而来问题而来李克强一一坦诚回应</p></a>
-        <p class="topLine_content abstractColor">中美两国元首在美国佛罗里达州的会晤刚刚结束，一个由4位联邦参议员、4位联邦众议员组成的“美国国会议员代表团”，4月10日上午来到中南海紫光阁，还带来了他们的“重磅”问题。佛罗里达州的会佛罗里达州的会</p>
-        <p class="dateColor topicLine_bottom"><span class="topLine_source">擎好网</span><span>|</span><span class="topLine_count"><img src="../../img/PP/topLine/comment_count.png"/>20</span><span class="rt">2017-4-23</span></p>
+    <div class="panel-body">
+        <div class="Grid4g3 pageBackGroundColor clear topLine_4g3All" "exist"></div>
     </div>
 </div>
-</body>
+<div class="resize-handle"><i class="icon icon-resize-h"></i></div>
+
+<div class="script" "exist">
 <script>
-    max(".topLine_title",23);
+    var flag = "v";
+    if (flag == "v") {
+        vData()
+    } else {
+        tData();
+    }
+    function vData() {
+        $(".topLine_4g3All").html("");
+        var title="美议员带问题而来问题而来问题而来李克强一一坦诚回应";
+        var content="中美两国元首在美国佛罗里达州的会晤刚刚结束，一个由4位联邦参议员、4位联邦众议员组成的“美国国会议员代表团”，4月10日上午来到中南海紫光阁，还带来了他们的“重磅”问题。佛罗里达州的会佛罗里达州的会";
+        var topLineStr='';
+        topLineStr='<div class="topLine_left lf">'+
+        '<a href="#"><img src="../../img/PP/topLine/topLine_img.png"></a>'+
+        '</div>'+
+        '<div class="topLine_right lf">'+
+        '<p class="topLine_title titleColor"><a href="#">'+title+'</a></p>'+
+        '<p class="topLine_content abstractColor">'+content+'</p>'+
+        '<p class="dateColor topicLine_bottom">'+
+        '<span class="topLine_source">擎好网</span>'+
+        '<span class="topLine_count">&nbsp;|&nbsp;<img src="../../img/PP/topLine/comment_count.png"/>20</span>'+
+        '<span class="rt">2017-4-23</span>'+
+        '</p>'+
+        '</div>';
+        $(".topLine_4g3All").html(topLineStr);
+    }
+    function tData() {
+        $.ajax({
+            async: false,
+            cache: true,
+            type: 'post',
+            dataType: "jsonp",
+            data: {dataType: "jsonp", channelId: lhbb_id, limit: lhbb_num, Callback: Callback},  //参数
+            url: "http://192.168.31.156:8080/cmsNews/template_editor/channel_article_list_index.do",//请求的action路径
+            success: function (data) { //请求成功后处理函数。
+            }
+        });
+    }
+    function tDataCallback(data) {
+        var list = data.dataList;
+        for (var i = 0; i < list.length; i++) {
+            var str = '<p><a href="#"/>' + list[i].title + '<a><p/>';
+            $(".lh.showId").append(str);
+        }
+    }
+
+    max(".topLine_title a",23);
     max(".topLine_content",85);
 </script>
-</html>
+</div>
+

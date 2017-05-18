@@ -524,8 +524,10 @@ nav,#banner,section,footer{
     border-bottom: 4px solid #cc3333;
 }
 
-
-
+/*____________hotVoteList_4g1__________*/
+.hotVoteList_li_content{
+    background: #eeeeee;
+}
 
 
 
