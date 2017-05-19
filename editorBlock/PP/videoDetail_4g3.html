@@ -52,11 +52,7 @@
             width:100%;
             height:100%;
         }
-
-
-
-
-
+        /* 相关推荐+评论 */
         .videoDetail_4g3_newsCont p{
             font-size:14px;
             text-indent: 2em;
@@ -334,6 +330,7 @@
     }
 
     function vData() {
+        //相关推荐+评论 start
         var  v_videoDetail_4g3_is_recommend = $(".appendCur .v_videoDetail_4g3_is_recommend").val();
         if(v_videoDetail_4g3_is_recommend == "yes"){
             $(".videoDetail_4g3_recommend").css("display","block");
@@ -387,6 +384,7 @@
         }
 
         $(".appendCur .videoDetail_4g3_discuss_list ul").append(str);
+        //相关推荐+评论 end
 
         //面包屑导航
         $(".videoDetail_4g3_bread").html("");
