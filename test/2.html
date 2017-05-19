@@ -1,736 +1,111 @@
 <!DOCTYPE html>
-<html class="screen-desktop-wide device-desktop"><head lang="en">
+<html>
+<head lang="en">
     <meta charset="UTF-8">
     <title>index</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../css/zui.css">
-    <link rel="stylesheet" href="../css/editor.css">
-    <link rel="stylesheet" href="../css/zui.dashboard.Editor.css">
-    <link rel="stylesheet" href="../css/common.Editor.css">
-    <link rel="stylesheet" href="../css/common_red.css">
+    <link rel="stylesheet" href="../css/zui.css"/>
+    <!--<link rel="stylesheet" href="../css/editor.css"/>-->
+    <!--<link rel="stylesheet" href="../css/zui.dashboard.Editor.css"/>-->
+    <link rel="stylesheet" href="../css/common_red.css"/>
+    <link id="templateColorLink" rel="stylesheet" href=""/>
     <script src="../js/respond.js"></script>
+    <script src="../js/jquery-1.11.3.js"></script>
+    <style>
+        .remtThreeImg_4g3_head{
+            width: 540px;
+            margin-left: 84px;
+        }
+        .remtThreeImg_4g3_title{
+            font-size:16px;
+            text-align:left;
+            margin-top: 24px;
+            /*border-bottom: 2px solid #dddddd;*/
+            padding-bottom: 6px;
+        }
+        .remtThreeImg_4g3_redLine{
+            width: 70px;
+            height: 4px;
+            /*border-bottom: 4px solid #cc3333;*/
+            padding-bottom: 8px;
+        }
+        .remtThreeImg_4g3_list{
+            width: 540px;
+            margin-left: 84px;
+        }
+        .remtThreeImg_4g3_list li{
+            float: left;
+        }
+        .list_interval{
+            margin-left: 8px;
+        }
+        .remtThreeImg_4g3_listimg{
+            margin-top: 12px;
+            width: 172px;
+            height: 104px;
+        }
+        .remtThreeImg_4g3_listTitle{
+            margin-top: 6px;
+            width: 172px;
+            height: 38px;
+            font-size:14px;
+            text-align:left;
+            overflow: hidden;
+        }
+    </style>
 </head>
-<body class="">
-
-<!-- 新建模板 -->
-<div class="modal fade myModal" id="modalNewEditor">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <p class="modelTitle">新建模板</p>
-            <div class="modalOption">
-                <!--模板名称-->
-                <p class="modalAct"><input type="text" placeholder="输入模板名称（可输入24个汉字）"></p>
-                <!--选择模板类型-->
-                <div class="modalCon">
-                    <p class="modalSelect modalAct"><span>选择模板类型</span><i class="icon icon-chevron-down"></i></p>
-                    <div class="modalAlter">
-                        <p class="modalTxt "><i class="icon"></i><span>选择模板类型</span></p>
-                        <p class="modalTxt "><i class="icon"></i><span>模板类型1</span></p>
-                        <p class="modalTxt"><i class="icon"></i><span>模板类型2</span></p>
-                        <p class="modalTxt"><i class="icon"></i><span>+ 新建模板类型</span></p>
-                    </div>
-                </div>
-                <!--选择界面风格-->
-                <div class="modalCon">
-                    <p class="modalSelect modalAct"><span>选择界面风格</span><i class="icon icon-chevron-down"></i></p>
-                    <div class="modalAlter">
-                        <p class="modalTxt "><i class="icon"></i><span>选择界面风格</span></p>
-                        <p class="modalTxt "><i class="icon"></i><span>界面风格1</span></p>
-                        <p class="modalTxt"><i class="icon"></i><span>界面风格2</span></p>
-                    </div>
-                </div>
-                <!--选择栅格系统-->
-                <div class="modalCon">
-                    <p class="modalSelect modalAct"><span>选择栅格系统</span><i class="icon icon-chevron-down"></i></p>
-                    <div class="modalAlter">
-                        <p class="modalTxt modalGrid">
-                            <i class="icon"></i><img src="../img/editor/gird_3.png" alt=""><span>1:1:1</span>
-                        </p>
-                        <p class="modalTxt modalGrid">
-                            <i class="icon"></i><img src="../img/editor/gird_4.png" alt=""><span>1:1:1:1</span>
-                        </p>
-                    </div>
-                </div>
-                <!--选择页面布局-->
-                <div class="modalCon"><p class="modalSelect modalAct"><span>选择页面布局</span><i class="icon icon-chevron-down"></i></p><div class="modalAlter"><p class="modalTxt modalLayout"><img src="../img/editor/layout01.png" alt=""><span>界面布局1</span></p><p class="modalTxt modalImg modalLayout"><img src="../img/editor/layout02.png" alt=""><span>界面布局2</span></p><p class="modalTxt modalImg modalLayout"><img src="../img/editor/layout03.png" alt=""><span>界面布局3</span></p><p class="modalTxt modalImg modalLayout"><img src="../img/editor/layoutNew.png" alt=""><span>自定义布局</span></p></div></div>
-                <!--选择界面配色-->
-                <div class="modalCon">
-                    <p class="modalSelect modalAct"><span>选择栅格系统</span><i class="icon icon-chevron-down"></i></p>
-                    <div class="modalAlter">
-                        <p class="modalTxt modalColor">
-                            <i class="icon"></i><img src="../img/editor/color_red.png" alt=""><span>红</span>
-                        </p>
-                        <p class="modalTxt modalColor">
-                            <i class="icon"></i><img src="../img/editor/color_yellow.png" alt=""><span>黄</span>
-                        </p>
-                        <p class="modalTxt modalColor">
-                            <i class="icon"></i><img src="../img/editor/color_blue.png" alt=""><span>蓝</span>
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <p class="modalBottom">
-                <span class="modalCancel" data-dismiss="modal">取消</span>
-                <span class="modalConfirm">确认</span>
+<body>
+    <div class="Grid4g3 appendCur">
+        <input type="hidden" class="v_remtThreeImg_4g3_num" value="6" align="center"/>
+        <input type="hidden" class="v_remtThreeImg_4g3_redLine" value="相关推荐"/>
+        <div class="remtThreeImg_4g3_head">
+            <p class="remtThreeImg_4g3_title mainColor">
+                <span class="remtThreeImg_4g3_redLine"></span>
             </p>
         </div>
-    </div>
-</div>
-<!-- 导入模板 -->
-<div class="modal fade myModal" id="modalLeadIn">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <p class="modelTitle">新建模板</p>
-            <div class="modalOption">
-                <!--选择模板类型-->
-                <div class="modalCon">
-                    <p class="modalSelect modalAct"><span>选择模板类型</span><i class="icon icon-chevron-down"></i></p>
-                    <div class="modalAlter">
-                        <p class="modalTxt "><i class="icon"></i><span>选择模板类型</span></p>
-                        <p class="modalTxt "><i class="icon"></i><span>模板类型1</span></p>
-                        <p class="modalTxt"><i class="icon"></i><span>模板类型2</span></p>
-                        <p class="modalTxt"><i class="icon"></i><span>+ 新建模板类型</span></p>
-                    </div>
-                </div>
-                <!--选择界面风格-->
-                <div class="modalCon">
-                    <p class="modalSelect modalAct"><span>选择要导入的模板</span><i class="icon icon-chevron-down"></i></p>
-                    <div class="modalAlter">
-                        <p class="modalTxt "><i class="icon"></i><span>选择要导入的模板</span></p>
-                        <p class="modalTxt "><i class="icon"></i><span>导入1</span></p>
-                        <p class="modalTxt"><i class="icon"></i><span>导入2</span></p>
-                        <p class="modalTxt"><i class="icon"></i><span>导入2</span></p>
-                        <p class="modalTxt"><i class="icon"></i><span>导入2</span></p>
-                        <p class="modalTxt"><i class="icon"></i><span>导入2</span></p>
-                        <p class="modalTxt"><i class="icon"></i><span>导入2</span></p>
-                        <p class="modalTxt"><i class="icon"></i><span>导入2</span></p>
-                        <p class="modalTxt"><i class="icon"></i><span>导入2</span></p>
-                        <p class="modalTxt"><i class="icon"></i><span>导入2</span></p>
-                        <p class="modalTxt"><i class="icon"></i><span>导入2</span></p>
-                        <p class="modalTxt"><i class="icon"></i><span>导入2</span></p>
-                        <p class="modalTxt"><i class="icon"></i><span>导入2</span></p>
-                        <p class="modalTxt"><i class="icon"></i><span>导入2</span></p>
-                    </div>
-                </div>
-            </div>
-            <p class="modalBottom">
-                <span class="modalCancel" data-dismiss="modal">取消</span>
-                <span class="modalConfirm">确认</span>
-            </p>
+        <div class="remtThreeImg_4g3_list">
+            <ul class="clearFloat showId"></ul>
         </div>
     </div>
-</div>
-<!--删除模板-->
-<div class="modal fade myModal" id="modalDelete">
-    <div class="modal-dialog modal-sm">
-        <div class="modal-content">
-            <div class="modalOption">
-                <p class="modalContent">确定要删除当前编辑模板（包含当前编辑的所有组件）吗？</p>
-            </div>
-            <p class="modalBottom">
-                <span class="modalCancel" data-dismiss="modal">取消</span>
-                <span class="modalConfirm" id="deleteModuleBtn">确认</span>
-            </p>
-        </div>
-    </div>
-</div>
-<!--删除组件-->
-<div class="modal myModal fade" id="partDelete" aria-hidden="true" style="display: none;">
-    <div class="modal-dialog modal-sm" style="margin-top: 40.6667px;">
-        <div class="modal-content">
-            <div class="modalOption">
-                <p class="modalContent">确定要删除当前控件吗？</p>
-            </div>
-            <p class="modalBottom">
-                <span class="modalCancel" data-dismiss="modal">取消</span>
-                <span class="modalConfirm" id="deleteBlockBtn">确认</span>
-            </p>
-        </div>
-    </div>
-</div>
-<!--删除组合框-->
-<div class="modal myModal fade" id="groupDelete">
-    <div class="modal-dialog modal-sm">
-        <div class="modal-content">
-            <div class="modalOption">
-                <p class="modalContent">确定要删除此组件框（包含其中所有组件）吗？？</p>
-            </div>
-            <p class="modalBottom">
-                <span class="modalCancel" data-dismiss="modal">取消</span>
-                <span class="modalConfirm" id="groupBlockBtn">确认</span>
-            </p>
-        </div>
-    </div>
-</div>
 
-<!--header-->
-<div class="editorIndexHeader">
-    <!--left-->
-    <p class="editorAct">
-        <span data-position="fit" data-toggle="modal" data-target="#modalNewEditor">
-            <img src="../img/editor/addEditor.png" alt="" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="新建模板">
-        </span>
-        <span data-position="fit" data-toggle="modal" data-target="#modalLeadIn">
-            <img src="../img/editor/leadingIn.png" alt="" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="导入模板">
-        </span>
-    </p>
-    <!--模板编辑器-->
-    <p class="editorTxt">模板编辑器</p>
-    <!--right-->
-    <p class="editorAct homePageAct">
-        <span data-position="fit" data-toggle="modal" data-target="#modalDelete">
-            <img src="../img/editor/deleteEditorIcon.png" alt="" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="删除模板">
-        </span>
-        <span onclick="SaveDraft()">
-            <img src="../img/editor/draft.png" alt="" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="存为草稿"><div class="tooltip fade bottom in" style="top: 44.6667px; left: 33.6146px; display: block;"><div class="tooltip-arrow"></div><div class="tooltip-inner">存为草稿</div></div>
-        </span>
-        <span id="keep">
-            <img src="../img/editor/keepIcon.png" alt="" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="保存文件">
-        </span>
-        <span id="preview" class="preview">
-            <img src="../img/editor/previewIcon.png" alt="" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="预览文件">
-        </span>
-    </p>
-</div>
-
-
-<!--section-->
-<div class="indexAll">
-    <div class="row" id="multiDroppableContainer" style="position: static;">
-        <!--left--组件-->
-        <div class="col-xs-2 partAll" id="partAll" style="height: 550px;">
-            <!--模块布局-->
-            <div class="layoutImgAll">
-                <p class="widget widgetP" data-toggle="collapse" data-target="#collapseExample">
-                    模块布局<i class="icon-2x icon-sort-down"></i>
-                </p>
-                <div class="collapse in" id="collapseExample">
-                    <div class="with-padding">
-                        <p onclick="importGroupDiv('1')" class="secPart layoutImg" id="groupDiv1">
-                            <img src="../img/editor/layout_3g1.png" alt="">
-                        </p>
-                        <p onclick="importGroupDiv('2')" class="secPart layoutImg" id="groupDiv2">
-                            <img src="../img/editor/layout_3g2.png" alt="">
-                        </p>
-                        <p onclick="importGroupDiv('3')" class="secPart layoutImg" id="groupDiv3">
-                            <img src="../img/editor/layout_3g3.png" alt="">
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <!--所有组件-->
-            <div class="module">
-                <!--组件库-->
-                <div class="widget widgetDiv">
-                    <p>组件库</p>
-                    <select class="form-control partSelect" onchange="blockLeftList(this,'')">
-                        <option value="">所有类型</option>
-                        <option value="undefined">undefined</option><option value="undefined">undefined</option><option value="undefined">undefined</option><option value="undefined">undefined</option><option value="undefined">undefined</option><option value="undefined">undefined</option><option value="undefined">undefined</option><option value="undefined">undefined</option></select>
-                </div>
-                <!--组件分类-->
-                <div class="partClassify"><div class="partOption" id="advBlock"><p class="partOptionTitle">广告</p><div class="with-padding"><p class="partImg secPart btn-droppable drop-in" data-blockid="adv_3g2" data-blocksize="3g1,3g2,3g3" id="adv_3g2"><img src="../img/editor/part01.png" alt=""><span>广告3g2</span></p></div></div><div class="partOption" id="listBlock"><p class="partOptionTitle">列表</p><div class="with-padding"><p class="partImg secPart btn-droppable" data-blockid="clickRanking_3g1" data-blocksize="3g1" id="clickRanking_3g1"><img src="../img/editor/part01.png" alt=""><span>新闻排行榜</span></p><p class="partImg secPart btn-droppable" data-blockid="hotTopic_3g1" data-blocksize="3g1" id="hotTopic_3g1"><img src="../img/editor/part01.png" alt=""><span>话题list</span></p><p class="partImg secPart btn-droppable drop-in" data-blockid="lhbb_3g1" data-blocksize="3g1" id="lhbb_3g1"><img src="../img/editor/part01.png" alt=""><span>利好播报</span></p><p class="partImg secPart btn-droppable drop-in" data-blockid="listGroupImage_3g2" data-blocksize="3g2" id="listGroupImage_3g2"><img src="../img/editor/part01.png" alt=""><span>组图list</span></p><p class="partImg secPart btn-droppable" data-blockid="listHor_3g2" data-blocksize="3g2" id="listHor_3g2"><img src="../img/editor/part01.png" alt=""><span>新闻列表</span></p></div></div><div class="partOption" id="footerBlock"><p class="partOptionTitle">底部</p><div class="with-padding"><p class="partImg secPart btn-droppable" data-blockid="footer01_3g3" data-blocksize="3g3" id="footer01_3g3"><img src="../img/editor/part01.png" alt=""><span>底部</span></p></div></div><div class="partOption" id="headerBlock"><p class="partOptionTitle">头部</p><div class="with-padding"><p class="partImg secPart btn-droppable" data-blockid="header01_3g3" data-blocksize="3g3" id="header01_3g3"><img src="../img/editor/part01.png" alt=""><span>头部</span></p></div></div></div>
-            </div>
-            <!--查找-->
-            <div class="widgetBottom">
-                <p class="widgetFixed">
-                    <input type="search" id="searchPart" placeholder="查找组件" onchange="blockLeftList('',this)">
-                    <label for="searchPart"><a href="#"><img src="../img/editor/searchPart.png" alt=""></a></label>
-                </p>
-            </div>
-        </div>
-
-        <!--center--main-->
-        <div class="col-xs-8 main " style="width: 820px; height: 550px;">
-            <!--header-->
-            <div class="editorHeader">
-
-            </div>
-            <!--section-->
-            <div class="editorBlock container">
-                <div class="newSection dashboard dashboard-draggable">
-                    <div class="row haha mainCanvas list-group" id="sortableList"><div class="col-xs-12 row groupDiv list-group-item droppable-target" data-groupsize="12" style="min-height:100px;" data-groupshowid="3group0" data-order="0"><div data-trigger="sortArea" class="sortArea col-md-12 col-sm-12"><span class="area-name">组合框3，</span>拖拽我--3<span class="deleteGroup" onclick="openGroupConfirm(this)">X</span></div><div class="col-md-12 col-sm-12 firstLocation" id="groupDiv" style="position:absolute;z-index:-1"><div class="panel" id="panel1" data-id="1"><div class="panel-heading"><span class="title"></span></div><div class="panel-body"></div></div></div>
-
-                        <div class="appendStr listGroupImage_3g2 col-md-8 col-sm-8" name="listGroup" id="listGroupImage_3g2" data-blocksize="8" data-showid="listGroupImage_3g2_1_3group0" data-size="3g2">
-
-                            <div class="style">
-                                <style>
-                                    .listGroupAll{
-                                        width:632px;
-                                    }
-                                    .clearFloat:after{content:"";display: block;clear: both;}
-                                    .listGroupImage_top{width: 632px;height: 48px;}
-                                    .listGroupImage_top_left{float: left;}
-                                    .listGroupImage_top_leftRed{
-                                        font-size: 20px;line-height:22px; text-align:left;margin-top: 13px;padding-left: 15px;
-                                    }
-                                    .listGroupImage_top_right{float: right}
-                                    .listGroupImage_top_right li{
-                                        float: left;margin-top: 17px;margin-right:16px;margin-left: 12px;
-                                    }
-                                    .listGroupMore{
-                                        padding-right:16px;padding-left: 12px;
-                                    }
-                                    .listGroupMore,.listGroupImage_top_right ul{
-                                        display: inline-block;
-                                        vertical-align: bottom;
-                                    }
-                                    .listGroupImage_list_body{
-                                        width: 632px;
-                                        margin-top: 11px; }
-                                    .listGroupImage_vertical{
-                                        display: block;float: left;width: 192px;height: 189px;margin-left: 16px;margin-top: 16px;
-                                    }
-                                    .listGroupImage_vertical_image{width: 192px;height: 116px;}
-                                    .listGroupImage_vertical_title{
-                                        width: 192px;height: 44px;font-size:16px;  letter-spacing:0; text-align:left;
-                                    }
-                                    .listGroupImage-vertical-action{
-                                        display:inline-block;margin-bottom: 0px; font-size: 12px;
-                                        letter-spacing:0; text-align:left;width: 48%;margin-top: 10px;
-                                    }
-                                    .listGroupImage-vertical-action1{
-                                        display:inline-block;margin-bottom: 0px;
-                                        font-size: 12px;  letter-spacing:0; text-align:right;width: 50%;margin-top: 10px;
-                                    }
-                                    .listGroupImage-image{position: relative;}
-                                    .listGroupImage-image_shadow{
-                                        position: absolute; opacity:0.4;
-                                        width:192px;
-                                        height:21px;left: 0px;bottom: 0px;
-                                    }
-                                    .listGroupImage-imageNum{position: absolute;width: 192px;height: 21px;left: 0px;bottom: 0px;}
-                                    .listGroupImage-imageNumtext{
-                                        font-size:12px;
-                                        letter-spacing:0;
-                                        height:17px;
-                                        vertical-align: middle;
-                                    }
-                                    .listGroupImage{
-                                        width: 15px;
-                                        vertical-alignt: middle;
-                                        padding-bottom: 3px;
-                                        margin-right:3px;
-                                    }
-                                    .listGroupBar{
-                                        padding:0 5px;
-                                    }
-                                </style>
-                            </div>
-
-                            <div class="panel appendNot" data-id="listGroupImage_3g2_1_3group0">
-                                <input type="hidden" class="v_listGroupImage_name" value="组图列表">
-                                <input type="hidden" class="v_listGroupImage_num" value="3">
-                                <input type="hidden" class="v_listGroupImage_radio" value="Y">
-                                <!--<input type="hidden" class="v_colAct_num" value="3"/>-->
-                                <div class="panel-heading">
-                                    <span class="title">列表1</span>
-                                </div>
-                                <div class="panel-body">
-                                    <div class="listGroupAll">
-                                        <div class="listGroupImage_top clearFloat">
-                                            <div class="listGroupImage_top_left">
-                                                <p class="listGroupImage_top_leftRed column_name ">组图列表</p>
-                                            </div>
-                                            <div class="listGroupImage_top_right">
-                                                <!--<ul class="listGroupAct  clearFloat">
-
-                                                </ul>
-                                                <span class="listGroupMore">|</span>-->
-                                                <span class="listGroupMore"><a href="#">更多</a></span>
-                                            </div>
-                                        </div>
-                                        <div class="listGroupImage_list_body clearFloat "><div class="listGroupImage_vertical"> <dl class="listGroupImage_vertical_image"> <dt class="listGroupImage-image"> <a href="#"> <img src="../img/listGroupImage_3g2/tiger.jpg"> <p class="listGroupImage-image_shadow"></p> <p class="listGroupImage-imageNum"> <img src="../img/listGroupImage_3g2/imageNum.png" style="width: 13px;height: 12px;margin-bottom: 3px;margin-left: 8px"> <span class="listGroupImage-imageNumtext">11张</span> </p> </a> </dt><dd><p class="listGroupImage_vertical_title">日防卫相访问东帝汶及印发嘎嘎</p><p> <span class="listGroupImage-vertical-action">擎好网<span class="listGroupBar"> | </span><img src="../img/listGroupImage_3g2/commentImg.png" class="listGroupImage">20</span><span class="listGroupImage-vertical-action1">2017-03-20</span></p> </dd> </dl> </div><div class="listGroupImage_vertical"> <dl class="listGroupImage_vertical_image"> <dt class="listGroupImage-image"> <a href="#"> <img src="../img/listGroupImage_3g2/tiger.jpg"> <p class="listGroupImage-image_shadow"></p> <p class="listGroupImage-imageNum"> <img src="../img/listGroupImage_3g2/imageNum.png" style="width: 13px;height: 12px;margin-bottom: 3px;margin-left: 8px"> <span class="listGroupImage-imageNumtext">11张</span> </p> </a> </dt><dd><p class="listGroupImage_vertical_title">日防卫相访问东帝汶及印发嘎嘎</p><p> <span class="listGroupImage-vertical-action">擎好网<span class="listGroupBar"> | </span><img src="../img/listGroupImage_3g2/commentImg.png" class="listGroupImage">20</span><span class="listGroupImage-vertical-action1">2017-03-20</span></p> </dd> </dl> </div><div class="listGroupImage_vertical"> <dl class="listGroupImage_vertical_image"> <dt class="listGroupImage-image"> <a href="#"> <img src="../img/listGroupImage_3g2/tiger.jpg"> <p class="listGroupImage-image_shadow"></p> <p class="listGroupImage-imageNum"> <img src="../img/listGroupImage_3g2/imageNum.png" style="width: 13px;height: 12px;margin-bottom: 3px;margin-left: 8px"> <span class="listGroupImage-imageNumtext">11张</span> </p> </a> </dt><dd><p class="listGroupImage_vertical_title">日防卫相访问东帝汶及印发嘎嘎</p><p> <span class="listGroupImage-vertical-action">擎好网<span class="listGroupBar"> | </span><img src="../img/listGroupImage_3g2/commentImg.png" class="listGroupImage">20</span><span class="listGroupImage-vertical-action1">2017-03-20</span></p> </dd> </dl> </div></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="resize-handle"><i class="icon icon-resize-h"></i></div>
-
-
-
-
-                        <div class="script">
-                            <script>
-                                var flag="v";
-                                if(flag == "v"){
-                                    vData_listGroupImage_3g2_1_3group0()
-                                }else{
-
-                                    tData();
-                                }
-
-                                function vData_listGroupImage_3g2_1_3group0(){
-                                    $(".appendCur .listGroupImage_list_body").html("");//   .lh   是你要改数据的div
-                                    //$(".appendCur .listGroupAct").html("");//   .lh   是你要改数据的div
-                                    var v_listGroupImage_name=$(".appendCur .v_listGroupImage_name").val();
-                                    if(v_listGroupImage_name!=""){
-                                        $(".appendCur .column_name").html(v_listGroupImage_name);
-                                    }
-                                    var v_listGroupImage_num=$(".appendCur .v_listGroupImage_num").val();
-                                    var v_listGroupImage_radio=$(".appendCur .v_listGroupImage_radio").val();
-                                    var title="日防卫相访问东帝汶及印发嘎嘎";
-                                    for(var i=0;i<v_listGroupImage_num;i++){
-                                        var str= '<div class="listGroupImage_vertical"> '+
-                                                '<dl class="listGroupImage_vertical_image"> ' +
-                                                '<dt class="listGroupImage-image"> <a href="#"> <img src="../img/listGroupImage_3g2/tiger.jpg" > ' +
-                                                '<p class="listGroupImage-image_shadow" ></p> <p class="listGroupImage-imageNum"> ' +
-                                                '<img src="../img/listGroupImage_3g2/imageNum.png" style="width: 13px;height: 12px;margin-bottom: 3px;margin-left: 8px"> ' +
-                                                '<span class="listGroupImage-imageNumtext">11张</span> </p > </a>'+
-                                                ' </dt><dd><p class="listGroupImage_vertical_title">'+title+'</p>' +
-                                                '<p> <span class="listGroupImage-vertical-action">擎好网';
-                                        if(v_listGroupImage_radio == 'Y'){
-                                            str += '<span class="listGroupBar"> | </span>';
-                                            str += '<img src="../img/listGroupImage_3g2/commentImg.png" class="listGroupImage"/>20';
-                                        }
-                                        str += '</span><span class="listGroupImage-vertical-action1">2017-03-20</span></p> ' +
-                                        '</dd> ' +
-                                        '</dl>' +
-                                        ' </div>';
-                                        $(".appendCur .listGroupImage_list_body").append(str);
-                                    }
-
-//            var actTitle="好消息";
-//            var v_colAct_num=$(".appendCur .v_colAct_num").val();
-//            for( var i=0;i<v_colAct_num;i++ ){
-//                var str=" <li><a>"+actTitle+"</a></li>";
-//                $(".appendCur .listGroupAct").append(str);
-//            }
-                                }
-
-                                function tData(){
-                                    var lhbb_id="";
-                                    var lhbb_num="";
-                                    $.ajax({
-                                        async : false,
-                                        cache:true,
-                                        type: 'post',
-                                        dataType : "jsonp",
-                                        data:{dataType:"jsonp",channelId:lhbb_id,limit:lhbb_num},  //参数
-                                        url:"http://192.168.31.2/demo_data/channel_article_list_index.do",//请求的action路径
-                                        success:function(data){ //请求成功后处理函数。
-                                        }
-                                    });
-                                }
-                                //返回的真实数据
-                                function tDataCallback(data){
-                                    var list = data.dataList;
-                                    for(var i=0; i<list_3g2.length; i++ ){
-                                        var str='<p><a href="#"></a>'+list_3g2[i].title+'<a><p></p>';
-                                        $(" .lh.").append(str);
-                                    }
-                                }
-                            </script>
-                        </div>
-
-                        <div class="appendStr lhbb_3g1 col-md-4 col-sm-4" name="listGroup" id="lhbb_3g1" data-blocksize="4" data-showid="lhbb_3g1_2_3group0" data-size="3g1">
-
-                            <!--<div>X</div>-->
-                            <div class="style">
-                                <style>
-                                    .hot {
-                                        margin-bottom: 50px;
-                                        width: 308px;
-                                    }
-
-                                    .hot > div.hot_top {
-                                        border-bottom: 1px solid #E7E9ED;
-                                        padding: 0 10px 3px 10px;
-                                        overflow: hidden;
-                                        margin-top: -3px;
-                                    }
-
-                                    .hot > div.hot_top > p:first-child {
-                                        font-size: 18px;
-                                        color: #cc3333;
-                                    }
-
-                                    .hot > div.hot_top > p:last-child {
-                                        position: relative;
-                                        width: 50px;
-                                        height: 20px;
-                                    }
-
-                                    .hot > div.hot_top > p:last-child > a {
-                                        position: absolute;
-                                        bottom: -6px;
-                                        font-size: 14px;
-                                        color: #999;
-                                        letter-spacing: 0.42px;
-                                    }
-
-                                    .hot > div.hot_top > p:last-child > a:hover {
-                                        color: #c33;
-                                    }
-
-                                    /*利好播报*/
-                                    .lh > p {
-                                        margin: 10px 0 0px 20px;
-                                    }
-
-                                    .lh > p > a {
-                                        line-height: 26px;
-                                        font-size: 16px;
-                                        color: #333;
-                                    }
-
-                                    .li_back {
-                                        margin-top: 10px;
-                                        position: relative;
-                                    }
-
-                                    .li_zi {
-                                        position: absolute;
-                                        top: 80px;
-                                        right: 50px;
-                                        color: #fff;
-                                        font-size: 16px;
-                                    }
-
-                                    .li_back img {
-                                        width: 295px;
-                                    }
-                                </style>
-                            </div>
-
-                            <div class="panel" data-id="lhbb_3g1_2_3group0">
-                                <!--<input type="hidden" id="myId" value="lhbb" class="myId"/>-->
-                                <input type="hidden" class="v_lhbb_name" value="利好播报">
-                                <input type="hidden" class="v_lhbb_num" value="6">
-
-                                <div class="panel-heading">
-                                    <span class="title">列表1</span>
-                                </div>
-                                <div class="panel-body">
-                                    <!--利好播报-->
-                                    <div class="hot">
-                                        <div class="hot_top">
-                                            <p class="lf">利好播报</p>
-
-                                            <p class="rt"><a href="#">更多&gt;</a></p>
-                                        </div>
-                                        <p class="li_back">
-                                            <img src="../img/section/li_back_01.png" alt="">
-                                            <span class="li_zi">2016.09.12</span>
-                                        </p>
-
-                                        <div class="lh "><p><a href="#"></a>日防卫相访问东帝汶及印发嘎嘎地方<a></a></p><p></p><p><a href="#"></a>日防卫相访问东帝汶及印发嘎嘎地方<a></a></p><p></p><p><a href="#"></a>日防卫相访问东帝汶及印发嘎嘎地方<a></a></p><p></p><p><a href="#"></a>日防卫相访问东帝汶及印发嘎嘎地方<a></a></p><p></p><p><a href="#"></a>日防卫相访问东帝汶及印发嘎嘎地方<a></a></p><p></p><p><a href="#"></a>日防卫相访问东帝汶及印发嘎嘎地方<a></a></p><p></p></div>
-                                    </div>
-                                </div>
-                                <div class="resize-handle"><i class="icon icon-resize-h"></i></div>
-
-                                <div class="script">
-                                    <script>
-                                        var flag = "v";
-                                        if (flag == "v") {
-                                            vData_lhbb_3g1_2_3group0()
-                                        } else {
-                                            var lhbb_name = "";
-                                            if (lhbb_name != "") {
-                                                $(".lhbb_name.").html(lhbb_name);
-                                            }
-                                            tData();
-                                        }
-
-                                        function vData_lhbb_3g1_2_3group0() {
-                                            $(".appendCur .lh").html("");
-                                            var v_lhbb_name = $(".appendCur .v_lhbb_name").val();
-                                            if (v_lhbb_name != "") {
-                                                $(".appendCur #lhbb_name").html(v_lhbb_name);
-                                            }
-                                            var v_lhbb_num = $(".appendCur .v_lhbb_num").val();
-
-                                            var title = "日防卫相访问东帝汶及印发嘎嘎地方";
-                                            for (var i = 0; i < v_lhbb_num; i++) {
-//                        var str='&lt;p&gt;&lt;a href="#"/&gt;'+title+'&lt;a/&gt;&lt;p/&gt;';
-                                                var str = '<p><a href="#"></a>' + title + '<a><p></p>';
-                                                $(".appendCur .lh").append(str);
-                                            }
-                                        }
-                                        function tData() {
-                                            var lhbb_id = "";
-                                            var lhbb_num = "";
-                                            var Callback = "tData";
-//        若有默认值
-                                            if(lhbb_num == ""){
-                                                lhbb_num = "5";
-                                            }
-                                            $.ajax({
-                                                async: false,
-                                                cache: true,
-                                                type: 'post',
-                                                dataType: "jsonp",
-                                                data: {dataType: "jsonp", channelId: lhbb_id, limit: lhbb_num, Callback: Callback},  //参数
-                                                url: "http://192.168.31.156:8080/cmsNews/template_editor/channel_article_list_index.do",//请求的action路径
-                                                success: function (data) { //请求成功后处理函数。
-                                                }
-                                            });
-                                        }
-                                        function tDataCallback(data) {
-                                            var list = data.dataList;
-                                            for (var i = 0; i < list.length; i++) {
-//                        var str='&lt;p&gt;&lt;a href="#"/&gt;'+list[i].title+'&lt;a/&gt;&lt;p/&gt;';
-                                                var str = '<p><a href="#"></a>' + list[i].title + '<a><p></p>';
-                                                $(".lh.").append(str);
-                                            }
-                                        }
-                                    </script>
-                                </div>
-                            </div>
-
-
-
-                        </div></div></div>
-                </div>
-            </div>
-            <!--footer-->
-            <div class="editorFooter">
-
-            </div>
-
-            <!--撤销，全屏-->
-            <div class="mainAct">
-                <p class="editorAct">
-                    <span onclick="undo()">
-                        <img src="../img/editor/prevIcon.png" alt="" data-toggle="tooltip" data-placement="top" title="" data-original-title="上一步">
-                    </span>
-                    <span onclick="redo()">
-                        <img src="../img/editor/nextIcon.png" alt="" data-toggle="tooltip" data-placement="top" title="" data-original-title="下一步">
-                    </span>
-                </p>
-                <p class="editorAct homePageAct">
-                    <span>
-                        <img src="../img/editor/fullScreen.png" class="fullScreen" data-toggle="tooltip" data-placement="top" title="" data-original-title="全屏操作">
-                    </span>
-                </p>
-            </div>
-        </div>
-
-        <!--right--属性-->
-        <div class="col-xs-2 property" id="htmlCode2" style="height: 550px;">
-            <!--控件属性-->
-            <div class="propertyOptionAll">
-                <p class="widget widgetP">控件属性</p>
-                <div class="propertyShow"></div>
-            </div>
-            <!--控件数据链接-->
-            <div class="propertyLink">
-                <p class="widget widgetP">控件数据链接</p>
-                <div class="propertyShow"></div>
-            </div>
-
-            <!--删除-->
-            <div class="widgetBottomDelete" id="widgetBottomDelete">
-                <!--<p class="widgetFixed" data-position="fit" data-toggle="modal" data-target="#partDelete" >-->
-                <p class="widgetFixed">
-                    <i class="icon icon-trash"></i><span>删除当前控件</span>
-                </p>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-
-<script src="../js/jquery-1.11.3.js"></script>
-<script src="../js/zui.min.js"></script>
-<script src="../js/common.Editor_3g.js"></script>
-<script src="../js/zui.dashboard_3g.js"></script>
-<script src="../js/zui.droppable.js"></script>
-<script src="../js/zui.sortable.js"></script>
-<script src="../js/fallback.js"></script>
-<script src="../js/wordNumber.js"></script>
-
+<script src="../js/zui.min-1.5.js"></script>
 <script>
+    var flag="v";
+    if(flag == "v"){
+        vData()
+    }else{
+        tData();
+    }
+    function vData() {
+        $(".appendCur .remtThreeImg_4g3_list ul").html("");
+        $(".appendCur .remtThreeImg_4g3_redLine").html("");
+        var v_remtThreeImg_4g3_num = $(".appendCur .v_remtThreeImg_4g3_num").val();
+        var v_remtThreeImg_4g3_redLine = $(".appendCur .v_remtThreeImg_4g3_redLine").val();
 
-    //    相关推荐
-    $(".propertyShow").on("change",".switchLink input",function(){
-        if( $(this).prop("checked") ){
-            $(this).parent().next().slideUp();
-        }else{
-            $(this).parent().next().slideDown();
+        var title = "新闻标题新闻标题新闻标题新闻标题新闻标题";
+        var str = "";
+        for (var i = 0; i < v_remtThreeImg_4g3_num; i++) {
+            str +='<li class="list_interval"><a href="#">'+
+            '<img src="../../img/PP/remtThreeImg_4g3/test.png" class="remtThreeImg_4g3_listimg"> ' +
+            '<p class="titleColor remtThreeImg_4g3_listTitle ">'+title+'</p></a>' +
+            '</li>';
         }
-    });
-    //    悬浮--新建，导入
-    $('[data-toggle="tooltip"]').tooltip();
+        $(".appendCur .remtThreeImg_4g3_list ul").append(str);
+        $(".appendCur .remtThreeImg_4g3_redLine").html(v_remtThreeImg_4g3_redLine);
+        $(".remtThreeImg_4g3_list ul li:nth-child(3n-2)").removeClass("list_interval");
 
-    $(".main").css("width",(parseFloat( window.screen.availWidth )-230-230)+"px");
-    $(".main").css("height",(parseFloat(window.screen.availHeight)-65-65)+"px");
-    $(".partAll").css("height",(parseFloat(window.screen.availHeight)-65-65)+"px");
-    $(".property").css("height",(parseFloat(window.screen.availHeight)-65-65)+"px");
-
-    $(".editorAct img").click(function(){
-
-    });
-
-    //    对话框
-    $(".modalCon .modalSelect").click(function(){
-        if( $(this).children("i").hasClass("icon-chevron-down") ){
-            $(this).children("i").removeClass("icon-chevron-down");
-            $(this).children("i").addClass("icon-chevron-up");
-            $(this).addClass("modalBorder");
-
-        }else if( $(this).children("i").hasClass("icon-chevron-up") ){
-            $(this).children("i").removeClass("icon-chevron-up");
-            $(this).children("i").addClass("icon-chevron-down");
-            $(this).removeClass("modalBorder");
+    }
+    //返回的真实数据
+    function tDataCallback(data){
+        var list = data.dataList;
+        for( var i=0;i<list.length;i++ ){
+            var str='<p><a href="#"/>'+list[i].title+'<a><p/>';
+            $(".lh.showId").append(str);
         }
-        $(this).parent().siblings().children(".modalAlter").hide();
-        $(this).parent().siblings().children(".modalSelect").removeClass("modalBorder");
-        $(this).parent().siblings().children(".modalSelect").children("i").removeClass("icon-chevron-up").addClass("icon-chevron-down");
-        $(this).next().slideToggle();
-    });
-    $(".modalAlter .modalTxt").click(function(){
-        $(this).siblings().removeClass("modalTxtSelect");
-        $(this).siblings().children("i").removeClass("icon-check");
-        $(this).children("i").addClass("icon-check");
-        $(this).addClass("modalTxtSelect");
-        $(this).parent().slideUp();
-        $(this).parent().prev().removeClass("modalBorder");
-        $(this).parent().prev().children("i").removeClass("icon-chevron-up").addClass("icon-chevron-down");
-        $(this).parent().prev().children("span").html( $(this).children("span").html() );
-    });
-
+    }
 </script>
+</body>
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</body></html>

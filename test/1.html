@@ -6,28 +6,152 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../css/zui.css"/>
-    <link rel="stylesheet" href="../css/editor.css"/>
-    <link rel="stylesheet" href="../css/zui.dashboard.Editor.css"/>
-    <link rel="stylesheet" href="../css/common.Editor.css"/>
+    <!--<link rel="stylesheet" href="../css/editor.css"/>-->
+    <!--<link rel="stylesheet" href="../css/zui.dashboard.Editor.css"/>-->
+    <link rel="stylesheet" href="../css/common_red.css"/>
     <link id="templateColorLink" rel="stylesheet" href=""/>
     <script src="../js/respond.js"></script>
     <script src="../js/jquery-1.11.3.js"></script>
+    <style>
+        .discuss_4g3_head{
+            width: 540px;
+            margin-left: 84px;
+        }
+        .discuss_4g3_title{
+            font-size:16px;
+            text-align:left;
+            margin-top: 24px;
+            padding-bottom: 7px;
+        }
+        .discuss_4g3_redLine{
+            width: 70px;
+            height: 4px;
+            padding-bottom: 8px;
+        }
+        .discuss_4g3_inputAre{
+            border-radius:4px;
+            width:540px;
+            height:107px;
+            background:#fafafa;
+            margin-top: 11px;
+        }
+        .discuss_4g3_logDes{
+            font-size:12px;
+            text-align: center;
+            padding-top: 44px;
+        }
+        .discuss_4g3_logBtn{
+            font-size:14px;
+            text-align:left;
+        }
+        .discuss_4g3_list{
+            width: 540px;
+            margin-left: 84px;
+            margin-top: 21px;
+        }
+        .discuss_4g3_list dd{
+            float: left;
+            margin-left: 24px;
+        }
+        .discuss_4g3_list dt{
+            float: left;
+        }
+        .discuss_4g3_listImg{
+            margin-top: 17px;
+            width:55px;
+            height:56px;
+            border-radius:100%;
+            margin-bottom: 16px;
+        }
+        .discuss_4g3_listName{
+            font-size:14px;
+            text-align:left;
+        }
+        .discuss_4g3_listTime{
+            font-size:12px;
+            text-align:left;
+        }
+        .discuss_4g3_listContent{
+            width: 415px;
+            margin:15px 0 18px 0;
+        }
+        .discuss_4g3_listRi{
+            float: left;
+            margin-top: 20px;
+        }
+        .discuss_4g3_reply{
+            font-size:12px;
+            display: inline-block;
+            margin-top: 57px;
+            margin-left: 10px;
+        }
+    </style>
 </head>
 <body>
 
-<div class="list-group" id="sortableList">
-    <div class="list-group-item"><i class="icon-move"></i> 猫咪</div>
-    <div class="list-group-item"><i class="icon-move"></i> 小鸡</div>
-    <div class="list-group-item"><i class="icon-move"></i> 大黄</div>
-    <div class="list-group-item"><i class="icon-move"></i> 鹅鹅鹅</div>
-    <div class="list-group-item"><i class="icon-move"></i> 猪王</div>
+
+
+
+<div class="Grid4g3 appendCur">
+    <input type="hidden" class="v_discuss_4g3_num" value="4" align="center"/>
+    <input type="hidden" class="v_discuss_4g3_redLine" value="参与讨论"/>
+    <div class="discuss_4g3_head">
+        <p class="discuss_4g3_title mainColor"><span class="discuss_4g3_redLine showId"></span></p>
+        <div class="discuss_4g3_inputAre" >
+            <p class="discuss_4g3_logDes dateColor"><a href="#" ><span class="mainColor discuss_4g3_logBtn">登录</span></a>后参与讨论<span></span></p>
+        </div>
+    </div>
+    <div class="discuss_4g3_list">
+        <ul class="showId"></ul>
+    </div>
 </div>
-<script src="../js/jquery-1.11.3.js"></script>
+
+
+<!--<script src="../js/jquery-1.11.3.js"></script>-->
 <script src="../js/zui.min-1.5.js"></script>
-<script src="../js/zui.droppable.js"></script>
-<script src="../js/zui.sortable.js"></script>
 <script>
-    $('#sortableList').sortable();
+    var flag="v";
+    if(flag == "v"){
+        vData()
+    }else{
+        tData();
+    }
+    function vData() {
+        $(".appendCur .discuss_4g3_list ul.showId").html("");
+        $(".appendCur .discuss_4g3_redLine").html("");
+        var v_discuss_4g3_num = $(".appendCur .v_discuss_4g3_num").val();
+        var v_discuss_4g3_redLine = $(".appendCur .v_discuss_4g3_redLine").val();
+        var title = "国家主席习近平同美国总统特朗普通电话国家主席习近平同美国总统特朗普通电话家主席习近平同美国总统特朗普通电话国家主席习近平同美国总统特朗普通";
+        var str = "";
+        for (var i = 0; i < v_discuss_4g3_num; i++) {
+            str +='<li>' +
+            '<dl  class=" clearFloat">' +
+            '<dt >' +
+            '<img src="../img/PP/discuss_4g3/pic.png"  class="discuss_4g3_listImg">' +
+            '</dt>' +
+            '<dd>' +
+            '<div class="discuss_4g3_listRi">' +
+            '<p class="discuss_4g3_listName mainColor">名dsadas字 <span class="discuss_4g3_listTime dateColor"> &nbsp;&nbsp;&nbsp;几分钟前</span></p>' +
+            '<p class="discuss_4g3_listContent dateColor" >'+title+'</p> ' +
+            '</div>' +
+            '<a href="#" onclick="reply(this)" class="discuss_4g3_reply"><span class="dateColor">回复</span></a>' +
+            '</dd>' +
+            '</dl>' +
+            '</li>';
+        }
+        if( v_discuss_4g3_redLine!=="" ){
+            $(".appendCur .discuss_4g3_redLine.showId").html(v_discuss_4g3_redLine);
+        }
+        $(".appendCur .discuss_4g3_list ul.showId").append(str);
+    }
+    //返回的真实数据
+    function tDataCallback(data){
+        var list = data.dataList;
+        for( var i=0;i<list.length;i++ ){
+            var str='<p><a href="#"/>'+list[i].title+'<a><p/>';
+            $(".lh.showId").append(str);
+        }
+    }
 </script>
 </body>
 </html>
