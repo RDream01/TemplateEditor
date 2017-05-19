@@ -362,6 +362,9 @@ nav,#banner,section,footer{
 .mainColor{
     color:#cc3333;
 }
+.mainColor_border{
+    border-color:#cc3333;
+}
 /*标题色*/
 .titleColor{
     color:#333333;
@@ -424,23 +427,7 @@ nav,#banner,section,footer{
 .bottom_4g4_verList_liBor{
     border-left: 2px solid #505050;;
 }
-/*______discuss_4g3________*/
-.discuss_4g3_title{
-    border-bottom: 1px solid #dddddd;
-}
-.discuss_4g3_redLine{
-    border-bottom: 4px solid #cc3333;
-}
-.discuss_4g3_list ul{
-    border-top:1px solid #999999 ;
-}
-.discuss_4g3_list li{
-    border-bottom: 1px solid #999999 ;
-}
-.discuss_4g3_listImg{
-    border:2px solid #ffffff;
-    box-shadow:0 2px 4px 0 rgba(0,0,0,0.24);
-}
+
 /*————————个人中心_________*/
 .PersonnalCenter_4g3_head{
     border-bottom: 1px solid #dddddd;
@@ -488,13 +475,6 @@ nav,#banner,section,footer{
 /*积分*/
 .myScore_4g3_head{
     border-bottom: 1px solid #dddddd;
-}
-/*__________remtThreeImg_4g3--相关推荐3_________*/
-.remtThreeImg_4g3_title{
-    border-bottom: 2px solid #dddddd;
-}
-.remtThreeImg_4g3_redLine{
-    border-bottom: 4px solid #cc3333;
 }
 /*—————remtVer_4g1--相关推荐1————*/
 .rmetVer_4g1_head{

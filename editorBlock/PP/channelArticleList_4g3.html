@@ -229,12 +229,14 @@
         bottom: 2px;
         font-size: 12px;
     }
+
 </style>
 <head>
 
 </head>
 <body>
 <div class="Grid4g3 pageBackGroundColor channelArticleList">
+    <input type="hidden" class="v_channelArticleList_commentNum" value="no">
     <div class="channelArticleList_top">
         <p class="channelArticleList_style channelArticleList_styleSelected styleList" onclick="selectStyle('styleList')" >
             <img src="../../img/PP/channelArticleList/list.png"/>列表
@@ -349,7 +351,7 @@
 </body>
 <script>
     var pageStyle="list";
-    maxLength();
+
     function maxLength(){
         forHtml(".channelArticleList_list_title")
         forHtml(".channelArticleList_list_content")
@@ -400,9 +402,18 @@
         var h1 = $(pp[h-1]).css("bottom");
         var h2 = $(pp[h-2]).css("bottom");
         var h3 = $(pp[h-3]).css("bottom");
+        if(h<3) {
+            h3 = "0px";
+        }
+        if(h<2){
+            h2 = "0px";
+        }
+        if(h<1){
+            h1 = "0px";
+        }
         h1 = Math.abs(h1.substring(0,h1.length-2));
-        h2 = Math.abs(h2.substring(0,h1.length-2));
-        h3 = Math.abs(h3.substring(0,h1.length-2));
+        h2 = Math.abs(h2.substring(0,h2.length-2));
+        h3 = Math.abs(h3.substring(0,h3.length-2));
         $(".channelArticleList_card_ul").css("height",(getMax(h1,h2,h3)-16)+"px");
     }
     function selectStyle(style){
@@ -430,6 +441,60 @@
     function getMax(a,b,c)
     {
         return a>b?(a>c?a:c):(b>c?b:c);
+    }
+    var flag="v";
+    if(flag == "v"){
+        vData()
+    }else{
+        tData();
+    }
+    maxLength();
+    function vData(){
+        var commentNum = $(".v_channelArticleList_commentNum").val();
+        var num = 21;
+       $(".channelArticleList_"+pageStyle+"_ul").html("");
+        for(var i=0;i<num;i++){
+            var str="";
+            str += '<li class="channelArticleList_'+pageStyle+'_li">';
+            str += '<div class="channelArticleList_'+pageStyle+'_first">';
+            str += '<a><img  class="channelArticleList_'+pageStyle+'_img" src="../../img/PP/channelArticleList/pic.png">';
+            str += '<p class="channelArticleList_'+pageStyle+'_videoBottom">';
+            str += '<span class="channelArticleList_'+pageStyle+'_videoTime">10:30</span>';
+            str += '<span class="channelArticleList_'+pageStyle+'_videoCount">';
+            str += '<img class="channelArticleList_'+pageStyle+'_videoPlay" src="../../img/PP/channelArticleList/video_play.png"/>';
+            str += ' 3</span></p></a></div>';
+            str += '<div class="channelArticleList_'+pageStyle+'_second">';
+            str += '<a><p class="channelArticleList_'+pageStyle+'_title"  data-value="哈利路亚哈利虎牙哈哈哈哈哈哈或少时诵诗书事实上"></p></a>';
+            str += '<p class="channelArticleList_'+pageStyle+'_content abstractColor" data-value="习近平强很海湖庄不久前在海湖。"></p>';
+            str += '<p class="channelArticleList_'+pageStyle+'_bottom"><span class="channelArticleList_'+pageStyle+'_source">擎好网</span>';
+            if(commentNum == "yes"){
+                str += '<span>|</span><span class="channelArticleList_'+pageStyle+'_count">';
+                str += '<img src="../../img/PP/channelArticleList/comment.png"/>20</span>';
+            }
+            str += '<span class="rt">2017-4-23</span></p></div>';
+            str += '</div></li>';
+            $(".channelArticleList_"+pageStyle+"_ul").append(str);
+        }
+    }
+    function tData(){
+        var channelArticleList_channelId = "";
+        var Callback = "tData";
+        var channelArticleList_commentNum="yes";
+        var num = 21;
+        $.ajax({
+            async: false,
+            cache: true,
+            type: 'post',
+            dataType: "jsonp",
+            data: {channelId: channelArticleList_channelId, limit: num, Callback: Callback},  //参数
+            url: "http://192.168.31.156:8080/cmsNews/template_editor/channel_article_list_index.do",//请求的action路径
+            success: function (data) { //请求成功后处理函数。
+            }
+        });
+    }
+
+    function tDataCallback(){
+
     }
 </script>
 </html>

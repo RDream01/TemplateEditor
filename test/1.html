@@ -13,7 +13,7 @@
     <script src="../js/respond.js"></script>
     <script src="../js/jquery-1.11.3.js"></script>
     <style>
-        .discussCommonAll{
+        .discuss_4g3{
             background:#fff;
             padding-top:20px;
         }
@@ -25,6 +25,8 @@
             font-size:16px;
             text-align:left;
             padding-bottom: 2px;
+            border-bottom: 1px solid #dddddd;
+
         }
         .discuss_4g3_redLine{
             width: 70px;
@@ -65,6 +67,8 @@
             height:56px;
             border-radius:100%;
             margin-bottom: 16px;
+            border:2px solid #ffffff;
+            box-shadow:0 2px 4px 0 rgba(0,0,0,0.24);
         }
         .discuss_4g3_listName{
             font-size:14px;
@@ -89,17 +93,17 @@
             margin-left: 10px;
         }
 
-        .topicNormal_4g3_disList{
+        .discuss_4g3_disList{
             width: 540px;
             margin-bottom: 30px;
         }
-        .topicNormal_4g3_redLine{
+        .discuss_4g3_redLine{
             vertical-align: middle;
-            border-bottom: 4px solid #cc3333;
+            border-bottom: 4px solid;
             padding-bottom:3px;
             letter-spacing: 1px;
         }
-        .topicNormal_4g3_comment {
+        .discuss_4g3_comment {
             background: #ffffff;
             border: 1px solid #999999;
             border-radius: 4px;
@@ -107,7 +111,7 @@
             height: 110px;
             margin-top: 23px;
         }
-        .topicNormal_4g3_commentbtn {
+        .discuss_4g3_commentbtn {
             background: #cc3333;
             width: 122px;
             height: 30px;
@@ -116,22 +120,19 @@
             margin-top: 16px;
             margin-left: 419px;
         }
-        .topicNormal_4g3_btn{
+        .discuss_4g3_btn{
             font-size:14px;
             color:#ffffff;
         }
-        .topicNormal_4g3_btn:hover{
-            color:#ffffff;
+        .discuss_4g3_btn:hover {
+            color: #ffffff;
         }
-        .topicNormal_4g3_disListTit{
-            font-size:14px;
-            text-align:left;
-            /*margin-top: 12px;*/
-            width:540px;
-            height: 25px;
-            border-bottom: 1px solid #dddddd;
+        .discuss_4g3_list ul{
+            border-top:1px solid #999999 ;
         }
-
+        .discuss_4g3_list li {
+            border-bottom: 1px solid #999999;
+        }
     </style>
 </head>
 <body>
@@ -139,7 +140,7 @@
 
 
 
-<div class="Grid4g3 appendCur discussCommonAll">
+<div class="Grid4g3 appendCur discuss_4g3">
     <input type="hidden" class="v_discuss_4g3_num" value="4" align="center"/>
     <input type="hidden" class="v_discuss_4g3_redLine" value="参与讨论"/>
     <div class="discuss_4g3_head">
@@ -151,10 +152,10 @@
             </div>
         </div>
         <!--已登录-->
-        <div class="topicNormal_4g3_disList">
-            <p class="topicNormal_4g3_disListTit mainColor"><span class="topicNormal_4g3_redLine">参与讨论</span></p>
-            <textarea class="topicNormal_4g3_comment"></textarea>
-            <p class="topicNormal_4g3_commentbtn"><a href="#" class="topicNormal_4g3_btn">发表评论</a></p>
+        <div class="discuss_4g3_disList">
+            <p class="discuss_4g3_title mainColor"><span class="discuss_4g3_redLine showId">参与讨论</span></p>
+            <textarea class="discuss_4g3_comment"></textarea>
+            <p class="discuss_4g3_commentbtn"><a href="#" class="discuss_4g3_btn">发表评论</a></p>
         </div>
     </div>
     <div class="discuss_4g3_list">
