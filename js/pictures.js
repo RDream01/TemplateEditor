@@ -106,7 +106,6 @@ $(document).ready(function() {
 
             pgwSlideshow.plugin.prepend('<div class="ps-current"><ul></ul><span class="ps-caption"></span><span class="ps-len"></span></div>');
             pgwSlideshow.slideCount = pgwSlideshow.plugin.find('.ps-list > ul > li').length;
-
             if (pgwSlideshow.slideCount == 0) {
                 throw new Error('pgwSlideshow - No slider item has been found');
                 return false;
@@ -117,8 +116,13 @@ $(document).ready(function() {
                 if (pgwSlideshow.config.displayControls) {
                     pgwSlideshow.plugin.find('.ps-current').prepend('<span class="ps-prev"><span class="ps-prevIcon-top"></span></span>');
                     pgwSlideshow.plugin.find('.ps-current').append('<span class="ps-next"><span class="ps-nextIcon-top"></span></span>');
+
                     pgwSlideshow.plugin.find('.ps-current .ps-prev').click(function() {
-                        pgwSlideshow.previousSlide();
+                        //if( !pgwSlideshow.plugin.find('.pgwSlideshow .ps-list li:first-child') ){
+                            pgwSlideshow.previousSlide();
+                            //console.log(pgwSlideshow.plugin.find('this'));
+                        //}
+
                     });
                     pgwSlideshow.plugin.find('.ps-current .ps-next').click(function() {
                         pgwSlideshow.nextSlide();
@@ -240,29 +244,64 @@ $(document).ready(function() {
                     elementText = '<a href="' + element.link + '"' + (element.linkTarget ? ' target="' + element.linkTarget + '"' : '') + '>' + elementText + '</a>';
                 }
                 if (typeof pgwSlideshow.plugin.find('.ps-caption').fadeIn == 'function') {
-                    pgwSlideshow.plugin.find('.ps-caption').html(elementText);
-                    pgwSlideshow.plugin.find('.ps-caption').fadeIn(pgwSlideshow.config.transitionDuration / 2);
+
+                    if( pgwSlideshow.plugin.find('.ps-list > ul > li:last-child a img').attr('data-num')===undefined ){
+                        if( defaults.len<10 ){
+                            pgwSlideshow.plugin.find('.ps-caption').html("<span class='captionColor'><span class='mainColor'>"+elementNum+"</span>"+'/0'+(defaults.len-1)+"</span><span class='captionTxt'>"+elementText+"</span>");
+                            pgwSlideshow.plugin.find('.ps-caption').fadeIn(pgwSlideshow.config.transitionDuration / 2);
+                        }else{
+                            pgwSlideshow.plugin.find('.ps-caption').html("<span class='captionColor'><span class='mainColor'>"+elementNum+'/'+(defaults.len-1)+"</span>"+"</span><span class='captionTxt'>"+elementText+"</span>");
+                            pgwSlideshow.plugin.find('.ps-caption').fadeIn(pgwSlideshow.config.transitionDuration / 2);
+                        }
+                    }else{
+                        if( defaults.len<10 ){
+                            pgwSlideshow.plugin.find('.ps-caption').html("<span class='captionColor'><span class='mainColor'>"+elementNum+"</span>"+'/0'+(defaults.len)+"</span><span class='captionTxt'>"+elementText+"</span>");
+                            pgwSlideshow.plugin.find('.ps-caption').fadeIn(pgwSlideshow.config.transitionDuration / 2);
+                        }else{
+                            pgwSlideshow.plugin.find('.ps-caption').html("<span class='captionColor'><span class='mainColor'>"+elementNum+"</span>"+'/'+(defaults.len)+"</span><span class='captionTxt'>"+elementText+"</span>");
+                            pgwSlideshow.plugin.find('.ps-caption').fadeIn(pgwSlideshow.config.transitionDuration / 2);
+                        }
+                    }
+                    //pgwSlideshow.plugin.find('.ps-caption').html(elementText);
+                    //pgwSlideshow.plugin.find('.ps-caption').fadeIn(pgwSlideshow.config.transitionDuration / 2);
                 } else {
-                    pgwSlideshow.plugin.find('.ps-caption').html(elementText);
-                    pgwSlideshow.plugin.find('.ps-caption').show();
+                    if( pgwSlideshow.plugin.find('.ps-list > ul > li:last-child a img').attr('data-num')===undefined ){
+                        if( defaults.len<10 ){
+                            pgwSlideshow.plugin.find('.ps-caption').html("<span class='captionColor'><span class='mainColor'>"+elementNum+"</span>"+'/0'+(defaults.len-1)+"</span><span class='captionTxt'>"+elementText+"</span>");
+                            pgwSlideshow.plugin.find('.ps-caption').show();
+                        }else{
+                            pgwSlideshow.plugin.find('.ps-caption').html("<span class='captionColor'><span class='mainColor'>"+elementNum+"</span>"+'/'+(defaults.len-1)+"</span><span class='captionTxt'>"+elementText+"</span>");
+                            pgwSlideshow.plugin.find('.ps-caption').show();
+                        }
+                    }else{
+                        if( defaults.len<10 ){
+                            pgwSlideshow.plugin.find('.ps-caption').html("<span class='captionColor'><span class='mainColor'>"+elementNum+"</span>"+'/0'+(defaults.len)+"</span><span class='captionTxt'>"+elementText+"</span>");
+                            pgwSlideshow.plugin.find('.ps-caption').show();
+                        }else{
+                            pgwSlideshow.plugin.find('.ps-caption').html("<span class='captionColor'><span class='mainColor'>"+elementNum+"</span>"+'/'+(defaults.len)+"</span><span class='captionTxt'>"+elementText+"</span>");
+                            pgwSlideshow.plugin.find('.ps-caption').show();
+                        }
+                    }
+                    //pgwSlideshow.plugin.find('.ps-caption').html(elementText);
+                    //pgwSlideshow.plugin.find('.ps-caption').show();
                 }
             }
             if (elementNum != '') {
                 if( pgwSlideshow.plugin.find('.ps-list > ul > li:last-child a img').attr('data-num')===undefined ){
                     if( defaults.len<10 ){
-                        pgwSlideshow.plugin.find('.ps-len').html(elementNum+'/0'+(defaults.len-1));
-                        pgwSlideshow.plugin.find('.ps-len').fadeIn(pgwSlideshow.config.transitionDuration / 2);
+                        //pgwSlideshow.plugin.find('.ps-len').html(elementNum+'/0'+(defaults.len-1));
+                        //pgwSlideshow.plugin.find('.ps-len').fadeIn(pgwSlideshow.config.transitionDuration / 2);
                     }else{
-                        pgwSlideshow.plugin.find('.ps-len').html(elementNum+'/'+(defaults.len-1));
-                        pgwSlideshow.plugin.find('.ps-len').fadeIn(pgwSlideshow.config.transitionDuration / 2);
+                        //pgwSlideshow.plugin.find('.ps-len').html(elementNum+'/'+(defaults.len-1));
+                        //pgwSlideshow.plugin.find('.ps-len').fadeIn(pgwSlideshow.config.transitionDuration / 2);
                     }
                 }else{
                     if( defaults.len<10 ){
-                        pgwSlideshow.plugin.find('.ps-len').html(elementNum+'/0'+(defaults.len));
-                        pgwSlideshow.plugin.find('.ps-len').fadeIn(pgwSlideshow.config.transitionDuration / 2);
+                        //pgwSlideshow.plugin.find('.ps-len').html(elementNum+'/0'+(defaults.len));
+                        //pgwSlideshow.plugin.find('.ps-len').fadeIn(pgwSlideshow.config.transitionDuration / 2);
                     }else{
-                        pgwSlideshow.plugin.find('.ps-len').html(elementNum+'/'+(defaults.len));
-                        pgwSlideshow.plugin.find('.ps-len').fadeIn(pgwSlideshow.config.transitionDuration / 2);
+                        //pgwSlideshow.plugin.find('.ps-len').html(elementNum+'/'+(defaults.len));
+                        //pgwSlideshow.plugin.find('.ps-len').fadeIn(pgwSlideshow.config.transitionDuration / 2);
                     }
                 }
             }
@@ -442,7 +481,7 @@ $(document).ready(function() {
             var listObject = pgwSlideshow.plugin.find('.ps-list > ul');
             var listWidth = listObject.width();
             if (listWidth > containerWidth) {
-                listObject.css('margin', '0 20px');
+                listObject.css('margin', '0 8px');
                 var marginLeft = parseInt(listObject.css('margin-left'));
                 var marginRight = parseInt(listObject.css('margin-right'));
                 containerWidth -= (marginLeft + marginRight);
@@ -579,6 +618,7 @@ $(document).ready(function() {
         return this;
     }
 })(window.Zepto || window.jQuery);
+
 
 
 

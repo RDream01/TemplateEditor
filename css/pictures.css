@@ -1,0 +1,218 @@
+.pgwSlideshow {
+    display: none;
+    width:660px;
+    /*height:680px;*/
+    margin:0 auto;
+    padding-top:15px;
+}
+.pgwSlideshow a{
+    color: #fff;
+}
+.pgwSlideshow .ps-current {
+    text-align: center;
+    position: relative;
+    min-height: 150px;
+    /*overflow: hidden;*/
+}
+.pgwSlideshow .ps-current > ul  > li {
+    text-align: center;
+    width: 100%;
+    z-index: 1;
+    opacity: 0;
+    display: block;
+}
+.pgwSlideshow .ps-current > ul  > li img {
+    display: block;
+    width:660px;
+    height:378px;
+}
+.pgwSlideshow .ps-caption {
+    color:#777;
+    text-align: left;
+    font-size: 12px;
+    position: absolute;
+    left: 0px;
+    bottom: -75px;
+    padding: 10px;
+    width:660px;
+    max-height:66px;
+    overflow: hidden;
+    letter-spacing: 1px;
+}
+.pgwSlideshow .ps-caption:after{
+    content: "";
+    display: block;
+    clear: both;
+}
+.captionColor{
+    display: inline-block;
+    color:#333;
+    font-size: 14px;
+    padding-right:6px;
+    float: left;
+    width:45px;
+}
+.captionTxt{
+    display: inline-block;
+    float: left;
+    width:590px;
+}
+.pgwSlideshow .ps-len {
+    font-size: 2rem;
+    color: #fff;
+    position: absolute;
+    bottom:17%;
+    left:41%;
+}
+.pgwSlideshow .ps-list {
+    border-left: 1px solid #fff;
+    border-right: 1px solid #fff;
+    overflow: hidden;
+    position: relative;
+    margin-top:75px;
+    width:660px;
+}
+.pgwSlideshow .ps-list ul {
+    position: relative;
+    left: -32px;
+    height:110px;
+}
+.pgwSlideshow .ps-list li {
+    float: left;
+}
+.pgwSlideshow .ps-list li .ps-item {
+    display: block;
+    margin: 15px 5px;
+}
+.pgwSlideshow .ps-list li img {
+    display: block;
+    width: 118px;
+    height: 72px;
+}
+.pgwSlideshow .ps-list li .ps-item.ps-selected {
+    float: left;
+    border: 2px solid #cc3333;
+    overflow: hidden;
+}
+.pgwSlideshow .ps-list li .ps-item.ps-selected img {
+    margin: -2px 0;
+}
+.pgwSlideshow .ps-prevIcon {
+    display: block;
+    width:16px;
+    height:50px;
+    background:url('../img/PP/pictures/s-left.png') no-repeat 0 0;
+    position: absolute;
+    top:25px;
+}
+.pgwSlideshow .ps-nextIcon {
+    display: block;
+    width:12px;
+    height:50px;
+    background:url('../img/PP/pictures/s-right.png') no-repeat 0 0;
+    position: absolute;
+    top:25px;
+}
+.pgwSlideshow .ps-current .ps-prev {
+    position: absolute;
+    left: 0%;
+    top: 38%;
+    cursor: pointer;
+}
+.ps-prevIcon-top{
+    display:block;
+    width:30px;
+    height:40px;
+    background:url('../img/PP/pictures/left.png') no-repeat ;
+}
+.ps-prevIcon-top:hover{
+    background-image:url('../img/PP/pictures/left_hover.png') ;
+}
+.pgwSlideshow .ps-current .ps-next {
+    position: absolute;
+    right: 0%;
+    top: 38%;
+    cursor: pointer;
+}
+.ps-nextIcon-top{
+    display:block;
+    width:30px;
+    height:40px;
+    background:url('../img/PP/pictures/right.png') no-repeat ;
+}
+.ps-nextIcon-top:hover{
+    background-image:url('../img/PP/pictures/right_hover.png') ;
+}
+.pgwSlideshow .ps-list .ps-prev {
+    width:12px;
+    height:88px;
+    background:#fff;
+    /*border: 1px solid #E7E9ED;*/
+    cursor: pointer;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1000;
+    display: none;
+}
+.pgwSlideshow .ps-list .ps-prev:hover{
+    border-color:#D4D4D4;
+}
+.pgwSlideshow .ps-list .ps-next {
+    width:16px;
+    height:88px;
+    background:#fff;
+    cursor: pointer;
+    position: absolute;
+    right: -10px;
+    top: 0;
+    z-index: 1000;
+    display: none;
+}
+.pgwSlideshow .ps-list .ps-next:hover{
+    border-color:#D4D4D4;
+}
+.pgwSlideshow.narrow .ps-list li img {
+    width: 60px;
+    height: 60px;
+}
+.pgwSlideshow.narrow .ps-current .ps-prev {
+    padding: 15px 15px 15px 12px;
+    top: 40%;
+}
+.pgwSlideshow.narrow .ps-current .ps-next {
+    padding: 15px 12px 15px 15px;
+    top: 40%;
+}
+.pgwSlideshow.narrow .ps-list .ps-prev {
+    padding: 15px 12px 15px 10px;
+    top: 20px;
+}
+.pgwSlideshow.narrow .ps-list .ps-next {
+    padding: 15px 10px 15px 12px;
+    top: 20px;
+}
+.pgwSlideshow.narrow .ps-caption {
+    font-size: 0.8rem;
+    padding: 8px;
+}
+/*×éÍ¼ÍÆ¼ö*/
+.adv{
+    width:86px;
+    height:33px;
+    position:absolute;
+    bottom:10px;
+    right:15px;
+    z-index:3000;
+    background:url('../img/PP/pictures/adv_back.png') no-repeat;
+}
+
+
+
+
+
+
+
+
+
+

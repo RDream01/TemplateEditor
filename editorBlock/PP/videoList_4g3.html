@@ -1,0 +1,161 @@
+<div class="col-md-9 col-sm-9 appendStr videoList_4g3" id="videoList_4g3" data-blockSize="9">
+<div class="style" "exist">
+    <style>
+        .clearFloat:after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+        .videoList_4g3_main{
+            width: 708px;
+        }
+        .videoList_4g3_main li{
+            height: 170px;
+        }
+        .videoList_4g3_main dl{
+            margin-left: 16px;
+            margin-top: 16px;
+            width: 676px;
+        }
+        .videoList_4g3_main dt{
+            float: left;
+            position: relative;
+        }
+        .videoList_4g3_main dd{
+            float: left;
+            margin-left: 16px;
+        }
+        .videoList_4g3_image{
+            opacity:0.4;
+            background-image:linear-gradient(-180deg, rgba(255,255,255,0.00) 0%, #000000 100%);
+            border:1px solid #f1f1f1;
+            width:228px;
+            height:136px;
+        }
+        .videoList_4g3_allTime{
+            position: absolute;
+            left: 8px;
+            bottom: 4px;
+            height: 17px;
+            font-size:12px;
+            color:#ffffff;
+            text-align:left;
+        }
+        .videoList_4g3_play {
+            width:19px;
+            height:16px;
+        }
+        .videoList_4g3_playNum{
+            position: absolute;
+            bottom: 4px;
+            right: 7px;
+            font-size:12px;
+            color:#ffffff;
+            text-align:left;
+            height: 17px;
+        }
+        .videoList_4g3_title{
+            width: 428px;
+            height: 42px;
+            overflow: hidden;
+        }
+        .videoList_4g3_summary{
+            font-size:14px;
+            color:#666666;
+            line-height:21px;
+            text-align:left;
+            width: 428px;
+            height: 42px;
+            margin-top: 8px;
+            overflow: hidden;
+        }
+        .videoList_4g3_foot{
+            margin-top: 24px;
+        }
+        .videoList_4g3_source{
+            float: left;
+            font-size:12px;
+            line-height:12px;
+            text-align:left;
+        }
+        .videoList_4g3_verLine{
+            width:3px;
+            height:10px;
+            margin-left: 3px;
+        }
+        .videoList_4g3_imageNum{
+            width:12px;
+            height:10px;
+            margin-left: 3px;
+        }
+        .videoList_4g3_comNum{
+            float: left;
+            font-size:12px;
+            line-height:12px;
+            text-align:left;
+        }
+        .videoList_4g3_date{
+            font-size:12px;
+            line-height:12px;
+            text-align:right;
+        }
+    </style>
+</div>
+
+<div class="panel appendNot" data-id="3">
+    <input type="hidden" class="v_videoList_4g4_num" value="4"/>
+    <div class="panel-heading">
+        <span class="title">参与讨论</span>
+    </div>
+    <div class="panel-body">
+        <div class="videoList_4g3_main" "exist">
+        </div>
+    </div>
+</div>
+
+
+<div class="script" "exist">
+    <script>
+        var flag="v";
+        if(flag == "v"){
+            vData()
+        }else{
+
+            tData();
+        }
+
+        function vData() {
+
+            $(".appendCur .videoList_4g3_main").html("");
+            var v_videoList_4g4_num = $(".appendCur .v_videoList_4g4_num").val();
+
+            var title = "国家主席习近平同美国总统特朗普通电话国家主席习近平同美国总统特朗普通电话家主席习近平同美国总统特朗普通电话国家主席习近平同美国总统特朗普通";
+            var strPro = "<ul>";
+            var str = "";
+            for (var i = 0; i < v_videoList_4g4_num; i++) {
+                str = str +'<li> ' +
+                        '<dl class="clearFloat"> ' +
+                        '<dt> ' +
+                        '<a href="#"><img src="../../img/PP/videoList.png" class="videoList_4g3_image"></a> ' +
+                        '<p class="videoList_4g3_allTime">10:20</p> ' +
+                        '<p class="videoList_4g3_playNum"><img src="../../img/PP/videoPlay.png" class="videoList_4g3_play"> 4</p> ' +
+                        '</dt> ' +
+                        '<dd> ' +
+                        '<a href="#"><p class="videoList_4g3_title titleColor">'+title+'</p></a> ' +
+                        '<p class="abstractColor videoList_4g3_summary">'+title+'</p> ' +
+                        '<div class="clearFloat videoList_4g3_foot">' +
+                        '<p class="dateColor videoList_4g3_source">擎好</p> ' +
+                        '<p class="dateColor videoList_4g3_comNum"><img src="../../img/PP/verLine.png" class="videoList_4g3_verLine"><img src="../../img/PP/myJoined/contentNum.png" class="videoList_4g3_imageNum">20</p>' +
+                        '<p class=" dateColor videoList_4g3_date">2017-04-12</p> ' +
+                        '</div>'+
+                        '</dd>'+
+                        '</dl>'+
+                        '</li>';
+            }
+            strPro = strPro+str+'</ul>';
+            $(".appendCur .videoList_4g3_main").append(strPro);
+
+        }
+    </script>
+</div>
+

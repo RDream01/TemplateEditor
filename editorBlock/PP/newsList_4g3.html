@@ -1,0 +1,132 @@
+<div class="col-md-9 col-sm-9 appendStr newsList_4g3" id="newsList_4g3" data-blockSize="9">
+<div class="style" "exist">
+    <style>
+        .clearFloat:after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+        .newsList_4g3_main{
+            width: 708px;
+        }
+        .newsList_4g3_main li{
+            height: 170px;
+        }
+        .newsList_4g3_main dl{
+            margin-top: 16px;
+        }
+        .newsList_4g3_main dt{
+            position: relative;
+            float: left;
+        }
+        .newsList_4g3_main dd{
+            float: left;
+            margin-left: 16px;
+        }
+        .newsList_4g3_listImg{
+            border:1px solid #f1f1f1;
+            width:228px;
+            height:136px;
+            margin-left: 16px;
+        }
+
+        .newsList_4g3_title{
+            font-size:16px;
+            text-align:left;
+            overflow: hidden;
+            width: 428px;
+            height: 42px;
+        }
+        .newsList_4g3_summary{
+            font-size:14px;
+            line-height:21px;
+            text-align:left;
+            width: 428px;
+            height: 42px;
+            margin-top: 8px;
+        }
+        .newsList_4g3_foot{
+            margin-top: 24px;
+        }
+        .newsList_4g3_source{
+            float: left;
+            font-size:12px;
+            line-height:12px;
+            text-align:left;
+        }
+        .newsList_4g3_verLine{
+            width:3px;
+            height:10px;
+            margin-left: 3px;
+        }
+        .newsList_4g3_imageNum{
+            width:12px;
+            height:10px;
+            margin-left: 3px;
+        }
+        .newsList_4g3_comNum{
+            float: left;
+            font-size:12px;
+            line-height:12px;
+            text-align:left;
+        }
+        .newsList_4g3_date{
+            font-size:12px;
+            line-height:12px;
+            text-align:right;
+        }
+    </style>
+</div>
+
+<div class="panel appendNot" data-id="3">
+    <input type="hidden" class="v_newsList_4g4_num" value="4"/>
+    <div class="panel-heading">
+        <span class="title">参与讨论</span>
+    </div>
+    <div class="panel-body">
+        <div class="newsList_4g3_main" "exist">
+    </div>
+</div>
+
+<div class="script" "exist">
+<script>
+    var flag="v";
+    if(flag == "v"){
+        vData()
+    }else{
+
+        tData();
+    }
+
+    function vData() {
+
+        $(".appendCur .newsList_4g3_main").html("");
+        var v_newsList_4g4_num = $(".appendCur .v_newsList_4g4_num").val();
+
+        var title = "国家主席习近平同美国总统特朗普通电话国家主席习近平同美国总统特朗普通电话家主席习近平同美国总统特朗普通电话国家主席习近平同美国总统特朗普通";
+        var strPro = "<ul>";
+        var str = "";
+        for (var i = 0; i < v_newsList_4g4_num; i++) {
+            str = str +'<li>' +
+                    '<dl class="clearFloat">' +
+                    '<dt> ' +
+                    '<img src="../../img/PP/newsList.png" class="newsList_4g3_listImg"> ' +
+                    '</dt>' +
+                    '<dd> ' +
+                    '<p class="newsList_4g3_title titleColor">'+title+'</p> ' +
+                    '<p class="newsList_4g3_summary">'+title+'</p> ' +
+                    '<div class="clearFloat newsList_4g3_foot">' +
+                    '<p class="dateColor newsList_4g3_source">擎好网</p>' +
+                    '<p class="dateColor newsList_4g3_comNum"><img src="../../img/PP/verLine.png" class="newsList_4g3_verLine"><img src="../../img/PP/myJoined/contentNum.png" class="newsList_4g3_imageNum">20</p> ' +
+                    '<p class=" dateColor newsList_4g3_date">2017-04-12</p> ' +
+                    '</div>' +
+                    '</dd> ' +
+                    '</dl> ' +
+                    '</li> ';
+        }
+        strPro = strPro+str+'</ul>';
+        $(".appendCur .newsList_4g3_main").append(strPro);
+
+    }
+</script>
+</div>

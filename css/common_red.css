@@ -36,7 +36,7 @@ nav,#banner,section,footer{
 .commonContainer{
     width:960px;
     margin:0 auto;
-    overflow: hidden;
+    /*overflow: hidden;*/
     padding:0;
 }
 .row{
@@ -509,10 +509,32 @@ nav,#banner,section,footer{
     background: #eeeeee;
 }
 
+/*header01_4g4*/
+.header01_4g4_top{
+    background-color: #c33;
+}
+.header01_4g4_navChanel>li>a{
+    color:#666;
+}
+.header01_4g4_navChanel>li>a.header01_4g4_active{
+    color:#c33;
+    /*border-bottom-color:#c33;*/
+}
+.header01_4g4_active{
+    color:#333;
+    /*border-bottom-color:#c33;*/
+}
+.header01_4g4_navChanel>li>a.header01_4g4_cur{
+    color:#c33;
+}
+.header01_4g4_tan li a.header01_4g4_tanActive{
+    color:#c33;
+}
 
-
-
-
+/*____________header_topic_4g4-------------------*/
+.header_topic_top{
+    background:#c33;
+}
 
 
 

@@ -1,0 +1,146 @@
+
+<div class="col-md-9 col-sm-9 appendStr voteList_4g3" id="voteList_4g3" data-blockSize="9">
+
+<div class="style" "exist">
+    <style>
+        .clearFloat:after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+        .voteList_4g3_main{
+            width: 708px;
+        }
+        .voteList_4g3_main li{
+            height: 170px;
+        }
+        .voteList_4g3_main dl{
+            margin-top: 16px;
+        }
+        .voteList_4g3_main dt{
+            position: relative;
+            float: left;
+        }
+        .voteList_4g3_main dd{
+            float: left;
+            margin-left: 16px;
+        }
+        .voteList_4g3_listImg{
+            border:1px solid #f1f1f1;
+            width:228px;
+            height:136px;
+            margin-left: 16px;
+        }
+        .voteList_4g3_floatTop{
+            position: absolute;
+            left: 3px;
+            top: 8px;
+            background: url("../../img/PP/myJoined/redIcon.png") no-repeat;
+            width:42px;
+            height:22px;
+            font-size:12px;
+            color:#ffffff;
+            text-align:center;
+        }
+        .voteList_4g3_title{
+            font-size:16px;
+            text-align:left;
+            overflow: hidden;
+            width: 428px;
+            height: 42px;
+        }
+        .voteList_4g3_summary{
+            font-size:14px;
+            line-height:21px;
+            text-align:left;
+            width: 428px;
+            height: 42px;
+            margin-top: 8px;
+        }
+        .voteList_4g3_foot{
+            margin-top: 24px;
+        }
+        .voteList_4g3_source{
+            float: left;
+            font-size:12px;
+            line-height:12px;
+            text-align:left;
+        }
+        .voteList_4g3_verLine{
+            width:3px;
+            height:10px;
+            margin-left: 3px;
+        }
+        .voteList_4g3_imageNum{
+            width:12px;
+            height:10px;
+            margin-left: 3px;
+        }
+        .voteList_4g3_comNum{
+            float: left;
+            font-size:12px;
+            line-height:12px;
+            text-align:left;
+        }
+        .voteList_4g3_date{
+            font-size:12px;
+            line-height:12px;
+            text-align:right;
+        }
+    </style>
+</div>
+
+<div class="panel appendNot" data-id="3">
+    <input type="hidden" class="v_voteList_4g4_num" value="4"/>
+    <div class="panel-heading">
+        <span class="title">参与讨论</span>
+    </div>
+    <div class="panel-body">
+        <div class="voteList_4g3_main" "exist">
+        </div>
+    </div>
+</div>
+
+<div class="script" "exist">
+<script>
+    var flag="v";
+    if(flag == "v"){
+        vData()
+    }else{
+
+        tData();
+    }
+
+    function vData() {
+
+        $(".appendCur .voteList_4g3_main").html("");
+        var v_voteList_4g4_num = $(".appendCur .v_voteList_4g4_num").val();
+
+        var title = "国家主席习近平同美国总统特朗普通电话国家主席习近平同美国总统特朗普通电话家主席习近平同美国总统特朗普通电话国家主席习近平同美国总统特朗普通";
+        var strPro = "<ul>";
+        var str = "";
+        for (var i = 0; i < v_voteList_4g4_num; i++) {
+            str = str +'<li>' +
+                    '<dl class="clearFloat"> ' +
+                    '<dt>' +
+                    '<img src="../../img/PP/voteList.png" class="voteList_4g3_listImg">' +
+                    '<p class="voteList_4g3_floatTop">话题</p>' +
+                    '</dt>' +
+                    '<dd>' +
+                    '<p class="voteList_4g3_title titleColor">'+title+'</p> ' +
+                    '<p class="voteList_4g3_summary">'+title+'</p> ' +
+                    '<div class="clearFloat voteList_4g3_foot"> ' +
+                    '<p class="dateColor voteList_4g3_source">擎好</p>' +
+                    '<p class="dateColor voteList_4g3_comNum"><img src="../../img/PP/verLine.png" class="voteList_4g3_verLine"><img src="../../img/PP/myJoined/contentNum.png" class="voteList_4g3_imageNum">20</p> ' +
+                    '<p class=" dateColor voteList_4g3_date">2017-04-12</p>' +
+                    '</div>' +
+                    '</dd>' +
+                    '</dl>' +
+                    '</li> ';
+        }
+        strPro = strPro+str+'</ul>';
+        $(".appendCur .voteList_4g3_main").append(strPro);
+
+    }
+</script>
+</div>

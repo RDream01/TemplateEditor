@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../css/zui.css"/>
+    <!--<link rel="stylesheet" href="../css/editor.css"/>-->
+    <!--<link rel="stylesheet" href="../css/zui.dashboard.Editor.css"/>-->
+    <link rel="stylesheet" href="../../css/common_red.css"/>
+    <link id="templateColorLink" rel="stylesheet" href=""/>
+    <script src="../../js/respond.js"></script>
+    <script src="../../js/jquery-1.11.3.js"></script>
+
+<style>
+        /**********************组件---header01_4g4************************/
+    .header01_4g4{
+        width: 100%;
+    }
+    /*top--红*/
+    .header01_4g4_top{
+        height:40px;
+    }
+    .header01_4g4_action li{
+        display: inline-block;
+        line-height:40px;
+        color:#fff;
+        margin-right:15px;
+        font-size:14px;
+    }
+    .header01_4g4_searchCon{
+        display: inline-block;
+        width:112px;
+        height:20px;
+        margin:10px 0;
+        position:relative;
+    }
+    .header01_4g4_searchInput{
+        border-radius: 36px;
+        width:112px;
+        padding:0 5px;
+        letter-spacing: 1px;
+        outline: none;
+        font-size:14px;
+    }
+    .header01_4g4_searchCon label{
+        display: inline-block;
+        position:absolute;
+        right:5px;
+        top:-3px;
+    }
+    .header01_4g4_searchCon label a{
+        display: inline-block;
+    }
+    .header01_4g4_phone,.header01_4g4_login{
+        display: inline-block;
+        margin-left:20px;
+    }
+    .header01_4g4_phone span{
+        color:#fff;
+        font-size:14px;
+        padding-left:3px;
+    }
+    .header01_4g4_phone img{
+        padding-bottom:2px;
+    }
+    .header01_4g4_login a{
+        color:#fff;
+        font-size:14px;
+    }
+    /*logo*/
+    .header01_4g4_bottom{
+        background:#fff;
+        box-shadow:0 2px 4px 0 rgba(0,0,0,0.24);
+        width:100%;
+        height:152px;
+    }
+    .header01_4g4_logo{
+       width:250px;
+        margin-right:50px;
+    }
+    .header01_4g4_logo>img{
+        width:250px;
+        margin:40px 0;
+    }
+    /*导航*/
+    .header01_4g4_nav{
+        background-color: #fff;
+        height:150px;
+        width:660px;
+    }
+    .header01_4g4_navChanel{
+        width:100%;
+        height:150px;
+    }
+    .header01_4g4_navChanel:after{
+        display: table;
+        content: '';
+        clear: both;
+    }
+    .header01_4g4_navChanel>li{
+        float: left;
+        display: inline-block;
+        height:150px;
+        line-height:150px;
+        vertical-align: middle;
+        position:relative;
+    }
+    .header01_4g4_border{
+        display: table-cell;
+        background:#999999;
+        width:2px;
+        height:40px;
+    }
+    .header01_4g4_navChanel>li>a{
+        width:63px;
+        height:150px;
+        font-size:19px;
+        text-decoration: none;
+        line-height: 25px;
+        padding:0 15px;
+        display: table-cell;
+        vertical-align: middle;
+        text-align: center;
+    }
+    /*二级菜单*/
+    .header01_4g4_tan{
+        display:none;
+        background:#999999;
+        width:320px;
+        height:126px;
+        padding:0 20px;
+        position: absolute;
+        top:130px;
+        right:-196%;
+    }
+    .header01_4g4_tan>li{
+        float: left;
+        height:126px;
+        line-height:126px;
+        vertical-align: middle;
+        margin:0 4px;
+    }
+    .header01_4g4_tan>li>a{
+        display: table-cell;
+        width:25px;
+        vertical-align: middle;
+        text-align: center;
+        height:126px;
+        text-decoration: none;
+        line-height: 25px;
+        color:#fff;
+        font-size:16px;
+    }
+    .header01_4g4_nav li a.header01_4g4_navactive{
+        background: #777;
+    }
+    /*箭头*/
+    .header01_4g4_tan>li.header01_4g4_arrow{
+        position:absolute;
+        left:0;
+        width:95%;
+        text-align: center;
+        height:1px;
+    }
+    .header01_4g4_arrow img{
+        position: absolute;
+        width:12px;
+        top:-7px;
+    }
+
+
+
+</style>
+
+</head>
+<body>
+
+<div class="header01_4g4 appendCur">
+    <!--top-->
+    <div class="header01_4g4_top">
+        <div class="commonContainer">
+            <ul class="header01_4g4_action lf">
+                <li class="header01_4g4_GPS">北京</li>
+                <li class="header01_4g4_time">2017年3月20日 周四</li>
+                <li class="header01_4g4_TEMP">27℃</li>
+            </ul>
+            <div class="rt">
+                <p class="header01_4g4_searchCon ">
+                    <input type="text" id="header01_4g4_searchInput" placeholder="" class="header01_4g4_searchInput "/>
+                    <label for="header01_4g4_searchInput"><a href="#"><img src="../../img/PP/header01_4g4/search_index.png" alt=""/></a></label>
+                </p>
+                <p class="header01_4g4_phone">
+                    <a href="#">
+                        <img src="../../img/PP/header01_4g4/phone_index.png" alt=""/><span>下载客户端</span>
+                    </a>
+               </p>
+                <p class="header01_4g4_login"><a href="#">登录</a></p>
+            </div>
+        </div>
+    </div>
+    <!--logo + nav-->
+    <div class="header01_4g4_bottom">
+        <div class="commonContainer clearFloat">
+            <!--logo-->
+            <div class="header01_4g4_logo lf">
+                <img src="../../img/PP/header01_4g4/header01_logo.png">
+            </div>
+            <!--nav-->
+            <div class="header01_4g4_nav lf">
+                <ul class="header01_4g4_navChanel">
+                    <!--<li>-->
+                        <!--<a href="#" class="header01_4g4_active">首页</a>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                        <!--<span class="header01_4g4_border"></span>-->
+                        <!--<a href="#">好经济</a>-->
+                        <!--<ul class="header01_4g4_tan">-->
+                            <!--<li class="header01_4g4_arrow">-->
+                                <!--<img src="../../img/PP/header01_4g4/header01_4g4_top.png" alt=""/>-->
+                            <!--</li>-->
+                            <!--<li><a class="header01_4g4_navactive" href="#">图书馆</a></li>-->
+                            <!--<li><a href="#">编辑推荐</a></li>-->
+                            <!--<li><a href="#">新书速递</a></li>-->
+                            <!--<li><a href="#">编辑推荐</a></li>-->
+                            <!--<li><a href="#">新书速递</a></li><li><a href="#">编辑推荐</a></li>-->
+                            <!--<li><a href="#">新书速递</a></li><li><a href="#">编辑推荐</a></li>-->
+                            <!--<li><a href="#">新书速递</a></li>-->
+                        <!--</ul>-->
+                    <!--</li>-->
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="../../js/zui.min-1.5.js"></script>
+<script>
+    var flag="v";
+    if(flag == "v"){
+        vData()
+    }else{
+        tData();
+    }
+    function vData() {
+        $(".appendCur .header01_4g4_navChanel").html("");
+        var chanelStr="";
+        for( var i= 0;i<10;i++ ){
+            chanelStr+='<li>';
+//            alert(i);
+            if( i!==0 ){
+                chanelStr+='<span class="header01_4g4_border"></span>';
+//                chanelStr+='<img src="../../img/PP/header01_4g4/header01_shu.png"/>';
+            }
+            chanelStr+='<a href="#" class="header01_4g4_active">首页</a>';
+            if( i!==0  ){
+                chanelStr+='<ul class="header01_4g4_tan">';
+                chanelStr+='<li class="header01_4g4_arrow">';
+                chanelStr+='<img src="../../img/PP/header01_4g4/header01_4g4_top.png" alt=""/>'
+                chanelStr+='</li>';
+                for( var j=0;j<7;j++ ){
+                    chanelStr+='<li><a class="header01_4g4_navactive" href="#">图书馆</a></li>';
+                }
+                chanelStr+='</ul>';
+            }
+            chanelStr+='</li>';
+        }
+        $(".appendCur .header01_4g4_navChanel").append(chanelStr);
+    }
+    //返回的真实数据
+    function tDataCallback(data){
+        var list = data.dataList;
+        for( var i=0;i<list.length;i++ ){
+            var str='<p><a href="#"/>'+list[i].title+'<a><p/>';
+            $(".lh.showId").append(str);
+        }
+    }
+
+
+
+
+
+    //首页一级点击
+    $('.header01_4g4_navChanel>li>a').click(function(e){
+        e=e||window.event;
+        var target=e.target||e.srcElement;
+        var a=$(".header01_4g4_active");
+        a.removeClass('header01_4g4_active');
+        target.className='header01_4g4_active';
+
+        $('.header01_4g4_tan>li>a').removeClass("header01_4g4_tanActive")
+    });
+    $('.header01_4g4_navChanel>li>a').mousemove(function(){
+        if( $(this).next()!==null ){
+            $(this).next().show();
+            $(this).addClass("header01_4g4_cur");
+        }
+    });
+    $('.header01_4g4_navChanel>li>a').mouseout(function(){
+        if( $(this).next()!==null ){
+            $(this).next().hide();
+            $(this).removeClass("header01_4g4_cur");
+        }
+    });
+    //首页二级点击
+    $('.header01_4g4_tan').mouseover(function(){
+        $(this).siblings().addClass("header01_4g4_cur");
+        $(this).css('display','block');
+    });
+    $('.header01_4g4_tan').mouseout(function(){
+        $(this).siblings().removeClass("header01_4g4_cur");
+        $(this).css('display','none');
+    });
+    $('.header01_4g4_tan>li>a').click(function(){
+        var a=$(".header01_4g4_active");
+        a.removeClass('header01_4g4_active');
+        $(this).parent().parent().prev().addClass("header01_4g4_active");
+        var cur=$(".header01_4g4_tanActive");
+        cur.removeClass("header01_4g4_tanActive");
+        $(this).addClass('header01_4g4_tanActive');
+        $(this).parent().siblings().children().removeClass('header01_4g4_tanActive');
+    });
+</script>
+
+
+</body>
+</html>

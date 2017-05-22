@@ -1,0 +1,158 @@
+<div class="col-md-12 col-sm-12 appendStr header_topic_4g4" id="header_topic_4g4" data-blockSize="12">
+<div class="style" "exist">
+    <style>
+        /**********************组件---header_topic************************/
+        .header_topic{
+            width: 100%;
+        }
+        /*top--红*/
+        .header_topic_top{
+            height:40px;
+        }
+        .header_topic_action li{
+            display: inline-block;
+            line-height:40px;
+            color:#fff;
+            margin-right:15px;
+            font-size:14px;
+        }
+        .header_topic_searchCon{
+            display: inline-block;
+            width:112px;
+            height:20px;
+            margin:10px 0;
+            position:relative;
+        }
+        .header_topic_searchInput{
+            border-radius: 36px;
+            width:112px;
+            padding:0 5px;
+            letter-spacing: 1px;
+            outline: none;
+            font-size:14px;
+        }
+        .header_topic_searchCon label{
+            display: inline-block;
+            position:absolute;
+            right:5px;
+            top:-3px;
+        }
+        .header_topic_searchCon label a{
+            display: inline-block;
+        }
+        .header_topic_phone,.header_topic_login{
+            display: inline-block;
+            margin-left:20px;
+        }
+        .header_topic_phone span{
+            color:#fff;
+            font-size:14px;
+            padding-left:3px;
+        }
+        .header_topic_phone img{
+            padding-bottom:2px;
+        }
+        .header_topic_login a{
+            color:#fff;
+            font-size:14px;
+        }
+        /*logo*/
+        .header_topic_bottom{
+            background:#fff;
+            box-shadow:0 2px 4px 0 rgba(0,0,0,0.24);
+            width:100%;
+            height:152px;
+        }
+        .header_topic_logo{
+            width:250px;
+            margin-right:50px;
+        }
+        .header_topic_logo>img{
+            width:250px;
+            margin:30px 0;
+        }
+    </style>
+</div>
+
+<div class="panel appendNot" data-id="3">
+    <input type="hidden" value="yes" class="v_header_topic_action"/>
+    <div class="panel-heading">
+        <span class="title">列表1</span>
+    </div>
+    <div class="panel-body">
+        <div class="header_topic">
+            <!--top-->
+            <div class="header_topic_top">
+                <div class="commonContainer">
+                    <ul class="header_topic_action lf showId">
+                        <li class="header_topic_GPS">北京</li>
+                        <li class="header_topic_time">2017年3月20日 周四</li>
+                        <li class="header_topic_TEMP">27℃</li>
+                    </ul>
+                    <div class="rt">
+                        <p class="header_topic_searchCon ">
+                            <input type="text" id="header_topic_searchInput" placeholder="" class="header_topic_searchInput "/>
+                            <label for="header_topic_searchInput"><a href="#"><img src="../../img/PP/header01_4g4/search_index.png" alt=""/></a></label>
+                        </p>
+                        <p class="header_topic_phone">
+                            <a href="#">
+                                <img src="../../img/PP/header01_4g4/phone_index.png" alt=""/><span>下载客户端</span>
+                            </a>
+                        </p>
+                        <p class="header_topic_login"><a href="#">登录</a></p>
+                    </div>
+                </div>
+            </div>
+            <!--logo + nav-->
+            <div class="header_topic_bottom">
+                <div class="commonContainer clearFloat">
+                    <!--logo-->
+                    <div class="header_topic_logo lf">
+                        <img src="../../img/PP/header_topic_4g4/header_topic_logo.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="resize-handle"><i class="icon icon-resize-h"></i></div>
+
+<div class="script" "exist">
+    <script>
+        var flag = "v";
+        if (flag == "v") {
+            vData()
+        } else {
+            tData();
+        }
+        function vData() {
+            var v_header_topic_action=$(".appendCur .v_header_topic_action").val();
+            if( v_header_topic_action=='yes' ){
+                $(".appendCur .header_topic_action.showId").show();
+            }else if( v_header_topic_action=='no' ){
+                $(".appendCur .header_topic_action.showId").hide();
+            }
+        }
+        function tData() {
+            $.ajax({
+                async: false,
+                cache: true,
+                type: 'post',
+                dataType: "jsonp",
+                data: {dataType: "jsonp", channelId: lhbb_id, limit: lhbb_num, Callback: Callback},  //参数
+                url: "http://192.168.31.156:8080/cmsNews/template_editor/channel_article_list_index.do",//请求的action路径
+                success: function (data) { //请求成功后处理函数。
+                }
+            });
+        }
+        function tDataCallback(data) {
+            var list = data.dataList;
+            for (var i = 0; i < list.length; i++) {
+                var str = '<p><a href="#"/>' + list[i].title + '<a><p/>';
+                $(".lh.showId").append(str);
+            }
+        }
+
+    </script>
+</div>
+</div>
