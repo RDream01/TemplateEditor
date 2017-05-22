@@ -1,7 +1,22 @@
-<div class="col-md-9 col-sm-9 appendStr article_4g3" id="article_4g3" data-blockSize="9">
-<div class="style" "exist">
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>index</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../css/zui.css"/>
+    <!--<link rel="stylesheet" href="../css/editor.css"/>-->
+    <!--<link rel="stylesheet" href="../css/zui.dashboard.Editor.css"/>-->
+    <link rel="stylesheet" href="../../css/common_red.css"/>
+    <link id="templateColorLink" rel="stylesheet" href=""/>
+    <script src="../../js/respond.js"></script>
+    <script src="../../js/jquery-1.11.3.js"></script>
+
+<!--<div class="col-md-9 col-sm-9 appendStr article_4g3" id="article_4g3" data-blockSize="9">
+<div class="style" "exist">-->
     <style>
-        .article_4g3All{
+        .article_4g3_all{
             background:#ffffff;
             box-shadow:0 2px 2px 0 rgba(0,0,0,0.24);
             padding-bottom:35px;
@@ -55,15 +70,227 @@
             width:450px;
             height:300px;
         }
-    </style>
-</div>
 
-<div class="panel appendNot" data-id="3">
+
+
+        /* 相关推荐+评论 */
+        .article_4g3_newsCont p{
+            font-size:14px;
+            text-indent: 2em;
+            margin-bottom:5px;
+            letter-spacing: 0.7px;
+        }
+        .article_4g3_voteList ul{
+            margin-top: 15px;
+        }
+        .article_4g3_voteList li{
+            float: left;
+            margin-bottom: 26px;
+        }
+
+        .article_4g3_voteList dd{
+            float: left;
+        }
+        .article_4g3_voteList dt{
+            float: left;
+            margin-left: 12px;
+            text-align: center;
+        }
+        .article_4g3_voteResult li{
+            float:left;
+            margin:10px 5px 20px 5px;
+            font-size:14px;
+            height:60px;
+            line-height:60px;
+        }
+        .article_4g3_voteResult li:first-child{
+            max-width:270px;
+        }
+        .article_4g3_voteResult li.article_4g3_voteName{
+            width:180px;
+            height:40px;
+            margin-top:20px;
+            line-height: 20px;
+            overflow: hidden;
+        }
+        .article_4g3_voteMeter span{
+            display:inline-block;
+            width:63px;
+            height:12px;
+            /*background:#000;*/
+        }
+        .article_4g3_recommend_head{
+            width: 540px;
+            margin-left: 84px;
+        }
+        .article_4g3_recommend_title{
+            font-size:16px;
+            text-align:left;
+            margin-top: 24px;
+            border-bottom: 2px solid #dddddd;
+            padding-bottom: 6px;
+        }
+        .article_4g3_recommend_redLine{
+            width: 70px;
+            height: 4px;
+            border-bottom: 4px solid;
+            padding-bottom: 8px;
+        }
+        .article_4g3_recommend_list{
+            width: 540px;
+            margin-left: 84px;
+        }
+        .article_4g3_recommend_list li{
+            float: left;
+        }
+        .article_4g3_list_interval{
+            margin-left: 8px;
+        }
+        .article_4g3_recommend_listimg{
+            margin-top: 12px;
+            width: 172px;
+            height: 104px;
+        }
+        .article_4g3_recommend_listTitle{
+            margin-top: 6px;
+            width: 172px;
+            height: 38px;
+            font-size:14px;
+            text-align:left;
+            overflow: hidden;
+        }
+        .article_4g3_discuss{
+            /*background:#fff;*/
+            padding-top:20px;
+        }
+        .article_4g3_discuss_head{
+            width: 540px;
+            margin-left: 84px;
+        }
+        .article_4g3_discuss_title{
+            font-size:16px;
+            text-align:left;
+            padding-bottom: 2px;
+            border-bottom: 1px solid #dddddd;
+
+        }
+        .article_4g3_discuss_redLine{
+            width: 70px;
+            height: 4px;
+            padding-bottom: 3px;
+        }
+        .article_4g3_discuss_inputAre{
+            border-radius:4px;
+            width:540px;
+            height:107px;
+            background:#fafafa;
+            margin-top: 11px;
+        }
+        .article_4g3_discuss_logDes{
+            font-size:12px;
+            text-align: center;
+            padding-top: 44px;
+        }
+        .article_4g3_discuss_logBtn{
+            font-size:14px;
+            text-align:left;
+        }
+        .article_4g3_discuss_list{
+            width: 540px;
+            margin-left: 84px;
+            margin-top: 21px;
+        }
+        .article_4g3_discuss_list dd{
+            float: left;
+            margin-left: 24px;
+        }
+        .article_4g3_discuss_list dt{
+            float: left;
+        }
+        .article_4g3_discuss_listImg{
+            margin-top: 17px;
+            width:55px;
+            height:56px;
+            border-radius:100%;
+            margin-bottom: 16px;
+            border:2px solid #ffffff;
+            box-shadow:0 2px 4px 0 rgba(0,0,0,0.24);
+        }
+        .article_4g3_discuss_listName{
+            font-size:14px;
+            text-align:left;
+        }
+        .article_4g3_discuss_listTime{
+            font-size:12px;
+            text-align:left;
+        }
+        .article_4g3_discuss_listContent{
+            width: 415px;
+            margin:15px 0 18px 0;
+        }
+        .article_4g3_discuss_listRi{
+            float: left;
+            margin-top: 20px;
+        }
+        .article_4g3_discuss_reply{
+            font-size:12px;
+            display: inline-block;
+            margin-top: 57px;
+            margin-left: 10px;
+        }
+
+        .article_4g3_discuss_disList{
+            width: 540px;
+            margin-bottom: 30px;
+        }
+        .article_4g3_discuss_redLine{
+            vertical-align: middle;
+            border-bottom: 4px solid;
+            padding-bottom:3px;
+            letter-spacing: 1px;
+        }
+        .article_4g3_discuss_comment {
+            background: #ffffff;
+            border: 1px solid #999999;
+            border-radius: 4px;
+            width: 538px;
+            height: 110px;
+            margin-top: 23px;
+        }
+        .article_4g3_discuss_commentbtn {
+            background: #cc3333;
+            width: 122px;
+            height: 30px;
+            text-align: center;
+            padding-top: 4px;
+            margin-top: 16px;
+            margin-left: 419px;
+        }
+        .article_4g3_discuss_btn{
+            font-size:14px;
+            color:#ffffff;
+        }
+        .article_4g3_discuss_btn:hover {
+            color: #ffffff;
+        }
+        .article_4g3_discuss_list ul{
+            border-top:1px solid #999999 ;
+        }
+        .article_4g3_discuss_list li {
+            border-bottom: 1px solid #999999;
+        }
+
+    </style>
+</head>
+<body>
+<!--</div>-->
+
+<!--<div class="panel appendNot" data-id="3">
     <div class="panel-heading">
         <span class="title">文章</span>
     </div>
-    <div class="panel-body">
-        <div class="Grid4g3 article_4g3All" "exist">
+    <div class="panel-body">-->
+        <div class="Grid4g3 article_4g3_all">
             <div class="article_4g3_main_container">
                 <!--面包屑导航--article_4g3_bread-->
                 <p class="article_4g3_bread mainColor"></p>
@@ -72,12 +299,49 @@
                 <!--新闻主体-->
                 <div class="article_4g3_main"></div>
             </div>
-        </div>
-    </div>
-</div>
-<div class="resize-handle"><i class="icon icon-resize-h"></i></div>
 
-<div class="script" "exist">
+            <!-- 相关推荐 -->
+            <div class="Grid4g3 appendCur article_4g3_recommend">
+                <input type="hidden" class="v_article_4g3_recommend_num" value="3" align="center"/>
+                <input type="hidden" class="v_article_4g3_is_recommend" value="yes">
+                <div class="article_4g3_recommend_head">
+                    <p class="article_4g3_recommend_title mainColor">
+                        <span class="article_4g3_recommend_redLine">相关推荐</span>
+                    </p>
+                </div>
+                <div class="article_4g3_recommend_list">
+                    <ul class="clearFloat showId"></ul>
+                </div>
+            </div>
+            <!-- 评论 -->
+            <div class="Grid4g3 appendCur article_4g3_discuss">
+                <div class="article_4g3_discuss_head showId">
+                    <!--&lt;!&ndash;未登录&ndash;&gt;-->
+                    <!--<div>-->
+                    <!--<p class="article_4g3_discuss_title mainColor"><span class="article_4g3_discuss_redLine showId"></span></p>-->
+                    <!--<div class="article_4g3_discuss_inputAre" >-->
+                    <!--<p class="article_4g3_discuss_logDes dateColor"><a href="#" ><span class="mainColor article_4g3_discuss_logBtn">登录</span></a>后参与讨论<span></span></p>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--已登录-->
+                    <!--<div class="article_4g3_discuss_disList">-->
+                    <!--<p class="article_4g3_discuss_title mainColor"><span class="article_4g3_discuss_redLine showId">参与讨论</span></p>-->
+                    <!--<textarea class="article_4g3_discuss_comment"></textarea>-->
+                    <!--<p class="article_4g3_discuss_commentbtn"><a href="#" class="article_4g3_discuss_btn">发表评论</a></p>-->
+                    <!--</div>-->
+                </div>
+                <div class="article_4g3_discuss_list">
+                    <ul class="showId"></ul>
+                </div>
+            </div>
+        </div>
+<!--
+</div>
+</div>-->
+<div class="resize-handle"><i class="icon icon-resize-h"></i></div>
+<!--<script src="../js/jquery-1.11.3.js"></script>-->
+<script src="../../js/zui.min-1.5.js"></script>
+<!--<div class="script" "exist">-->
     <script>
         var flag = "v";
         if (flag == "v") {
@@ -87,6 +351,64 @@
         }
 
         function vData() {
+
+            //相关推荐+评论 start
+            var  v_article_4g3_is_recommend = $(".appendCur .v_article_4g3_is_recommend").val();
+            if(v_article_4g3_is_recommend == "yes"){
+                $(".article_4g3_recommend").css("display","block");
+            }else{
+                $(".article_4g3_recommend").css("display","none");
+            }
+
+            var v_article_4g3_recommend_num = $(".appendCur .v_article_4g3_recommend_num").val();
+            var title = "新闻标题新闻标题新闻标题新闻标题新闻标题";
+            var str = "";
+            for (var i = 0; i < v_article_4g3_recommend_num; i++) {
+                str +='<li class="article_4g3_list_interval"><a href="#">'+
+                        '<img src="../../img/PP/remtThreeImg_4g3/test.png" class="article_4g3_recommend_listimg"> ' +
+                        '<p class="titleColor article_4g3_recommend_listTitle ">'+title+'</p></a>' +
+                        '</li>';
+            }
+            $(".appendCur .article_4g3_recommend_list ul").append(str);
+
+            var loginStr ="";
+            if(true){   //  是否登录
+                loginStr +='<div class="article_4g3_discuss_disList">';
+                loginStr +='<p class="article_4g3_discuss_title mainColor"><span class="article_4g3_discuss_redLine showId">参与讨论</span></p>';
+                loginStr +='<textarea class="article_4g3_discuss_comment"></textarea>';
+                loginStr +='<p class="article_4g3_discuss_commentbtn"><a href="#" class="article_4g3_discuss_btn">发表评论</a></p>';
+                loginStr +='</div>';
+            }else{
+                loginStr += '<div><p class="article_4g3_discuss_title mainColor"><span class="article_4g3_discuss_redLine showId">参与讨论</span></p>';
+                loginStr += '<div class="article_4g3_discuss_inputAre" >';
+                loginStr += '<p class="article_4g3_discuss_logDes dateColor"><a href="#" ><span class="mainColor article_4g3_discuss_logBtn">登录</span></a>后参与讨论<span></span></p>';
+                loginStr += '</div></div>';
+            }
+            $(".appendCur .article_4g3_discuss_head").html(loginStr);
+
+            var title = "国家主席习近平同美国总统特朗普通电话国家主席习近平同美国总统特朗普通电话家主席习近平同美国总统特朗普通电话国家主席习近平同美国总统特朗普通";
+            var str = "";
+            for (var i = 0; i < 4; i++) {
+                str +='<li>' +
+                        '<dl  class="clearFloat">' +
+                        '<dt >' +
+                        '<img src="../../img/PP/discuss_4g3/pic.png"  class="article_4g3_discuss_listImg">' +
+                        '</dt>' +
+                        '<dd>' +
+                        '<div class="article_4g3_discuss_listRi">' +
+                        '<p class="article_4g3_discuss_listName mainColor">名dsadas字 <span class="article_4g3_discuss_listTime dateColor"> &nbsp;&nbsp;&nbsp;几分钟前</span></p>' +
+                        '<p class="article_4g3_discuss_listContent dateColor" >'+title+'</p> ' +
+                        '</div>' +
+                        '<a href="#" onclick="reply(this)" class="article_4g3_discuss_reply"><span class="dateColor">回复</span></a>' +
+                        '</dd>' +
+                        '</dl>' +
+                        '</li>';
+            }
+
+            $(".appendCur .article_4g3_discuss_list ul").append(str);
+            //相关推荐+评论 end
+
+
             //面包屑导航
             $(".article_4g3_bread").html("");
             var breadStr='';
@@ -137,6 +459,7 @@
             }
         }
     </script>
-</div>
-</div>
-
+<!--</div>
+</div>-->
+</body>
+</html>
