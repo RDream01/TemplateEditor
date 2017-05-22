@@ -1,0 +1,210 @@
+<div class="col-md-9 col-sm-9 appendStr voteText_4g3" id="voteText_4g3" data-blockSize="9">
+<div class="style" "exist">
+    <style>
+        .voteText_4g3_amin{
+            margin-left: 84px;
+            width: 540px;
+        }
+        .voteText_4g3_headImg{
+            width:540px;
+            position: relative;
+        }
+        .voteText_4g3_Img{
+            width:540px;
+            height:350px;
+        }
+        .voteText_4g3_shadow{
+            position: absolute;
+            left: 0;
+            bottom:0;
+            background:rgba(0,0,0,0.60);
+            width:540px;
+            padding:10px 10px 6px;
+        }
+        .voteText_4g3_title{
+            font-size:16px;
+            color:#ffffff;
+            text-align:left;
+            width: 520px;
+            height: 50px;
+            overflow: hidden;
+            margin-bottom:6px;
+            letter-spacing: 0.7px;
+        }
+        .voteText_4g3_Act{
+            width:100%;
+            text-align: right;
+            margin-bottom:6px;
+        }
+        .voteText_4g3_collect{
+            width: 22px;
+            height: 20px;
+        }
+        .voteText_4g3_share{
+            width: 20px;
+            height:22px;
+            margin-left: 8px;
+        }
+        .voteText_4g3_time{
+            font-size:12px;
+            color:#ffffff;
+            text-align:left;
+        }
+        .voteText_4g3_joinNum{
+            display: inline-block;
+            font-size:12px;
+            color:#ffffff;
+        }
+        .voteText_4g3_newsCont{
+            padding:15px 0 24px;
+            border-bottom:1px solid #f2f2f2;
+        }
+        .voteText_4g3_newsCont p{
+            font-size:14px;
+            text-align:left;
+            margin-top: 5px;
+            text-indent: 2em;
+        }
+        .voteText_4g3_voteTitle{
+            margin-left: 36px;
+            font-size:14px;
+            text-align:left;
+        }
+        .voteText_4g3_redTitle{
+            font-size:16px;
+        }
+        .voteText_4g3_voteList{
+            margin-top:30px;
+        }
+        .voteText_4g3_voteList ul{
+            margin-top: 20px;
+        }
+        .voteText_4g3_voteList li{
+            margin-bottom: 10px;
+        }
+
+        .voteText_4g3_votePoint{
+            display: inline-block;
+            font-size:14px;
+            width: 505px;
+            margin-left: 5px;
+            height:18px;
+            overflow: hidden;
+        }
+        .voteText_4g3_voteBtn{
+            text-align: center;
+        }
+        .voteText_4g3_voteBtn span{
+            display: inline-block;
+            margin: 20px 0;
+            color: #fff;
+            font-size: 16px;
+            border-radius:4px;
+            width:112px;
+            height:30px;
+            line-height:30px;
+            cursor: pointer;
+        }
+    </style>
+</div>
+
+<div class="panel appendNot" data-id="3">
+    <div class="panel-heading">
+        <span class="title">投票--文字</span>
+    </div>
+    <div class="panel-body">
+        <div class="grid4g3" "exist">
+            <div class="voteText_4g3_amin">
+                <!--图文信息-->
+                <div class="voteText_4g3_head"></div>
+                <!--投票信息-->
+                <div class="voteText_4g3_voteList">
+                    <!--名字-->
+                    <p class="titleColor voteText_4g3_voteTitle">&nbsp;&nbsp;您认为
+                        <span class="voteText_4g3_redTitle mainColor"></span>
+                    </p>
+                    <ul class="clearFloat"></ul>
+                    <!--投偏btn-->
+                    <p class="voteText_4g3_voteBtn"><span class="mainColor">投票</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="resize-handle"><i class="icon icon-resize-h"></i></div>
+
+<div class="script" "exist">
+    <script>
+        var flag = "v";
+        if (flag == "v") {
+            vData()
+        } else {
+            tData();
+        }
+
+        function vData() {
+            //图片信息+文字信息
+            $(".voteText_4g3_head").html("");
+            var textImgStr='';
+            textImgStr='<div class="voteText_4g3_headImg">' +
+            '<img class="voteText_4g3_Img" src="../../img/PP/vote/vote.png">'+
+            '<div class="voteText_4g3_shadow">'+
+            '<p class="voteText_4g3_title">郑州到北京高公里 两小时能到北京高铁提速至时速350高公里 两小时能到北京高铁提速至时速350高公里 两小时能到北京高铁提速至时速350公里 两小时能吗？标题标题标题标题</p>'+
+            '<p class="voteText_4g3_Act">'+
+            '<a href="#"><img src="../../img/PP/topic/collect.png" class="voteText_4g3_collect"></a>'+
+            '<a href="#"><img src="../../img/PP/topic/share.png" class="voteText_4g3_share"></a>'+
+            '</p>'+
+            '<p class="voteText_4g3_time clearFloat">投票时间：<span>2017.3.1-2017.3.31</span>' +
+            '<span class="voteText_4g3_joinNum rt">参与人数 <span>109</span> 人' +
+            '</p>' +
+            '</div>'+
+            '</div>'+
+            '<div class="voteText_4g3_newsCont">';
+            for( var i=0;i<3;i++ ){
+                textImgStr+='<p class="txtColor">郑州到北京高铁提速至时速350公里 两小时能到吗</p>';
+            }
+            textImgStr+= '</div>';
+            $(".voteText_4g3_head").html(textImgStr);
+
+            //名字
+            $(".voteText_4g3_redTitle").html("");
+            var textTitleStr='';
+            textTitleStr='郑州到北京高铁提速至时速350公里 两小时能到吗？';
+            $(".voteText_4g3_redTitle").html(textTitleStr);
+
+            //选项
+            $(".voteText_4g3_voteList ul").html("");
+            var textOptionStr='';
+            for( var i=0;i<2;i++ ){
+                textOptionStr+='<li><input type="radio" id="vote01" name="football"/>'+
+                '<label for="vote01">'+
+                '<span class="voteText_4g3_votePoint txtColor">世界杯16强世界杯16强世界强世界杯16强世界杯16强</span>'+
+                '</label></li>';
+            }
+            $(".voteText_4g3_voteList ul").html(textOptionStr);
+        }
+        function tData() {
+            $.ajax({
+                async: false,
+                cache: true,
+                type: 'post',
+                dataType: "jsonp",
+                data: {dataType: "jsonp", channelId: lhbb_id, limit: lhbb_num, Callback: Callback},  //参数
+                url: "http://192.168.31.156:8080/cmsNews/template_editor/channel_article_list_index.do",//请求的action路径
+                success: function (data) { //请求成功后处理函数。
+                }
+            });
+        }
+        function tDataCallback(data) {
+            var list = data.dataList;
+            for (var i = 0; i < list.length; i++) {
+                var str = '<p><a href="#"/>' + list[i].title + '<a><p/>';
+                $(".lh.showId").append(str);
+            }
+        }
+
+    </script>
+</div>
+</div>
+
+

@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<title>index</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../../css/zui.min.css"/>
+<link rel="stylesheet" href="../../css/PP/PP_color01.css"/>
+<link rel="stylesheet" href="../../css/PP/PP_common.css"/>
+<!--<link rel="stylesheet" href="../css/common.Editor.css"/>-->
+<script src="../../js/jquery-1.11.3.js"></script>
+<script src="../../js/zui.min.js"></script>
+<script src="../../js/wordNumber.js"></script>
+<style>
+    .channelArticleList_style{
+        width: 66px;
+        height: 27px;
+        background: #cccccc;
+        display: inline-block;
+        color: #ffffff;
+        font-size: 12px;
+        line-height: 27px;
+        margin: 0px;
+        padding: 0px;
+    }
+    .channelArticleList_styleSelected{
+        background: #cc3333;
+    }
+    .channelArticleList_style img{
+        margin: auto 3px 7px 12px;
+        width: 15px;
+        height: 15px;
+    }
+
+    .channelArticleList_top{
+        margin-bottom: 4px
+    }
+    .channelArticleList_list_li{
+        margin-top:12px;
+        height: 170px;
+        background: #ffffff;
+        box-shadow:0 2px 2px 0 rgba(0,0,0,0.24);
+    }
+    .channelArticleList_list_img{
+
+    }
+    .channelArticleList_list_videoPlay{
+        margin-right: 4px;
+    }
+    .channelArticleList_list_second{
+        display: inline-block;
+        width: 462px;
+    }
+    .channelArticleList_list_title{
+        margin-top: 16px;
+        height: 42px;
+        font-size: 16px;
+        line-height: 21px;
+        width: 428px;
+        margin-left: 16px;
+        font-family: MicrosoftYaHei;
+    }
+    .channelArticleList_list_content{
+        height: 42px;
+        width: 428px;
+        line-height: 21px;
+        font-size: 14px;
+        margin-top: 8px;
+        margin-left: 16px;
+
+    }
+    .channelArticleList_list_bottom{
+        font-size: 12px;
+        margin-left: 16px;
+        margin-top: 24px;
+        width: 428px;
+        color: #cccccc;
+    }
+    .channelArticleList_list_source{
+        margin-right:4px;
+    }
+    .channelArticleList_list_count{
+
+    }
+    .channelArticleList_list_count img{
+        margin-left: 4px;
+        width: 12px;
+        height: 10px;
+        margin-bottom: 4px;
+        margin-right: 4px;
+    }
+    .channelArticleList_list_videoBottom{
+        position: relative;
+        top: -20px;
+        left: 8px;
+        color: #ffffff;
+        font-size: 12px;
+        line-height: 16px;
+        width: 222px;
+    }
+    .channelArticleList_list_videoTime{
+
+    }
+    .channelArticleList_list_videoCount{
+        float: right;
+        margin-right: 8px;
+    }
+    .channelArticleList_list_first{
+        width: 230px;
+        height: 138px;
+        margin: 16px 0px 16px 16px;
+        float: left;
+    }
+    .channelArticleList_list_topicTag{
+        color: #ffffff;
+        position: relative;
+        bottom: 130px;
+        left: -20px;
+    }
+    .channelArticleList_list_topicTag span{
+        position: relative;
+        left: -37px;
+        bottom: 4px;
+        font-size: 12px;
+    }
+    .channelArticleList_list_ul{
+        display: block;
+    }
+    /*卡片*/
+    .channelArticleList_card_ul{
+        position:relative;
+        width: 708px;
+        display: none;
+    }
+
+
+    .channelArticleList_card_ul:after{
+        content:'';
+        display:block;
+        clear:both;
+    }
+    .channelArticleList_card_li{
+        width: 228px;
+        /*height: 332px;*/
+        background: #ffffff;
+        margin-top: 12px;
+        float:left;
+        box-shadow:0 2px 2px 0 rgba(0,0,0,0.24);
+        position:absolute;
+    }
+    .channelArticleList_card_first{
+        width: 228px;
+        height: 144px;
+    }
+    .channelArticleList_card_second{
+
+    }
+    .channelArticleList_card_img{
+        width: 198px;
+        height: 124px;
+        margin: 15px 15px 0px 15px;
+    }
+    .channelArticleList_card_title{
+        width: 196px;
+        height: 42px;
+        line-height: 21px;
+        font-size: 16px;
+        margin-left: 15px;
+        margin-top: 3px;
+        font-family: MicrosoftYaHei;
+    }
+    .channelArticleList_card_content{
+        width: 196px;
+        max-height: 105px;
+        font-size: 14px;
+        line-height: 21px;
+        margin: 5px 15px;
+    }
+    .channelArticleList_card_bottom{
+        margin: 10px 15px 20px 15px;
+        font-size: 12px;
+        line-height: 12px;
+        color: #cccccc;
+        height: 12px;
+        width: 195px;
+    }
+    .channelArticleList_card_bottom img{
+        width: 12px;
+        height: 10px;
+        margin-left: 4px;
+        margin-right: 4px;
+        margin-bottom: 1px;
+    }
+    .channelArticleList_card_source{
+        margin-right: 4px;
+
+    }
+    .channelArticleList_card_videoBottom{
+        position: relative;
+        top: -22px;
+        left: 24px;
+        color: #ffffff;
+        font-size: 12px;
+        line-height: 16px;
+        width: 228px;
+    }
+    .channelArticleList_card_videoCount{
+        position: absolute;
+        right: 53px;
+    }
+
+    .channelArticleList_card_videoPlay{
+        margin-right: 4px;
+    }
+
+    .channelArticleList_card_topicTag{
+        color: #ffffff;
+        position: relative;
+        bottom: 118px;
+        left: -4px;
+    }
+
+    .channelArticleList_card_topicTag img{
+        width:36px;
+    }
+    .channelArticleList_card_topicTag span{
+        position: relative;
+        left: -35px;
+        bottom: 2px;
+        font-size: 12px;
+    }
+
+</style>
+<head>
+
+</head>
+<body>
+<div class="Grid4g3 pageBackGroundColor channelArticleList">
+    <input type="hidden" class="v_channelArticleList_commentNum" value="no">
+    <div class="channelArticleList_top">
+        <p class="channelArticleList_style channelArticleList_styleSelected styleList" onclick="selectStyle('styleList')" >
+            <img src="../../img/PP/channelArticleList/list.png"/>列表
+        </p><p class="channelArticleList_style styleCard" onclick="selectStyle('styleCard')">
+        <img src="../../img/PP/channelArticleList/card.png"/>卡片</p>
+    </div>
+    <ul class="channelArticleList_list_ul pageBackGroundColor">
+        <li class="channelArticleList_list_li">
+            <div class="channelArticleList_list_first">
+                <a>
+                    <img  class="channelArticleList_list_img" src="../../img/PP/channelArticleList/pic.png">
+                    <p class="channelArticleList_list_videoBottom">
+                        <span class="channelArticleList_list_videoTime">10:30</span>
+                        <span class="channelArticleList_list_videoCount">
+                            <img class="channelArticleList_list_videoPlay" src="../../img/PP/channelArticleList/video_play.png"/>
+                            3
+                        </span>
+                    </p>
+                </a>
+            </div>
+            <div class="channelArticleList_list_second">
+                <a><p class="channelArticleList_list_title"  data-value="哈利路亚哈利虎牙哈哈哈哈哈哈或少时诵诗书事实上"></p></a>
+                <p class="channelArticleList_list_content abstractColor" data-value="习近平强很海湖庄不久前在海湖。"></p>
+                <p class="channelArticleList_list_bottom"><span class="channelArticleList_list_source">擎好网</span><span>|</span><span class="channelArticleList_list_count"><img src="../../img/PP/channelArticleList/comment.png"/>20</span><span class="rt">2017-4-23</span></p>
+            </div>
+        </li>
+        <li class="channelArticleList_list_li">
+            <div class="channelArticleList_list_first">
+                <a>
+                    <img  class="channelArticleList_list_img" src="../../img/PP/channelArticleList/pic.png">
+                    <p class="channelArticleList_list_topicTag">
+                        <img src="../../img/PP/channelArticleList/tag.png"/>
+                        <span>话题</span>
+                    </p>
+                </a>
+            </div>
+            <div class="channelArticleList_list_second">
+                <a><p class="channelArticleList_list_title" data-value="视频｜国家主席习近平同美国总统特朗普通电话国家主席习近平同美国总统特朗普通电话"></p></a>
+                <p class="channelArticleList_list_content abstractColor" data-value="习近平强调很高兴同总统先生通话。我同总统先生不久前在海湖庄园举行的会晤取得了重要成果，中国人民和国际社会都予以积极评价。"></p>
+                <p class="channelArticleList_list_bottom"><span class="channelArticleList_list_source">擎好网</span><span>|</span><span class="channelArticleList_list_count"><img src="../../img/PP/channelArticleList/comment.png"/>20</span><span class="rt">2017-4-23</span></p>
+            </div>
+        </li>
+        <li class="channelArticleList_list_li">
+            <div class="channelArticleList_list_first">
+                <a>
+                    <img  class="channelArticleList_list_img" src="../../img/PP/channelArticleList/pic.png">
+                </a>
+            </div>
+            <div class="channelArticleList_list_second">
+                <a><p class="channelArticleList_list_title" data-value="视频｜国家主席习近平同美国总统特朗普通电话国家主席习近平同美国总统特朗普通电话"></p></a>
+                <p class="channelArticleList_list_content abstractColor" data-value="习近平强调很高兴同总统先生通话。我同总统先生不久前在海湖庄园举行的会晤取得了重要成果，中国人民和国际社会都予以积极评价。"></p>
+                <p class="channelArticleList_list_bottom"><span class="channelArticleList_list_source">擎好网</span><span>|</span><span class="channelArticleList_list_count"><img src="../../img/PP/channelArticleList/comment.png"/>20</span><span class="rt">2017-4-23</span></p>
+            </div>
+        </li>
+        <li class="channelArticleList_list_li">
+            <div class="channelArticleList_list_first">
+                <a>
+                    <img class="channelArticleList_list_img" src="../../img/PP/channelArticleList/pic.png">
+                </a>
+            </div>
+            <div class="channelArticleList_list_second">
+                <a><p class="channelArticleList_list_title" data-value="视频｜国家主席习近平同美国总统特朗普通电话国家主席习近平同美国总统特朗普通电话"></p></a>
+                <p class="channelArticleList_list_content abstractColor" data-value="习近平强调很高兴同总统先生通话。我同总统先生不久前在海湖庄园举行的会晤取得了重要成果，中国人民和国际社会都予以积极评价。"></p>
+                <p class="channelArticleList_list_bottom"><span
+                        class="channelArticleList_list_source">擎好网</span><span>|</span><span
+                        class="channelArticleList_list_count"><img src="../../img/PP/channelArticleList/comment.png"/>20</span><span
+                        class="rt">2017-4-23</span></p>
+            </div>
+        </li>
+        <li class="channelArticleList_list_li">
+            <div class="channelArticleList_list_first">
+                <a>
+                    <img class="channelArticleList_list_img" src="../../img/PP/channelArticleList/pic.png">
+                </a>
+
+                <p class="channelArticleList_list_topicTag">
+                    <img src="../../img/PP/channelArticleList/tag.png"/>
+                    <span>投票</span>
+                </p>
+            </div>
+            <div class="channelArticleList_list_second">
+                <a><p class="channelArticleList_list_title" data-value="视频｜国家主席习近平同美国总统特朗普通电话国家主席习近平同美国总统特朗普通电话"></p>
+                </a>
+
+                <p class="channelArticleList_list_content abstractColor" data-value="习近平强调很高兴同总统先生通话。我同总"></p>
+
+                <p class="channelArticleList_list_bottom"><span
+                        class="channelArticleList_list_source">擎好网</span><span>|</span><span
+                        class="channelArticleList_list_count"><img src="../../img/PP/channelArticleList/comment.png"/>20</span><span
+                        class="rt">2017-4-23</span></p>
+            </div>
+        </li>
+        <li class="channelArticleList_list_li">
+            <div class="channelArticleList_list_first">
+                <a>
+                    <img class="channelArticleList_list_img" src="../../img/PP/channelArticleList/pic.png">
+                </a>
+            </div>
+            <div class="channelArticleList_list_second">
+                <a><p class="channelArticleList_list_title" data-value="视频｜国家主席习近平同美国总统特朗普通电话国家主席习近平同美国总统特朗普通电话"></p>
+                </a>
+
+                <p class="channelArticleList_list_content abstractColor" data-value="习近平强调很高兴同总统先生通话。我同总统先生不久前在海湖庄园举行的会晤取得了重要成果，中国人民和国际社会都予以积极评价。"></p>
+                <p class="channelArticleList_list_bottom"><span
+                        class="channelArticleList_list_source">擎好网</span><span>|</span><span
+                        class="channelArticleList_list_count"><img src="../../img/PP/channelArticleList/comment.png"/>20</span><span
+                        class="rt">2017-4-23</span></p>
+            </div>
+        </li>
+    </ul>
+</div>
+</body>
+<script>
+    var pageStyle="list";
+
+    function maxLength(){
+        forHtml(".channelArticleList_list_title")
+        forHtml(".channelArticleList_list_content")
+        forHtml(".channelArticleList_card_title")
+        forHtml(".channelArticleList_card_content")
+        max(".channelArticleList_list_title", 50);
+        max(".channelArticleList_list_content", 56);
+        max(".channelArticleList_card_title", 20);
+        max(".channelArticleList_card_content", 65);
+    }
+
+    function forHtml(yuan){
+        for(var i =0; i<$(yuan).length;i++){
+            var pp =  $(yuan);
+            $(pp[i]).html($(pp[i]).attr("data-value"));
+        }
+    }
+    function calculateLocation(){
+        var pp = $(".channelArticleList_card_li");
+        for(var i=0;i<$(".channelArticleList_card_li").length;i++){
+            if((i%3) == 0){
+                $(pp[i]).css("left","0px");
+            }
+            if((i%3) == 1){
+                var pp = $(".channelArticleList_card_li");
+                $(pp[i]).css("left","240px");
+            }
+            if((i%3) == 2){
+                var pp = $(".channelArticleList_card_li");
+                $(pp[i]).css("left","480px");
+            }
+            if(i<3){
+                $(pp[i]).css("top","0px");
+            }else{
+                var height = $(pp[i-3]).css("height");
+                var preTop = $(pp[i-3]).css("top");
+                var hh = height.split("px");
+                var pt = preTop.split("px");
+                $(pp[i]).css("top",(parseInt(hh[0])+parseInt(pt[0])+12)+"px");
+            }
+        }
+        calculateUlHeight()
+    }
+
+    function calculateUlHeight(){
+        var pp = $(".channelArticleList_card_li");
+        var h = $(".channelArticleList_card_li").length;
+        var h1 = $(pp[h-1]).css("bottom");
+        var h2 = $(pp[h-2]).css("bottom");
+        var h3 = $(pp[h-3]).css("bottom");
+        if(h<3) {
+            h3 = "0px";
+        }
+        if(h<2){
+            h2 = "0px";
+        }
+        if(h<1){
+            h1 = "0px";
+        }
+        h1 = Math.abs(h1.substring(0,h1.length-2));
+        h2 = Math.abs(h2.substring(0,h2.length-2));
+        h3 = Math.abs(h3.substring(0,h3.length-2));
+        $(".channelArticleList_card_ul").css("height",(getMax(h1,h2,h3)-16)+"px");
+    }
+    function selectStyle(style){
+        $(".channelArticleList_top").find(".channelArticleList_styleSelected").removeClass("channelArticleList_styleSelected");
+        $("."+style).addClass("channelArticleList_styleSelected");
+        var html = $(".channelArticleList").html();
+        if(style == "styleCard"){
+            pageStyle = "card";
+            html = html.replace(/channelArticleList_list/g,"channelArticleList_card");
+            $(".channelArticleList").html('');
+            $(".channelArticleList").html(html);
+            $(".channelArticleList_card_ul").css("display","block");
+            calculateLocation();
+        }else{
+            pageStyle = "list";
+            html = html.replace(/channelArticleList_card/g,"channelArticleList_list");
+            $(".channelArticleList").html('');
+            $(".channelArticleList").html(html);
+            $(".channelArticleList_list_ul").css("display","block");
+            $(".channelArticleList_list_ul").css("height","auto");
+        }
+        maxLength();
+    }
+
+    function getMax(a,b,c)
+    {
+        return a>b?(a>c?a:c):(b>c?b:c);
+    }
+    var flag="v";
+    if(flag == "v"){
+        vData()
+    }else{
+        tData();
+    }
+    maxLength();
+    function vData(){
+        var commentNum = $(".v_channelArticleList_commentNum").val();
+        var num = 21;
+       $(".channelArticleList_"+pageStyle+"_ul").html("");
+        for(var i=0;i<num;i++){
+            var str="";
+            str += '<li class="channelArticleList_'+pageStyle+'_li">';
+            str += '<div class="channelArticleList_'+pageStyle+'_first">';
+            str += '<a><img  class="channelArticleList_'+pageStyle+'_img" src="../../img/PP/channelArticleList/pic.png">';
+            str += '<p class="channelArticleList_'+pageStyle+'_videoBottom">';
+            str += '<span class="channelArticleList_'+pageStyle+'_videoTime">10:30</span>';
+            str += '<span class="channelArticleList_'+pageStyle+'_videoCount">';
+            str += '<img class="channelArticleList_'+pageStyle+'_videoPlay" src="../../img/PP/channelArticleList/video_play.png"/>';
+            str += ' 3</span></p></a></div>';
+            str += '<div class="channelArticleList_'+pageStyle+'_second">';
+            str += '<a><p class="channelArticleList_'+pageStyle+'_title"  data-value="哈利路亚哈利虎牙哈哈哈哈哈哈或少时诵诗书事实上"></p></a>';
+            str += '<p class="channelArticleList_'+pageStyle+'_content abstractColor" data-value="习近平强很海湖庄不久前在海湖。"></p>';
+            str += '<p class="channelArticleList_'+pageStyle+'_bottom"><span class="channelArticleList_'+pageStyle+'_source">擎好网</span>';
+            if(commentNum == "yes"){
+                str += '<span>|</span><span class="channelArticleList_'+pageStyle+'_count">';
+                str += '<img src="../../img/PP/channelArticleList/comment.png"/>20</span>';
+            }
+            str += '<span class="rt">2017-4-23</span></p></div>';
+            str += '</div></li>';
+            $(".channelArticleList_"+pageStyle+"_ul").append(str);
+        }
+    }
+    function tData(){
+        var channelArticleList_channelId = "";
+        var Callback = "tData";
+        var channelArticleList_commentNum="yes";
+        var num = 21;
+        $.ajax({
+            async: false,
+            cache: true,
+            type: 'post',
+            dataType: "jsonp",
+            data: {channelId: channelArticleList_channelId, limit: num, Callback: Callback},  //参数
+            url: "http://192.168.31.156:8080/cmsNews/template_editor/channel_article_list_index.do",//请求的action路径
+            success: function (data) { //请求成功后处理函数。
+            }
+        });
+    }
+
+    function tDataCallback(){
+
+    }
+</script>
+</html>

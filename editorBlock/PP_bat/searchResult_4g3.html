@@ -1,0 +1,135 @@
+<div class="col-md-9 col-sm-9 appendStr searchResult_4g3" id="searchResult_4g3" data-blockSize="9">
+<div class="style" "exist">
+    <style>
+        .searchResult_4g3_head{
+            width: 540px;
+            height: 36px;
+            /*background:#f1f1f1;*/
+            margin-left: 84px;
+        }
+        .searchResult_4g3_head li{
+            float: left;
+            width: 90px;
+            height: 36px;
+            text-align: center;
+            padding-top: 9px;
+            box-shadow:inset 0 1px 0 0 #f1f1f1;
+            cursor: pointer;
+        }
+        .searchResult_4g3_mian{
+            width: 540px;
+            margin-left: 84px;
+        }
+        .searchResult_4g3_resultTip{
+            font-size:12px;
+            text-align:left;
+            margin:12px 10px 8px 10px;
+        }
+        .searchResult_4g3_mian ul{
+            /*border-bottom:1px solid #999999;*/
+            width:540px;
+        }
+        .searchResult_4g3_mian li{
+            /*border-top:1px solid #999999;*/
+        }
+        .searchResult_4g3_liSel{
+            /*border-bottom:2px solid #cc3333;*/
+            background:#fff;
+        }
+        .searchResult_4g3_listTit{
+            font-size:16px;
+            margin-top: 16px;
+            line-height:21px;
+            text-align:left;
+            overflow: hidden;
+            height: 22px;
+        }
+        .searchResult_4g3_listCnt{
+            font-size:14px;
+            height: 42px;
+            line-height:21px;
+            width: 540px;
+            overflow: hidden;
+            text-align:left;
+            margin-top: 8px;
+        }
+        .searchResult_4g3_numImg{
+            width: 12px;
+            height: 10px;
+            vertical-align: middle;
+        }
+        .searchResult_4g3_time{
+            text-align: right;
+            margin-bottom: 7px;
+        }
+    </style>
+</div>
+
+<div class="panel appendNot" data-id="3">
+    <input type="hidden" class="v_searchResult_4g3_num" value="6" align="center"/>
+    <div class="panel-heading">
+        <span class="title">列表1</span>
+    </div>
+    <div class="panel-body">
+        <div class="Grid4g3" "exist">
+            <div class="searchResult_4g3_head">
+                <ul class="clearFloat">
+                    <li class="searchResult_4g3_liSel"><span>全部</span></li>
+                    <li><span>新闻</span></li>
+                    <li><span>视频</span></li>
+                    <li><span>组图</span></li>
+                    <li><span>话题</span></li>
+                    <li><span>投票</span></li>
+                </ul>
+            </div>
+            <div class="searchResult_4g3_mian">
+                <p class="searchResult_4g3_resultTip abstractColor">共
+                    <span class="mainColor searchResult_4g3_resultTip">100</span> 条搜索结果
+                </p>
+                <ul class="showId"></ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="resize-handle"><i class="icon icon-resize-h"></i></div>
+
+<div class="script" "exist">
+    <script>
+        $(function (){
+            $('.searchResult_4g3_head li').click(function (){
+                $(this).addClass('searchResult_4g3_liSel').siblings('').removeClass('searchResult_4g3_liSel');
+            });
+        });
+        var flag="v";
+        if(flag == "v"){
+            vData()
+        }else{
+            tData();
+        }
+        function vData() {
+            $(".appendCur .searchResult_4g3_mian ul").html("");
+            var v_searchResult_4g3_num = $(".appendCur .v_searchResult_4g3_num").val();
+
+            var title = "国家主席习近平同美国总统特朗普通电话家主席习近平同美国总统特朗普通电话国家主席习近平同美国总统特朗普通";
+            var str = '';
+            for (var i = 0; i < v_searchResult_4g3_num; i++) {
+                str +='<li>' +
+                '<p class="searchResult_4g3_listTit titleColor">'+title+'</p> ' +
+                '<p class="searchResult_4g3_listCnt abstractColor">'+title+'</p> ' +
+                '<p class="searchResult_4g3_time dateColor"><span class="dateColor">擎好网｜2017.04.12｜<img src="../../img/PP/myJoined/contentNum.png" class="searchResult_4g3_numImg"> 20</span></p> ' +
+                '</li>';
+            }
+            $(".appendCur .searchResult_4g3_mian ul").append(str);
+        }
+        //返回的真实数据
+        function tDataCallback(data){
+            var list = data.dataList;
+            for( var i=0;i<list.length;i++ ){
+                var str='<p><a href="#"/>'+list[i].title+'<a><p/>';
+                $(".lh.showId").append(str);
+            }
+        }
+
+    </script>
+</div>
+</div>

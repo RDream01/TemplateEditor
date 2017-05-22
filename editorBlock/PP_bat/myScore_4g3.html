@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>我的积分</title>
+    <style>
+        table{
+            width: 540px;
+            text-align: center;
+        }
+        table td{
+            display: inline-block;
+            margin-top: 16px;
+            font-size:14px;
+            letter-spacing:0;
+            text-align:center;
+            width: 180px;
+            height: 20px;
+        }
+        .myScore_4g3_main{
+            margin-left: 84px;
+        }
+        .myScore_4g3_head{
+            text-align: right;
+            width: 540px;
+            padding:16px 10px 3px 0;
+            /*border-bottom: 1px solid #dddddd;*/
+        }
+        .myScore_4g3_head span{
+            padding:0 5px;
+        }
+        .myScore_4g3_onetr td{
+            font-size:14px;
+            letter-spacing:0;
+            text-align:center;
+        }
+    </style>
+</head>
+<body>
+<div class="Grid4g3 appendCur">
+    <input type="hidden" class="v_myScore_4g3_num" value="4" align="center"/>
+    <input type="hidden" class="v_myScore_4g3_score" value="40" align="center"/>
+    <div class="myScore_4g3_main">
+        <p class="abstractColor myScore_4g3_head">全部积分<span class="mainColor showId">  </span>分</p>
+        <table>
+            <thead>
+                <tr class="myScore_4g3_onetr titleColor">
+                    <td>时间</td>
+                    <td >操作</td>
+                    <td >积分</td>
+                </tr>
+            </thead>
+            <tbody class="showId"></tbody>
+        </table>
+    </div>
+</div>
+<script>
+    var flag="v";
+    if(flag == "v"){
+        vData()
+    }else{
+        tData();
+    }
+    function vData() {
+        $(".appendCur .myScore_4g3_main table tbody").html("");
+        $(".appendCur .myScore_4g3_head span").html("");
+        var v_myScore_4g3_num = $(".appendCur .v_myScore_4g3_num").val();
+        var v_myScore_4g3_score = $(".appendCur .v_myScore_4g3_score").val();
+
+        var str = "";
+        for (var i = 0; i < v_myScore_4g3_num; i++) {
+            str+='<tr class="abstractColor">' +
+                    '<td >2017-03-23</td><td >评论文章</td><td >＋5</td>' +
+                '</tr>'
+        }
+        $(".appendCur .myScore_4g3_main table tbody").append(str);
+        $(".appendCur .myScore_4g3_head span").append(v_myScore_4g3_score);
+    }
+    //返回的真实数据
+    function tDataCallback(data){
+        var list = data.dataList;
+        for( var i=0;i<list.length;i++ ){
+            var str='<p><a href="#"/>'+list[i].title+'<a><p/>';
+            $(".lh.showId").append(str);
+        }
+    }
+</script>
+</body>
+</html>

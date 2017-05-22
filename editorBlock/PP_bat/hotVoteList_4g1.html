@@ -1,0 +1,116 @@
+<div class="col-md-3 col-sm-3 appendStr hotVoteList_4g1" id="hotVoteList_4g1" data-blockSize="3">
+
+<div class="style" "exist">
+    <style>
+        .hotVoteList_top{
+            width: 228px;
+            height: 40px;
+            background:#ffffff;
+            box-shadow: 0 2px 2px 0 rgba(0,0,0,0.24);
+        }
+        .hotVoteList_title{
+            line-height: 40px;
+            font-size: 20px;
+            margin-left: 16px;
+        }
+        .hotVoteList_name{
+            display: inline-block;
+        }
+        .hotVoteList_name:first-letter{
+            font-size: 22px;
+        }
+        .hotVoteList_li{
+            width: 228px;
+            height: 46px;
+            margin-bottom:10px;
+        }
+        .hotVoteList_li_content{
+            height: 46PX;
+            line-height: 18px;
+            overflow: hidden;
+            font-size: 13px;
+            width: 228px;
+            padding: 5px 16px;
+            letter-spacing: 0.7px;
+        }
+        .hotVoteList_ul{
+            margin-top:12px;
+        }
+        .hotVoteList_more{
+            margin-right: 16px;
+            font-size: 20px;
+        }
+    </style>
+</div>
+
+<div class="panel appendNot" data-id="3">
+    <input type="hidden" class="v_hotVoteList_name" value="热门投票"/>
+    <input type="hidden" class="v_hotVoteList_ul_num" value="6"/>
+    <div class="panel-heading">
+        <span class="title">热门投票</span>
+    </div>
+    <div class="panel-body">
+        <div class="Grid4g1 pageBackGroundColor" "exist">
+            <div class="hotVoteList_top">
+                <div class="hotVoteList_title titleColor">
+                    <p class="fistP hotVoteList_name showId"></p>
+                    <span class="hotVoteList_more rt">
+                        <a class="dateColor" href="#">&gt;</a>
+                    </span>
+                </div>
+            </div>
+            <ul class="hotVoteList_ul showId"></ul>
+        </div>
+    </div>
+</div>
+<div class="resize-handle"><i class="icon icon-resize-h"></i></div>
+
+<div class="script" "exist">
+    <script>
+        var flag = "v";
+        if (flag == "v") {
+            vData()
+        } else {
+            tData();
+        }
+        function vData() {
+            //title
+            $(".appendCur .hotVoteList_name").html("");
+            var v_hotVoteList_name = $(".appendCur .v_hotVoteList_name").val();
+            if (v_hotVoteList_name != "") {
+                $(".appendCur .hotVoteList_name.showId").html(v_hotVoteList_name);
+            }
+            //content
+            $(".appendCur .hotVoteList_ul").html("");
+            var v_hotVoteList_ul_num=$(".appendCur .v_hotVoteList_ul_num").val();
+            var hotVoteListStr='';
+            for( var i=0;i<v_hotVoteList_ul_num;i++ ){
+                hotVoteListStr+='<li class="hotVoteList_li">'+
+                '<p class="hotVoteList_li_content abstractColor">朋友间一你友间一起做啥才能证明你这人真熟？</p>'+
+                '</li>';
+            }
+            $(".appendCur .hotVoteList_ul.showId").html(hotVoteListStr);
+        }
+        function tData() {
+            $.ajax({
+                async: false,
+                cache: true,
+                type: 'post',
+                dataType: "jsonp",
+                data: {dataType: "jsonp", channelId: lhbb_id, limit: lhbb_num, Callback: Callback},  //参数
+                url: "http://192.168.31.156:8080/cmsNews/template_editor/channel_article_list_index.do",//请求的action路径
+                success: function (data) { //请求成功后处理函数。
+                }
+            });
+        }
+        function tDataCallback(data) {
+            var list = data.dataList;
+            for (var i = 0; i < list.length; i++) {
+                var str = '<p><a href="#"/>' + list[i].title + '<a><p/>';
+                $(".lh.showId").append(str);
+            }
+        }
+        max(".hotVoteList_li_content",25);
+    </script>
+</div>
+</div>

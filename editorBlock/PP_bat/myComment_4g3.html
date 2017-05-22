@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>我的评论</title>
+    <style>
+        .myComment_4g3_editDiv{
+            width: 540px;
+            text-align: right;
+            margin-left: 82px;
+            margin-top: 18px;
+            padding-bottom: 6px;
+        }
+        .myComment_4g3_editImg{
+            width:12px;
+            height:15px;
+            vertical-align: middle;
+        }
+        .myComment_4g3_list{
+            margin-left: 84px;
+            width: 540px;
+        }
+        .myComment_4g3_list ul{
+            width: 540px;
+        }
+        .myComment_4g3_list li{
+            height: 99px;
+        }
+        .myComment_4g3_list dl {
+            float: left;
+        }
+        .myComment_4g3_list dt{
+            float: left;
+            padding-top: 42px;
+        }
+        .myComment_4g3_list dd{
+            float: left;
+            margin-left: 12px;
+        }
+        .myComment_4g3_list_title{
+            font-size:14px;
+            text-align:left;
+            height: 40px;
+            width: 467px;
+            margin-top: 13px;
+            overflow: hidden;
+        }
+        .myComment_4g3_list_time {
+            font-size: 12px;
+            line-height: 12px;
+            text-align: left;
+        }
+        .myComment_4g3_delDiv{
+            float: left;
+            text-align: center;
+            vertical-align: middle;
+            margin-left: 12px;
+        }
+        .myComment_4g3_delSpan{
+            display: block;
+            height: 99px;
+            width: 20px;
+        }
+        .myComment_4g3_delimage{
+            width: 12px;
+            height: 17px;
+            margin-left: 10px;
+            margin-top: 42px;
+        }
+        .myComment_4g3_listbottom{
+            width: 467px;
+            margin-top: 16px;
+            height: 17px;
+            overflow: hidden;
+        }
+        .myComment_4g3_from{
+            font-size:12px;
+            text-align:left;
+            margin-left: 14px;
+        }
+        .myComment_4g3_source{
+            font-size:12px;
+            text-align:left;
+            margin-left: 10px;
+            height: 17px;
+            width: 10px;
+            overflow: hidden;
+        }
+        .myComment_4g3_head{
+            width: 225px;
+            margin-left: 410px;
+            margin-bottom: 8px;
+            display: none;
+        }
+        .myComment_4g3_head li{
+            float:  left;
+            margin-top: 25px;
+            margin-left: 36px;
+            margin-right: 0px;
+        }
+        .myComment_4g3_deleImage{
+            width: 9px;
+            height: 13px;
+            vertical-align: middle;
+        }
+        .myComment_4g3_select{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div class="Grid4g3 appendCur">
+    <input type="hidden" class="v_myComment_4g3_num" value="4" align="center"/>
+    <div class="myComment_4g3_editDiv ">
+        <a  onclick="changeB(this)" href="#" id="edit">
+            <img src="../../img/PP/myCollect/edit.png" class="myComment_4g3_editImg"> 编辑
+        </a>
+    </div>
+    <div class="myComment_4g3_head" >
+        <ul class="clearFloat">
+            <li>
+                <input type="checkbox" name="全选" id="selectAll">&nbsp;全选
+            </li>
+            <li>
+                <a onclick="dleAll()" href="#"><img src="../../img/PP/myCollect/dele.png" class="myComment_4g3_deleImage">&nbsp;删除</a>
+            </li>
+            <li>
+                <a id="done" onclick="changeB(this)" href="#">完成</a>
+            </li>
+        </ul>
+    </div>
+    <div class="myComment_4g3_list">
+        <ul class="showId"></ul>
+    </div>
+</div>
+<script>
+
+    $(function(){
+        $('#selectAll').click(function(){
+            if($('#selectAll').is(':checked')){
+                $('.myComment_4g3_list').find('input').prop('checked',true);
+            }else{
+                $('.myComment_4g3_list').find('input').prop('checked',false);
+            }
+        });
+        $('.myComment_4g3_select').click(function(){
+            var i=0;
+            var arr=$('.myComment_4g3_list').find('input').length;
+            $('.myComment_4g3_select').each(function(){
+                if($(this).is(':checked')){
+                    i++;
+                }
+            });
+            if(i==arr){
+                $('.myComment_4g3_head').find('input').prop('checked',true);
+            }else{
+                $('.myComment_4g3_head').find('input').prop('checked',false);
+            }
+        })
+
+    });
+    function dleAll(){
+        $('.myComment_4g3_select').each(function(){
+            if($(this).prop('checked')){
+                $(this).parent().parent().parent().remove();
+            }
+        });
+    }
+    function changeB(obj){
+        var id = $(obj).attr("id");
+        if(id == "edit"){
+            $('.myComment_4g3_head').css("display","block");
+            $('.myComment_4g3_editDiv').css("display","none");
+            $('.myComment_4g3_select').css("display","block");
+        }else  if(id = "done"){
+            $('.myComment_4g3_head').css("display","none");
+            $('.myComment_4g3_editDiv').css("display","block");
+            $('.myComment_4g3_select').css("display","none");
+        }
+    }
+    function  singleDel(obj){
+        $(obj).parent().parent().parent().remove();
+    }
+
+    var flag="v";
+    if(flag == "v"){
+        vData()
+    }else{
+        tData();
+    }
+    function vData() {
+        $(".appendCur .myComment_4g3_list ul").html("");
+        var v_myComment_4g3_num = $(".appendCur .v_myComment_4g3_num").val();
+
+        var title = "111国家主席习近平同美国总统特朗普通电话国家主席家主席习近平同美国总统特朗普通";
+        var content="乐天超市在京被罚50万 59元酒标价498元乐天超市在京被罚50万 59元酒标价498元";
+        var newsTime="2017-03-20";
+        var str = "";
+        for (var i = 0; i < v_myComment_4g3_num; i++) {
+            str = str +'<li class="clearFloat"> ' +
+                        '<dl class="clearFloat">' +
+                            ' <dt>' +
+                                ' <input type="checkbox"  class="myComment_4g3_select"> ' +
+                            '</dt> ' +
+                            '<dd> ' +
+                                '<p class="myComment_4g3_list_title titleColor">'+title+'</p> ' +
+                                '<p class="myComment_4g3_listbottom">' +
+                                    '<span class="myComment_4g3_list_time dateColor">'+newsTime+'</span> ' +
+                                    '<span class="myComment_4g3_from dateColor">来自</span>' +
+                                    '<span class="myComment_4g3_source"><a href="#" class="mainColor">'+content+'</a></span>'+
+                                '</p>'+
+                            '</dd>' +
+                        '</dl>' +
+                        ' <div class="myComment_4g3_delDiv" > ' +
+                            '<span class="myComment_4g3_delSpan"><a id="pp" onclick="singleDel(this)" href="#"><img src="../../img/PP/myCollect/dele.png" class="myComment_4g3_delimage"></a></span>' +
+                        ' </div>' +
+                    ' </li>';
+        }
+        $(".appendCur .myComment_4g3_list ul").append(str);
+    }
+    //返回的真实数据
+    function tDataCallback(data){
+        var list = data.dataList;
+        for( var i=0;i<list.length;i++ ){
+            var str='<p><a href="#"/>'+list[i].title+'<a><p/>';
+            $(".lh.showId").append(str);
+        }
+    }
+</script>
+</body>
+</html>
