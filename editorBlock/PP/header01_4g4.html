@@ -108,17 +108,19 @@
         position:relative;
     }
     .header01_4g4_border{
+        position: absolute;
         display: table-cell;
-        background:#999999;
-        width:2px;
-        height:40px;
+        background: #999999;
+        width: 1px;
+        height: 40px;
+        margin: 55px 0;
     }
     .header01_4g4_navChanel>li>a{
         width:63px;
         height:150px;
         font-size:19px;
         text-decoration: none;
-        line-height: 25px;
+        line-height: 30px;
         padding:0 15px;
         display: table-cell;
         vertical-align: middle;
@@ -128,19 +130,18 @@
     .header01_4g4_tan{
         display:none;
         background:#999999;
-        width:320px;
+        min-width:50px;
         height:126px;
-        padding:0 20px;
+        padding:0 16px;
         position: absolute;
         top:130px;
-        right:-196%;
     }
     .header01_4g4_tan>li{
         float: left;
         height:126px;
         line-height:126px;
         vertical-align: middle;
-        margin:0 4px;
+        padding:0 4px;
     }
     .header01_4g4_tan>li>a{
         display: table-cell;
@@ -153,23 +154,17 @@
         color:#fff;
         font-size:16px;
     }
-    .header01_4g4_nav li a.header01_4g4_navactive{
+    .header01_4g4_nav li a.header01_4g4_tanActive{
         background: #777;
     }
     /*箭头*/
-    .header01_4g4_tan>li.header01_4g4_arrow{
+    .header01_4g4_arrowTop{
+        display: none;
         position:absolute;
-        left:0;
-        width:95%;
+        bottom:19px;
+        left:44%;
         text-align: center;
-        height:1px;
     }
-    .header01_4g4_arrow img{
-        position: absolute;
-        width:12px;
-        top:-7px;
-    }
-
 
 
 </style>
@@ -210,36 +205,182 @@
             <!--nav-->
             <div class="header01_4g4_nav lf">
                 <ul class="header01_4g4_navChanel">
-                    <!--<li>-->
-                        <!--<a href="#" class="header01_4g4_active">首页</a>-->
-                    <!--</li>-->
-                    <!--<li>-->
-                        <!--<span class="header01_4g4_border"></span>-->
-                        <!--<a href="#">好经济</a>-->
-                        <!--<ul class="header01_4g4_tan">-->
-                            <!--<li class="header01_4g4_arrow">-->
-                                <!--<img src="../../img/PP/header01_4g4/header01_4g4_top.png" alt=""/>-->
-                            <!--</li>-->
-                            <!--<li><a class="header01_4g4_navactive" href="#">图书馆</a></li>-->
-                            <!--<li><a href="#">编辑推荐</a></li>-->
-                            <!--<li><a href="#">新书速递</a></li>-->
-                            <!--<li><a href="#">编辑推荐</a></li>-->
-                            <!--<li><a href="#">新书速递</a></li><li><a href="#">编辑推荐</a></li>-->
-                            <!--<li><a href="#">新书速递</a></li><li><a href="#">编辑推荐</a></li>-->
-                            <!--<li><a href="#">新书速递</a></li>-->
-                        <!--</ul>-->
-                    <!--</li>-->
+                    <li>
+                        <a href="#" class="header01_4g4_active">首页</a>
+                    </li>
+                    <li>
+                        <span class="header01_4g4_border"></span>
+                        <img class="header01_4g4_arrowTop" src="../../img/PP/header01_4g4/header01_4g4_top.png" alt=""/>
+                        <a href="#">好经济</a>
+                        <ul class="header01_4g4_tan">
+                            <li><a href="#">编辑推荐</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="header01_4g4_border"></span>
+                        <img class="header01_4g4_arrowTop" src="../../img/PP/header01_4g4/header01_4g4_top.png" alt=""/>
+                        <a href="#">好经济</a>
+                        <ul class="header01_4g4_tan">
+                            <li><a href="#">图书馆</a></li>
+                            <li><a href="#">编辑推荐</a></li>
+                            <li><a href="#">新书速递</a></li>
+                            <li><a href="#">编辑推荐</a></li>
+                            <li><a href="#">新书速递</a></li><li><a href="#">编辑推荐</a></li>
+                            <li><a href="#">新书速递</a></li><li><a href="#">编辑推荐</a></li>
+                            <li><a href="#">新书速递</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="header01_4g4_border"></span>
+                        <img class="header01_4g4_arrowTop" src="../../img/PP/header01_4g4/header01_4g4_top.png" alt=""/>
+                        <a href="#">好经济</a>
+                        <ul class="header01_4g4_tan">
+                            <li><a href="#">图书馆</a></li>
+                            <li><a href="#">编辑推荐</a></li>
+                            <li><a href="#">新书速递</a></li>
+                            <li><a href="#">编辑推荐</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="header01_4g4_border"></span>
+                        <img class="header01_4g4_arrowTop" src="../../img/PP/header01_4g4/header01_4g4_top.png" alt=""/>
+                        <a href="#">好经济</a>
+                        <ul class="header01_4g4_tan">
+                            <li><a href="#">图书馆</a></li>
+                            <li><a href="#">编辑推荐</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="header01_4g4_border"></span>
+                        <img class="header01_4g4_arrowTop" src="../../img/PP/header01_4g4/header01_4g4_top.png" alt=""/>
+                        <a href="#">好经济</a>
+                        <ul class="header01_4g4_tan">
+                            <li><a href="#">图书馆</a></li>
+                            <li><a href="#">编辑推荐</a></li>
+                            <li><a href="#">新书速递</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="header01_4g4_border"></span>
+                        <img class="header01_4g4_arrowTop" src="../../img/PP/header01_4g4/header01_4g4_top.png" alt=""/>
+                        <a href="#">好经济</a>
+                        <ul class="header01_4g4_tan">
+                            <li><a href="#">图书馆</a></li>
+                            <li><a href="#">编辑推荐</a></li>
+                            <li><a href="#">新书速递</a></li>
+                            <li><a href="#">编辑推荐</a></li>
+                            <li><a href="#">新书速递</a></li><li><a href="#">编辑推荐</a></li>
+                            <li><a href="#">新书速递</a></li><li><a href="#">编辑推荐</a></li>
+                            <li><a href="#">新书速递</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="header01_4g4_border"></span>
+                        <img class="header01_4g4_arrowTop" src="../../img/PP/header01_4g4/header01_4g4_top.png" alt=""/>
+                        <a href="#">好经济</a>
+                        <ul class="header01_4g4_tan">
+                            <li><a href="#">图书馆</a></li>
+                            <li><a href="#">编辑推荐</a></li>
+                            <li><a href="#">新书速递</a></li>
+                            <li><a href="#">编辑推荐</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="header01_4g4_border"></span>
+                        <img class="header01_4g4_arrowTop" src="../../img/PP/header01_4g4/header01_4g4_top.png" alt=""/>
+                        <a href="#">好经济</a>
+                        <ul class="header01_4g4_tan">
+                            <li><a href="#">图书馆</a></li>
+                            <li><a href="#">编辑推荐</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="header01_4g4_border"></span>
+                        <img class="header01_4g4_arrowTop" src="../../img/PP/header01_4g4/header01_4g4_top.png" alt=""/>
+                        <a href="#">好经济</a>
+                        <ul class="header01_4g4_tan">
+                            <li><a href="#">图书馆</a></li>
+                            <li><a href="#">编辑推荐</a></li>
+                            <li><a href="#">新书速递</a></li>
+                            <li><a href="#">图书馆</a></li>
+                            <li><a href="#">编辑推荐</a></li>
+                            <li><a href="#">新书速递</a></li>
+                            <li><a href="#">图书馆</a></li>
+                            <li><a href="#">编辑推荐</a></li>
+                            <li><a href="#">新书速递</a></li>
+                            <li><a href="#">图书馆</a></li>
+                            <li><a href="#">编辑推荐</a></li>
+                            <li><a href="#">新书速递</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </div>
     </div>
 </div>
 
+<p>vhjdjkadhf sdhfjkasdhf </p>
+<p>vhjdjkadhf sdhfjkasdhf </p>
+<p>vhjdjkadhf sdhfjkasdhf </p>
+<p>vhjdjkadhf sdhfjkasdhf </p>
+<p>vhjdjkadhf sdhfjkasdhf </p>
+<p>vhjdjkadhf sdhfjkasdhf </p>
+<p>vhjdjkadhf sdhfjkasdhf </p>
+<p>vhjdjkadhf sdhfjkasdhf </p>
+<p>vhjdjkadhf sdhfjkasdhf </p>
+<p>vhjdjkadhf sdhfjkasdhf </p>
+<p>vhjdjkadhf sdhfjkasdhf </p>
+<p>vhjdjkadhf sdhfjkasdhf </p>
+<p>vhjdjkadhf sdhfjkasdhf </p>
+<p>vhjdjkadhf sdhfjkasdhf </p>
+<p>vhjdjkadhf sdhfjkasdhf </p>
+<p>vhjdjkadhf sdhfjkasdhf </p>
+<p>vhjdjkadhf sdhfjkasdhf </p>
+<p>vhjdjkadhf sdhfjkasdhf </p>
+<p>vhjdjkadhf sdhfjkasdhf </p>
+<p>vhjdjkadhf sdhfjkasdhf </p>
+<p>vhjdjkadhf sdhfjkasdhf </p>
+<p>vhjdjkadhf sdhfjkasdhf </p>
+<p>vhjdjkadhf sdhfjkasdhf </p>
+<p>vhjdjkadhf sdhfjkasdhf </p>
+<p>vhjdjkadhf sdhfjkasdhf </p>
+<p>vhjdjkadhf sdhfjkasdhf </p>
+<p>vhjdjkadhf sdhfjkasdhf </p>
+<p>vhjdjkadhf sdhfjkasdhf </p>
+<p>vhjdjkadhf sdhfjkasdhf </p>
+<p>vhjdjkadhf sdhfjkasdhf </p>
+<p>vhjdjkadhf sdhfjkasdhf </p>
+<p>vhjdjkadhf sdhfjkasdhf </p>
+<p>vhjdjkadhf sdhfjkasdhf </p>
+<p>vhjdjkadhf sdhfjkasdhf </p>
+<p>vhjdjkadhf sdhfjkasdhf </p>
+<p>vhjdjkadhf sdhfjkasdhf </p>
+<p>vhjdjkadhf sdhfjkasdhf </p>
+<p>vhjdjkadhf sdhfjkasdhf </p>
+<p>vhjdjkadhf sdhfjkasdhf </p>
+<p>vhjdjkadhf sdhfjkasdhf </p>
+<p>vhjdjkadhf sdhfjkasdhf </p>
+<p>vhjdjkadhf sdhfjkasdhf </p>
+<p>vhjdjkadhf sdhfjkasdhf </p>
+<p>vhjdjkadhf sdhfjkasdhf </p>
+<p>vhjdjkadhf sdhfjkasdhf </p>
+<p>vhjdjkadhf sdhfjkasdhf </p>
+<p>vhjdjkadhf sdhfjkasdhf </p>
+<p>vhjdjkadhf sdhfjkasdhf </p>
+<p>vhjdjkadhf sdhfjkasdhf </p>
+<p>vhjdjkadhf sdhfjkasdhf </p>
+<p>vhjdjkadhf sdhfjkasdhf </p>
+<p>vhjdjkadhf sdhfjkasdhf </p>
+
+<p>vhjdjkadhf sdhfjkasdhf </p>
+
+
+
 <script src="../../js/zui.min-1.5.js"></script>
 <script>
     var flag="v";
     if(flag == "v"){
-        vData()
+//        vData()
     }else{
         tData();
     }
@@ -260,7 +401,7 @@
                 chanelStr+='<img src="../../img/PP/header01_4g4/header01_4g4_top.png" alt=""/>'
                 chanelStr+='</li>';
                 for( var j=0;j<7;j++ ){
-                    chanelStr+='<li><a class="header01_4g4_navactive" href="#">图书馆</a></li>';
+                    chanelStr+='<li><a href="#">图书馆</a></li>';
                 }
                 chanelStr+='</ul>';
             }
@@ -277,9 +418,24 @@
         }
     }
 
+//    $(".header01_4g4_tan").css("width",)
+    var tans=$(".header01_4g4_tan");
+    for( var i=0;i<tans.length;i++ ){
+        $(tans[i]).css("width", ($(tans[i]).children("li").length)*34+parseFloat(32)+'px');
+        console.log(parseFloat($(tans[i]).css("width")) );
+        if( parseFloat( $(tans[i]).css("width"))<100 ){
+            $(tans[i]).css("left","0");
+        }else if( parseFloat( $(tans[i]).css("width"))<200 ){
+            $(tans[i]).css("left","-40%")
+        }else if( parseFloat( $(tans[i]).css("width"))<300 ){
+            $(tans[i]).css("left","-20%")
+        }else if( parseFloat( $(tans[i]).css("width"))<400 ){
+            $(tans[i]).css("left","-130%")
+        }else{
+            $(tans[i]).css("left","-400%")
+        }
 
-
-
+    }
 
     //首页一级点击
     $('.header01_4g4_navChanel>li>a').click(function(e){
@@ -294,23 +450,27 @@
     $('.header01_4g4_navChanel>li>a').mousemove(function(){
         if( $(this).next()!==null ){
             $(this).next().show();
+            $(this).prev().show();
             $(this).addClass("header01_4g4_cur");
         }
     });
     $('.header01_4g4_navChanel>li>a').mouseout(function(){
         if( $(this).next()!==null ){
             $(this).next().hide();
+            $(this).prev().hide();
             $(this).removeClass("header01_4g4_cur");
         }
     });
     //首页二级点击
     $('.header01_4g4_tan').mouseover(function(){
         $(this).siblings().addClass("header01_4g4_cur");
-        $(this).css('display','block');
+        $(this).show();
+        $(this).prev().prev().show();
     });
     $('.header01_4g4_tan').mouseout(function(){
         $(this).siblings().removeClass("header01_4g4_cur");
-        $(this).css('display','none');
+        $(this).hide();
+        $(this).prev().prev().hide();
     });
     $('.header01_4g4_tan>li>a').click(function(){
         var a=$(".header01_4g4_active");

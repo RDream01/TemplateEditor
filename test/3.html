@@ -3,8 +3,301 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title></title>
+    <link rel="stylesheet" href="../css/zui.css"/>
+    <!--<link rel="stylesheet" href="../css/editor.css"/>-->
+    <!--<link rel="stylesheet" href="../css/zui.dashboard.Editor.css"/>-->
+    <link rel="stylesheet" href="../css/common_red.css"/>
+    <link id="templateColorLink" rel="stylesheet" href=""/>
+    <script src="../js/respond.js"></script>
+    <script src="../js/jquery-1.11.3.js"></script>
+    <style>
+        /**********************组件---header01************************/
+        .header01{
+            width: 100%;
+        }
+        /*top--红*/
+        .header01_top{
+            height:40px;
+            /*background-color: #c33;*/
+        }
+        .header01_action li{
+            display: inline-block;
+            line-height:40px;
+            color:#fff;
+            margin-right:15px;
+            font-size:14px;
+        }
+        .header01_searchCon{
+            display: inline-block;
+            width:112px;
+            height:20px;
+            margin:10px 0;
+            position:relative;
+        }
+        .header01_searchInput{
+            border-radius: 36px;
+            width:112px;
+            padding:0 5px;
+            letter-spacing: 1px;
+            outline: none;
+            font-size:14px;
+        }
+        .header01_searchCon label{
+            display: inline-block;
+            position:absolute;
+            right:5px;
+            top:-3px;
+        }
+        .header01_searchCon label a{
+            display: inline-block;
+        }
+        .header01_phone,.header01_login{
+            display: inline-block;
+            margin-left:20px;
+        }
+        .header01_phone span{
+            color:#fff;
+            font-size:14px;
+            padding-left:3px;
+        }
+        .header01_phone img{
+            padding-bottom:2px;
+        }
+        .header01_login a{
+            color:#fff;
+            font-size:14px;
+        }
+        /*logo*/
+        .header01_logo{
+            text-align:center;
+        }
+        .header01_logo>img{
+            width:256px;
+            margin:20px 0;
+        }
+        /*导航*/
+        .header01_nav{
+            background-color: #fafafa;
+            height:50px;
+        }
+        .header01_navChanel{
+            text-align: center;
+        }
+        .header01_navChanel:after{
+            display: table;
+            content: '';
+            clear: both;
+        }
+        .header01_navChanel>li{
+            float: left;
+            /*position:relative;*/
+        }
+        .header01_navChanel>li>a{
+            display: inline-block;
+            height:50px;
+            border-bottom:2px solid transparent;
+            line-height: 50px;
+            width:120px;
+            font-size:18px;
+            /*color:#999;*/
+            text-decoration: none;
+        }
+        /*.header01_navChanel>li>a.header01_active{*/
+        /*color:#333;*/
+        /*border-bottom-color:#c33;*/
+        /*}*/
+        /*.header01_active{*/
+        /*color:#333;*/
+        /*border-bottom-color:#c33;*/
+        /*}*/
+        /*.header01_navChanel>li>a.header01_cur{*/
+        /*color:#c33;*/
+        /*}*/
+        /*二级菜单*/
+        .header01_tan{
+            display: none;
+            width: 100%;
+            min-height: 20px;
+            text-align: center;
+            margin-top:-3px;
+            margin-bottom:5px;
+            background:#ffffff;
+            border:1px solid #fafafa;
+            box-shadow:0 2px 4px 0 rgba(0,0,0,0.24);
+            position: relative;
+            z-index:10;
+        }
+        /*箭头*/
+        .header01_arrow{
+            position:absolute;
+            left:0;
+            width:95%;
+            text-align: center;
+            height:7px;
+        }
+        .header01_arrow img{
+            position: absolute;
+            width:8px;
+            top:-7px;
+        }
+        /*li*/
+        .header01_tan li a{
+            color:#9b9b9b;
+            font-size: 14px;
+            display: inline-block;
+            line-height: 35px;
+            text-decoration: none;
+        }
+        /*.header01_tan li a.header01_tanActive{*/
+        /*color:#c33;*/
+        /*}*/
+
+    </style>
+
 </head>
+
 <body>
+
+
+
+        <div class="header01">
+        <!--top-->
+        <div class="header01_top">
+            <div class="commonContainer">
+                <ul class="header01_action lf">
+                    <li class="header01_GPS">北京</li>
+                    <li class="header01_time">2017年3月20日 周四</li>
+                    <li class="header01_TEMP">27℃</li>
+                </ul>
+                <div class="rt">
+                    <p class="header01_searchCon ">
+                        <input type="text" id="header01_searchInput" placeholder="" class="header01_searchInput "/>
+                        <label for="header01_searchInput"><a href="#"><img src="../../img/header01/search_index.png" alt=""/></a></label>
+                    </p>
+                    <p class="header01_phone"><img src="../../img/header01/phone_index.png" alt=""/><span>下载客户端</span></p>
+                    <p class="header01_login"><a href="#">登录</a></p>
+                </div>
+            </div>
+        </div>
+        <!--logo-->
+        <div class="header01_logo">
+            <img src="../../img/header01/header01_logo.png">
+        </div>
+        <!--nav-->
+        <div class="header01_nav">
+            <ul class="commonContainer header01_navChanel">
+                <li><a href="#"  class="header01_active">首页</a></li>
+                <li>
+                    <a href="#">经济</a>
+                    <ul class="header01_tan">
+                        <li class="header01_arrow"><img src="../../img/header01/header01_arrow.png" alt=""/></li>
+                        <li><a href="#">图书馆</a></li>
+                        <li><a href="#">编辑推荐</a></li>
+                        <li><a href="#">新书速递</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">经济</a>
+                    <ul class="header01_tan">
+                        <li class="header01_arrow"><img src="../../img/header01/header01_arrow.png" alt=""/></li>
+                        <li><a href="#">图书馆</a></li>
+                        <li><a href="#">编辑推荐</a></li>
+                        <li><a href="#">新书速递</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">经济</a>
+                    <ul class="header01_tan">
+                        <li class="header01_arrow"><img src="../../img/header01/header01_arrow.png" alt=""/></li>
+                        <li><a href="#">图书馆</a></li>
+                        <li><a href="#">编辑推荐</a></li>
+                        <li><a href="#">新书速递</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">经济</a>
+                    <ul class="header01_tan">
+                        <li class="header01_arrow"><img src="../../img/header01/header01_arrow.png" alt=""/></li>
+                        <li><a href="#">图书馆</a></li>
+                        <li><a href="#">编辑推荐</a></li>
+                        <li><a href="#">新书速递</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">经济</a>
+                    <ul class="header01_tan">
+                        <li class="header01_arrow"><img src="../../img/header01/header01_arrow.png" alt=""/></li>
+                        <li><a href="#">图书馆</a></li>
+                        <li><a href="#">编辑推荐</a></li>
+                        <li><a href="#">新书速递</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">经济</a>
+                    <ul class="header01_tan">
+                        <li class="header01_arrow"><img src="../../img/header01/header01_arrow.png" alt=""/></li>
+                        <li><a href="#">图书馆</a></li>
+                        <li><a href="#">编辑推荐</a></li>
+                        <li><a href="#">新书速递</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">经济天天</a>
+                    <ul class="header01_tan">
+                        <li class="header01_arrow"><img src="../../img/header01/header01_arrow.png" alt=""/></li>
+                        <li><a href="#">图书馆1</a></li>
+                        <li><a href="#">编辑推荐</a></li>
+                        <li><a href="#">新书速递</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+<script src="../js/zui.min-1.5.js"></script>
+<script>
+    //首页一级点击
+    $('.header01_navChanel>li>a').click(function(e){
+        e=e||window.event;
+        var target=e.target||e.srcElement;
+        var a=$(".header01_active");
+        a.removeClass('header01_active');
+        target.className='header01_active';
+
+        $('.header01_tan>li>a').removeClass("header01_tanActive")
+    });
+    $('.header01_navChanel>li>a').mousemove(function(){
+        if( $(this).next()!==null ){
+            $(this).next().show();
+            $(this).addClass("header01_cur");
+        }
+    });
+    $('.header01_navChanel>li>a').mouseout(function(){
+        if( $(this).next()!==null ){
+            $(this).next().hide();
+            $(this).removeClass("header01_cur");
+        }
+    });
+    //首页二级点击
+    $('.header01_tan').mouseover(function(){
+        $(this).siblings().addClass("header01_cur");
+        $(this).css('display','block');
+    });
+    $('.header01_tan').mouseout(function(){
+        $(this).siblings().removeClass("header01_cur");
+        $(this).css('display','none');
+    });
+    $('.header01_tan>li>a').click(function(){
+        var a=$(".header01_active");
+        a.removeClass('header01_active');
+        $(this).parent().parent().prev().addClass("header01_active");
+        var cur=$(".header01_tanActive");
+        cur.removeClass("header01_tanActive");
+        $(this).addClass('header01_tanActive');
+        $(this).parent().siblings().children().removeClass('header01_tanActive');
+    });
+</script>
+
 
 </body>
 </html>
