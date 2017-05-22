@@ -51,7 +51,7 @@
     <input type="hidden" class="v_hotTopicList_name" value="热门话题"/>
     <input type="hidden" class="v_hotTopicList_ul_num" value="10"/>
     <div class="panel-heading">
-        <span class="title">列表1</span>
+        <span class="title">热门话题</span>
     </div>
     <div class="panel-body">
         <div class="Grid4g1 pageBackGroundColor" "exist">
@@ -80,7 +80,7 @@
             $(".appendCur .hotTopicList_name").html("");
             var v_hotTopicList_name = $(".appendCur .v_hotTopicList_name").val();
             if (v_hotTopicList_name != "") {
-                $(".appendCur .hotTopicList_name.showId").html(v_hotTopicList_name);
+                $(".appendCur .hotTopicList_name").html(v_hotTopicList_name);
             }
             //content
             $(".appendCur .hotTopicList_ul").html("");
@@ -92,7 +92,7 @@
                 '<p class="hotTopicList_li_content abstractColor">国家主席习普通电话国家主席习近平同美国总统特朗普通电话</p>'+
                 '</li>';
             }
-            $(".appendCur .hotTopicList_ul.showId").html(hotTopicListStr);
+            $(".appendCur .hotTopicList_ul").html(hotTopicListStr);
         }
         function tData() {
             $.ajax({
@@ -107,11 +107,11 @@
             });
         }
         function tDataCallback(data) {
-            var list = data.dataList;
-            for (var i = 0; i < list.length; i++) {
-                var str = '<p><a href="#"/>' + list[i].title + '<a><p/>';
-                $(".lh.showId").append(str);
-            }
+//            var list = data.dataList;
+//            for (var i = 0; i < list.length; i++) {
+//                var str = '<p><a href="#"/>' + list[i].title + '<a><p/>';
+//                $(".lh.showId").append(str);
+//            }
         }
         max(".hotTopicList_li_content",25);
     </script>

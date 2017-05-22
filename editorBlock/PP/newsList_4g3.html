@@ -1,11 +1,6 @@
 <div class="col-md-9 col-sm-9 appendStr newsList_4g3" id="newsList_4g3" data-blockSize="9">
 <div class="style" "exist">
     <style>
-        .clearFloat:after {
-            content: "";
-            display: block;
-            clear: both;
-        }
         .newsList_4g3_main{
             width: 708px;
         }
@@ -79,9 +74,8 @@
 </div>
 
 <div class="panel appendNot" data-id="3">
-    <input type="hidden" class="v_newsList_4g4_num" value="4"/>
     <div class="panel-heading">
-        <span class="title">参与讨论</span>
+        <span class="title">新闻列表iter</span>
     </div>
     <div class="panel-body">
         <div class="newsList_4g3_main" "exist">
@@ -101,28 +95,27 @@
     function vData() {
 
         $(".appendCur .newsList_4g3_main").html("");
-        var v_newsList_4g4_num = $(".appendCur .v_newsList_4g4_num").val();
 
         var title = "国家主席习近平同美国总统特朗普通电话国家主席习近平同美国总统特朗普通电话家主席习近平同美国总统特朗普通电话国家主席习近平同美国总统特朗普通";
         var strPro = "<ul>";
         var str = "";
-        for (var i = 0; i < v_newsList_4g4_num; i++) {
+        for (var i = 0; i < 1; i++) {
             str = str +'<li>' +
                     '<dl class="clearFloat">' +
                     '<dt> ' +
-                    '<img src="../../img/PP/newsList.png" class="newsList_4g3_listImg"> ' +
+                    '<img src="../../img/PP/newsList/newsList.png" class="newsList_4g3_listImg"> ' +
                     '</dt>' +
                     '<dd> ' +
                     '<p class="newsList_4g3_title titleColor">'+title+'</p> ' +
                     '<p class="newsList_4g3_summary">'+title+'</p> ' +
                     '<div class="clearFloat newsList_4g3_foot">' +
                     '<p class="dateColor newsList_4g3_source">擎好网</p>' +
-                    '<p class="dateColor newsList_4g3_comNum"><img src="../../img/PP/verLine.png" class="newsList_4g3_verLine"><img src="../../img/PP/myJoined/contentNum.png" class="newsList_4g3_imageNum">20</p> ' +
-                    '<p class=" dateColor newsList_4g3_date">2017-04-12</p> ' +
+                    '<p class="dateColor newsList_4g3_comNum"><img src="../../img/PP/newsList/verLine.png" class="newsList_4g3_verLine"><img src="../../img/PP/myJoined/contentNum.png" class="newsList_4g3_imageNum">20</p> ' +
+                    '<p class=" dateColor newsList_4g3_date">2017-04-12</p>'+
                     '</div>' +
-                    '</dd> ' +
-                    '</dl> ' +
-                    '</li> ';
+                    '</dd>' +
+                    '</dl>' +
+                    '</li>';
         }
         strPro = strPro+str+'</ul>';
         $(".appendCur .newsList_4g3_main").append(strPro);

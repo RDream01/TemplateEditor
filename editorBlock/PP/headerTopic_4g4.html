@@ -1,29 +1,29 @@
-<div class="col-md-12 col-sm-12 appendStr header_topic_4g4" id="header_topic_4g4" data-blockSize="12">
+<div class="col-md-12 col-sm-12 appendStr headerTopic_4g4" id="headerTopic_4g4" data-blockSize="12">
 <div class="style" "exist">
     <style>
-        /**********************组件---header_topic************************/
-        .header_topic{
+        /**********************组件---headerTopic************************/
+        .headerTopic{
             width: 100%;
         }
         /*top--红*/
-        .header_topic_top{
+        .headerTopic_top{
             height:40px;
         }
-        .header_topic_action li{
+        .headerTopic_action li{
             display: inline-block;
             line-height:40px;
             color:#fff;
             margin-right:15px;
             font-size:14px;
         }
-        .header_topic_searchCon{
+        .headerTopic_searchCon{
             display: inline-block;
             width:112px;
             height:20px;
             margin:10px 0;
             position:relative;
         }
-        .header_topic_searchInput{
+        .headerTopic_searchInput{
             border-radius: 36px;
             width:112px;
             padding:0 5px;
@@ -31,84 +31,87 @@
             outline: none;
             font-size:14px;
         }
-        .header_topic_searchCon label{
+        .headerTopic_searchCon label{
             display: inline-block;
             position:absolute;
             right:5px;
             top:-3px;
         }
-        .header_topic_searchCon label a{
+        .headerTopic_searchCon label a{
             display: inline-block;
         }
-        .header_topic_phone,.header_topic_login{
+        .headerTopic_phone,.headerTopic_login{
             display: inline-block;
             margin-left:20px;
         }
-        .header_topic_phone span{
+        .headerTopic_phone span{
             color:#fff;
             font-size:14px;
             padding-left:3px;
         }
-        .header_topic_phone img{
+        .headerTopic_phone img{
             padding-bottom:2px;
         }
-        .header_topic_login a{
+        .headerTopic_login a{
             color:#fff;
             font-size:14px;
         }
         /*logo*/
-        .header_topic_bottom{
+        .headerTopic_bottom{
             background:#fff;
             box-shadow:0 2px 4px 0 rgba(0,0,0,0.24);
             width:100%;
             height:152px;
         }
-        .header_topic_logo{
+        .headerTopic_logo{
             width:250px;
             margin-right:50px;
         }
-        .header_topic_logo>img{
+        .headerTopic_logo>img{
             width:250px;
             margin:30px 0;
+        }
+        .headerTopic_ren{
+            color:#fff;
         }
     </style>
 </div>
 
 <div class="panel appendNot" data-id="3">
-    <input type="hidden" value="yes" class="v_header_topic_action"/>
+    <input type="hidden" value="yes" class="v_headerTopic_action"/>
     <div class="panel-heading">
-        <span class="title">列表1</span>
+        <span class="title">头部--话题</span>
     </div>
     <div class="panel-body">
-        <div class="header_topic">
+        <div class="headerTopic">
             <!--top-->
-            <div class="header_topic_top">
+            <div class="headerTopic_top">
                 <div class="commonContainer">
-                    <ul class="header_topic_action lf showId">
-                        <li class="header_topic_GPS">北京</li>
-                        <li class="header_topic_time">2017年3月20日 周四</li>
-                        <li class="header_topic_TEMP">27℃</li>
+                    <ul class="headerTopic_action lf showId">
+                        <li class="headerTopic_GPS">北京</li>
+                        <li class="headerTopic_time">2017年3月20日 周四</li>
+                        <li class="headerTopic_TEMP">27℃</li>
                     </ul>
                     <div class="rt">
-                        <p class="header_topic_searchCon ">
-                            <input type="text" id="header_topic_searchInput" placeholder="" class="header_topic_searchInput "/>
-                            <label for="header_topic_searchInput"><a href="#"><img src="../../img/PP/header01_4g4/search_index.png" alt=""/></a></label>
+                        <p class="headerTopic_searchCon ">
+                            <input type="text" id="headerTopic_searchInput" placeholder="" class="headerTopic_searchInput "/>
+                            <label for="headerTopic_searchInput"><a href="#"><img src="../../img/PP/header01_4g4/search_index.png" alt=""/></a></label>
                         </p>
-                        <p class="header_topic_phone">
+                        <p class="headerTopic_phone">
                             <a href="#">
                                 <img src="../../img/PP/header01_4g4/phone_index.png" alt=""/><span>下载客户端</span>
                             </a>
                         </p>
-                        <p class="header_topic_login"><a href="#">登录</a></p>
+                        <p class="headerTopic_login"></p>
                     </div>
                 </div>
             </div>
             <!--logo + nav-->
-            <div class="header_topic_bottom">
+            <div class="headerTopic_bottom">
                 <div class="commonContainer clearFloat">
                     <!--logo-->
-                    <div class="header_topic_logo lf">
-                        <img src="../../img/PP/header_topic_4g4/header_topic_logo.png">
+                    <div class="headerTopic_logo lf">
+                        <img src="../../img/PP/headerTopic_4g4/headerTopic_logo.png">
                     </div>
                 </div>
             </div>
@@ -126,12 +129,23 @@
             tData();
         }
         function vData() {
-            var v_header_topic_action=$(".appendCur .v_header_topic_action").val();
-            if( v_header_topic_action=='yes' ){
-                $(".appendCur .header_topic_action.showId").show();
-            }else if( v_header_topic_action=='no' ){
-                $(".appendCur .header_topic_action.showId").hide();
+//            天气
+            var v_headerTopic_action=$(".appendCur .v_headerTopic_action").val();
+            if( v_headerTopic_action=='yes' ){
+                $(".appendCur .headerTopic_action.showId").show();
+            }else if( v_headerTopic_action=='no' ){
+                $(".appendCur .headerTopic_action.showId").hide();
             }
+//            是否登录
+            $(".appendCur .headerTopic_login").html("");
+            if( true ){
+                $(".appendCur .headerTopic_login").html("<a href='#'>登录</a>");
+            }else{
+                $(".appendCur .headerTopic_login").html("<span class='headerTopic_ren'>欢迎XXX</span>");
+            }
+
+
+
         }
         function tData() {
             $.ajax({

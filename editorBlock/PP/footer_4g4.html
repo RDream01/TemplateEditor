@@ -1,0 +1,79 @@
+<div class="col-md-12 col-sm-12 appendStr footer_4g4" id="footer_4g4" data-blockSize="12">
+<div class="style" "exist">
+    <style>
+        .footer_4g4_main{
+            height:122px;
+            background:#f1f1f1;
+            padding-top: 20px;
+        }
+        .footer_4g4_verList{
+            height: 19px;
+            background-color: #f1f1f1;
+        }
+        .footer_4g4_verList ul{
+            text-align: center;
+        }
+        .footer_4g4_verList_liBor{
+             border-left: 2px solid #505050;;
+        }
+        .footer_4g4_verList li:first-child.footer_4g4_verList_liBor{
+            border-left:none;
+        }
+        .footer_4g4_verList li{
+            display: inline-block;
+            padding-left: 8px;
+            padding-right: 8px;
+            line-height: 12px;
+        }
+        .footer_4g4_number{
+            font-size:12px;
+            text-align:center;
+            margin-top: 20px;
+        }
+        .footer_4g4_company{
+            font-size:12px;
+            text-align:center;
+            margin-top: 8px;
+        }
+    </style>
+</div>
+
+<div class="panel appendNot" data-id="312">
+    <div class="panel-heading">
+        <span class="title">尾部</span>
+    </div>
+    <div class="panel-body">
+        <div class="grid4g4 footer_4g4_main" "exist">
+            <div class="footer_4g4_verList">
+                <ul></ul>
+                <p class="footer_4g4_number">京ICP1备5015468号</p>
+                <p class="footer_4g4_company">北京擎好网络科技有限公司 版权所有   Copyright © 2016 New Media Limited All Rights Reserved.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="resize-handle"><i class="icon icon-resize-h"></i></div>
+
+<div class="script" "exist">
+    <script>
+        var flag="v";
+        if(flag == "v"){
+            vData()
+        }else{
+            tData();
+        }
+        function vData() {
+            $(".appendCur .footer_4g4_verList ul").html("");
+            var title = "广告服务";
+            var str = "";
+            for (var i = 0; i < 5; i++) {
+                str+= '<li class="footer_4g4_verList_liBor"><a href="#" onclick="goChannelDetail("","")">' + title + '</a></li>';
+            }
+            $(".appendCur .footer_4g4_verList ul").append(str);
+        }
+        //返回的真实数据
+        function tDataCallback(data){}
+    </script>
+</div>
+</div>
+

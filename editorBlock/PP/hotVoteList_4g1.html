@@ -78,7 +78,7 @@
             $(".appendCur .hotVoteList_name").html("");
             var v_hotVoteList_name = $(".appendCur .v_hotVoteList_name").val();
             if (v_hotVoteList_name != "") {
-                $(".appendCur .hotVoteList_name.showId").html(v_hotVoteList_name);
+                $(".appendCur .hotVoteList_name").html(v_hotVoteList_name);
             }
             //content
             $(".appendCur .hotVoteList_ul").html("");
@@ -89,7 +89,7 @@
                 '<p class="hotVoteList_li_content abstractColor">朋友间一你友间一起做啥才能证明你这人真熟？</p>'+
                 '</li>';
             }
-            $(".appendCur .hotVoteList_ul.showId").html(hotVoteListStr);
+            $(".appendCur .hotVoteList_ul").html(hotVoteListStr);
         }
         function tData() {
             $.ajax({

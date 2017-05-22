@@ -63,7 +63,7 @@
 
 <div class="panel appendNot" data-id="3">
     <input type="hidden" value="点击排行" class="v_rankingList_title"/>
-    <input type="hidden" value="7" class="v_rankingList_num"/>
+    <input type="hidden" value="10" class="v_rankingList_num"/>
     <div class="panel-heading">
         <span class="title">点击排行</span>
     </div>
@@ -113,7 +113,7 @@
             $(".appendCur .rankingList_title").html("");
             var v_rankingList_title = $(".appendCur .v_rankingList_title").val();
             if (v_rankingList_title != "") {
-                $(".appendCur .rankingList_title.showId").html(v_rankingList_title);
+                $(".appendCur .rankingList_title").html(v_rankingList_title);
             }
             //ul
             var v_rankingList_num = $(".appendCur .v_rankingList_num").val();
@@ -128,21 +128,21 @@
                 '<p class="rankingList_li_content abstractColor">'+title+'</p>'+
                 '</li>';
             }
-            $(".appendCur .rankingList_today_ul.showId").append(todayStr);
+            $(".appendCur .rankingList_today_ul").append(todayStr);
             for (var i=0;i<v_rankingList_num;i++) {
                 weekStr+='<li class="rankingList_li">'+
                 '<p class="rankingList_li_index mainColor">'+(i+1)+'</p>'+
                 '<p class="rankingList_li_content abstractColor">'+title+'</p>'+
                 '</li>';
             }
-            $(".appendCur .rankingList_week_ul.showId").append(weekStr);
+            $(".appendCur .rankingList_week_ul").append(weekStr);
             for (var i=0;i<v_rankingList_num;i++) {
                 monthStr+='<li class="rankingList_li">'+
                 '<p class="rankingList_li_index mainColor">'+(i+1)+'</p>'+
                 '<p class="rankingList_li_content abstractColor">'+title+'</p>'+
                 '</li>';
             }
-            $(".appendCur .rankingList_month_ul.showId").append(monthStr);
+            $(".appendCur .rankingList_month_ul").append(monthStr);
         }
         function tData() {
             $.ajax({

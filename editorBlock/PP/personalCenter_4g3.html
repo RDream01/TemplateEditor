@@ -1,22 +1,23 @@
-<div class="col-md-9 col-sm-9 appendStr PersonnalCenter_4g3" id="PersonnalCenter_4g3" data-blockSize="9">
+<div class="col-md-9 col-sm-9 appendStr personalCenter_4g3" id="personalCenter_4g3" data-blockSize="9">
 <div class="style" "exist">
     <style>
-        .PersonnalCenter_4g3_head{
+        .personalCenter_4g3_head{
             width: 540px;
             margin-top: 47px;
             margin-left: 84px;
+            border-bottom: 1px solid #dddddd;
         }
-        .PersonnalCenter_4g3_head ul{
+        .personalCenter_4g3_head ul{
             width: 540px;
         }
-        .PersonnalCenter_4g3_head li{
+        .personalCenter_4g3_head li{
             cursor: pointer;
             float: left;
             text-align: center;
             width: 108px;
             padding-bottom: 0;
         }
-        .PersonnalCenter_4g3_bottomClor{
+        .personalCenter_4g3_bottomClor{
             width: 104px;
         }
     </style>
@@ -30,9 +31,9 @@
     <div class="panel-body">
         <div class="Grid4g3" "exist">
             <div >
-                <div class="PersonnalCenter_4g3_head">
+                <div class="personalCenter_4g3_head">
                     <ul class="clearFloat" >
-                        <li  class="PersonnalCenter_4g3_bottomClor">
+                        <li  class="personalCenter_4g3_bottomClor">
                             <a  href="#" data-openbtn="myInformation_4g3" >我的信息</a>
                         </li>
                         <li>
@@ -59,12 +60,12 @@
 <div class="script" "exist">
     <script>
         $(function (){
-            $('.PersonnalCenter_4g3_head li').click(function (){
-                $(this).addClass('PersonnalCenter_4g3_bottomClor').siblings('li').removeClass('PersonnalCenter_4g3_bottomClor');
+            $('.personalCenter_4g3_head li').click(function (){
+                $(this).addClass('personalCenter_4g3_bottomClor').siblings('li').removeClass('personalCenter_4g3_bottomClor');
             });
         });
         $('#personalPage').load('myInformation_4g3.html');
-        $('.PersonnalCenter_4g3_head ul li').click(function(){
+        $('.personalCenter_4g3_head ul li').click(function(){
             var data = $(this).children("a").attr('data-openbtn');
             $('#personalPage').load(data +'.html');
         });

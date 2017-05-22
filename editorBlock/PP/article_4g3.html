@@ -1,3 +1,4 @@
+
 <div class="col-md-9 col-sm-9 appendStr article_4g3" id="article_4g3" data-blockSize="9">
 <div class="style" "exist">
     <style>
@@ -55,9 +56,6 @@
             width:450px;
             height:300px;
         }
-
-
-
         /* 相关推荐+评论 */
         .article_4g3_newsCont p{
             font-size:14px;
@@ -223,7 +221,6 @@
             margin-top: 57px;
             margin-left: 10px;
         }
-
         .article_4g3_discuss_disList{
             width: 540px;
             margin-bottom: 30px;
@@ -264,11 +261,16 @@
         .article_4g3_discuss_list li {
             border-bottom: 1px solid #999999;
         }
-
     </style>
 </div>
 
-<div class="panel appendNot" data-id="3">
+<div class="panel appendNot appendCur " data-id="3">
+    <!--相关推荐-->
+    <input type="hidden" class="v_article_4g3_recommend_num" value="3" align="center"/>
+    <input type="hidden" class="v_article_4g3_is_recommend" value="yes">
+    <!--评论-->
+    <input type="hidden" class="v_article_4g3_is_discuss" value="yes">
+
     <div class="panel-heading">
         <span class="title">文章</span>
     </div>
@@ -282,11 +284,8 @@
                 <!--新闻主体-->
                 <div class="article_4g3_main"></div>
             </div>
-
             <!-- 相关推荐 -->
-            <div class="Grid4g3 appendCur article_4g3_recommend">
-                <input type="hidden" class="v_article_4g3_recommend_num" value="3" align="center"/>
-                <input type="hidden" class="v_article_4g3_is_recommend" value="yes">
+            <div class="Grid4g3 article_4g3_recommend">
                 <div class="article_4g3_recommend_head">
                     <p class="article_4g3_recommend_title mainColor">
                         <span class="article_4g3_recommend_redLine">相关推荐</span>
@@ -297,22 +296,8 @@
                 </div>
             </div>
             <!-- 评论 -->
-            <div class="Grid4g3 appendCur article_4g3_discuss">
-                <div class="article_4g3_discuss_head showId">
-                    <!--&lt;!&ndash;未登录&ndash;&gt;-->
-                    <!--<div>-->
-                    <!--<p class="article_4g3_discuss_title mainColor"><span class="article_4g3_discuss_redLine showId"></span></p>-->
-                    <!--<div class="article_4g3_discuss_inputAre" >-->
-                    <!--<p class="article_4g3_discuss_logDes dateColor"><a href="#" ><span class="mainColor article_4g3_discuss_logBtn">登录</span></a>后参与讨论<span></span></p>-->
-                    <!--</div>-->
-                    <!--</div>-->
-                    <!--已登录-->
-                    <!--<div class="article_4g3_discuss_disList">-->
-                    <!--<p class="article_4g3_discuss_title mainColor"><span class="article_4g3_discuss_redLine showId">参与讨论</span></p>-->
-                    <!--<textarea class="article_4g3_discuss_comment"></textarea>-->
-                    <!--<p class="article_4g3_discuss_commentbtn"><a href="#" class="article_4g3_discuss_btn">发表评论</a></p>-->
-                    <!--</div>-->
-                </div>
+            <div class="Grid4g3 article_4g3_discuss">
+                <div class="article_4g3_discuss_head showId"></div>
                 <div class="article_4g3_discuss_list">
                     <ul class="showId"></ul>
                 </div>
@@ -337,16 +322,22 @@
             //相关推荐+评论 start
             var  v_article_4g3_is_recommend = $(".appendCur .v_article_4g3_is_recommend").val();
             if(v_article_4g3_is_recommend == "yes"){
-                $(".article_4g3_recommend").css("display","block");
+                $(".appendCur .article_4g3_recommend").css("display","block");
             }else{
-                $(".article_4g3_recommend").css("display","none");
+                $(".appendCur .article_4g3_recommend").css("display","none");
+            }
+            var v_article_4g3_is_discuss=$(".appendCur .v_article_4g3_is_discuss").val();
+            if( v_article_4g3_is_discuss=="yes" ){
+                $(".appendCur .article_4g3_is_discuss").show();
+            }else{
+                $(".appendCur .article_4g3_is_discuss").hide();
             }
 
             var v_article_4g3_recommend_num = $(".appendCur .v_article_4g3_recommend_num").val();
             var title = "新闻标题新闻标题新闻标题新闻标题新闻标题";
             var str = "";
             for (var i = 0; i < v_article_4g3_recommend_num; i++) {
-                str +='<li class="article_4g3_list_interval"><a href="#">'+
+                str +='<li class="article_4g3_list_interval"><a href="#" onclick="goContentDetial("","")">'+
                         '<img src="../../img/PP/remtThreeImg_4g3/test.png" class="article_4g3_recommend_listimg"> ' +
                         '<p class="titleColor article_4g3_recommend_listTitle ">'+title+'</p></a>' +
                         '</li>';
@@ -356,12 +347,12 @@
             var loginStr ="";
             if(true){   //  是否登录
                 loginStr +='<div class="article_4g3_discuss_disList">';
-                loginStr +='<p class="article_4g3_discuss_title mainColor"><span class="article_4g3_discuss_redLine showId">参与讨论</span></p>';
+                loginStr +='<p class="article_4g3_discuss_title mainColor"><span class="article_4g3_discuss_redLine">参与讨论</span></p>';
                 loginStr +='<textarea class="article_4g3_discuss_comment"></textarea>';
                 loginStr +='<p class="article_4g3_discuss_commentbtn"><a href="#" class="article_4g3_discuss_btn">发表评论</a></p>';
                 loginStr +='</div>';
             }else{
-                loginStr += '<div><p class="article_4g3_discuss_title mainColor"><span class="article_4g3_discuss_redLine showId">参与讨论</span></p>';
+                loginStr += '<div><p class="article_4g3_discuss_title mainColor"><span class="article_4g3_discuss_redLine">参与讨论</span></p>';
                 loginStr += '<div class="article_4g3_discuss_inputAre" >';
                 loginStr += '<p class="article_4g3_discuss_logDes dateColor"><a href="#" ><span class="mainColor article_4g3_discuss_logBtn">登录</span></a>后参与讨论<span></span></p>';
                 loginStr += '</div></div>';
@@ -386,25 +377,23 @@
                         '</dl>' +
                         '</li>';
             }
-
             $(".appendCur .article_4g3_discuss_list ul").append(str);
             //相关推荐+评论 end
 
-
             //面包屑导航
-            $(".article_4g3_bread").html("");
+            $(".appendCur .article_4g3_bread").html("");
             var breadStr='';
             breadStr=' <a class="mainColor" href="#">经济</a><span>&gt;</span><a class="mainColor" href="#">地产</a>';
-            $(".article_4g3_bread").html(breadStr);
+            $(".appendCur .article_4g3_bread").html(breadStr);
 
             //title
-            $(".article_4g3_title p").html("");
+            $(".appendCur .article_4g3_title p").html("");
             var nameStr="";
             nameStr='苏州楼市调查：有楼盘9个月房价翻倍，开发商称涨有据';
-            $(".article_4g3_title p").html(nameStr);
+            $(".appendCur .article_4g3_title p").html(nameStr);
 
             //main
-            $(".article_4g3_main").html('');
+            $(".appendCur .article_4g3_main").html('');
             var mainStr='';
             mainStr= '<p class="article_4g3_time infoColor">2016-04-09 07:35 | 北京晨报</p>'+
             '<div>';
@@ -419,7 +408,7 @@
                 mainStr+='<p class="article_4g3_text articleTextColor">这个楼盘的火热正是去年下半年以来，苏州楼市的一个缩影。</p>';
             }
             mainStr+='<p class="article_4g3_writer infoColor">录入编辑：张文华</p></div>';
-            $(".article_4g3_main").html(mainStr);
+            $(".appendCur .article_4g3_main").html(mainStr);
         }
         function tData() {
             $.ajax({

@@ -29,7 +29,7 @@ a:focus, a:hover {
     color: #c33;
     text-decoration: none;
 }
-img{ vertical-align: bottom; border:none;}
+img{ vertical-align: middle; border:none;}
 nav,#banner,section,footer{
     margin:0 auto;
 }
@@ -362,6 +362,9 @@ nav,#banner,section,footer{
 .mainColor{
     color:#cc3333;
 }
+.mainColor_background{
+    background:#c33;
+}
 .mainColor_border{
     border-color:#cc3333;
 }
@@ -420,19 +423,14 @@ nav,#banner,section,footer{
     display: block;
     clear: both;
 }
-/*________bottom_4g4________*/
-.bottom_4g4_verList,.bottom_4g4_verList a{
+/*________footer_4g4________*/
+.footer_4g4_verList,.bottom_4g4_verList a{
     color:#505050;
 }
-.bottom_4g4_verList_liBor{
-    border-left: 2px solid #505050;;
-}
+
 
 /*————————个人中心_________*/
-.PersonnalCenter_4g3_head{
-    border-bottom: 1px solid #dddddd;
-}
-.PersonnalCenter_4g3_bottomClor{
+.personalCenter_4g3_bottomClor{
     border-bottom: 2px solid #cc3333;
 }
 /*信息*/
@@ -476,22 +474,10 @@ nav,#banner,section,footer{
 .myScore_4g3_head{
     border-bottom: 1px solid #dddddd;
 }
-/*—————remtVer_4g1--相关推荐1————*/
-.rmetVer_4g1_head{
-    box-shadow:0 2px 2px 0 rgba(0,0,0,0.24);
-}
-.rmetVer_4g1_headTitle{
-    color:#c33;
-}
+
 /*__________searchResult_4g3___________*/
 .searchResult_4g3_head{
     background:#f1f1f1;
-}
-.searchResult_4g3_mian ul{
-    border-bottom:1px solid #999999;
-}
-.searchResult_4g3_mian li{
-    border-top:1px solid #999999;
 }
 .searchResult_4g3_liSel{
     border-bottom:2px solid #cc3333;

@@ -110,7 +110,6 @@
 </head>
 <body>
 <div class="Grid4g3 appendCur">
-    <input type="hidden" class="v_myComment_4g3_num" value="4" align="center"/>
     <div class="myComment_4g3_editDiv ">
         <a  onclick="changeB(this)" href="#" id="edit">
             <img src="../../img/PP/myCollect/edit.png" class="myComment_4g3_editImg"> 编辑
@@ -130,7 +129,7 @@
         </ul>
     </div>
     <div class="myComment_4g3_list">
-        <ul class="showId"></ul>
+        <ul></ul>
     </div>
 </div>
 <script>
@@ -190,13 +189,12 @@
     }
     function vData() {
         $(".appendCur .myComment_4g3_list ul").html("");
-        var v_myComment_4g3_num = $(".appendCur .v_myComment_4g3_num").val();
 
         var title = "111国家主席习近平同美国总统特朗普通电话国家主席家主席习近平同美国总统特朗普通";
         var content="乐天超市在京被罚50万 59元酒标价498元乐天超市在京被罚50万 59元酒标价498元";
         var newsTime="2017-03-20";
         var str = "";
-        for (var i = 0; i < v_myComment_4g3_num; i++) {
+        for (var i = 0; i < 10; i++) {
             str = str +'<li class="clearFloat"> ' +
                         '<dl class="clearFloat">' +
                             ' <dt>' +

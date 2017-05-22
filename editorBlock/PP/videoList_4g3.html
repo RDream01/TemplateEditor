@@ -103,9 +103,8 @@
 </div>
 
 <div class="panel appendNot" data-id="3">
-    <input type="hidden" class="v_videoList_4g4_num" value="4"/>
     <div class="panel-heading">
-        <span class="title">参与讨论</span>
+        <span class="title">头条</span>
     </div>
     <div class="panel-body">
         <div class="videoList_4g3_main" "exist">
@@ -127,25 +126,24 @@
         function vData() {
 
             $(".appendCur .videoList_4g3_main").html("");
-            var v_videoList_4g4_num = $(".appendCur .v_videoList_4g4_num").val();
 
             var title = "国家主席习近平同美国总统特朗普通电话国家主席习近平同美国总统特朗普通电话家主席习近平同美国总统特朗普通电话国家主席习近平同美国总统特朗普通";
             var strPro = "<ul>";
             var str = "";
-            for (var i = 0; i < v_videoList_4g4_num; i++) {
+            for (var i = 0; i < 1; i++) {
                 str = str +'<li> ' +
                         '<dl class="clearFloat"> ' +
                         '<dt> ' +
-                        '<a href="#"><img src="../../img/PP/videoList.png" class="videoList_4g3_image"></a> ' +
+                        '<a href="#"><img src="../../img/PP/videoList/videoList.png" class="videoList_4g3_image"></a> ' +
                         '<p class="videoList_4g3_allTime">10:20</p> ' +
-                        '<p class="videoList_4g3_playNum"><img src="../../img/PP/videoPlay.png" class="videoList_4g3_play"> 4</p> ' +
+                        '<p class="videoList_4g3_playNum"><img src="../../img/PP/videoList/videoPlay.png" class="videoList_4g3_play"> 4</p> ' +
                         '</dt> ' +
                         '<dd> ' +
                         '<a href="#"><p class="videoList_4g3_title titleColor">'+title+'</p></a> ' +
                         '<p class="abstractColor videoList_4g3_summary">'+title+'</p> ' +
                         '<div class="clearFloat videoList_4g3_foot">' +
                         '<p class="dateColor videoList_4g3_source">擎好</p> ' +
-                        '<p class="dateColor videoList_4g3_comNum"><img src="../../img/PP/verLine.png" class="videoList_4g3_verLine"><img src="../../img/PP/myJoined/contentNum.png" class="videoList_4g3_imageNum">20</p>' +
+                        '<p class="dateColor videoList_4g3_comNum"><img src="../../img/PP/videoList/verLine.png" class="videoList_4g3_verLine"><img src="../../img/PP/myJoined/contentNum.png" class="videoList_4g3_imageNum">20</p>' +
                         '<p class=" dateColor videoList_4g3_date">2017-04-12</p> ' +
                         '</div>'+
                         '</dd>'+

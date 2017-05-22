@@ -208,11 +208,9 @@
 <div class="panel appendNot" data-id="3">
     <!--相关推荐-->
     <input type="hidden" class="v_pictures_4g3_remtThreeImg_num" value="6" align="center"/>
-    <input type="hidden" class="v_pictures_4g3_remtThreeImg_redLine" value="相关推荐"/>
     <input type="hidden" class="v_pictures_4g3_remtThreeImgAll" value="yes"/>
     <!--参与讨论-->
     <input type="hidden" class="v_pictures_4g3_discuss_num" value="4" align="center"/>
-    <input type="hidden" class="v_pictures_4g3_discuss_redLine" value="参与讨论"/>
     <input type="hidden" class="v_pictures_4g3_discussAll" value="yes"/>
 
     <div class="panel-heading">
@@ -237,7 +235,7 @@
                 <div class="pictures_4g3_remtThreeImgAll">
                     <div class="pictures_4g3_remtThreeImg_head">
                         <p class="pictures_4g3_remtThreeImg_title mainColor">
-                            <span class="pictures_4g3_remtThreeImg_redLine showId"></span>
+                            <span class="pictures_4g3_remtThreeImg_redLine">相关推荐</span>
                         </p>
                     </div>
                     <div class="pictures_4g3_remtThreeImg_list">
@@ -247,7 +245,7 @@
                 <!--讨论-->
                 <div class="pictures_4g3_discussAll">
                     <!--登录--未登录-->
-                    <div class="pictures_4g3_discuss_head showId"></div>
+                    <div class="pictures_4g3_discuss_head"></div>
                     <!--评论数据-->
                     <div class="pictures_4g3_discuss_list">
                         <ul class="showId"></ul>
@@ -312,9 +310,7 @@
 
     //        想关推荐
             $(".appendCur .pictures_4g3_remtThreeImg_list ul").html("");
-            $(".appendCur .pictures_4g3_remtThreeImg_redLine").html("");
             var v_pictures_4g3_remtThreeImg_num = $(".appendCur .v_pictures_4g3_remtThreeImg_num").val();
-            var v_pictures_4g3_remtThreeImg_redLine = $(".appendCur .v_pictures_4g3_remtThreeImg_redLine").val();
 
             var title = "新闻标题新闻标题新闻标题新闻标题新闻标题";
             var str = "";
@@ -325,22 +321,20 @@
                 '</li>';
             }
             $(".appendCur .pictures_4g3_remtThreeImg_list ul").append(str);
-            $(".appendCur .pictures_4g3_remtThreeImg_redLine").html(v_pictures_4g3_remtThreeImg_redLine);
             $(".pictures_4g3_remtThreeImg_list ul li:nth-child(3n-2)").removeClass("list_interval");
 
             //讨论
-            $(".appendCur .pictures_4g3_discuss_list ul.showId").html("");
-            $(".appendCur .pictures_4g3_discuss_redLine").html("");
+            $(".appendCur .pictures_4g3_discuss_list ul").html("");
             $(".appendCur .pictures_4g3_discuss_head").html("");
             var v_pictures_4g3_discuss_num = $(".appendCur .v_pictures_4g3_discuss_num").val();
-            var v_pictures_4g3_discuss_redLine = $(".appendCur .v_pictures_4g3_discuss_redLine").val();
             var title = "国家主席习近平同美国总统特朗普通电话国家主席习近平同美国总统特朗普通电话家主席习近平同美国总统特朗普通电话国家主席习近平同美国总统特朗普通";
             var str = "";
             var headStr="";
+//            讨论--登录
             if( true ){
                 headStr='<div class="pictures_4g3_discuss_disList">'+
                 '<p class="pictures_4g3_discuss_title mainColor">' +
-                '<span class="pictures_4g3_discuss_redLine showId">参与讨论</span>' +
+                '<span class="pictures_4g3_discuss_redLine">参与讨论</span>' +
                 '</p>'+
                 '<textarea class="pictures_4g3_discuss_comment"></textarea>'+
                 '<p class="pictures_4g3_discuss_commentbtn mainColor">' +
@@ -350,7 +344,7 @@
             }else{
                 headStr=' <div>'+
                 '<p class="pictures_4g3_discuss_title mainColor">' +
-                '<span class="pictures_4g3_discuss_redLine showId"></span>' +
+                '<span class="pictures_4g3_discuss_redLine">参与谈论</span>' +
                 '</p>'+
                 '<div class="pictures_4g3_discuss_inputAre" >'+
                 '<p class="pictures_4g3_discuss_logDes dateColor">' +
@@ -359,6 +353,7 @@
                 '</div>';
             }
             $(".appendCur .pictures_4g3_discuss_head").html(headStr);
+
             for (var i = 0; i < v_pictures_4g3_discuss_num; i++) {
                 str +='<li>' +
                 '<dl  class=" clearFloat">' +
@@ -375,10 +370,7 @@
                 '</dl>' +
                 '</li>';
             }
-            if( v_pictures_4g3_discuss_redLine!=="" ){
-                $(".appendCur .pictures_4g3_discuss_redLine.showId").html(v_pictures_4g3_discuss_redLine);
-            }
-            $(".appendCur .pictures_4g3_discuss_list ul.showId").append(str);
+            $(".appendCur .pictures_4g3_discuss_list ul").append(str);
 
 
         }

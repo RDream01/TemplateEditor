@@ -38,8 +38,6 @@
 </head>
 <body>
 <div class="Grid4g3 appendCur">
-    <input type="hidden" class="v_myScore_4g3_num" value="4" align="center"/>
-    <input type="hidden" class="v_myScore_4g3_score" value="40" align="center"/>
     <div class="myScore_4g3_main">
         <p class="abstractColor myScore_4g3_head">全部积分<span class="mainColor showId">  </span>分</p>
         <table>
@@ -64,19 +62,19 @@
     function vData() {
         $(".appendCur .myScore_4g3_main table tbody").html("");
         $(".appendCur .myScore_4g3_head span").html("");
-        var v_myScore_4g3_num = $(".appendCur .v_myScore_4g3_num").val();
-        var v_myScore_4g3_score = $(".appendCur .v_myScore_4g3_score").val();
+        var v_myScore_4g3_score = "40";
 
         var str = "";
-        for (var i = 0; i < v_myScore_4g3_num; i++) {
-            str+='<tr class="abstractColor">' +
-                    '<td >2017-03-23</td><td >评论文章</td><td >＋5</td>' +
+        for (var i = 0; i < 10; i++) {
+            str+='<tr class="abstractColor">'+
+                    '<td >2017-03-23</td><td >评论文章</td><td >＋5</td>'+
                 '</tr>'
         }
         $(".appendCur .myScore_4g3_main table tbody").append(str);
         $(".appendCur .myScore_4g3_head span").append(v_myScore_4g3_score);
     }
     //返回的真实数据
+    function tData(){}
     function tDataCallback(data){
         var list = data.dataList;
         for( var i=0;i<list.length;i++ ){

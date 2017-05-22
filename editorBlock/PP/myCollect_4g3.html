@@ -130,7 +130,6 @@
 </head>
 <body>
 <div class="Grid4g3 appendCur" >
-    <input type="hidden" class="v_myCollect_4g3_num" value="4" align="center"/>
     <div class="myCollect_4g3_editDiv ">
         <a  onclick="changeB(this)" href="#" id="edit"><img src="../../img/PP/myCollect/edit.png" class="myCollect_4g3_editImg"> 编辑</a>
     </div>
@@ -148,7 +147,7 @@
         </ul>
     </div>
     <div class="myCollect_4g3_list">
-        <ul class="showId"></ul>
+        <ul></ul>
     </div>
 </div>
 <script>
@@ -210,7 +209,6 @@
     }
     function vData() {
         $(".appendCur .myCollect_4g3_list ul").html("");
-        var v_myCollect_4g3_num = $(".appendCur .v_myCollect_4g3_num").val();
 
         var title = "国家主33席习近平同美国总统特朗普通电话国家主席习近平美国总统特朗普通电话国家主席习近平同美国总统特朗普通";
         var content="滚回家阿克苏但感觉哈舒服股东卡放大镜噶啥地方和故事的风格是否是甲方";
@@ -219,7 +217,7 @@
         var time="2017-04-12";
 
         var str = "";
-        for (var i = 0; i < v_myCollect_4g3_num; i++) {
+        for (var i = 0; i < 10; i++) {
             str = str +'<li>' +
                         ' <dl class="clearFloat"> ' +
                             '<input type="checkbox" name="" value="" class="myCollect_4g3_selecr"  align="center">'+
@@ -245,16 +243,10 @@
                     '</li>';
         }
         $(".appendCur .myCollect_4g3_list ul").append(str);
-
-
     }
     //返回的真实数据
     function tDataCallback(data){
-        var list = data.dataList;
-        for( var i=0;i<list.length;i++ ){
-            var str='<p><a href="#"/>'+list[i].title+'<a><p/>';
-            $(".lh.showId").append(str);
-        }
+
     }
 </script>
 </body>

@@ -3,11 +3,6 @@
 
 <div class="style" "exist">
     <style>
-        .voteList_4g3_clearFloat:after {
-            content: "";
-            display: block;
-            clear: both;
-        }
         .voteList_4g3_main{
             width: 708px;
         }
@@ -91,9 +86,8 @@
 </div>
 
 <div class="panel appendNot" data-id="3">
-    <input type="hidden" class="v_voteList_4g4_num" value="4"/>
     <div class="panel-heading">
-        <span class="title">参与讨论</span>
+        <span class="title">投票头条</span>
     </div>
     <div class="panel-body">
         <div class="voteList_4g3_main" "exist">
@@ -114,16 +108,15 @@
     function vData() {
 
         $(".appendCur .voteList_4g3_main").html("");
-        var v_voteList_4g4_num = $(".appendCur .v_voteList_4g4_num").val();
 
         var title = "国家主席习近平同美国总统特朗普通电话国家主席习近平同美国总统特朗普通电话家主席习近平同美国总统特朗普通电话国家主席习近平同美国总统特朗普通";
         var strPro = "<ul>";
         var str = "";
-        for (var i = 0; i < v_voteList_4g4_num; i++) {
+        for (var i = 0; i < 1; i++) {
             str = str +'<li>' +
-                    '<dl class="voteList_4g3_clearFloat"> ' +
+                    '<dl class="clearFloat"> ' +
                     '<dt>' +
-                    '<img src="../../img/PP/voteList.png" class="voteList_4g3_listImg">' +
+                    '<img src="../../img/PP/voteList/voteList.png" class="voteList_4g3_listImg">' +
                     '<p class="voteList_4g3_floatTop">话题</p>' +
                     '</dt>' +
                     '<dd>' +
@@ -131,7 +124,7 @@
                     '<p class="voteList_4g3_summary">'+title+'</p> ' +
                     '<div class="voteList_4g3_clearFloat voteList_4g3_foot"> ' +
                     '<p class="dateColor voteList_4g3_source">擎好</p>' +
-                    '<p class="dateColor voteList_4g3_comNum"><img src="../../img/PP/verLine.png" class="voteList_4g3_verLine"><img src="../../img/PP/myJoined/contentNum.png" class="voteList_4g3_imageNum">20</p> ' +
+                    '<p class="dateColor voteList_4g3_comNum"><img src="../../img/PP/voteList/verLine.png" class="voteList_4g3_verLine"><img src="../../img/PP/myJoined/contentNum.png" class="voteList_4g3_imageNum">20</p> ' +
                     '<p class=" dateColor voteList_4g3_date">2017-04-12</p>' +
                     '</div>' +
                     '</dd>' +
