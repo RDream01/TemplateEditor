@@ -1,18 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title>index</title>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../../css/zui.css"/>
-    <!--<link rel="stylesheet" href="../css/editor.css"/>-->
-    <!--<link rel="stylesheet" href="../css/zui.dashboard.Editor.css"/>-->
-    <link rel="stylesheet" href="../../css/common_red.css"/>
+<div class="col-md-9 col-sm-9 appendStr videoDetail_4g3" id="videoDetail_4g3" data-blockSize="9">
+<div class="style" "exist">
     <link rel="stylesheet" href="../../video-js/video-js.css"/>
-    <link id="templateColorLink" rel="stylesheet" href=""/>
-    <script src="../../js/respond.js"></script>
-    <script src="../../js/jquery-1.11.3.js"></script>
     <style>
         /*.videoDetail_4g3_all{
             background:#ffffff;
@@ -259,18 +247,17 @@
             border-bottom: 1px solid #999999;
         }
     </style>
-</head>
-<body>
+</div>
 
 
 
 
-<!--<div class="panel appendNot" data-id="3">
+<div class="panel appendNot" data-id="3">
     <div class="panel-heading">
         <span class="title">视频详情</span>
     </div>
-    <div class="panel-body">-->
-        <div class="Grid4g3 appendCur">
+    <div class="panel-body">
+        <div class="Grid4g3 appendCur" "exist">
         <div class="videoDetail_4g3_main_container">
             <!--面包屑导航--videoDetail_4g3_bread-->
             <p class="videoDetail_4g3_bread mainColor"></p>
@@ -278,7 +265,6 @@
             <div class="videoDetail_4g3_title articleTitleColor"><p></p></div>
             <!--新闻主体-->
             <div class="videoDetail_4g3_main"></div>
-        </div>
         </div>
         <!-- 相关推荐 -->
         <div class="Grid4g3 appendCur videoDetail_4g3_recommend">
@@ -314,106 +300,107 @@
                 <ul class="showId"></ul>
             </div>
         </div>
-    <!--</div>
-</div>-->
+        </div>
+    </div>
+</div>
 
+<div class="resize-handle"><i class="icon icon-resize-h"></i></div>
 
-<!--<script src="../js/jquery-1.11.3.js"></script>-->
-<script src="../../js/zui.min-1.5.js"></script>
-<script src="../../video-js/video.js"></script>
-<script>
-    var flag = "v";
-    if (flag == "v") {
-        vData()
-    } else {
-        tData();
-    }
-
-    function vData() {
-        //相关推荐+评论 start
-        var  v_videoDetail_4g3_is_recommend = $(".appendCur .v_videoDetail_4g3_is_recommend").val();
-        if(v_videoDetail_4g3_is_recommend == "yes"){
-            $(".videoDetail_4g3_recommend").css("display","block");
-        }else{
-            $(".videoDetail_4g3_recommend").css("display","none");
+<div class="script" "exist">
+    <script src="../../video-js/video.js"></script>
+    <script>
+        var flag = "v";
+        if (flag == "v") {
+            vData()
+        } else {
+            tData();
         }
 
-        var v_videoDetail_4g3_recommend_num = $(".appendCur .v_videoDetail_4g3_recommend_num").val();
-        var title = "新闻标题新闻标题新闻标题新闻标题新闻标题";
-        var str = "";
-        for (var i = 0; i < v_videoDetail_4g3_recommend_num; i++) {
-            str +='<li class="videoDetail_4g3_list_interval"><a href="#">'+
-                    '<img src="../../img/PP/remtThreeImg_4g3/test.png" class="videoDetail_4g3_recommend_listimg"> ' +
-                    '<p class="titleColor videoDetail_4g3_recommend_listTitle ">'+title+'</p></a>' +
-                    '</li>';
+        function vData() {
+            //相关推荐+评论 start
+            var  v_videoDetail_4g3_is_recommend = $(".appendCur .v_videoDetail_4g3_is_recommend").val();
+            if(v_videoDetail_4g3_is_recommend == "yes"){
+                $(".videoDetail_4g3_recommend").css("display","block");
+            }else{
+                $(".videoDetail_4g3_recommend").css("display","none");
+            }
+
+            var v_videoDetail_4g3_recommend_num = $(".appendCur .v_videoDetail_4g3_recommend_num").val();
+            var title = "新闻标题新闻标题新闻标题新闻标题新闻标题";
+            var str = "";
+            for (var i = 0; i < v_videoDetail_4g3_recommend_num; i++) {
+                str +='<li class="videoDetail_4g3_list_interval"><a href="#">'+
+                        '<img src="../../img/PP/remtThreeImg_4g3/test.png" class="videoDetail_4g3_recommend_listimg"> ' +
+                        '<p class="titleColor videoDetail_4g3_recommend_listTitle ">'+title+'</p></a>' +
+                        '</li>';
+            }
+            $(".appendCur .videoDetail_4g3_recommend_list ul").append(str);
+
+            var loginStr ="";
+            if(true){   //  是否登录
+                loginStr +='<div class="videoDetail_4g3_discuss_disList">';
+                loginStr +='<p class="videoDetail_4g3_discuss_title mainColor"><span class="videoDetail_4g3_discuss_redLine showId">参与讨论</span></p>';
+                loginStr +='<textarea class="videoDetail_4g3_discuss_comment"></textarea>';
+                loginStr +='<p class="videoDetail_4g3_discuss_commentbtn"><a href="#" class="videoDetail_4g3_discuss_btn">发表评论</a></p>';
+                loginStr +='</div>';
+            }else{
+                loginStr += '<div><p class="videoDetail_4g3_discuss_title mainColor"><span class="videoDetail_4g3_discuss_redLine showId">参与讨论</span></p>';
+                loginStr += '<div class="videoDetail_4g3_discuss_inputAre" >';
+                loginStr += '<p class="videoDetail_4g3_discuss_logDes dateColor"><a href="#" ><span class="mainColor videoDetail_4g3_discuss_logBtn">登录</span></a>后参与讨论<span></span></p>';
+                loginStr += '</div></div>';
+            }
+            $(".appendCur .videoDetail_4g3_discuss_head").html(loginStr);
+
+            var title = "国家主席习近平同美国总统特朗普通电话国家主席习近平同美国总统特朗普通电话家主席习近平同美国总统特朗普通电话国家主席习近平同美国总统特朗普通";
+            var str = "";
+            for (var i = 0; i < 4; i++) {
+                str +='<li>' +
+                        '<dl  class="clearFloat">' +
+                        '<dt >' +
+                        '<img src="../../img/PP/discuss_4g3/pic.png"  class="videoDetail_4g3_discuss_listImg">' +
+                        '</dt>' +
+                        '<dd>' +
+                        '<div class="videoDetail_4g3_discuss_listRi">' +
+                        '<p class="videoDetail_4g3_discuss_listName mainColor">名dsadas字 <span class="videoDetail_4g3_discuss_listTime dateColor"> &nbsp;&nbsp;&nbsp;几分钟前</span></p>' +
+                        '<p class="videoDetail_4g3_discuss_listContent dateColor" >'+title+'</p> ' +
+                        '</div>' +
+                        '<a href="#" onclick="reply(this)" class="videoDetail_4g3_discuss_reply"><span class="dateColor">回复</span></a>' +
+                        '</dd>' +
+                        '</dl>' +
+                        '</li>';
+            }
+
+            $(".appendCur .videoDetail_4g3_discuss_list ul").append(str);
+            //相关推荐+评论 end
+
+            //面包屑导航
+            $(".videoDetail_4g3_bread").html("");
+            var breadStr='';
+            breadStr=' <a class="mainColor" href="#">经济</a><span>&gt;</span><a class="mainColor" href="#">地产</a>';
+            $(".videoDetail_4g3_bread").html(breadStr);
+
+            //title
+            $(".videoDetail_4g3_title p").html("");
+            var nameStr="";
+            nameStr='世界互联网大会乌镇峰会';
+            $(".videoDetail_4g3_title p").html(nameStr);
+
+            //main
+            $(".videoDetail_4g3_main").html('');
+            var mainStr='';
+            mainStr= '<p class="videoDetail_4g3_time infoColor">2016-04-09 07:35 | 北京晨报</p>'+
+                    '<div style="margin-top:12px;">';
+
+            mainStr+='<video id="example_video_1" class="video-js vjs-default-skin" controls preload="none"  height="393" width="540"'+
+                   'poster="../../img/PP/videoDetail/videoDetail.png" data-setup="{}">'+
+                '<source src="../../img/PP/videoDetail/testVideo.mp4" type="video/mp4" />'+
+            '</video>';
+            mainStr+='</div>';
+            $(".videoDetail_4g3_main").html(mainStr);
         }
-        $(".appendCur .videoDetail_4g3_recommend_list ul").append(str);
-
-        var loginStr ="";
-        if(true){   //  是否登录
-            loginStr +='<div class="videoDetail_4g3_discuss_disList">';
-            loginStr +='<p class="videoDetail_4g3_discuss_title mainColor"><span class="videoDetail_4g3_discuss_redLine showId">参与讨论</span></p>';
-            loginStr +='<textarea class="videoDetail_4g3_discuss_comment"></textarea>';
-            loginStr +='<p class="videoDetail_4g3_discuss_commentbtn"><a href="#" class="videoDetail_4g3_discuss_btn">发表评论</a></p>';
-            loginStr +='</div>';
-        }else{
-            loginStr += '<div><p class="videoDetail_4g3_discuss_title mainColor"><span class="videoDetail_4g3_discuss_redLine showId">参与讨论</span></p>';
-            loginStr += '<div class="videoDetail_4g3_discuss_inputAre" >';
-            loginStr += '<p class="videoDetail_4g3_discuss_logDes dateColor"><a href="#" ><span class="mainColor videoDetail_4g3_discuss_logBtn">登录</span></a>后参与讨论<span></span></p>';
-            loginStr += '</div></div>';
-        }
-        $(".appendCur .videoDetail_4g3_discuss_head").html(loginStr);
-
-        var title = "国家主席习近平同美国总统特朗普通电话国家主席习近平同美国总统特朗普通电话家主席习近平同美国总统特朗普通电话国家主席习近平同美国总统特朗普通";
-        var str = "";
-        for (var i = 0; i < 4; i++) {
-            str +='<li>' +
-                    '<dl  class="clearFloat">' +
-                    '<dt >' +
-                    '<img src="../../img/PP/discuss_4g3/pic.png"  class="videoDetail_4g3_discuss_listImg">' +
-                    '</dt>' +
-                    '<dd>' +
-                    '<div class="videoDetail_4g3_discuss_listRi">' +
-                    '<p class="videoDetail_4g3_discuss_listName mainColor">名dsadas字 <span class="videoDetail_4g3_discuss_listTime dateColor"> &nbsp;&nbsp;&nbsp;几分钟前</span></p>' +
-                    '<p class="videoDetail_4g3_discuss_listContent dateColor" >'+title+'</p> ' +
-                    '</div>' +
-                    '<a href="#" onclick="reply(this)" class="videoDetail_4g3_discuss_reply"><span class="dateColor">回复</span></a>' +
-                    '</dd>' +
-                    '</dl>' +
-                    '</li>';
-        }
-
-        $(".appendCur .videoDetail_4g3_discuss_list ul").append(str);
-        //相关推荐+评论 end
-
-        //面包屑导航
-        $(".videoDetail_4g3_bread").html("");
-        var breadStr='';
-        breadStr=' <a class="mainColor" href="#">经济</a><span>&gt;</span><a class="mainColor" href="#">地产</a>';
-        $(".videoDetail_4g3_bread").html(breadStr);
-
-        //title
-        $(".videoDetail_4g3_title p").html("");
-        var nameStr="";
-        nameStr='世界互联网大会乌镇峰会';
-        $(".videoDetail_4g3_title p").html(nameStr);
-
-        //main
-        $(".videoDetail_4g3_main").html('');
-        var mainStr='';
-        mainStr= '<p class="videoDetail_4g3_time infoColor">2016-04-09 07:35 | 北京晨报</p>'+
-                '<div style="margin-top:12px;">';
-
-        mainStr+='<video id="example_video_1" class="video-js vjs-default-skin" controls preload="none"  height="393" width="540"'+
-               'poster="../../img/PP/videoDetail/videoDetail.png" data-setup="{}">'+
-            '<source src="../../img/PP/videoDetail/testVideo.mp4" type="video/mp4" />'+
-        '</video>';
-        mainStr+='</div>';
-        $(".videoDetail_4g3_main").html(mainStr);
-    }
-</script>
-</body>
-</html>
+    </script>
+</div>
+</div>
 
 
 
