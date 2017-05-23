@@ -410,7 +410,7 @@
 
 
 //    相关推荐
-    $(".propertyRelatedAll input").change(function(){
+    $(".property").on("change",".propertyRelatedAll input",function(){
         if( $(this).prop("checked") ){
             $(this).parent().next().slideDown();
         }else{

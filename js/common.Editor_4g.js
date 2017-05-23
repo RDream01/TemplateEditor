@@ -369,6 +369,17 @@ function propertyRightList(id) {
         }
     });
 }
+
+//    相关推荐
+$(".property").on("change",".propertyRelatedAll input",function(){
+    if( $(this).prop("checked") ){
+        $(this).parent().next().slideDown();
+    }else{
+        $(this).parent().next().slideUp();
+    }
+});
+
+
 function propertyRightListCallback(data) {
     var list = data;
     //console.log(list);
@@ -560,13 +571,16 @@ function propertyRightListCallback(data) {
             str += '" /></div>';
         }else if( list[i].propertyType == "switch" ){
             if( list[i].propertyId=="isCommon" ){
+                str+='<div class="propertyRelatedAll">';
                 str='<div class="switch switchLink text-left propertyOption">' ;
                 str+='<input data-type="switch" type="checkbox" onchange="collectProperty(this)" data-notNull="' + list[i].notNull + '" id="' + list[i].propertyId + '"/><label>';
                 if (list[i].notNull == "yes") {
                     str += '<span class="notNullColor">* </span>';
                 }
-                str+=''+list[i].propertyName+'</label></div>';
+                str+=''+list[i].propertyName+'</label></div></div>';
             }else{
+                console.log(list[i]);
+                str+='<div class="propertyRelatedAll">';
                 str='<div class="switch text-left propertyOption">';
                 str+='<input data-type="switch" type="checkbox" ';
                 if(list[i].defaultValue=="yes"){
@@ -577,6 +591,10 @@ function propertyRightListCallback(data) {
                     str += '<span class="notNullColor">* </span>';
                 }
                 str+=''+list[i].propertyName+'</label></div>';
+               if( list[i].childPropertyList!==undefined ){
+                   console.log( (list[i].childPropertyList)[0].propertyName );
+               }
+                str+='</div>';
             }
         }
 
@@ -692,7 +710,6 @@ function collectProperty(property, min, max) {
         }
 
     } else if( ($(property).attr("data-type") == "switch") && ($(property).attr("type") == "checkbox") ){
-        alert(1);
         if( $(property).attr("id")=="isCommon" ){
             var propertyId = $(property).attr("id");
             console.log(propertyId);
@@ -710,7 +727,7 @@ function collectProperty(property, min, max) {
             if( $(property).prop("checked") ){
                 var propertyVal = "yes";
                 $(".appendCur .v_" + propertyId).val(propertyVal);
-                console.log( $(".appendCur .v_" + propertyId));
+                //console.log( $(".appendCur .v_" + propertyId));
                 eval("vData_" + showId)();
             }else{
                 var propertyVal = "no";
