@@ -44,8 +44,8 @@
 </div>
 
 <div class="panel appendNot" data-id="3">
-    <input type="hidden" class="v_hotVoteList_name" value="热门投票"/>
-    <input type="hidden" class="v_hotVoteList_ul_num" value="6"/>
+    <input type="hidden" class="v_hotVoteList_4g1_name" value="投票列表"/>
+    <input type="hidden" class="v_hotVoteList_4g1_ul_num" value="5"/>
     <div class="panel-heading">
         <span class="title">热门投票</span>
     </div>
@@ -76,15 +76,15 @@
         function vData() {
             //title
             $(".appendCur .hotVoteList_name").html("");
-            var v_hotVoteList_name = $(".appendCur .v_hotVoteList_name").val();
-            if (v_hotVoteList_name != "") {
-                $(".appendCur .hotVoteList_name").html(v_hotVoteList_name);
+            var v_hotVoteList_4g1_name = $(".appendCur .v_hotVoteList_4g1_name").val();
+            if (v_hotVoteList_4g1_name != "") {
+                $(".appendCur .hotVoteList_name").html(v_hotVoteList_4g1_name);
             }
             //content
             $(".appendCur .hotVoteList_ul").html("");
-            var v_hotVoteList_ul_num=$(".appendCur .v_hotVoteList_ul_num").val();
+            var v_hotVoteList_4g1_ul_num=$(".appendCur .v_hotVoteList_4g1_ul_num").val();
             var hotVoteListStr='';
-            for( var i=0;i<v_hotVoteList_ul_num;i++ ){
+            for( var i=0;i<v_hotVoteList_4g1_ul_num;i++ ){
                 hotVoteListStr+='<li class="hotVoteList_li">'+
                 '<p class="hotVoteList_li_content abstractColor">朋友间一你友间一起做啥才能证明你这人真熟？</p>'+
                 '</li>';
