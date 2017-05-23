@@ -1,8 +1,3 @@
-$(document).ready(function() {
-    $('.pgwSlideshow').pgwSlideshow({
-        autoSlide:true
-    });
-});
 ;(function($){
     $.fn.pgwSlideshow = function(options) {
         var defaults = {
@@ -575,7 +570,7 @@ $(document).ready(function() {
             }
             displayElement(nextItem, true, 'left');
             return true;
-        };
+        }
         // Previous slide
         pgwSlideshow.previousSlide = function() {
             if (pgwSlideshow.currentSlide - 1 >= 1) {
@@ -615,9 +610,17 @@ $(document).ready(function() {
         };
         // Slideshow initialization
         init();
+        console.log("init done !!!!");
         return this;
     }
 })(window.Zepto || window.jQuery);
+
+setTimeout(test,100);
+function test(){
+    $('.pgwSlideshow').pgwSlideshow({
+        autoSlide:true
+    });
+}
 
 
 

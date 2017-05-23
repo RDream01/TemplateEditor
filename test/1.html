@@ -1,67 +1,133 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title>index</title>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../css/zui.css"/>
-    <!--<link rel="stylesheet" href="../css/editor.css"/>-->
-    <!--<link rel="stylesheet" href="../css/zui.dashboard.Editor.css"/>-->
-    <link rel="stylesheet" href="../css/common_red.css"/>
-    <link id="templateColorLink" rel="stylesheet" href=""/>
-    <script src="../js/respond.js"></script>
-    <script src="../js/jquery-1.11.3.js"></script>
+<div class="col-md-9 col-sm-9 appendStr pictures_4g3" id="pictures_4g3" data-blockSize="9">
+    <div class="style" "ecist">
+    <link rel="stylesheet" href="../../css/pictures.css">
     <style>
-        .discuss_4g3{
+        .pictures_4g3All{
+            width:708px;
+            box-shadow:0 2px 2px 0 rgba(0,0,0,0.24);
+            background: #fff;
+            padding-bottom:20px;
+        }
+        .pictures_4g3AllCon{
+            width:660px;
+            margin:0 auto;
+            padding-top:22px;
+        }
+        .pictures_4g3_bread{
+            font-size:15px;
+            /*color:#cc3333;*/
+            letter-spacing:1px;
+            text-align:left;
+        }
+        .pictures_4g3_title{
+            font-size:20px;
+            letter-spacing:1px;
+            text-align:center;
+            margin:5px 0 10px 0;
+        }
+        .pictures_4g3_act{
+            font-size:14px;
+            /*color:#7b7b7b;*/
+            letter-spacing:1px;
+            text-align:center;
+            margin-top:15px;
+        }
+        /*推荐*/
+        .pictures_4g3_remtThreeImgAll{
+            width:540px;
+            margin:20px auto 0;
+        }
+        .pictures_4g3_remtThreeImg_head{
+            width: 540px;
+        }
+        .pictures_4g3_remtThreeImg_title{
+            font-size:16px;
+            text-align:left;
+            margin-top: 24px;
+            border-bottom: 2px solid #dddddd;
+            padding-bottom: 6px;
+        }
+        .pictures_4g3_remtThreeImg_redLine{
+            width: 70px;
+            height: 4px;
+            border-bottom: 4px solid;
+            padding-bottom: 8px;
+        }
+        .pictures_4g3_remtThreeImg_list{
+            width: 540px;
+            /*margin-left: 84px;*/
+        }
+        .pictures_4g3_remtThreeImg_list li{
+            float: left;
+        }
+        .list_interval{
+            margin-left: 8px;
+        }
+        .pictures_4g3_remtThreeImg_listimg{
+            margin-top: 12px;
+            width: 172px;
+            height: 104px;
+        }
+        .pictures_4g3_remtThreeImg_listTitle{
+            margin-top: 6px;
+            width: 172px;
+            height: 38px;
+            font-size:14px;
+            text-align:left;
+            overflow: hidden;
+        }
+        /*讨论*/
+        .pictures_4g3_discussAll{
+            width:540px;
+            margin:40px auto 0;
+        }
+        .pictures_4g3_discuss{
             background:#fff;
             padding-top:20px;
         }
-        .discuss_4g3_head{
+        .pictures_4g3_discuss_head{
             width: 540px;
-            margin-left: 84px;
         }
-        .discuss_4g3_title{
+        .pictures_4g3_discuss_title{
             font-size:16px;
             text-align:left;
             padding-bottom: 2px;
             border-bottom: 1px solid #dddddd;
 
         }
-        .discuss_4g3_redLine{
+        .pictures_4g3_discuss_redLine{
             width: 70px;
             height: 4px;
             padding-bottom: 3px;
         }
-        .discuss_4g3_inputAre{
+        .pictures_4g3_discuss_inputAre{
             border-radius:4px;
             width:540px;
             height:107px;
             background:#fafafa;
             margin-top: 11px;
         }
-        .discuss_4g3_logDes{
+        .pictures_4g3_discuss_logDes{
             font-size:12px;
             text-align: center;
             padding-top: 44px;
         }
-        .discuss_4g3_logBtn{
+        .pictures_4g3_discuss_logBtn{
             font-size:14px;
             text-align:left;
         }
-        .discuss_4g3_list{
+        .pictures_4g3_discuss_list{
             width: 540px;
-            margin-left: 84px;
             margin-top: 21px;
         }
-        .discuss_4g3_list dd{
+        .pictures_4g3_discuss_list dd{
             float: left;
             margin-left: 24px;
         }
-        .discuss_4g3_list dt{
+        .pictures_4g3_discuss_list dt{
             float: left;
         }
-        .discuss_4g3_listImg{
+        .pictures_4g3_discuss_listImg{
             margin-top: 17px;
             width:55px;
             height:56px;
@@ -70,40 +136,40 @@
             border:2px solid #ffffff;
             box-shadow:0 2px 4px 0 rgba(0,0,0,0.24);
         }
-        .discuss_4g3_listName{
+        .pictures_4g3_discuss_listName{
             font-size:14px;
             text-align:left;
         }
-        .discuss_4g3_listTime{
+        .pictures_4g3_discuss_listTime{
             font-size:12px;
             text-align:left;
         }
-        .discuss_4g3_listContent{
+        .pictures_4g3_discuss_listContent{
             width: 415px;
             margin:15px 0 18px 0;
         }
-        .discuss_4g3_listRi{
+        .pictures_4g3_discuss_listRi{
             float: left;
             margin-top: 20px;
         }
-        .discuss_4g3_reply{
+        .pictures_4g3_discuss_reply{
             font-size:12px;
             display: inline-block;
             margin-top: 57px;
             margin-left: 10px;
         }
 
-        .discuss_4g3_disList{
+        .pictures_4g3_discuss_disList{
             width: 540px;
             margin-bottom: 30px;
         }
-        .discuss_4g3_redLine{
+        .pictures_4g3_discuss_redLine{
             vertical-align: middle;
             border-bottom: 4px solid;
             padding-bottom:3px;
             letter-spacing: 1px;
         }
-        .discuss_4g3_comment {
+        .pictures_4g3_discuss_comment {
             background: #ffffff;
             border: 1px solid #999999;
             border-radius: 4px;
@@ -111,8 +177,8 @@
             height: 110px;
             margin-top: 23px;
         }
-        .discuss_4g3_commentbtn {
-            background: #cc3333;
+        .pictures_4g3_discuss_commentbtn {
+            /*background: #cc3333;*/
             width: 122px;
             height: 30px;
             text-align: center;
@@ -120,53 +186,85 @@
             margin-top: 16px;
             margin-left: 419px;
         }
-        .discuss_4g3_btn{
+        .pictures_4g3_discuss_btn{
             font-size:14px;
             color:#ffffff;
         }
-        .discuss_4g3_btn:hover {
+        .pictures_4g3_discuss_btn:hover {
             color: #ffffff;
         }
-        .discuss_4g3_list ul{
+        .pictures_4g3_discuss_list ul{
             border-top:1px solid #999999 ;
         }
-        .discuss_4g3_list li {
-            border-bottom: 1px solid #999999;
+        .pictures_4g3_discuss_list li {
+            border-top: 1px solid #999999;
+        }
+        .pictures_4g3_discuss_list li:first-child{
+            border-top:none;
         }
     </style>
-</head>
-<body>
-
-
-
-
-<div class="Grid4g3 appendCur discuss_4g3">
-    <input type="hidden" class="v_discuss_4g3_num" value="4" align="center"/>
-    <input type="hidden" class="v_discuss_4g3_redLine" value="参与讨论"/>
-    <div class="discuss_4g3_head">
-        <!--未登录-->
-        <div>
-            <p class="discuss_4g3_title mainColor"><span class="discuss_4g3_redLine showId"></span></p>
-            <div class="discuss_4g3_inputAre" >
-                <p class="discuss_4g3_logDes dateColor"><a href="#" ><span class="mainColor discuss_4g3_logBtn">登录</span></a>后参与讨论<span></span></p>
-            </div>
-        </div>
-        <!--已登录-->
-        <div class="discuss_4g3_disList">
-            <p class="discuss_4g3_title mainColor"><span class="discuss_4g3_redLine showId">参与讨论</span></p>
-            <textarea class="discuss_4g3_comment"></textarea>
-            <p class="discuss_4g3_commentbtn"><a href="#" class="discuss_4g3_btn">发表评论</a></p>
-        </div>
-    </div>
-    <div class="discuss_4g3_list">
-        <ul class="showId"></ul>
-    </div>
 </div>
 
+<div class="panel appendNot" data-id="3">
+    <!--相关推荐-->
+    <input type="hidden" class="v_pictures_4g3_remtThreeImg_num" value="6" align="center"/>
+    <input type="hidden" class="v_pictures_4g3_remtThreeImgAll" value="yes"/>
+    <!--参与讨论-->
+    <input type="hidden" class="v_pictures_4g3_discuss_num" value="4" align="center"/>
+    <input type="hidden" class="v_pictures_4g3_discussAll" value="yes"/>
 
-<!--<script src="../js/jquery-1.11.3.js"></script>-->
-<script src="../js/zui.min-1.5.js"></script>
+    <div class="panel-heading">
+        <span class="title">组图</span>
+    </div>
+    <div class="panel-body">
+        <div class="pictures_4g3All" "exist">
+        <div class="pictures_4g3AllCon">
+            <!--组图所有-->
+            <div class="">
+                <!--bread-->
+                <div class="pictures_4g3_bread mainColor showId"></div>
+                <!--title-->
+                <div class="pictures_4g3_titleAll showId"></div>
+                <!--组图-->
+                <ul class="pgwSlideshow showId">
+                    <!--广告图片-->
+                    <!--<li><a href="#"><img src="img/pictures/adv.png"/></a></li>-->
+                </ul>
+            </div>
+            <!--相关推荐-->
+            <div class="pictures_4g3_remtThreeImgAll">
+                <div class="pictures_4g3_remtThreeImg_head">
+                    <p class="pictures_4g3_remtThreeImg_title mainColor">
+                        <span class="pictures_4g3_remtThreeImg_redLine">相关推荐</span>
+                    </p>
+                </div>
+                <div class="pictures_4g3_remtThreeImg_list">
+                    <ul class="clearFloat showId"></ul>
+                </div>
+            </div>
+            <!--讨论-->
+            <div class="pictures_4g3_discussAll">
+                <!--登录--未登录-->
+                <div class="pictures_4g3_discuss_head"></div>
+                <!--评论数据-->
+                <div class="pictures_4g3_discuss_list">
+                    <ul class="showId"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<div class="resize-handle"><i class="icon icon-resize-h"></i></div>
+
+<div class="script" "exist">
+<script src="../../js/pictures.js"></script>
 <script>
+
+    console.log(" $('.pgwSlideshow')="+ $('.pgwSlideshow').pgwSlideshow())
+    //        $('.pgwSlideshow').pgwSlideshow({
+    //          autoSlide:true
+    //        });
     var flag="v";
     if(flag == "v"){
         vData()
@@ -174,32 +272,112 @@
         tData();
     }
     function vData() {
-        $(".appendCur .discuss_4g3_list ul.showId").html("");
-        $(".appendCur .discuss_4g3_redLine").html("");
-        var v_discuss_4g3_num = $(".appendCur .v_discuss_4g3_num").val();
-        var v_discuss_4g3_redLine = $(".appendCur .v_discuss_4g3_redLine").val();
+        //        是否显示
+        var remtVal=$(".appendCur .v_pictures_4g3_remtThreeImgAll").val();
+        if( remtVal=='yes' ){
+            $(".appendCur .pictures_4g3_remtThreeImgAll").show();
+        }else{
+            $(".appendCur .pictures_4g3_remtThreeImgAll").hide();
+        }
+        var discussVal=$(".appendCur .v_pictures_4g3_discussAll").val();
+        if( discussVal=='yes' ){
+            $(".appendCur .pictures_4g3_discussAll").show();
+        }else{
+            $(".appendCur .pictures_4g3_discussAll").hide();
+        }
+
+        //        组图
+        //        bread
+        $(".appendCur .pictures_4g3_bread").html("1");
+        var breadStr='<a href="#" class="mainColor">经济</a>'+
+                '<span>&gt;</span>'+
+                '<a href="#" class="mainColor">地产</a>';
+        $(".appendCur .pictures_4g3_bread").html(breadStr);
+        //        title
+        $(".appendCur .pictures_4g3_titleAll").html("");
+        var picturesHeadStr='<p class="pictures_4g3_title articleTitleColor">李克强答记者问精彩语录</p>'+
+                '<p class="pictures_4g3_act infoColor">'+
+                '<span>2016-04-09 07:35</span>'+
+                '<span> | </span>'+
+                '<span>北京晨报</span>'+
+                '</p>';
+        $(".appendCur .pictures_4g3_titleAll").html(picturesHeadStr);
+//    //        img
+//            $(".appendCur .pgwSlideshow").html("");
+//            var picturesDec="和贷款哈高还是加大开发和给咖啡科技公司东方健京东卡改好的看过了好的框架个得分机会卡的复活卡束带结发电话客服集合啥地方撒打客服花生豆腐就挂号当升科技分公司答复和打火锅开发技术的风格卡萨丁风格对方过后康的工爱的管理卡就是的老公看见SDJDHLASDH";
+//            var picturesStr='';
+//            for( var i=0;i<11;i++ ){
+//                picturesStr+='<li><a>' +
+//                '<img src="../../img/PP/pictures/product06.jpg" data-num="'+(i+1)+'" data-description="'+picturesDec+'">'+
+//                '</a></li>';
+//            }
+//            $(".appendCur .pgwSlideshow").html(picturesStr);
+
+        //        想关推荐
+        $(".appendCur .pictures_4g3_remtThreeImg_list ul").html("");
+        var v_pictures_4g3_remtThreeImg_num = $(".appendCur .v_pictures_4g3_remtThreeImg_num").val();
+
+        var title = "新闻标题新闻标题新闻标题新闻标题新闻标题";
+        var str = "";
+        for (var i = 0; i < v_pictures_4g3_remtThreeImg_num; i++) {
+            str +='<li class="list_interval"><a href="#">'+
+            '<img src="../../img/PP/remtThreeImg_4g3/test.png" class="pictures_4g3_remtThreeImg_listimg"> ' +
+            '<p class="titleColor pictures_4g3_remtThreeImg_listTitle ">'+title+'</p></a>' +
+            '</li>';
+        }
+        $(".appendCur .pictures_4g3_remtThreeImg_list ul").append(str);
+        $(".pictures_4g3_remtThreeImg_list ul li:nth-child(3n-2)").removeClass("list_interval");
+
+        //讨论
+        $(".appendCur .pictures_4g3_discuss_list ul").html("");
+        $(".appendCur .pictures_4g3_discuss_head").html("");
+        var v_pictures_4g3_discuss_num = $(".appendCur .v_pictures_4g3_discuss_num").val();
         var title = "国家主席习近平同美国总统特朗普通电话国家主席习近平同美国总统特朗普通电话家主席习近平同美国总统特朗普通电话国家主席习近平同美国总统特朗普通";
         var str = "";
-        for (var i = 0; i < v_discuss_4g3_num; i++) {
+        var headStr="";
+//            讨论--登录
+        if( true ){
+            headStr='<div class="pictures_4g3_discuss_disList">'+
+            '<p class="pictures_4g3_discuss_title mainColor">' +
+            '<span class="pictures_4g3_discuss_redLine">参与讨论</span>' +
+            '</p>'+
+            '<textarea class="pictures_4g3_discuss_comment"></textarea>'+
+            '<p class="pictures_4g3_discuss_commentbtn mainColor">' +
+            '<a href="#" class="pictures_4g3_discuss_btn">发表评论</a>' +
+            '</p>'+
+            '</div>';
+        }else{
+            headStr='<div>'+
+            '<p class="pictures_4g3_discuss_title mainColor">' +
+            '<span class="pictures_4g3_discuss_redLine">参与谈论</span>' +
+            '</p>'+
+            '<div class="pictures_4g3_discuss_inputAre" >'+
+            '<p class="pictures_4g3_discuss_logDes dateColor">' +
+            '<a href="#" ><span class="mainColor pictures_4g3_discuss_logBtn">登录</span></a>后参与讨论<span></span></p>'+
+            '</div>'+
+            '</div>';
+        }
+        $(".appendCur .pictures_4g3_discuss_head").html(headStr);
+
+        for (var i = 0; i < v_pictures_4g3_discuss_num; i++) {
             str +='<li>' +
             '<dl  class=" clearFloat">' +
             '<dt >' +
-            '<img src="../img/PP/discuss_4g3/pic.png"  class="discuss_4g3_listImg">' +
+            '<img src="../../img/PP/discuss_4g3/pic.png"  class="pictures_4g3_discuss_listImg">' +
             '</dt>' +
             '<dd>' +
-            '<div class="discuss_4g3_listRi">' +
-            '<p class="discuss_4g3_listName mainColor">名dsadas字 <span class="discuss_4g3_listTime dateColor"> &nbsp;&nbsp;&nbsp;几分钟前</span></p>' +
-            '<p class="discuss_4g3_listContent dateColor" >'+title+'</p> ' +
+            '<div class="pictures_4g3_discuss_listRi">' +
+            '<p class="pictures_4g3_discuss_listName mainColor">名dsadas字 <span class="pictures_4g3_discuss_listTime dateColor"> &nbsp;&nbsp;&nbsp;几分钟前</span></p>' +
+            '<p class="pictures_4g3_discuss_listContent dateColor" >'+title+'</p> ' +
             '</div>' +
-            '<a href="#" onclick="reply(this)" class="discuss_4g3_reply"><span class="dateColor">回复</span></a>' +
+            '<a href="#" onclick="reply(this)" class="pictures_4g3_discuss_reply"><span class="dateColor">回复</span></a>' +
             '</dd>' +
             '</dl>' +
             '</li>';
         }
-        if( v_discuss_4g3_redLine!=="" ){
-            $(".appendCur .discuss_4g3_redLine.showId").html(v_discuss_4g3_redLine);
-        }
-        $(".appendCur .discuss_4g3_list ul.showId").append(str);
+        $(".appendCur .pictures_4g3_discuss_list ul").append(str);
+
+
     }
     //返回的真实数据
     function tDataCallback(data){
@@ -209,45 +387,6 @@
             $(".lh.showId").append(str);
         }
     }
-
 </script>
-</body>
-</html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+</div>
+</div>

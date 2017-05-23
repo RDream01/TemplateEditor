@@ -10,293 +10,388 @@
     <link id="templateColorLink" rel="stylesheet" href=""/>
     <script src="../js/respond.js"></script>
     <script src="../js/jquery-1.11.3.js"></script>
-    <style>
-        /**********************组件---header01************************/
-        .header01{
-            width: 100%;
-        }
-        /*top--红*/
-        .header01_top{
-            height:40px;
-            /*background-color: #c33;*/
-        }
-        .header01_action li{
-            display: inline-block;
-            line-height:40px;
-            color:#fff;
-            margin-right:15px;
-            font-size:14px;
-        }
-        .header01_searchCon{
-            display: inline-block;
-            width:112px;
-            height:20px;
-            margin:10px 0;
-            position:relative;
-        }
-        .header01_searchInput{
-            border-radius: 36px;
-            width:112px;
-            padding:0 5px;
-            letter-spacing: 1px;
-            outline: none;
-            font-size:14px;
-        }
-        .header01_searchCon label{
-            display: inline-block;
-            position:absolute;
-            right:5px;
-            top:-3px;
-        }
-        .header01_searchCon label a{
-            display: inline-block;
-        }
-        .header01_phone,.header01_login{
-            display: inline-block;
-            margin-left:20px;
-        }
-        .header01_phone span{
-            color:#fff;
-            font-size:14px;
-            padding-left:3px;
-        }
-        .header01_phone img{
-            padding-bottom:2px;
-        }
-        .header01_login a{
-            color:#fff;
-            font-size:14px;
-        }
-        /*logo*/
-        .header01_logo{
-            text-align:center;
-        }
-        .header01_logo>img{
-            width:256px;
-            margin:20px 0;
-        }
-        /*导航*/
-        .header01_nav{
-            background-color: #fafafa;
-            height:50px;
-        }
-        .header01_navChanel{
-            text-align: center;
-        }
-        .header01_navChanel:after{
-            display: table;
-            content: '';
-            clear: both;
-        }
-        .header01_navChanel>li{
-            float: left;
-            /*position:relative;*/
-        }
-        .header01_navChanel>li>a{
-            display: inline-block;
-            height:50px;
-            border-bottom:2px solid transparent;
-            line-height: 50px;
-            width:120px;
-            font-size:18px;
-            /*color:#999;*/
-            text-decoration: none;
-        }
-        /*.header01_navChanel>li>a.header01_active{*/
-        /*color:#333;*/
-        /*border-bottom-color:#c33;*/
-        /*}*/
-        /*.header01_active{*/
-        /*color:#333;*/
-        /*border-bottom-color:#c33;*/
-        /*}*/
-        /*.header01_navChanel>li>a.header01_cur{*/
-        /*color:#c33;*/
-        /*}*/
-        /*二级菜单*/
-        .header01_tan{
-            display: none;
-            width: 100%;
-            min-height: 20px;
-            text-align: center;
-            margin-top:-3px;
-            margin-bottom:5px;
-            background:#ffffff;
-            border:1px solid #fafafa;
-            box-shadow:0 2px 4px 0 rgba(0,0,0,0.24);
-            position: relative;
-            z-index:10;
-        }
-        /*箭头*/
-        .header01_arrow{
-            position:absolute;
-            left:0;
-            width:95%;
-            text-align: center;
-            height:7px;
-        }
-        .header01_arrow img{
-            position: absolute;
-            width:8px;
-            top:-7px;
-        }
-        /*li*/
-        .header01_tan li a{
-            color:#9b9b9b;
-            font-size: 14px;
-            display: inline-block;
-            line-height: 35px;
-            text-decoration: none;
-        }
-        /*.header01_tan li a.header01_tanActive{*/
-        /*color:#c33;*/
-        /*}*/
+    <script src="../js/zui.min.js"></script>
+        <link rel="stylesheet" href="../css/pictures.css">
+        <style>
+            .pictures_4g3All{
+                width:708px;
+                box-shadow:0 2px 2px 0 rgba(0,0,0,0.24);
+                background: #fff;
+                padding-bottom:20px;
+            }
+            .pictures_4g3AllCon{
+                width:660px;
+                margin:0 auto;
+                padding-top:22px;
+            }
+            .pictures_4g3_bread{
+                font-size:15px;
+                /*color:#cc3333;*/
+                letter-spacing:1px;
+                text-align:left;
+            }
+            .pictures_4g3_title{
+                font-size:20px;
+                letter-spacing:1px;
+                text-align:center;
+                margin:5px 0 10px 0;
+            }
+            .pictures_4g3_act{
+                font-size:14px;
+                /*color:#7b7b7b;*/
+                letter-spacing:1px;
+                text-align:center;
+                margin-top:15px;
+            }
+            /*推荐*/
+            .pictures_4g3_remtThreeImgAll{
+                width:540px;
+                margin:20px auto 0;
+            }
+            .pictures_4g3_remtThreeImg_head{
+                width: 540px;
+            }
+            .pictures_4g3_remtThreeImg_title{
+                font-size:16px;
+                text-align:left;
+                margin-top: 24px;
+                border-bottom: 2px solid #dddddd;
+                padding-bottom: 6px;
+            }
+            .pictures_4g3_remtThreeImg_redLine{
+                width: 70px;
+                height: 4px;
+                border-bottom: 4px solid;
+                padding-bottom: 8px;
+            }
+            .pictures_4g3_remtThreeImg_list{
+                width: 540px;
+                /*margin-left: 84px;*/
+            }
+            .pictures_4g3_remtThreeImg_list li{
+                float: left;
+            }
+            .list_interval{
+                margin-left: 8px;
+            }
+            .pictures_4g3_remtThreeImg_listimg{
+                margin-top: 12px;
+                width: 172px;
+                height: 104px;
+            }
+            .pictures_4g3_remtThreeImg_listTitle{
+                margin-top: 6px;
+                width: 172px;
+                height: 38px;
+                font-size:14px;
+                text-align:left;
+                overflow: hidden;
+            }
+            /*讨论*/
+            .pictures_4g3_discussAll{
+                width:540px;
+                margin:40px auto 0;
+            }
+            .pictures_4g3_discuss{
+                background:#fff;
+                padding-top:20px;
+            }
+            .pictures_4g3_discuss_head{
+                width: 540px;
+            }
+            .pictures_4g3_discuss_title{
+                font-size:16px;
+                text-align:left;
+                padding-bottom: 2px;
+                border-bottom: 1px solid #dddddd;
 
-    </style>
+            }
+            .pictures_4g3_discuss_redLine{
+                width: 70px;
+                height: 4px;
+                padding-bottom: 3px;
+            }
+            .pictures_4g3_discuss_inputAre{
+                border-radius:4px;
+                width:540px;
+                height:107px;
+                background:#fafafa;
+                margin-top: 11px;
+            }
+            .pictures_4g3_discuss_logDes{
+                font-size:12px;
+                text-align: center;
+                padding-top: 44px;
+            }
+            .pictures_4g3_discuss_logBtn{
+                font-size:14px;
+                text-align:left;
+            }
+            .pictures_4g3_discuss_list{
+                width: 540px;
+                margin-top: 21px;
+            }
+            .pictures_4g3_discuss_list dd{
+                float: left;
+                margin-left: 24px;
+            }
+            .pictures_4g3_discuss_list dt{
+                float: left;
+            }
+            .pictures_4g3_discuss_listImg{
+                margin-top: 17px;
+                width:55px;
+                height:56px;
+                border-radius:100%;
+                margin-bottom: 16px;
+                border:2px solid #ffffff;
+                box-shadow:0 2px 4px 0 rgba(0,0,0,0.24);
+            }
+            .pictures_4g3_discuss_listName{
+                font-size:14px;
+                text-align:left;
+            }
+            .pictures_4g3_discuss_listTime{
+                font-size:12px;
+                text-align:left;
+            }
+            .pictures_4g3_discuss_listContent{
+                width: 415px;
+                margin:15px 0 18px 0;
+            }
+            .pictures_4g3_discuss_listRi{
+                float: left;
+                margin-top: 20px;
+            }
+            .pictures_4g3_discuss_reply{
+                font-size:12px;
+                display: inline-block;
+                margin-top: 57px;
+                margin-left: 10px;
+            }
 
+            .pictures_4g3_discuss_disList{
+                width: 540px;
+                margin-bottom: 30px;
+            }
+            .pictures_4g3_discuss_redLine{
+                vertical-align: middle;
+                border-bottom: 4px solid;
+                padding-bottom:3px;
+                letter-spacing: 1px;
+            }
+            .pictures_4g3_discuss_comment {
+                background: #ffffff;
+                border: 1px solid #999999;
+                border-radius: 4px;
+                width: 538px;
+                height: 110px;
+                margin-top: 23px;
+            }
+            .pictures_4g3_discuss_commentbtn {
+                /*background: #cc3333;*/
+                width: 122px;
+                height: 30px;
+                text-align: center;
+                padding-top: 4px;
+                margin-top: 16px;
+                margin-left: 419px;
+            }
+            .pictures_4g3_discuss_btn{
+                font-size:14px;
+                color:#ffffff;
+            }
+            .pictures_4g3_discuss_btn:hover {
+                color: #ffffff;
+            }
+            .pictures_4g3_discuss_list ul{
+                border-top:1px solid #999999 ;
+            }
+            .pictures_4g3_discuss_list li {
+                border-top: 1px solid #999999;
+            }
+            .pictures_4g3_discuss_list li:first-child{
+                border-top:none;
+            }
+        </style>
 </head>
+<body class="appendCur">
+<!--相关推荐-->
+<input type="hidden" class="v_pictures_4g3_remtThreeImg_num" value="6" align="center"/>
+<input type="hidden" class="v_pictures_4g3_remtThreeImgAll" value="yes"/>
+<!--参与讨论-->
+<input type="hidden" class="v_pictures_4g3_discuss_num" value="4" align="center"/>
+<input type="hidden" class="v_pictures_4g3_discussAll" value="yes"/>
 
-<body>
-
-
-
-        <div class="header01">
-        <!--top-->
-        <div class="header01_top">
-            <div class="commonContainer">
-                <ul class="header01_action lf">
-                    <li class="header01_GPS">北京</li>
-                    <li class="header01_time">2017年3月20日 周四</li>
-                    <li class="header01_TEMP">27℃</li>
-                </ul>
-                <div class="rt">
-                    <p class="header01_searchCon ">
-                        <input type="text" id="header01_searchInput" placeholder="" class="header01_searchInput "/>
-                        <label for="header01_searchInput"><a href="#"><img src="../../img/header01/search_index.png" alt=""/></a></label>
-                    </p>
-                    <p class="header01_phone"><img src="../../img/header01/phone_index.png" alt=""/><span>下载客户端</span></p>
-                    <p class="header01_login"><a href="#">登录</a></p>
-                </div>
-            </div>
-        </div>
-        <!--logo-->
-        <div class="header01_logo">
-            <img src="../../img/header01/header01_logo.png">
-        </div>
-        <!--nav-->
-        <div class="header01_nav">
-            <ul class="commonContainer header01_navChanel">
-                <li><a href="#"  class="header01_active">首页</a></li>
-                <li>
-                    <a href="#">经济</a>
-                    <ul class="header01_tan">
-                        <li class="header01_arrow"><img src="../../img/header01/header01_arrow.png" alt=""/></li>
-                        <li><a href="#">图书馆</a></li>
-                        <li><a href="#">编辑推荐</a></li>
-                        <li><a href="#">新书速递</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">经济</a>
-                    <ul class="header01_tan">
-                        <li class="header01_arrow"><img src="../../img/header01/header01_arrow.png" alt=""/></li>
-                        <li><a href="#">图书馆</a></li>
-                        <li><a href="#">编辑推荐</a></li>
-                        <li><a href="#">新书速递</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">经济</a>
-                    <ul class="header01_tan">
-                        <li class="header01_arrow"><img src="../../img/header01/header01_arrow.png" alt=""/></li>
-                        <li><a href="#">图书馆</a></li>
-                        <li><a href="#">编辑推荐</a></li>
-                        <li><a href="#">新书速递</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">经济</a>
-                    <ul class="header01_tan">
-                        <li class="header01_arrow"><img src="../../img/header01/header01_arrow.png" alt=""/></li>
-                        <li><a href="#">图书馆</a></li>
-                        <li><a href="#">编辑推荐</a></li>
-                        <li><a href="#">新书速递</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">经济</a>
-                    <ul class="header01_tan">
-                        <li class="header01_arrow"><img src="../../img/header01/header01_arrow.png" alt=""/></li>
-                        <li><a href="#">图书馆</a></li>
-                        <li><a href="#">编辑推荐</a></li>
-                        <li><a href="#">新书速递</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">经济</a>
-                    <ul class="header01_tan">
-                        <li class="header01_arrow"><img src="../../img/header01/header01_arrow.png" alt=""/></li>
-                        <li><a href="#">图书馆</a></li>
-                        <li><a href="#">编辑推荐</a></li>
-                        <li><a href="#">新书速递</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">经济天天</a>
-                    <ul class="header01_tan">
-                        <li class="header01_arrow"><img src="../../img/header01/header01_arrow.png" alt=""/></li>
-                        <li><a href="#">图书馆1</a></li>
-                        <li><a href="#">编辑推荐</a></li>
-                        <li><a href="#">新书速递</a></li>
-                    </ul>
-                </li>
+<div class="pictures_4g3All ">
+    <div class="pictures_4g3AllCon">
+        <!--组图所有-->
+        <div class="">
+            <!--bread-->
+            <div class="pictures_4g3_bread mainColor showId"></div>
+            <!--title-->
+            <div class="pictures_4g3_titleAll showId"></div>
+            <!--组图-->
+            <ul class="pgwSlideshow showId">
+                <!--<li><a><img src="../img/PP/pictures/product06.jpg" data-num="1" data-description="大时代发多少"></a></li>-->
+                <!--<li><a><img src="../img/PP/pictures/product06.jpg" data-num="1" data-description="大时代发多少"></a></li>-->
+                <!--<li><a href="#"><img src="img/pictures/adv.png"/></a></li>-->
             </ul>
         </div>
+        <!--相关推荐-->
+        <div class="pictures_4g3_remtThreeImgAll">
+            <div class="pictures_4g3_remtThreeImg_head">
+                <p class="pictures_4g3_remtThreeImg_title mainColor">
+                    <span class="pictures_4g3_remtThreeImg_redLine">相关推荐</span>
+                </p>
+            </div>
+            <div class="pictures_4g3_remtThreeImg_list">
+                <ul class="clearFloat showId"></ul>
+            </div>
+        </div>
+        <!--讨论-->
+        <div class="pictures_4g3_discussAll">
+            <!--登录--未登录-->
+            <div class="pictures_4g3_discuss_head"></div>
+            <!--评论数据-->
+            <div class="pictures_4g3_discuss_list">
+                <ul class="showId"></ul>
+            </div>
+        </div>
     </div>
+</div>
 
-<script src="../js/zui.min-1.5.js"></script>
-<script>
-    //首页一级点击
-    $('.header01_navChanel>li>a').click(function(e){
-        e=e||window.event;
-        var target=e.target||e.srcElement;
-        var a=$(".header01_active");
-        a.removeClass('header01_active');
-        target.className='header01_active';
+<script src="../js/pictures.js"></script>
 
-        $('.header01_tan>li>a').removeClass("header01_tanActive")
-    });
-    $('.header01_navChanel>li>a').mousemove(function(){
-        if( $(this).next()!==null ){
-            $(this).next().show();
-            $(this).addClass("header01_cur");
+    <script>
+        var flag="v";
+        if(flag == "v"){
+            vData()
+        }else{
+            tData();
         }
-    });
-    $('.header01_navChanel>li>a').mouseout(function(){
-        if( $(this).next()!==null ){
-            $(this).next().hide();
-            $(this).removeClass("header01_cur");
+        function vData() {
+            //        是否显示
+            var remtVal=$(".appendCur .v_pictures_4g3_remtThreeImgAll").val();
+            console.log(remtVal)
+            if( remtVal=='yes' ){
+                $(".appendCur .pictures_4g3_remtThreeImgAll").show();
+            }else{
+                $(".appendCur .pictures_4g3_remtThreeImgAll").hide();
+            }
+            var discussVal=$(".appendCur .v_pictures_4g3_discussAll").val();
+            if( discussVal=='yes' ){
+                $(".appendCur .pictures_4g3_discussAll").show();
+            }else{
+                $(".appendCur .pictures_4g3_discussAll").hide();
+            }
+
+            //        组图
+            //        bread
+            $(".appendCur .pictures_4g3_bread").html("");
+            var breadStr='<a href="#" class="mainColor">经济</a>'+
+                    '<span>&gt;</span>'+
+                    '<a href="#" class="mainColor">地产</a>';
+            $(".appendCur .pictures_4g3_bread").html(breadStr);
+            //        title
+            $(".appendCur .pictures_4g3_titleAll").html("");
+            var picturesHeadStr='<p class="pictures_4g3_title articleTitleColor">李克强答记者问精彩语录</p>'+
+                    '<p class="pictures_4g3_act infoColor">'+
+                    '<span>2016-04-09 07:35</span>'+
+                    '<span> | </span>'+
+                    '<span>北京晨报</span>'+
+                    '</p>';
+            $(".appendCur .pictures_4g3_titleAll").html(picturesHeadStr);
+
+            //        img
+            $(".appendCur .pgwSlideshow").html("");
+            var picturesDec="和贷款哈高还是加大开发和给咖啡科技公司东方健京东卡改好的看过了好的框架个得分机会卡的复活卡束带结发电话客服集合啥地方撒打客服花生豆腐就挂号当升科技分公司答复和打火锅开发技术的风格卡萨丁风格对方过后康的工爱的管理卡就是的老公看见SDJDHLASDH";
+            var picturesStr='';
+            for( var i=0;i<11;i++ ){
+                picturesStr+='<li><a>' +
+                '<img src="../img/PP/pictures/product06.jpg" data-num="'+(i+1)+'" data-description="'+picturesDec+'">'+
+                '</a></li>';
+            }
+//            console.log(picturesStr);
+//            console.log( $(".appendCur .pgwSlideshow"));
+            $(".appendCur .pgwSlideshow").html(picturesStr);
+//            console.log($(".appendCur .pgwSlideshow").html());
+
+            //        想关推荐
+            $(".appendCur .pictures_4g3_remtThreeImg_list ul").html("");
+            var v_pictures_4g3_remtThreeImg_num = $(".appendCur .v_pictures_4g3_remtThreeImg_num").val();
+
+            var title = "新闻标题新闻标题新闻标题新闻标题新闻标题";
+            var str = "";
+            for (var i = 0; i < v_pictures_4g3_remtThreeImg_num; i++) {
+                str +='<li class="list_interval"><a href="#">'+
+                '<img src="../../img/PP/remtThreeImg_4g3/test.png" class="pictures_4g3_remtThreeImg_listimg"> ' +
+                '<p class="titleColor pictures_4g3_remtThreeImg_listTitle ">'+title+'</p></a>' +
+                '</li>';
+            }
+            $(".appendCur .pictures_4g3_remtThreeImg_list ul").append(str);
+            $(".pictures_4g3_remtThreeImg_list ul li:nth-child(3n-2)").removeClass("list_interval");
+
+            //讨论
+            $(".appendCur .pictures_4g3_discuss_list ul").html("");
+            $(".appendCur .pictures_4g3_discuss_head").html("");
+            var v_pictures_4g3_discuss_num = $(".appendCur .v_pictures_4g3_discuss_num").val();
+            var title = "国家主席习近平同美国总统特朗普通电话国家主席习近平同美国总统特朗普通电话家主席习近平同美国总统特朗普通电话国家主席习近平同美国总统特朗普通";
+            var str = "";
+            var headStr="";
+//            讨论--登录
+            if( true ){
+                headStr='<div class="pictures_4g3_discuss_disList">'+
+                '<p class="pictures_4g3_discuss_title mainColor">' +
+                '<span class="pictures_4g3_discuss_redLine">参与讨论</span>' +
+                '</p>'+
+                '<textarea class="pictures_4g3_discuss_comment"></textarea>'+
+                '<p class="pictures_4g3_discuss_commentbtn mainColor">' +
+                '<a href="#" class="pictures_4g3_discuss_btn">发表评论</a>' +
+                '</p>'+
+                '</div>';
+            }else{
+                headStr=' <div>'+
+                '<p class="pictures_4g3_discuss_title mainColor">' +
+                '<span class="pictures_4g3_discuss_redLine">参与谈论</span>' +
+                '</p>'+
+                '<div class="pictures_4g3_discuss_inputAre" >'+
+                '<p class="pictures_4g3_discuss_logDes dateColor">' +
+                '<a href="#" ><span class="mainColor pictures_4g3_discuss_logBtn">登录</span></a>后参与讨论<span></span></p>'+
+                '</div>'+
+                '</div>';
+            }
+            $(".appendCur .pictures_4g3_discuss_head").html(headStr);
+
+            for (var i = 0; i < v_pictures_4g3_discuss_num; i++) {
+                str +='<li>' +
+                '<dl  class=" clearFloat">' +
+                '<dt >' +
+                '<img src="../img/PP/discuss_4g3/pic.png"  class="pictures_4g3_discuss_listImg">' +
+                '</dt>' +
+                '<dd>' +
+                '<div class="pictures_4g3_discuss_listRi">' +
+                '<p class="pictures_4g3_discuss_listName mainColor">名dsadas字 <span class="pictures_4g3_discuss_listTime dateColor"> &nbsp;&nbsp;&nbsp;几分钟前</span></p>' +
+                '<p class="pictures_4g3_discuss_listContent dateColor" >'+title+'</p> ' +
+                '</div>' +
+                '<a href="#" onclick="reply(this)" class="pictures_4g3_discuss_reply"><span class="dateColor">回复</span></a>' +
+                '</dd>' +
+                '</dl>' +
+                '</li>';
+            }
+            $(".appendCur .pictures_4g3_discuss_list ul").append(str);
+
+
         }
-    });
-    //首页二级点击
-    $('.header01_tan').mouseover(function(){
-        $(this).siblings().addClass("header01_cur");
-        $(this).css('display','block');
-    });
-    $('.header01_tan').mouseout(function(){
-        $(this).siblings().removeClass("header01_cur");
-        $(this).css('display','none');
-    });
-    $('.header01_tan>li>a').click(function(){
-        var a=$(".header01_active");
-        a.removeClass('header01_active');
-        $(this).parent().parent().prev().addClass("header01_active");
-        var cur=$(".header01_tanActive");
-        cur.removeClass("header01_tanActive");
-        $(this).addClass('header01_tanActive');
-        $(this).parent().siblings().children().removeClass('header01_tanActive');
-    });
-</script>
+        //返回的真实数据
+        function tDataCallback(data){
+            var list = data.dataList;
+            for( var i=0;i<list.length;i++ ){
+                var str='<p><a href="#"/>'+list[i].title+'<a><p/>';
+                $(".lh.showId").append(str);
+            }
+        }
+    </script>
 
 
 </body>
