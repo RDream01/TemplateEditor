@@ -1013,7 +1013,7 @@ $('#keep').click(function () {
     }else{
         alert("当前没有可保存项");
     }
-})
+});
 function saveTemplateCallback(data){
     alert("保存成功~");
     window.location.href="editor_index.html";
