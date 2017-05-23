@@ -580,11 +580,11 @@ function propertyRightListCallback(data) {
                 str+=''+list[i].propertyName+'</label></div></div>';
             }else{
                 console.log(list[i]);
-                str+='<div class="propertyRelatedAll">';
-                str='<div class="switch text-left propertyOption">';
+                str='<div class="propertyRelatedAll">';
+                str+='<div class="switch text-left propertyOption">';
                 str+='<input data-type="switch" type="checkbox" ';
                 if(list[i].defaultValue=="yes"){
-                    str+="checked ";
+                    str+='checked ';
                 }
                 str+='onchange="collectProperty(this)" data-notNull="' + list[i].notNull + '" id="' + list[i].propertyId + '"/><label>' ;
                 if (list[i].notNull == "yes") {
@@ -593,17 +593,38 @@ function propertyRightListCallback(data) {
                 str+=''+list[i].propertyName+'</label></div>';
                if( list[i].childPropertyList!==undefined ){
                    console.log( (list[i].childPropertyList)[0].propertyName );
-
-
-             
-                   <div class="propertyOption propertyRelated">
-                   <label class="propertyLabel">相关内容展示条数</label>
-                   <input class="propertyInputSm" type="text" placeholder="6">
-                   </div>
-
-
-
-
+                   if(list[i].childPropertyList != undefined && list[i].childPropertyList != undefined && list[i].childPropertyList.length > 0){
+                   for(var h = 0;h<list[i].childPropertyList.length;h++){
+                       if(list[i].childPropertyList[h].propertyType == "number"){
+                           str += '<div ' ;
+                           if(list[i].defaultValue=="yes"){
+                               str+="style='display:block;'";
+                           }
+                           str+='class="propertyOption propertyRelated"><label class="propertyLabel" for="' + list[i].childPropertyList[h].propertyId + '">';
+                           if (list[i].childPropertyList[h].notNull == "yes") {
+                               str += '<span class="notNullColor">* </span>';
+                           }
+                           str += list[i].childPropertyList[h].propertyName + '</label>';
+                           str += '<input data-notNull="' + list[i].childPropertyList[h].notNull + '" onchange="collectProperty(this,' + list[i].childPropertyList[h].minValue + ',' + list[i].childPropertyList[h].maxValue + ')" type="number" id="' + list[i].childPropertyList[h].propertyId + '"';
+                           var curId = list[i].childPropertyList[h].propertyId;
+                           str += 'value="';
+                           if (blockProAll[curId] !== undefined) {
+                               str += blockProAll[curId];
+                           } else if (list[i].childPropertyList[h].defaultValue !== undefined) {
+                               str += list[i].childPropertyList[h].defaultValue;
+                           }
+                           str += '"';
+                           str += ' class="propertyInputSm" placeholder="'+list[i].childPropertyList[h].propertyName+'">';
+                           str += '<input type="hidden" id="' + list[i].childPropertyList[h].propertyId + '_undoRedo" value="';//undo redo 存储修改之前的属性值
+                           if (blockProAll[curId] !== undefined) {
+                               str += blockProAll[curId];
+                           } else if (list[i].childPropertyList[h].defaultValue !== undefined) {
+                               str += list[i].childPropertyList[h].defaultValue;
+                           }
+                           str += '" /></div>';
+                       }
+                   }
+                   }
                }
                 str+='</div>';
             }
@@ -740,6 +761,7 @@ function collectProperty(property, min, max) {
                 $(".appendCur .v_" + propertyId).val(propertyVal);
                 //console.log( $(".appendCur .v_" + propertyId));
                 eval("vData_" + showId)();
+                //dalili
             }else{
                 var propertyVal = "no";
                 $(".appendCur .v_" + propertyId).val(propertyVal);
