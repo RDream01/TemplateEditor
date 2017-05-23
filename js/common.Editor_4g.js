@@ -593,6 +593,17 @@ function propertyRightListCallback(data) {
                 str+=''+list[i].propertyName+'</label></div>';
                if( list[i].childPropertyList!==undefined ){
                    console.log( (list[i].childPropertyList)[0].propertyName );
+
+
+             
+                   <div class="propertyOption propertyRelated">
+                   <label class="propertyLabel">相关内容展示条数</label>
+                   <input class="propertyInputSm" type="text" placeholder="6">
+                   </div>
+
+
+
+
                }
                 str+='</div>';
             }
