@@ -56,7 +56,7 @@ nav,#banner,section,footer{
 
 .editorAct{
     position: absolute;
-    z-index: 10000000;
+    z-index: 1000;
     float: left;
     margin-left:50px;
 }

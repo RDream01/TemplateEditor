@@ -53,7 +53,7 @@ function gofullScreen(){
     if(fullS_flag == "no"){
         fullScreen(content);
         fullS_flag ="yes";
-        $(".fullScreen").attr("src","../img/editor/existFullScreen.png");
+        $(".fullScreen").attr("src","../../img/editor/existFullScreen.png");
         $(".partAll").css("height",(parseFloat(window.screen.height))+"px");
         $(".main").css("height",(parseFloat(window.screen.height))+"px");
         $(".property").css("height",(parseFloat(window.screen.height))+"px");
@@ -61,7 +61,7 @@ function gofullScreen(){
     }else{
         exitFullScreen();
         fullS_flag ="no";
-        $(".fullScreen").attr("src","../img/editor/fullScreen.jpg");
+        $(".fullScreen").attr("src","../../img/editor/fullScreen.jpg");
         autoHeight();
     }
 }
