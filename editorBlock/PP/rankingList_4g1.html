@@ -63,10 +63,10 @@
 </div>
 
 <div class="panel appendNot" data-id="3">
-    <input type="hidden" value="点击排行" class="v_rankingList_title"/>
-    <input type="hidden" value="10" class="v_rankingList_num"/>
+    <input type="hidden" value="排行榜" class="v_rankingList_4g1_title"/>
+    <input type="hidden" value="10" class="v_rankingList_4g1_num"/>
     <div class="panel-heading">
-        <span class="title">点击排行</span>
+        <span class="title">排行榜</span>
     </div>
     <div class="panel-body">
         <div class="Grid4g1 pageBackGroundColor rankingList">
@@ -111,13 +111,13 @@
         }
         function vData() {
             //name
-            $(".appendCur .rankingList_title").html("");
-            var v_rankingList_title = $(".appendCur .v_rankingList_title").val();
+            $(".appendCur .v_rankingList_4g1_title").html("");
+            var v_rankingList_title = $(".appendCur .v_rankingList_4g1_title").val();
             if (v_rankingList_title != "") {
                 $(".appendCur .rankingList_title").html(v_rankingList_title);
             }
             //ul
-            var v_rankingList_num = $(".appendCur .v_rankingList_num").val();
+            var v_rankingList_num = $(".appendCur .v_rankingList_4g1_num").val();
             $(".appendCur .rankingList_today_ul").html("");
             $(".appendCur .rankingList_week_ul").html("");
             $(".appendCur .rankingList_month_ul").html("");
