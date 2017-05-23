@@ -405,7 +405,14 @@ nav,#banner,section,footer{
 
 .fistP:first-letter{
     color:#cc3333;
+    font-size: 21px;
 }
+
+/*评论颜色*/
+.discussColor{
+    color:#777;
+}
+
 .Grid4g1{
     width: 228px;
 }

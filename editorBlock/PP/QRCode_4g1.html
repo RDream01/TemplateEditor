@@ -31,7 +31,7 @@
     </div>
     <div class="panel-body">
         <div class="Grid4g1 QRCode_4g1All" "exist">
-            <p class="QRCode_4g1_name showId fistP"></p>
+            <p class="QRCode_4g1_name showId fistP articleTitleColor"></p>
             <p class="QRCode_4g1_imgCon">
                 <img class="QRCode_4g1_img" src="../../img/PP/QR_Code/QR_Code.png/" alt=""/>
             </p>
@@ -53,7 +53,7 @@
         $(".appendCur .QRCode_4g1_name").html("");
         var codeName=$('.v_QRCode_4g1_name').val();
         if( codeName!=='' ){
-            $(".appendCur .QRCode_4g1_name.showId").html(codeName);
+            $(".appendCur .QRCode_4g1_name").html(codeName);
         }
     }
     function tData() {
@@ -69,11 +69,7 @@
         });
     }
     function tDataCallback(data) {
-        var list = data.dataList;
-        for (var i = 0; i < list.length; i++) {
-            var str = '<p><a href="#"/>' + list[i].title + '<a><p/>';
-            $(".lh.showId").append(str);
-        }
+
     }
 </script>
 </div>

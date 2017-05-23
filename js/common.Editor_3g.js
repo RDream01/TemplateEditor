@@ -36,22 +36,23 @@ function layout(){
     }else if( gridSizeVal=="4" ){
         if( templateLayoutVal=="layout01_4g" ){
             importGroupDiv(4);
-            importGroupDiv(2);
+            importGroupDiv(1);
+            importGroupDiv(1);
             importGroupDiv(1);
             importGroupDiv(1);
             importGroupDiv(4);
         }else if( templateLayoutVal=="layout02_4g" ){
             importGroupDiv(4);
-            importGroupDiv(1);
-            importGroupDiv(1);
-            importGroupDiv(1);
-            importGroupDiv(4);
-        }else if( templateLayoutVal=="layout03_4g" ){
-            importGroupDiv(4);
             importGroupDiv(3);
             importGroupDiv(1);
             importGroupDiv(4);
         }
+        //else if( templateLayoutVal=="layout03_4g" ){
+        //    importGroupDiv(4);
+        //    importGroupDiv(3);
+        //    importGroupDiv(1);
+        //    importGroupDiv(4);
+        //}
     }
 
 }

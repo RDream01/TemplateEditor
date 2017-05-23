@@ -135,11 +135,10 @@
             letter-spacing: 1px;
         }
         .topicNormal_4g3_disList li{
-            border-bottom: 1px solid #dddddd;
+            border-top: 1px solid #dddddd;
             width:540px;
         }
         .topicNormal_4g3_disList li:first-child{
-            border-top: 1.5px solid #dddddd;
             margin-top:25px;
         }
         .topicNormal_4g3_disList dt{
@@ -168,7 +167,7 @@
         }
         .topicNormal_4g3_disListCont{
             width: 478px;
-            font-size:12px;
+            font-size:13px;
             margin:5px 0 16px 0;
             letter-spacing: 0.5px;
         }
@@ -181,7 +180,6 @@
             margin-top: 23px;
         }
         .topicNormal_4g3_commentbtn {
-            background: #cc3333;
             width: 122px;
             height: 30px;
             text-align: center;
@@ -212,7 +210,7 @@
             <div class="topicNormal_4g3_disList">
                 <p class="topicNormal_4g3_disListTit mainColor"><span class="topicNormal_4g3_redLine">参与讨论</span></p>
                 <textarea class="topicNormal_4g3_comment"></textarea>
-                <p class="topicNormal_4g3_commentbtn"><a href="#" class="topicNormal_4g3_btn">发表评论</a></p>
+                <p class="topicNormal_4g3_commentbtn mainColor_background"><a href="#" class="topicNormal_4g3_btn">发表评论</a></p>
                 <ul></ul>
             </div>
         </div>
@@ -232,7 +230,7 @@
             //图片
             $(".topicNormal_4g3_mainImg").html("");
             var mainImgStr='<img src="../../img/PP/myJoined/pic.png" class="topicNormal_4g3_img">'+
-                    '<p class="topicNormal_4g3_title"> 国家主席习近平同美国总统特朗普通电话话题标题话题标题话题标题</p>'+
+                    '<p class="topicNormal_4g3_title"> 国家主席习发挥空间大师傅卡萨丁圣诞快乐放假哈啥地方和啥的发是领导付款后拉升的合法速度快粉红色咖啡机哈舒服近平同美国总统特朗普通电话话题标题话题标题话题标题</p>'+
                     '<p class="topicNormal_4g3——state">2017-04-18｜进行中'+
                     '<a href="#"><img src="../../img/PP/topic/collect.png" class="topicNormal_4g3_collec"></a>'+
                     '<a href="#"><img src="../../img/PP/topic/share.png" class="topicNormal_4g3_share"></a>'+
@@ -254,7 +252,7 @@
             for( var i=0;i<2;i++ ){
                 guessStr+='<li><img src="../../img/PP/myJoined/pic.png" class="topicNormal_4g3_listImg">'+
                 '<p class="topicNormal_4g3_listname titleColor">嘉宾·白岩松</p>'+
-                '<p class="topicNormal_4g3_listCont titleColor"> 1968年8月20日出生于内，中国内地节目主持人、记者，毕业于中国传媒大学新闻系。</p>'+
+                '<p class="topicNormal_4g3_listCont titleColor"> 1968年8月20日出生于内，中国内地节目主持人中国内地节目主持人中国内地节目主持人中国内地节目主持人中国内地节目主持人中国内地节目主持人中国内地节目主持人、记者，毕业于中国传媒大学新闻系。</p>'+
                 '</li>';
                 $(".topicNormal_4g3_commentList ul").html(guessStr);
             }
@@ -269,7 +267,7 @@
                 '<span>名dsadas字</span> '+
                 '<span class="topicNormal_4g3_disListTime dateColor"> &nbsp;&nbsp;&nbsp;几分钟前</span>'+
                 '</p>'+
-                '<p class="topicNormal_4g3_disListCont abstractColor" >浩或浩或个到拉萨刚打了扩大概浩或浩或个到拉萨刚打了扩大概浩或浩或个到拉萨刚打了扩大概拉萨刚打了扩大概个</p>'+
+                '<p class="topicNormal_4g3_disListCont abstractColor" >浩或浩或个到拉萨刚打了扩大概浩或浩或个到拉萨刚打了扩大概浩或浩或个到拉萨刚打了扩大概拉萨刚打了扩大概个浩或浩或个到拉萨刚打了扩大概浩或浩或个到拉萨刚打了扩大概浩或浩或个到拉萨刚打了扩大概拉萨刚打了扩大概个浩或浩或个到拉萨刚打了扩大概浩或浩或个到拉萨刚打了扩大概浩或浩或个到拉萨刚打了扩大概拉萨刚打了扩大概个浩或浩或个到拉萨刚打了扩大概浩或浩或个到拉萨刚打了扩大概浩或浩或个到拉萨刚打了扩大概拉萨刚打了扩大概个浩或浩或个到拉萨刚打了扩大概浩或浩或个到拉萨刚打了扩大概浩或浩或个到拉萨刚打了扩大概拉萨刚打了扩大概个浩或浩或个到拉萨刚打了扩大概浩或浩或个到拉萨刚打了扩大概浩或浩或个到拉萨刚打了扩大概拉萨刚打了扩大概个</p>'+
                 '</dd></dl></li>';
                 $(".topicNormal_4g3_disList ul").html(dissStr);
             }
@@ -293,6 +291,11 @@
                 $(".lh.showId").append(str);
             }
         }
+
+        max(".topicNormal_4g3_title",38);
+        max(".topicNormal_4g3_listCont",68);
+        max(".topicNormal_4g3_disListCont ",98);
+
     </script>
 </div>
 </div>

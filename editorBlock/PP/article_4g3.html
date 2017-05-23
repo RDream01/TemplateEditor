@@ -348,7 +348,7 @@
             $(".appendCur .article_4g3_recommend_list ul").append(str);
 
             var loginStr ="";
-            if(true){   //  是否登录
+            if(false){   //  是否登录
                 loginStr +='<div class="article_4g3_discuss_disList">';
                 loginStr +='<p class="article_4g3_discuss_title mainColor"><span class="article_4g3_discuss_redLine">参与讨论</span></p>';
                 loginStr +='<textarea class="article_4g3_discuss_comment"></textarea>';
@@ -373,7 +373,7 @@
                         '<dd>' +
                         '<div class="article_4g3_discuss_listRi">' +
                         '<p class="article_4g3_discuss_listName mainColor">名dsadas字 <span class="article_4g3_discuss_listTime dateColor"> &nbsp;&nbsp;&nbsp;几分钟前</span></p>' +
-                        '<p class="article_4g3_discuss_listContent dateColor" >'+title+'</p> ' +
+                        '<p class="article_4g3_discuss_listContent discussColor" >'+title+'</p> ' +
                         '</div>' +
                         '<a href="#" onclick="reply(this)" class="article_4g3_discuss_reply"><span class="dateColor">回复</span></a>' +
                         '</dd>' +
@@ -432,6 +432,10 @@
                 $(".lh.showId").append(str);
             }
         }
+
+        max(".article_4g3_recommend_listTitle",22);
+        max(".article_4g3_discuss_listContent",88);
+
     </script>
 </div>
 </div>

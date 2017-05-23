@@ -1,20 +1,17 @@
 <div class="col-md-9 col-sm-9 appendStr videoList_4g3" id="videoList_4g3" data-blockSize="9">
 <div class="style" "exist">
     <style>
-        .clearFloat:after {
-            content: "";
-            display: block;
-            clear: both;
-        }
         .videoList_4g3_main{
             width: 708px;
+            padding:10px 0;
+            background:#ffffff;
+            box-shadow:0 2px 2px 0 rgba(0,0,0,0.24);
         }
         .videoList_4g3_main li{
             height: 170px;
         }
         .videoList_4g3_main dl{
             margin-left: 16px;
-            margin-top: 16px;
             width: 676px;
         }
         .videoList_4g3_main dt{
@@ -23,11 +20,11 @@
         }
         .videoList_4g3_main dd{
             float: left;
-            margin-left: 16px;
+            margin-left: 13px;
         }
         .videoList_4g3_image{
-            opacity:0.4;
-            background-image:linear-gradient(-180deg, rgba(255,255,255,0.00) 0%, #000000 100%);
+            /*opacity:0.4;*/
+            /*background-image:linear-gradient(-180deg, rgba(255,255,255,0.00) 0%, #000000 100%);*/
             border:1px solid #f1f1f1;
             width:228px;
             height:136px;
@@ -56,8 +53,9 @@
         }
         .videoList_4g3_title{
             width: 428px;
-            height: 42px;
+            height: 45px;
             overflow: hidden;
+            font-size: 16px;
         }
         .videoList_4g3_summary{
             font-size:14px;
@@ -65,18 +63,18 @@
             line-height:21px;
             text-align:left;
             width: 428px;
-            height: 42px;
-            margin-top: 8px;
+            margin-top: 7px;
             overflow: hidden;
         }
         .videoList_4g3_foot{
-            margin-top: 24px;
+            margin-top: 6px;
         }
         .videoList_4g3_source{
             float: left;
             font-size:12px;
             line-height:12px;
             text-align:left;
+            margin-right:10px;
         }
         .videoList_4g3_verLine{
             width:3px;
@@ -86,7 +84,8 @@
         .videoList_4g3_imageNum{
             width:12px;
             height:10px;
-            margin-left: 3px;
+            margin-left: 5px;
+            margin-right: 3px;
         }
         .videoList_4g3_comNum{
             float: left;
@@ -127,12 +126,10 @@
 
             $(".appendCur .videoList_4g3_main").html("");
 
-            var title = "国家主席习近平同美国总统特朗普通电话国家主席习近平同美国总统特朗普通电话家主席习近平同美国总统特朗普通电话国家主席习近平同美国总统特朗普通";
-            var strPro = "<ul>";
+            var title = "国家主席习近平同美国总统特朗普通电话国家主席习近平同美国总统特朗普通电话国家主席习近平同美国总统特朗普通电话国家主席习近平同美国总统特朗普通电话国家主席习近平同美国总统特朗普通电话国家主席习近平同美国总统特朗普通电话国家主席习近平同美国总统特朗普通电话国家主席习近平同美国总统特朗普通电话国家主席习近平同美国总统特朗普通电话国家主席习近平同美国总统特朗普通电话国家主席习近平同美国总统特朗普通电话国家主席习近平同美国总统特朗普通电话国家主席习近平同美国总统特朗普通电话家主席习近平同美国总统特朗普通电话国家主席习近平同美国总统特朗普通";
             var str = "";
             for (var i = 0; i < 1; i++) {
-                str = str +'<li> ' +
-                        '<dl class="clearFloat"> ' +
+                str = '<dl class="clearFloat"> ' +
                         '<dt> ' +
                         '<a href="#"><img src="../../img/PP/videoList/videoList.png" class="videoList_4g3_image"></a> ' +
                         '<p class="videoList_4g3_allTime">10:20</p> ' +
@@ -143,17 +140,18 @@
                         '<p class="abstractColor videoList_4g3_summary">'+title+'</p> ' +
                         '<div class="clearFloat videoList_4g3_foot">' +
                         '<p class="dateColor videoList_4g3_source">擎好</p> ' +
-                        '<p class="dateColor videoList_4g3_comNum"><img src="../../img/PP/videoList/verLine.png" class="videoList_4g3_verLine"><img src="../../img/PP/myJoined/contentNum.png" class="videoList_4g3_imageNum">20</p>' +
+                        '<p class="dateColor videoList_4g3_comNum"> | <img src="../../img/PP/myJoined/contentNum.png" class="videoList_4g3_imageNum">20</p>' +
                         '<p class=" dateColor videoList_4g3_date">2017-04-12</p> ' +
                         '</div>'+
                         '</dd>'+
-                        '</dl>'+
-                        '</li>';
+                        '</dl>';
             }
-            strPro = strPro+str+'</ul>';
-            $(".appendCur .videoList_4g3_main").append(strPro);
+            $(".appendCur .videoList_4g3_main").append(str);
 
         }
+
+        max(".videoList_4g3_title",46);
+        max(".videoList_4g3_summary",86);
     </script>
 </div>
 

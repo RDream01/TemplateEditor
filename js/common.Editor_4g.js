@@ -36,23 +36,23 @@ function layout(){
     }else if( gridSizeVal=="4" ){
         if( templateLayoutVal=="layout01_4g" ){
             importGroupDiv(4);
-            importGroupDiv(2);
+            importGroupDiv(1);
+            importGroupDiv(1);
             importGroupDiv(1);
             importGroupDiv(1);
             importGroupDiv(4);
         }else if( templateLayoutVal=="layout02_4g" ){
             importGroupDiv(4);
-            importGroupDiv(1);
-            importGroupDiv(1);
-            importGroupDiv(1);
-            importGroupDiv(1);
-            importGroupDiv(4);
-        }else if( templateLayoutVal=="layout03_4g" ){
-            importGroupDiv(4);
             importGroupDiv(3);
             importGroupDiv(1);
             importGroupDiv(4);
         }
+        //else if( templateLayoutVal=="layout03_4g" ){
+        //    importGroupDiv(4);
+        //    importGroupDiv(3);
+        //    importGroupDiv(1);
+        //    importGroupDiv(4);
+        //}
     }
 
 }
@@ -71,7 +71,6 @@ function blockLeftList( selectObj,inputObj ) {
         type: 'post',
         dataType : "jsonp",
         data:{gridSize:gridSizeVal,blockType:selectVal,searchBlockName:inputVal,blockStyleEng:blockStyleVal,callBack:"blockLeftListCallback"},  //参数
-        //url:"http://192.168.31.2/template_editor/blockLeftList.do",//请求的action路径
         url:basePath+"template_editor/blockLeftList",//请求的action路径
         error: function () {//请求失败处理函数
         },
@@ -593,6 +592,7 @@ function propertyRightListCallback(data) {
                 str+=''+list[i].propertyName+'</label></div>';
                if( list[i].childPropertyList!==undefined ){
                    console.log( (list[i].childPropertyList)[0].propertyName );
+
                    if(list[i].childPropertyList != undefined && list[i].childPropertyList != undefined && list[i].childPropertyList.length > 0){
                    for(var h = 0;h<list[i].childPropertyList.length;h++){
                        if(list[i].childPropertyList[h].propertyType == "number"){

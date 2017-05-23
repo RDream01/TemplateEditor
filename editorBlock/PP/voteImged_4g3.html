@@ -1,20 +1,6 @@
 <div class="col-md-9 col-sm-9 appendStr voteImged_4g3" id="voteImged_4g3" data-blockSize="9">
 
 <div class="style" "exist">
-<!--<!DOCTYPE html>-->
-<!--<html lang="en">-->
-<!--<meta charset="UTF-8">-->
-<!--<title>index</title>-->
-<!--<meta http-equiv="X-UA-Compatible" content="IE=edge">-->
-<!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
-<!--<link rel="stylesheet" href="../../css/zui.min.css"/>-->
-<!--<link rel="stylesheet" href="../../css/common_red.css"/>-->
-<!--&lt;!&ndash;<link rel="stylesheet" href="../../css/PP/PP_color01.css"/>&ndash;&gt;-->
-<!--<link rel="stylesheet" href="../../css/PP/PP_common.css"/>-->
-<!--&lt;!&ndash;<link rel="stylesheet" href="../css/common.Editor.css"/>&ndash;&gt;-->
-<!--<script src="../../js/jquery-1.11.3.js"></script>-->
-<!--<script src="../../js/zui.min.js"></script>-->
-<!--<script src="../../js/wordNumber.js"></script>-->
     <style>
         .voteImged_4g3_main{
             margin-left: 84px;
@@ -352,21 +338,7 @@
             </div>
         </div>
         <div class="Grid4g3 appendCur voteImged_4g3_discuss">
-            <div class="voteImged_4g3_discuss_head showId">
-                <!--&lt;!&ndash;未登录&ndash;&gt;-->
-                <!--<div>-->
-                    <!--<p class="voteImged_4g3_discuss_title mainColor"><span class="voteImged_4g3_discuss_redLine showId"></span></p>-->
-                    <!--<div class="voteImged_4g3_discuss_inputAre" >-->
-                        <!--<p class="voteImged_4g3_discuss_logDes dateColor"><a href="#" ><span class="mainColor voteImged_4g3_discuss_logBtn">登录</span></a>后参与讨论<span></span></p>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--已登录-->
-                <!--<div class="voteImged_4g3_discuss_disList">-->
-                    <!--<p class="voteImged_4g3_discuss_title mainColor"><span class="voteImged_4g3_discuss_redLine showId">参与讨论</span></p>-->
-                    <!--<textarea class="voteImged_4g3_discuss_comment"></textarea>-->
-                    <!--<p class="voteImged_4g3_discuss_commentbtn"><a href="#" class="voteImged_4g3_discuss_btn">发表评论</a></p>-->
-                <!--</div>-->
-            </div>
+            <div class="voteImged_4g3_discuss_head showId"></div>
             <div class="voteImged_4g3_discuss_list">
                 <ul class="showId"></ul>
             </div>
@@ -475,7 +447,7 @@
                         '<dd>' +
                         '<div class="voteImged_4g3_discuss_listRi">' +
                         '<p class="voteImged_4g3_discuss_listName mainColor">名dsadas字 <span class="voteImged_4g3_discuss_listTime dateColor"> &nbsp;&nbsp;&nbsp;几分钟前</span></p>' +
-                        '<p class="voteImged_4g3_discuss_listContent dateColor" >'+title+'</p> ' +
+                        '<p class="voteImged_4g3_discuss_listContent discussColor" >'+title+'</p> ' +
                         '</div>' +
                         '<a href="#" onclick="reply(this)" class="voteImged_4g3_discuss_reply"><span class="dateColor">回复</span></a>' +
                         '</dd>' +
@@ -521,6 +493,9 @@
             return color;
         }
 
+        max(".voteImged_4g3_title",62);
+        max(".voteImged_4g3_recommend_listTitle",22);
+        max(".voteImged_4g3_discuss_listContent",88);
 
     </script>
 </div>

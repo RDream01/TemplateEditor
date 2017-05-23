@@ -101,7 +101,7 @@
             width: 70px;
             height: 4px;
             border-bottom: 4px solid;
-            padding-bottom: 8px;
+            padding-bottom: 5px;
         }
         .videoDetail_4g3_recommend_list{
             width: 540px;
@@ -194,6 +194,7 @@
         .videoDetail_4g3_discuss_listContent{
             width: 415px;
             margin:15px 0 18px 0;
+            font-size: 13px;
         }
         .videoDetail_4g3_discuss_listRi{
             float: left;
@@ -317,7 +318,7 @@
 
             $(".appendCur .videoDetail_4g3_recommend_list ul").html('');
             var v_videoDetail_4g3_recommend_num = $(".appendCur .v_videoDetail_4g3_recommend_num").val();
-            var title = "新闻标题新闻标题新闻标题新闻标题新闻标题";
+            var title = "新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题";
             var str = "";
             for (var i = 0; i < v_videoDetail_4g3_recommend_num; i++) {
                 str +='<li class="videoDetail_4g3_list_interval"><a href="#">'+
@@ -342,7 +343,7 @@
             }
             $(".appendCur .videoDetail_4g3_discuss_head").html(loginStr);
 
-            var title = "国家主席习近平同美国总统特朗普通电话国家主席习近平同美国总统特朗普通电话家主席习近平同美国总统特朗普通电话国家主席习近平同美国总统特朗普通";
+            var title = "国家主席习近平同美国总统特朗和就开始对方哈是打发收到回复框架含税单价按时地方是打发是东方航空件拉萨地方普通电话国家主席习近平同美国总统特朗普通电话家主席习近平同美国总统特朗普通电话国家主席习近平同美国总统特朗普通";
             var str = "";
             for (var i = 0; i < 4; i++) {
                 str +='<li>' +
@@ -353,7 +354,7 @@
                         '<dd>' +
                         '<div class="videoDetail_4g3_discuss_listRi">' +
                         '<p class="videoDetail_4g3_discuss_listName mainColor">名dsadas字 <span class="videoDetail_4g3_discuss_listTime dateColor"> &nbsp;&nbsp;&nbsp;几分钟前</span></p>' +
-                        '<p class="videoDetail_4g3_discuss_listContent dateColor" >'+title+'</p> ' +
+                        '<p class="videoDetail_4g3_discuss_listContent discussColor" >'+title+'</p> ' +
                         '</div>' +
                         '<a href="#" onclick="reply(this)" class="videoDetail_4g3_discuss_reply"><span class="dateColor">回复</span></a>' +
                         '</dd>' +
@@ -389,6 +390,10 @@
             mainStr+='</div>';
             $(".videoDetail_4g3_main").html(mainStr);
         }
+
+        max(".videoDetail_4g3_recommend_listTitle",22);
+        max(".videoDetail_4g3_discuss_listContent",88);
+
     </script>
 </div>
 </div>

@@ -53,11 +53,14 @@ nav,#banner,section,footer{
     position: relative;
     text-align: center;
 }
+
 .editorAct{
     position: absolute;
     z-index: 10000000;
     float: left;
     margin-left:50px;
+}
+.firstEditorAct.editorAct{
     line-height: 45px;
 }
 .editorAct img{
@@ -512,11 +515,22 @@ nav,#banner,section,footer{
     /*position: relative;*/
 }
 .mainAct{
-    position: fixed;
-    bottom:0;
-    left:220px;
-    right:220px;
-    height:65px;
+    /*position: fixed;*/
+    /*bottom:0;*/
+    /*left:220px;*/
+    /*right:220px;*/
+    /*height:65px;*/
+}
+
+.mainAct .revocation{
+    position:fixed;
+    bottom:20px;
+    left:210px;
+}
+.fullScreen{
+    position:fixed;
+    bottom:20px;
+    right:240px;
 }
 .mainAct img{
     width:48px;
@@ -525,40 +539,6 @@ nav,#banner,section,footer{
 .mainAct img.fullScreen{
     width:55px;
     height:40px;
-}
-.mainAct .editorAct{
-    top:10px;
-}
-/*选择二维码*/
-.QRCodeProperty{
-    position:relative;
-}
-.QRCodeProperty input{
-    opacity: 0;
-    outline: none;
-    width:120px;
-    display: inline-block;
-    position:absolute;
-    top:0;right:15px;
-    z-index:11;
-}
-.QRCodeProperty span{
-    position:absolute;
-    top:0;right:15px;
-    z-index:10;
-    width:120px;
-    height:32px;
-}
-.QRCodeProperty label{
-    float: right;
-    display: inline-block;
-    margin:0;
-}
-.QRCodeProperty img{
-    vertical-align: middle;
-}
-.QRCodeProperty b{
-    font-weight: normal;
 }
 
 
