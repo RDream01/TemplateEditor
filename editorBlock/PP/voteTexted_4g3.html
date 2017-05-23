@@ -99,7 +99,6 @@
         .voteTexted_4g3_voteResult li:first-child img{
             width:130px;
             height:100px;
-            /*border:2px solid #FF6766;*/
             border-radius:8px;
         }
         .voteTexted_4g3_voteResult li:first-child span{
@@ -117,7 +116,11 @@
             display:block;
             width:63px;
             height:12px;
-            /*background:#000;*/
+        }
+        .voteTexted_4g3_all{
+            background:#ffffff;
+            box-shadow:0 2px 2px 0 rgba(0,0,0,0.24);
+            padding:10px 0;
         }
     </style>
 </div>
@@ -127,7 +130,7 @@
         <span class="title">投票结果--文字</span>
     </div>
     <div class="panel-body">
-        <div class="grid4g3" "exist">
+        <div class="grid4g3 voteTexted_4g3_all" "exist">
             <div class="voteTexted_4g3_amin">
                 <!--img+txt-->
                 <div class="voteTexted_4g3_headAll"></div>
@@ -147,8 +150,6 @@
     </div>
 </div>
 <div class="resize-handle"><i class="icon icon-resize-h"></i></div>
-
-
 
 <div class="script" "exist">
     <script>

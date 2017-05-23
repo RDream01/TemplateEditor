@@ -578,7 +578,7 @@ function propertyRightListCallback(data) {
                 }
                 str+=''+list[i].propertyName+'</label></div></div>';
             }else{
-                console.log(list[i]);
+                //console.log(list[i]);
                 str='<div class="propertyRelatedAll">';
                 str+='<div class="switch text-left propertyOption">';
                 str+='<input data-type="switch" type="checkbox" ';
@@ -591,7 +591,7 @@ function propertyRightListCallback(data) {
                 }
                 str+=''+list[i].propertyName+'</label></div>';
                if( list[i].childPropertyList!==undefined ){
-                   console.log( (list[i].childPropertyList)[0].propertyName );
+                   //console.log( (list[i].childPropertyList)[0].propertyName );
 
                    if(list[i].childPropertyList != undefined && list[i].childPropertyList != undefined && list[i].childPropertyList.length > 0){
                    for(var h = 0;h<list[i].childPropertyList.length;h++){
@@ -744,7 +744,6 @@ function collectProperty(property, min, max) {
     } else if( ($(property).attr("data-type") == "switch") && ($(property).attr("type") == "checkbox") ){
         if( $(property).attr("id")=="isCommon" ){
             var propertyId = $(property).attr("id");
-            console.log(propertyId);
             if( $(property).prop("checked") ){
                 var propertyVal = "yes";
                 $(property).parent().next().find("select").attr("data-notNull","no");
