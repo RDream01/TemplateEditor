@@ -119,6 +119,7 @@ nav,#banner,section,footer{
 .section .panel{
     border:none;
     padding:0 8px;
+    background:none;
 }
 .section .groupDiv{
     min-height:10px;

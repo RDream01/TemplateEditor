@@ -15,7 +15,8 @@
             float: left;
             text-align: center;
             width: 108px;
-            padding-bottom: 0;
+            padding-bottom:3px;
+            font-size: 16px;
         }
         .personalCenter_4g3_bottomClor{
             width: 104px;
@@ -64,10 +65,10 @@
                 $(this).addClass('personalCenter_4g3_bottomClor').siblings('li').removeClass('personalCenter_4g3_bottomClor');
             });
         });
-        $('#personalPage').load('myInformation_4g3.html');
+        $('#personalPage').load('../../editorBlock/PP/myInformation_4g3.html');
         $('.personalCenter_4g3_head ul li').click(function(){
             var data = $(this).children("a").attr('data-openbtn');
-            $('#personalPage').load(data +'.html');
+            $('#personalPage').load("../../editorBlock/PP/"+data +'.html');
         });
 
     </script>
