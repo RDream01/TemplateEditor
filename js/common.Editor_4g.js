@@ -568,7 +568,11 @@ function propertyRightListCallback(data) {
                 str+=''+list[i].propertyName+'</label></div>';
             }else{
                 str='<div class="switch text-left propertyOption">';
-                str+='<input data-type="switch" type="checkbox" onchange="collectProperty(this)" data-notNull="' + list[i].notNull + '" id="' + list[i].propertyId + '"/><label>' ;
+                str+='<input data-type="switch" type="checkbox" ';
+                if(list[i].defaultValue=="yes"){
+                    str+="checked ";
+                }
+                str+='onchange="collectProperty(this)" data-notNull="' + list[i].notNull + '" id="' + list[i].propertyId + '"/><label>' ;
                 if (list[i].notNull == "yes") {
                     str += '<span class="notNullColor">* </span>';
                 }
@@ -688,6 +692,7 @@ function collectProperty(property, min, max) {
         }
 
     } else if( ($(property).attr("data-type") == "switch") && ($(property).attr("type") == "checkbox") ){
+        alert(1);
         if( $(property).attr("id")=="isCommon" ){
             var propertyId = $(property).attr("id");
             console.log(propertyId);
@@ -704,8 +709,13 @@ function collectProperty(property, min, max) {
             var propertyId = $(property).attr("id");
             if( $(property).prop("checked") ){
                 var propertyVal = "yes";
+                $(".appendCur .v_" + propertyId).val(propertyVal);
+                console.log( $(".appendCur .v_" + propertyId));
+                eval("vData_" + showId)();
             }else{
                 var propertyVal = "no";
+                $(".appendCur .v_" + propertyId).val(propertyVal);
+                eval("vData_" + showId)();
             }
         }
 

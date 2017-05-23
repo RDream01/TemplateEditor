@@ -77,7 +77,7 @@
     </style>
 </div>
 
-<div class="panel appendNot" data-id="3">
+<div class="panel appendNot" data-header="header" data-id="3">
     <input type="hidden" value="yes" class="v_headerTopic_action"/>
     <div class="panel-heading">
         <span class="title">头部--话题</span>
@@ -85,7 +85,7 @@
     <div class="panel-body">
         <div class="headerTopic">
             <!--top-->
-            <div class="headerTopic_top">
+            <div class="headerTopic_top mainColor_background">
                 <div class="commonContainer">
                     <ul class="headerTopic_action lf showId">
                         <li class="headerTopic_GPS">北京</li>
@@ -132,9 +132,9 @@
 //            天气
             var v_headerTopic_action=$(".appendCur .v_headerTopic_action").val();
             if( v_headerTopic_action=='yes' ){
-                $(".appendCur .headerTopic_action.showId").show();
+                $(".appendCur .headerTopic_action").show();
             }else if( v_headerTopic_action=='no' ){
-                $(".appendCur .headerTopic_action.showId").hide();
+                $(".appendCur .headerTopic_action").hide();
             }
 //            是否登录
             $(".appendCur .headerTopic_login").html("");

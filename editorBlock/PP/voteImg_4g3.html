@@ -1,21 +1,6 @@
 <div class="col-md-9 col-sm-9 appendStr voteImg_4g3" id="voteImg_4g3" data-blockSize="9">
 
     <div class="style" "exist">
-    <!--<!DOCTYPE html>-->
-    <!--<html lang="en">-->
-    <!--<meta charset="UTF-8">-->
-    <!--<title>index</title>-->
-    <!--<meta http-equiv="X-UA-Compatible" content="IE=edge">-->
-    <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
-    <!--<link rel="stylesheet" href="../../css/zui.min.css"/>-->
-    <!--<link rel="stylesheet" href="../../css/common_red.css"/>-->
-    <!--&lt;!&ndash;<link rel="stylesheet" href="../../css/PP/PP_color01.css"/>&ndash;&gt;-->
-    <!--<link rel="stylesheet" href="../../css/PP/PP_common.css"/>-->
-    <!--&lt;!&ndash;<link rel="stylesheet" href="../css/common.Editor.css"/>&ndash;&gt;-->
-    <!--<script src="../../js/jquery-1.11.3.js"></script>-->
-    <!--<script src="../../js/zui.min.js"></script>-->
-    <!--<script src="../../js/wordNumber.js"></script>-->
-    <!--<body>-->
     <style>
         .voteImg_4g3_main {
             margin-left: 84px;
@@ -141,13 +126,13 @@
         .voteImg_4g3_voteBtn span {
             display: inline-block;
             margin: 10px 0;
-            color: #fff;
             font-size: 16px;
             border-radius: 4px;
             width: 112px;
             height: 30px;
             line-height: 30px;
             cursor: pointer;
+            color:#fff;
         }
 
         .voteImg_4g3_recommend_head {
@@ -200,7 +185,7 @@
 
         .voteImg_4g3_discuss {
             background: #fff;
-            padding-top: 20px;
+            padding-top: 30px;
         }
 
         .voteImg_4g3_discuss_head {
@@ -338,14 +323,17 @@
         }
 
         .voteImg_4g3_discuss_list li {
-            border-bottom: 1px solid #999999;
+            border-top: 1px solid #999999;
+        }
+        .voteImg_4g3_discuss_list li:first-child{
+            border-top:none;
         }
     </style>
 </div>
 
 <div class="panel appendNot" data-id="3">
     <div class="panel-heading">
-        <span class="title">投票--文字</span>
+        <span class="title">投票</span>
     </div>
     <div class="panel-body">
         <div class="Grid4g3" "exist">
@@ -361,13 +349,12 @@
                     <!--选项-->
                     <ul class="clearFloat"></ul>
                     <!--投票btn-->
-                    <p class="voteImg_4g3_voteBtn"><span class="mainColor">投票</span></p>
+                    <p class="voteImg_4g3_voteBtn"><span class="mainColor_background">投票</span></p>
                 </div>
             </div>
-            <div class="Grid4g3 appendCur voteImg_4g3_recommend">
+            <div class="Grid4g3 voteImg_4g3_recommend">
                 <input type="hidden" class="v_voteImg_4g3_recommend_num" value="3" align="center"/>
                 <input type="hidden" class="v_voteImg_4g3_is_recommend" value="yes">
-
                 <div class="voteImg_4g3_recommend_head">
                     <p class="voteImg_4g3_recommend_title mainColor">
                         <span class="voteImg_4g3_recommend_redLine">相关推荐</span>
@@ -377,22 +364,8 @@
                     <ul class="clearFloat showId"></ul>
                 </div>
             </div>
-            <div class="Grid4g3 appendCur voteImg_4g3_discuss">
-                <div class="voteImg_4g3_discuss_head showId">
-                    <!--&lt;!&ndash;未登录&ndash;&gt;-->
-                    <!--<div>-->
-                    <!--<p class="voteImg_4g3_discuss_title mainColor"><span class="voteImg_4g3_discuss_redLine showId"></span></p>-->
-                    <!--<div class="voteImg_4g3_discuss_inputAre" >-->
-                    <!--<p class="voteImg_4g3_discuss_logDes dateColor"><a href="#" ><span class="mainColor voteImg_4g3_discuss_logBtn">登录</span></a>后参与讨论<span></span></p>-->
-                    <!--</div>-->
-                    <!--</div>-->
-                    <!--已登录-->
-                    <!--<div class="voteImg_4g3_discuss_disList">-->
-                    <!--<p class="voteImg_4g3_discuss_title mainColor"><span class="voteImg_4g3_discuss_redLine showId">参与讨论</span></p>-->
-                    <!--<textarea class="voteImg_4g3_discuss_comment"></textarea>-->
-                    <!--<p class="voteImg_4g3_discuss_commentbtn"><a href="#" class="voteImg_4g3_discuss_btn">发表评论</a></p>-->
-                    <!--</div>-->
-                </div>
+            <div class="Grid4g3 voteImg_4g3_discuss">
+                <div class="voteImg_4g3_discuss_head showId"></div>
                 <div class="voteImg_4g3_discuss_list">
                     <ul class="showId"></ul>
                 </div>
@@ -415,9 +388,9 @@
     function vData() {
         var v_voteImg_4g3_is_recommend = $(".appendCur .v_voteImg_4g3_is_recommend").val();
         if (v_voteImg_4g3_is_recommend == "yes") {
-            $(".voteImg_4g3_recommend").css("display", "block");
+            $(".appendCur .voteImg_4g3_recommend").css("display", "block");
         } else {
-            $(".voteImg_4g3_recommend").css("display", "none");
+            $(".appendCur .voteImg_4g3_recommend").css("display", "none");
         }
         var loginStr = "";
         if (true) {   //  是否登录
