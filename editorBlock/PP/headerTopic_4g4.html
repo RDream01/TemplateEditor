@@ -1,4 +1,4 @@
-<div class="col-md-12 col-sm-12 appendStr headerTopic_4g4_4g4" id="headerTopic_4g4_4g4" data-blockSize="12">
+<div class="col-md-12 col-sm-12 appendStr headerTopic_4g4" id="headerTopic_4g4" data-blockSize="12">
 <div class="style" "exist">
     <style>
         /**********************组件---headerTopic_4g4************************/
@@ -78,13 +78,14 @@
 </div>
 
 <div class="panel appendNot" data-header="header" data-id="3">
-    <input type="hidden" value="yes" class="v_headerTopic_4g4_action"/>
+
     <div class="panel-heading">
         <span class="title">头部--话题</span>
     </div>
     <div class="panel-body">
-        <div class="headerTopic_4g4">
+        <div class="headerTopic_4g4" "exist">
             <!--top-->
+            <input type="hidden" value="yes" class="v_headerTopic_4g4_action"/>
             <div class="headerTopic_4g4_top mainColor_background">
                 <div class="commonContainer">
                     <ul class="headerTopic_4g4_action lf showId">
@@ -143,9 +144,6 @@
             }else{
                 $(".appendCur .headerTopic_4g4_login").html("<span class='headerTopic_4g4_ren'>欢迎XXX</span>");
             }
-
-
-
         }
         function tData() {
             $.ajax({
