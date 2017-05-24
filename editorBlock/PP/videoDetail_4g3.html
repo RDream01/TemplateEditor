@@ -1,6 +1,6 @@
 <div class="col-md-9 col-sm-9 appendStr videoDetail_4g3" id="videoDetail_4g3" data-blockSize="9">
 <div class="style" "exist">
-    <link rel="stylesheet" href="../../video-js/video-js.css"/>
+    <link rel="stylesheet" href="../../js/video-js/video-js.css"/>
     <style>
         .videoDetail_4g3_all{
             background:#ffffff;
@@ -101,7 +101,7 @@
             width: 70px;
             height: 4px;
             border-bottom: 4px solid;
-            padding-bottom: 5px;
+            padding-bottom: 8px;
         }
         .videoDetail_4g3_recommend_list{
             width: 540px;
@@ -258,7 +258,7 @@
 
 <div class="panel appendNot" data-id="3">
     <div class="panel-heading">
-        <span class="title">视频详情</span>
+        <!--<span class="title">视频详情</span>-->
     </div>
     <div class="panel-body">
         <div class="Grid4g3 videoDetail_4g3_all" "exist">
@@ -298,7 +298,8 @@
 <div class="resize-handle"><i class="icon icon-resize-h"></i></div>
 
 <div class="script" "exist">
-    <script src="../../video-js/video.js"></script>
+    <!--<script src="../../video-js/video.js"></script>-->
+    <div id="videoDetail_4g3_js"></div>
     <script>
         var flag = "v";
         if (flag == "v") {
@@ -308,6 +309,11 @@
         }
 
         function vData() {
+            var videoDetail_4g3_js = document.createElement('script');
+            videoDetail_4g3_js.src = "../../js/video-js/video.js";
+            document.getElementById("videoDetail_4g3_js").innerHTML="";
+            document.getElementById("videoDetail_4g3_js").appendChild(videoDetail_4g3_js);
+
             //相关推荐+评论 start
             var  v_videoDetail_4g3_is_recommend = $(".appendCur .v_videoDetail_4g3_is_recommend").val();
             if(v_videoDetail_4g3_is_recommend == "yes"){

@@ -10,6 +10,7 @@
 }
 .dashboard .panel {
     position: relative;
+    padding:0 1px;
 }
 .dashboard .panel-actions {
     position: absolute;
@@ -53,15 +54,15 @@
     background-color: rgba(0, 0, 0, .1);
 }
 .dashboard .panel-heading {
-    height: 32px;
+    height: 15px;
     padding: 6px 60px 6px 6px;
     overflow: hidden;
     font-weight: bold;
     text-overflow: ellipsis;
     white-space: nowrap;
     /*color: #333;*/
-    /*background-color: transparent;*/
-    /*border-color:transparent;*/
+    background-color: transparent;
+    border-color:transparent;
 }
 .dashboard .panel-heading > .icon {
     filter: alpha(opacity=70);
@@ -80,7 +81,8 @@
     right: 0;
     bottom: 0;
     left: 0;
-    padding: 10px;
+    padding: 0 0 10px 0;
+    /*padding: 0;*/
     overflow: auto;
 }
 .dashboard .panel-body.no-padding {

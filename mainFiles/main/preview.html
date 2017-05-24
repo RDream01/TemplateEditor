@@ -15,6 +15,8 @@
 
 <script>
     if( $.zui.store.get('previewName')!==undefined ){
+        console.log($.zui.store.get('previewName'));
+
         $('body').html("");
         $('body').html($.zui.store.get('previewName'));
         $.zui.store.pageRemove('previewName');

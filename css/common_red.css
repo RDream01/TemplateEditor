@@ -46,6 +46,7 @@ nav,#banner,section,footer{
 .container{
     padding:0;
 }
+dt{font-weight: normal;}
 
 
 /*生成之后固定CSS*/
@@ -359,6 +360,10 @@ nav,#banner,section,footer{
 }
 
 /*******************************栅格4***************************/
+.partCommon{
+    background:#ffffff;
+    box-shadow:0 2px 4px 0 rgba(0,0,0,0.24);
+}
 /*主色*/
 .mainColor{
     color:#cc3333;

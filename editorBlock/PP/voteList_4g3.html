@@ -83,16 +83,17 @@
 
 <div class="panel appendNot" data-id="3">
     <div class="panel-heading">
-        <span class="title">话题投票内容iter</span>
+        <!--<span class="title">话题投票内容iter</span>-->
     </div>
     <div class="panel-body">
         <div class="voteList_4g3_main" "exist">
         </div>
     </div>
 </div>
+<div class="resize-handle"><i class="icon icon-resize-h"></i></div>
 
 <div class="script" "exist">
-<script>
+    <script>
     var flag="v";
     if(flag == "v"){
         vData()
@@ -110,11 +111,11 @@
         for (var i = 0; i < 1; i++) {
             str = '<dl class="clearFloat"> ' +
                     '<dt>' +
-                    '<img src="../../img/PP/voteList/voteList.png" class="voteList_4g3_listImg">' +
+                    '<a href="#"><img src="../../img/PP/voteList/voteList.png" class="voteList_4g3_listImg"></a>' +
                     '<p class="voteList_4g3_floatTop">话题</p>' +
                     '</dt>' +
                     '<dd>' +
-                    '<p class="voteList_4g3_title titleColor">'+title+'</p> ' +
+                    '<p class="voteList_4g3_title titleColor"><a href="#">'+title+'</a></p> ' +
                     '<p class="voteList_4g3_summary">'+title+'</p> ' +
                     '<div class="voteList_4g3_clearFloat voteList_4g3_foot"> ' +
                     '<p class="dateColor voteList_4g3_source">擎好</p>' +
@@ -130,4 +131,5 @@
     max(".voteList_4g3_title",46);
     max(".voteList_4g3_summary",86);
 </script>
+</div>
 </div>

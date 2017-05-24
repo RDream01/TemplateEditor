@@ -36,14 +36,14 @@
 </div>
 
 
-<div class="panel appendNot" data-id="3">
-    <input type="hidden" class="v_relatedRecommend_4g1_num" value="3" align="center"/>
+<div class="panel appendNot">
+    <input type="hidden" class="v_relatedRecommend_4g1_num" value="5" align="center"/>
     <input type="hidden" class="v_relatedRecommend_4g1_headTitle" value="相关推荐"/>
     <div class="panel-heading">
-        <span class="title">相关推荐</span>
+        <!--<span class="title">相关推荐</span>-->
     </div>
     <div class="panel-body">
-        <div class="Grid4g1">
+        <div class="Grid4g1" "exist">
             <div class="relatedRecommend_4g1_head">
                 <p class="relatedRecommend_4g1_headTitle fistP titleColor showId"></p>
             </div>
@@ -68,7 +68,6 @@
             $(".appendCur .v_relatedRecommend_4g1_headTitle").html("");
             var v_relatedRecommend_4g1_num = $(".appendCur .v_relatedRecommend_4g1_num").val();
             var v_relatedRecommend_4g1_headTitle = $(".appendCur .v_relatedRecommend_4g1_headTitle").val();
-            console.log(v_relatedRecommend_4g1_headTitle);
             var title = "国家主席习近平同美国总统普通电话家主席习近平同美国总统特朗普通电话国家主席习近平同美国总统特朗普通";
             var str = "";
             for (var i = 0; i < v_relatedRecommend_4g1_num; i++){

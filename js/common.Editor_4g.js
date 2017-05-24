@@ -793,7 +793,6 @@ function collectProperty(property, min, max) {
                 $(".appendCur .v_" + propertyId).val(propertyVal);
                 var nextInputId=$(property).parent().next().find("input.propertyInputSm").attr("id");
                 for (var i = 0; i < obj.section.length; i++) {
-                        console.log(obj.section[i][nextInputId]);
                         delete obj.section[i][nextInputId];
                         break;
                 }
@@ -1066,6 +1065,9 @@ $("#previewtest").click(function(){
     $(main).find(".sortArea").remove();
     $(main).find(".firstLocation").remove();
     $(main).find(".mainAct").remove();
+
+    $(main).find(".pgwSlideshow.wide").remove();
+    $(main).find(".pgwSlideshowFather").html('<ul class="pgwSlideshow showId"></ul>');
 
     var groupDivs=$(main).find(".groupDiv ");
     for( var i=0;i<groupDivs.length;i++ ){

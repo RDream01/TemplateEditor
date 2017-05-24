@@ -1,3 +1,5 @@
+
+
 ;(function($){
     $.fn.pgwSlideshow = function(options) {
         var defaults = {
@@ -622,7 +624,11 @@ function test(){
     });
 }
 
-
+//$(document).ready(function(){
+    //$('.pgwSlideshow').pgwSlideshow({
+    //    autoSlide:true
+    //});
+//});
 
 
 
