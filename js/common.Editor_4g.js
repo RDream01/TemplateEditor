@@ -652,7 +652,15 @@ function propertyRightListCallback(data) {
 $(".property").on("focus", "input", function () {
     $(this).attr("data-prevVal", $(this).val());
 });
-
+//判断v_data函数是否存在
+function isExitsFunction(funcName) {
+    try {
+        if (typeof(eval(funcName)) == "function") {
+            return true;
+        }
+    } catch(e) {}
+    return false;
+}
 //collectProperty
 function collectProperty(property, min, max) {
     var showId = $(".appendCur").parent().attr("data-showId");
@@ -661,9 +669,10 @@ function collectProperty(property, min, max) {
 
         var propertyVal = $(property).val();
         var propertyId = $(property).attr("name");
-
         $(".appendCur .v_" + propertyId).val(propertyVal);
-        eval("vData_" + showId)();
+        if( isExitsFunction( "vData_" + showId ) ){
+            eval("vData_" + showId)();
+        }
 
         $("#" + propertyId + "_radio").val(propertyVal);
         $("#htmlCode2 input[name="+propertyId+"]").each(function(){
@@ -680,7 +689,6 @@ function collectProperty(property, min, max) {
         saveActionHistory($('#sortableList').html().trim(),$('#htmlCode2').html().trim(),obj,'radio',propertyVal+"|"+$("#" + propertyId + "_undoRedo").val()+"|"+propertyId);//undo redo save
         $("#" + propertyId + "_undoRedo").val(propertyVal);//undo redo 将修改之后的值放入页面中 为了拿到修改之前的值
     } else if (($(property).attr("type") == "checkbox") && ($(property).attr("data-type") !== "switch")  ) {
-        //console.log( "checkbox" );
         var propertyId = $(property).attr("name");
         $("#" + propertyId + "_checkbox").val("");
         var propertyVal = "";
@@ -715,7 +723,9 @@ function collectProperty(property, min, max) {
             var propertyVal = val;
             $("#htmlCode2 #" + propertyId).attr("value",propertyVal);//undo redo 当修改属性之后的区块页面在新增区块时使用
             $(".appendCur .v_" + propertyId).val(propertyVal);
-            eval("vData_" + showId)();
+            if( isExitsFunction( "vData_" + showId ) ){
+                eval("vData_" + showId)();
+            }
             saveActionHistory($('#sortableList').html().trim(),$('#htmlCode2').html().trim(),obj,'number',propertyVal+"|"+$("#" + propertyId + "_undoRedo").val()+"|"+propertyId);//undo redo save
             $("#" + propertyId + "_undoRedo").val(propertyVal);//undo redo 将修改之后的值放入页面中 为了拿到修改之前的值
         } else {
@@ -725,14 +735,15 @@ function collectProperty(property, min, max) {
         }
 
     } else if ($(property).attr("type") == "text") {
-        console.log("text");
         var val = $(property).val();
         var propertyId = $(property).attr("id");
         if ((val.length >= min) && (val.length <= max)) {
             var propertyVal = val;
             $("#htmlCode2 #" + propertyId).attr("value",propertyVal);//undo redo 当修改属性之后的区块页面在新增区块时使用
             $(".appendCur .v_" + propertyId).val(propertyVal);
-            eval("vData_" + showId)();
+            if( isExitsFunction( "vData_" + showId ) ){
+                eval("vData_" + showId)();
+            }
             saveActionHistory($('#sortableList').html().trim(),$('#htmlCode2').html().trim(),obj,'text',propertyVal+"|"+$("#" + propertyId + "_undoRedo").val()+"|"+propertyId);//undo redo save
             $("#" + propertyId + "_undoRedo").val(propertyVal);//undo redo 将修改之后的值放入页面中 为了拿到修改之前的值
         } else {
@@ -747,10 +758,20 @@ function collectProperty(property, min, max) {
             if( $(property).prop("checked") ){
                 var propertyVal = "yes";
                 $(property).parent().next().find("select").attr("data-notNull","no");
-                $(property).parent().next().find("select").val("");
+                var nextInputId=$(property).parent().next().find("select.propertyInputBig").attr("id");
+                for (var i = 0; i < obj.section.length; i++) {
+                    delete obj.section[i][nextInputId];
+                    break;
+                }
             }else{
                 var propertyVal = "no";
                 $(property).parent().next().find("select").attr("data-notNull","yes");
+                var nextInputId=$(property).parent().next().find("select.propertyInputBig").attr("id");
+                var nextInputIdVal=$(property).parent().next().find("select.propertyInputBig").val();
+                for (var i = 0; i < obj.section.length; i++) {
+                    obj.section[i][nextInputId] = nextInputIdVal;
+                    break;
+                }
             }
 
         }else{
@@ -758,13 +779,27 @@ function collectProperty(property, min, max) {
             if( $(property).prop("checked") ){
                 var propertyVal = "yes";
                 $(".appendCur .v_" + propertyId).val(propertyVal);
-                //console.log( $(".appendCur .v_" + propertyId));
-                eval("vData_" + showId)();
-                //dalili
+                var nextInputId=$(property).parent().next().find("input.propertyInputSm").attr("id");
+                var nextInputIdVal=$(property).parent().next().find("input.propertyInputSm").val();
+                for (var i = 0; i < obj.section.length; i++) {
+                    obj.section[i][nextInputId] = nextInputIdVal;
+                    break;
+                }
+                if( isExitsFunction( "vData_" + showId ) ){
+                    eval("vData_" + showId)();
+                }
             }else{
                 var propertyVal = "no";
                 $(".appendCur .v_" + propertyId).val(propertyVal);
-                eval("vData_" + showId)();
+                var nextInputId=$(property).parent().next().find("input.propertyInputSm").attr("id");
+                for (var i = 0; i < obj.section.length; i++) {
+                        console.log(obj.section[i][nextInputId]);
+                        delete obj.section[i][nextInputId];
+                        break;
+                }
+                if( isExitsFunction( "vData_" + showId ) ){
+                    eval("vData_" + showId)();
+                }
             }
         }
 
