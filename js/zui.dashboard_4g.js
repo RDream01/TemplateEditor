@@ -307,7 +307,6 @@
             //panels.css('height', height);
         });
     };
-
     Dashboard.prototype.handleResizeEvent = function() {
         var onResize = this.options.onResize;
         var resizeMessage = this.options.resizeMessage;
@@ -325,6 +324,8 @@
             var blockId=$col.attr("id");
             var blockShowId=$col.attr("data-showId");
             var blockSizes = $col.attr("data-size");
+            console.log($col)
+            console.log(blockSizes);
             var blockSize = blockSizes.split(",");
             var GroupDivSize = $col.parent().attr("data-groupSize");
             var balanceGrid = "3";
@@ -363,7 +364,7 @@
                             balanceGrid = "9";
                             $col.attr('data-grid', grid).css('width', 75+ '%');
                             if(messagerAvaliable) dashboardMessager[dashboardMessager.isShow ? 'update' : 'show'](75+"%" );
-                        }else if (75<(100*grid/12)&&(100*grid/12)<=100 && (blockSize.indexOf("4g3")>-1)) {
+                        }else if (75<(100*grid/12)&&(100*grid/12)<=100 && (blockSize.indexOf("4g4")>-1)) {
                             grid = "12";
                             balanceGrid = "12";
                             $col.attr('data-grid', grid).css('width', 100 + '%');
@@ -401,19 +402,17 @@
                         }
                     }
                 }
-                console.log(balanceGrid)
                 $col.attr("data-balanceGrid",balanceGrid);
                 event.preventDefault();
                 event.stopPropagation();
             };
-
             var mouseUp = function(event) {
                 var lastGrid = $col.attr('data-grid');
                 var balanceGrid =  $col.attr("data-balanceGrid");
                 var groupDiv = $col.parent();
-                if(oldGrid !== balanceGrid){
+                if(balanceGrid != undefined && oldGrid != balanceGrid){
                     $("[data-showId="+blockShowId+"]").remove();
-                    $(".property").html("");
+                    $(".property .propertyShow").html("");
                     var deleteNum;
                     for (var i = 0; i < obj.section.length; i++) {
                         if (obj.section[i].showId == blockShowId) {
@@ -442,7 +441,7 @@
                             nextShowId = "";
                         }
                         importFile(newBlockId, nextShowId, blockSizes, groupDiv);
-                    }else{
+                    }else if(balanceGrid == "12"){
                         var newBlockId = pBlockId +"_4g4";
                         if(nextShowId == undefined){
                             nextShowId="";
@@ -450,8 +449,9 @@
                         importFile(newBlockId,nextShowId,blockSizes,groupDiv);
                     }
                 }
-
-                oldGrid=balanceGrid;
+                if(balanceGrid != undefined){
+                    oldGrid=balanceGrid;
+                }
 
                 //return;
                 $col.removeClass('resizing');

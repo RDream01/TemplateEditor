@@ -13,8 +13,6 @@ var  baseGroupId = $("#baseGroupId").val();
 function layout(){
     //页面布局
     var layoutStr='';
-    console.log(templateLayoutVal);
-    console.log(gridSizeVal);
     if( gridSizeVal=="3" ){
         if( templateLayoutVal=="layout01_3g" ){
             importGroupDiv(3);
@@ -63,8 +61,6 @@ function blockLeftList( selectObj,inputObj ) {
     var selectVal=$(selectObj).val();
     //左边查询组件
     var inputVal=$(inputObj).val();
-    console.log(gridSizeVal);
-    console.log(blockStyleVal);
     $.ajax({
         async: false,
         cache: true,
@@ -81,7 +77,6 @@ function blockLeftList( selectObj,inputObj ) {
 function blockLeftListCallback(data) {
     $(".partClassify").html("");
     var list = data;
-    console.log(list);
     for (var i = 0; i < list.length; i++) {
         var str = '';
         //if (list[i].blockType == "list") {
@@ -119,7 +114,6 @@ function blockTypeList() {
 }
 function blockTypeListCallback(data){
     var list = data;
-    console.log(list);
     for (var i = 0; i < list.length; i++) {
         var data="";
         data+='<option value="'+list[i].value+'">'+list[i].html+'</option>';
@@ -235,7 +229,6 @@ function openGroupConfirm(obj){
     $("#groupDelete #groupBlockBtn").attr("onclick","deleteGroup('"+groupId+"')");
 }
 function deleteGroup(groupId){
-    console.log(groupId);
     $("[data-groupshowid='"+groupId+"']").remove();
     saveActionHistory($('#sortableList').html().trim(),$('#htmlCode2').html().trim(),$("[data-groupshowid='"+groupId+"']").find(".deleteGroup"));//undo redo
     $("#groupDelete").modal('hide');
@@ -329,7 +322,6 @@ function importFile(id, nextShowId, size,groupDiv) {
         propertyRightList(id);
         $('.newSection').dashboard();
     });
-
 }
 //占比算法
 function countSize(blockSize, groupDivSize) {
@@ -339,8 +331,6 @@ function countSize(blockSize, groupDivSize) {
     }
     return finalSize;
 }
-
-
 //2---组件显示状态
 $('.indexAll').on("click", ".appendStr", function () {
     notNull();
@@ -350,7 +340,6 @@ $('.indexAll').on("click", ".appendStr", function () {
     propertyRightList(id);
 
 });
-
 //right--属性
 function propertyRightList(id) {
     $.ajax({
@@ -368,7 +357,6 @@ function propertyRightList(id) {
         }
     });
 }
-
 //    相关推荐
 $(".property").on("change",".propertyRelatedAll input",function(){
     if( $(this).prop("checked") ){
@@ -377,11 +365,8 @@ $(".property").on("change",".propertyRelatedAll input",function(){
         $(this).parent().next().slideUp();
     }
 });
-
-
 function propertyRightListCallback(data) {
     var list = data;
-    //console.log(list);
     $(".property .propertyShow").html("");
     var showId = $(".appendCur").parent().attr("data-showId");
     var blockProAll;
@@ -390,7 +375,6 @@ function propertyRightListCallback(data) {
             blockProAll = obj.section[i];
         }
     }
-
     for (var i = 0; i < list.length; i++) {
         var str = "";
         if (list[i].propertyType == "text") {
@@ -417,7 +401,6 @@ function propertyRightListCallback(data) {
                 str += list[i].defaultValue;
             }
             str += '" /></div>';
-
         } else if (list[i].propertyType == "number") {
             str = '<div class="propertyOption"><label class="propertyLabel" for="' + list[i].propertyId + '">';
             if (list[i].notNull == "yes") {
@@ -578,7 +561,6 @@ function propertyRightListCallback(data) {
                 }
                 str+=''+list[i].propertyName+'</label></div></div>';
             }else{
-                //console.log(list[i]);
                 str='<div class="propertyRelatedAll">';
                 str+='<div class="switch text-left propertyOption">';
                 str+='<input data-type="switch" type="checkbox" ';
@@ -591,8 +573,6 @@ function propertyRightListCallback(data) {
                 }
                 str+=''+list[i].propertyName+'</label></div>';
                if( list[i].childPropertyList!==undefined ){
-                   //console.log( (list[i].childPropertyList)[0].propertyName );
-
                    if(list[i].childPropertyList != undefined && list[i].childPropertyList != undefined && list[i].childPropertyList.length > 0){
                    for(var h = 0;h<list[i].childPropertyList.length;h++){
                        if(list[i].childPropertyList[h].propertyType == "number"){
@@ -647,7 +627,6 @@ function propertyRightListCallback(data) {
     //$(".property").append('<div class="deleteBlockDiv"><button class="deleteBlockBtn btn btn-primary" onclick="deleteBlock(\'' + showId + '\')">删除此组件</button></div>');
     saveActionHistory($('#sortableList').html().trim(),$('#htmlCode2').html().trim(),obj);//undo redo
 }
-
 //onfocus
 $(".property").on("focus", "input", function () {
     $(this).attr("data-prevVal", $(this).val());
@@ -773,7 +752,6 @@ function collectProperty(property, min, max) {
                     break;
                 }
             }
-
         }else{
             var propertyId = $(property).attr("id");
             if( $(property).prop("checked") ){
@@ -801,7 +779,6 @@ function collectProperty(property, min, max) {
                 }
             }
         }
-
     } else {
         var propertyVal = $(property).val();
         var propertyId = $(property).attr("id");
@@ -870,7 +847,6 @@ $("#widgetBottomDelete").on('click',function(){
 });
 $("#deleteBlockBtn").on("click",function(){
     var showId = $(".appendCur").parent().attr("data-showId");
-    console.log( showId );
     if( showId!==undefined ){
         deleteBlock(showId);
     }
@@ -900,7 +876,7 @@ $("#deleteModuleBtn").click(function(){
         cache: true,
         type: 'post',
         dataType : "jsonp",
-        data:{callBack:"deleteTemplateCallback",templateId:templateIdVal},  //参数
+        data:{calBackl:"deleteTemplateCallback",templateId:templateIdVal},  //参数
         url:basePath+"template_editor/deleteTemplate.do"//请求的action路径
     });
 });
@@ -912,7 +888,6 @@ function deleteTemplateCallback(data){
         $.zui.store.remove('modalNewEditorName');
         //$.zui.store.remove('modalLeadInName');
         window.location.href="editor_index.html";
-        console.log(1);
     }
 }
 
@@ -976,11 +951,9 @@ function saveDraft(draftBtn){
     $("#objInput").val(str);
     //草稿str
     var draft=$("html").prop("outerHTML");
-    console.log(draft);
     var formdata=new FormData();
     formdata.append('templateId',templateIdVal);
     formdata.append('templateCode',draft);
-    console.log(draft);
     $.ajax({
         url:basePath+"template_editor/saveTemplateCode.do",//远程url
         async :false,
@@ -1031,9 +1004,6 @@ $('#keep').click(function () {
                 groupDivOrder += $(pp).attr("data-groupShowId")+",";
             }
             groupDivOrder = groupDivOrder.substring(0, groupDivOrder.length - 1);
-            console.log(groupDivOrder);
-            console.log(order);
-            console.log(str);
             $.ajax({
                 async: false,
                 cache: true,

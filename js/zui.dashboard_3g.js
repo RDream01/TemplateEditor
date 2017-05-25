@@ -388,7 +388,7 @@
                 var lastGrid = $col.attr('data-grid');
                 var balanceGrid =  $col.attr("data-balanceGrid");
                 var groupDiv = $col.parent();
-                if(oldGrid !== balanceGrid){
+                if(balanceGrid != undefined && oldGrid != balanceGrid){
                     $("[data-showId="+blockShowId+"]").remove();
                     $(".property .propertyShow").html("");
                     var deleteNum;
