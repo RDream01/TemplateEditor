@@ -254,13 +254,47 @@
             }
             $(".appendCur .header01_4g4_navChanel").append(chanelStr);
         }
+
+        function tData(){
+            $.ajax({
+                async: false,
+                cache: true,
+                type: 'post',
+                dataType: "jsonp",
+                data: {callBack: 'tDataCallback'},  //参数
+                url: "http://192.168.31.197/blockData/channelListData.do",//请求的action路径
+                success: function (data) { //请求成功后处理函数。
+                }
+            });
+        }
+
         //返回的真实数据
         function tDataCallback(data){
-            var list = data.dataList;
-            for( var i=0;i<list.length;i++ ){
-                var str='<p><a href="#"/>'+list[i].title+'<a><p/>';
-                $(".lh.showId").append(str);
+            var list = data.list;
+//            for( var i=0;i<list.length;i++ ){
+//                var str='<p><a href="#"/>'+list[i].title+'<a><p/>';
+//                $(".lh.showId").append(str);
+//            }
+
+            $(".appendCur .header01_4g4_navChanel").html("");
+            var chanelStr="";
+            for( var i= 0;i<list.length;i++ ){
+                chanelStr+='<li>';
+                if( list[i].subChannel != undefined && list[i].subChannel != null ){
+                    chanelStr+='<span class="header01_4g4_border"></span>'+
+                            '<img class="header01_4g4_arrowTop" src="../../img/PP/header01_4g4/header01_4g4_top.png" alt=""/>';
+                }
+                chanelStr+='<a href="#" class="header01_4g4_active">'+list[i].channelName+'</a>';
+                if( list[i].subChannel != undefined && list[i].subChannel != null ){
+                    chanelStr+='<ul class="header01_4g4_tan">';
+                    for( var j=0;j<list[i].subChannel.length;j++ ){
+                        chanelStr+='<li><a href="#">'+list[i].subChannel[j].channelName+'</a></li>';
+                    }
+                    chanelStr+='</ul>';
+                }
+                chanelStr+='</li>';
             }
+            $(".appendCur .header01_4g4_navChanel").append(chanelStr);
         }
 
         //    $(".header01_4g4_tan").css("width",)
