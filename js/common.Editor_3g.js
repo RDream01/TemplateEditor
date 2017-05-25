@@ -387,7 +387,6 @@ function propertyRightList(id) {
         //url:"http://192.168.31.2/template_editor/propertyRightList.do",//请求的action路径
         url:basePath+"template_editor/propertyRightList",//请求的action路径
         error: function () {//请求失败处理函数
-
         },
         success: function (data) { //请求成功后处理函数。
         }
@@ -584,19 +583,63 @@ function propertyRightListCallback(data) {
             str += '" /></div>';
         }else if( list[i].propertyType == "switch" ){
             if( list[i].propertyId=="isCommon" ){
+                str+='<div class="propertyRelatedAll">';
                 str='<div class="switch switchLink text-left propertyOption">' ;
                 str+='<input data-type="switch" type="checkbox" onchange="collectProperty(this)" data-notNull="' + list[i].notNull + '" id="' + list[i].propertyId + '"/><label>';
                 if (list[i].notNull == "yes") {
                     str += '<span class="notNullColor">* </span>';
                 }
-                str+=''+list[i].propertyName+'</label></div>';
+                str+=''+list[i].propertyName+'</label></div></div>';
             }else{
-                str='<div class="switch text-left propertyOption">';
-                str+='<input data-type="switch" type="checkbox" onchange="collectProperty(this)" data-notNull="' + list[i].notNull + '" id="' + list[i].propertyId + '"/><label>' ;
+                //console.log(list[i]);
+                str='<div class="propertyRelatedAll">';
+                str+='<div class="switch text-left propertyOption">';
+                str+='<input data-type="switch" type="checkbox" ';
+                if(list[i].defaultValue=="yes"){
+                    str+='checked ';
+                }
+                str+='onchange="collectProperty(this)" data-notNull="' + list[i].notNull + '" id="' + list[i].propertyId + '"/><label>' ;
                 if (list[i].notNull == "yes") {
                     str += '<span class="notNullColor">* </span>';
                 }
                 str+=''+list[i].propertyName+'</label></div>';
+                if( list[i].childPropertyList!==undefined ){
+                    //console.log( (list[i].childPropertyList)[0].propertyName );
+
+                    if(list[i].childPropertyList != undefined && list[i].childPropertyList != undefined && list[i].childPropertyList.length > 0){
+                        for(var h = 0;h<list[i].childPropertyList.length;h++){
+                            if(list[i].childPropertyList[h].propertyType == "number"){
+                                str += '<div ' ;
+                                if(list[i].defaultValue=="yes"){
+                                    str+="style='display:block;'";
+                                }
+                                str+='class="propertyOption propertyRelated"><label class="propertyLabel" for="' + list[i].childPropertyList[h].propertyId + '">';
+                                if (list[i].childPropertyList[h].notNull == "yes") {
+                                    str += '<span class="notNullColor">* </span>';
+                                }
+                                str += list[i].childPropertyList[h].propertyName + '</label>';
+                                str += '<input data-notNull="' + list[i].childPropertyList[h].notNull + '" onchange="collectProperty(this,' + list[i].childPropertyList[h].minValue + ',' + list[i].childPropertyList[h].maxValue + ')" type="number" id="' + list[i].childPropertyList[h].propertyId + '"';
+                                var curId = list[i].childPropertyList[h].propertyId;
+                                str += 'value="';
+                                if (blockProAll[curId] !== undefined) {
+                                    str += blockProAll[curId];
+                                } else if (list[i].childPropertyList[h].defaultValue !== undefined) {
+                                    str += list[i].childPropertyList[h].defaultValue;
+                                }
+                                str += '"';
+                                str += ' class="propertyInputSm" placeholder="'+list[i].childPropertyList[h].propertyName+'">';
+                                str += '<input type="hidden" id="' + list[i].childPropertyList[h].propertyId + '_undoRedo" value="';//undo redo 存储修改之前的属性值
+                                if (blockProAll[curId] !== undefined) {
+                                    str += blockProAll[curId];
+                                } else if (list[i].childPropertyList[h].defaultValue !== undefined) {
+                                    str += list[i].childPropertyList[h].defaultValue;
+                                }
+                                str += '" /></div>';
+                            }
+                        }
+                    }
+                }
+                str+='</div>';
             }
         }
 
@@ -623,6 +666,16 @@ $(".property").on("focus", "input", function () {
     $(this).attr("data-prevVal", $(this).val());
 });
 
+//判断v_data函数是否存在
+function isExitsFunction(funcName) {
+    try {
+        if (typeof(eval(funcName)) == "function") {
+            return true;
+        }
+    } catch(e) {}
+    return false;
+}
+
 //collectProperty
 function collectProperty(property, min, max) {
     var showId = $(".appendCur").parent().attr("data-showId");
@@ -631,9 +684,10 @@ function collectProperty(property, min, max) {
 
         var propertyVal = $(property).val();
         var propertyId = $(property).attr("name");
-
         $(".appendCur .v_" + propertyId).val(propertyVal);
-        eval("vData_" + showId)();
+        if( isExitsFunction( "vData_" + showId ) ){
+            eval("vData_" + showId)();
+        }
 
         $("#" + propertyId + "_radio").val(propertyVal);
         $("#htmlCode2 input[name="+propertyId+"]").each(function(){
@@ -650,7 +704,6 @@ function collectProperty(property, min, max) {
         saveActionHistory($('#sortableList').html().trim(),$('#htmlCode2').html().trim(),obj,'radio',propertyVal+"|"+$("#" + propertyId + "_undoRedo").val()+"|"+propertyId);//undo redo save
         $("#" + propertyId + "_undoRedo").val(propertyVal);//undo redo 将修改之后的值放入页面中 为了拿到修改之前的值
     } else if (($(property).attr("type") == "checkbox") && ($(property).attr("data-type") !== "switch")  ) {
-        //console.log( "checkbox" );
         var propertyId = $(property).attr("name");
         $("#" + propertyId + "_checkbox").val("");
         var propertyVal = "";
@@ -685,7 +738,9 @@ function collectProperty(property, min, max) {
             var propertyVal = val;
             $("#htmlCode2 #" + propertyId).attr("value",propertyVal);//undo redo 当修改属性之后的区块页面在新增区块时使用
             $(".appendCur .v_" + propertyId).val(propertyVal);
-            eval("vData_" + showId)();
+            if( isExitsFunction( "vData_" + showId ) ){
+                eval("vData_" + showId)();
+            }
             saveActionHistory($('#sortableList').html().trim(),$('#htmlCode2').html().trim(),obj,'number',propertyVal+"|"+$("#" + propertyId + "_undoRedo").val()+"|"+propertyId);//undo redo save
             $("#" + propertyId + "_undoRedo").val(propertyVal);//undo redo 将修改之后的值放入页面中 为了拿到修改之前的值
         } else {
@@ -695,14 +750,15 @@ function collectProperty(property, min, max) {
         }
 
     } else if ($(property).attr("type") == "text") {
-        console.log("text");
         var val = $(property).val();
         var propertyId = $(property).attr("id");
         if ((val.length >= min) && (val.length <= max)) {
             var propertyVal = val;
             $("#htmlCode2 #" + propertyId).attr("value",propertyVal);//undo redo 当修改属性之后的区块页面在新增区块时使用
             $(".appendCur .v_" + propertyId).val(propertyVal);
-            eval("vData_" + showId)();
+            if( isExitsFunction( "vData_" + showId ) ){
+                eval("vData_" + showId)();
+            }
             saveActionHistory($('#sortableList').html().trim(),$('#htmlCode2').html().trim(),obj,'text',propertyVal+"|"+$("#" + propertyId + "_undoRedo").val()+"|"+propertyId);//undo redo save
             $("#" + propertyId + "_undoRedo").val(propertyVal);//undo redo 将修改之后的值放入页面中 为了拿到修改之前的值
         } else {
@@ -714,22 +770,50 @@ function collectProperty(property, min, max) {
     } else if( ($(property).attr("data-type") == "switch") && ($(property).attr("type") == "checkbox") ){
         if( $(property).attr("id")=="isCommon" ){
             var propertyId = $(property).attr("id");
-            console.log(propertyId);
             if( $(property).prop("checked") ){
                 var propertyVal = "yes";
                 $(property).parent().next().find("select").attr("data-notNull","no");
-                $(property).parent().next().find("select").val("");
+                var nextInputId=$(property).parent().next().find("select.propertyInputBig").attr("id");
+                for (var i = 0; i < obj.section.length; i++) {
+                    delete obj.section[i][nextInputId];
+                    break;
+                }
             }else{
                 var propertyVal = "no";
                 $(property).parent().next().find("select").attr("data-notNull","yes");
+                var nextInputId=$(property).parent().next().find("select.propertyInputBig").attr("id");
+                var nextInputIdVal=$(property).parent().next().find("select.propertyInputBig").val();
+                for (var i = 0; i < obj.section.length; i++) {
+                    obj.section[i][nextInputId] = nextInputIdVal;
+                    break;
+                }
             }
 
         }else{
             var propertyId = $(property).attr("id");
             if( $(property).prop("checked") ){
                 var propertyVal = "yes";
+                $(".appendCur .v_" + propertyId).val(propertyVal);
+                var nextInputId=$(property).parent().next().find("input.propertyInputSm").attr("id");
+                var nextInputIdVal=$(property).parent().next().find("input.propertyInputSm").val();
+                for (var i = 0; i < obj.section.length; i++) {
+                    obj.section[i][nextInputId] = nextInputIdVal;
+                    break;
+                }
+                if( isExitsFunction( "vData_" + showId ) ){
+                    eval("vData_" + showId)();
+                }
             }else{
                 var propertyVal = "no";
+                $(".appendCur .v_" + propertyId).val(propertyVal);
+                var nextInputId=$(property).parent().next().find("input.propertyInputSm").attr("id");
+                for (var i = 0; i < obj.section.length; i++) {
+                    delete obj.section[i][nextInputId];
+                    break;
+                }
+                if( isExitsFunction( "vData_" + showId ) ){
+                    eval("vData_" + showId)();
+                }
             }
         }
 

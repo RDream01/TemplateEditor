@@ -103,6 +103,7 @@
 
 .groupDiv.list-group-item{
     padding:0;
+    /*background:#fafafa;*/
 }
 /* 为可拖动的条目应用可移动光标类型 */
 #sortableList > .list-group-item [data-trigger]{cursor: move}

@@ -234,6 +234,24 @@ function deleteGroup(groupId){
     $("#groupDelete").modal('hide');
 }
 
+//right--属性
+function propertyRightList(id) {
+    $.ajax({
+        async: false,
+        cache: true,
+        type: 'post',
+        dataType : "jsonp",
+        data:{blockId:id,callBack:'propertyRightListCallback'}, //参数
+        //url:"http://192.168.31.2/template_editor/propertyRightList.do",//请求的action路径
+        url:basePath+"template_editor/propertyRightList",//请求的action路径
+        error: function () {//请求失败处理函数
+
+        },
+        success: function (data) { //请求成功后处理函数。
+        }
+    });
+}
+
 //拖拽
 function importFile(id, nextShowId, size,groupDiv) {
     //找到源文件
@@ -331,6 +349,7 @@ function countSize(blockSize, groupDivSize) {
     }
     return finalSize;
 }
+
 //2---组件显示状态
 $('.indexAll').on("click", ".appendStr", function () {
     notNull();
@@ -357,6 +376,7 @@ function propertyRightList(id) {
         }
     });
 }
+
 //    相关推荐
 $(".property").on("change",".propertyRelatedAll input",function(){
     if( $(this).prop("checked") ){
@@ -876,7 +896,7 @@ $("#deleteModuleBtn").click(function(){
         cache: true,
         type: 'post',
         dataType : "jsonp",
-        data:{calBackl:"deleteTemplateCallback",templateId:templateIdVal},  //参数
+        data:{callBack:"deleteTemplateCallback",templateId:templateIdVal},  //参数
         url:basePath+"template_editor/deleteTemplate.do"//请求的action路径
     });
 });
@@ -939,12 +959,19 @@ function moveAll(){
 }
 
 //存为草稿
+var closeFlag;
+if( $("#WhetherDraft").val()=="0" ) {
+    closeFlag = true;
+}
 function saveDraft(draftBtn){
 
     $("#baseGroupId").val( baseGroupId );
     $("#baseShowId").val( baseShowId );
 
     $("#WhetherDraft").val("1");
+    if( $("#WhetherDraft").val()=="1" ) {
+        closeFlag=false;
+    }
     $(draftBtn).find("img").tooltip('hide');
     $(draftBtn).find("img").next().remove();
     var str = (JSON.stringify(obj));
@@ -965,7 +992,7 @@ function saveDraft(draftBtn){
         success:function(data){
             if( data.exist=="yes" ){
                 alert("草稿保存成功");
-                window.location.href="editor_index.html";
+                //window.location.href="editor_index.html";
             }else{
                 alert("程序异常");
             }
@@ -1036,9 +1063,6 @@ $("#previewtest").click(function(){
     $(main).find(".firstLocation").remove();
     $(main).find(".mainAct").remove();
 
-    $(main).find(".pgwSlideshow.wide").remove();
-    $(main).find(".pgwSlideshowFather").html('<ul class="pgwSlideshow showId"></ul>');
-
     var groupDivs=$(main).find(".groupDiv ");
     for( var i=0;i<groupDivs.length;i++ ){
         $(groupDivs[i]).removeClass("list-group-item");
@@ -1090,8 +1114,13 @@ window.onload = function () {
     //$('#sortableList').sortable(optionsTrigger);
 };
 
-
-
+//关闭浏览器提示
+console.log(closeFlag);
+//window.onbeforeunload=function(event){
+//    if( closeFlag ){
+//        return '模板信息没有保存为草稿将不会被保存';
+//    }
+//}
 
 
 

@@ -232,11 +232,10 @@
             <!--title-->
             <div class="pictures_4g3_titleAll showId"></div>
             <!--组图-->
-            <ul class="pgwSlideshow showId">
-                <!--<li><a><img src="../img/PP/pictures/product06.jpg" data-num="1" data-description="大时代发多少"></a></li>-->
-                <!--<li><a><img src="../img/PP/pictures/product06.jpg" data-num="1" data-description="大时代发多少"></a></li>-->
-                <!--<li><a href="#"><img src="img/pictures/adv.png"/></a></li>-->
-            </ul>
+            <div class="pictures_4g3_zutu">
+                <ul class='pgwSlideshow'></ul>
+            </div>
+
         </div>
         <!--相关推荐-->
         <div class="pictures_4g3_remtThreeImgAll">
@@ -261,7 +260,7 @@
     </div>
 </div>
 
-<script src="../js/pictures.js"></script>
+
 
     <script>
         var flag="v";
@@ -271,6 +270,108 @@
             tData();
         }
         function vData() {
+            //        是否显示
+            var remtVal=$(".appendCur .v_pictures_4g3_remtThreeImgAll").val();
+            if( remtVal=='yes' ){
+                $(".appendCur .pictures_4g3_remtThreeImgAll").show();
+            }else{
+                $(".appendCur .pictures_4g3_remtThreeImgAll").hide();
+            }
+            var discussVal=$(".appendCur .v_pictures_4g3_discussAll").val();
+            if( discussVal=='yes' ){
+                $(".appendCur .pictures_4g3_discussAll").show();
+            }else{
+                $(".appendCur .pictures_4g3_discussAll").hide();
+            }
+
+            //        组图
+            //        bread
+            $(".appendCur .pictures_4g3_bread").html("");
+            var breadStr='<a href="#" class="mainColor">经济</a>'+
+                    '<span>&gt;</span>'+
+                    '<a href="#" class="mainColor">地产</a>';
+            $(".appendCur .pictures_4g3_bread").html(breadStr);
+            //        title
+            $(".appendCur .pictures_4g3_titleAll").html("");
+            var picturesHeadStr='<p class="pictures_4g3_title articleTitleColor">李克强答记者问精彩语录</p>'+
+                    '<p class="pictures_4g3_act infoColor">'+
+                    '<span>2016-04-09 07:35</span>'+
+                    '<span> | </span>'+
+                    '<span>北京晨报</span>'+
+                    '</p>';
+            $(".appendCur .pictures_4g3_titleAll").html(picturesHeadStr);
+            //        img
+            $(".appendCur .pictures_4g3_zutu ul").html("");
+            $(".appendCur .pictures_4g3_zutu ul").removeClass("pgwSlideshow");
+            var v_picturesStr="<ul><li><img src='../img/PP/pictures/zutu.png'/></li></ul>";
+            $(".appendCur .pictures_4g3_zutu ul").html(v_picturesStr);
+
+            //        想关推荐
+            $(".appendCur .pictures_4g3_remtThreeImg_list ul").html("");
+            var v_pictures_4g3_remtThreeImg_num = $(".appendCur .v_pictures_4g3_remtThreeImg_num").val();
+
+            var title = "新闻标题新闻标题新闻标题新闻标题新闻标题";
+            var str = "";
+            for (var i = 0; i < v_pictures_4g3_remtThreeImg_num; i++) {
+                str +='<li class="list_interval"><a href="#">'+
+                '<img src="../../img/PP/remtThreeImg_4g3/test.png" class="pictures_4g3_remtThreeImg_listimg"> ' +
+                '<p class="titleColor pictures_4g3_remtThreeImg_listTitle ">'+title+'</p></a>' +
+                '</li>';
+            }
+            $(".appendCur .pictures_4g3_remtThreeImg_list ul").append(str);
+            $(".pictures_4g3_remtThreeImg_list ul li:nth-child(3n-2)").removeClass("list_interval");
+
+            //讨论
+            $(".appendCur .pictures_4g3_discuss_list ul").html("");
+            $(".appendCur .pictures_4g3_discuss_head").html("");
+            var v_pictures_4g3_discuss_num = $(".appendCur .v_pictures_4g3_discuss_num").val();
+            var title = "国家主席习近平同美国总统特朗普通电话国家主席习近平同美国总统特朗普通电话家主席习近平同美国总统特朗普通电话国家主席习近平同美国总统特朗普通";
+            var str = "";
+            var headStr="";
+//            讨论--登录
+            if( true ){
+                headStr='<div class="pictures_4g3_discuss_disList">'+
+                '<p class="pictures_4g3_discuss_title mainColor">' +
+                '<span class="pictures_4g3_discuss_redLine">参与讨论</span>' +
+                '</p>'+
+                '<textarea class="pictures_4g3_discuss_comment"></textarea>'+
+                '<p class="pictures_4g3_discuss_commentbtn mainColor">' +
+                '<a href="#" class="pictures_4g3_discuss_btn">发表评论</a>' +
+                '</p>'+
+                '</div>';
+            }else{
+                headStr=' <div>'+
+                '<p class="pictures_4g3_discuss_title mainColor">' +
+                '<span class="pictures_4g3_discuss_redLine">参与谈论</span>' +
+                '</p>'+
+                '<div class="pictures_4g3_discuss_inputAre" >'+
+                '<p class="pictures_4g3_discuss_logDes dateColor">' +
+                '<a href="#" ><span class="mainColor pictures_4g3_discuss_logBtn">登录</span></a>后参与讨论<span></span></p>'+
+                '</div>'+
+                '</div>';
+            }
+            $(".appendCur .pictures_4g3_discuss_head").html(headStr);
+
+            for (var i = 0; i < v_pictures_4g3_discuss_num; i++) {
+                str +='<li>' +
+                '<dl  class=" clearFloat">' +
+                '<dt >' +
+                '<img src="../img/PP/discuss_4g3/pic.png"  class="pictures_4g3_discuss_listImg">' +
+                '</dt>' +
+                '<dd>' +
+                '<div class="pictures_4g3_discuss_listRi">' +
+                '<p class="pictures_4g3_discuss_listName mainColor">名dsadas字 <span class="pictures_4g3_discuss_listTime dateColor"> &nbsp;&nbsp;&nbsp;几分钟前</span></p>' +
+                '<p class="pictures_4g3_discuss_listContent dateColor" >'+title+'</p> ' +
+                '</div>' +
+                '<a href="#" onclick="reply(this)" class="pictures_4g3_discuss_reply"><span class="dateColor">回复</span></a>' +
+                '</dd>' +
+                '</dl>' +
+                '</li>';
+            }
+            $(".appendCur .pictures_4g3_discuss_list ul").append(str);
+        }
+
+        function tData(){
             //        是否显示
             var remtVal=$(".appendCur .v_pictures_4g3_remtThreeImgAll").val();
             console.log(remtVal)
@@ -304,18 +405,16 @@
             $(".appendCur .pictures_4g3_titleAll").html(picturesHeadStr);
 
             //        img
-            $(".appendCur .pgwSlideshow").html("");
+            $(".appendCur .pictures_4g3_zutu ul").html("");
             var picturesDec="和贷款哈高还是加大开发和给咖啡科技公司东方健京东卡改好的看过了好的框架个得分机会卡的复活卡束带结发电话客服集合啥地方撒打客服花生豆腐就挂号当升科技分公司答复和打火锅开发技术的风格卡萨丁风格对方过后康的工爱的管理卡就是的老公看见SDJDHLASDH";
-            var picturesStr='';
+            var t_picturesStr='';
             for( var i=0;i<11;i++ ){
-                picturesStr+='<li><a>' +
-                '<img src="../img/PP/pictures/product06.jpg" data-num="'+(i+1)+'" data-description="'+picturesDec+'">'+
+                t_picturesStr+='<li><a>' +
+                '<img src="../img/PP/pictures/product05.jpg" data-num="'+(i+1)+'" data-description="'+picturesDec+'">'+
                 '</a></li>';
             }
-//            console.log(picturesStr);
-//            console.log( $(".appendCur .pgwSlideshow"));
-            $(".appendCur .pgwSlideshow").html(picturesStr);
-//            console.log($(".appendCur .pgwSlideshow").html());
+            $(".appendCur .pictures_4g3_zutu ul").html(t_picturesStr);
+
 
             //        想关推荐
             $(".appendCur .pictures_4g3_remtThreeImg_list ul").html("");
@@ -384,15 +483,15 @@
 
         }
         //返回的真实数据
-        function tDataCallback(data){
-            var list = data.dataList;
-            for( var i=0;i<list.length;i++ ){
-                var str='<p><a href="#"/>'+list[i].title+'<a><p/>';
-                $(".lh.showId").append(str);
-            }
-        }
+//        function tDataCallback(data){
+//            var list = data.dataList;
+//            for( var i=0;i<list.length;i++ ){
+//                var str='<p><a href="#"/>'+list[i].title+'<a><p/>';
+//                $(".lh.showId").append(str);
+//            }
+//        }
     </script>
-
+<script src="../js/pictures.js"></script>
 
 </body>
 </html>

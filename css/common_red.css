@@ -110,6 +110,9 @@ dt{font-weight: normal;}
 .header .panel,.section .panel{
     margin-bottom:32px;
 }
+.header .panel[data-footer="footer"]{
+    margin-bottom:0;
+}
 .footer .panel{
     margin-bottom:0;
 }
