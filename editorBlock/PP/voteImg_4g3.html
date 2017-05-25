@@ -1,6 +1,6 @@
 <div class="col-md-9 col-sm-9 appendStr voteImg_4g3" id="voteImg_4g3" data-blockSize="9">
 
-    <div class="style" "exist">
+<div class="style" "exist">
     <style>
         .voteImg_4g3_all{
             background:#ffffff;
@@ -335,7 +335,9 @@
     </style>
 </div>
 
-<div class="panel appendNot" data-id="3">
+<div class="panel appendNot">
+    <input type="hidden" class="v_voteImg_4g3_recommend_num" value="3"/>
+    <input type="hidden" class="v_voteImg_4g3_is_recommend" value="yes">
     <div class="panel-heading">
         <!--<span class="title">投票</span>-->
     </div>
@@ -343,7 +345,7 @@
         <div class="Grid4g3 voteImg_4g3_all" "exist">
             <div class="voteImg_4g3_main">
                 <!--投票图片信息-->
-                <div class="voteImg_4g3_mainImg"></div>
+                <div class="voteImg_4g3_mainImg showId"></div>
                 <!--投票具体内容-->
                 <div class="voteImg_4g3_voteList">
                     <!--投票名称-->
@@ -356,9 +358,7 @@
                     <p class="voteImg_4g3_voteBtn"><span class="mainColor_background">投票</span></p>
                 </div>
             </div>
-            <div class="Grid4g3 voteImg_4g3_recommend">
-                <input type="hidden" class="v_voteImg_4g3_recommend_num" value="3" align="center"/>
-                <input type="hidden" class="v_voteImg_4g3_is_recommend" value="yes">
+            <div class="voteImg_4g3_recommend">
                 <div class="voteImg_4g3_recommend_head">
                     <p class="voteImg_4g3_recommend_title mainColor">
                         <span class="voteImg_4g3_recommend_redLine">相关推荐</span>
@@ -377,140 +377,143 @@
         </div>
     </div>
 </div>
+
 <div class="resize-handle"><i class="icon icon-resize-h"></i></div>
 
 <div class="script" "exist">
-<!--</body>-->
-<script>
-    var flag = "v";
-    if (flag == "v") {
-        vData()
-    } else {
-        tData();
-    }
-
-    function vData() {
-        var v_voteImg_4g3_is_recommend = $(".appendCur .v_voteImg_4g3_is_recommend").val();
-        if (v_voteImg_4g3_is_recommend == "yes") {
-            $(".appendCur .voteImg_4g3_recommend").css("display", "block");
+    <script>
+        var flag = "v";
+        if (flag == "v") {
+            vData()
         } else {
-            $(".appendCur .voteImg_4g3_recommend").css("display", "none");
-        }
-        var loginStr = "";
-        if (true) {   //  是否登录
-            loginStr += '<div class="voteImg_4g3_discuss_disList">';
-            loginStr += '<p class="voteImg_4g3_discuss_title mainColor"><span class="voteImg_4g3_discuss_redLine showId">参与讨论</span></p>';
-            loginStr += '<textarea class="voteImg_4g3_discuss_comment"></textarea>';
-            loginStr += '<p class="voteImg_4g3_discuss_commentbtn"><a href="#" class="voteImg_4g3_discuss_btn">发表评论</a></p>';
-            loginStr += '</div>';
-        } else {
-            loginStr += '<div><p class="voteImg_4g3_discuss_title mainColor"><span class="voteImg_4g3_discuss_redLine showId">参与讨论</span></p>';
-            loginStr += '<div class="voteImg_4g3_discuss_inputAre" >';
-            loginStr += '<p class="voteImg_4g3_discuss_logDes dateColor"><a href="#" ><span class="mainColor voteImg_4g3_discuss_logBtn">登录</span></a>后参与讨论<span></span></p>';
-            loginStr += '</div></div>';
-        }
-        $(".appendCur .voteImg_4g3_discuss_head").html(loginStr);
-        // 图片
-        $(".voteImg_4g3_mainImg").html("");
-        var mainContentStr = '<div class="voteImg_4g3_mainContent">' +
-                '<img class="voteImg_4g3_headImg" src="../../img/PP/vote/vote.png">' +
-                '<div class="voteImg_4g3_shadow">' +
-                '<p class="voteImg_4g3_title">郑州到北京高铁提速至时速350公里 两小时能到吗？高铁提速至时速350公里 两小时能到吗？高铁提速至时速350公里 两小时能到吗？高铁提速至时速350公里 两小时能到吗？标题标题标题标题</p>' +
-                '<p class="voteImg_4g3_Act">' +
-                '<a href="#"><img src="../../img/PP/topic/collect.png" class="voteImg_4g3_collect"></a>' +
-                '<a href="#"><img src="../../img/PP/topic/share.png" class="voteImg_4g3_share"></a>' +
-                '</p>' +
-                '<p class="voteImg_4g3_time clearFloat">投票时间：<span>2017.3.1-2017.3.31</span> ' +
-                '<span class="voteImg_4g3_joinNum">参与人数 <span>109</span> 人</span>' +
-                '</p>' +
-                '</div>' +
-                '</div>' +
-                '<div class="voteImg_4g3_newsCont">';
-        for (var i = 0; i < 4; i++) {
-            mainContentStr += '<p class="txtColor">郑州到北京高铁提速至时速350公里 两小时能到吗</p>';
-        }
-        mainContentStr += '</div>';
-        $(".voteImg_4g3_mainImg").html(mainContentStr);
-
-        //投票信息
-        $(".voteImg_4g3_redTitle").html("");
-        var voteNameStr = '';
-        voteNameStr = '11郑州到北京高铁提速至时速350公里 两小时能到吗？';
-        $(".voteImg_4g3_redTitle").html(voteNameStr);
-
-        //选项
-        $(".voteImg_4g3_voteList ul").html("");
-        var optionStr = '';
-        for (var i = 0; i < 2; i++) {
-            optionStr += '<li><input type="radio" id="vote01" name="football"/>' +
-                    '<label for="vote01">' +
-                    '<img class="voteImg_4g3_voteListImg" src="../../img/PP/vote/pic.png" alt=""/>' +
-                    '<span class="voteImg_4g3_voteListTitle txtColor">世界杯16强世界界杯16强世界杯16强世界杯16强</span>' +
-                    '</label></li>';
-        }
-        $(".voteImg_4g3_voteList ul").html(optionStr);
-
-
-        $(".appendCur .voteImg_4g3_recommend_list ul").html("");
-        var v_voteImg_4g3_recommend_num = $(".appendCur .v_voteImg_4g3_recommend_num").val();
-
-        var title = "新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题";
-        var str = "";
-        for (var i = 0; i < v_voteImg_4g3_recommend_num; i++) {
-            str += '<li class="voteImg_4g3_list_interval"><a href="#">' +
-                    '<img src="../../img/PP/remtThreeImg_4g3/test.png" class="voteImg_4g3_recommend_listimg"> ' +
-                    '<p class="titleColor voteImg_4g3_recommend_listTitle ">' + title + '</p></a>' +
-                    '</li>';
-        }
-        $(".appendCur .voteImg_4g3_recommend_list ul").append(str);
-        $(".appendCur .voteImg_4g3_recommend_list ul li:nth-child(3n-2)").removeClass("voteImg_4g3_list_interval");
-        $(".appendCur .voteImg_4g3_discuss_list ul").html("");
-        var title = "国家主席习近平同美国总统特朗普通电话国家主席习近平同美国总统特朗普通电手机的开发公司打款发货啥的就符合公司东方圣诞节回复供给函数的该发的几号的话家主席习近平同美国总统特朗普通电话国家主席习近平同美国总统特朗普通";
-        var str = "";
-        for (var i = 0; i < 4; i++) {
-            str += '<li>' +
-                    '<dl  class="clearFloat">' +
-                    '<dt >' +
-                    '<img src="../../img/PP/discuss_4g3/pic.png"  class="voteImg_4g3_discuss_listImg">' +
-                    '</dt>' +
-                    '<dd>' +
-                    '<div class="voteImg_4g3_discuss_listRi">' +
-                    '<p class="voteImg_4g3_discuss_listName mainColor">名dsadas字 <span class="voteImg_4g3_discuss_listTime dateColor"> &nbsp;&nbsp;&nbsp;几分钟前</span></p>' +
-                    '<p class="voteImg_4g3_discuss_listContent discussColor" >' + title + '</p> ' +
-                    '</div>' +
-                    '<a href="#" onclick="reply(this)" class="voteImg_4g3_discuss_reply"><span class="dateColor">回复</span></a>' +
-                    '</dd>' +
-                    '</dl>' +
-                    '</li>';
+            tData();
         }
 
-        $(".appendCur .voteImg_4g3_discuss_list ul").append(str);
-    }
-
-    function tData() {
-        $.ajax({
-            async: false,
-            cache: true,
-            type: 'post',
-            dataType: "jsonp",
-            data: {dataType: "jsonp", channelId: lhbb_id, limit: lhbb_num, Callback: Callback},  //参数
-            url: "http://192.168.31.156:8080/cmsNews/template_editor/channel_article_list_index.do",//请求的action路径
-            success: function (data) { //请求成功后处理函数。
+        function vData() {
+            var v_voteImg_4g3_is_recommend = $(".appendCur .v_voteImg_4g3_is_recommend").val();
+            if (v_voteImg_4g3_is_recommend == "yes") {
+                $(".appendCur .voteImg_4g3_recommend").css("display", "block");
+            } else {
+                $(".appendCur .voteImg_4g3_recommend").css("display", "none");
             }
-        });
-    }
-    function tDataCallback(data) {
-        var list = data.dataList;
-        for (var i = 0; i < list.length; i++) {
-            var str = '<p><a href="#"/>' + list[i].title + '<a><p/>';
-            $(".lh.showId").append(str);
+            var loginStr = "";
+            $(".appendCur .voteImg_4g3_discuss_head").html("");
+            if (true) {   //  是否登录
+                loginStr += '<div class="voteImg_4g3_discuss_disList">';
+                loginStr += '<p class="voteImg_4g3_discuss_title mainColor"><span class="voteImg_4g3_discuss_redLine showId">参与讨论</span></p>';
+                loginStr += '<textarea class="voteImg_4g3_discuss_comment"></textarea>';
+                loginStr += '<p class="voteImg_4g3_discuss_commentbtn"><a href="#" class="voteImg_4g3_discuss_btn">发表评论</a></p>';
+                loginStr += '</div>';
+            } else {
+                loginStr += '<div><p class="voteImg_4g3_discuss_title mainColor"><span class="voteImg_4g3_discuss_redLine showId">参与讨论</span></p>';
+                loginStr += '<div class="voteImg_4g3_discuss_inputAre" >';
+                loginStr += '<p class="voteImg_4g3_discuss_logDes dateColor"><a href="#" ><span class="mainColor voteImg_4g3_discuss_logBtn">登录</span></a>后参与讨论<span></span></p>';
+                loginStr += '</div></div>';
+            }
+            $(".appendCur .voteImg_4g3_discuss_head").html(loginStr);
+
+            // 图片
+            $(".appendCur .voteImg_4g3_mainImg").html("");
+            var mainContentStr = '<div class="voteImg_4g3_mainContent">' +
+                    '<img class="voteImg_4g3_headImg" src="../../img/PP/vote/vote.png">' +
+                    '<div class="voteImg_4g3_shadow">' +
+                    '<p class="voteImg_4g3_title">郑州到北京高铁提速至时速350公里 两小时能到吗？高铁提速至时速350公里 两小时能到吗？高铁提速至时速350公里 两小时能到吗？高铁提速至时速350公里 两小时能到吗？标题标题标题标题</p>' +
+                    '<p class="voteImg_4g3_Act">' +
+                    '<a href="#"><img src="../../img/PP/topic/collect.png" class="voteImg_4g3_collect"></a>' +
+                    '<a href="#"><img src="../../img/PP/topic/share.png" class="voteImg_4g3_share"></a>' +
+                    '</p>' +
+                    '<p class="voteImg_4g3_time clearFloat">投票时间：<span>2017.3.1-2017.3.31</span> ' +
+                    '<span class="voteImg_4g3_joinNum">参与人数 <span>109</span> 人</span>' +
+                    '</p>' +
+                    '</div>' +
+                    '</div>' +
+                    '<div class="voteImg_4g3_newsCont">';
+            for (var i = 0; i < 4; i++) {
+                mainContentStr += '<p class="txtColor">郑州到北京高铁提速至时速350公里 两小时能到吗</p>';
+            }
+            mainContentStr += '</div>';
+            $(".appendCur .voteImg_4g3_mainImg").html(mainContentStr);
+
+            //投票信息
+            $(".appendCur .voteImg_4g3_redTitle").html("");
+            var voteNameStr = '';
+            voteNameStr = '11郑州到北京高铁提速至时速350公里 两小时能到吗？';
+            $(".appendCur .voteImg_4g3_redTitle").html(voteNameStr);
+
+            //选项
+            $(".appendCur .voteImg_4g3_voteList ul").html("");
+            var optionStr = '';
+            for (var i = 0; i < 2; i++) {
+                optionStr += '<li><input type="radio" id="vote01" name="football"/>' +
+                        '<label for="vote01">' +
+                        '<img class="voteImg_4g3_voteListImg" src="../../img/PP/vote/pic.png" alt=""/>' +
+                        '<span class="voteImg_4g3_voteListTitle txtColor">世界杯16强世界界杯16强世界杯16强世界杯16强</span>' +
+                        '</label></li>';
+            }
+            $(".appendCur .voteImg_4g3_voteList ul").html(optionStr);
+
+
+            $(".appendCur .voteImg_4g3_recommend_list ul").html("");
+            var v_voteImg_4g3_recommend_num = $(".appendCur .v_voteImg_4g3_recommend_num").val();
+
+            var title = "新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题";
+            var str = "";
+            for (var i = 0; i < v_voteImg_4g3_recommend_num; i++) {
+                str += '<li class="voteImg_4g3_list_interval"><a href="#">' +
+                        '<img src="../../img/PP/remtThreeImg_4g3/test.png" class="voteImg_4g3_recommend_listimg"> ' +
+                        '<p class="titleColor voteImg_4g3_recommend_listTitle ">' + title + '</p></a>' +
+                        '</li>';
+            }
+            $(".appendCur .voteImg_4g3_recommend_list ul").append(str);
+            $(".appendCur .voteImg_4g3_recommend_list ul li:nth-child(3n-2)").removeClass("voteImg_4g3_list_interval");
+            $(".appendCur .voteImg_4g3_discuss_list ul").html("");
+            var title = "国家主席习近平同美国总统特朗普通电话国家主席习近平同美国总统特朗普通电手机的开发公司打款发货啥的就符合公司东方圣诞节回复供给函数的该发的几号的话家主席习近平同美国总统特朗普通电话国家主席习近平同美国总统特朗普通";
+            var str = "";
+            for (var i = 0; i < 4; i++) {
+                str += '<li>' +
+                        '<dl  class="clearFloat">' +
+                        '<dt >' +
+                        '<img src="../../img/PP/discuss_4g3/pic.png"  class="voteImg_4g3_discuss_listImg">' +
+                        '</dt>' +
+                        '<dd>' +
+                        '<div class="voteImg_4g3_discuss_listRi">' +
+                        '<p class="voteImg_4g3_discuss_listName mainColor">名dsadas字 <span class="voteImg_4g3_discuss_listTime dateColor"> &nbsp;&nbsp;&nbsp;几分钟前</span></p>' +
+                        '<p class="voteImg_4g3_discuss_listContent discussColor" >' + title + '</p> ' +
+                        '</div>' +
+                        '<a href="#" onclick="reply(this)" class="voteImg_4g3_discuss_reply"><span class="dateColor">回复</span></a>' +
+                        '</dd>' +
+                        '</dl>' +
+                        '</li>';
+            }
+
+            $(".appendCur .voteImg_4g3_discuss_list ul").append(str);
         }
-    }
 
-    max(".voteImg_4g3_title",62);
-    max(".voteImg_4g3_recommend_listTitle",22);
-    max(".voteImg_4g3_discuss_listContent",88);
+        function tData() {
+    //        $.ajax({
+    //            async: false,
+    //            cache: true,
+    //            type: 'post',
+    //            dataType: "jsonp",
+    //            data: {dataType: "jsonp", channelId: lhbb_id, limit: lhbb_num, Callback: Callback},  //参数
+    //            url: "http://192.168.31.156:8080/cmsNews/template_editor/channel_article_list_index.do",//请求的action路径
+    //            success: function (data) { //请求成功后处理函数。
+    //            }
+    //        });
+        }
+        function tDataCallback(data) {
+            var list = data.dataList;
+            for (var i = 0; i < list.length; i++) {
+                var str = '<p><a href="#"/>' + list[i].title + '<a><p/>';
+                $(".lh.showId").append(str);
+            }
+        }
 
-</script>
+        max(".voteImg_4g3_title",62);
+        max(".voteImg_4g3_recommend_listTitle",22);
+        max(".voteImg_4g3_discuss_listContent",88);
+
+    </script>
 </div>
+
 </div>
