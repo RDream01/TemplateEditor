@@ -110,6 +110,7 @@ if( $.zui.store.get('modalNewEditorName')!==undefined ){
     $("#templateColor").val(modalNewEditor.templateColor);
     $("#templateId").val(modalNewEditor.templateId);
     $("#templateLayout").val(modalNewEditor.templateLayout);
+    $("#templateName").val(modalNewEditor.templateName);
 }else{
     console.log("空的");
 }
@@ -137,7 +138,8 @@ $("#templateColorLink").attr("href","../../css/"+templateColorVal+".css");
 var templateIdVal=$("#templateId").val();
 //模板布局
 var templateLayoutVal=$("#templateLayout").val();
-
+//模板名字
+var templateName=$("#templateName").val();
 //导入编辑器--带过来的数据
 //if( $.zui.store.get('modalLeadInName')!==undefined ){
 //    modalLeadIn=$.zui.store.get('modalLeadInName');

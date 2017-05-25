@@ -209,6 +209,7 @@ $(".property").css("height",(parseFloat(window.screen.availHeight)-65-65)+"px");
 
 // 对话框--样式
 $(".myModal").on("click",".modalCon .modalSelect",function(){
+    console.log(1);
     if( $(this).children("i").hasClass("icon-chevron-down") ){
         $(this).children("i").removeClass("icon-chevron-down");
         $(this).children("i").addClass("icon-chevron-up");
@@ -229,6 +230,7 @@ var modalLeadIn ={};
 var modalNewEditor ={};
 //对话框数据--新建,对话框数据--导入
 $(".myModal").on("click",".modalAlter .modalTxt",function(){
+    console.log(2);
     $(this).siblings().removeClass("modalTxtSelect");
     $(this).siblings().children("i").removeClass("icon-check");
     $(this).children("i").addClass("icon-check");

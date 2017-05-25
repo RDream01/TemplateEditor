@@ -74,6 +74,10 @@ function blockLeftList( selectObj,inputObj ) {
         }
     });
 }
+//模板名字
+var editorName=$("#templateName").val();
+$(".editorName span").html("——"+editorName);
+
 function blockLeftListCallback(data) {
     $(".partClassify").html("");
     var list = data;
@@ -1116,11 +1120,11 @@ window.onload = function () {
 
 //关闭浏览器提示
 console.log(closeFlag);
-//window.onbeforeunload=function(event){
-//    if( closeFlag ){
-//        return '模板信息没有保存为草稿将不会被保存';
-//    }
-//}
+window.onbeforeunload=function(event){
+    if( closeFlag ){
+        return '模板信息没有保存为草稿将不会被保存';
+    }
+}
 
 
 

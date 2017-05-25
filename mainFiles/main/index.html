@@ -5,9 +5,6 @@
     <title>index</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!--<meta http-equiv="expires" content="0">-->
-    <!--<meta http-equiv="pragma" content="no-cache">-->
-    <!--<meta http-equiv="cache-control" content="no-cache">-->
     <link rel="stylesheet" href="../../css/zui.css"/>
     <link rel="stylesheet" href="../../css/editor.css"/>
     <link rel="stylesheet" href="../../css/zui.dashboard.Editor.css"/>
@@ -32,89 +29,9 @@
 <input type="hidden" id="templateColor"/>
 <input type="hidden" id="templateLayout"/>
 <input type="hidden" id="templateId"/>
+<input type="hidden" id="templateName"/>
 <!--草稿状态-->
 <input type="hidden" id="WhetherDraft" value="0"/>
-
-
-<!-- 新建模板 -->
-<div class="modal fade myModal" id="modalNewEditor">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <p class="modelTitle">新建模板</p>
-            <div class="modalOption">
-                <!--模板名称-->
-                <p class="modalAct templateNameCon">
-                    <input id="templateName" onchange="templateNameChange(this)" type="text" placeholder="输入模板名称（可输入24个汉字）" data-must="no" class="dataMust" data-option="templateName"/>
-                    <span class="existAlert"><img src="../../img/editor/nameExist.png" alt=""/>已存在该名称，请更换名称</span>
-                </p>
-                <!--选择模板类型-->
-                <div class="modalCon templateTypeList"></div>
-                <!--选择界面风格-->
-                <div class="modalCon" id="blockStyleList"></div>
-                <!--选择栅格系统-->
-                <div class="modalCon">
-                    <p class="modalSelect modalAct">
-                        <span class="dataMust" data-option="gridSize" data-value="" data-must="no">选择栅格系统</span>
-                        <i class="icon icon-chevron-down"></i>
-                    </p>
-                    <div class="modalAlter" id="gridSizeParent">
-                        <p class="modalTxt modalGrid modalNew">
-                            <i class="icon"></i><img src="../../img/editor/gird_3.png" alt=""/>
-                            <span data-value="3">1:1:1</span>
-                        </p>
-                        <p class="modalTxt modalGrid modalNew">
-                            <i class="icon"></i><img src="../../img/editor/gird_4.png" alt=""/>
-                            <span data-value="4">1:1:1:1</span>
-                        </p>
-                    </div>
-                </div>
-                <!--选择页面布局-->
-                <div class="modalCon" id="templateLayoutList">
-                    <p class="modalSelect modalAct">
-                        <span class="dataMust" data-option="templateLayout" data-value="" data-must="no">选择页面布局</span>
-                        <i class="icon icon-chevron-down"></i>
-                    </p>
-                    <div class="modalAlter"></div>
-                </div>
-                <!--选择界面配色-->
-                <div class="modalCon">
-                    <p class="modalSelect modalAct">
-                        <span class="dataMust" data-option="templateColor" data-value="" data-must="no">选择界面配色</span>
-                        <i class="icon icon-chevron-down"></i>
-                    </p>
-                    <div class="modalAlter">
-                        <p class="modalTxt modalColor modalNew">
-                            <i class="icon"></i><img src="../../img/editor/color_red.png" alt=""/>
-                            <span data-value="common_red">红</span>
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <p class="modalBottom">
-                <span class="modalCancel" data-dismiss="modal">取消</span>
-                <span class="modalConfirm" id="modalNewEditorBtn">确认</span>
-            </p>
-        </div>
-    </div>
-</div>
-<!-- 导入模板 -->
-<div class="modal fade myModal" id="modalLeadIn">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <p class="modelTitle">导入模板</p>
-            <div class="modalOption">
-                <!--选择模板类型-->
-                <div class="modalCon templateTypeList"></div>
-                <!--选择要导入的模板-->
-                <div class="modalCon templateLeadIn"></div>
-            </div>
-            <p class="modalBottom">
-                <span class="modalCancel" data-dismiss="modal">取消</span>
-                <span class="modalConfirm" id="modalLeadInBtn">确认</span>
-            </p>
-        </div>
-    </div>
-</div>
 
 <!--删除模板-->
 <div class="modal fade myModal" id="modalDelete">
@@ -162,16 +79,16 @@
 <!--header-->
 <div class="editorIndexHeader">
     <!--left-->
-    <p class="editorAct">
-        <span data-position="fit" data-toggle="modal" data-target="#modalNewEditor">
-            <img src="../../img/editor/addEditor.png" alt="" data-toggle="tooltip" data-placement="bottom" title="新建模板"/>
-        </span>
-        <span data-position="fit" data-toggle="modal" data-target="#modalLeadIn">
-            <img src="../../img/editor/leadingIn.png" alt="" data-toggle="tooltip" data-placement="bottom" title="导入模板"/>
-        </span>
-    </p>
+    <!--<p class="editorAct">-->
+        <!--<span data-position="fit" data-toggle="modal" data-target="#modalNewEditor">-->
+            <!--<img src="../../img/editor/addEditor.png" alt="" data-toggle="tooltip" data-placement="bottom" title="新建模板"/>-->
+        <!--</span>-->
+        <!--<span data-position="fit" data-toggle="modal" data-target="#modalLeadIn">-->
+            <!--<img src="../../img/editor/leadingIn.png" alt="" data-toggle="tooltip" data-placement="bottom" title="导入模板"/>-->
+        <!--</span>-->
+    <!--</p>-->
     <!--模板编辑器-->
-    <p class="editorTxt">模板编辑器</p>
+    <p class="editorTxt editorName">模板编辑器 <span></span></p>
     <!--right-->
     <p class="editorAct homePageAct">
         <span data-position="fit" data-toggle="modal" data-target="#modalDelete">
@@ -290,10 +207,6 @@
 </div>
 
 <script src="../../js/zui.min.js" ></script>
-
-<!--新建&#45;&#45;导入-->
-<script src="../../js/editor_index.js"></script>
-
 <div id="gridDashboardScript"></div>
 <!--<script id="gridDashboardScript" src="../js/zui.dashboard_3g.js"></script>-->
 <script src="../../js/zui.droppable.js"></script>
@@ -301,7 +214,6 @@
 <div id="gridSizeScript"></div>
 <!--<script id="gridSizeScript" src="../js/common.Editor_3g.js"></script>-->
 <script src="../../js/fallback.js"></script>
-<script src="../../js/editor_index.js"></script>
 <script src="../../js/common.js"></script>
 
 
