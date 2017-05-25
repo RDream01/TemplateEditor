@@ -1005,7 +1005,7 @@ function saveDraft(draftBtn){
         success:function(data){
             if( data.exist=="yes" ){
                 alert("草稿保存成功");
-                window.location.href="editor_index.html";
+                //window.location.href="editor_index.html";
             }else{
                 alert("程序异常");
             }
