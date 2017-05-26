@@ -228,29 +228,29 @@
 //        是否登录
             $(".appendCur .header01_4g4_login").html("");
             if( true ){
-                $(".appendCur .header01_4g4_login").html("<a href='#'>登录</a>");
+                $(".appendCur .header01_4g4_login").html("&lt;a href='#'&gt;登录&lt;/a&gt;");
             }else{
-                $(".appendCur .header01_4g4_login").html("<span class='header01_4g4_ren'>欢迎XXX</span>");
+                $(".appendCur .header01_4g4_login").html("&lt;span class='header01_4g4_ren'&gt;欢迎XXX&lt;/span&gt;");
             }
 
 //        nav
             $(".appendCur .header01_4g4_navChanel").html("");
             var chanelStr="";
             for( var i= 0;i<10;i++ ){
-                chanelStr+='<li>';
+                chanelStr+='&lt;li&gt;';
                 if( i!==0 ){
-                    chanelStr+='<span class="header01_4g4_border"></span>'+
-                    '<img class="header01_4g4_arrowTop" src="../../img/PP/header01_4g4/header01_4g4_top.png" alt=""/>';
+                    chanelStr+='&lt;span class="header01_4g4_border"&gt;&lt;/span&gt;'+
+                    '&lt;img class="header01_4g4_arrowTop" src="../../img/PP/header01_4g4/header01_4g4_top.png" alt=""/&gt;';
                 }
-                chanelStr+='<a href="#" class="header01_4g4_active">首页</a>';
+                chanelStr+='&lt;a href="#" class="header01_4g4_active"&gt;首页&lt;/a&gt;';
                 if( i!==0  ){
-                    chanelStr+='<ul class="header01_4g4_tan">';
+                    chanelStr+='&lt;ul class="header01_4g4_tan"&gt;';
                     for( var j=0;j<8;j++ ){
-                        chanelStr+='<li><a href="#">图书馆</a></li>';
+                        chanelStr+='&lt;li&gt;&lt;a href="#"&gt;图书馆&lt;/a&gt;&lt;/li&gt;';
                     }
-                    chanelStr+='</ul>';
+                    chanelStr+='&lt;/ul&gt;';
                 }
-                chanelStr+='</li>';
+                chanelStr+='&lt;/li&gt;';
             }
             $(".appendCur .header01_4g4_navChanel").append(chanelStr);
         }
@@ -271,9 +271,9 @@
 
             //是否登录
             if( true ){
-                $(".header01_4g4_login.showId").html("<a href='#'>登录</a>");
+                $(".header01_4g4_login.showId").html("&lt;a href='#'&gt;登录&lt;/a&gt;");
             }else{
-                $(".header01_4g4_login.showId").html("<span class='header01_4g4_ren'>欢迎XXX</span>");
+                $(".header01_4g4_login.showId").html("&lt;span class='header01_4g4_ren'&gt;欢迎XXX&lt;/span&gt;");
             }
 
             $.ajax({
@@ -316,13 +316,13 @@
         for( var i=0;i<tans.length;i++ ){
             $(tans[i]).css("width", ($(tans[i]).children("li").length)*34+parseFloat(32)+'px');
             console.log(parseFloat($(tans[i]).css("width")) );
-            if( parseFloat( $(tans[i]).css("width"))<100 ){
+            if( parseFloat( $(tans[i]).css("width"))&lt;100 ){
                 $(tans[i]).css("left","0");
-            }else if( parseFloat( $(tans[i]).css("width"))<200 ){
+            }else if( parseFloat( $(tans[i]).css("width"))&lt;200 ){
                 $(tans[i]).css("left","-40%")
-            }else if( parseFloat( $(tans[i]).css("width"))<300 ){
+            }else if( parseFloat( $(tans[i]).css("width"))&lt;300 ){
                 $(tans[i]).css("left","-80%")
-            }else if( parseFloat( $(tans[i]).css("width"))<400 ){
+            }else if( parseFloat( $(tans[i]).css("width"))&lt;400 ){
                 $(tans[i]).css("left","-130%")
             }else{
                 $(tans[i]).css("left","-400%")
@@ -331,23 +331,23 @@
         }
 
         //首页一级点击
-        $('.header01_4g4_navChanel>li>a').click(function(e){
+        $('.header01_4g4_navChanel&gt;li&gt;a').click(function(e){
             e=e||window.event;
             var target=e.target||e.srcElement;
             var a=$(".header01_4g4_active");
             a.removeClass('header01_4g4_active');
             target.className='header01_4g4_active';
 
-            $('.header01_4g4_tan>li>a').removeClass("header01_4g4_tanActive")
+            $('.header01_4g4_tan&gt;li&gt;a').removeClass("header01_4g4_tanActive")
         });
-        $('.header01_4g4_navChanel>li>a').mousemove(function(){
+        $('.header01_4g4_navChanel&gt;li&gt;a').mousemove(function(){
             if( $(this).next()!==null ){
                 $(this).next().show();
                 $(this).prev().show();
                 $(this).addClass("header01_4g4_cur");
             }
         });
-        $('.header01_4g4_navChanel>li>a').mouseout(function(){
+        $('.header01_4g4_navChanel&gt;li&gt;a').mouseout(function(){
             if( $(this).next()!==null ){
                 $(this).next().hide();
                 $(this).prev().hide();
@@ -365,7 +365,7 @@
             $(this).hide();
             $(this).prev().prev().hide();
         });
-        $('.header01_4g4_tan>li>a').click(function(){
+        $('.header01_4g4_tan&gt;li&gt;a').click(function(){
             var a=$(".header01_4g4_active");
             a.removeClass('header01_4g4_active');
             $(this).parent().parent().prev().addClass("header01_4g4_active");
