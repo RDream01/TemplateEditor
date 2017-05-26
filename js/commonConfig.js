@@ -1,4 +1,6 @@
 /**
- * Created by ´óÀöÀö on 2017/5/26.
+ * Created by ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ on 2017/5/26.
  */
 var basePath="http://192.168.31.156:8400/";
+
+var blockBasePath = "http://192.168.31.156:8080";
