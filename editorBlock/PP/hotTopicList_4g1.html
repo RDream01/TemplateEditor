@@ -89,10 +89,10 @@
             var v_hotTopicList_4g1_ul_num=$(".appendCur .v_hotTopicList_4g1_ul_num").val();
             var hotTopicListStr='';
             for( var i=0;i<v_hotTopicList_4g1_ul_num;i++ ){
-                hotTopicListStr+='<li class="hotTopicList_4g1_li"><a>'+
-                '<p class="hotTopicList_4g1_li_index mainColor">'+(i+1)+'</p>'+
-                '<p class="hotTopicList_4g1_li_content abstractColor">国家主席习普通电话国家主席习近平同美国总统特朗普通电话</p>'+
-                '</a></li>';
+                hotTopicListStr+='&lt;li class="hotTopicList_4g1_li"&gt;&lt;a&gt;'+
+                '&lt;p class="hotTopicList_4g1_li_index mainColor"&gt;'+(i+1)+'&lt;/p&gt;'+
+                '&lt;p class="hotTopicList_4g1_li_content abstractColor"&gt;国家主席习普通电话国家主席习近平同美国总统特朗普通电话&lt;/p&gt;'+
+                '&lt;/a&gt;&lt;/li&gt;';
             }
             $(".appendCur .hotTopicList_4g1_ul").html(hotTopicListStr);
         }

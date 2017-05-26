@@ -126,24 +126,24 @@
             var todayStr='',weekStr='',monthStr='';
             var title = "日防卫相访问东帝汶及印发嘎嘎地方";
             for (var i=0;i<v_rankingList_num;i++) {
-                todayStr+='<li class="rankingList_li">'+
-                '<p class="rankingList_li_index mainColor">'+(i+1)+'</p>'+
-                '<p class="rankingList_li_content abstractColor">'+title+'</p>'+
-                '</li>';
+                todayStr+='&lt;li class="rankingList_li"&gt;'+
+                '&lt;p class="rankingList_li_index mainColor"&gt;'+(i+1)+'&lt;/p&gt;'+
+                '&lt;p class="rankingList_li_content abstractColor"&gt;'+title+'&lt;/p&gt;'+
+                '&lt;/li&gt;';
             }
             $(".appendCur .rankingList_today_ul").append(todayStr);
             for (var i=0;i<v_rankingList_num;i++) {
-                weekStr+='<li class="rankingList_li">'+
-                '<p class="rankingList_li_index mainColor">'+(i+1)+'</p>'+
-                '<p class="rankingList_li_content abstractColor">'+title+'</p>'+
-                '</li>';
+                weekStr+='&lt;li class="rankingList_li"&gt;'+
+                '&lt;p class="rankingList_li_index mainColor"&gt;'+(i+1)+'&lt;/p&gt;'+
+                '&lt;p class="rankingList_li_content abstractColor"&gt;'+title+'&lt;/p&gt;'+
+                '&lt;/li&gt;';
             }
             $(".appendCur .rankingList_week_ul").append(weekStr);
             for (var i=0;i<v_rankingList_num;i++) {
-                monthStr+='<li class="rankingList_li">'+
-                '<p class="rankingList_li_index mainColor">'+(i+1)+'</p>'+
-                '<p class="rankingList_li_content abstractColor">'+title+'</p>'+
-                '</li>';
+                monthStr+='&lt;li class="rankingList_li"&gt;'+
+                '&lt;p class="rankingList_li_index mainColor"&gt;'+(i+1)+'&lt;/p&gt;'+
+                '&lt;p class="rankingList_li_content abstractColor"&gt;'+title+'&lt;/p&gt;'+
+                '&lt;/li&gt;';
             }
             $(".appendCur .rankingList_month_ul").append(monthStr);
         }

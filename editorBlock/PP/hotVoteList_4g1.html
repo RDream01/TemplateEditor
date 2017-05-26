@@ -85,9 +85,9 @@
             var v_hotVoteList_4g1_ul_num=$(".appendCur .v_hotVoteList_4g1_ul_num").val();
             var hotVoteListStr='';
             for( var i=0;i<v_hotVoteList_4g1_ul_num;i++ ){
-                hotVoteListStr+='<li class="hotVoteList_li">'+
-                '<p class="hotVoteList_li_content abstractColor">朋友间一你友间一起做啥才能证明你这人真熟？</p>'+
-                '</li>';
+                hotVoteListStr+='&lt;li class="hotVoteList_li"&gt;'+
+                '&lt;p class="hotVoteList_li_content abstractColor"&gt;朋友间一你友间一起做啥才能证明你这人真熟？&lt;/p&gt;'+
+                '&lt;/li&gt;';
             }
             $(".appendCur .hotVoteList_ul").html(hotVoteListStr);
         }

@@ -71,10 +71,10 @@
             var title = "国家主席习近平同美国总统普通电话家主席习近平同美国总统特朗普通电话国家主席习近平同美国总统特朗普通";
             var str = "";
             for (var i = 0; i < v_relatedRecommend_4g1_num; i++){
-                str +='<li><a href="#">' +
-                '<img src="../../img/PP/remtVer_4g1/pic.png" class="relatedRecommend_4g1_listImg"> ' +
-                '<p class="titleColor relatedRecommend_4g1_listTit">'+title+'</p></a>' +
-                '</li>';
+                str +='&lt;li&gt;&lt;a href="#"&gt;' +
+                '&lt;img src="../../img/PP/remtVer_4g1/pic.png" class="relatedRecommend_4g1_listImg"&gt; ' +
+                '&lt;p class="titleColor relatedRecommend_4g1_listTit"&gt;'+title+'&lt;/p&gt;&lt;/a&gt;' +
+                '&lt;/li&gt;';
             }
             $(".appendCur .relatedRecommend_4g1_list ul").append(str);
             $(".appendCur .relatedRecommend_4g1_headTitle").html(v_relatedRecommend_4g1_headTitle);
@@ -90,7 +90,6 @@
             if( relatedRecommend_4g1_headTitle=="" ){
                 relatedRecommend_4g1_headTitle="相关推荐";
             }
-
             var templateId_replace="";
 
             $.ajax({
@@ -105,13 +104,23 @@
             });
         }
         //返回的真实数据
-        function tDataCallback(data){
-            var list = data.dataList;
-            for( var i=0;i<list.length;i++ ){
-                var str='<p><a href="#"/>'+list[i].title+'<a><p/>';
-                $(".lh").append(str);
+        function tDataCallback(data) {
+            var list=data.list;
+            if( list != '' && list != undefined){
+                $(".relatedRecommend_4g1_list ul.showId").html("");
+                var str = "";
+                for (var i = 0; i < list.length; i++){
+                    str +='&lt;li&gt;' +
+                        '&lt;a onclick="goContentDetial(\''+list[i].articleUrl+'\',\'\')&gt;' +
+                        '&lt;img src="'+list[i].pic+'" class="relatedRecommend_4g1_listImg"&gt; ' +
+                        '&lt;p class="titleColor relatedRecommend_4g1_listTit"&gt;'+list[i].title+'&lt;/p&gt;' +
+                        '&lt;/a&gt;' +
+                        '&lt;/li&gt;';
+                }
+                $(".relatedRecommend_4g1_list ul.showId").append(str);
             }
         }
+
         max(".relatedRecommend_4g1_listTit",29);
     </script>
 </div>

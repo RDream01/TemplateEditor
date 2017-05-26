@@ -59,7 +59,7 @@
         <!--<span class="title">内容头条</span>-->
     </div>
     <div class="panel-body">
-        <div class="Grid4g3 pageBackGroundColor clear topLine_4g3All" "exist"></div>
+        <div class="Grid4g3 pageBackGroundColor topLine_4g3All showId" "exist"></div>
     </div>
 </div>
 <div class="resize-handle"><i class="icon icon-resize-h"></i></div>
@@ -73,25 +73,31 @@
         tData();
     }
     function vData() {
-        $(".topLine_4g3All").html("");
+        $(".appendCur .topLine_4g3All").html("");
         var title="美议员带问题而来问题而来问题而来李克强一一坦诚回应";
         var content="中美两国元首在美国佛罗里达州的会晤刚刚结束，一个由4位联邦参议员、4位联邦众议员组成的“美国国会议员代表团”，4月10日上午来到中南海紫光阁，还带来了他们的“重磅”问题。佛罗里达州的会佛罗里达州的会";
         var topLineStr='';
-        topLineStr='<div class="topLine_left lf">'+
-        '<a href="#"><img src="../../img/PP/topLine/topLine_img.png"></a>'+
-        '</div>'+
-        '<div class="topLine_right lf">'+
-        '<p class="topLine_title titleColor"><a href="#">'+title+'</a></p>'+
-        '<p class="topLine_content abstractColor">'+content+'</p>'+
-        '<p class="dateColor topicLine_bottom">'+
-        '<span class="topLine_source">擎好网</span>'+
-        '<span class="topLine_count">&nbsp;|&nbsp;<img src="../../img/PP/topLine/comment_count.png"/>20</span>'+
-        '<span class="rt">2017-4-23</span>'+
-        '</p>'+
-        '</div>';
-        $(".topLine_4g3All").html(topLineStr);
+        topLineStr='&lt;div class="topLine_left lf"&gt;'+
+            '&lt;a href="#"&gt;&lt;img src="../../img/PP/topLine/topLine_img.png"&gt;&lt;/a&gt;'+
+            '&lt;/div&gt;'+
+            '&lt;div class="topLine_right lf"&gt;'+
+            '&lt;p class="topLine_title titleColor"&gt;&lt;a href="#"&gt;'+title+'&lt;/a&gt;&lt;/p&gt;'+
+            '&lt;p class="topLine_content abstractColor"&gt;'+content+'&lt;/p&gt;'+
+            '&lt;p class="dateColor topicLine_bottom"&gt;'+
+            '&lt;span class="topLine_source"&gt;擎好网&lt;/span&gt;'+
+            '&lt;span class="topLine_count"&gt;&nbsp;|&nbsp;&lt;img src="../../img/PP/topLine/comment_count.png"/&gt;20&lt;/span&gt;'+
+            '&lt;span class="rt"&gt;2017-4-23&lt;/span&gt;'+
+            '&lt;/p&gt;'+
+            '&lt;/div&gt;';
+        $(".appendCur .topLine_4g3All").html(topLineStr);
     }
+
+//    tData
     function tData() {
+        var cb="tDataCallback";
+        var topLine_4g3_select_SS='';
+        var templateId_replace="";
+
         $.ajax({
             async: false,
             cache: true,
@@ -104,10 +110,28 @@
         });
     }
     function tDataCallback(data) {
-        var list = data.dataList;
-        for (var i = 0; i < list.length; i++) {
-            var str = '<p><a href="#"/>' + list[i].title + '<a><p/>';
-            $(".lh.showId").append(str);
+        var data=data;
+        if( data != '' && data != undefined){
+            $(".topLine_4g3All.showId").html("");
+            var topLineStr='';
+            topLineStr='&lt;div class="topLine_left lf"&gt;'+
+                '&lt;a onclick="goContentDetial(\''+data.articleUrl+'\',\'\')&gt;' +
+                '&lt;img src="'+data.pic+'"&gt;' +
+                '&lt;/a&gt;'+
+                '&lt;/div&gt;'+
+                '&lt;div class="topLine_right lf"&gt;'+
+                '&lt;p class="topLine_title titleColor"&gt;' +
+                '&lt;a onclick="goContentDetial(\''+data.articleUrl+'\',\'\')&gt;'+data.title+'&lt;/a&gt;' +
+                '&lt;/p&gt;'+
+                '&lt;p class="topLine_content abstractColor"&gt;'+data.content+'&lt;/p&gt;'+
+                '&lt;p class="dateColor topicLine_bottom"&gt;'+
+                '&lt;span class="topLine_source"&gt;'+data.source+'&lt;/span&gt;'+
+                '&lt;span class="topLine_count"&gt;&nbsp;|&nbsp;' +
+                '&lt;img src="../../img/PP/topLine/comment_count.png"/&gt;'+data.discussNum+'&lt;/span&gt;'+
+                '&lt;span class="rt"&gt;'+data.time+'&lt;/span&gt;'+
+                '&lt;/p&gt;'+
+                '&lt;/div&gt;';
+            $(".topLine_4g3All.showId").html(topLineStr);
         }
     }
 

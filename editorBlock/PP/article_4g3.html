@@ -336,7 +336,7 @@
             $(".appendCur .article_4g3_recommend_list ul").append(str);
 
             var loginStr ="";
-            if(false){   //  是否登录
+            if(true){   //  是否登录
                 loginStr +='&lt;div class="article_4g3_discuss_disList"&gt;';
                 loginStr +='&lt;p class="article_4g3_discuss_title mainColor"&gt;&lt;span class="article_4g3_discuss_redLine"&gt;参与讨论&lt;/span&gt;&lt;/p&gt;';
                 loginStr +='&lt;textarea class="article_4g3_discuss_comment"&gt;&lt;/textarea&gt;';
@@ -351,6 +351,7 @@
             $(".appendCur .article_4g3_discuss_head").html(loginStr);
 
             var title = "国家主席习近平同美国总统特朗普通电话国家主席习近平同美国总统特朗普通电话家主席习近平同美国总统特朗普通电话国家主席习近平同美国总统特朗普通";
+            $(".appendCur .article_4g3_discuss_list ul").html("");
             var str = "";
             for (var i = 0; i < 4; i++) {
                 str +='&lt;li&gt;' +
@@ -431,7 +432,8 @@
                 $(".article_4g3_recommend_list ul.showId").html("");
                 var str = "";
                 for (var i = 0; i < recommendList.length; i++) {
-                    str +='&lt;li class="article_4g3_list_interval"&gt;&lt;a onclick="goContentDetial(\''+recommendList[i].articleUrl+'\',\'\')"&gt;'+
+                    str +='&lt;li class="article_4g3_list_interval"&gt;' +
+                            '&lt;a onclick="goContentDetial(\''+recommendList[i].articleUrl+'\',\'\')"&gt;'+
                             '&lt;img src="'+recommendList[i].pic+'" class="article_4g3_recommend_listimg"&gt; ' +
                             '&lt;p class="titleColor article_4g3_recommend_listTitle "&gt;'+recommendList[i].title+'&lt;/p&gt;&lt;/a&gt;' +
                             '&lt;/li&gt;';
@@ -440,7 +442,8 @@
             }
             //评论 是否登录
             var loginStr ="";
-            if(false){
+            $(".article_4g3_discuss_head.showId").html("");
+            if(true){
                 loginStr +='&lt;div class="article_4g3_discuss_disList"&gt;';
                 loginStr +='&lt;p class="article_4g3_discuss_title mainColor"&gt;&lt;span class="article_4g3_discuss_redLine"&gt;参与讨论&lt;/span&gt;&lt;/p&gt;';
                 loginStr +='&lt;textarea class="article_4g3_discuss_comment"&gt;&lt;/textarea&gt;';
@@ -465,7 +468,8 @@
                             '&lt;/dt&gt;' +
                             '&lt;dd&gt;' +
                             '&lt;div class="article_4g3_discuss_listRi"&gt;' +
-                            '&lt;p class="article_4g3_discuss_listName mainColor"&gt;'+commentList[i].nickName+' &lt;span class="article_4g3_discuss_listTime dateColor"&gt; &nbsp;&nbsp;&nbsp;'+commentList[i].commentTime+'&lt;/span&gt;&lt;/p&gt;' +
+                            '&lt;p class="article_4g3_discuss_listName mainColor"&gt;'+commentList[i].nickName+' ' +
+                            '&lt;span class="article_4g3_discuss_listTime dateColor"&gt; &nbsp;&nbsp;&nbsp;'+commentList[i].commentTime+'&lt;/span&gt;&lt;/p&gt;' +
                             '&lt;p class="article_4g3_discuss_listContent discussColor" &gt;'+commentList[i].commentContent+'&lt;/p&gt; ' +
                             '&lt;/div&gt;' +
                             '&lt;a onclick="reply(this)" class="article_4g3_discuss_reply"&gt;&lt;span class="dateColor"&gt;回复&lt;/span&gt;&lt;/a&gt;' +
@@ -477,7 +481,7 @@
             }
             //正文
             var breadStr='';
-            breadStr=' &lt;a class="mainColor" href="#"&gt;经济&lt;/a&gt;&lt;span&gt;&gt;&lt;/span&gt;&lt;a class="mainColor" href="#"&gt;地产&lt;/a&gt;';
+            breadStr='&lt;a class="mainColor" href="#"&gt;经济&lt;/a&gt;&lt;span&gt;&gt;&lt;/span&gt;&lt;a class="mainColor" href="#"&gt;地产&lt;/a&gt;';
             $(".article_4g3_bread.showId").html(breadStr);
             //title
             var nameStr="";
@@ -493,7 +497,6 @@
 
         max(".article_4g3_recommend_listTitle",22);
         max(".article_4g3_discuss_listContent",88);
-
     </script>
 </div>
 </div>

@@ -1,14 +1,14 @@
 <div class="col-md-9 col-sm-9 appendStr pictures_4g3" id="pictures_4g3" data-blockSize="9">
-    <div class="style" "ecist">
+<div class="style" "ecist">
     <link rel="stylesheet" href="../../css/pictures.css">
     <style>
-        .pictures_4g3All{
+        .pictures_4g3_all{
             width:708px;
             box-shadow:0 2px 2px 0 rgba(0,0,0,0.24);
             background: #fff;
             padding-bottom:20px;
         }
-        .pictures_4g3AllCon{
+        .pictures_4g3_allCon{
             width:660px;
             margin:0 auto;
             padding-top:22px;
@@ -208,16 +208,13 @@
     <!--相关推荐-->
     <input type="hidden" class="v_pictures_4g3_remtThreeImg_num" value="3" align="center"/>
     <input type="hidden" class="v_pictures_4g3_remtThreeImgAll" value="yes"/>
-    <!--参与讨论-->
-    <input type="hidden" class="v_pictures_4g3_discuss_num" value="4" align="center"/>
-    <input type="hidden" class="v_pictures_4g3_discussAll" value="yes"/>
 
     <div class="panel-heading">
         <!--<span class="title">组图内容</span>-->
     </div>
     <div class="panel-body">
-        <div class="pictures_4g3All" "exist">
-        <div class="pictures_4g3AllCon">
+        <div class="pictures_4g3_all" "exist">
+        <div class="pictures_4g3_allCon">
             <!--组图所有-->
             <div class="">
                 <!--bread-->
@@ -226,7 +223,7 @@
                 <div class="pictures_4g3_titleAll showId"></div>
                 <!--组图-->
                 <div class="pictures_4g3_zutu">
-                    <ul class='pgwSlideshow'></ul>
+                    <ul class='pgwSlideshow showId'></ul>
                 </div>
             </div>
             <!--相关推荐-->
@@ -243,7 +240,7 @@
             <!--讨论-->
             <div class="pictures_4g3_discussAll">
                 <!--登录--未登录-->
-                <div class="pictures_4g3_discuss_head"></div>
+                <div class="pictures_4g3_discuss_head showId"></div>
                 <!--评论数据-->
                 <div class="pictures_4g3_discuss_list">
                     <ul class="showId"></ul>
@@ -256,7 +253,6 @@
 <div class="resize-handle"><i class="icon icon-resize-h"></i></div>
 
 <div class="script" "exist">
-<!--<script src="../../js/jquery-1.11.3.js"></script>-->
 <script>
 
     var flag="v";
@@ -273,33 +269,27 @@
         }else{
             $(".appendCur .pictures_4g3_remtThreeImgAll").hide();
         }
-        var discussVal=$(".appendCur .v_pictures_4g3_discussAll").val();
-        if( discussVal=='yes' ){
-            $(".appendCur .pictures_4g3_discussAll").show();
-        }else{
-            $(".appendCur .pictures_4g3_discussAll").hide();
-        }
 
         //        组图
         //        bread
         $(".appendCur .pictures_4g3_bread").html("");
-        var breadStr='<a href="#" class="mainColor">经济</a>'+
-                '<span>&gt;</span>'+
-                '<a href="#" class="mainColor">地产</a>';
+        var breadStr='&lt;a href="#" class="mainColor"&gt;经济&lt;/a&gt;'+
+                '&lt;span&gt;&gt;&lt;/span&gt;'+
+                '&lt;a href="#" class="mainColor"&gt;地产&lt;/a&gt;';
         $(".appendCur .pictures_4g3_bread").html(breadStr);
         //        title
         $(".appendCur .pictures_4g3_titleAll").html("");
-        var picturesHeadStr='<p class="pictures_4g3_title articleTitleColor">李克强答记者问精彩语录</p>'+
-                '<p class="pictures_4g3_act infoColor">'+
-                '<span>2016-04-09 07:35</span>'+
-                '<span> | </span>'+
-                '<span>北京晨报</span>'+
-                '</p>';
+        var picturesHeadStr='&lt;p class="pictures_4g3_title articleTitleColor"&gt;李克强答记者问精彩语录&lt;/p&gt;'+
+                '&lt;p class="pictures_4g3_act infoColor"&gt;'+
+                '&lt;span&gt;2016-04-09 07:35&lt;/span&gt;'+
+                '&lt;span&gt; | &lt;/span&gt;'+
+                '&lt;span&gt;北京晨报&lt;/span&gt;'+
+                '&lt;/p&gt;';
         $(".appendCur .pictures_4g3_titleAll").html(picturesHeadStr);
         //        img
         $(".appendCur .pictures_4g3_zutu ul").html("");
         $(".appendCur .pictures_4g3_zutu ul").removeClass("pgwSlideshow");
-        var v_picturesStr="<ul><li><img src='../../img/PP/pictures/zutu.png'/></li></ul>";
+        var v_picturesStr="&lt;ul&gt;&lt;li&gt;&lt;img src='../../img/PP/pictures/zutu.png'/&gt;&lt;/li&gt;&lt;/ul&gt;";
         $(".appendCur .pictures_4g3_zutu ul").html(v_picturesStr);
 
         //        想关推荐
@@ -309,16 +299,14 @@
         var title = "新闻标题新闻标题新闻标题新闻标题新闻标题";
         var str = "";
         for (var i = 0; i < v_pictures_4g3_remtThreeImg_num; i++) {
-            str +='<li class="list_interval"><a href="#">'+
-            '<img src="../../img/PP/remtThreeImg_4g3/test.png" class="pictures_4g3_remtThreeImg_listimg"> ' +
-            '<p class="titleColor pictures_4g3_remtThreeImg_listTitle ">'+title+'</p></a>' +
-            '</li>';
+            str +='&lt;li class="list_interval"&gt;&lt;a href="#"&gt;'+
+            '&lt;img src="../../img/PP/remtThreeImg_4g3/test.png" class="pictures_4g3_remtThreeImg_listimg"&gt; ' +
+            '&lt;p class="titleColor pictures_4g3_remtThreeImg_listTitle "&gt;'+title+'&lt;/p&gt;&lt;/a&gt;' +
+            '&lt;/li&gt;';
         }
         $(".appendCur .pictures_4g3_remtThreeImg_list ul").append(str);
-        $(".pictures_4g3_remtThreeImg_list ul li:nth-child(3n-2)").removeClass("list_interval");
 
         //讨论
-        $(".appendCur .pictures_4g3_discuss_list ul").html("");
         $(".appendCur .pictures_4g3_discuss_head").html("");
         var v_pictures_4g3_discuss_num = $(".appendCur .v_pictures_4g3_discuss_num").val();
         var title = "国家主席习近平同美国总统特朗普通电话国家主席习近平同美国总统特朗普通电话家主席习近平同美国总统特朗普通电话国家主席习近平同美国总统特朗普通";
@@ -326,159 +314,179 @@
         var headStr="";
 //            讨论--登录
         if( true ){
-            headStr='<div class="pictures_4g3_discuss_disList">'+
-            '<p class="pictures_4g3_discuss_title mainColor">' +
-            '<span class="pictures_4g3_discuss_redLine">参与讨论</span>' +
-            '</p>'+
-            '<textarea class="pictures_4g3_discuss_comment"></textarea>'+
-            '<p class="pictures_4g3_discuss_commentbtn mainColor">' +
-            '<a href="#" class="pictures_4g3_discuss_btn">发表评论</a>' +
-            '</p>'+
-            '</div>';
+            headStr='&lt;div class="pictures_4g3_discuss_disList"&gt;'+
+            '&lt;p class="pictures_4g3_discuss_title mainColor"&gt;' +
+            '&lt;span class="pictures_4g3_discuss_redLine"&gt;参与讨论&lt;/span&gt;' +
+            '&lt;/p&gt;'+
+            '&lt;textarea class="pictures_4g3_discuss_comment"&gt;&lt;/textarea&gt;'+
+            '&lt;p class="pictures_4g3_discuss_commentbtn mainColor"&gt;' +
+            '&lt;a href="#" class="pictures_4g3_discuss_btn"&gt;发表评论&lt;/a&gt;' +
+            '&lt;/p&gt;'+
+            '&lt;/div&gt;';
         }else{
-            headStr=' <div>'+
-            '<p class="pictures_4g3_discuss_title mainColor">' +
-            '<span class="pictures_4g3_discuss_redLine">参与谈论</span>' +
-            '</p>'+
-            '<div class="pictures_4g3_discuss_inputAre" >'+
-            '<p class="pictures_4g3_discuss_logDes dateColor">' +
-            '<a href="#" ><span class="mainColor pictures_4g3_discuss_logBtn">登录</span></a>后参与讨论<span></span></p>'+
-            '</div>'+
-            '</div>';
+            headStr=' &lt;div&gt;'+
+            '&lt;p class="pictures_4g3_discuss_title mainColor"&gt;' +
+            '&lt;span class="pictures_4g3_discuss_redLine"&gt;参与谈论&lt;/span&gt;' +
+            '&lt;/p&gt;'+
+            '&lt;div class="pictures_4g3_discuss_inputAre" &gt;'+
+            '&lt;p class="pictures_4g3_discuss_logDes dateColor"&gt;' +
+            '&lt;a href="#" &gt;&lt;span class="mainColor pictures_4g3_discuss_logBtn"&gt;登录&lt;/span&gt;&lt;/a&gt;后参与讨论&lt;span&gt;&lt;/span&gt;&lt;/p&gt;'+
+            '&lt;/div&gt;'+
+            '&lt;/div&gt;';
         }
         $(".appendCur .pictures_4g3_discuss_head").html(headStr);
 
-        for (var i = 0; i < v_pictures_4g3_discuss_num; i++) {
-            str +='<li>' +
-            '<dl  class=" clearFloat">' +
-            '<dt >' +
-            '<img src="../../img/PP/discuss_4g3/pic.png"  class="pictures_4g3_discuss_listImg">' +
-            '</dt>' +
-            '<dd>' +
-            '<div class="pictures_4g3_discuss_listRi">' +
-            '<p class="pictures_4g3_discuss_listName mainColor">名dsadas字 <span class="pictures_4g3_discuss_listTime dateColor"> &nbsp;&nbsp;&nbsp;几分钟前</span></p>' +
-            '<p class="pictures_4g3_discuss_listContent dateColor" >'+title+'</p> ' +
-            '</div>' +
-            '<a href="#" onclick="reply(this)" class="pictures_4g3_discuss_reply"><span class="dateColor">回复</span></a>' +
-            '</dd>' +
-            '</dl>' +
-            '</li>';
+        $(".appendCur .pictures_4g3_discuss_list ul").html("");
+        for (var i = 0; i < 4; i++) {
+            str +='&lt;li&gt;' +
+            '&lt;dl  class=" clearFloat"&gt;' +
+            '&lt;dt &gt;' +
+            '&lt;img src="../../img/PP/discuss_4g3/pic.png"  class="pictures_4g3_discuss_listImg"&gt;' +
+            '&lt;/dt&gt;' +
+            '&lt;dd&gt;' +
+            '&lt;div class="pictures_4g3_discuss_listRi"&gt;' +
+            '&lt;p class="pictures_4g3_discuss_listName mainColor"&gt;名dsadas字 &lt;span class="pictures_4g3_discuss_listTime dateColor"&gt; &nbsp;&nbsp;&nbsp;几分钟前&lt;/span&gt;&lt;/p&gt;' +
+            '&lt;p class="pictures_4g3_discuss_listContent dateColor" &gt;'+title+'&lt;/p&gt; ' +
+            '&lt;/div&gt;' +
+            '&lt;a href="#" onclick="reply(this)" class="pictures_4g3_discuss_reply"&gt;&lt;span class="dateColor"&gt;回复&lt;/span&gt;&lt;/a&gt;' +
+            '&lt;/dd&gt;' +
+            '&lt;/dl&gt;' +
+            '&lt;/li&gt;';
         }
         $(".appendCur .pictures_4g3_discuss_list ul").append(str);
     }
 
-    function tData(){
-        //        是否显示
-        var remtVal=$(".appendCur .v_pictures_4g3_remtThreeImgAll").val();
-        if( remtVal=='yes' ){
-            $(".appendCur .pictures_4g3_remtThreeImgAll").show();
+    function tData() {
+        //是否显示相关推荐
+        var pictures_4g3_remtThreeImgAll="";
+        if( pictures_4g3_remtThreeImgAll == ""){
+            pictures_4g3_remtThreeImgAll = "yes";
+        }
+        if(pictures_4g3_remtThreeImgAll == "yes"){
+            $(".pictures_4g3_remtThreeImgAll.showId").css("display","block");
         }else{
-            $(".appendCur .pictures_4g3_remtThreeImgAll").hide();
+            $(".pictures_4g3_remtThreeImgAll.showId").css("display","none");
         }
-        var discussVal=$(".appendCur .v_pictures_4g3_discussAll").val();
-        if( discussVal=='yes' ){
-            $(".appendCur .pictures_4g3_discussAll").show();
-        }else{
-            $(".appendCur .pictures_4g3_discussAll").hide();
+        //相关推荐显示数量
+        var pictures_4g3_remtThreeImg_num="";
+        if(pictures_4g3_remtThreeImg_num == ""){
+            pictures_4g3_remtThreeImg_num = "3";
         }
 
-        //        组图
-        //        bread
-        $(".appendCur .pictures_4g3_bread").html("");
-        var breadStr='<a href="#" class="mainColor">经济</a>'+
-                '<span>&gt;</span>'+
-                '<a href="#" class="mainColor">地产</a>';
-        $(".appendCur .pictures_4g3_bread").html(breadStr);
-        //        title
-        $(".appendCur .pictures_4g3_titleAll").html("");
-        var picturesHeadStr='<p class="pictures_4g3_title articleTitleColor">李克强答记者问精彩语录</p>'+
-                '<p class="pictures_4g3_act infoColor">'+
-                '<span>2016-04-09 07:35</span>'+
-                '<span> | </span>'+
-                '<span>北京晨报</span>'+
-                '</p>';
-        $(".appendCur .pictures_4g3_titleAll").html(picturesHeadStr);
+        var cb="tDataCallback";
+        var templateId_replace="";
+        var articleId= templateId_replace;
 
-        //        img
-        $(".appendCur .pictures_4g3_zutu ul").html("");
-        var picturesDec="和贷款哈高还是加大开发和给咖啡科技公司东方健京东卡改好的看过了好的框架个得分机会卡的复活卡束带结发电话客服集合啥地方撒打客服花生豆腐就挂号当升科技分公司答复和打火锅开发技术的风格卡萨丁风格对方过后康的工爱的管理卡就是的老公看见SDJDHLASDH";
-        var t_picturesStr='';
-        for( var i=0;i<11;i++ ){
-            t_picturesStr+='<li><a>' +
-            '<img src="../../img/PP/pictures/product05.jpg" data-num="'+(i+1)+'" data-description="'+picturesDec+'">'+
-            '</a></li>';
+        $.ajax({
+            async: false,
+            cache: true,
+            type: 'post',
+            dataType: "jsonp",
+            data: {articleId:articleId, limit: article_4g3_recommend_num, callBack: cb},  //参数
+            url: "http://192.168.31.156:8080/cmsNews/blockData/channel_article_list_index.do",//请求的action路径
+            success: function (data) { //请求成功后处理函数。
+            }
+        });
+    }
+    function tDataCallback(data){
+        var pictures = data.article;
+        //相关推荐
+        var recommendList = pictures.refShowList;
+        if( recommendList != '' && recommendList != undefined){
+            $(".pictures_4g3_remtThreeImg_list ul.showId").html("");
+            var str = "";
+            for (var i = 0; i < recommendList.length; i++) {
+                str +='&lt;li class="list_interval"&gt;' +
+                '&lt;a onclick="goContentDetial(\''+recommendList[i].picturesUrl+'\',\'\')&gt;'+
+                '&lt;img src="'+recommendList[i].pic+'" class="pictures_4g3_remtThreeImg_listimg"&gt; ' +
+                '&lt;p class="titleColor pictures_4g3_remtThreeImg_listTitle "&gt;'+recommendList[i].title+'&lt;/p&gt;' +
+                '&lt;/a&gt;' +
+                '&lt;/li&gt;';
+            }
+            $(".pictures_4g3_remtThreeImg_list ul.showId").append(str);
         }
-        $(".appendCur .pictures_4g3_zutu ul").html(t_picturesStr);
 
-
-        //        想关推荐
-        $(".appendCur .pictures_4g3_remtThreeImg_list ul").html("");
-        var v_pictures_4g3_remtThreeImg_num = $(".appendCur .v_pictures_4g3_remtThreeImg_num").val();
-
-        var title = "新闻标题新闻标题新闻标题新闻标题新闻标题";
-        var str = "";
-        for (var i = 0; i < v_pictures_4g3_remtThreeImg_num; i++) {
-            str +='<li class="list_interval"><a href="#">'+
-            '<img src="../../img/PP/remtThreeImg_4g3/test.png" class="pictures_4g3_remtThreeImg_listimg"> ' +
-            '<p class="titleColor pictures_4g3_remtThreeImg_listTitle ">'+title+'</p></a>' +
-            '</li>';
-        }
-        $(".appendCur .pictures_4g3_remtThreeImg_list ul").append(str);
-        $(".pictures_4g3_remtThreeImg_list ul li:nth-child(3n-2)").removeClass("list_interval");
-
-        //讨论
-        $(".appendCur .pictures_4g3_discuss_list ul").html("");
-        $(".appendCur .pictures_4g3_discuss_head").html("");
-        var v_pictures_4g3_discuss_num = $(".appendCur .v_pictures_4g3_discuss_num").val();
-        var title = "国家主席习近平同美国总统特朗普通电话国家主席习近平同美国总统特朗普通电话家主席习近平同美国总统特朗普通电话国家主席习近平同美国总统特朗普通";
-        var str = "";
-        var headStr="";
-//            讨论--登录
+        //评论 是否登录
+        var headStr ="";
+        $(".pictures_4g3_discuss_head.showId").html("");
         if( true ){
-            headStr='<div class="pictures_4g3_discuss_disList">'+
-            '<p class="pictures_4g3_discuss_title mainColor">' +
-            '<span class="pictures_4g3_discuss_redLine">参与讨论</span>' +
-            '</p>'+
-            '<textarea class="pictures_4g3_discuss_comment"></textarea>'+
-            '<p class="pictures_4g3_discuss_commentbtn mainColor">' +
-            '<a href="#" class="pictures_4g3_discuss_btn">发表评论</a>' +
-            '</p>'+
-            '</div>';
+            headStr='&lt;div class="pictures_4g3_discuss_disList"&gt;'+
+            '&lt;p class="pictures_4g3_discuss_title mainColor"&gt;' +
+            '&lt;span class="pictures_4g3_discuss_redLine"&gt;参与讨论&lt;/span&gt;' +
+            '&lt;/p&gt;'+
+            '&lt;textarea class="pictures_4g3_discuss_comment"&gt;&lt;/textarea&gt;'+
+            '&lt;p class="pictures_4g3_discuss_commentbtn mainColor"&gt;' +
+            '&lt;a href="#" class="pictures_4g3_discuss_btn"&gt;发表评论&lt;/a&gt;' +
+            '&lt;/p&gt;'+
+            '&lt;/div&gt;';
         }else{
-            headStr=' <div>'+
-            '<p class="pictures_4g3_discuss_title mainColor">' +
-            '<span class="pictures_4g3_discuss_redLine">参与谈论</span>' +
-            '</p>'+
-            '<div class="pictures_4g3_discuss_inputAre" >'+
-            '<p class="pictures_4g3_discuss_logDes dateColor">' +
-            '<a href="#" ><span class="mainColor pictures_4g3_discuss_logBtn">登录</span></a>后参与讨论<span></span></p>'+
-            '</div>'+
-            '</div>';
+            headStr=' &lt;div&gt;'+
+            '&lt;p class="pictures_4g3_discuss_title mainColor"&gt;' +
+            '&lt;span class="pictures_4g3_discuss_redLine"&gt;参与谈论&lt;/span&gt;' +
+            '&lt;/p&gt;'+
+            '&lt;div class="pictures_4g3_discuss_inputAre" &gt;'+
+            '&lt;p class="pictures_4g3_discuss_logDes dateColor"&gt;' +
+            '&lt;a href="#" &gt;&lt;span class="mainColor pictures_4g3_discuss_logBtn"&gt;登录&lt;/span&gt;&lt;/a&gt;后参与讨论&lt;span&gt;&lt;/span&gt;&lt;/p&gt;'+
+            '&lt;/div&gt;'+
+            '&lt;/div&gt;';
         }
-        $(".appendCur .pictures_4g3_discuss_head").html(headStr);
-
-        for (var i = 0; i < v_pictures_4g3_discuss_num; i++) {
-            str +='<li>' +
-            '<dl  class=" clearFloat">' +
-            '<dt >' +
-            '<img src="../../img/PP/discuss_4g3/pic.png"  class="pictures_4g3_discuss_listImg">' +
-            '</dt>' +
-            '<dd>' +
-            '<div class="pictures_4g3_discuss_listRi">' +
-            '<p class="pictures_4g3_discuss_listName mainColor">名dsadas字 <span class="pictures_4g3_discuss_listTime dateColor"> &nbsp;&nbsp;&nbsp;几分钟前</span></p>' +
-            '<p class="pictures_4g3_discuss_listContent dateColor" >'+title+'</p> ' +
-            '</div>' +
-            '<a href="#" onclick="reply(this)" class="pictures_4g3_discuss_reply"><span class="dateColor">回复</span></a>' +
-            '</dd>' +
-            '</dl>' +
-            '</li>';
+        $(".pictures_4g3_discuss_head.showId").html(headStr);
+        //评论
+        var commentList = pictures.commentList;
+        if(commentList != '' &&  commentList != undefined){
+            var str = "";
+            $(".pictures_4g3_discuss_list ul.showId").html("");
+            for (var i = 0; i <commentList.length; i++){
+                str +='&lt;li&gt;' +
+                '&lt;dl class="clearFloat"&gt;' +
+                '&lt;dt&gt;' +
+                '&lt;img src="'+commentList[i].headImgurl+'" class="pictures_4g3_discuss_listImg"&gt;' +
+                '&lt;/dt&gt;' +
+                '&lt;dd&gt;' +
+                '&lt;div class="pictures_4g3_discuss_listRi"&gt;' +
+                '&lt;p class="pictures_4g3_discuss_listName mainColor"&gt;'+commentList[i].nickName+'' +
+                '&lt;span class="pictures_4g3_discuss_listTime dateColor"&gt; &nbsp;&nbsp;&nbsp;'+commentList[i].commentTime+'&lt;/span&gt;' +
+                '&lt;/p&gt;' +
+                '&lt;p class="pictures_4g3_discuss_listContent dateColor" &gt;'+commentList[i].commentContent+'&lt;/p&gt; ' +
+                '&lt;/div&gt;' +
+                '&lt;a onclick="reply(this)" class="pictures_4g3_discuss_reply"&gt;' +
+                '&lt;span class="dateColor"&gt;回复&lt;/span&gt;&lt;/a&gt;' +
+                '&lt;/dd&gt;' +
+                '&lt;/dl&gt;' +
+                '&lt;/li&gt;';
+            }
+            $(".pictures_4g3_discuss_list ul.showId").append(str);
         }
-        $(".appendCur .pictures_4g3_discuss_list ul").append(str);
-
-
+        //-----组图
+        //bread
+        $(".pictures_4g3_bread.showId").html("");
+        var breadStr='&lt;a href="#" class="mainColor"&gt;经济&lt;/a&gt;'+
+                '&lt;span&gt;&gt;&lt;/span&gt;'+
+                '&lt;a href="#" class="mainColor"&gt;地产&lt;/a&gt;';
+        $(".pictures_4g3_bread.showId").html(breadStr);
+        //title
+        $(".pictures_4g3_titleAll.showId").html("");
+        var picturesHeadStr='&lt;p class="pictures_4g3_title articleTitleColor"&gt;'+pictures.title+'&lt;/p&gt;'+
+                '&lt;p class="pictures_4g3_act infoColor"&gt;'+
+                '&lt;span&gt;'+'+pictures.onlineTime+'+'&lt;/span&gt;'+
+                '&lt;span&gt; | &lt;/span&gt;'+
+                '&lt;span&gt;'+pictures.sourceTitle+'&lt;/span&gt;'+
+                '&lt;/p&gt;';
+        $(".pictures_4g3_titleAll.showId").html(picturesHeadStr);
+        //        img
+        $(".pictures_4g3_zutu ul.showId").html("");
+        var groupPicList=data.groupPicList;
+        var t_picturesStr='';
+        for( var i=0;i<groupPicList.length;i++ ){
+            t_picturesStr+='&lt;li&gt;' +
+            '&lt;img src="'+groupPicList[i].imgPath+'" data-num="'+(i+1)+'" data-description="'+groupPicList[i].imgDesc+'"&gt;'+
+            '&lt;/li&gt;';
+        }
+        $(".pictures_4g3_zutu ul.showId").html(t_picturesStr);
     }
 
     max(".pictures_4g3_discuss_listContent",88);
+    $(".pictures_4g3_remtThreeImg_list ul li:nth-child(3n-2)").removeClass("list_interval");
 
 </script>
 <div id="pictures_4g3_js"></div>
