@@ -585,7 +585,16 @@ function propertyRightListCallback(data) {
                 if (list[i].notNull == "yes") {
                     str += '<span class="notNullColor">* </span>';
                 }
-                str+=''+list[i].propertyName+'</label></div></div>';
+                str+=''+list[i].propertyName+'</label>';
+
+                str += '<input type="hidden" id="' + list[i].propertyId + '_undoRedo" value="';//undo redo 存储修改之前的属性值
+                if ((blockProAll[curId] !== undefined) && (blockProAll[curId] !== "")) {
+                    str += "1";
+                } else if (list[i].defaultValue !== undefined) {
+                    str += list[i].defaultValue;
+                }
+                str += '" /></div></div>';
+
             }else{
                 str='<div class="propertyRelatedAll">';
                 str+='<div class="switch text-left propertyOption">';
@@ -597,7 +606,16 @@ function propertyRightListCallback(data) {
                 if (list[i].notNull == "yes") {
                     str += '<span class="notNullColor">* </span>';
                 }
-                str+=''+list[i].propertyName+'</label></div>';
+                str+=''+list[i].propertyName+'</label>';
+
+                str += '<input type="hidden" id="' + list[i].propertyId + '_undoRedo" value="';//undo redo 存储修改之前的属性值
+                if ((blockProAll[curId] !== undefined) && (blockProAll[curId] !== "")) {
+                    str += "1";
+                } else if (list[i].defaultValue !== undefined) {
+                    str += list[i].defaultValue;
+                }
+                str += '" /></div>';
+
                if( list[i].childPropertyList!==undefined ){
                    if(list[i].childPropertyList != undefined && list[i].childPropertyList != undefined && list[i].childPropertyList.length > 0){
                    for(var h = 0;h<list[i].childPropertyList.length;h++){
@@ -805,6 +823,22 @@ function collectProperty(property, min, max) {
                 }
             }
         }
+
+        //var propertys = propertyVal.split(',');
+        //$("#htmlCode2 #"+propertyId).each(function(){
+        //    //移除之前选中的html代码中checkbox选项中checked属性
+        //    $(this).removeAttr("checked");
+        //    //在html代码中checkbox选项中添加checked属性
+        //    for(var i=0;i<propertys.length;i++){
+        //        if(this.value == propertys[i]){
+        //            $(this).attr("checked",true);
+        //            $(this).prop("checked",true);
+        //        }
+        //    }
+        //});
+        saveActionHistory($('#sortableList').html().trim(),$('#htmlCode2').html().trim(),obj,'switch',propertyVal+"|"+$("#" + propertyId + "_undoRedo").val()+"|"+propertyId);//undo redo save
+        $("#" + propertyId + "_undoRedo").val(propertyVal);//undo redo 将修改之后的值放入页面中 为了拿到修改之前的值
+
     } else {
         var propertyVal = $(property).val();
         var propertyId = $(property).attr("id");

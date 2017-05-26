@@ -14,7 +14,9 @@ function undo(){
             var propertyId = actionStack[actionIndex-1].value.split("|")[2];//拿到选项ID
             $("#htmlCode2 #" + propertyId).val(actionStack[actionIndex-1].value.split("|")[1]);//修改页面上的input框变为原来的值
             $(".appendCur .v_" + propertyId).val(actionStack[actionIndex-1].value.split("|")[1]);//修改区块
-            eval("vData_" + $(".appendCur").parent().attr("data-showId"))();//修改区块
+            if( isExitsFunction( "vData_" + $(".appendCur").parent().attr("data-showId") ) ){
+                eval("vData_" + $(".appendCur").parent().attr("data-showId"))();//修改区块
+            }
         }else if(actionStack[actionIndex-1].type == "checkbox"){
             var propertyId = actionStack[actionIndex-1].value.split("|")[2];//拿到选项ID
             var propertys = actionStack[actionIndex-1].value.split("|")[1].split(',');
@@ -29,6 +31,26 @@ function undo(){
                     }
                 }
             });
+        }else if(actionStack[actionIndex-1].type == "switch"){
+            var propertyId = actionStack[actionIndex-1].value.split("|")[2];//拿到选项ID
+            var propertys = actionStack[actionIndex-1].value.split("|")[1].split(',');
+            if(propertyId == 'isCommon'){
+                if(propertys == "yes"){
+                    $("#htmlCode2 #"+propertyId).prop("checked",true);
+                    $("#htmlCode2 #"+propertyId).parent().next().slideUp();
+                }else{
+                    $("#htmlCode2 #"+propertyId).prop("checked",false);
+                    $("#htmlCode2 #"+propertyId).parent().next().slideDown();
+                }
+            }else{
+                if(propertys == "yes"){
+                    $("#htmlCode2 #"+propertyId).prop("checked",true);
+                    $("#htmlCode2 #"+propertyId).parent().next().slideDown();
+                }else{
+                    $("#htmlCode2 #"+propertyId).prop("checked",false);
+                    $("#htmlCode2 #"+propertyId).parent().next().slideUp();
+                }
+            }
         }else if(actionStack[actionIndex-1].type == "radio"){
             var propertyId = actionStack[actionIndex-1].value.split("|")[2];//拿到选项ID
             $("#htmlCode2 input[name="+propertyId+"]").each(function() {
@@ -43,7 +65,9 @@ function undo(){
             });
             $("#" + propertyId + "_radio").val(actionStack[actionIndex-1].value.split("|")[1]);
             $(".appendCur .v_" + propertyId).val(actionStack[actionIndex-1].value.split("|")[1]);//修改区块
-            eval("vData_" + $(".appendCur").parent().attr("data-showId"))();//修改区块
+            if( isExitsFunction( "vData_" + $(".appendCur").parent().attr("data-showId") ) ){
+                eval("vData_" + $(".appendCur").parent().attr("data-showId"))();//修改区块
+            }
         }else{
             $('#sortableList').html(actionStack[actionIndex-1].oldValue1);
             $('#htmlCode2').html(actionStack[actionIndex-1].oldValue2);
@@ -68,7 +92,9 @@ function redo(){
             var propertyId = actionStack[actionIndex].value.split("|")[2];//拿到选项ID
             $("#htmlCode2 #" + propertyId).val(actionStack[actionIndex].value.split("|")[0]);//修改页面上的input框变为原来的值
             $(".appendCur .v_" + propertyId).val(actionStack[actionIndex].value.split("|")[0]);//修改区块
-            eval("vData_" + $(".appendCur").parent().attr("data-showId"))();//修改区块
+            if( isExitsFunction( "vData_" + $(".appendCur").parent().attr("data-showId") ) ){
+                eval("vData_" + $(".appendCur").parent().attr("data-showId"))();//修改区块
+            }
         }else if(actionStack[actionIndex].type == "checkbox"){
             var propertyId = actionStack[actionIndex].value.split("|")[2];//拿到选项ID
             var propertys = actionStack[actionIndex].value.split("|")[0].split(',');
@@ -83,6 +109,26 @@ function redo(){
                     }
                 }
             });
+        }else if(actionStack[actionIndex].type == "switch"){
+            var propertyId = actionStack[actionIndex].value.split("|")[2];//拿到选项ID
+            var propertys = actionStack[actionIndex].value.split("|")[0].split(',');
+            if(propertyId == 'isCommon'){
+                if(propertys == "yes"){
+                    $("#htmlCode2 #"+propertyId).prop("checked",true);
+                    $("#htmlCode2 #"+propertyId).parent().next().slideUp();
+                }else{
+                    $("#htmlCode2 #"+propertyId).prop("checked",false);
+                    $("#htmlCode2 #"+propertyId).parent().next().slideDown();
+                }
+            }else{
+                if(propertys == "yes"){
+                    $("#htmlCode2 #"+propertyId).prop("checked",true);
+                    $("#htmlCode2 #"+propertyId).parent().next().slideDown();
+                }else{
+                    $("#htmlCode2 #"+propertyId).prop("checked",false);
+                    $("#htmlCode2 #"+propertyId).parent().next().slideUp();
+                }
+            }
         }else if(actionStack[actionIndex].type == "radio"){
             var propertyId = actionStack[actionIndex].value.split("|")[2];//拿到选项ID
             $("#htmlCode2 input[name="+propertyId+"]").each(function() {
@@ -97,7 +143,9 @@ function redo(){
             });
             $("#" + propertyId + "_radio").val(actionStack[actionIndex].value.split("|")[0]);
             $(".appendCur .v_" + propertyId).val(actionStack[actionIndex].value.split("|")[0]);//修改区块
-            eval("vData_" + $(".appendCur").parent().attr("data-showId"))();//修改区块
+            if( isExitsFunction( "vData_" + $(".appendCur").parent().attr("data-showId") ) ){
+                eval("vData_" + $(".appendCur").parent().attr("data-showId"))();//修改区块
+            }
         }else{
             $('#sortableList').html(actionStack[actionIndex].newValue1);
             $('#htmlCode2').html(actionStack[actionIndex].newValue2);
