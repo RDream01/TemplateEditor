@@ -264,14 +264,14 @@
         <div class="Grid4g3 videoDetail_4g3_all" "exist">
         <div class="videoDetail_4g3_main_container">
             <!--面包屑导航--videoDetail_4g3_bread-->
-            <p class="videoDetail_4g3_bread mainColor"></p>
+            <p class="videoDetail_4g3_bread mainColor showId"></p>
             <!--videoDetail_4g3_title-->
-            <div class="videoDetail_4g3_title articleTitleColor"><p></p></div>
+            <div class="videoDetail_4g3_title articleTitleColor showId"><p></p></div>
             <!--新闻主体-->
-            <div class="videoDetail_4g3_main"></div>
+            <div class="videoDetail_4g3_main showId"></div>
         </div>
         <!-- 相关推荐 -->
-        <div class="Grid4g3 videoDetail_4g3_recommend">
+        <div class="Grid4g3 videoDetail_4g3_recommend showId">
             <input type="hidden" class="v_videoDetail_4g3_recommend_num" value="3" align="center"/>
             <input type="hidden" class="v_videoDetail_4g3_is_recommend" value="yes">
             <div class="videoDetail_4g3_recommend_head">
@@ -397,47 +397,126 @@
             $(".videoDetail_4g3_main").html(mainStr);
         }
 
+        function tData(){
+            var cb="tDataCallback";
+            var videoDetail_4g3_is_recommend="";
+            var videoDetail_4g3_recommend_num="";
+            if(videoDetail_4g3_is_recommend == ""){
+                videoDetail_4g3_is_recommend = "yes";
+            }
+            if(videoDetail_4g3_is_recommend == "yes"){//是否要展示相关推荐
+                $(".videoDetail_4g3_recommend.showId").css("display","block");
+            }else{
+                $(".videoDetail_4g3_recommend.showId").css("display","none");
+            }
+            if(videoDetail_4g3_recommend_num == ""){
+                videoDetail_4g3_recommend_num = "3";
+            }
+            var templateId_replace="";
+            var articleId= templateId_replace;
+            $.ajax({
+                async: false,
+                cache: true,
+                type: 'post',
+                dataType: "jsonp",
+                data: {articleId:articleId, limit: videoDetail_4g3_recommend_num, callBack: cb},  //参数
+                url: blockBasePath + "blockData/getArticleDetail.do",//请求的action路径
+                success: function (data) { //请求成功后处理函数。
+                }
+            });
+        }
+
+        function tDataCallback(data){
+            var video = data.article;
+
+            var videoDetail_4g3_js = document.createElement('script');
+            videoDetail_4g3_js.src = "../../js/video-js/video.js";
+            document.getElementById("videoDetail_4g3_js").innerHTML="";
+            document.getElementById("videoDetail_4g3_js").appendChild(videoDetail_4g3_js);
+
+            //相关推荐+评论 start
+
+            var recommendList = video.refShowList;
+            $(".videoDetail_4g3_recommend_list ul.showId").html('');
+            var str = "";
+            if( recommendList != '' && recommendList != undefined && recommendList != null) {
+                for (var i = 0; i < recommendList.length; i++) {
+                    str += '<li class="videoDetail_4g3_list_interval"><a href="javascript:goContentDetial(\''+recommendList[i].articleUrl+'\',\'\')">' +
+                            '<img src="'+recommendList[i].pic+'" class="videoDetail_4g3_recommend_listimg"> ' +
+                            '<p class="titleColor videoDetail_4g3_recommend_listTitle ">' + recommendList[i].title + '</p></a>' +
+                            '</li>';
+                }
+            }
+            $(".videoDetail_4g3_recommend_list ul.showId").append(str);
+
+            if(video.isComment == '1') {
+                var loginStr = "";
+                if (true) {   //  是否登录
+                    loginStr += '<div class="videoDetail_4g3_discuss_disList">';
+                    loginStr += '<p class="videoDetail_4g3_discuss_title mainColor"><span class="videoDetail_4g3_discuss_redLine showId">参与讨论</span></p>';
+                    loginStr += '<textarea class="videoDetail_4g3_discuss_comment"></textarea>';
+                    loginStr += '<p class="videoDetail_4g3_discuss_commentbtn"><a href="#" class="videoDetail_4g3_discuss_btn">发表评论</a></p>';
+                    loginStr += '</div>';
+                } else {
+                    loginStr += '<div><p class="videoDetail_4g3_discuss_title mainColor"><span class="videoDetail_4g3_discuss_redLine showId">参与讨论</span></p>';
+                    loginStr += '<div class="videoDetail_4g3_discuss_inputAre" >';
+                    loginStr += '<p class="videoDetail_4g3_discuss_logDes dateColor"><a href="#" ><span class="mainColor videoDetail_4g3_discuss_logBtn">登录</span></a>后参与讨论<span></span></p>';
+                    loginStr += '</div></div>';
+                }
+                $(".videoDetail_4g3_discuss_head.showId").html(loginStr);
+
+                var commentList = video.commentList;
+                var str = "";
+                for (var i = 0; i < commentList.length; i++) {
+                    str +='<li>' +
+                            '<dl  class="clearFloat">' +
+                            '<dt >' +
+                            '<img src="'+commentList[i].headImgurl+'"  class="videoDetail_4g3_discuss_listImg">' +
+                            '</dt>' +
+                            '<dd>' +
+                            '<div class="videoDetail_4g3_discuss_listRi">' +
+                            '<p class="videoDetail_4g3_discuss_listName mainColor">'+commentList[i].nickName+' <span class="videoDetail_4g3_discuss_listTime dateColor"> &nbsp;&nbsp;&nbsp;'+commentList[i].commentTime+'</span></p>' +
+                            '<p class="videoDetail_4g3_discuss_listContent discussColor" >'+commentList[i].commentContent+'</p> ' +
+                            '</div>' +
+                            '<a href="#" onclick="reply(this)" class="videoDetail_4g3_discuss_reply"><span class="dateColor">回复</span></a>' +
+                            '</dd>' +
+                            '</dl>' +
+                            '</li>';
+                }
+
+                $(".videoDetail_4g3_discuss_list ul.showId").append(str);
+            }
+                //相关推荐+评论 end
+
+            //面包屑导航
+            $(".videoDetail_4g3_bread.showId").html("");
+            var breadStr='';
+            breadStr=' <a class="mainColor" href="#">经济</a><span>&gt;</span><a class="mainColor" href="#">地产</a>';
+            $(".videoDetail_4g3_bread.showId").html(breadStr);
+
+            //title
+            $(".videoDetail_4g3_title p.showId").html("");
+            var nameStr="";
+            nameStr=video.title;
+            $(".videoDetail_4g3_title p.showId").html(nameStr);
+
+            //main
+            $(".videoDetail_4g3_main.showId").html('');
+            var mainStr='';
+            mainStr= '<p class="videoDetail_4g3_time infoColor">video.onlineTime | video.sourceTitle</p>'+
+                    '<div style="margin-top:12px;">';
+
+            mainStr+='<video id="example_video_1" class="video-js vjs-default-skin" controls preload="none"  height="393" width="540"'+
+                    'poster="'+ video.pic +'" data-setup="{}">'+
+                    '<source src="'+ video.videoContentUrl +'" type="video/mp4" />'+
+                    '</video>';
+            mainStr+='</div>';
+            $(".videoDetail_4g3_main.showId").html(mainStr);
+        }
+
         max(".videoDetail_4g3_recommend_listTitle",22);
         max(".videoDetail_4g3_discuss_listContent",88);
 
     </script>
 </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
