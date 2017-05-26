@@ -1,189 +1,26 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title>index</title>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../css/zui.css"/>
-    <!--<link rel="stylesheet" href="../css/editor.css"/>-->
-    <!--<link rel="stylesheet" href="../css/zui.dashboard.Editor.css"/>-->
-    <link rel="stylesheet" href="../css/common_red.css"/>
-    <link id="templateColorLink" rel="stylesheet" href=""/>
-    <script src="../js/respond.js"></script>
-    <script src="../js/jquery-1.11.3.js"></script>
-        <style>
-            .rankingList_top{
-                width: 228px;
-                height: 40px;
-                background:#ffffff;
-                box-shadow: 0 2px 2px 0 rgba(0,0,0,0.24);
-            }
-            .rankingList_title{
-                line-height: 40px;
-                font-size: 20px;
-                margin-left: 16px;
-            }
-
-            .rankingList_title:first-letter{
-                font-size: 22px;
-            }
-
-            .rankingList_li{
-                width: 228px;
-                height: 62px;
-                border-top: 1px solid #dddddd;
-            }
-            .rankingList_li_content{
-                height: 38px;
-                line-height: 19px;
-                font-size: 14px;
-                margin: 12px auto;
-            }
-            .rankingList_li_index{
-                float: left;
-                line-height: 62px;
-                width: 20px;
-            }
-            .rankingList_select{
-                border-bottom: 2px solid #cccccc;
-                border-left:1px solid #ddd;
-                border-right:1px solid #ddd;
-                height: 43px;
-                line-height: 44px;
-            }
-            .rankingList_select_option{
-                font-size: 16px;
-                display: inline-block;
-                width: 73px;
-                text-align: center;
-                height:42px;
-            }
-
-            .rankingList_select_option img{
-                position: relative;
-                bottom: 45px;
-                width:78px;
-                vertical-align: bottom;
-            }
-            .rankingList ul{
-                display: none;
-                border:1px solid #ddd;
-                border-top:none;
-            }
-        </style>
-
-</head>
-<body>
-<div class='appendCur'>
-    <input type="hidden" value="点击排行" class="v_rankingList_title"/>
-    <input type="hidden" value="10" class="v_rankingList_num"/>
-
-        <div class="Grid4g1 pageBackGroundColor rankingList appendCur">
-            <div class="rankingList_top">
-                <p class="rankingList_title titleColor fistP showId"></p>
-            </div>
-            <div class="rankingList_select">
-                <a href="javascript:selectOption('today')">
-                    <span class="rankingList_select_option mainColor rankingList_today">
-                        今天<img src="../img/PP/rankingList/selected.png">
-                    </span>
-                </a>
-                <a href="javascript:selectOption('week')">
-                    <span class="rankingList_select_option dateColor rankingList_week">
-                        本周<img />
-                    </span>
-                </a>
-                <a href="javascript:selectOption('month')">
-                    <span class="rankingList_select_option dateColor rankingList_month">
-                        本月<img />
-                    </span>
-                </a>
-            </div>
-            <!--today-->
-            <ul class="rankingList_today_ul showId" style="display: block;"></ul>
-            <!--week-->
-            <ul class="rankingList_week_ul showId"></ul>
-            <!--mouth-->
-            <ul class="rankingList_month_ul showId"></ul>
-        </div>
-</div>
-
-<script src="../js/zui.min-1.5.js"></script>
-<script>
-    var flag = "v";
-    if (flag == "v") {
-        vData()
-    } else {
-        tData();
-    }
-    function vData() {
-        //name
-        $(".appendCur .rankingList_title").html("");
-        var v_rankingList_title = $(".appendCur .v_rankingList_title").val();
-        if (v_rankingList_title != "") {
-            $(".appendCur .rankingList_title").html(v_rankingList_title);
+str = '&lt;dl class="clearFloat"&gt;'+
+    '&lt;dt&gt;'+
+        '&lt;a onclick="goContentDetial(\''+data.articleUrl+'\',\'\')&gt;'+
+                '&lt;img src="'+data.pic+'" class="voteList_4g3_listImg"&gt;' +
+        '&lt;/a&gt;'+
+        '&lt;p class="voteList_4g3_floatTop"&gt;';
+        if( data.type=="vote" ){
+        str+='投票';
+        }else if( data.type=="topic" ){
+        str+='话题';
         }
-        //ul
-        var v_rankingList_num = $(".appendCur .v_rankingList_num").val();
-        $(".appendCur .rankingList_today_ul").html("");
-        $(".appendCur .rankingList_week_ul").html("");
-        $(".appendCur .rankingList_month_ul").html("");
-        var todayStr='',weekStr='',monthStr='';
-        var title = "日防卫相访问东帝汶及印发嘎嘎地方";
-        for (var i=0;i<v_rankingList_num;i++) {
-            todayStr+='<li class="rankingList_li">'+
-            '<p class="rankingList_li_index mainColor">'+(i+1)+'</p>'+
-            '<p class="rankingList_li_content abstractColor">'+title+'</p>'+
-            '</li>';
-        }
-        $(".appendCur .rankingList_today_ul").append(todayStr);
-        for (var i=0;i<v_rankingList_num;i++) {
-            weekStr+='<li class="rankingList_li">'+
-            '<p class="rankingList_li_index mainColor">'+(i+1)+'</p>'+
-            '<p class="rankingList_li_content abstractColor">'+title+'</p>'+
-            '</li>';
-        }
-        $(".appendCur .rankingList_week_ul").append(weekStr);
-        for (var i=0;i<v_rankingList_num;i++) {
-            monthStr+='<li class="rankingList_li">'+
-            '<p class="rankingList_li_index mainColor">'+(i+1)+'</p>'+
-            '<p class="rankingList_li_content abstractColor">'+title+'</p>'+
-            '</li>';
-        }
-        $(".appendCur .rankingList_month_ul").append(monthStr);
-    }
-    function tData() {
-        $.ajax({
-            async: false,
-            cache: true,
-            type: 'post',
-            dataType: "jsonp",
-            data: {dataType: "jsonp", channelId: lhbb_id, limit: lhbb_num, Callback: Callback},  //参数
-            url: "http://192.168.31.156:8080/cmsNews/template_editor/channel_article_list_index.do",//请求的action路径
-            success: function (data) { //请求成功后处理函数。
-            }
-        });
-    }
-    function tDataCallback(data) {
-        var list = data.dataList;
-        for (var i = 0; i < list.length; i++) {
-            var str = '<p><a href="#"/>' + list[i].title + '<a><p/>';
-            $(".lh.showId").append(str);
-        }
-    }
-    //        act
-    max(".rankingList_li_content",28);
-    function selectOption(id){
-        $(".rankingList_select img").attr("src","../img/PP/rankingList/un_selected.png");
-        $(".rankingList_select").find(".mainColor").removeClass("mainColor").addClass("dateColor");
-        $(".rankingList_"+id).removeClass("dateColor").addClass("mainColor");
-        $(".rankingList_"+id+" img").attr("src","../img/PP/rankingList/selected.png");
-        $(".rankingList ul").css("display","none");
-        $(".rankingList_"+id+"_ul").css("display","block");
-    }
-</script>
-</body>
-
-
-
+        str+='&lt;/p&gt;'+
+    '&lt;/dt&gt;' +
+    '&lt;dd&gt;' +
+        '&lt;p class="voteList_4g3_title titleColor"&gt;' +
+            '&lt;a onclick="goContentDetial(\''+data.articleUrl+'\',\'\')&gt;'+data.title+'&lt;/a&gt;'+
+                '&lt;/p&gt;'+
+                '&lt;p class="voteList_4g3_summary"&gt;'+data.content+'&lt;/p&gt; ' +
+        '&lt;div class="voteList_4g3_clearFloat voteList_4g3_foot"&gt; ' +
+            '&lt;p class="dateColor voteList_4g3_source"&gt;'+data.source+'&lt;/p&gt;' +
+            '&lt;p class="dateColor voteList_4g3_comNum"&gt; | ' +
+                '&lt;img src="../../img/PP/myJoined/contentNum.png" class="voteList_4g3_imageNum"&gt;'+data.discussNum+'&lt;/p&gt; ' +
+            '&lt;p class=" dateColor voteList_4g3_date"&gt;'+data.time+'&lt;/p&gt;' +
+            '&lt;/div&gt;' +
+        '&lt;/dd&gt;' +
+    '&lt;/dl&gt;';

@@ -44,7 +44,7 @@
 </div>
 
 <div class="panel appendNot" data-id="3">
-    <input type="hidden" class="v_hotVoteList_4g1_name" value="投票列表"/>
+    <input type="hidden" class="v_hotVoteList_4g1_name" value="热门投票"/>
     <input type="hidden" class="v_hotVoteList_4g1_ul_num" value="5"/>
     <div class="panel-heading">
         <!--<span class="title">热门投票</span>-->
@@ -92,6 +92,21 @@
             $(".appendCur .hotVoteList_ul").html(hotVoteListStr);
         }
         function tData() {
+            var cb="tDataCallback";
+            var hotVoteList_4g1_name="";
+            if(hotVoteList_4g1_name == ""){
+                hotVoteList_4g1_name = "热门投票";
+            }
+            var hotVoteList_4g1_ul_num="";
+            if(hotVoteList_4g1_ul_num == ""){
+                hotVoteList_4g1_ul_num = "5";
+            }
+
+            var hotVoteList_4g1_select="";
+            var hotVoteList_4g1_select_order="";
+
+            var templateId_replace="";
+
             $.ajax({
                 async: false,
                 cache: true,
@@ -104,12 +119,21 @@
             });
         }
         function tDataCallback(data) {
-            var list = data.dataList;
-            for (var i = 0; i < list.length; i++) {
-                var str = '<p><a href="#"/>' + list[i].title + '<a><p/>';
-                $(".lh.showId").append(str);
+            var list = data.list;
+            if( list != '' && list != undefined){
+                $(".hotVoteList_ul.showId").html("");
+                var str = "";
+                for (var i = 0; i < list.length; i++) {
+                    str+='&lt;li class="hotVoteList_li"&gt;'+
+                    '&lt;a onclick="goContentDetial(\''+list[i].articleUrl+'\',\'\')"&gt;'+
+                    '&lt;p class="hotVoteList_li_content abstractColor"&gt;'+list[i].title+'&lt;/p&gt;'+
+                    '&lt;/a&gt;' +
+                    '&lt;/li&gt;';
+                }
+                $(".hotVoteList_ul.showId").append(str);
             }
         }
+
         max(".hotVoteList_li_content",25);
     </script>
 </div>

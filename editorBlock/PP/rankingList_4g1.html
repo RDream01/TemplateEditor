@@ -147,7 +147,18 @@
             }
             $(".appendCur .rankingList_month_ul").append(monthStr);
         }
+
         function tData() {
+            var cb="tDataCallback";
+            var rankingList_4g1_title="";
+            if(rankingList_4g1_title == ""){
+                rankingList_4g1_title = "排行榜";
+            }
+            var rankingList_4g1_num="";
+            if(rankingList_4g1_num == ""){
+                rankingList_4g1_num = "10";
+            }
+            var templateId_replace="";
             $.ajax({
                 async: false,
                 cache: true,
@@ -159,13 +170,55 @@
                 }
             });
         }
-        function tDataCallback(data) {
-            var list = data.dataList;
-            for (var i = 0; i < list.length; i++) {
-                var str = '<p><a href="#"/>' + list[i].title + '<a><p/>';
-                $(".lh.showId").append(str);
+
+        function tDataCallback(data){
+            var dayList = data.dayList;
+            if( dayList != '' && dayList != undefined){
+                $(".rankingList_today_ul.showId").html("");
+                var dayStr = "";
+                for (var i=0;i<dayList.length;i++) {
+                    dayStr+='&lt;li class="rankingList_li"&gt;' +
+                    '&lt;a onclick="goContentDetial(\''+dayList[i].articleUrl+'\',\'\')&gt;'+
+                    '&lt;p class="rankingList_li_index mainColor"&gt;'+(i+1)+'&lt;/p&gt;'+
+                    '&lt;p class="rankingList_li_content abstractColor"&gt;'+dayList[i].title+'&lt;/p&gt;'+
+                    '&lt;/a&gt;' +
+                    '&lt;/li&gt;';
+
+                }
+                $(".rankingList_today_ul.showId").append(dayStr);
+            }
+
+            var weekList = data.weekList;
+            if( weekList != '' && weekList != undefined){
+                $(".rankingList_week_ul.showId").html("");
+                var weekStr = "";
+                for (var i=0;i<weekList.length;i++) {
+                    weekStr+='&lt;li class="rankingList_li"&gt;'+
+                    '&lt;a onclick="goContentDetial(\''+weekList[i].articleUrl+'\',\'\')&gt;'+
+                    '&lt;p class="rankingList_li_index mainColor"&gt;'+(i+1)+'&lt;/p&gt;'+
+                    '&lt;p class="rankingList_li_content abstractColor"&gt;'+weekList[i].title+'&lt;/p&gt;'+
+                    '&lt;/a&gt;'+
+                    '&lt;/li&gt;';
+                }
+                $(".rankingList_week_ul.showId").append(weekStr);
+            }
+
+            var monthList = data.monthList;
+            if( monthList != '' && monthList != undefined){
+                $(".rankingList_month_ul.showId").html("");
+                var monthStr = "";
+                for (var i=0;i<monthList.length;i++) {
+                    monthStr+='&lt;li class="rankingList_li"&gt;'+
+                    '&lt;a onclick="goContentDetial(\''+weekList[i].articleUrl+'\',\'\')&gt;'+
+                    '&lt;p class="rankingList_li_index mainColor"&gt;'+(i+1)+'&lt;/p&gt;'+
+                    '&lt;p class="rankingList_li_content abstractColor"&gt;'+monthList[i].title+'&lt;/p&gt;'+
+                    '&lt;/a&gt;'+
+                    '&lt;/li&gt;';
+                }
+                $(".rankingList_month_ul.showId").append(monthStr);
             }
         }
+
 //        act
         max(".rankingList_li_content",28);
         function selectOption(id){

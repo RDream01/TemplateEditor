@@ -1119,12 +1119,12 @@ window.onload = function () {
 };
 
 //关闭浏览器提示
-console.log(closeFlag);
-window.onbeforeunload=function(event){
-    if( closeFlag ){
-        return '模板信息没有保存为草稿将不会被保存';
-    }
-}
+//console.log(closeFlag);
+//window.onbeforeunload=function(event){
+//    if( closeFlag ){
+//        return '模板信息没有保存为草稿将不会被保存';
+//    }
+//};
 
 
 

@@ -19,30 +19,29 @@
 //var flag = true;
 //window.onbeforeunload=function(event){
 //    if( flag ){
-//        return '模板信息没有保存为草稿将不会被保存';
+//        return test();
 //    }
-//};
-//window.onunload = function() {
-//    return test();
 //};
 //function test(){
 //    if( confirm("是否要保存模板") ){
 //        alert(1);
+//        return;
+//    }else{
+//        alert(2);
+//        return;
 //    }
 //}
 
-//window.onbeforeunload = onbeforeunload_handler;
-//window.onunload = onunload_handler;
-//function onbeforeunload_handler(){
-//    var warning="确认退出?";
-//    return warning;
-//}
-//function onunload_handler(){
-//    var warning="谢谢光临";
-//    alert(warning);
-//}
 
-
+var _t;
+window.onbeforeunload = function(){
+    setTimeout(function(){_t = setTimeout(onunloadcancel, 0)}, 0);
+    return "真的离开?";
+};
+window.onunloadcancel = function(){
+        clearTimeout(_t);
+        alert("取消离开");
+}
 
 </script>
 </body>

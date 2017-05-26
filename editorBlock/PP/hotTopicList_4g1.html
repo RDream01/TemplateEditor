@@ -6,7 +6,7 @@
             height: 40px;
             background:#ffffff;
             box-shadow: 0 2px 2px 0 rgba(0,0,0,0.24);
-            margin-bottom: 10px;
+            /*margin-bottom: 10px;*/
         }
         .hotTopicList_4g1_title{
             line-height: 40px;
@@ -50,7 +50,7 @@
 </div>
 
 <div class="panel appendNot" data-id="3">
-    <input type="hidden" class="v_hotTopicList_4g1_name" value="话题列表"/>
+    <input type="hidden" class="v_hotTopicList_4g1_name" value="热门话题"/>
     <input type="hidden" class="v_hotTopicList_4g1_ul_num" value="5"/>
     <div class="panel-heading">
         <!--<span class="title">热门话题</span>-->
@@ -89,14 +89,28 @@
             var v_hotTopicList_4g1_ul_num=$(".appendCur .v_hotTopicList_4g1_ul_num").val();
             var hotTopicListStr='';
             for( var i=0;i<v_hotTopicList_4g1_ul_num;i++ ){
-                hotTopicListStr+='<li class="hotTopicList_4g1_li">'+
+                hotTopicListStr+='<li class="hotTopicList_4g1_li"><a>'+
                 '<p class="hotTopicList_4g1_li_index mainColor">'+(i+1)+'</p>'+
                 '<p class="hotTopicList_4g1_li_content abstractColor">国家主席习普通电话国家主席习近平同美国总统特朗普通电话</p>'+
-                '</li>';
+                '</a></li>';
             }
             $(".appendCur .hotTopicList_4g1_ul").html(hotTopicListStr);
         }
         function tData() {
+            var cb="tDataCallback";
+            var hotTopicList_4g1_name="";
+            if(hotTopicList_4g1_name == ""){
+                hotTopicList_4g1_name = "热门话题";
+            }
+            var hotTopicList_4g1_ul_num="";
+            if(hotTopicList_4g1_ul_num == ""){
+                hotTopicList_4g1_ul_num = "5";
+            }
+            var hotTopicList_4g1_select="";
+            var hotTopicList_4g1_select_order="";
+
+            var templateId_replace="";
+
             $.ajax({
                 async: false,
                 cache: true,
@@ -109,11 +123,20 @@
             });
         }
         function tDataCallback(data) {
-//            var list = data.dataList;
-//            for (var i = 0; i < list.length; i++) {
-//                var str = '<p><a href="#"/>' + list[i].title + '<a><p/>';
-//                $(".lh.showId").append(str);
-//            }
+            var list = data.list;
+            if( list != '' && list != undefined){
+                $(".hotTopicList_4g1_ul.showId").html("");
+                var str = "";
+                for (var i = 0; i < list.length; i++) {
+                    str +='&lt;li class="hotTopicList_4g1_li"&gt;' +
+                    '&lt;a onclick="goContentDetial(\''+list[i].articleUrl+'\',\'\')"&gt;'+
+                    '&lt;p class="hotTopicList_4g1_li_index mainColor"&gt;'+(i+1)+'&lt;/p&gt;'+
+                    '&lt;p class="hotTopicList_4g1_li_content abstractColor"&gt;'+list[i].title+'&lt;/p&gt;'+
+                    '&lt;/a&gt;' +
+                    '&lt;/li&gt;';
+                }
+                $(".hotTopicList_4g1_ul.showId").append(str);
+            }
         }
         max(".hotTopicList_4g1_li_content",25);
     </script>

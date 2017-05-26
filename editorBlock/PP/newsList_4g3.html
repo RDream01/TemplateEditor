@@ -80,7 +80,7 @@
         <!--<span class="title">新闻内容iter</span>-->
     </div>
     <div class="panel-body">
-        <div class="newsList_4g3_main" "exist"></div>
+        <div class="newsList_4g3_main showId" "exist"></div>
     </div>
 </div>
 <div class="resize-handle"><i class="icon icon-resize-h"></i></div>
@@ -91,37 +91,74 @@
         if(flag == "v"){
             vData()
         }else{
-
             tData();
         }
 
         function vData() {
-
             $(".appendCur .newsList_4g3_main").html("");
-
             var title = "国家主席习近平同美国总统特朗普通电话国家主席习近平同美国总统特朗普通电话家主席习近平同平同美国总统特朗普通电话国家主席习近平同美国总统特朗普通电话家主席习近平同平同美国总统特朗普通电话国家主席习近平同美国总统特朗普通电话家主席习近平同美国总统特朗普通电话国家主席习近平同美国总统特朗普通";
             var str = "";
-            for (var i = 0; i < 1; i++) {
-                str = '<dl class="clearFloat">' +
-                        '<dt> ' +
-                        '<a href="#"><img src="../../img/PP/newsList/newsList.png" class="newsList_4g3_listImg"></a> ' +
-                        '</dt>' +
-                        '<dd> ' +
-                        '<p class="newsList_4g3_title titleColor"><a href="#">'+title+'</a></p> ' +
-                        '<p class="newsList_4g3_summary">'+title+'</p> ' +
-                        '<div class="clearFloat newsList_4g3_foot">' +
-                        '<p class="dateColor newsList_4g3_source">擎好网</p>' +
-                        '<p class="dateColor newsList_4g3_comNum">  | <img src="../../img/PP/myJoined/contentNum.png" class="newsList_4g3_imageNum">20</p> ' +
-                        '<p class=" dateColor newsList_4g3_date">2017-04-12</p>'+
-                        '</div>' +
-                        '</dd>' +
-                        '</dl>';
-            }
+            str = '<dl class="clearFloat">' +
+                    '<dt> ' +
+                    '<a href="#"><img src="../../img/PP/newsList/newsList.png" class="newsList_4g3_listImg"></a> ' +
+                    '</dt>' +
+                    '<dd>'+
+                    '<p class="newsList_4g3_title titleColor"><a href="#">'+title+'</a></p> ' +
+                    '<p class="newsList_4g3_summary">'+title+'</p> ' +
+                    '<div class="clearFloat newsList_4g3_foot">' +
+                    '<p class="dateColor newsList_4g3_source">擎好网</p>' +
+                    '<p class="dateColor newsList_4g3_comNum">  | <img src="../../img/PP/myJoined/contentNum.png" class="newsList_4g3_imageNum">20</p> ' +
+                    '<p class=" dateColor newsList_4g3_date">2017-04-12</p>'+
+                    '</div>' +
+                    '</dd>' +
+                    '</dl>';
             $(".appendCur .newsList_4g3_main").append(str);
+        }
+//        tData
+        function tData() {
+            var cb="tDataCallback";
+            var newsList_4g3_select_SS='';
+            var templateId_replace="";
 
+            $.ajax({
+                async: false,
+                cache: true,
+                type: 'post',
+                dataType: "jsonp",
+                data: {dataType: "jsonp", channelId: lhbb_id, limit: lhbb_num, Callback: Callback},  //参数
+                url: "http://192.168.31.156:8080/cmsNews/template_editor/channel_article_list_index.do",//请求的action路径
+                success: function (data) { //请求成功后处理函数。
+                }
+            });
+        }
+        function tDataCallback(data) {
+            var data=data;
+            if( data != '' && data != undefined){
+                $(".newsList_4g3_main.showId").html("");
+                var str = "";
+                str = '&lt;dl class="clearFloat"&gt;' +
+                    '&lt;dt&gt; ' +
+                    '&lt;a onclick="goContentDetial(\''+data.articleUrl+'\',\'\')&gt;' +
+                    '&lt;img src="'+data.pic+'" class="newsList_4g3_listImg"&gt;&lt;/a&gt; ' +
+                    '&lt;/dt&gt;' +
+                    '&lt;dd&gt;'+
+                    '&lt;p class="newsList_4g3_title titleColor"&gt;' +
+                    '&lt;a onclick="goContentDetial(\''+data.articleUrl+'\',\'\')'+data.title+'&lt;/a&gt;' +
+                    '&lt;/p&gt; ' +
+                    '&lt;p class="newsList_4g3_summary"&gt;'+data.content+'&lt;/p&gt; ' +
+                    '&lt;div class="clearFloat newsList_4g3_foot"&gt;' +
+                    '&lt;p class="dateColor newsList_4g3_source"&gt;'+data.source+'&lt;/p&gt;' +
+                    '&lt;p class="dateColor newsList_4g3_comNum"&gt;  | ' +
+                    '&lt;img src="../../img/PP/myJoined/contentNum.png" class="newsList_4g3_imageNum"&gt;'+data.discussNum+'&lt;/p&gt; ' +
+                    '&lt;p class=" dateColor newsList_4g3_date"&gt;'+data.time+'&lt;/p&gt;'+
+                    '&lt;/div&gt;' +
+                    '&lt;/dd&gt;' +
+                    '&lt;/dl&gt;';
+                $(".newsList_4g3_main.showId").append(str);
+            }
         }
 
-        max(".newsList_4g3_title",46);
+        max(".newsList_4g3_title",60);
         max(".newsList_4g3_summary",86);
     </script>
 </div>

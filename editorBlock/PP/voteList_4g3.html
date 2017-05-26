@@ -28,7 +28,7 @@
         }
         .voteList_4g3_floatTop{
             position: absolute;
-            left: -4px;
+            left: 0;
             top: 8px;
             background: url("../../img/PP/myJoined/redIcon.png") no-repeat;
             width:42px;
@@ -86,7 +86,7 @@
         <!--<span class="title">话题投票内容iter</span>-->
     </div>
     <div class="panel-body">
-        <div class="voteList_4g3_main" "exist">
+        <div class="voteList_4g3_main showId" "exist">
         </div>
     </div>
 </div>
@@ -98,14 +98,11 @@
     if(flag == "v"){
         vData()
     }else{
-
         tData();
     }
 
     function vData() {
-
         $(".appendCur .voteList_4g3_main").html("");
-
         var title = "国家主席习近平同美国总统特朗普通电话国家主席习近平同美国总统特朗普通电话家通电话国家主席习近平同美国总统特朗普通电话家通电话国家主席习近平同美国总统特朗普通电话家通电话国家主席习近平同美国总统特朗普通电话家通电话国家主席习近平同美国总统特朗普通电话家通电话国家主席习近平同美国总统特朗普通电话家主席习近平同美国总统特朗普通电话国家主席习近平同美国总统特朗普通";
         var str = "";
         for (var i = 0; i < 1; i++) {
@@ -128,7 +125,59 @@
         $(".appendCur .voteList_4g3_main").append(str);
     }
 
-    max(".voteList_4g3_title",46);
+//    tData
+    function tData() {
+        var cb="tDataCallback";
+        var voteList_4g3_select_SS='';
+        var templateId_replace="";
+
+        $.ajax({
+            async: false,
+            cache: true,
+            type: 'post',
+            dataType: "jsonp",
+            data: {dataType: "jsonp", channelId: lhbb_id, limit: lhbb_num, Callback: Callback},  //参数
+            url: "http://192.168.31.156:8080/cmsNews/template_editor/channel_article_list_index.do",//请求的action路径
+            success: function (data) { //请求成功后处理函数。
+            }
+        });
+    }
+    function tDataCallback(data) {
+        var data=data;
+        if( data != '' && data != undefined){
+            $(".voteList_4g3_main.showId").html("");
+            var str = "";
+                str = '&lt;dl class="clearFloat"&gt;'+
+                '&lt;dt&gt;'+
+                '&lt;a onclick="goContentDetial(\''+data.articleUrl+'\',\'\')&gt;'+
+                '&lt;img src="'+data.pic+'" class="voteList_4g3_listImg"&gt;' +
+                '&lt;/a&gt;'+
+                '&lt;p class="voteList_4g3_floatTop"&gt;';
+                if( data.type=="vote" ){
+                    str+='投票';
+                }else if( data.type=="topic" ){
+                    str+='话题';
+                }
+                str+='&lt;/p&gt;'+
+                '&lt;/dt&gt;' +
+                '&lt;dd&gt;' +
+                '&lt;p class="voteList_4g3_title titleColor"&gt;' +
+                '&lt;a onclick="goContentDetial(\''+data.articleUrl+'\',\'\')&gt;'+data.title+'&lt;/a&gt;'+
+                '&lt;/p&gt;'+
+                '&lt;p class="voteList_4g3_summary"&gt;'+data.content+'&lt;/p&gt; ' +
+                '&lt;div class="voteList_4g3_clearFloat voteList_4g3_foot"&gt; ' +
+                '&lt;p class="dateColor voteList_4g3_source"&gt;'+data.source+'&lt;/p&gt;' +
+                '&lt;p class="dateColor voteList_4g3_comNum"&gt; | ' +
+                '&lt;img src="../../img/PP/myJoined/contentNum.png" class="voteList_4g3_imageNum"&gt;'+data.discussNum+'&lt;/p&gt; ' +
+                '&lt;p class=" dateColor voteList_4g3_date"&gt;'+data.time+'&lt;/p&gt;' +
+                '&lt;/div&gt;' +
+                '&lt;/dd&gt;' +
+                '&lt;/dl&gt;';
+            $(".voteList_4g3_main.showId").append(str);
+        }
+    }
+
+    max(".voteList_4g3_title",60);
     max(".voteList_4g3_summary",86);
 </script>
 </div>
