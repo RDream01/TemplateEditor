@@ -332,6 +332,43 @@
         .voteImg_4g3_discuss_list li:first-child{
             border-top:none;
         }
+        /*投票结果*/
+        .voteImg_4g3_voteResult{
+            overflow:hidden;
+        }
+        .voteImg_4g3_voteResult li{
+            float:left;
+            margin:10px 5px 20px 5px;
+            font-size:14px;
+            height:60px;
+            line-height:60px;
+        }
+        .voteImg_4g3_voteResult li:first-child{
+            max-width:270px;
+        }
+        .voteImg_4g3_voteResult li.voteImg_4g3_voteName{
+            width:180px;
+            height:40px;
+            margin-top:20px;
+            line-height: 20px;
+            overflow: hidden;
+        }
+        .voteImg_4g3_voteMeter{
+            width:180px;
+            height:12px;
+            background: #fff;
+        }
+        .voteImg_4g3_voteMeter span{
+            display:inline-block;
+            width:63px;
+            height:12px;
+            /*background:#000;*/
+        }
+        .voteImg_4g3_voteListImg{
+            border:1px solid #f1f1f1;
+            height: 60px;
+            width:100px;
+        }
     </style>
 </div>
 
@@ -347,18 +384,15 @@
                 <!--投票图片信息-->
                 <div class="voteImg_4g3_mainImg showId"></div>
                 <!--投票具体内容-->
-                <div class="voteImg_4g3_voteList">
+                <div class="voteImg_4g3_voteList showId">
                     <!--投票名称-->
                     <p class="titleColor voteImg_4g3_voteTitle">您认为&nbsp;&nbsp;
-                        <span class="voteImg_4g3_redTitle mainColor"></span>
+                        <span class="voteImg_4g3_redTitle mainColor showId"></span>
                     </p>
-                    <!--选项-->
-                    <ul class="clearFloat"></ul>
-                    <!--投票btn-->
-                    <p class="voteImg_4g3_voteBtn"><span class="mainColor_background">投票</span></p>
+
                 </div>
             </div>
-            <div class="voteImg_4g3_recommend">
+            <div class="voteImg_4g3_recommend showId">
                 <div class="voteImg_4g3_recommend_head">
                     <p class="voteImg_4g3_recommend_title mainColor">
                         <span class="voteImg_4g3_recommend_redLine">相关推荐</span>
@@ -381,6 +415,7 @@
 <div class="resize-handle"><i class="icon icon-resize-h"></i></div>
 
 <div class="script" "exist">
+    <script type="javascript" src="../../js/voteDetail.js"></script>
     <script>
         var flag = "v";
         if (flag == "v") {
@@ -399,39 +434,39 @@
             var loginStr = "";
             $(".appendCur .voteImg_4g3_discuss_head").html("");
             if (true) {   //  是否登录
-                loginStr += '<div class="voteImg_4g3_discuss_disList">';
-                loginStr += '<p class="voteImg_4g3_discuss_title mainColor"><span class="voteImg_4g3_discuss_redLine showId">参与讨论</span></p>';
-                loginStr += '<textarea class="voteImg_4g3_discuss_comment"></textarea>';
-                loginStr += '<p class="voteImg_4g3_discuss_commentbtn"><a href="#" class="voteImg_4g3_discuss_btn">发表评论</a></p>';
-                loginStr += '</div>';
+                loginStr += '&lt;div class="voteImg_4g3_discuss_disList"&gt;';
+                loginStr += '&lt;p class="voteImg_4g3_discuss_title mainColor"&gt;&lt;span class="voteImg_4g3_discuss_redLine showId"&gt;参与讨论&lt;/span&gt;&lt;/p&gt;';
+                loginStr += '&lt;textarea class="voteImg_4g3_discuss_comment"&gt;&lt;/textarea&gt;';
+                loginStr += '&lt;p class="voteImg_4g3_discuss_commentbtn"&gt;&lt;a href="#" class="voteImg_4g3_discuss_btn"&gt;发表评论&lt;/a&gt;&lt;/p&gt;';
+                loginStr += '&lt;/div&gt;';
             } else {
-                loginStr += '<div><p class="voteImg_4g3_discuss_title mainColor"><span class="voteImg_4g3_discuss_redLine showId">参与讨论</span></p>';
-                loginStr += '<div class="voteImg_4g3_discuss_inputAre" >';
-                loginStr += '<p class="voteImg_4g3_discuss_logDes dateColor"><a href="#" ><span class="mainColor voteImg_4g3_discuss_logBtn">登录</span></a>后参与讨论<span></span></p>';
-                loginStr += '</div></div>';
+                loginStr += '&lt;div&gt;&lt;p class="voteImg_4g3_discuss_title mainColor"&gt;&lt;span class="voteImg_4g3_discuss_redLine showId"&gt;参与讨论&lt;/span&gt;&lt;/p&gt;';
+                loginStr += '&lt;div class="voteImg_4g3_discuss_inputAre" &gt;';
+                loginStr += '&lt;p class="voteImg_4g3_discuss_logDes dateColor"&gt;&lt;a href="#" &gt;&lt;span class="mainColor voteImg_4g3_discuss_logBtn"&gt;登录&lt;/span&gt;&lt;/a&gt;后参与讨论&lt;span&gt;&lt;/span&gt;&lt;/p&gt;';
+                loginStr += '&lt;/div&gt;&lt;/div&gt;';
             }
             $(".appendCur .voteImg_4g3_discuss_head").html(loginStr);
 
             // 图片
             $(".appendCur .voteImg_4g3_mainImg").html("");
-            var mainContentStr = '<div class="voteImg_4g3_mainContent">' +
-                    '<img class="voteImg_4g3_headImg" src="../../img/PP/vote/vote.png">' +
-                    '<div class="voteImg_4g3_shadow">' +
-                    '<p class="voteImg_4g3_title">郑州到北京高铁提速至时速350公里 两小时能到吗？高铁提速至时速350公里 两小时能到吗？高铁提速至时速350公里 两小时能到吗？高铁提速至时速350公里 两小时能到吗？标题标题标题标题</p>' +
-                    '<p class="voteImg_4g3_Act">' +
-                    '<a href="#"><img src="../../img/PP/topic/collect.png" class="voteImg_4g3_collect"></a>' +
-                    '<a href="#"><img src="../../img/PP/topic/share.png" class="voteImg_4g3_share"></a>' +
-                    '</p>' +
-                    '<p class="voteImg_4g3_time clearFloat">投票时间：<span>2017.3.1-2017.3.31</span> ' +
-                    '<span class="voteImg_4g3_joinNum">参与人数 <span>109</span> 人</span>' +
-                    '</p>' +
-                    '</div>' +
-                    '</div>' +
-                    '<div class="voteImg_4g3_newsCont">';
+            var mainContentStr = '&lt;div class="voteImg_4g3_mainContent"&gt;' +
+                    '&lt;img class="voteImg_4g3_headImg" src="../../img/PP/vote/vote.png"&gt;' +
+                    '&lt;div class="voteImg_4g3_shadow"&gt;' +
+                    '&lt;p class="voteImg_4g3_title"&gt;郑州到北京高铁提速至时速350公里 两小时能到吗？高铁提速至时速350公里 两小时能到吗？高铁提速至时速350公里 两小时能到吗？高铁提速至时速350公里 两小时能到吗？标题标题标题标题&lt;/p&gt;' +
+                    '&lt;p class="voteImg_4g3_Act"&gt;' +
+                    '&lt;a href="#"&gt;&lt;img src="../../img/PP/topic/collect.png" class="voteImg_4g3_collect"&gt;&lt;/a&gt;' +
+                    '&lt;a href="#"&gt;&lt;img src="../../img/PP/topic/share.png" class="voteImg_4g3_share"&gt;&lt;/a&gt;' +
+                    '&lt;/p&gt;' +
+                    '&lt;p class="voteImg_4g3_time clearFloat"&gt;投票时间：&lt;span&gt;2017.3.1-2017.3.31&lt;/span&gt; ' +
+                    '&lt;span class="voteImg_4g3_joinNum"&gt;参与人数 &lt;span&gt;109&lt;/span&gt; 人&lt;/span&gt;' +
+                    '&lt;/p&gt;' +
+                    '&lt;/div&gt;' +
+                    '&lt;/div&gt;' +
+                    '&lt;div class="voteImg_4g3_newsCont"&gt;';
             for (var i = 0; i < 4; i++) {
-                mainContentStr += '<p class="txtColor">郑州到北京高铁提速至时速350公里 两小时能到吗</p>';
+                mainContentStr += '&lt;p class="txtColor"&gt;郑州到北京高铁提速至时速350公里 两小时能到吗&lt;/p&gt;';
             }
-            mainContentStr += '</div>';
+            mainContentStr += '&lt;/div&gt;';
             $(".appendCur .voteImg_4g3_mainImg").html(mainContentStr);
 
             //投票信息
@@ -442,15 +477,17 @@
 
             //选项
             $(".appendCur .voteImg_4g3_voteList ul").html("");
-            var optionStr = '';
+            var optionStr = '&lt;ul class="clearFloat"&gt;';
             for (var i = 0; i < 2; i++) {
-                optionStr += '<li><input type="radio" id="vote01" name="football"/>' +
-                        '<label for="vote01">' +
-                        '<img class="voteImg_4g3_voteListImg" src="../../img/PP/vote/pic.png" alt=""/>' +
-                        '<span class="voteImg_4g3_voteListTitle txtColor">世界杯16强世界界杯16强世界杯16强世界杯16强</span>' +
-                        '</label></li>';
+                optionStr += '&lt;li&gt;&lt;input type="radio" id="vote01" name="football"/&gt;' +
+                        '&lt;label for="vote01"&gt;' +
+                        '&lt;img class="voteImg_4g3_voteListImg" src="../../img/PP/vote/pic.png" alt=""/&gt;' +
+                        '&lt;span class="voteImg_4g3_voteListTitle txtColor"&gt;世界杯16强世界界杯16强世界杯16强世界杯16强&lt;/span&gt;' +
+                        '&lt;/label&gt;&lt;/li&gt;';
             }
-            $(".appendCur .voteImg_4g3_voteList ul").html(optionStr);
+            optionStr += '&lt;/ul&gt;&lt;p class="voteImg_4g3_voteBtn"&gt;&lt;span class="mainColor_background"&gt;投票&lt;/span&gt;&lt;/p&gt;';
+            var option1 = $(optionStr);
+            $(".appendCur .voteImg_4g3_voteList").append(option1);
 
 
             $(".appendCur .voteImg_4g3_recommend_list ul").html("");
@@ -459,10 +496,10 @@
             var title = "新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题";
             var str = "";
             for (var i = 0; i < v_voteImg_4g3_recommend_num; i++) {
-                str += '<li class="voteImg_4g3_list_interval"><a href="#">' +
-                        '<img src="../../img/PP/remtThreeImg_4g3/test.png" class="voteImg_4g3_recommend_listimg"> ' +
-                        '<p class="titleColor voteImg_4g3_recommend_listTitle ">' + title + '</p></a>' +
-                        '</li>';
+                str += '&lt;li class="voteImg_4g3_list_interval"&gt;&lt;a href="#"&gt;' +
+                        '&lt;img src="../../img/PP/remtThreeImg_4g3/test.png" class="voteImg_4g3_recommend_listimg"&gt; ' +
+                        '&lt;p class="titleColor voteImg_4g3_recommend_listTitle "&gt;' + title + '&lt;/p&gt;&lt;/a&gt;' +
+                        '&lt;/li&gt;';
             }
             $(".appendCur .voteImg_4g3_recommend_list ul").append(str);
             $(".appendCur .voteImg_4g3_recommend_list ul li:nth-child(3n-2)").removeClass("voteImg_4g3_list_interval");
@@ -470,43 +507,260 @@
             var title = "国家主席习近平同美国总统特朗普通电话国家主席习近平同美国总统特朗普通电手机的开发公司打款发货啥的就符合公司东方圣诞节回复供给函数的该发的几号的话家主席习近平同美国总统特朗普通电话国家主席习近平同美国总统特朗普通";
             var str = "";
             for (var i = 0; i < 4; i++) {
-                str += '<li>' +
-                        '<dl  class="clearFloat">' +
-                        '<dt >' +
-                        '<img src="../../img/PP/discuss_4g3/pic.png"  class="voteImg_4g3_discuss_listImg">' +
-                        '</dt>' +
-                        '<dd>' +
-                        '<div class="voteImg_4g3_discuss_listRi">' +
-                        '<p class="voteImg_4g3_discuss_listName mainColor">名dsadas字 <span class="voteImg_4g3_discuss_listTime dateColor"> &nbsp;&nbsp;&nbsp;几分钟前</span></p>' +
-                        '<p class="voteImg_4g3_discuss_listContent discussColor" >' + title + '</p> ' +
-                        '</div>' +
-                        '<a href="#" onclick="reply(this)" class="voteImg_4g3_discuss_reply"><span class="dateColor">回复</span></a>' +
-                        '</dd>' +
-                        '</dl>' +
-                        '</li>';
+                str += '&lt;li&gt;' +
+                        '&lt;dl  class="clearFloat"&gt;' +
+                        '&lt;dt &gt;' +
+                        '&lt;img src="../../img/PP/discuss_4g3/pic.png"  class="voteImg_4g3_discuss_listImg"&gt;' +
+                        '&lt;/dt&gt;' +
+                        '&lt;dd&gt;' +
+                        '&lt;div class="voteImg_4g3_discuss_listRi"&gt;' +
+                        '&lt;p class="voteImg_4g3_discuss_listName mainColor"&gt;名dsadas字 &lt;span class="voteImg_4g3_discuss_listTime dateColor"&gt; &nbsp;&nbsp;&nbsp;几分钟前&lt;/span&gt;&lt;/p&gt;' +
+                        '&lt;p class="voteImg_4g3_discuss_listContent discussColor" &gt;' + title + '&lt;/p&gt; ' +
+                        '&lt;/div&gt;' +
+                        '&lt;a href="#" onclick="reply(this)" class="voteImg_4g3_discuss_reply"&gt;&lt;span class="dateColor"&gt;回复&lt;/span&gt;&lt;/a&gt;' +
+                        '&lt;/dd&gt;' +
+                        '&lt;/dl&gt;' +
+                        '&lt;/li&gt;';
             }
 
             $(".appendCur .voteImg_4g3_discuss_list ul").append(str);
         }
 
         function tData() {
-    //        $.ajax({
-    //            async: false,
-    //            cache: true,
-    //            type: 'post',
-    //            dataType: "jsonp",
-    //            data: {dataType: "jsonp", channelId: lhbb_id, limit: lhbb_num, Callback: Callback},  //参数
-    //            url: "http://192.168.31.156:8080/cmsNews/template_editor/channel_article_list_index.do",//请求的action路径
-    //            success: function (data) { //请求成功后处理函数。
-    //            }
-    //        });
-        }
-        function tDataCallback(data) {
-            var list = data.dataList;
-            for (var i = 0; i < list.length; i++) {
-                var str = '<p><a href="#"/>' + list[i].title + '<a><p/>';
-                $(".lh.showId").append(str);
+            var cb="tDataCallback";
+            var voteImg_4g3_is_recommend="";
+            if( voteImg_4g3_is_recommend == "" ){
+                voteImg_4g3_is_recommend = "yes";
             }
+            var voteImg_4g3_recommend_num="";
+            if( voteImg_4g3_recommend_num == "" ){
+                voteImg_4g3_recommend_num = "3";
+            }
+
+            if(voteImg_4g3_is_recommend == "yes"){
+                $(".voteImg_4g3_recommend.showId").css("display","block");
+            }else{
+                $(".voteImg_4g3_recommend.showId").css("display","none");
+            }
+
+            var templateId_replace="";
+            var articleId= templateId_replace;
+
+            $.ajax({
+                async: false,
+                cache: true,
+                type: 'post',
+                dataType: "jsonp",
+                data: {articleId:articleId,voteImg_4g3_is_recommend:voteImg_4g3_is_recommend,limit:voteImg_4g3_recommend_num,callBack:cb},  //参数
+                url: blockBasePath + "blockData/getVoteInfo.do",//请求的action路径
+                success: function (data) {
+                }
+            });
+        }
+
+        //可进行投票 页面选项充填方法
+        function isVote(vote, imageFlag){
+            var voteOptions = vote.voteOptions;
+            var pStr = "&lt;ul class='clearFloat'&gt;";
+            for(var i=0;i<voteOptions.length;i++){
+                if(imageFlag == true){
+                    pStr += "&lt;li&gt;&lt;input type=";
+                    if(vote.voteInfo.voteType == 'O'){
+                        pStr += "'radio'";
+                    }else if(vote.voteInfo.voteType == 'N'){
+                        pStr += "'checkbox'";
+                    }
+                    pStr += "id='vote"+voteOptions[i].optionsId+"' value='"+voteOptions[i].optionsId+"'";
+                    pStr += "name='football'/&gt;";
+                    pStr += "&lt;label for='vote01'&gt;";
+                    if(voteOptions[i].optionLink != '' && voteOptions[i].optionLink != undefined && voteOptions[i].optionLink != null){
+                        pStr += "&lt;a href='"+voteOptions[i].optionLink+"' target='_Blank'&gt;";
+                        pStr += "&lt;img class='voteImg_4g3_voteListImg' src='"+voteOptions[i].optionPic+"' alt=''/&gt;&lt;/a&gt;";
+                    }else{
+                        pStr += "&lt;a&gt;&lt;img class='voteImg_4g3_voteListImg' src='"+voteOptions[i].optionPic+"' alt=''/&gt;&lt;/a&gt;";
+                    }
+                    pStr += "&lt;span  class='voteImg_4g3_voteListTitle txtColor'&gt;"+voteOptions[i].options+"&lt;/span&gt;";
+                    pStr += "&lt;/label&gt;&lt;/li&gt;";
+                }else{
+                    pStr += "&lt;li&gt;&lt;input type=";
+                    if(vote.voteInfo.voteType == 'O'){
+                        pStr += "'radio'";
+                    }else if(vote.voteInfo.voteType == 'N'){
+                        pStr += "'checkbox'";
+                    }
+                    pStr += "id='vote"+voteOptions[i].optionsId+"' value='"+voteOptions[i].optionsId+"'";
+                    pStr += "name='football'/&gt;";
+                    pStr += "&lt;label for='vote01'&gt;&lt;span  class='voteImg_4g3_voteListTitle txtColor'&gt;"+voteOptions[i].options+"&lt;/span&gt;&lt;/label&gt;";
+                    pStr += "&lt;/li&gt;";
+                }
+            }
+            pStr += "&lt;/ul&gt;";
+            var p = $(pStr);
+            $(".voteImg_4g3_voteList.showId").append(p);
+            var p2Str = '&lt;p class="voteImg_4g3_voteBtn"&gt;&lt;span class="mainColor_background"  href="javascript:toVote(\""+vote.articleId+"\");"&gt;投票&lt;/span&gt;&lt;/p&gt;';
+            var p2 = $(p2Str);
+            $(".voteImg_4g3_voteList.showId").append(p2);
+            var div = $("&lt;div id='form1' runat='server' onsubmit='validateCode()'&gt;"
+                    + "&lt;span class='close'&gt;X&lt;/span&gt;"
+                    + "&lt;div class='tof'&gt;"
+                    + "&lt;p&gt;"
+                    + "&lt;span class='code' id='checkCode' onclick='createCode()'&gt;&lt;/span&gt;"
+                    + "&lt;a class='bu' onclick='createCode()'&gt;看不清换一张&lt;/a&gt;"
+                    + "&lt;/p&gt;"
+                    + "&lt;p&gt;"
+                    + "&lt;span&gt;请输入验证码:&lt;/span&gt;"
+                    + "&lt;input type='text'  id='inputCode' /&gt;"
+                    + "&lt;/p&gt;"
+                    + "&lt;p&gt;"
+                    + "&lt;input id='Button1' onclick='validateCode();' type='button' value='确定' /&gt;"
+                    + "&lt;/p&gt;"
+                    + "&lt;/div&gt;"
+                    + "&lt;/div&gt;");
+            $(".voteImg_4g3_voteList.showId").append(div);
+            createColler();
+        }
+        //不可进行投票 页面选项充填方法
+        function notVote(vote, imageFlag){
+            var voteOptions = vote.voteOptions;
+            var pStr = '&lt;div class="voteImg_4g3_voteResultAll"&gt;';
+            for(var i=0;i<voteOptions.length;i++){
+                if(imageFlag == true){
+                    pStr += "&lt;ul class='voteImg_4g3_voteResult'&gt;&lt;li class='voteImg_4g3_voteNum01'&gt;";
+                    if(voteOptions[i].optionLink != '' && voteOptions[i].optionLink != undefined && voteOptions[i].optionLink != null){
+                        pStr += "&lt;a href='"+voteOptions[i].optionLink+"' target='_Blank'&gt;";
+                        pStr += "&lt;img class='voteImg_4g3_voteListImg' src='"+voteOptions[i].optionPic+"' alt=''/&gt;&lt;/a&gt;&lt;/li&gt;";
+                    }else{
+                        pStr += "&lt;a&gt;&lt;img class='voteImg_4g3_voteListImg' src='"+voteOptions[i].optionPic+"' alt=''/&gt;&lt;/a&gt;&lt;/li&gt;";
+                    }
+                    pStr += "&lt;li class='voteImg_4g3_voteName txtColor'&gt;"+voteOptions[i].options+"&lt;/li&gt;";
+                    pStr += "&lt;li class='voteImg_4g3_voteMeter'&gt;&lt;span&gt;&lt;/span&gt;&lt;/li&gt;";
+                    pStr += "&lt;li class='percent titleColor'&gt;"+voteOptions[i].percentage+"%&lt;/li&gt;";
+                    pStr += "&lt;li&gt;"+voteOptions[i].optionNum+"票&lt;/li&gt;";
+                    if(voteOptions[i].voteFlag == true){
+                        pStr += "&lt;li&gt;+1&lt;/li&gt;";
+                    }
+                    pStr += "&lt;/ul&gt;";
+                }else{
+                    pStr += "&lt;ul class='voteImg_4g3_voteResult'&gt;";
+                    pStr += "&lt;li class='voteImg_4g3_voteName txtColor'&gt;"+voteOptions[i].options+"&lt;/li&gt;";
+                    pStr += "&lt;li class='voteImg_4g3_voteMeter'&gt;&lt;span&gt;&lt;/span&gt;&lt;/li&gt;";
+                    pStr += "&lt;li class='percent titleColor'&gt;"+voteOptions[i].percentage+"%&lt;/li&gt;";
+                    pStr += "&lt;li&gt;"+voteOptions[i].optionNum+"票&lt;/li&gt;";
+                    if(voteOptions[i].voteFlag == true){
+                        pStr += "&lt;li&gt;+1&lt;/li&gt;";
+                    }
+                    pStr += "&lt;/ul&gt;";
+                }
+            }
+            pStr += "&lt;/div&gt;";
+            var p = $(pStr);
+            $(".voteImg_4g3_voteList.showId").append(p);
+            createColler();
+        }
+
+        //投票详情区块添加评论列表
+        function addComment(vote){
+            if(vote.isComment == '1') {
+                var commentList = vote.commentList;
+                $(".voteImg_4g3_recommend_list ul.showId li:nth-child(3n-2)").removeClass("voteImg_4g3_list_interval");
+                $(".voteImg_4g3_discuss_list ul.showId").html("");
+                var str = "";
+                for (var i = 0; i < commentList.length; i++) {
+                    str += '&lt;li&gt;' +
+                            '&lt;dl  class="clearFloat"&gt;' +
+                            '&lt;dt &gt;' +
+                            '&lt;img src="'+commentList[i].headImgurl+'"  class="voteImg_4g3_discuss_listImg"&gt;' +
+                            '&lt;/dt&gt;' +
+                            '&lt;dd&gt;' +
+                            '&lt;div class="voteImg_4g3_discuss_listRi"&gt;' +
+                            '&lt;p class="voteImg_4g3_discuss_listName mainColor"&gt;'+commentList[i].nickName+' &lt;span class="voteImg_4g3_discuss_listTime dateColor"&gt; &nbsp;&nbsp;&nbsp;'+commentList[i].commentTime+'&lt;/span&gt;&lt;/p&gt;' +
+                            '&lt;p class="voteImg_4g3_discuss_listContent discussColor" &gt;'+commentList[i].commentContent+'&lt;/p&gt; ' +
+                            '&lt;/div&gt;' +
+                            '&lt;a href="#" onclick="reply(this)" class="voteImg_4g3_discuss_reply"&gt;&lt;span class="dateColor"&gt;回复&lt;/span&gt;&lt;/a&gt;' +
+                            '&lt;/dd&gt;' +
+                            '&lt;/dl&gt;' +
+                            '&lt;/li&gt;';
+                }
+
+                $(".appendCur .voteImg_4g3_discuss_list ul").append(str);
+            }
+        }
+
+        //投票详情区块添加相关内容
+        function addRefArticle(data){
+            $(".voteImg_4g3_recommend_list ul.showId").html("");
+            var refShowList = data.vote.refShowList;
+            var str = "";
+            for (var i = 0; i < refShowList.length; i++) {
+                str +='&lt;li class="voteImg_4g3_list_interval"&gt;&lt;a href="javascript:goContentDetial(\"'+ refShowList[i].articleUrl +'\",\"\")"&gt;'+
+                        '&lt;img src="'+ refShowList[i].pic +'" class="voteImg_4g3_recommend_listimg"&gt; ' +
+                        '&lt;p class="titleColor voteImg_4g3_recommend_listTitle "&gt;'+refShowList[i].title+'&lt;/p&gt;&lt;/a&gt;' +
+                        '&lt;/li&gt;';
+            }
+            $(".voteImg_4g3_recommend_list ul.showId").append(str);
+        }
+
+
+        function tDataCallback(data) {//请求成功后处理函数。
+            var vote = data.vote;
+
+            if(vote.isComment == '1'){
+                var loginStr ="";
+                if(true){   //  是否登录
+                    loginStr +='&lt;div class="voteImg_4g3_discuss_disList"&gt;';
+                    loginStr +='&lt;p class="voteImg_4g3_discuss_title mainColor"&gt;&lt;span class="voteImg_4g3_discuss_redLine showId"&gt;参与讨论&lt;/span&gt;&lt;/p&gt;';
+                    loginStr +='&lt;textarea class="voteImg_4g3_discuss_comment"&gt;&lt;/textarea&gt;';
+                    loginStr +='&lt;p class="voteImg_4g3_discuss_commentbtn"&gt;&lt;a href="#" class="voteImg_4g3_discuss_btn"&gt;发表评论&lt;/a&gt;&lt;/p&gt;';
+                    loginStr +='&lt;/div&gt;';
+                }else{
+                    loginStr += '&lt;div&gt;&lt;p class="voteImg_4g3_discuss_title mainColor"&gt;&lt;span class="voteImg_4g3_discuss_redLine showId"&gt;参与讨论&lt;/span&gt;&lt;/p&gt;';
+                    loginStr += '&lt;div class="voteImg_4g3_discuss_inputAre" &gt;';
+                    loginStr += '&lt;p class="voteImg_4g3_discuss_logDes dateColor"&gt;&lt;a href="#" &gt;&lt;span class="mainColor voteImg_4g3_discuss_logBtn"&gt;登录&lt;/span&gt;&lt;/a&gt;后参与讨论&lt;span&gt;&lt;/span&gt;&lt;/p&gt;';
+                    loginStr += '&lt;/div&gt;&lt;/div&gt;';
+                }
+                $(".voteImg_4g3_discuss_head.showId").html(loginStr);
+            }
+            //图文信息
+            //$(".voteImg_4g3_TxtImg").html("");
+            var imgTxtStr='&lt;div class="voteImg_4g3_headImg"&gt;'+
+                    '&lt;img class="voteImg_4g3_Img" src="'+ vote.pic +'"&gt;'+
+                    '&lt;div class="voteImg_4g3_shadow"&gt;'+
+                    '&lt;p class="voteImg_4g3_title"&gt;'+ vote.title +'&lt;/p&gt;'+
+                    '&lt;p class="voteImg_4g3_Act"&gt;'+
+                    '&lt;a href="#"&gt;&lt;img src="../../img/PP/topic/collect.png" class="voteImg_4g3_collect"&gt;&lt;/a&gt;'+
+                    '&lt;a href="#"&gt;&lt;img src="../../img/PP/topic/share.png" class="voteImg_4g3_share"&gt;&lt;/a&gt;'+
+                    '&lt;/p&gt;'+
+                    '&lt;p class="voteImg_4g3_time clearFloat"&gt;投票时间：'+ vote.voteInfo.startTime +'-'+ vote.voteInfo.endTime +
+                    '&lt;span class="voteImg_4g3_joinNum"&gt;参与人数  '+ vote.voteInfo.partInNum +'  人&lt;/span&gt;&lt;/p&gt;'+
+                    '&lt;/div&gt;'+
+                    '&lt;/div&gt;'+
+                    '&lt;div class="voteImg_4g3_newsCont"&gt;';
+            imgTxtStr+=vote.articleContent;
+            imgTxtStr+='&lt;/div&gt;';
+            $(".voteImg_4g3_TxtImg.showId").html(imgTxtStr);
+
+            //投票名字
+            // $(".voteImg_4g3_redTitle").html("");
+            var titleStr= vote.voteInfo.voteInstruction;
+            $(".voteImg_4g3_redTitle.showId").html(titleStr);
+
+            //投票选型
+            //$(".voteImg_4g3_voteResultAll").html("");
+            var flag = data.flag;
+            if(flag == true){
+                isVote(data.vote, data.imageFlag);
+            }else{
+                notVote(data.vote, data.imageFlag);
+            }
+
+            if(data.voteImg_4g3_is_recommend == 'yes'){
+                //相关推荐
+                addRefArticle(data);
+            }
+
+            //参与讨论
+            addComment(vote);
+
         }
 
         max(".voteImg_4g3_title",62);
