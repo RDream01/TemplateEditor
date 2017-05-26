@@ -284,6 +284,8 @@ function importFile(id, nextShowId, size,groupDiv) {
             //清楚所有选中框
             $(".indexAll .appendStr .panel").removeClass('appendCur');
             //固定替换流程
+            data = data.replace(/&lt;/g,'<');
+            data = data.replace(/&gt;/g,'>');
             data = data.replace(/showId/g, '');
             data = data.replace(/"exist"/g, '');
             data = data.replace("panel", "panel appendCur");

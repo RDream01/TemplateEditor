@@ -1,4 +1,3 @@
-
 <div class="col-md-9 col-sm-9 appendStr article_4g3" id="article_4g3" data-blockSize="9">
 <div class="style" "exist">
     <style>
@@ -271,9 +270,6 @@
     <!--相关推荐-->
     <input type="hidden" class="v_article_4g3_recommend_num" value="3" align="center"/>
     <input type="hidden" class="v_article_4g3_is_recommend" value="yes">
-    <!--评论-->
-    <input type="hidden" class="v_article_4g3_is_discuss" value="yes">
-
     <div class="panel-heading">
         <!--<span class="title">文章</span>-->
     </div>
@@ -281,14 +277,14 @@
         <div class="Grid4g3 article_4g3_all" "exist">
             <div class="article_4g3_main_container">
                 <!--面包屑导航--article_4g3_bread-->
-                <p class="article_4g3_bread mainColor"></p>
+                <p class="article_4g3_bread mainColor showId"></p>
                 <!--article_4g3_title-->
-                <div class="article_4g3_title articleTitleColor"><p></p></div>
+                <div class="article_4g3_title articleTitleColor"><p class="showId"></p></div>
                 <!--新闻主体-->
-                <div class="article_4g3_main"></div>
+                <div class="article_4g3_main showId"></div>
             </div>
             <!-- 相关推荐 -->
-            <div class="Grid4g3 article_4g3_recommend">
+            <div class="Grid4g3 article_4g3_recommend showId">
                 <div class="article_4g3_recommend_head">
                     <p class="article_4g3_recommend_title mainColor">
                         <span class="article_4g3_recommend_redLine">相关推荐</span>
@@ -313,15 +309,13 @@
 
 <div class="script" "exist">
     <script>
-        var flag = "v";
+        var flag="v";
         if (flag == "v") {
             vData()
         } else {
             tData();
         }
-
         function vData() {
-
             //相关推荐+评论 start
             var  v_article_4g3_is_recommend = $(".appendCur .v_article_4g3_is_recommend").val();
             if(v_article_4g3_is_recommend == "yes"){
@@ -329,110 +323,172 @@
             }else{
                 $(".appendCur .article_4g3_recommend").css("display","none");
             }
-            var v_article_4g3_is_discuss=$(".appendCur .v_article_4g3_is_discuss").val();
-            if( v_article_4g3_is_discuss=="yes" ){
-                $(".appendCur .article_4g3_is_discuss").show();
-            }else{
-                $(".appendCur .article_4g3_is_discuss").hide();
-
-            }
-
             $(".appendCur .article_4g3_recommend_list ul").html("");
             var v_article_4g3_recommend_num = $(".appendCur .v_article_4g3_recommend_num").val();
             var title = "新闻标题新闻标题新闻标题新闻标题新闻标题";
             var str = "";
             for (var i = 0; i < v_article_4g3_recommend_num; i++) {
-                str +='<li class="article_4g3_list_interval"><a href="#" onclick="goContentDetial("","")">'+
-                        '<img src="../../img/PP/remtThreeImg_4g3/test.png" class="article_4g3_recommend_listimg"> ' +
-                        '<p class="titleColor article_4g3_recommend_listTitle ">'+title+'</p></a>' +
-                        '</li>';
+                str +='&lt;li class="article_4g3_list_interval"&gt;&lt;a href="#" onclick="goContentDetial("","")"&gt;'+
+                        '&lt;img src="../../img/PP/remtThreeImg_4g3/test.png" class="article_4g3_recommend_listimg"&gt; ' +
+                        '&lt;p class="titleColor article_4g3_recommend_listTitle "&gt;'+title+'&lt;/p&gt;&lt;/a&gt;' +
+                        '&lt;/li&gt;';
             }
             $(".appendCur .article_4g3_recommend_list ul").append(str);
 
             var loginStr ="";
             if(false){   //  是否登录
-                loginStr +='<div class="article_4g3_discuss_disList">';
-                loginStr +='<p class="article_4g3_discuss_title mainColor"><span class="article_4g3_discuss_redLine">参与讨论</span></p>';
-                loginStr +='<textarea class="article_4g3_discuss_comment"></textarea>';
-                loginStr +='<p class="article_4g3_discuss_commentbtn"><a href="#" class="article_4g3_discuss_btn">发表评论</a></p>';
-                loginStr +='</div>';
+                loginStr +='&lt;div class="article_4g3_discuss_disList"&gt;';
+                loginStr +='&lt;p class="article_4g3_discuss_title mainColor"&gt;&lt;span class="article_4g3_discuss_redLine"&gt;参与讨论&lt;/span&gt;&lt;/p&gt;';
+                loginStr +='&lt;textarea class="article_4g3_discuss_comment"&gt;&lt;/textarea&gt;';
+                loginStr +='&lt;p class="article_4g3_discuss_commentbtn"&gt;&lt;a href="#" class="article_4g3_discuss_btn"&gt;发表评论&lt;/a&gt;&lt;/p&gt;';
+                loginStr +='&lt;/div&gt;';
             }else{
-                loginStr += '<div><p class="article_4g3_discuss_title mainColor"><span class="article_4g3_discuss_redLine">参与讨论</span></p>';
-                loginStr += '<div class="article_4g3_discuss_inputAre" >';
-                loginStr += '<p class="article_4g3_discuss_logDes dateColor"><a href="#" ><span class="mainColor article_4g3_discuss_logBtn">登录</span></a>后参与讨论<span></span></p>';
-                loginStr += '</div></div>';
+                loginStr += '&lt;div&gt;&lt;p class="article_4g3_discuss_title mainColor"&gt;&lt;span class="article_4g3_discuss_redLine"&gt;参与讨论&lt;/span&gt;&lt;/p&gt;';
+                loginStr += '&lt;div class="article_4g3_discuss_inputAre" &gt;';
+                loginStr += '&lt;p class="article_4g3_discuss_logDes dateColor"&gt;&lt;a href="#" &gt;&lt;span class="mainColor article_4g3_discuss_logBtn"&gt;登录&lt;/span&gt;&lt;/a&gt;后参与讨论&lt;span&gt;&lt;/span&gt;&lt;/p&gt;';
+                loginStr += '&lt;/div&gt;&lt;/div&gt;';
             }
             $(".appendCur .article_4g3_discuss_head").html(loginStr);
 
             var title = "国家主席习近平同美国总统特朗普通电话国家主席习近平同美国总统特朗普通电话家主席习近平同美国总统特朗普通电话国家主席习近平同美国总统特朗普通";
             var str = "";
             for (var i = 0; i < 4; i++) {
-                str +='<li>' +
-                        '<dl  class="clearFloat">' +
-                        '<dt >' +
-                        '<img src="../../img/PP/discuss_4g3/pic.png"  class="article_4g3_discuss_listImg">' +
-                        '</dt>' +
-                        '<dd>' +
-                        '<div class="article_4g3_discuss_listRi">' +
-                        '<p class="article_4g3_discuss_listName mainColor">名dsadas字 <span class="article_4g3_discuss_listTime dateColor"> &nbsp;&nbsp;&nbsp;几分钟前</span></p>' +
-                        '<p class="article_4g3_discuss_listContent discussColor" >'+title+'</p> ' +
-                        '</div>' +
-                        '<a href="#" onclick="reply(this)" class="article_4g3_discuss_reply"><span class="dateColor">回复</span></a>' +
-                        '</dd>' +
-                        '</dl>' +
-                        '</li>';
+                str +='&lt;li&gt;' +
+                        '&lt;dl  class="clearFloat"&gt;' +
+                        '&lt;dt &gt;' +
+                        '&lt;img src="../../img/PP/discuss_4g3/pic.png"  class="article_4g3_discuss_listImg"&gt;' +
+                        '&lt;/dt&gt;' +
+                        '&lt;dd&gt;' +
+                        '&lt;div class="article_4g3_discuss_listRi"&gt;' +
+                        '&lt;p class="article_4g3_discuss_listName mainColor"&gt;名dsadas字 &lt;span class="article_4g3_discuss_listTime dateColor"&gt; &nbsp;&nbsp;&nbsp;几分钟前&lt;/span&gt;&lt;/p&gt;' +
+                        '&lt;p class="article_4g3_discuss_listContent discussColor" &gt;'+title+'&lt;/p&gt; ' +
+                        '&lt;/div&gt;' +
+                        '&lt;a href="#" onclick="reply(this)" class="article_4g3_discuss_reply"&gt;&lt;span class="dateColor"&gt;回复&lt;/span&gt;&lt;/a&gt;' +
+                        '&lt;/dd&gt;' +
+                        '&lt;/dl&gt;' +
+                        '&lt;/li&gt;';
             }
             $(".appendCur .article_4g3_discuss_list ul").append(str);
             //相关推荐+评论 end
-
             //面包屑导航
-            $(".appendCur .article_4g3_bread").html("");
             var breadStr='';
-            breadStr=' <a class="mainColor" href="#">经济</a><span>&gt;</span><a class="mainColor" href="#">地产</a>';
+            breadStr=' &lt;a class="mainColor" href="#"&gt;经济&lt;/a&gt;&lt;span&gt;&gt;&lt;/span&gt;&lt;a class="mainColor" href="#"&gt;地产&lt;/a&gt;';
             $(".appendCur .article_4g3_bread").html(breadStr);
-
             //title
-            $(".appendCur .article_4g3_title p").html("");
             var nameStr="";
             nameStr='苏州楼市调查：有楼盘9个月房价翻倍，开发商称涨有据';
             $(".appendCur .article_4g3_title p").html(nameStr);
-
             //main
-            $(".appendCur .article_4g3_main").html('');
             var mainStr='';
-            mainStr= '<p class="article_4g3_time infoColor">2016-04-09 07:35 | 北京晨报</p>'+
-            '<div>';
+            mainStr= '&lt;p class="article_4g3_time infoColor"&gt;2016-04-09 07:35 | 北京晨报&lt;/p&gt;'+
+            '&lt;div&gt;';
             for( var i=0;i<2;i++ ){
-                mainStr+='<p class="article_4g3_text articleTextColor">3月30日晚7点，苏州三香场。在小时内全部售罄，实现销售回款9亿多元。</p>'
+                mainStr+='&lt;p class="article_4g3_text articleTextColor"&gt;3月30日晚7点，苏州三香场。在小时内全部售罄，实现销售回款9亿多元。&lt;/p&gt;'
                 if( true ){
-                    mainStr+='<div class="article_4g3_imgAll">'+
-                    '<img src="../../img/PP/article/detail_01.png" alt=""/>'+
-                    '<p class="article_4g3_imgTxt">苏州高新区某楼盘在体育馆开盘</p>'+
-                    '</div>';
+                    mainStr+='&lt;div class="article_4g3_imgAll"&gt;'+
+                    '&lt;img src="../../img/PP/article/detail_01.png" alt=""/&gt;'+
+                    '&lt;p class="article_4g3_imgTxt"&gt;苏州高新区某楼盘在体育馆开盘&lt;/p&gt;'+
+                    '&lt;/div&gt;';
                 }
-                mainStr+='<p class="article_4g3_text articleTextColor">这个楼盘的火热正是去年下半年以来，苏州楼市的一个缩影。</p>';
+                mainStr+='&lt;p class="article_4g3_text articleTextColor"&gt;这个楼盘的火热正是去年下半年以来，苏州楼市的一个缩影。&lt;/p&gt;';
             }
-            mainStr+='<p class="article_4g3_writer infoColor">录入编辑：张文华</p></div>';
+            mainStr+='&lt;p class="article_4g3_writer infoColor"&gt;录入编辑：张文华&lt;/p&gt;&lt;/div&gt;';
             $(".appendCur .article_4g3_main").html(mainStr);
         }
         function tData() {
+            var cb="tDataCallback";
+            var article_4g3_is_recommend="";
+            var article_4g3_recommend_num="";
+            if(article_4g3_is_recommend == ""){
+                article_4g3_is_recommend = "yes";
+            }
+            if(article_4g3_is_recommend == "yes"){
+                $(".article_4g3_recommend.showId").css("display","block");
+            }else{
+                $(".article_4g3_recommend.showId").css("display","none");
+            }
+            if(article_4g3_recommend_num == ""){
+                article_4g3_recommend_num = "3";
+            }
+            var templateId_replace="";
+            var articleId= templateId_replace;
             $.ajax({
                 async: false,
                 cache: true,
                 type: 'post',
                 dataType: "jsonp",
-                data: {dataType: "jsonp", channelId: lhbb_id, limit: lhbb_num, Callback: Callback},  //参数
-                url: "http://192.168.31.156:8080/cmsNews/template_editor/channel_article_list_index.do",//请求的action路径
+                data: {articleId:articleId, limit: article_4g3_recommend_num, callBack: cb},  //参数
+                url: "http://192.168.31.156:8080/cmsNews/blockData/channel_article_list_index.do",//请求的action路径
                 success: function (data) { //请求成功后处理函数。
                 }
             });
         }
-        function tDataCallback(data) {
-            var list = data.dataList;
-            for (var i = 0; i < list.length; i++) {
-                var str = '<p><a href="#"/>' + list[i].title + '<a><p/>';
-                $(".lh.showId").append(str);
+        function tDataCallback(data){
+            var article = data.article;
+            //相关推荐
+            var recommendList = article.refShowList;
+            if( recommendList != '' && recommendList != undefined){
+                $(".article_4g3_recommend_list ul.showId").html("");
+                var str = "";
+                for (var i = 0; i < recommendList.length; i++) {
+                    str +='&lt;li class="article_4g3_list_interval"&gt;&lt;a onclick="goContentDetial(\''+recommendList[i].articleUrl+'\',\'\')"&gt;'+
+                            '&lt;img src="'+recommendList[i].pic+'" class="article_4g3_recommend_listimg"&gt; ' +
+                            '&lt;p class="titleColor article_4g3_recommend_listTitle "&gt;'+recommendList[i].title+'&lt;/p&gt;&lt;/a&gt;' +
+                            '&lt;/li&gt;';
+                }
+                $(".article_4g3_recommend_list ul.showId").append(str);
             }
+            //评论 是否登录
+            var loginStr ="";
+            if(false){
+                loginStr +='&lt;div class="article_4g3_discuss_disList"&gt;';
+                loginStr +='&lt;p class="article_4g3_discuss_title mainColor"&gt;&lt;span class="article_4g3_discuss_redLine"&gt;参与讨论&lt;/span&gt;&lt;/p&gt;';
+                loginStr +='&lt;textarea class="article_4g3_discuss_comment"&gt;&lt;/textarea&gt;';
+                loginStr +='&lt;p class="article_4g3_discuss_commentbtn"&gt;&lt;a href="#" class="article_4g3_discuss_btn"&gt;发表评论&lt;/a&gt;&lt;/p&gt;';
+                loginStr +='&lt;/div&gt;';
+            }else{
+                loginStr += '&lt;div&gt;&lt;p class="article_4g3_discuss_title mainColor"&gt;&lt;span class="article_4g3_discuss_redLine"&gt;参与讨论&lt;/span&gt;&lt;/p&gt;';
+                loginStr += '&lt;div class="article_4g3_discuss_inputAre" &gt;';
+                loginStr += '&lt;p class="article_4g3_discuss_logDes dateColor"&gt;&lt;a href="#" &gt;&lt;span class="mainColor article_4g3_discuss_logBtn"&gt;登录&lt;/span&gt;&lt;/a&gt;后参与讨论&lt;span&gt;&lt;/span&gt;&lt;/p&gt;';
+                loginStr += '&lt;/div&gt;&lt;/div&gt;';
+            }
+            $(".article_4g3_discuss_head.showId").html(loginStr);
+            //评论
+            var commentList = article.commentList;
+            var str = "";
+            if(commentList != '' &&  commentList != undefined){
+                for (var i = 0; i <commentList.length; i++) {
+                    str +='&lt;li&gt;' +
+                            '&lt;dl  class="clearFloat"&gt;' +
+                            '&lt;dt &gt;' +
+                            '&lt;img src="'+commentList[i].headImgurl+'"  class="article_4g3_discuss_listImg"&gt;' +
+                            '&lt;/dt&gt;' +
+                            '&lt;dd&gt;' +
+                            '&lt;div class="article_4g3_discuss_listRi"&gt;' +
+                            '&lt;p class="article_4g3_discuss_listName mainColor"&gt;'+commentList[i].nickName+' &lt;span class="article_4g3_discuss_listTime dateColor"&gt; &nbsp;&nbsp;&nbsp;'+commentList[i].commentTime+'&lt;/span&gt;&lt;/p&gt;' +
+                            '&lt;p class="article_4g3_discuss_listContent discussColor" &gt;'+commentList[i].commentContent+'&lt;/p&gt; ' +
+                            '&lt;/div&gt;' +
+                            '&lt;a onclick="reply(this)" class="article_4g3_discuss_reply"&gt;&lt;span class="dateColor"&gt;回复&lt;/span&gt;&lt;/a&gt;' +
+                            '&lt;/dd&gt;' +
+                            '&lt;/dl&gt;' +
+                            '&lt;/li&gt;';
+                }
+                $(".article_4g3_discuss_list ul.showId").html(str);
+            }
+            //正文
+            var breadStr='';
+            breadStr=' &lt;a class="mainColor" href="#"&gt;经济&lt;/a&gt;&lt;span&gt;&gt;&lt;/span&gt;&lt;a class="mainColor" href="#"&gt;地产&lt;/a&gt;';
+            $(".article_4g3_bread.showId").html(breadStr);
+            //title
+            var nameStr="";
+            nameStr=article.title;
+            $(".article_4g3_title p.showId").html(nameStr);
+            //main
+            var mainStr='';
+            mainStr= '&lt;p class="article_4g3_time infoColor"&gt;'+article.onlineTime+'| '+article.sourceTitle+'&lt;/p&gt;';
+            mainStr = article.articleContent;
+            mainStr+='&lt;p class="article_4g3_writer infoColor"&gt;录入编辑：'+article.author+'&lt;/p&gt;&lt;/div&gt;';
+            $(".article_4g3_main.showId").html(mainStr);
         }
 
         max(".article_4g3_recommend_listTitle",22);

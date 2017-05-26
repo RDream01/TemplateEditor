@@ -269,6 +269,8 @@ function importFile(id, nextShowId, size,groupDiv) {
         //清楚所有选中框
         $(".indexAll .appendStr .panel").removeClass('appendCur');
         //固定替换流程
+        data = data.replace(/&lt;/g,'<');
+        data = data.replace(/&gt;/g,'>');
         data = data.replace(/showId/g, '');
         data = data.replace(/"exist"/g, '');
         data = data.replace("panel", "panel appendCur");
@@ -1003,7 +1005,6 @@ function saveDraft(draftBtn){
         }
     });
 }
-
 //保存
 $('#keep').click(function () {
     if( $(".mainCanvas").text()!=="" ){
@@ -1017,7 +1018,6 @@ $('#keep').click(function () {
                 notCur = "no";
             }
         }
-
         if (notCur == 'no') {
             alert("标记蓝色的组件有必填项没有填写");
         } else if (notCur == 'yes') {
@@ -1035,6 +1035,13 @@ $('#keep').click(function () {
                 groupDivOrder += $(pp).attr("data-groupShowId")+",";
             }
             groupDivOrder = groupDivOrder.substring(0, groupDivOrder.length - 1);
+            console.log(str);
+            console.log(order);
+            console.log(groupDivOrder);
+            console.log(templateIdVal);
+            console.log(templateColorVal);
+            console.log(gridSizeVal);
+            //return;
             $.ajax({
                 async: false,
                 cache: true,
@@ -1053,7 +1060,6 @@ function saveTemplateCallback(data){
     alert("保存成功~");
     window.location.href="editor_index.html";
 }
-
 //preview---预览
 $("#previewtest").click(function(){
     var main=$('.main').clone();
@@ -1109,13 +1115,7 @@ window.onload = function () {
         layout();
         gridSize();
     }
-
     moveAll();
-    //var optionsTrigger = {
-    //    selector:'.list-group-item',
-    //    trigger: '[data-trigger="sortArea"]'
-    //};
-    //$('#sortableList').sortable(optionsTrigger);
 };
 
 //关闭浏览器提示
