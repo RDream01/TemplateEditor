@@ -327,45 +327,45 @@
             var title = "新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题";
             var str = "";
             for (var i = 0; i < v_videoDetail_4g3_recommend_num; i++) {
-                str +='<li class="videoDetail_4g3_list_interval"><a href="#">'+
-                        '<img src="../../img/PP/remtThreeImg_4g3/test.png" class="videoDetail_4g3_recommend_listimg"> ' +
-                        '<p class="titleColor videoDetail_4g3_recommend_listTitle ">'+title+'</p></a>' +
-                        '</li>';
+                str +='&lt;li class="videoDetail_4g3_list_interval"&gt;&lt;a href="#"&gt;'+
+                        '&lt;img src="../../img/PP/remtThreeImg_4g3/test.png" class="videoDetail_4g3_recommend_listimg"&gt; ' +
+                        '&lt;p class="titleColor videoDetail_4g3_recommend_listTitle "&gt;'+title+'&lt;/p&gt;&lt;/a&gt;' +
+                        '&lt;/li&gt;';
             }
             $(".appendCur .videoDetail_4g3_recommend_list ul").append(str);
 
             var loginStr ="";
             if(true){   //  是否登录
-                loginStr +='<div class="videoDetail_4g3_discuss_disList">';
-                loginStr +='<p class="videoDetail_4g3_discuss_title mainColor"><span class="videoDetail_4g3_discuss_redLine showId">参与讨论</span></p>';
-                loginStr +='<textarea class="videoDetail_4g3_discuss_comment"></textarea>';
-                loginStr +='<p class="videoDetail_4g3_discuss_commentbtn"><a href="#" class="videoDetail_4g3_discuss_btn">发表评论</a></p>';
-                loginStr +='</div>';
+                loginStr +='&lt;div class="videoDetail_4g3_discuss_disList"&gt;';
+                loginStr +='&lt;p class="videoDetail_4g3_discuss_title mainColor"&gt;&lt;span class="videoDetail_4g3_discuss_redLine showId"&gt;参与讨论&lt;/span&gt;&lt;/p&gt;';
+                loginStr +='&lt;textarea class="videoDetail_4g3_discuss_comment"&gt;&lt;/textarea&gt;';
+                loginStr +='&lt;p class="videoDetail_4g3_discuss_commentbtn"&gt;&lt;a href="#" class="videoDetail_4g3_discuss_btn"&gt;发表评论&lt;/a&gt;&lt;/p&gt;';
+                loginStr +='&lt;/div&gt;';
             }else{
-                loginStr += '<div><p class="videoDetail_4g3_discuss_title mainColor"><span class="videoDetail_4g3_discuss_redLine showId">参与讨论</span></p>';
-                loginStr += '<div class="videoDetail_4g3_discuss_inputAre" >';
-                loginStr += '<p class="videoDetail_4g3_discuss_logDes dateColor"><a href="#" ><span class="mainColor videoDetail_4g3_discuss_logBtn">登录</span></a>后参与讨论<span></span></p>';
-                loginStr += '</div></div>';
+                loginStr += '&lt;div&gt;&lt;p class="videoDetail_4g3_discuss_title mainColor"&gt;&lt;span class="videoDetail_4g3_discuss_redLine showId"&gt;参与讨论&lt;/span&gt;&lt;/p&gt;';
+                loginStr += '&lt;div class="videoDetail_4g3_discuss_inputAre" &gt;';
+                loginStr += '&lt;p class="videoDetail_4g3_discuss_logDes dateColor"&gt;&lt;a href="#" &gt;&lt;span class="mainColor videoDetail_4g3_discuss_logBtn"&gt;登录&lt;/span&gt;&lt;/a&gt;后参与讨论&lt;span&gt;&lt;/span&gt;&lt;/p&gt;';
+                loginStr += '&lt;/div&gt;&lt;/div&gt;';
             }
             $(".appendCur .videoDetail_4g3_discuss_head").html(loginStr);
 
             var title = "国家主席习近平同美国总统特朗和就开始对方哈是打发收到回复框架含税单价按时地方是打发是东方航空件拉萨地方普通电话国家主席习近平同美国总统特朗普通电话家主席习近平同美国总统特朗普通电话国家主席习近平同美国总统特朗普通";
             var str = "";
             for (var i = 0; i < 4; i++) {
-                str +='<li>' +
-                        '<dl  class="clearFloat">' +
-                        '<dt >' +
-                        '<img src="../../img/PP/discuss_4g3/pic.png"  class="videoDetail_4g3_discuss_listImg">' +
-                        '</dt>' +
-                        '<dd>' +
-                        '<div class="videoDetail_4g3_discuss_listRi">' +
-                        '<p class="videoDetail_4g3_discuss_listName mainColor">名dsadas字 <span class="videoDetail_4g3_discuss_listTime dateColor"> &nbsp;&nbsp;&nbsp;几分钟前</span></p>' +
-                        '<p class="videoDetail_4g3_discuss_listContent discussColor" >'+title+'</p> ' +
-                        '</div>' +
-                        '<a href="#" onclick="reply(this)" class="videoDetail_4g3_discuss_reply"><span class="dateColor">回复</span></a>' +
-                        '</dd>' +
-                        '</dl>' +
-                        '</li>';
+                str +='&lt;li&gt;' +
+                        '&lt;dl  class="clearFloat"&gt;' +
+                        '&lt;dt &gt;' +
+                        '&lt;img src="../../img/PP/discuss_4g3/pic.png"  class="videoDetail_4g3_discuss_listImg"&gt;' +
+                        '&lt;/dt&gt;' +
+                        '&lt;dd&gt;' +
+                        '&lt;div class="videoDetail_4g3_discuss_listRi"&gt;' +
+                        '&lt;p class="videoDetail_4g3_discuss_listName mainColor"&gt;名dsadas字 &lt;span class="videoDetail_4g3_discuss_listTime dateColor"&gt; &nbsp;&nbsp;&nbsp;几分钟前&lt;/span&gt;&lt;/p&gt;' +
+                        '&lt;p class="videoDetail_4g3_discuss_listContent discussColor" &gt;'+title+'&lt;/p&gt; ' +
+                        '&lt;/div&gt;' +
+                        '&lt;a href="#" onclick="reply(this)" class="videoDetail_4g3_discuss_reply"&gt;&lt;span class="dateColor"&gt;回复&lt;/span&gt;&lt;/a&gt;' +
+                        '&lt;/dd&gt;' +
+                        '&lt;/dl&gt;' +
+                        '&lt;/li&gt;';
             }
 
             $(".appendCur .videoDetail_4g3_discuss_list ul").append(str);
@@ -374,7 +374,7 @@
             //面包屑导航
             $(".videoDetail_4g3_bread").html("");
             var breadStr='';
-            breadStr=' <a class="mainColor" href="#">经济</a><span>&gt;</span><a class="mainColor" href="#">地产</a>';
+            breadStr=' &lt;a class="mainColor" href="#"&gt;经济&lt;/a&gt;&lt;span&gt;&gt;&lt;/span&gt;&lt;a class="mainColor" href="#"&gt;地产&lt;/a&gt;';
             $(".videoDetail_4g3_bread").html(breadStr);
 
             //title
@@ -386,14 +386,14 @@
             //main
             $(".videoDetail_4g3_main").html('');
             var mainStr='';
-            mainStr= '<p class="videoDetail_4g3_time infoColor">2016-04-09 07:35 | 北京晨报</p>'+
-                    '<div style="margin-top:12px;">';
+            mainStr= '&lt;p class="videoDetail_4g3_time infoColor"&gt;2016-04-09 07:35 | 北京晨报&lt;/p&gt;'+
+                    '&lt;div style="margin-top:12px;"&gt;';
 
-            mainStr+='<video id="example_video_1" class="video-js vjs-default-skin" controls preload="none"  height="393" width="540"'+
-                   'poster="../../img/PP/videoDetail/videoDetail.png" data-setup="{}">'+
-                '<source src="../../img/PP/videoDetail/testVideo.mp4" type="video/mp4" />'+
-            '</video>';
-            mainStr+='</div>';
+            mainStr+='&lt;video id="example_video_1" class="video-js vjs-default-skin" controls preload="none"  height="393" width="540"'+
+                   'poster="../../img/PP/videoDetail/videoDetail.png" data-setup="{}"&gt;'+
+                '&lt;source src="../../img/PP/videoDetail/testVideo.mp4" type="video/mp4" /&gt;'+
+            '&lt;/video&gt;';
+            mainStr+='&lt;/div&gt;';
             $(".videoDetail_4g3_main").html(mainStr);
         }
 
@@ -441,10 +441,10 @@
             var str = "";
             if( recommendList != '' && recommendList != undefined && recommendList != null) {
                 for (var i = 0; i < recommendList.length; i++) {
-                    str += '<li class="videoDetail_4g3_list_interval"><a href="javascript:goContentDetial(\''+recommendList[i].articleUrl+'\',\'\')">' +
-                            '<img src="'+recommendList[i].pic+'" class="videoDetail_4g3_recommend_listimg"> ' +
-                            '<p class="titleColor videoDetail_4g3_recommend_listTitle ">' + recommendList[i].title + '</p></a>' +
-                            '</li>';
+                    str += '&lt;li class="videoDetail_4g3_list_interval"&gt;&lt;a href="javascript:goContentDetial(\''+recommendList[i].articleUrl+'\',\'\')"&gt;' +
+                            '&lt;img src="'+recommendList[i].pic+'" class="videoDetail_4g3_recommend_listimg"&gt; ' +
+                            '&lt;p class="titleColor videoDetail_4g3_recommend_listTitle "&gt;' + recommendList[i].title + '&lt;/p&gt;&lt;/a&gt;' +
+                            '&lt;/li&gt;';
                 }
             }
             $(".videoDetail_4g3_recommend_list ul.showId").append(str);
@@ -452,36 +452,36 @@
             if(video.isComment == '1') {
                 var loginStr = "";
                 if (true) {   //  是否登录
-                    loginStr += '<div class="videoDetail_4g3_discuss_disList">';
-                    loginStr += '<p class="videoDetail_4g3_discuss_title mainColor"><span class="videoDetail_4g3_discuss_redLine showId">参与讨论</span></p>';
-                    loginStr += '<textarea class="videoDetail_4g3_discuss_comment"></textarea>';
-                    loginStr += '<p class="videoDetail_4g3_discuss_commentbtn"><a href="#" class="videoDetail_4g3_discuss_btn">发表评论</a></p>';
-                    loginStr += '</div>';
+                    loginStr += '&lt;div class="videoDetail_4g3_discuss_disList"&gt;';
+                    loginStr += '&lt;p class="videoDetail_4g3_discuss_title mainColor"&gt;&lt;span class="videoDetail_4g3_discuss_redLine showId"&gt;参与讨论&lt;/span&gt;&lt;/p&gt;';
+                    loginStr += '&lt;textarea class="videoDetail_4g3_discuss_comment"&gt;&lt;/textarea&gt;';
+                    loginStr += '&lt;p class="videoDetail_4g3_discuss_commentbtn"&gt;&lt;a href="#" class="videoDetail_4g3_discuss_btn"&gt;发表评论&lt;/a&gt;&lt;/p&gt;';
+                    loginStr += '&lt;/div&gt;';
                 } else {
-                    loginStr += '<div><p class="videoDetail_4g3_discuss_title mainColor"><span class="videoDetail_4g3_discuss_redLine showId">参与讨论</span></p>';
-                    loginStr += '<div class="videoDetail_4g3_discuss_inputAre" >';
-                    loginStr += '<p class="videoDetail_4g3_discuss_logDes dateColor"><a href="#" ><span class="mainColor videoDetail_4g3_discuss_logBtn">登录</span></a>后参与讨论<span></span></p>';
-                    loginStr += '</div></div>';
+                    loginStr += '&lt;div&gt;&lt;p class="videoDetail_4g3_discuss_title mainColor"&gt;&lt;span class="videoDetail_4g3_discuss_redLine showId"&gt;参与讨论&lt;/span&gt;&lt;/p&gt;';
+                    loginStr += '&lt;div class="videoDetail_4g3_discuss_inputAre" &gt;';
+                    loginStr += '&lt;p class="videoDetail_4g3_discuss_logDes dateColor"&gt;&lt;a href="#" &gt;&lt;span class="mainColor videoDetail_4g3_discuss_logBtn"&gt;登录&lt;/span&gt;&lt;/a&gt;后参与讨论&lt;span&gt;&lt;/span&gt;&lt;/p&gt;';
+                    loginStr += '&lt;/div&gt;&lt;/div&gt;';
                 }
                 $(".videoDetail_4g3_discuss_head.showId").html(loginStr);
 
                 var commentList = video.commentList;
                 var str = "";
                 for (var i = 0; i < commentList.length; i++) {
-                    str +='<li>' +
-                            '<dl  class="clearFloat">' +
-                            '<dt >' +
-                            '<img src="'+commentList[i].headImgurl+'"  class="videoDetail_4g3_discuss_listImg">' +
-                            '</dt>' +
-                            '<dd>' +
-                            '<div class="videoDetail_4g3_discuss_listRi">' +
-                            '<p class="videoDetail_4g3_discuss_listName mainColor">'+commentList[i].nickName+' <span class="videoDetail_4g3_discuss_listTime dateColor"> &nbsp;&nbsp;&nbsp;'+commentList[i].commentTime+'</span></p>' +
-                            '<p class="videoDetail_4g3_discuss_listContent discussColor" >'+commentList[i].commentContent+'</p> ' +
-                            '</div>' +
-                            '<a href="#" onclick="reply(this)" class="videoDetail_4g3_discuss_reply"><span class="dateColor">回复</span></a>' +
-                            '</dd>' +
-                            '</dl>' +
-                            '</li>';
+                    str +='&lt;li&gt;' +
+                            '&lt;dl  class="clearFloat"&gt;' +
+                            '&lt;dt &gt;' +
+                            '&lt;img src="'+commentList[i].headImgurl+'"  class="videoDetail_4g3_discuss_listImg"&gt;' +
+                            '&lt;/dt&gt;' +
+                            '&lt;dd&gt;' +
+                            '&lt;div class="videoDetail_4g3_discuss_listRi"&gt;' +
+                            '&lt;p class="videoDetail_4g3_discuss_listName mainColor"&gt;'+commentList[i].nickName+' &lt;span class="videoDetail_4g3_discuss_listTime dateColor"&gt; &nbsp;&nbsp;&nbsp;'+commentList[i].commentTime+'&lt;/span&gt;&lt;/p&gt;' +
+                            '&lt;p class="videoDetail_4g3_discuss_listContent discussColor" &gt;'+commentList[i].commentContent+'&lt;/p&gt; ' +
+                            '&lt;/div&gt;' +
+                            '&lt;a href="#" onclick="reply(this)" class="videoDetail_4g3_discuss_reply"&gt;&lt;span class="dateColor"&gt;回复&lt;/span&gt;&lt;/a&gt;' +
+                            '&lt;/dd&gt;' +
+                            '&lt;/dl&gt;' +
+                            '&lt;/li&gt;';
                 }
 
                 $(".videoDetail_4g3_discuss_list ul.showId").append(str);
@@ -491,7 +491,7 @@
             //面包屑导航
             $(".videoDetail_4g3_bread.showId").html("");
             var breadStr='';
-            breadStr=' <a class="mainColor" href="#">经济</a><span>&gt;</span><a class="mainColor" href="#">地产</a>';
+            breadStr=' &lt;a class="mainColor" href="#"&gt;经济&lt;/a&gt;&lt;span&gt;&gt;&lt;/span&gt;&lt;a class="mainColor" href="#"&gt;地产&lt;/a&gt;';
             $(".videoDetail_4g3_bread.showId").html(breadStr);
 
             //title
@@ -503,14 +503,14 @@
             //main
             $(".videoDetail_4g3_main.showId").html('');
             var mainStr='';
-            mainStr= '<p class="videoDetail_4g3_time infoColor">video.onlineTime | video.sourceTitle</p>'+
-                    '<div style="margin-top:12px;">';
+            mainStr= '&lt;p class="videoDetail_4g3_time infoColor"&gt;video.onlineTime | video.sourceTitle&lt;/p&gt;'+
+                    '&lt;div style="margin-top:12px;"&gt;';
 
-            mainStr+='<video id="example_video_1" class="video-js vjs-default-skin" controls preload="none"  height="393" width="540"'+
-                    'poster="'+ video.pic +'" data-setup="{}">'+
-                    '<source src="'+ video.videoContentUrl +'" type="video/mp4" />'+
-                    '</video>';
-            mainStr+='</div>';
+            mainStr+='&lt;video id="example_video_1" class="video-js vjs-default-skin" controls preload="none"  height="393" width="540"'+
+                    'poster="'+ video.pic +'" data-setup="{}"&gt;'+
+                    '&lt;source src="'+ video.videoContentUrl +'" type="video/mp4" /&gt;'+
+                    '&lt;/video&gt;';
+            mainStr+='&lt;/div&gt;';
             $(".videoDetail_4g3_main.showId").html(mainStr);
         }
 
