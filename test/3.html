@@ -11,6 +11,7 @@
     <script src="../js/respond.js"></script>
     <script src="../js/jquery-1.11.3.js"></script>
     <script src="../js/zui.min.js"></script>
+    <script src="../js/wordNumber.js"></script>
     <style>
         .topicNormal_4g3_main{
             margin-left: 84px;
@@ -131,7 +132,7 @@
             margin-top: 32px;
             width:540px;
             height: 25px;
-            border-bottom: 1px solid #dddddd;
+            border-bottom: 2px solid #dddddd;
         }
         .topicNormal_4g3_disList{
             margin-left: 84px;
@@ -149,6 +150,7 @@
         }
         .topicNormal_4g3_disList li:first-child{
             margin-top:25px;
+            border-top: 2px solid #dddddd;
         }
         .topicNormal_4g3_disList dt{
             float: left;
@@ -201,9 +203,84 @@
             color:#ffffff;
         }
         .topicNormal_4g3_all{
-            padding:10px 0;
+            padding:10px 0 80px 0;
             background:#ffffff;
             box-shadow:0 2px 2px 0 rgba(0,0,0,0.24);
+            position: relative;
+        }
+
+        .topicNormal_4g3_discuss_title{
+            font-size:16px;
+            text-align:left;
+            padding-bottom: 2px;
+            border-bottom: 1px solid #dddddd;
+
+        }
+        .topicNormal_4g3_discuss_redLine{
+            width: 70px;
+            height: 4px;
+            padding-bottom: 3px;
+        }
+        .topicNormal_4g3_discuss_inputAre{
+            border-radius:4px;
+            width:540px;
+            height:107px;
+            background:#fafafa;
+            margin-top: 11px;
+        }
+        .topicNormal_4g3_discuss_logDes{
+            font-size:12px;
+            text-align: center;
+            padding-top: 44px;
+        }
+        .topicNormal_4g3_discuss_logBtn{
+            font-size:14px;
+            text-align:left;
+        }
+        /*底部固定讨论框*/
+        .topicNormal_4g3_floatFoot{
+            background:#ffffff;
+            box-shadow:0 -1px 4px 0 rgba(0,0,0,0.12);
+            width:708px;
+            height:80px;
+            position: absolute;
+            left: 0px;
+            bottom: 0px;
+        }
+        .topicNormal_4g3_bottomImg {
+            border: 1px solid #f1f1f1;
+            width: 36px;
+            height: 36px;
+            border-radius: 100%;
+            float: left;
+            margin-left: 20px;
+            margin-top: 22px;
+
+        }
+        .topicNormal_4g3_bottomText{
+            background:#ffffff;
+            border:1px solid #f1f1f1;
+            border-radius:4px;
+            width:540px;
+            height:55px;
+            float: left;
+            margin-left: 11px;
+            margin-top: 12px;
+        }
+        .topicNormal_4g3_bottomBtn{
+            background:#cc3333;
+            width:66px;
+            height:24px;
+            float: left;
+            font-size:12px;
+            color:#ffffff;
+            text-align:center;
+            padding-top: 4px;
+            margin-top: 28px;
+            margin-left: 12px;
+        }
+        .topicNormal_4g3_discuss{
+            margin-top:60px;
         }
     </style>
 </head>
@@ -217,10 +294,61 @@
             <ul></ul>
         </div>
         <div class="topicNormal_4g3_disList">
-            <p class="topicNormal_4g3_disListTit mainColor"><span class="topicNormal_4g3_redLine">参与讨论</span></p>
-            <textarea class="topicNormal_4g3_comment"></textarea>
-            <p class="topicNormal_4g3_commentbtn mainColor_background"><a href="#" class="topicNormal_4g3_btn">发表评论</a></p>
-            <ul></ul>
+            <!--讨论-->
+            <ul class="topicNormal_4g3_discuss">
+                <li>
+                    <dl class="clearFloat">
+                        <dt>
+                            <img src="../img/PP/myJoined/pic.png" class="topicNormal_4g3_disListImg">
+                        </dt>
+                        <dd>
+                            <p class="topicNormal_4g3_disListname titleColor">
+                                <span>主持人</span>
+                                <span class="topicNormal_4g3_disListTime dateColor"> &nbsp;&nbsp;&nbsp;几分钟前</span>
+                                </p>
+                            <p class="topicNormal_4g3_disListCont abstractColor" >浩或浩或刚打了扩大概个</p>
+                        </dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl class="clearFloat">
+                        <dt>
+                            <img src="../img/PP/myJoined/pic.png" class="topicNormal_4g3_disListImg">
+                        </dt>
+                        <dd>
+                            <p class="topicNormal_4g3_disListname titleColor">
+                                <span>嘉宾 · 白岩松</span>
+                                <span class="topicNormal_4g3_disListTime dateColor"> &nbsp;&nbsp;&nbsp;几分钟前</span>
+                            </p>
+                            <p class="topicNormal_4g3_disListCont mainColor" >浩或浩或刚打了扩大概个</p>
+                        </dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl class="clearFloat">
+                        <dt>
+                            <img src="../img/PP/myJoined/pic.png" class="topicNormal_4g3_disListImg">
+                        </dt>
+                        <dd>
+                            <p class="topicNormal_4g3_disListname titleColor">
+                                <span>网友 · 一只狼</span>
+                                <span class="topicNormal_4g3_disListTime dateColor"> &nbsp;&nbsp;&nbsp;几分钟前</span>
+                            </p>
+                            <p class="topicNormal_4g3_disListCont abstractColor" >浩或浩或刚打了扩大概个</p>
+                        </dd>
+                    </dl>
+                </li>
+            </ul>
+            <!--是否登录-->
+            <div class="topicNormal_4g3_login showId"></div>
+            <!--评论-->
+            <ul class="topicNormal_4g3_comments showId"></ul>
+        </div>
+        <!--底部固定讨论框-->
+        <div class="topicNormal_4g3_floatFoot clearFloat">
+            <p ><img src="../img/PP/myJoined/pic.png" class="topicNormal_4g3_bottomImg"></p>
+            <textarea placeholder="请输入您想说的话" class="topicNormal_4g3_bottomText"></textarea>
+            <a href="#"><p class="topicNormal_4g3_bottomBtn">评论</p></a>
         </div>
     </div>
     <script>
@@ -261,10 +389,35 @@
                 $(".topicNormal_4g3_commentList ul").html(guessStr);
             }
             //讨论
-            $(".topicNormal_4g3_disList ul").html("");
+            //讨论-登是否录
+            $(".appendCur .topicNormal_4g3_login").html("");
+            var loginStr='';
+            if( true ){
+                loginStr=' <p class="topicNormal_4g3_disListTit mainColor">' +
+                    '<span class="topicNormal_4g3_redLine">互动讨论</span>' +
+                    '</p>'+
+                    '<textarea class="topicNormal_4g3_comment"></textarea>'+
+                    '<p class="topicNormal_4g3_commentbtn mainColor_background">'+
+                    '<a href="#" class="topicNormal_4g3_btn">发表评论</a>'+
+                    '</p>';
+            }else{
+                loginStr='<div>'+
+                '<p class="topicNormal_4g3_discuss_title mainColor">' +
+                '<span class="topicNormal_4g3_discuss_redLine">互动讨论</span>' +
+                '</p>'+
+                '<div class="topicNormal_4g3_discuss_inputAre" >'+
+                '<p class="topicNormal_4g3_discuss_logDes dateColor">' +
+                '<a href="#" ><span class="mainColor topicNormal_4g3_discuss_logBtn">登录</span>' +
+                '</a>后互动讨论<span></span></p>'+
+                '</div>'+
+                '</div>';
+            }
+            $(".appendCur .topicNormal_4g3_login").html(loginStr);
+//            互动讨论列表
+            $(".topicNormal_4g3_disList ul.topicNormal_4g3_comments").html("");
             var dissStr="";
             for( var i=0;i<2;i++ ){
-                dissStr+=' <li><dl class="clearFloat"><dt>'+
+                dissStr+='<li><dl class="clearFloat"><dt>'+
                 '<img src="../img/PP/myJoined/pic.png" class="topicNormal_4g3_disListImg"></dt>'+
                 '<dd>'+
                 '<p class="topicNormal_4g3_disListname titleColor">' +
@@ -273,8 +426,8 @@
                 '</p>'+
                 '<p class="topicNormal_4g3_disListCont abstractColor" >浩或浩或个到拉萨刚打了扩大概浩或浩或个到拉萨刚打了扩大概浩或浩或个到拉萨刚打了扩大概拉萨刚打了扩大概个浩或浩或个到拉萨刚打了扩大概浩或浩或个到拉萨刚打了扩大概浩或浩或个到拉萨刚打了扩大概拉萨刚打了扩大概个浩或浩或个到拉萨刚打了扩大概浩或浩或个到拉萨刚打了扩大概浩或浩或个到拉萨刚打了扩大概拉萨刚打了扩大概个浩或浩或个到拉萨刚打了扩大概浩或浩或个到拉萨刚打了扩大概浩或浩或个到拉萨刚打了扩大概拉萨刚打了扩大概个浩或浩或个到拉萨刚打了扩大概浩或浩或个到拉萨刚打了扩大概浩或浩或个到拉萨刚打了扩大概拉萨刚打了扩大概个浩或浩或个到拉萨刚打了扩大概浩或浩或个到拉萨刚打了扩大概浩或浩或个到拉萨刚打了扩大概拉萨刚打了扩大概个</p>'+
                 '</dd></dl></li>';
-                $(".topicNormal_4g3_disList ul").html(dissStr);
             }
+            $(".topicNormal_4g3_disList ul.topicNormal_4g3_comments").append(dissStr);
         }
         function tData() {
             $.ajax({
@@ -296,7 +449,7 @@
             }
         }
 
-//        max(".topicNormal_4g3_title",38);
+        max(".topicNormal_4g3_title",38);
 //        max(".topicNormal_4g3_listCont",68);
 //        max(".topicNormal_4g3_disListCont ",98);
 
