@@ -88,11 +88,11 @@ function blockLeftListCallback(data) {
                 str='<div class="partOption" id="'+list[i].blockType +'Block"><p class="partOptionTitle">'+list[i].typeName+'</p>';
                 str+='<div class="with-padding">' ;
                 str+='<p class="partImg secPart btn-droppable" data-blockId="'+list[i].blockId+'" data-blockSize="'+list[i].blockSize+'" id="' + list[i].blockId + '">' ;
-                str+='<img src="../../img/editor/part01.png" alt=""/><span>'+ list[i].blockName + '</span></p>';
+                str+='<img src="../../img/editor/'+list[i].blockId+'.png" alt=""/><span>'+ list[i].blockName + '</span></p>';
                 str+='</div></div>';
             }else{
                 str+='<p class="partImg secPart btn-droppable" data-blockId="'+list[i].blockId+'" data-blockSize="'+list[i].blockSize+'" id="' + list[i].blockId + '">' ;
-                str+='<img src="../../img/editor/part01.png" alt=""/><span>'+ list[i].blockName + '</span></p>';
+                str+='<img src="../../img/editor/'+list[i].blockId+'.png" alt=""/><span>'+ list[i].blockName + '</span></p>';
                 $('#'+list[i].blockType +'Block .with-padding').append(str);
                 continue;
             }
@@ -264,8 +264,6 @@ function importFile(id, nextShowId, size,groupDiv) {
         var GroupShowId = $(groupDiv).attr("data-groupShowId");
         block_showId = id+ "_" + baseShowId+"_"+GroupShowId;
         baseShowId ++;
-        //增加是否填写属性必选项的框
-        notNull();
         //清楚所有选中框
         $(".indexAll .appendStr .panel").removeClass('appendCur');
         //固定替换流程
@@ -295,6 +293,9 @@ function importFile(id, nextShowId, size,groupDiv) {
         optionSelect = {};
         optionSelect.id = id;
         optionSelect.showId = block_showId;
+
+        //增加是否填写属性必选项的框
+        //notNull();
 
         if( $(".appendCur").attr("data-header")=="header" ){
             optionSelect.blockType = "header";
@@ -667,6 +668,8 @@ function propertyRightListCallback(data) {
         }
 
     }
+    //增加是否填写属性必选项的框
+    notNull();
     $(".propertyShow").children(":odd").addClass("propertyBackDark");
     //$(".property").append('<div class="deleteBlockDiv"><button class="deleteBlockBtn btn btn-primary" onclick="deleteBlock(\'' + showId + '\')">删除此组件</button></div>');
     saveActionHistory($('#sortableList').html().trim(),$('#htmlCode2').html().trim(),obj);//undo redo
@@ -871,6 +874,7 @@ function collectProperty(property, min, max) {
 //判断必选项是否填写(red,blule)
 function notNull(flag) {
     var notNull = $("[data-notNull]");
+    //console.log(notNull);
     var notCur = 'yes';
     for (var i = 0; i < notNull.length; i++) {
         if ($(notNull[i]).attr("data-notNull") == "yes") {
@@ -1004,7 +1008,6 @@ if( $("#WhetherDraft").val()=="0" ) {
     closeFlag = true;
 }
 function saveDraft(draftBtn){
-
     $("#baseGroupId").val( baseGroupId );
     $("#baseShowId").val( baseShowId );
 
@@ -1040,7 +1043,7 @@ function saveDraft(draftBtn){
     });
 }
 //保存
-$('#keep').click(function () {
+function keep(keepBtn){
     if( $(".mainCanvas").text()!=="" ){
         var appendStr = $(".appendStr .panel");
         var notCur = 'yes';
@@ -1072,10 +1075,37 @@ $('#keep').click(function () {
             console.log(str);
             console.log(order);
             console.log(groupDivOrder);
-            console.log(templateIdVal);
-            console.log(templateColorVal);
-            console.log(gridSizeVal);
             //return;
+
+            $(".editorAct.homePageAct img").tooltip("hide");
+            $(".editorAct.homePageAct img").next().remove();
+
+            $("#objInput").val(str);
+            //草稿str
+            var draft=$("html").prop("outerHTML");
+            var formdata=new FormData();
+            formdata.append('templateId',templateIdVal);
+            formdata.append('templateCode',draft);
+            formdata.append('templateStatus',"just");
+
+            $.ajax({
+                url:basePath+"template_editor/saveTemplateCode.do",//远程url
+                async :false,
+                type:"POST",
+                dataType: 'json',
+                contentType: false,
+                processData: false,
+                data: formdata,
+                success:function(data){
+                    if( data.exist=="yes" ){
+                        //alert("草稿保存成功");
+                        //window.location.href="editor_index.html";
+                    }else{
+                        alert("程序异常");
+                    }
+                }
+            });
+
             $.ajax({
                 async: false,
                 cache: true,
@@ -1089,13 +1119,16 @@ $('#keep').click(function () {
     }else{
         alert("当前没有可保存项");
     }
-});
+}
+//$('#keep').click(function () {
+//
+//});
 function saveTemplateCallback(data){
     alert("保存成功~");
-    window.location.href="editor_index.html";
+    //window.location.href="editor_index.html";
 }
 //preview---预览
-$("#previewtest").click(function(){
+function preview(previewBtn){
     var main=$('.main').clone();
     var strSection="";
     var strHeader="";
@@ -1106,6 +1139,7 @@ $("#previewtest").click(function(){
     $(main).find(".sortArea").remove();
     $(main).find(".firstLocation").remove();
     $(main).find(".mainAct").remove();
+    $(main).find(".dragging-col-holder").remove();
 
     var groupDivs=$(main).find(".groupDiv ");
     for( var i=0;i<groupDivs.length;i++ ){
@@ -1130,7 +1164,10 @@ $("#previewtest").click(function(){
 
     $.zui.store.set('previewName', strAll);
     window.open('preview.html');
-});
+}
+//$("#previewtest").click(function(){
+//
+//});
 
 //鼠标拖动上下移动
 function mouseCoords(event) {

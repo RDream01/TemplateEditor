@@ -10,12 +10,14 @@
 
 
 <script src="../../js/jquery-1.11.3.js"></script>
+<script src="../../js/commonConfig.js"></script>
 <script src="../../js/zui.min.js"></script>
 <script>
-    var basePath="http://192.168.31.2:8400/";
+//    var basePath="http://192.168.31.2:8400/";
     if( $.zui.store.get('importName')!==undefined ){
+        console.log("test111")
         var importData=($.zui.store.get('importName'));
-
+        $.zui.store.remove('importName');
         var headStr=(importData.split('<head lang="en">')[1])||(importData.split('<head>')[1]);
         headStr = headStr.split("</head>")[0];
         var bodyStr=(importData.split('<body>')[1])||(importData.split('<body class="">')[1]);

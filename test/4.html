@@ -8,41 +8,21 @@
     </style>
 </head>
 <body>
+<button onclick="testOver();">111111</button>
 <input type="hidden" value="0"/>
 <a href="http://www.baidu.com" target="_blank">1111111111113333</a>
 <a href="http://www.baidu.com" target="_blank">1111111111113333</a>
 <a href="http://www.baidu.com" target="_blank">1111111111113333</a>
 
 <script src="../js/jquery-1.11.3.js"></script>
+<script src="../js/testOver.js"></script>
 <script>
 
-//var flag = true;
-//window.onbeforeunload=function(event){
-//    if( flag ){
-//        return test();
-//    }
-//};
-//function test(){
-//    if( confirm("是否要保存模板") ){
-//        alert(1);
-//        return;
-//    }else{
-//        alert(2);
-//        return;
-//    }
-//}
-
-
-var _t;
-window.onbeforeunload = function(){
-    setTimeout(function(){_t = setTimeout(onunloadcancel, 0)}, 0);
-    return "真的离开?";
-};
-window.onunloadcancel = function(){
-        clearTimeout(_t);
-        alert("取消离开");
-}
-
+    function testOver(){
+       console.log("333")
+        alert(3);
+    }
 </script>
+
 </body>
 </html>

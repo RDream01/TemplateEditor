@@ -279,8 +279,6 @@ function importFile(id, nextShowId, size,groupDiv) {
             var GroupShowId = $(groupDiv).attr("data-groupShowId");
             block_showId = id+ "_" + baseShowId+"_"+GroupShowId;
              baseShowId ++;
-            //增加是否填写属性必选项的框
-            notNull();
             //清楚所有选中框
             $(".indexAll .appendStr .panel").removeClass('appendCur');
             //固定替换流程
@@ -675,6 +673,8 @@ function propertyRightListCallback(data) {
         }
 
     }
+    //增加是否填写属性必选项的框
+    notNull();
     $(".propertyShow").children(":odd").addClass("propertyBackDark");
     //$(".property").append('<div class="deleteBlockDiv"><button class="deleteBlockBtn btn btn-primary" onclick="deleteBlock(\'' + showId + '\')">删除此组件</button></div>');
     saveActionHistory($('#sortableList').html().trim(),$('#htmlCode2').html().trim(),obj);//undo redo
@@ -1048,7 +1048,7 @@ function saveDraft(draftBtn){
 }
 
 //保存
-$('#keep').click(function () {
+function keep(keepBtn){
     if( $(".mainCanvas").text()!=="" ){
         var appendStr = $(".appendStr .panel");
         var notCur = 'yes';
@@ -1058,10 +1058,8 @@ $('#keep').click(function () {
                 $(".appendStr .panel").removeClass("appendCur");
                 $(".property .propertyShow").html("");
                 notCur = "no";
-
             }
         }
-
         if (notCur == 'no') {
             alert("标记蓝色的组件有必填项没有填写");
         } else if (notCur == 'yes') {
@@ -1079,9 +1077,40 @@ $('#keep').click(function () {
                 groupDivOrder += $(pp).attr("data-groupShowId")+",";
             }
             groupDivOrder = groupDivOrder.substring(0, groupDivOrder.length - 1);
-            console.log(groupDivOrder);
-            console.log(order);
             console.log(str);
+            console.log(order);
+            console.log(groupDivOrder);
+            //return;
+
+            $(".editorAct.homePageAct img").tooltip("hide");
+            $(".editorAct.homePageAct img").next().remove();
+
+            $("#objInput").val(str);
+            //草稿str
+            var draft=$("html").prop("outerHTML");
+            var formdata=new FormData();
+            formdata.append('templateId',templateIdVal);
+            formdata.append('templateCode',draft);
+            formdata.append('templateStatus',"just");
+
+            $.ajax({
+                url:basePath+"template_editor/saveTemplateCode.do",//远程url
+                async :false,
+                type:"POST",
+                dataType: 'json',
+                contentType: false,
+                processData: false,
+                data: formdata,
+                success:function(data){
+                    if( data.exist=="yes" ){
+                        //alert("草稿保存成功");
+                        //window.location.href="editor_index.html";
+                    }else{
+                        alert("程序异常");
+                    }
+                }
+            });
+
             $.ajax({
                 async: false,
                 cache: true,
@@ -1095,14 +1124,14 @@ $('#keep').click(function () {
     }else{
         alert("当前没有可保存项");
     }
-})
+}
 function saveTemplateCallback(data){
     alert("保存成功~");
-    window.location.href="editor_index.html";
+    //window.location.href="editor_index.html";
 }
 
 //preview---预览
-$("#previewtest").click(function(){
+function preview(previewBtn){
     var main=$('.main').clone();
     var strSection="";
     var strHeader="";
@@ -1113,6 +1142,7 @@ $("#previewtest").click(function(){
     $(main).find(".sortArea").remove();
     $(main).find(".firstLocation").remove();
     $(main).find(".mainAct").remove();
+    $(main).find(".dragging-col-holder").remove();
 
     var groupDivs=$(main).find(".groupDiv ");
     for( var i=0;i<groupDivs.length;i++ ){
@@ -1136,8 +1166,8 @@ $("#previewtest").click(function(){
     var strAll=$(main).html();
 
     $.zui.store.set('previewName', strAll);
-     window.open('preview.html');
-});
+    window.open('preview.html');
+}
 
 //鼠标拖动上下移动
 function mouseCoords(event) {

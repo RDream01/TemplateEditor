@@ -368,55 +368,12 @@ $("#modalLeadInBtn").click(function(){
 });
 
 function getTemplateCodeCallback(data){
-    console.log(1);
     var templateIdVal=$('[data-option="templateLeadIn"]').attr("data-value");
     $("#modalLeadIn").modal("hide");
     var importData=data.templateCode;
-    console.log(importData);
     $.zui.store.set('importName',importData);
     window.location.href="import.html?templateId="+templateIdVal;
 }
-
-//
-//window.onbeforeunload=function(e){
-//    return "我在这写点东西";
-//}
-//window.onunload=function(){
-//    alert("离开")
-//}
-
-//$(window).bind('beforeunload',function(){
-//    //return '您输入的内容尚未保存，确定离开此页面吗？';
-//});
-
-//window.onbeforeunload=onclose;
-//function onclose()
-//{
-//    return "您确定退出吗？";
-//}
-
-
-//$(document).bind('contextmenu',function(e){return false;});
-//
-//var jq$ = jQuery.noConflict(); //防止$符号与其他的冲突
-//jq$(document).ready(function () {   //防止在DOM元素加载完成就执行jQuery代码，从而避免产生不必要的错误
-//    jq$("*").keydown(function (e) {//判断按键
-//        e = window.event || e || e.which;
-//        if (e.keyCode == 112 || e.keyCode == 113
-//            || e.keyCode == 114 || e.keyCode == 115
-//            || e.keyCode == 116 || e.keyCode == 117
-//            || e.keyCode == 118 || e.keyCode == 119
-//            || e.keyCode == 120 || e.keyCode == 121
-//            || e.keyCode == 122 || e.keyCode == 123) {
-//            e.keyCode = 0;
-//            return false;
-//        }
-//    });
-//    //document.onhelp = function () { return false };//
-//    window.onhelp = function () { return false };//ie下面不能屏蔽f1键的补充方法,和上面的一行的效果是一样的，选其一
-//});
-
-
 
 
 
