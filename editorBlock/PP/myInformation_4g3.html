@@ -115,19 +115,18 @@
                     </li>
                     <li class="clearFloat">
                         <p class="myInformation_4g3_name titleColor">姓名</p>
-                        <input type="text" class="myInformation_4g3_nameinput" placeholder="张三的">
+                        <input type="text" class="myInformation_4g3_nameinput" placeholder="用户姓名">
                     </li>
                     <li class="clearFloat">
                         <p class="myInformation_4g3_name titleColor">昵称</p>
-                        <input type="text" class="myInformation_4g3_nicput" placeholder="tom">
+                        <input type="text" class="myInformation_4g3_nicput" placeholder="昵称">
                     </li>
                     <li class="clearFloat">
                         <p class="myInformation_4g3_sex titleColor" >性别</p>
                         <div class="myInformation_4g3_sexSelect">
-                             <input type="radio" name="sex" value="" checked/> 男
-                             <input type="radio" name="sex" value="" class="myInformation_4g3_sexWom"/> 女
+                             <input type="radio" name="sex"  checked/> 男
+                             <input type="radio" name="sex"  class="myInformation_4g3_sexWom"/> 女
                         </div>
-
                     </li>
                     <li class="clearFloat">
                         <p class="myInformation_4g3_name titleColor">生日</p>
@@ -135,15 +134,15 @@
                     </li>
                     <li class="clearFloat">
                         <p class="myInformation_4g3_name titleColor">手机号</p>
-                        <input type="text" class="myInformation_4g3_phoneput" placeholder="13000000000">
+                        <input type="text" class="myInformation_4g3_phoneput" placeholder="请输入手机号">
                     </li>
                     <li class="clearFloat">
                         <p class="myInformation_4g3_name titleColor">邮箱</p>
-                        <input type="text" class="myInformation_4g3_emailput" placeholder="111111111@qq.com">
+                        <input type="text" class="myInformation_4g3_emailput" placeholder="请输入邮箱">
                     </li>
                     <li class="clearFloat">
                         <p class="myInformation_4g3_name titleColor">通讯地址</p>
-                        <input type="text" class="myInformation_4g3_addressput" placeholder="北京市海淀区爱哪儿哪儿">
+                        <input type="text" class="myInformation_4g3_addressput" placeholder="请输入通讯地址">
                     </li>
                 </ul>
             </form>
@@ -177,25 +176,31 @@
         };
         reader.readAsDataURL(f);
     }
-
-    var flag="v";
-    if(flag == "v"){
-        vData()
-    }else{
-        tData();
+    try{
+       getUserInfo();
+    }catch(e){
     }
-    function vData() {
-    }
+    function getUserInfo(){
+        $.ajax({
+            async: false,
+            cache: true,
+            type: 'post',
+            dataType: "jsonp",
+            data: {callBack:getUserInfoCallback},  //参数
+            url: blockBasePath + "blockData/getUserInfo.do",//请求的action路径
+            success: function (data) { //请求成功后处理函数。
+            }
+        });
+    };
     //返回的真实数据
-    function tDataCallback(data){
-        var list = data.dataList;
-        for( var i=0;i<list.length;i++ ){
-            var str='<p><a href="#"/>'+list[i].title+'<a><p/>';
-            $(".lh.showId").append(str);
-        }
+    function getUserInfoCallback(data){
+        $(".myInformation_4g3_headImage").val(data.userName);
+        $(".myInformation_4g3_nicput").val(data.nickName);
+        $(".myInformation_4g3_birthput").val(data.birthDay);
+        $(".myInformation_4g3_phoneput").val(data.phone);
+        $(".myInformation_4g3_emailput").val(data.email);
+        $(".myInformation_4g3_addressput").val(data.address);
     }
-
-
 </script>
 </body>
 </html>

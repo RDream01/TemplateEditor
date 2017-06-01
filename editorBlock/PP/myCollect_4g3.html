@@ -200,7 +200,7 @@
     function  singleDel(obj){
         $(obj).parent().parent().parent().parent().parent().remove();
     }
-
+    var currentPage =2;
     var flag="v";
     if(flag == "v"){
         vData()
@@ -208,8 +208,6 @@
         tData();
     }
     function vData() {
-        $(".appendCur .myCollect_4g3_list ul").html("");
-
         var title = "国家主33席习近平同美国总统特朗普通电话国家主席习近平美国总统特朗普通电话国家主席习近平同美国总统特朗普通";
         var content="滚回家阿克苏但感觉哈舒服股东卡放大镜噶啥地方和故事的风格是否是甲方";
         var source="擎好网";
@@ -242,11 +240,101 @@
                         '</dl> ' +
                     '</li>';
         }
-        $(".appendCur .myCollect_4g3_list ul").append(str);
+        $(".appendCur .myCollect_4g3_list ul").html(str);
+    }
+    function tData(){
+        $.ajax({
+            async: false,
+            cache: true,
+            type: 'post',
+            dataType: "jsonp",
+            data: {callBack:favouiteCallback},  //参数
+            url: blockBasePath + "blockData/getFavouriteByUserId.do",//请求的action路径
+            success: function (data) { //请求成功后处理函数。
+            }
+        });
     }
     //返回的真实数据
-    function tDataCallback(data){
+    function favouiteCallback(data){
+        var list = data.favouriteList;
+        if(list =='' || list == undefined){
+            return;
+        }
+        var str = "";
+        for (var i = 0; i<list.length; i++) {
+            str = str +'<li>' +
+                    ' <dl class="clearFloat"> ' +
+                    '<input type="checkbox" name="" value="" class="myCollect_4g3_selecr"  align="center">'+
+                    '<dd><a href="goContentDetial(\''+list[i].articleUrl+'\',\'\')">' +
+                    '<img  class="myCollect_4g3_image" src="../../img/PP/myJoined/pic.png"> ' +
+                    '</a></dd> ' +
+                    '<dt class="clearFloat">' +
+                    '<div style="float: left;padding-top: 14px;">' +
+                    '<p class="myCollect_4g3_list_title titleColor"><a href="#">'+list[i].title+'</a></p> ' +
+                    '<p class="myCollect_4g3_list_content abstractColor">'+list[i].articleContent+'</p> ' +
+                    '<div  class="clearFloat myCollect_4g3_listfoot"> <p class="myCollect_4g3_listSource dateColor">'+list[i].source+'</p> ' +
+                    '<p class="myCollect_4g3_contNum dateColor">' +
+                    '<img src="../../img/PP/myJoined/contentNum.png" class="myCollect_4g3_contentImage ">'+list[i].commentNum+'</p> ' +
+                    '<p class="myCollect_4g3_list_time dateColor">'+list[i].articleTime+'</p> ' +
+                    '</div>' +
+                    '</div> ' +
+                    '<div class="myCollect_4g3_delDiv" >' +
+                    '<span class="myCollect_4g3_delSpan"><a onclick="singleDel(this)">' +
+                    '<img src="../../img/PP/myCollect/dele.png" class="myCollect_4g3_delimage"></a></span> ' +
+                    '</div>' +
+                    '</dt>' +
+                    '</dl> ' +
+                    '</li>';
+        }
+        $(".myCollect_4g3_list ul").html(str);
+    }
 
+    function moreFavourite(){
+        $.ajax({
+            async: false,
+            cache: true,
+            type: 'post',
+            dataType: "jsonp",
+            data: {callBack:favouiteCallback},  //参数
+            url: blockBasePath + "blockData/getFavouriteByUserId.do",//请求的action路径
+            success: function (data) { //请求成功后处理函数。
+            }
+        });
+        currentPage++;
+    }
+
+    function moreFavouriteCallBack(data){
+        var list = data.favouritelist;
+        if(list =='' || list == undefined){
+            return;
+        }
+        var str = "";
+        for (var i = 0; i<list.length; i++) {
+            str = str +'<li>' +
+                    ' <dl class="clearFloat"> ' +
+                    '<input type="checkbox" name="" value="" class="myCollect_4g3_selecr"  align="center">'+
+                    '<dd><a href="goContentDetial(\''+list[i].articleUrl+'\',\'\')">' +
+                    '<img  class="myCollect_4g3_image" src="../../img/PP/myJoined/pic.png"> ' +
+                    '</a></dd> ' +
+                    '<dt class="clearFloat">' +
+                    '<div style="float: left;padding-top: 14px;">' +
+                    '<p class="myCollect_4g3_list_title titleColor"><a href="#">'+list[i].title+'</a></p> ' +
+                    '<p class="myCollect_4g3_list_content abstractColor">'+list[i].articleContent+'</p> ' +
+                    '<div  class="clearFloat myCollect_4g3_listfoot"> <p class="myCollect_4g3_listSource dateColor">'+list[i].source+'</p> ' +
+                    '<p class="myCollect_4g3_contNum dateColor">' +
+                    '<img src="../../img/PP/myJoined/contentNum.png" class="myCollect_4g3_contentImage ">'+list[i].commentNum+'</p> ' +
+                    '<p class="myCollect_4g3_list_time dateColor">'+list[i].articleTime+'</p> ' +
+                    '</div>' +
+                    '</div> ' +
+                    '<div class="myCollect_4g3_delDiv" >' +
+                    '<span class="myCollect_4g3_delSpan"><a onclick="singleDel(this)">' +
+                    '<img src="../../img/PP/myCollect/dele.png" class="myCollect_4g3_delimage"></a></span> ' +
+                    '</div>' +
+                    '</dt>' +
+                    '</dl> ' +
+                    '</li>';
+        }
+        $(".myCollect_4g3_list ul").html(str);
     }
 </script>
 </body>

@@ -180,7 +180,7 @@
     function  singleDel(obj){
         $(obj).parent().parent().parent().remove();
     }
-
+    var currentPage = 2;
     var flag="v";
     if(flag == "v"){
         vData()
@@ -217,13 +217,95 @@
         $(".appendCur .myComment_4g3_list ul").append(str);
     }
     //返回的真实数据
-    function tDataCallback(data){
-        var list = data.dataList;
-        for( var i=0;i<list.length;i++ ){
-            var str='<p><a href="#"/>'+list[i].title+'<a><p/>';
-            $(".lh.showId").append(str);
-        }
+    function tData(){
+        $.ajax({
+            async: false,
+            cache: true,
+            type: 'post',
+            dataType: "jsonp",
+            data: {callBack:commentCallback},  //参数
+            url: blockBasePath + "blockData/getFavouriteByUserId.do",//请求的action路径
+            success: function (data) { //请求成功后处理函数。
+            }
+        });
     }
-</script>
+    function commentCallback(data){
+        var list = data.dataList;
+        var str = "";
+        if(list == '' || list == undefined){
+            return;
+        }
+        for (var i = 0; i <list.length; i++) {
+            str = str +'<li class="clearFloat"> ' +
+                    '<dl class="clearFloat">' +
+                    ' <dt>' +
+                    ' <input type="checkbox"  class="myComment_4g3_select"> ' +
+                    '</dt> ' +
+                    '<dd> ' +
+                    '<p class="myComment_4g3_list_title titleColor">'+list[i].commentContent+'</p> ' +
+                    '<p class="myComment_4g3_listbottom">' +
+                    '<span class="myComment_4g3_list_time dateColor">'+list[i].commentTime+'</span> ' +
+                    '<span class="myComment_4g3_from dateColor">来自</span>' +
+                    '<span class="myComment_4g3_source"><a href="#" class="mainColor">'+list[i].title+'</a></span>'+
+                    '</p>'+
+                    '</dd>' +
+                    '</dl>' +
+                    ' <div class="myComment_4g3_delDiv" > ' +
+                    '<span class="myComment_4g3_delSpan"><a id="pp" onclick="singleDel(this)" href="#"><img src="../../img/PP/myCollect/dele.png" class="myComment_4g3_delimage"></a></span>' +
+                    ' </div>' +
+                    ' </li>';
+        }
+        $(".myComment_4g3_list ul").append(str);
+    }
+
+
+    function moreComment(){
+        $.ajax({
+            async: false,
+            cache: true,
+            type: 'post',
+            dataType: "jsonp",
+            data: {callBack:moreCommentCallback},  //参数
+            url: blockBasePath + "blockData/moreComment.do",//请求的action路径
+            success: function (data) { //请求成功后处理函数。
+            }
+        });
+        currentPage++;
+    }
+
+    function moreCommentCallback(data){
+        var list = data.favouritelist;
+        if(list =='' || list == undefined){
+            return;
+        }
+        var str = "";
+        for (var i = 0; i<list.length; i++) {
+            str = str +'<li>' +
+                    ' <dl class="clearFloat"> ' +
+                    '<input type="checkbox" name="" value="" class="myCollect_4g3_selecr"  align="center">'+
+                    '<dd><a href="goContentDetial(\''+list[i].articleUrl+'\',\'\')">' +
+                    '<img  class="myCollect_4g3_image" src="../../img/PP/myJoined/pic.png"> ' +
+                    '</a></dd> ' +
+                    '<dt class="clearFloat">' +
+                    '<div style="float: left;padding-top: 14px;">' +
+                    '<p class="myCollect_4g3_list_title titleColor"><a href="#">'+list[i].title+'</a></p> ' +
+                    '<p class="myCollect_4g3_list_content abstractColor">'+list[i].articleContent+'</p> ' +
+                    '<div  class="clearFloat myCollect_4g3_listfoot"> <p class="myCollect_4g3_listSource dateColor">'+list[i].source+'</p> ' +
+                    '<p class="myCollect_4g3_contNum dateColor">' +
+                    '<img src="../../img/PP/myJoined/contentNum.png" class="myCollect_4g3_contentImage ">'+list[i].commentNum+'</p> ' +
+                    '<p class="myCollect_4g3_list_time dateColor">'+list[i].articleTime+'</p> ' +
+                    '</div>' +
+                    '</div> ' +
+                    '<div class="myCollect_4g3_delDiv" >' +
+                    '<span class="myCollect_4g3_delSpan"><a onclick="singleDel(this)">' +
+                    '<img src="../../img/PP/myCollect/dele.png" class="myCollect_4g3_delimage"></a></span> ' +
+                    '</div>' +
+                    '</dt>' +
+                    '</dl> ' +
+                    '</li>';
+        }
+        $(".myCollect_4g3_list ul").html(str);
+    }
+</script>s
 </body>
 </html>

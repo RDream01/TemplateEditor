@@ -2,7 +2,7 @@
 
 <div class="style" "exist">
     <style>
-    .adv02_4g1All{
+    .adv02_4g1_all{
         position:relative;
     }
     .adv02_4g1_img{
@@ -30,13 +30,43 @@
         <!--<span class="title">广告</span>-->
     </div>
     <div class="panel-body">
-        <div class="Grid4g1 pageBackGroundColor adv02_4g1All" "exist">
+        <div class="Grid4g1 pageBackGroundColor adv02_4g1_all" "exist">
+            <a class="showId">
             <p class="adv02_4g1_mask">广告</p>
-            <img class="adv02_4g1_img" src="../../img/PP/adv/adv.png"/>
+            <img class="adv02_4g1_img showId" src="../../img/PP/adv/adv.png"/>
+            </a>
         </div>
     </div>
 </div>
 <div class="resize-handle"><i class="icon icon-resize-h"></i></div>
+
+    <div class="script" "exist">
+        <script>
+            var flag="v";
+            if(flag == "t"){
+                tData();
+            }
+            var templateId="";
+            function tData(){
+                var cb="tDataCallback";
+                var adv02_4g1_name="";
+                $.ajax({
+                    async: false,
+                    cache: true,
+                    type: 'post',
+                    dataType: "jsonp",
+                    data: {name:adv02_4g1_name,templateId:templateId, callBack: cb},  //参数
+                    url: "http://192.168.31.156:8080/cmsNews/blockData/.do",//请求的action路径
+                    success: function (data) { //请求成功后处理函数。
+                    }
+                });
+            }
+            function tDataCallback(data){
+                $(".adv02_4g1_img.showId").val(data.pic);
+                $(".adv02_4g1_all a.showId").attr("href",data.url);
+            }
+        </script>
+    </div>
 </div>
 
 

@@ -117,40 +117,42 @@
 //        tData
         function tData() {
             var cb="tDataCallback";
-            var newsList_4g3_select_SS='';
             var templateId_replace="";
+            var newsList_4g3_select_SS='';
 
             $.ajax({
                 async: false,
                 cache: true,
                 type: 'post',
                 dataType: "jsonp",
-                data: {dataType: "jsonp", channelId: lhbb_id, limit: lhbb_num, Callback: Callback},  //参数
-                url: "http://192.168.31.156:8080/cmsNews/template_editor/channel_article_list_index.do",//请求的action路径
+                data: {dataType: "jsonp", channelId: newsList_4g3_select_SS, callBack: cb,contentType:'article'},  //参数
+                url: blockBasePath + "blockData/topLine.do",//请求的action路径
                 success: function (data) { //请求成功后处理函数。
                 }
             });
         }
         function tDataCallback(data) {
-            var data=data;
+            var templateId_replace="";
+            var newsList_4g3_select_SS='';
+            var data=data.article;
             if( data != '' && data != undefined){
                 $(".newsList_4g3_main.showId").html("");
                 var str = "";
                 str = '&lt;dl class="clearFloat"&gt;' +
                     '&lt;dt&gt; ' +
-                    '&lt;a onclick="goContentDetial(\''+data.articleUrl+'\',\'\')&gt;' +
+                    '&lt;a onclick="goContentDetial(\''+data.staticUrl+'\',\''+newsList_4g3_select_SS+'\')&gt;' +
                     '&lt;img src="'+data.pic+'" class="newsList_4g3_listImg"&gt;&lt;/a&gt; ' +
                     '&lt;/dt&gt;' +
                     '&lt;dd&gt;'+
                     '&lt;p class="newsList_4g3_title titleColor"&gt;' +
-                    '&lt;a onclick="goContentDetial(\''+data.articleUrl+'\',\'\')'+data.title+'&lt;/a&gt;' +
+                    '&lt;a onclick="goContentDetial(\''+data.staticUrl+'\',\''+newsList_4g3_select_SS+'\')'+data.title+'&lt;/a&gt;' +
                     '&lt;/p&gt; ' +
-                    '&lt;p class="newsList_4g3_summary"&gt;'+data.content+'&lt;/p&gt; ' +
+                    '&lt;p class="newsList_4g3_summary"&gt;'+data.shortContent+'&lt;/p&gt; ' +
                     '&lt;div class="clearFloat newsList_4g3_foot"&gt;' +
-                    '&lt;p class="dateColor newsList_4g3_source"&gt;'+data.source+'&lt;/p&gt;' +
+                    '&lt;p class="dateColor newsList_4g3_source"&gt;'+data.sourceTitle+'&lt;/p&gt;' +
                     '&lt;p class="dateColor newsList_4g3_comNum"&gt;  | ' +
-                    '&lt;img src="../../img/PP/myJoined/contentNum.png" class="newsList_4g3_imageNum"&gt;'+data.discussNum+'&lt;/p&gt; ' +
-                    '&lt;p class=" dateColor newsList_4g3_date"&gt;'+data.time+'&lt;/p&gt;'+
+                    '&lt;img src="../../img/PP/myJoined/contentNum.png" class="newsList_4g3_imageNum"&gt;'+data.commentNum+'&lt;/p&gt; ' +
+                    '&lt;p class=" dateColor newsList_4g3_date"&gt;'+data.onlineTime+'&lt;/p&gt;'+
                     '&lt;/div&gt;' +
                     '&lt;/dd&gt;' +
                     '&lt;/dl&gt;';
