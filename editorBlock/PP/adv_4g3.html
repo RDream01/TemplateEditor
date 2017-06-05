@@ -61,6 +61,9 @@
                 });
             }
             function tDataCallback(data){
+                if(data == '' || data == undefined){
+                    return;
+                }
                 $(".adv_4g3_img.showId").val(data.pic);
                 $(".adv_4g3_all a.showId").attr("href",data.url);
             }

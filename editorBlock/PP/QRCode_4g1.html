@@ -76,6 +76,9 @@
     }
     function tDataCallback(data){
         var qrcode = data.qrcode;
+        if(qrcode == ''  || qrcode == undefined){
+            return;
+        }
         $(".QRCode_4g1_img.showId").val(qrcode.pic);
     }
 </script>
