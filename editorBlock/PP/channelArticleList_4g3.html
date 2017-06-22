@@ -393,7 +393,7 @@
                 type: 'post',
                 dataType: "jsonp",
                 data: {channelId: channelArticleList_4g3_channelId_SS, limit: num, callBack: cb},  //参数
-                url: "http://192.168.31.156:8080/cmsNews/blockData/channelArticleList",//请求的action路径
+                url: blockBasePath + "/blockData/channelArticleList",//请求的action路径
                 success: function (data) { //请求成功后处理函数。
                 }
             });
