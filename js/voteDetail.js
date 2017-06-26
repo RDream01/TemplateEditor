@@ -1,7 +1,6 @@
 /**
  * Created by Admin on 2016/8/5.
  */
-
 var btn=document.querySelector('.mainColor_background');
 //var form1=document.querySelector('#form1');
 //var close=document.querySelector('.close');
@@ -62,15 +61,16 @@ function validateCode()
 
 //颜色+长度
 function createColler(){
+    //颜色+长度
     var colorList = ["#FFFF99","#B5FF91","#94DBFF","#FFBAFF","#FFBD9D","#C7A3ED","#CC9898","#8AC007","#CCC007","#FFAD5C"],
-        spans=$('.vote_na .meter>span'),
-        percent=$('.vote_na .percent');
-    console.log(spans.length);
-    //meter=$('.meter')[0];
+    // var colorList = ["#fbbc05","#34a826","#4285f4","#cc3333"],
+            spans=$('.voteImg_4g3_voteMeter>span'),
+            percent=$('.percent');
+            console.log(spans);
+            console.log(percent);
     for( var i=0;i<spans.length;i++ ){
         spans[i].style.backgroundColor=getColorByRandom(colorList);
-        //console.log( spans[i].style.backgroundColor );
-        spans[i].style.width=parseFloat($('.vote_na .meter').css('width'))/100*parseFloat(percent[i].innerHTML)+'px';
+        spans[i].style.width=parseFloat($('.voteImg_4g3_voteMeter').css('width'))/100*parseFloat(percent[i].innerHTML)+'px';
     }
     function getColorByRandom(colorList){
         var colorIndex = Math.floor(Math.random()*colorList.length);
@@ -79,9 +79,9 @@ function createColler(){
         return color;
     }
 }
-window.onload=function(){
-    createColler();
-}
+// window.onload=function(){
+    // createColler();
+// }
 
 
 
@@ -105,7 +105,7 @@ function toVote(voteId){
         var postData =  {"voteOptionIds":voteOptionIds,"voteId":voteId};
         $.ajax({
             type: 'POST',
-            url:basePath+'createHtml/goValidationVote.do',
+            url: 'http://127.0.0.1/createHtml/goValidationVote.do',
             data:postData,
             dataType:'jsonp',
             cache: false,
@@ -130,7 +130,7 @@ function validationCallback(data){
 }
 
 function vote(voteId,voteOptionIds){
-    url=basePath+"createHtml/goVote.do?voteId="+voteId+"&voteOptionIds="+voteOptionIds;
+    url="http://127.0.0.1/createHtml/goVote.do?voteId="+voteId+"&voteOptionIds="+voteOptionIds;
     $.ajax({
         type: 'POST',
         url:url,
@@ -147,8 +147,8 @@ function goVoteCallback(data){
     $(".clearFloat").remove();
     $(".voteImg_4g3_voteBtn").remove();
     $("#form1").remove();
-    var url = basePath +"createHtml/getVoteInf.do";
-    var postData = {'articleId':$('#articleId').val(),'voteOptionIds':data.voteOptionIds};
+    var url = "http://127.0.0.1/blockData/getVoteInfo.do";
+    var postData = {'articleId':articleId,'voteOptionIds':data.voteOptionIds};
     $.ajax({type:'POST',url:url,data:postData,dataType:'jsonp',cache:false,
         async: true,//同步方法
         success:function(data){}

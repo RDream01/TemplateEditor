@@ -23,7 +23,7 @@ function isLogin(){
         type: 'post',
         dataType: "jsonp",
         data: {callBack: "loginFlag"},  //参数
-        url: blockBasePath + "blockData/isLoginFlag.do",//请求的action路径
+        url: basePath + "blockData/isLoginFlag.do",//请求的action路径
         success: function (data) { //请求成功后处理函数。
         }
     });
