@@ -105,7 +105,7 @@ function toVote(voteId){
         var postData =  {"voteOptionIds":voteOptionIds,"voteId":voteId};
         $.ajax({
             type: 'POST',
-            url: 'http://127.0.0.1/createHtml/goValidationVote.do',
+            url: blockBasePath + 'createHtml/goValidationVote.do',
             data:postData,
             dataType:'jsonp',
             cache: false,
@@ -130,7 +130,7 @@ function validationCallback(data){
 }
 
 function vote(voteId,voteOptionIds){
-    url="http://127.0.0.1/createHtml/goVote.do?voteId="+voteId+"&voteOptionIds="+voteOptionIds;
+    url=blockBasePath + "createHtml/goVote.do?voteId="+voteId+"&voteOptionIds="+voteOptionIds;
     $.ajax({
         type: 'POST',
         url:url,
@@ -144,11 +144,11 @@ function vote(voteId,voteOptionIds){
 
 function goVoteCallback(data){
     alert("投票成功");
-    $(".clearFloat").remove();
+    $("#voteOptions").remove();
     $(".voteImg_4g3_voteBtn").remove();
     $("#form1").remove();
-    var url = "http://127.0.0.1/blockData/getVoteInfo.do";
-    var postData = {'articleId':articleId,'voteOptionIds':data.voteOptionIds};
+    var url = blockBasePath + "blockData/getVoteInfo.do";
+    var postData = {'articleId':articleId,'voteOptionIds':data.voteOptionIds,callBack:'voteImg_4g3_1_3group1tDataCallback'};
     $.ajax({type:'POST',url:url,data:postData,dataType:'jsonp',cache:false,
         async: true,//同步方法
         success:function(data){}
