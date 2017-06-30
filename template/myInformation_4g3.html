@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>我的信息</title>
+    <style>
+        .myInformation_4g3_list{
+            margin-left: 84px;
+            width: 540px;
+        }
+        .myInformation_4g3_list li{
+            padding-top: 12px;
+            padding-bottom: 12px;
+            padding-left: 10px;
+        }
+        .myInformation_4g3_head{
+            float: left;
+            font-size:14px;
+            text-align:center;
+            align-content: center;
+            height: 20px;
+            width: 28px;
+            margin-top: 18px;
+        }
+        .myInformation_4g3_headImage{
+            border:1px solid #f1f1f1;
+            width:51px;
+            height:51px;
+            border-radius:100%;
+            margin-left: 64px;
+            vertical-align: middle;
+        }
+        .myInformation_4g3_editImage{
+            width: 62px;
+            height: 20px;
+            margin-left: 311px;
+            color:#ffffff;
+            border-radius:2px;
+        }
+        .myInformation_4g3_name{
+            font-size:14px;
+            text-align:left;
+            float: left;
+        }
+        .myInformation_4g3_nameinput{
+            float: left;
+            margin-left: 64px;
+            width: 400px;
+            height: 20px;
+            outline: medium;
+        }
+        .myInformation_4g3_sex{
+            font-size:14px;
+            text-align:left;
+            float: left;
+            height: 20px;
+        }
+        .myInformation_4g3_sexSelect{
+            margin-left: 64px;
+            float: left;
+            height:20px;
+        }
+        .myInformation_4g3_nicput{
+            margin-left: 64px;
+            width: 400px;
+            height: 20px;
+            outline: medium;
+        }
+        .myInformation_4g3_birthput{
+            margin-left: 64px;
+            width: 400px;
+            height: 20px;
+            outline: medium;
+        }
+        .myInformation_4g3_phoneput{
+            margin-left: 50px;
+            width: 400px;
+            height: 20px;
+            outline: medium;
+        }
+        .myInformation_4g3_emailput{
+            margin-left: 64px;
+            width: 400px;
+            height: 20px;
+            outline: medium;
+        }
+        .myInformation_4g3_addressput{
+            margin-left: 40px;
+            width: 400px;
+            height: 20px;
+            outline: medium;
+        }
+        .dropdown-menu{
+            padding:5px 15px;
+        }
+        .table-condensed tbody tr,.table-condensed tfoot tr{
+            cursor: pointer;
+        }
+        .table-condensed th{text-align: center;}
+        .myInformation_4g3_sexWom{margin-left: 24px;}
+    </style>
+</head>
+<body>
+    <div class="Grid4g3">
+        <div class="myInformation_4g3_list">
+            <form action="personal/update.do" name="Form" id="Form" method="post" onsubmit="return PostData()">
+                <ul>
+                    <li class="clearFloat">
+                        <div >
+                            <p class="myInformation_4g3_head titleColor">头像</p>
+                            <img src="http://114.113.231.46:90/TemplateEditor/img/PP/myJoined/pic.png" class="myInformation_4g3_headImage">
+                            <input type="button" value="修改头像" onclick="path.click()" class="myInformation_4g3_editImage">
+                            <input type="file" name="headPic" id="path" style="display:none" onchange="changeImg(this)">
+                        </div>
+                    </li>
+                    <li class="clearFloat">
+                        <p class="myInformation_4g3_name titleColor">姓名</p>
+                        <input type="text" name="name" class="myInformation_4g3_nameinput" placeholder="用户姓名"  onchange="editUser()">
+                    </li>
+                    <li class="clearFloat">
+                        <p class="myInformation_4g3_name titleColor">昵称</p>
+                        <input type="text" name="nickName" class="myInformation_4g3_nicput" placeholder="昵称"  onchange="editUser()">
+                    </li>
+                    <li class="clearFloat">
+                        <p class="myInformation_4g3_sex titleColor" >性别</p>
+                        <div class="myInformation_4g3_sexSelect">
+                             <input type="radio" name="sex"  id="1"  value="1" checked  onchange="editUser()"/> 男
+                             <input type="radio" name="sex" id="2" value="2" class="myInformation_4g3_sexWom"  onchange="editUser()"/> 女
+                        </div>
+                    </li>
+                    <li class="clearFloat">
+                        <p class="myInformation_4g3_name titleColor">生日</p>
+                        <input type="text"  name="age" class="myInformation_4g3_birthput form-date" placeholder="选择或者输入一个日期"  onchange="editUser()">
+                    </li>
+                    <li class="clearFloat">
+                        <p class="myInformation_4g3_name titleColor">手机号</p>
+                        <input type="text"  name="phone" class="myInformation_4g3_phoneput" placeholder="请输入手机号"  onchange="editUser()">
+                    </li>
+                    <li class="clearFloat">
+                        <p class="myInformation_4g3_name titleColor">邮箱</p>
+                        <input type="text" name="email" class="myInformation_4g3_emailput" placeholder="请输入邮箱"  onchange="editUser()">
+                    </li>
+                    <li class="clearFloat">
+                        <p class="myInformation_4g3_name titleColor">通讯地址</p>
+                        <input type="text" name="address" class="myInformation_4g3_addressput" placeholder="请输入通讯地址" onchange="editUser()">
+                    </li>
+                </ul>
+            </form>
+        </div>
+    </div>
+    <script src="http://114.113.231.46:90//templateResource/js/jquery-1.11.3.js"></script>
+<script src="http://114.113.231.46:90/TemplateEditor/js/datetimepicker.js"></script>
+<script>
+    function PostData() {
+        var formData = new FormData($("#Form")[0]);
+        $.ajax({
+            type: "POST",
+            url: blockBasePath+"blockData/update.do",
+            data:formData,
+            dataType: 'jsonp',
+            async: false,
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function(data) {
+            }
+        });
+        return false;
+    }
+    function editUser(){
+        $("#Form").submit();
+    }
+
+
+    // 仅选择日期
+    $(".form-date").datetimepicker({
+        language:  "zh-CN",
+        weekStart: 1,
+        todayBtn:  1,
+        autoclose: 1,
+        todayHighlight: 1,
+        startView: 2,
+        minView: 2,
+        forceParse: 0,
+        format: "yyyy/mm/dd"
+    });
+    function changeImg(target){
+        var f=target.files[0];
+        var img = new Image();
+        img.file = f;
+        img.onload=function(){
+            $(".myInformation_4g3_headImage").attr("src", img.src);
+        };
+        var reader = new FileReader();
+        reader.onload = function(e){
+            img.src = e.target.result;
+        };
+        reader.readAsDataURL(f);
+    }
+    try{
+       getUserInfo();
+    }catch(e){
+    }
+    function getUserInfo(){
+        $.ajax({
+            async: false,
+            cache: true,
+            type: 'post',
+            dataType: "jsonp",
+            data: {callBack:"getUserInfoCallback"},  //参数
+            url: blockBasePath+"blockData/getUserInfo.do",//请求的action路径
+            success: function (data) { //请求成功后处理函数。
+            }
+        });
+    };
+    //返回的真实数据
+    function getUserInfoCallback(data){
+        var userInfo = data.userInfo;
+        console.log(userInfo);
+        $(".myInformation_4g3_headImage").attr("src",userInfo.headImgUrl);
+        $(".myInformation_4g3_nameinput").val(userInfo.name);
+        $(".myInformation_4g3_nicput").val(userInfo.nickName);
+        $(".myInformation_4g3_birthput").val(userInfo.age);
+        $(".myInformation_4g3_phoneput").val(userInfo.phone);
+        $(".myInformation_4g3_emailput").val(userInfo.email);
+        $(".myInformation_4g3_addressput").val(userInfo.address);
+        if(userInfo.sex == "1"){
+            $("#1").attr("checked","checked");
+        }else{
+            $("#2").attr("checked","checked");
+        }
+    }
+</script>
+</body>
+</html>

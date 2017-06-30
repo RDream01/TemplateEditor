@@ -1,0 +1,509 @@
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>擎好网</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://114.113.231.46:90//templateResource/css/zui.min.css"/>
+    <link rel="stylesheet" href="http://114.113.231.46:90//templateResource/css/common_red.css"/>
+    <script src="http://114.113.231.46:90//templateResource/js/jquery-1.11.3.js"></script>
+    <script src="http://114.113.231.46:90//templateResource/js/zui.min.js"></script>
+    <script src="http://114.113.231.46:90//templateResource/js/wordNumber.js"></script>
+    <script src="http://114.113.231.46:90//templateResource/js/commonConfig.js"></script>
+    <script src="http://114.113.231.46:90//templateResource/js/commenFunction.js"></script>
+</head>
+<body>
+<div class="rel_header">
+    <div class="style">
+        <style>
+            /**********************组件---headerTopic_4g4************************/
+            .headerTopic_4g4 {
+                width: 100%;
+            }
+
+            /*top--红*/
+            .headerTopic_4g4_top {
+                height: 40px;
+            }
+
+            .headerTopic_4g4_action li {
+                display: inline-block;
+                line-height: 40px;
+                color: #fff;
+                margin-right: 15px;
+                font-size: 14px;
+            }
+
+            .headerTopic_4g4_searchCon {
+                display: inline-block;
+                width: 112px;
+                height: 20px;
+                margin: 10px 0;
+                position: relative;
+            }
+
+            .headerTopic_4g4_searchInput {
+                border-radius: 36px;
+                width: 112px;
+                padding: 0 5px;
+                letter-spacing: 1px;
+                outline: none;
+                font-size: 14px;
+            }
+
+            .headerTopic_4g4_searchCon label {
+                display: inline-block;
+                position: absolute;
+                right: 5px;
+                top: 5px;
+            }
+
+            .headerTopic_4g4_searchCon label a {
+                display: inline-block;
+            }
+
+            .headerTopic_4g4_phone, .headerTopic_4g4_login {
+                display: inline-block;
+                margin-left: 20px;
+            }
+
+            .headerTopic_4g4_phone span {
+                color: #fff;
+                font-size: 14px;
+                padding-left: 3px;
+            }
+
+            .headerTopic_4g4_phone img {
+                padding-bottom: 2px;
+            }
+
+            .headerTopic_4g4_login a {
+                color: #fff;
+                font-size: 14px;
+            }
+
+            /*logo*/
+            .headerTopic_4g4_bottom {
+                background: #fff;
+                box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.24);
+                width: 100%;
+                height: 152px;
+            }
+
+            .headerTopic_4g4_logo {
+                width: 250px;
+                margin-right: 50px;
+            }
+
+            .headerTopic_4g4_logo > img {
+                width: 250px;
+                margin: 30px 0;
+            }
+
+            .headerTopic_4g4_ren {
+                color: #fff;
+            }
+        </style>
+    </div>
+    <div class="headerTopic_4g4">
+        <!--top-->
+        <input type="hidden" value="yes" class="v_headerTopic_4g4_action"/>
+
+        <div class="headerTopic_4g4_top mainColor_background">
+            <div class="commonContainer">
+                <ul class="headerTopic_4g4_action lf headerTopic_4g4_0_4group0">
+                    <li class="headerTopic_4g4_GPS">北京</li>
+                    <li class="headerTopic_4g4_time">2017年3月20日 周四</li>
+                    <li class="headerTopic_4g4_TEMP">27℃</li>
+                </ul>
+                <div class="rt">
+                    <p class="headerTopic_4g4_searchCon ">
+                        <input type="text" id="headerTopic_4g4_searchInput" placeholder=""
+                               class="headerTopic_4g4_searchInput "/>
+                        <label for="headerTopic_4g4_searchInput"><a href="#"><img
+                                src="http://114.113.231.46:90/TemplateEditor/img/PP/header01_4g4/search_index.png" alt=""/></a></label>
+                    </p>
+
+                    <p class="headerTopic_4g4_phone">
+                        <a href="javascript:window.open('http://114.113.231.46:90/TemplateEditor/downLoad/downLoad.html','_blank')">
+                            <img src="http://114.113.231.46:90/TemplateEditor/img/PP/header01_4g4/phone_index.png" alt=""/><span>下载客户端</span>
+                        </a>
+                    </p>
+
+                    <p class="headerTopic_4g4_login headerTopic_4g4_0_4group0"><a href="javascript:exist()">退出登录</a></p>
+                </div>
+            </div>
+        </div>
+        <!--logo + nav-->
+        <div class="headerTopic_4g4_bottom">
+            <div class="commonContainer clearFloat">
+                <!--logo-->
+                <div class="headerTopic_4g4_logo">
+                    <img src="http://114.113.231.46:90/TemplateEditor/img/PP/headerTopic_4g4/headerPersonal_logo.png">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="script">
+        <script>
+        function exist(){
+        	var cb="sssssCallBack";
+        	$.ajax({
+                async: false,
+                cache: true,
+                type: 'post',
+                dataType: "jsonp",
+                data: {callBack:cb},  //参数
+                url: blockBasePath+"blockData/logoutB.do",//请求的action路径
+                success: function (data) { //请求成功后处理函数。
+                }
+            });
+        }
+        function sssssCallBack(){
+        	// window.location.reload();
+            window.open('http://www.bjfine.cn');
+        }
+            var flag = "v";
+            if (flag == "v") {
+                vData()
+            } else {
+                headerTopic_4g4_0_4group0tData();
+            }
+            function vData() {
+//            天气
+                var v_headerTopic_4g4_action = $(".appendCur .v_headerTopic_4g4_action").val();
+                if (v_headerTopic_4g4_action == 'yes') {
+                    $(".appendCur .headerTopic_4g4_action").show();
+                } else if (v_headerTopic_4g4_action == 'no') {
+                    $(".appendCur .headerTopic_4g4_action").hide();
+                }
+//            是否登录
+                $(".appendCur .headerTopic_4g4_login").html("");
+                if (true) {
+                    $(".appendCur .headerTopic_4g4_login").html("<a href='#'>登录</a>");
+                } else {
+                    $(".appendCur .headerTopic_4g4_login").html("<span class='headerTopic_4g4_ren'>欢迎XXX</span>");
+                }
+            }
+            function headerTopic_4g4_0_4group0tData() {
+                var headerTopic_4g4_action = "";
+                if (headerTopic_4g4_action == "") {
+                    headerTopic_4g4_action = "yes";
+                }
+                if (headerTopic_4g4_action == "yes") {
+                    $(".headerTopic_4g4_action.headerTopic_4g4_0_4group0").show();
+                } else {
+                    $(".headerTopic_4g4_action.headerTopic_4g4_0_4group0").hide();
+                }
+                //登录
+                if (true) {
+                    $(".headerTopic_4g4_login.headerTopic_4g4_0_4group0").html("<a href='#'>登录</a>");
+                } else {
+                    $(".headerTopic_4g4_login.headerTopic_4g4_0_4group0").html("<span class='headerTopic_4g4_ren'>欢迎XXX</span>");
+                }
+
+            }
+
+        </script>
+    </div>
+</div>
+<div class="rel4_section">
+    <div class="rel4_groupDiv3">
+        <div class="rel4_blockDiv">
+            <div class="style">
+                <style>
+                    .personalCenter_4g3_head {
+                        width: 540px;
+                        padding-top: 47px;
+                        margin-left: 84px;
+                        border-bottom: 1px solid #dddddd;
+                    }
+
+                    .personalCenter_4g3_head ul {
+                        width: 540px;
+                    }
+
+                    .personalCenter_4g3_head li {
+                        cursor: pointer;
+                        float: left;
+                        text-align: center;
+                        width: 103px;
+                        padding-bottom: 3px;
+                        font-size: 16px;
+                    }
+
+                    .personalCenter_4g3_bottomClor {
+                        width: 104px;
+                    }
+
+                    #personalPage {
+                        padding-bottom: 100px;
+                    }
+                </style>
+            </div>
+            <div class="Grid4g3 partCommon">
+                <div>
+                    <div class="personalCenter_4g3_head">
+                        <ul class="clearFloat">
+                            <li class="personalCenter_4g3_bottomClor">
+                                <a href="#" data-openbtn="myInformation_4g3">我的信息</a>
+                            </li>
+                            <li>
+                                <a href="#" data-openbtn="myComment_4g3">我的评论</a>
+                            </li>
+                            <li>
+                                <a href="#" data-openbtn="myCollect_4g3">我的收藏</a>
+                            </li>
+                            <li>
+                                <a href="#" data-openbtn="myJoined_4g3">我参与过的</a>
+                            </li>
+                            <li>
+                                <a href="#" data-openbtn="myScore_4g3">我的积分</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="personalPage"></div>
+                </div>
+            </div>
+            <div class="script">
+                <script>
+                    $(function () {
+                        $('.personalCenter_4g3_head li').click(function () {
+                            $(this).addClass('personalCenter_4g3_bottomClor').siblings('li').removeClass('personalCenter_4g3_bottomClor');
+                        });
+                    });
+                    $('#personalPage').load('myInformation_4g3.html');
+                    $('.personalCenter_4g3_head ul li').click(function () {
+                        var data = $(this).children("a").attr('data-openbtn');
+                        $('#personalPage').load( data + '.html');
+                    });
+
+                </script>
+            </div>
+        </div>
+    </div>
+    <div class="rel4_groupDiv1">
+        <div class="rel4_blockDiv">
+            <div class="style">
+                <style>
+                    .hotVoteList_top {
+                        width: 228px;
+                        height: 40px;
+                        background: #ffffff;
+                        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.24);
+                    }
+
+                    .hotVoteList_title {
+                        line-height: 40px;
+                        font-size: 20px;
+                        margin-left: 16px;
+                    }
+
+                    .hotVoteList_name {
+                        display: inline-block;
+                    }
+
+                    .hotVoteList_name:first-letter {
+                        font-size: 22px;
+                    }
+
+                    .hotVoteList_li {
+                        width: 228px;
+                        height: 46px;
+                        margin-bottom: 10px;
+                    }
+
+                    .hotVoteList_li_content {
+                        height: 46PX;
+                        line-height: 18px;
+                        overflow: hidden;
+                        font-size: 13px;
+                        width: 228px;
+                        padding: 5px 16px;
+                        letter-spacing: 0.7px;
+                    }
+
+                    .hotVoteList_ul {
+                        margin-top: 12px;
+                    }
+
+                    .hotVoteList_more {
+                        margin-right: 16px;
+                        font-size: 20px;
+                    }
+                </style>
+            </div>
+            <div class="Grid4g1 pageBackGroundColor">
+                <div class="hotVoteList_top">
+                    <div class="hotVoteList_title titleColor">
+                        <p class="fistP hotVoteList_name hotVoteList_4g1_3_1group2">热门投票</p>
+                    <span class="hotVoteList_more rt">
+                        <a class="dateColor" href="http://114.113.231.46:90/template/88dbe3924eaf42f5b0d963d5daf313e5.html">></a>
+                    </span>
+                    </div>
+                </div>
+                <ul class="hotVoteList_ul hotVoteList_4g1_3_1group2"></ul>
+            </div>
+            <div class="script">
+                <script>
+                    var flag = "t";
+                    if (flag == "v") {
+                        vData()
+                    } else {
+                        hotVoteList_4g1_3_1group2tData();
+                    }
+                    function vData() {
+                        //title
+                        $(".appendCur .hotVoteList_name").html("");
+                        var v_hotVoteList_4g1_name = $(".appendCur .v_hotVoteList_4g1_name").val();
+                        if (v_hotVoteList_4g1_name != "") {
+                            $(".appendCur .hotVoteList_name").html(v_hotVoteList_4g1_name);
+                        }
+                        //content
+                        $(".appendCur .hotVoteList_ul").html("");
+                        var v_hotVoteList_4g1_ul_num = $(".appendCur .v_hotVoteList_4g1_ul_num").val();
+                        var hotVoteListStr = '';
+                        for (var i = 0; i < v_hotVoteList_4g1_ul_num; i++) {
+                            hotVoteListStr += '<li class="hotVoteList_li">' +
+                                    '<p class="hotVoteList_li_content abstractColor">朋友间一你友间一起做啥才能证明你这人真熟？</p>' +
+                                    '</li>';
+                        }
+                        $(".appendCur .hotVoteList_ul").html(hotVoteListStr);
+                    }
+                    function hotVoteList_4g1_3_1group2tData() {
+                        var cb = "hotVoteList_4g1_3_1group2tDataCallback";
+                        var hotVoteList_4g1_name = "";
+                        if (hotVoteList_4g1_name == "") {
+                            hotVoteList_4g1_name = "热门投票";
+                        }
+                        var hotVoteList_4g1_ul_num = "";
+                        if (hotVoteList_4g1_ul_num == "") {
+                            hotVoteList_4g1_ul_num = "5";
+                        }
+
+                        var hotVoteList_4g1_select = "all";
+                        var hotVoteList_4g1_select_order = "clickRorder";
+
+                        var templateId_replace = "";
+
+                        $.ajax({
+                            async: false,
+                            cache: true,
+                            type: 'post',
+                            dataType: "jsonp",
+                            data: {callBack:cb},  //参数
+                            url: blockBasePath+"blockData/voteList.do",//请求的action路径
+                            success: function (data) { //请求成功后处理函数。
+                            }
+                        });
+                    }
+                    function hotVoteList_4g1_3_1group2tDataCallback(data) {
+                        var list = data.voteList;
+                        if (list != '' && list != undefined) {
+                            $(".hotVoteList_ul.hotVoteList_4g1_3_1group2").html("");
+                            var str = "";
+                            for (var i = 0; i < list.length; i++) {
+                                str += '<li class="hotVoteList_li">' +
+                                        '<a onclick="goContentDetial(\'' + list[i].articleUrl + '\',\'\')">' +
+                                        '<p class="hotVoteList_li_content abstractColor">' + list[i].title + '</p>' +
+                                        '</a>' +
+                                        '</li>';
+                            }
+                            $(".hotVoteList_ul.hotVoteList_4g1_3_1group2").append(str);
+                        }
+                    }
+
+                    max(".hotVoteList_li_content", 25);
+                </script>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="rel_footer">
+    <div class="style">
+        <style>
+            .footer_4g4_main {
+                height: 122px;
+                background: #f1f1f1;
+                padding-top: 20px;
+            }
+
+            .footer_4g4_verList {
+                height: 19px;
+                background-color: #f1f1f1;
+            }
+
+            .footer_4g4_verList ul {
+                text-align: center;
+            }
+
+            .footer_4g4_verList_liBor {
+                border-left: 2px solid #777;;
+            }
+
+            .footer_4g4_verList li:first-child.footer_4g4_verList_liBor {
+                border-left: none;
+            }
+
+            .footer_4g4_verList li {
+                display: inline-block;
+                padding-left: 8px;
+                padding-right: 8px;
+                line-height: 12px;
+            }
+
+            .footer_4g4_number {
+                font-size: 12px;
+                text-align: center;
+                margin-top: 20px;
+            }
+
+            .footer_4g4_company {
+                font-size: 12px;
+                text-align: center;
+                margin-top: 8px;
+            }
+        </style>
+    </div>
+     <div class=" footer_4g4_main">
+        <div class="footer_4g4_verList">
+            <ul>
+                <li class="footer_4g4_verList_liBor"><a href="javascript:gofooter('botQH')">擎好网</a></li>
+                <li class="footer_4g4_verList_liBor"><a href="javascript:gofooter('botAdv')">广告服务</a></li>
+                <li class="footer_4g4_verList_liBor"><a href="javascript:gofooter('botPing')">诚招英才</a></li>
+                <li class="footer_4g4_verList_liBor"><a href="javascript:gofooter('botLian')">联系我们</a></li>
+                <li class="footer_4g4_verList_liBor"><a href="javascript:gofooter('botQuan')">版权声明</a></li>
+                <li class="footer_4g4_verList_liBor"><a href="javascript:gofooter('botFriend')">友情链接</a></li>
+            </ul>
+            <p class="footer_4g4_number">京ICP1备5015468号</p>
+
+            <p class="footer_4g4_company">北京擎好网络科技有限公司 版权所有 Copyright © 2016 New Media Limited All Rights Reserved.</p>
+        </div>
+    </div>
+    <div class="script">
+        <script>
+            function gofooter(name){
+                window.open(blockBasePath+"/cms/goBottom.do?urlName="+name,"_blank");
+            }
+            var flag = "t";
+            if (flag == "v") {
+                vData()
+            } else {
+                footer_4g4_2_4group3tData();
+            }
+            function vData() {
+                var title = "广告服务";
+                var str = "";
+                for (var i = 0; i < 5; i++) {
+                    str += '&lt;li class="footer_4g4_verList_liBor"&gt;&lt;a href="#" onclick="goChannelDetail(\'\',\'\')"&gt;' + title + '&lt;/a&gt;&lt;/li&gt;';
+                }
+                $(".appendCur .footer_4g4_verList ul").html(str);
+            }
+            function footer_4g4_2_4group3tData() {
+
+            }
+        </script>
+    </div>
+</div>
+</body>
+</html>

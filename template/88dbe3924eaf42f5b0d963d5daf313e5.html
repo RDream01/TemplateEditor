@@ -1,0 +1,1266 @@
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>擎好网</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://114.113.231.46:90//templateResource/css/zui.min.css"/>
+    <link rel="stylesheet" href="http://114.113.231.46:90//templateResource/css/common_red.css"/>
+    <script src="http://114.113.231.46:90//templateResource/js/jquery-1.11.3.js"></script>
+    <script src="http://114.113.231.46:90//templateResource/js/zui.min.js"></script>
+    <script src="http://114.113.231.46:90//templateResource/js/wordNumber.js"></script>
+    <script src="http://114.113.231.46:90//templateResource/js/commonConfig.js"></script>
+    <script src="http://114.113.231.46:90//templateResource/js/commenFunction.js"></script>
+</head>
+<body>
+<div class="rel_header">
+    <div class="style">
+        <style>
+            /**********************组件---headerTopic_4g4************************/
+            .headerTopic_4g4 {
+                width: 100%;
+            }
+
+            /*top--红*/
+            .headerTopic_4g4_top {
+                height: 40px;
+            }
+
+            .headerTopic_4g4_action li {
+                display: inline-block;
+                line-height: 40px;
+                color: #fff;
+                margin-right: 15px;
+                font-size: 14px;
+            }
+
+            .headerTopic_4g4_searchCon {
+                display: inline-block;
+                width: 112px;
+                height: 20px;
+                margin: 10px 0;
+                position: relative;
+            }
+
+            .headerTopic_4g4_searchInput {
+                border-radius: 36px;
+                width: 112px;
+                padding: 0 5px;
+                letter-spacing: 1px;
+                outline: none;
+                font-size: 14px;
+            }
+
+            .headerTopic_4g4_searchCon label {
+                display: inline-block;
+                position: absolute;
+                right: 5px;
+                top: 5px;
+            }
+
+            .headerTopic_4g4_searchCon label a {
+                display: inline-block;
+            }
+
+            .headerTopic_4g4_phone, .headerTopic_4g4_login {
+                display: inline-block;
+                margin-left: 20px;
+            }
+
+            .headerTopic_4g4_phone span {
+                color: #fff;
+                font-size: 14px;
+                padding-left: 3px;
+            }
+
+            .headerTopic_4g4_phone img {
+                padding-bottom: 2px;
+            }
+
+            .headerTopic_4g4_login a {
+                color: #fff;
+                font-size: 14px;
+            }
+
+            /*logo*/
+            .headerTopic_4g4_bottom {
+                background: #fff;
+                box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.24);
+                width: 100%;
+                height: 152px;
+            }
+
+            .headerTopic_4g4_logo {
+                width: 250px;
+                margin-right: 50px;
+            }
+
+            .headerTopic_4g4_logo > img {
+                width: 250px;
+                margin: 30px 0;
+            }
+
+            .headerTopic_4g4_ren {
+                color: #fff;
+            }
+
+            .header01_4g4_action{
+                position: relative;
+                display: inline-block;
+                padding:10px 0;
+                color:#fff;
+            }
+            .header01_4g4_action span{
+                padding:0 3px;
+            }
+            /*header01_4g4_province*/
+            #header01_4g4_province{
+                display:none;
+                width:500px;
+                height:250px;
+                padding:20px 10px;
+                position:absolute;
+                top:40px;
+                left:-22px;
+                z-index:1000;
+                background:#fff;
+                box-shadow:0 2px 4px 0 rgba(0, 0, 0, 0.24);
+            }
+            #header01_4g4_province>li{
+                float:left;
+                font-size:16px;
+                padding:5px 15px;
+                margin-bottom:10px;
+                cursor:pointer;
+                position:relative;
+                color:#1a1a1a;
+            }
+            #header01_4g4_province>li:hover {
+                color: #c33;
+                background:#EFEEEE;
+            }
+            /*header01_4g4_city*/
+            .header01_4g4_city{
+                display:none;
+                overflow:hidden;
+                position:absolute;
+                z-index:100;
+                width:270px;
+                background:#EFEEEE;
+                color:#000;
+                top:30px;
+                left: 0;
+            }
+            .header01_4g4_city>li{
+                float:left;
+                font-size:14px;
+                padding:10px;
+            }
+            
+            /* 登录框 */
+            /*#header01_4g4_modalLogin {*/
+                /*padding: 50px 30px;*/
+            /*}*/
+            .header01_4g4_imgBox{
+                text-align: center;
+                margin-top:50px;
+            }
+            .header01_4g4_loginBox{
+                margin:40px auto 60px;
+                text-align: center;
+            }
+            .header01_4g4_loginBox>a{
+                display: inline-block;
+                width:100px;
+                margin:0 20px;
+            }
+            .header01_4g4_loginBox>a>span{
+                display: block;
+            }
+        </style>
+    </div>
+    <div class="headerTopic_4g4">
+        <!--top-->
+        <input type="hidden" value="yes" class="v_headerTopic_4g4_action"/>
+
+        <div class="headerTopic_4g4_top mainColor_background">
+            <div class="commonContainer">
+                <div class="header01_4g4_action lf showId">
+                    <span id="header01_4g4_time"></span>
+                    <span id="header01_4g4_city"></span>
+                    <span id="header01_4g4_temperature"></span>
+                    <span id="header01_4g4_type"></span>
+                    <ul id="header01_4g4_province"></ul>
+                </div>
+                <div class="rt">
+                    <p class="headerTopic_4g4_searchCon ">
+                        <input type="text" id="headerTopic_4g4_searchInput" placeholder=""
+                               class="headerTopic_4g4_searchInput "/>
+                        <label for="headerTopic_4g4_searchInput"><a href="javascript:toSearch();"><img
+                                src="http://114.113.231.46:90/TemplateEditor/img/PP/header01_4g4/search_index.png"
+                                alt=""/></a></label>
+                    </p>
+
+                    <p class="headerTopic_4g4_phone">
+                        <a href="javascript:window.open('http://114.113.231.46:90/TemplateEditor/downLoad/downLoad.html','_blank')">
+                            <img src="http://114.113.231.46:90/TemplateEditor/img/PP/header01_4g4/phone_index.png"
+                                 alt=""/><span>下载客户端</span>
+                        </a>
+                    </p>
+
+                    <p class="headerTopic_4g4_login headerTopic_4g4_0_4group0"></p>
+                </div>
+            </div>
+        </div>
+        <!--logo + nav-->
+        <div class="headerTopic_4g4_bottom">
+            <div class="commonContainer clearFloat">
+                <!--logo-->
+                <div class="headerTopic_4g4_logo lf">
+                    <img src="http://114.113.231.46:90/TemplateEditor/img/PP/headerTopic_4g4/headerVote_logo.png">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--登录框-->
+    <div class="modal fade myModal" id="header01_4g4_modalLogin">
+        <div class="modal-dialog header01_4g4_dialog">
+            <div class="modal-content">
+                <p class="header01_4g4_imgBox"><img src="http://114.113.231.46:90/TemplateEditor/img/header01/login_logo.png" width="150px;" alt=""/></p>
+                <div class="header01_4g4_loginBox">
+                    <a href='javascript:autoLogin("weixin")' style='font-size:16px;'>
+                        <img style='width:30px;margin-bottom:5px;margin-top:8px;' src='http://114.113.231.46:90/TemplateEditor/img/header01/wechat.png' />
+                        <span>微信账号登录</span>
+                    </a>
+                    <a href='javascript:autoLogin("qq")' style='font-size:16px;'>
+                        <img style='width:30px;margin-bottom:5px;margin-top:8px;' src='http://114.113.231.46:90/TemplateEditor/img/header01/qq.png' />
+                        <span>QQ账号登录</span>
+                    </a>
+                    <a href='javascript:autoLogin("weibo")' style='font-size:16px;'>
+                        <img style='width:30px;margin-bottom:5px;margin-top:8px;' src='http://114.113.231.46:90/TemplateEditor/img/header01/weibo.png' />
+                        <span>新浪微博登录</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="script">
+        <script>
+
+            $(document).ready(function(){
+                var url = blockBasePath + "blockData/getFrontUser";
+                var postData = {callBack:'userCallback'};
+                $.ajax({
+                    type: 'POST',
+                    url: url,
+                    data:postData,
+                    dataType:'jsonp',
+                    cache: false,
+                    async: true,//同步方法
+                    success:function(data){}
+                });
+            });
+
+            function userCallback(data){
+                var user = data.userData;
+                if(user != undefined && user != null){
+                    isLoginFlag = "true"
+                    var aStr = "<a href='http://www.bjfine.cn/template/87681caaf12f4fedb1f4a928633ff153.html' target='_Blank' >";
+                    aStr += "<img style='width:35px;height:35px;border-radius:100%;' src='"+user.headImgUrl+"' alt='' />";
+                    aStr += "</a>";
+                    var a = $(aStr);
+                    $(".headerTopic_4g4_login.headerTopic_4g4_0_4group0").append(a);
+                }else{
+                	var aStr='<span style="color:#fff;cursor: pointer;" data-position="100px" data-toggle="modal" data-target="#header01_4g4_modalLogin">登录</span>';
+                	//var aStr = "<a href='javascript:autoLogin(\"weixin\");' style='font-size:16px;'>";
+                    //aStr += "<img style='width:30px;height:30px;margin-top:8px;' src='http://114.113.231.46:90/TemplateEditor/img/header01/weixin_cai.png' /></a>";
+                    //aStr += "<a href='javascript:autoLogin(\"qq\");' style='font-size:16px;'>";
+                    //aStr += "<img style='width:30px;height:30px;margin-top:8px;' src='http://114.113.231.46:90/TemplateEditor/img/header01/qq_cai.png' /></a>";
+                    //aStr += "<a href='javascript:autoLogin(\"weibo\");' style='font-size:16px;'>";
+                    //aStr += "<img style='width:30px;height:30px;margin-top:8px;' src='http://114.113.231.46:90/TemplateEditor/img/header01/weibo_cai.png' /></a>";
+                    var a = $(aStr);
+                    $(".headerTopic_4g4_login.headerTopic_4g4_0_4group0").append(a);
+                }
+            }
+
+            function autoLogin(loginType){
+                var loginUrl="";
+                if("weixin"==loginType){
+                    loginUrl="https://open.weixin.qq.com/connect/qrconnect?appid=wxc93206bdacc7ed6c&redirect_uri=http%3a%2f%2fwww.bjfine.cn%2Fweixin%2FautoLogin.do&response_type=code&scope=snsapi_login&state=1#wechat_redirect";
+                }else if("qq"==loginType){
+                    loginUrl="https://graph.qq.com/oauth2.0/authorize?response_type=code&client_id=101341947&redirect_uri=http%3A%2F%2Fwww.bjfine.cn%2Fqq%2FautoLogin.do&state=1";
+                }else if("weibo"==loginType){
+                    loginUrl=blockBasePath + "weibo/sina4login";
+                }
+                //alert("loginUrl="+loginUrl)
+                window.location.href=loginUrl;
+            }
+
+            function toSearch(){
+                var title = $("#header01_4g4_searchInput").val();
+                if(title == undefined){
+                    title = "";
+                }
+                window.open('http://114.113.231.46:90/template/c232cd7fdad14c14952675a3c8bfadd5.html?title='+title,'_blank');
+            }
+
+            var mydate = new Date();
+            var month=parseFloat(mydate.getMonth())+1;
+            var data=mydate.getDate();
+            var day=mydate.getDay();
+            var x;
+            switch (day) {
+                case 0:
+                    x="日";
+                    break;
+                case 1:
+                    x="一";
+                    break;
+                case 2:
+                    x="二";
+                    break;
+                case 3:
+                    x="三";
+                    break;
+                case 4:
+                    x="四";
+                    break;
+                case 5:
+                    x="五";
+                    break;
+                case 6:
+                    x="六";
+                    break;
+            }
+            $("#header01_4g4_time").text(month+"月"+data+"日 "+" 星期"+x);
+            var flag = "t";
+            if (flag == "v") {
+                vData()
+            } else {
+                headerTopic_4g4_0_4group0tData();
+            }
+            function vData() {
+                //            天气
+                var v_headerTopic_4g4_action = $(".appendCur .v_headerTopic_4g4_action").val();
+                if (v_headerTopic_4g4_action == 'yes') {
+                    $(".appendCur .headerTopic_4g4_action").show();
+                } else if (v_headerTopic_4g4_action == 'no') {
+                    $(".appendCur .headerTopic_4g4_action").hide();
+                }
+                //            是否登录
+                // $(".appendCur .headerTopic_4g4_login").html("");
+                // if (isLoginFlag == "true") {
+                //     $(".appendCur .headerTopic_4g4_login").html("<a href='#'>登录</a>");
+                // } else {
+                //     $(".appendCur .headerTopic_4g4_login").html("<span class='headerTopic_4g4_ren'>欢迎XXX</span>");
+                // }
+            }
+            function headerTopic_4g4_0_4group0tData() {
+                var headerTopic_4g4_action = "";
+                if (headerTopic_4g4_action == "") {
+                    headerTopic_4g4_action = "yes";
+                }
+                if (headerTopic_4g4_action == "yes") {
+                    $(".headerTopic_4g4_action.headerTopic_4g4_0_4group0").show();
+                    $(".header01_4g4_action.showId").show();
+
+                    //天气预报
+                    $('.showId.header01_4g4_action').mouseover(function(){
+                        $('#header01_4g4_province').css('display','block');
+                    });
+                    $('.showId.header01_4g4_action').mouseout(function(){
+                        $('#header01_4g4_province').css('display','none');
+                    });
+                    //默认天气
+                    $.get('http://wthrcdn.etouch.cn/weather_mini?citykey=101010100',  function(data){
+                        var msg= JSON.parse( data);
+                        $('#header01_4g4_temperature').html( msg.data.wendu+'℃' );
+                        $('#header01_4g4_type').html( msg.data.forecast[2].type );
+                        $('#header01_4g4_city').html( '北京' );
+                    });
+                    //接收文件
+                    $.ajax({
+                        async: false,
+                        cache: true,
+                        type: 'post',
+                        dataType: "jsonp",
+                        url: "http://114.113.231.46:90//templateResource/city_json.txt",//请求的action路径
+                        success: function (data) { //请求成功后处理函数。
+                        }
+                    });
+                } else {
+                    $(".headerTopic_4g4_action.headerTopic_4g4_0_4group0").hide();
+                }
+                //登录
+                // if (isLoginFlag == "true") {
+                //     $(".headerTopic_4g4_login.headerTopic_4g4_0_4group0").html("<a href='#'>登录</a>");
+                // } else {
+                //     $(".headerTopic_4g4_login.headerTopic_4g4_0_4group0").html("<span class='headerTopic_4g4_ren'>欢迎XXX</span>");
+                // }
+
+            }
+            function callbackCity(data){
+                var msg = data;
+                //大的
+                $("#header01_4g4_province").html("");
+                for (var i = 0; i < msg['城市代码'].length; i++) {
+                    $('#header01_4g4_province').append($("<li><span>" + msg['城市代码'][i]['省'] + "</span><ul class='header01_4g4_city'></ul></li>"));
+                    //小的li
+                    (function (i_) {
+                        for (var a = 0; a < msg['城市代码'][i]['市'].length; a++) {
+                            $('#header01_4g4_province>li:nth-child(' + (i_ + 1) + ')>ul').append($('<li>' + msg['城市代码'][i_]['市'][a]['市名'] + '</li>'));
+                        }
+                        //小的li点击
+                        $('#header01_4g4_province>li:nth-child(' + (i_ + 1) + ')>ul>li').click(function (event) {
+                            var index = $(this).prevAll().length,
+                                    key = msg['城市代码'][i_]['市'][index]['编码'],
+                                    header01_4g4_city_sm = $(this).html();
+                            var e = window.event || event;
+                            if (e.stopPropagation) {
+                                e.stopPropagation();
+                            } else {
+                                window.event.cancelBubble = true;
+                            }
+                            $.get('http://wthrcdn.etouch.cn/weather_mini?citykey=' + key, function (data) {
+                                var msg = JSON.parse(data);
+                                if (msg.data !== undefined) {
+                                    $('#header01_4g4_city').html(header01_4g4_city_sm);
+                                    $('#header01_4g4_temperature').html(msg.data.wendu + '℃');
+                                    $('#header01_4g4_type').html(msg.data.forecast[2].type);
+                                } else {
+                                    $('#header01_4g4_city').html(header01_4g4_city_sm);
+                                    $('#header01_4g4_temperature').html('暂不支持接收此城市天气');
+                                    $('#header01_4g4_type').html('');
+                                }
+                            })
+                        });
+                    })(i);
+                }
+                $('#header01_4g4_province>li').mouseover(function(){
+                    $(this).children('.header01_4g4_city').css('display','block');
+                });
+                $('#header01_4g4_province>li').mouseout(function(){
+                    $(this).children('.header01_4g4_city').css('display','none');
+                });
+                //上边li点击
+                $('#header01_4g4_province>li').click(function(event){
+                    var e = window.event || event;
+                    if ( e.stopPropagation ){
+                        e.stopPropagation();
+                    }else{
+                        window.event.cancelBubble = true;
+                    }
+                    var city=$(this).children('span').html();
+                    $.get('http://wthrcdn.etouch.cn/weather_mini?city='+city,  function(data){
+                        var msg= JSON.parse( data);
+                        if( msg.data!==undefined ){
+                            $('#header01_4g4_city').html( city );
+                            $('#header01_4g4_temperature').html( msg.data.wendu+'℃' );
+                            $('#header01_4g4_type').html( msg.data.forecast[2].type );
+                        }else{
+                            $('#header01_4g4_city').html(city );
+                            $('#header01_4g4_temperature').html( '请查看详情城市' );
+                            $('#header01_4g4_type').html('');
+                        }
+                    })
+                });
+            };
+
+        </script>
+    </div>
+</div>
+<div class="rel4_section">
+    <div class="rel4_groupDiv3">
+        <div class="rel4_blockDiv">
+            <div class="style">
+                <style>
+                    .channelArticleList_4g3_style {
+                        width: 66px;
+                        height: 27px;
+                        background: #cccccc;
+                        display: inline-block;
+                        color: #ffffff;
+                        font-size: 12px;
+                        line-height: 27px;
+                        margin: 0 -3px 0 0;
+                        padding: 0;
+                        cursor: pointer;
+                    }
+
+                    .channelArticleList_4g3_styleSelected {
+                        background: #cc3333;
+                    }
+
+                    .channelArticleList_4g3_style img {
+                        margin: 0 3px 0 8px;
+                        width: 15px;
+                        height: 15px;
+                    }
+
+                    .channelArticleList_4g3_style span {
+                        padding-top: 4px;
+                    }
+
+                    .channelArticleList_4g3_top {
+                        margin-bottom: 4px
+                    }
+
+                    .channelArticleList_4g3_list_li {
+                        margin-top: 12px;
+                        height: 170px;
+                        background: #ffffff;
+                        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.24);
+                    }
+
+                    .channelArticleList_4g3_list_img {
+                        width: 230px;
+                        height: 138px;
+                    }
+
+                    .channelArticleList_4g3_list_videoPlay {
+                        margin-right: 4px;
+                    }
+
+                    .channelArticleList_4g3_list_second {
+                        display: inline-block;
+                        width: 462px;
+                    }
+
+                    .channelArticleList_4g3_list_title {
+                        margin-top: 16px;
+                        height: 42px;
+                        font-size: 16px;
+                        line-height: 21px;
+                        width: 428px;
+                        margin-left: 16px;
+                        font-family: MicrosoftYaHei;
+                    }
+
+                    .channelArticleList_4g3_list_content {
+                        height: 42px;
+                        width: 428px;
+                        line-height: 21px;
+                        font-size: 14px;
+                        margin-top: 8px;
+                        margin-left: 16px;
+
+                    }
+
+                    .channelArticleList_4g3_list_bottom {
+                        font-size: 12px;
+                        margin-left: 16px;
+                        margin-top: 24px;
+                        width: 428px;
+                        color: #cccccc;
+                    }
+
+                    .channelArticleList_4g3_list_source {
+                        margin-right: 4px;
+                    }
+
+                    .channelArticleList_4g3_list_count {
+
+                    }
+
+                    .channelArticleList_4g3_list_count img {
+                        margin-left: 4px;
+                        width: 12px;
+                        height: 10px;
+                        margin-bottom: 4px;
+                        margin-right: 4px;
+                    }
+
+                    .channelArticleList_4g3_list_videoBottom {
+                        position: relative;
+                        top: -20px;
+                        left: 8px;
+                        color: #ffffff;
+                        font-size: 12px;
+                        line-height: 16px;
+                        width: 222px;
+                    }
+
+                    .channelArticleList_4g3_list_videoTime {
+
+                    }
+
+                    .channelArticleList_4g3_list_videoCount {
+                        float: right;
+                        margin-right: 8px;
+                    }
+
+                    .channelArticleList_4g3_list_first {
+                        width: 230px;
+                        height: 138px;
+                        margin: 16px 0px 16px 16px;
+                        float: left;
+                    }
+
+                    .channelArticleList_4g3_list_topicTag {
+                        color: #ffffff;
+                        position: relative;
+                        bottom: 130px;
+                        left: -20px;
+                    }
+
+                    .channelArticleList_4g3_list_topicTag span {
+                        position: relative;
+                        left: -37px;
+                        bottom: 4px;
+                        font-size: 12px;
+                    }
+
+                    .channelArticleList_4g3_list_ul {
+                        display: block;
+                    }
+
+                    /*卡片*/
+                    .channelArticleList_4g3_card_ul {
+                        position: relative;
+                        width: 708px;
+                        display: none;
+                    }
+
+                    .channelArticleList_4g3_card_ul:after {
+                        content: '';
+                        display: block;
+                        clear: both;
+                    }
+
+                    .channelArticleList_4g3_card_li {
+                        width: 228px;
+                        /*height: 332px;*/
+                        background: #ffffff;
+                        margin-top: 12px;
+                        float: left;
+                        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.24);
+                        position: absolute;
+                    }
+
+                    .channelArticleList_4g3_card_first {
+                        width: 228px;
+                        height: 144px;
+                    }
+
+                    .channelArticleList_4g3_card_second {
+
+                    }
+
+                    .channelArticleList_4g3_card_img {
+                        width: 198px;
+                        height: 124px;
+                        margin: 15px 15px 0px 15px;
+                    }
+
+                    .channelArticleList_4g3_card_title {
+                        width: 196px;
+                        height: 42px;
+                        line-height: 21px;
+                        font-size: 16px;
+                        margin-left: 15px;
+                        margin-top: 3px;
+                    }
+
+                    .channelArticleList_4g3_card_content {
+                        width: 196px;
+                        max-height: 105px;
+                        font-size: 14px;
+                        line-height: 21px;
+                        margin: 5px 15px;
+                    }
+
+                    .channelArticleList_4g3_card_bottom {
+                        margin: 10px 15px 20px 15px;
+                        font-size: 12px;
+                        line-height: 12px;
+                        color: #cccccc;
+                        height: 12px;
+                        width: 195px;
+                    }
+
+                    .channelArticleList_4g3_card_bottom img {
+                        width: 12px;
+                        height: 10px;
+                        margin-left: 4px;
+                        margin-right: 4px;
+                        margin-bottom: 1px;
+                    }
+
+                    .channelArticleList_4g3_card_source {
+                        margin-right: 4px;
+
+                    }
+
+                    .channelArticleList_4g3_card_videoBottom {
+                        position: relative;
+                        top: -22px;
+                        left: 24px;
+                        color: #ffffff;
+                        font-size: 12px;
+                        line-height: 16px;
+                        width: 228px;
+                    }
+
+                    .channelArticleList_4g3_card_videoCount {
+                        position: absolute;
+                        right: 53px;
+                    }
+
+                    .channelArticleList_4g3_card_videoPlay {
+                        margin-right: 4px;
+                    }
+
+                    .channelArticleList_4g3_card_topicTag {
+                        color: #ffffff;
+                        position: relative;
+                        bottom: 118px;
+                        left: -4px;
+                    }
+
+                    .channelArticleList_4g3_card_topicTag img {
+                        width: 36px;
+                    }
+
+                    .channelArticleList_4g3_card_topicTag span {
+                        position: relative;
+                        left: -35px;
+                        bottom: 2px;
+                        font-size: 12px;
+                    }
+                    
+                    .channelArticleList_4g3_more{
+                    	text-align: center;
+    					margin: 50px 0 30px 0;
+                    }
+                    
+                </style>
+            </div>
+            <div class="Grid4g3 pageBackGroundColor channelArticleList_4g3">
+                <input type="hidden" class="v_channelArticleList_4g3_commentNum" value="yes">
+
+                <div class="channelArticleList_4g3_top">
+                    <p class="channelArticleList_4g3_style channelArticleList_4g3_styleSelected styleList"
+                       onclick="selectStyle('styleList')">
+                        <img src="http://114.113.231.46:90/TemplateEditor/img/PP/channelArticleList/list.png"/><span>列表</span>
+                    </p>
+
+                    <p class="channelArticleList_4g3_style styleCard" onclick="selectStyle('styleCard')">
+                        <img src="http://114.113.231.46:90/TemplateEditor/img/PP/channelArticleList/card.png"/><span>卡片</span>
+                    </p>
+                </div>
+                <ul class="channelArticleList_4g3_list_ul pageBackGroundColor channelArticleList_4g3_2_3group1">
+                </ul>
+                <p class="channelArticleList_4g3_more" style="display: none;"><img style="width:40px;" src="http://114.113.231.46:90/TemplateEditor/img/PP/channelArticleList/waiting.gif" alt=""/></p>
+            </div>
+            <div class="script">
+                <script>
+                    var pageStyle = "list";
+
+                    function maxLength() {
+                        forHtml(".channelArticleList_4g3_list_title")
+                        forHtml(".channelArticleList_4g3_list_content")
+                        forHtml(".channelArticleList_4g3_card_title")
+                        forHtml(".channelArticleList_4g3_card_content")
+                        max(".channelArticleList_4g3_list_title", 50);
+                        max(".channelArticleList_4g3_list_content", 56);
+                        max(".channelArticleList_4g3_card_title", 20);
+                        max(".channelArticleList_4g3_card_content", 65);
+                    }
+
+                    function forHtml(yuan) {
+                        for (var i = 0; i < $(yuan).length; i++) {
+                            var pp = $(yuan);
+                            $(pp[i]).html($(pp[i]).attr("data-value"));
+                        }
+                    }
+                    function calculateLocation() {
+                        var pp = $(".channelArticleList_4g3_card_li");
+                        for (var i = 0; i < $(".channelArticleList_4g3_card_li").length; i++) {
+                            if ((i % 3) == 0) {
+                                $(pp[i]).css("left", "0px");
+                            }
+                            if ((i % 3) == 1) {
+                                var pp = $(".channelArticleList_4g3_card_li");
+                                $(pp[i]).css("left", "240px");
+                            }
+                            if ((i % 3) == 2) {
+                                var pp = $(".channelArticleList_4g3_card_li");
+                                $(pp[i]).css("left", "480px");
+                            }
+                            if (i < 3) {
+                                $(pp[i]).css("top", "0px");
+                            } else {
+                                var height = $(pp[i - 3]).css("height");
+                                var preTop = $(pp[i - 3]).css("top");
+                                var hh = height.split("px");
+                                var pt = preTop.split("px");
+                                $(pp[i]).css("top", (parseInt(hh[0]) + parseInt(pt[0]) + 12) + "px");
+                            }
+                        }
+                        calculateUlHeight();
+                    }
+
+                    function calculateUlHeight() {
+                        var pp = $(".channelArticleList_4g3_card_li");
+                        var h = $(".channelArticleList_4g3_card_li").length;
+                        var h1 = parseFloat($(pp[h - 1]).css("top"))+parseFloat($(pp[h - 1]).css("height"));
+                        var h2 =parseFloat($(pp[h - 2]).css("top"))+parseFloat($(pp[h - 2]).css("height"));
+                        var h3 = parseFloat($(pp[h - 3]).css("top"))+parseFloat($(pp[h - 3]).css("height"));
+                        if (h < 3) {
+                            h3 = "0px";
+                        }
+                        if (h < 2) {
+                            h2 = "0px";
+                        }
+                        if (h < 1) {
+                            h1 = "0px";
+                        }
+                        $(".channelArticleList_4g3_card_ul").css("height", (getMax(h1, h2, h3) - 16) + "px");
+                    }
+                    function selectStyle(style) {
+                        $(".channelArticleList_4g3_top").find(".channelArticleList_4g3_styleSelected").removeClass("channelArticleList_4g3_styleSelected");
+                        $("." + style).addClass("channelArticleList_4g3_styleSelected");
+                        var html = $(".channelArticleList_4g3").html();
+                        if (style == "styleCard") {
+                            pageStyle = "card";
+                            html = html.replace(/channelArticleList_4g3_list/g, "channelArticleList_4g3_card");
+                            $(".channelArticleList_4g3").html('');
+                            $(".channelArticleList_4g3").html(html);
+                            $(".channelArticleList_4g3_card_ul").css("display", "block");
+                            calculateLocation();
+                        } else {
+                            pageStyle = "list";
+                            html = html.replace(/channelArticleList_4g3_card/g, "channelArticleList_4g3_list");
+                            $(".channelArticleList_4g3").html('');
+                            $(".channelArticleList_4g3").html(html);
+                            $(".channelArticleList_4g3_list_ul").css("display", "block");
+                            $(".channelArticleList_4g3_list_ul").css("height", "auto");
+                        }
+                        maxLength();
+                    }
+
+                    function getMax(a, b, c) {
+                        return a > b ? (a > c ? a : c) : (b > c ? b : c);
+                    }
+                    var flag = "t";
+                    if (flag == "v") {
+                        vData()
+                    } else {
+                        channelArticleList_4g3_2_3group1tData();
+                    }
+                    //    maxLength();
+                    function vData() {
+                        var commentNum = $(".v_channelArticleList_4g3_commentNum").val();
+                        var num = 21;
+                        $(".channelArticleList_4g3_" + pageStyle + "_ul").html("");
+                        for (var i = 0; i < num; i++) {
+                            var str = "";
+                            str += '<li class="channelArticleList_4g3_' + pageStyle + '_li">';
+                            str += '<div class="channelArticleList_4g3_' + pageStyle + '_first">';
+                            str += '<a><img  class="channelArticleList_4g3_' + pageStyle + '_img" src="http://114.113.231.46:90/TemplateEditor/img/PP/channelArticleList/pic.png">';
+                            str += '<p class="channelArticleList_4g3_' + pageStyle + '_videoBottom">';
+                            str += '<span class="channelArticleList_4g3_' + pageStyle + '_videoTime">10:30</span>';
+                            str += '<span class="channelArticleList_4g3_' + pageStyle + '_videoCount">';
+                            str += '<img class="channelArticleList_4g3_' + pageStyle + '_videoPlay" src="http://114.113.231.46:90/TemplateEditor/img/PP/channelArticleList/video_play.png"/>';
+                            str += ' 3</span></p></a></div>';
+                            str += '<div class="channelArticleList_4g3_' + pageStyle + '_second">';
+                            str += '<a><p class="channelArticleList_4g3_' + pageStyle + '_title"  data-value="哈利路亚哈利虎牙哈哈哈哈哈哈或少时诵诗书事实上"></p></a>';
+                            str += '<p class="channelArticleList_4g3_' + pageStyle + '_content abstractColor" data-value="习近平强很海湖庄不久前在海湖。"></p>';
+                            str += '<p class="channelArticleList_4g3_' + pageStyle + '_bottom"><span class="channelArticleList_4g3_' + pageStyle + '_source">擎好网</span>';
+                            if (commentNum == "yes") {
+                                str += '<span>|</span><span class="channelArticleList_4g3_' + pageStyle + '_count">';
+                                str += '<img src="http://114.113.231.46:90/TemplateEditor/img/PP/channelArticleList/comment.png"/>20</span>';
+                            }
+                            str += '<span class="rt">2017-4-23</span></p></div>';
+                            str += '</div></li>';
+                            $(".channelArticleList_4g3_" + pageStyle + "_ul").append(str);
+                        }
+
+                        maxLength();
+                        try {
+                            calculateLocation();
+                            calculateUlHeight();
+                        } catch (e) {
+                        }
+                        ;
+                    }
+                    function channelArticleList_4g3_2_3group1tData() {
+                        var cb09151196c44ed4bb60c2d29ae59ecd_replace = "";
+                        var channelArticleList_4g3_channelId_SS = "";
+                        var cb = "channelArticleList_4g3_2_3group1tDataCallback";
+                        var num = 21;
+                        $.ajax({
+                            async: false,
+                            cache: true,
+                            type: 'post',
+                            dataType: "jsonp",
+                            data: {
+                                channelId: channelArticleList_4g3_channelId_SS,
+                                limit: num,
+                                callBack: cb,
+                                contentType: "vote"
+                            },  //参数
+                            url: blockBasePath + "blockData/channelArticleList",//请求的action路径
+                            success: function (data) { //请求成功后处理函数。
+                            }
+                        });
+                    }
+
+                    function channelArticleList_4g3_2_3group1tDataCallback(data) {
+
+                        var cb09151196c44ed4bb60c2d29ae59ecd_replace = "";
+                        var channelArticleList_4g3_channelId_SS = "";
+                        var channelArticleList_4g3_commentNum = "";
+                        if (channelArticleList_4g3_commentNum == "") {
+                            channelArticleList_4g3_commentNum = "yes";
+                        }
+                        $(".channelArticleList_4g3_" + pageStyle + "_ul.channelArticleList_4g3_2_3group1").html("");
+                        var articleList = data.articleList;
+                        if (articleList == '' || articleList == undefined) {
+                            return;
+                        }
+                        for (var i = 0; i < articleList.length; i++) {
+                            var str = "";
+                            str += '<li class="channelArticleList_4g3_' + pageStyle + '_li">';
+                            str += '<div class="channelArticleList_4g3_' + pageStyle + '_first">';
+                            str += '<a href="javascript:goContentDetial(\'' + articleList[i].articleUrl + '\',\'' + channelArticleList_4g3_channelId_SS + '\')" ><img  class="channelArticleList_4g3_' + pageStyle + '_img" src="' + articleList[i].pic + '">';
+                            if (articleList[i].contentType == "video") {
+                                str += '<p class="channelArticleList_4g3_' + pageStyle + '_videoBottom">';
+                                str += '<span class="channelArticleList_4g3_' + pageStyle + '_videoTime">articleList[i].videoTime</span>';
+                                str += '<span class="channelArticleList_4g3_' + pageStyle + '_videoCount">';
+                                str += '<img class="channelArticleList_4g3_' + pageStyle + '_videoPlay" src="http://114.113.231.46:90/TemplateEditor/img/PP/channelArticleList/video_play.png"/>';
+                                str += ' 3</span></p>';
+                            }
+                            str += '</a></div>';
+                            str += '<div class="channelArticleList_4g3_' + pageStyle + '_second">';
+                            str += '<a href="javascript:goContentDetial(\'' + articleList[i].articleUrl + '\',\'' + channelArticleList_4g3_channelId_SS + '\')" ><p class="channelArticleList_4g3_' + pageStyle + '_title"  data-value="' + articleList[i].title + '"></p></a>';
+                            str += '<p class="channelArticleList_4g3_' + pageStyle + '_content abstractColor" data-value="' + articleList[i].shortContent + '"></p>';
+                            str += '<p class="channelArticleList_4g3_' + pageStyle + '_bottom"><span class="channelArticleList_4g3_' + pageStyle + '_source"></span>';
+                            if (channelArticleList_4g3_commentNum == "yes") {
+                                str += '<span>|</span><span class="channelArticleList_4g3_' + pageStyle + '_count">';
+                                str += '<img src="http://114.113.231.46:90/TemplateEditor/img/PP/channelArticleList/comment.png"/>' + articleList[i].commentNum + '</span>';
+                            }
+                            str += '<span class="rt">' + articleList[i].onlineTime + '</span></p></div>';
+                            str += '</div></li>';
+                            $(".channelArticleList_4g3_" + pageStyle + "_ul.channelArticleList_4g3_2_3group1").append(str);
+                        }
+                        maxLength();
+                        try {
+                            calculateLocation();
+                            calculateUlHeight();
+                        } catch (e) {
+                        }
+                        ;
+
+                    }
+                    $(window).scroll(function(){
+                        //下面这句主要是获取网页的总高度，主要是考虑兼容性所以把Ie支持的documentElement也写了，这个方法至少支持IE8
+                        var htmlHeight=document.body.scrollHeight||document.documentElement.scrollHeight;
+                        //clientHeight是网页在浏览器中的可视高度，
+                        var clientHeight=document.body.clientHeight||document.documentElement.clientHeight;
+                        //scrollTop是浏览器滚动条的top位置，
+                        var scrollTop=document.body.scrollTop||document.documentElement.scrollTop;
+                        //通过判断滚动条的top位置与可视网页之和与整个网页的高度是否相等来决定是否加载内容；
+                        if(scrollTop+clientHeight==htmlHeight){
+                        	setTimeout(function(){
+                                $('.channelArticleList_4g3_more').fadeIn();
+                            },0);
+                            setTimeout(moreArticleList,3000);
+                        }
+                    })
+                    var currentPage = 2;
+                    function moreArticleList() {
+                        var cb09151196c44ed4bb60c2d29ae59ecd_replace = "";
+                        var channelArticleList_4g3_channelId_SS = "";
+                        var cb = "moreArticleListCallBack";
+                        var num = 21;
+                        $.ajax({
+                            async: false,
+                            cache: true,
+                            type: 'post',
+                            dataType: "jsonp",
+                            data: {channelId: channelArticleList_4g3_channelId_SS,currentPage: currentPage, callBack: cb,contentType:"vote"},  //参数
+                            url: "http://192.168.31.134/blockData/moreArticleList",//请求的action路径
+                            success: function (data) { //请求成功后处理函数。
+                            }
+                        });
+                    }
+
+                    function moreArticleListCallBack(data){
+                        var cb09151196c44ed4bb60c2d29ae59ecd_replace = "";
+                        var channelArticleList_4g3_channelId_SS = "";
+                        currentPage++;
+                        if(data.result == 'yes'){
+                            var articleList = data.articleList;
+                            for (var i = 0; i < articleList.length; i++) {
+                                var str = "";
+                                str += '<li class="channelArticleList_4g3_' + pageStyle + '_li">';
+                                str += '<div class="channelArticleList_4g3_' + pageStyle + '_first">';
+                                str += '<a href="javascript:goContentDetial(\'' + articleList[i].articleUrl + '\',\'' + channelArticleList_4g3_channelId_SS + '\')" ><img  class="channelArticleList_4g3_' + pageStyle + '_img" src="' + articleList[i].pic + '">';
+                                if(articleList[i].contentType == 'video'){
+                                    str += '<p class="channelArticleList_4g3_' + pageStyle + '_videoBottom">';
+                                    str += '<span class="channelArticleList_4g3_' + pageStyle + '_videoTime"></span>';
+                                    str += '<span class="channelArticleList_4g3_' + pageStyle + '_videoCount">';
+                                    str += '<img class="channelArticleList_4g3_' + pageStyle + '_videoPlay" src="http://124.207.72.8:8089/TemplateEditor/img/PP/channelArticleList/video_play.png"/>';
+                                    str += ' 3</span></p>';
+                                }
+                                str += '</a></div>';
+                                str += '<div class="channelArticleList_4g3_' + pageStyle + '_second">';
+                                str += '<a href="javascript:goContentDetial(\'' + articleList[i].articleUrl + '\',\'' + channelArticleList_4g3_channelId_SS + '\')" ><p class="channelArticleList_4g3_' + pageStyle + '_title"  data-value="' + articleList[i].title + '"></p></a>';
+                                str += '<p class="channelArticleList_4g3_' + pageStyle + '_content abstractColor" data-value="' + articleList[i].shortContent + '"></p>';
+                                str += '<p class="channelArticleList_4g3_' + pageStyle + '_bottom"><span class="channelArticleList_4g3_' + pageStyle + '_source">';
+                                if(articleList[i].sourceTitle != null && articleList[i].sourceTitle != undefined){
+                                    str +=articleList[i].sourceTitle;
+                                }
+                                str += '</span>';
+                                if (channelArticleList_4g3_commentNum == "yes") {
+                                    str += '<span>|</span><span class="channelArticleList_4g3_' + pageStyle + '_count">';
+                                    str += '<img src="http://124.207.72.8:8089/TemplateEditor/img/PP/channelArticleList/comment.png"/>' + articleList[i].commentNum + '</span>';
+                                }
+                                str += '<span class="rt">' + articleList[i].onlineTime + '</span></p></div>';
+                                str += '</div></li>';
+                                $(".channelArticleList_4g3_" + pageStyle + "_ul.channelArticleList_4g3_9_3group1").append(str);
+                            }
+                            maxLength();
+                            try {
+                                calculateLocation();
+                                calculateUlHeight();
+                            } catch (e) {
+                            }
+
+                        }else{
+                        	if($('.channelArticleList_4g3_more').html() !== "已经拉到最后了~~~~~~~"){
+	                        	$('.channelArticleList_4g3_more').css('display', 'none');
+	                        	$('.channelArticleList_4g3_more img').remove();
+	                        	$('.channelArticleList_4g3_more').html("已经拉到最后了~~~~~~~");
+                        	}
+                        }
+                    }
+                </script>
+            </div>
+        </div>
+    </div>
+    <div class="rel4_groupDiv1">
+        <div class="rel4_blockDiv">
+            <div class="style">
+                <style>
+                    .hotVoteList_top {
+                        width: 228px;
+                        height: 40px;
+                        background: #ffffff;
+                        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.24);
+                    }
+
+                    .hotVoteList_title {
+                        line-height: 40px;
+                        font-size: 20px;
+                        margin-left: 16px;
+                    }
+
+                    .hotVoteList_name {
+                        display: inline-block;
+                    }
+
+                    .hotVoteList_name:first-letter {
+                        font-size: 22px;
+                    }
+
+                    .hotVoteList_li {
+                        width: 228px;
+                        height: 46px;
+                        margin-bottom: 10px;
+                    }
+
+                    .hotVoteList_li_content {
+                        height: 46PX;
+                        line-height: 18px;
+                        overflow: hidden;
+                        font-size: 13px;
+                        width: 228px;
+                        padding: 5px 16px;
+                        letter-spacing: 0.7px;
+                    }
+
+                    .hotVoteList_ul {
+                        margin-top: 12px;
+                    }
+
+                    .hotVoteList_more {
+                        margin-right: 16px;
+                        font-size: 20px;
+                    }
+                </style>
+            </div>
+            <div class="Grid4g1 pageBackGroundColor">
+                <div class="hotVoteList_top">
+                    <div class="hotVoteList_title titleColor">
+                        <p class="fistP hotVoteList_name hotVoteList_4g1_0_1group2">热门投票</p>
+                    <span class="hotVoteList_more rt">
+                        <a class="dateColor" href="http://114.113.231.46:90/template/88dbe3924eaf42f5b0d963d5daf313e5.html" >></a>
+                    </span>
+                    </div>
+                </div>
+                <ul class="hotVoteList_ul hotVoteList_4g1_0_1group2"></ul>
+            </div>
+            <div class="script">
+                <script>
+                    var flag = "t";
+                    if (flag == "v") {
+                        vData()
+                    } else {
+                        hotVoteList_4g1_0_1group2tData();
+                    }
+                    function vData() {
+                        //title
+                        $(".appendCur .hotVoteList_name").html("");
+                        var v_hotVoteList_4g1_name = $(".appendCur .v_hotVoteList_4g1_name").val();
+                        if (v_hotVoteList_4g1_name != "") {
+                            $(".appendCur .hotVoteList_name").html(v_hotVoteList_4g1_name);
+                        }
+                        //content
+                        $(".appendCur .hotVoteList_ul").html("");
+                        var v_hotVoteList_4g1_ul_num = $(".appendCur .v_hotVoteList_4g1_ul_num").val();
+                        var hotVoteListStr = '';
+                        for (var i = 0; i < v_hotVoteList_4g1_ul_num; i++) {
+                            hotVoteListStr += '<li class="hotVoteList_li">' +
+                                    '<p class="hotVoteList_li_content abstractColor">朋友间一你友间一起做啥才能证明你这人真熟？</p>' +
+                                    '</li>';
+                        }
+                        $(".appendCur .hotVoteList_ul").html(hotVoteListStr);
+                    }
+                    function hotVoteList_4g1_0_1group2tData() {
+                        var cb = "hotVoteList_4g1_0_1group2tDataCallback";
+                        var hotVoteList_4g1_name = "";
+                        if (hotVoteList_4g1_name == "") {
+                            hotVoteList_4g1_name = "热门投票";
+                        }
+                        var hotVoteList_4g1_ul_num = "";
+                        if (hotVoteList_4g1_ul_num == "") {
+                            hotVoteList_4g1_ul_num = "5";
+                        }
+
+                        var hotVoteList_4g1_select = "all";
+                        var hotVoteList_4g1_select_order = "clickRorder";
+
+                        var templateId_replace = "";
+                        $.ajax({
+                            async: false,
+                            cache: true,
+                            type: 'post',
+                            dataType: "jsonp",
+                            data: {callBack:cb},  //参数
+                            url: blockBasePath + "blockData/voteList.do",//请求的action路径
+                            success: function (data) { //请求成功后处理函数。
+                            }
+                        });
+                    }
+                    function hotVoteList_4g1_0_1group2tDataCallback(data) {
+                        var list = data.voteList;
+                        if (list != '' && list != undefined) {
+                            $(".hotVoteList_ul.hotVoteList_4g1_0_1group2").html("");
+                            var str = "";
+                            for (var i = 0; i < list.length; i++) {
+                                str += '<li class="hotVoteList_li">' +
+                                        '<a href="javascript:goContentDetial(\'' + list[i].articleUrl + '\',\'\')">' +
+                                        '<p class="hotVoteList_li_content abstractColor">' + list[i].title + '</p>' +
+                                        '</a>' +
+                                        '</li>';
+                            }
+                            $(".hotVoteList_ul.hotVoteList_4g1_0_1group2").append(str);
+                        }
+                    }
+
+                    max(".hotVoteList_li_content", 25);
+                </script>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="rel_footer">
+    <div class="style">
+        <style>
+            .footer_4g4_main {
+                height: 122px;
+                background: #f1f1f1;
+                padding-top: 20px;
+            }
+
+            .footer_4g4_verList {
+                height: 19px;
+                background-color: #f1f1f1;
+            }
+
+            .footer_4g4_verList ul {
+                text-align: center;
+            }
+
+            .footer_4g4_verList_liBor {
+                border-left: 2px solid #777;;
+            }
+
+            .footer_4g4_verList li:first-child.footer_4g4_verList_liBor {
+                border-left: none;
+            }
+
+            .footer_4g4_verList li {
+                display: inline-block;
+                padding-left: 8px;
+                padding-right: 8px;
+                line-height: 12px;
+            }
+
+            .footer_4g4_number {
+                font-size: 12px;
+                text-align: center;
+                margin-top: 20px;
+            }
+
+            .footer_4g4_company {
+                font-size: 12px;
+                text-align: center;
+                margin-top: 8px;
+            }
+        </style>
+    </div>
+     <div class=" footer_4g4_main">
+        <div class="footer_4g4_verList">
+            <ul>
+                <li class="footer_4g4_verList_liBor"><a href="javascript:gofooter('botQH')">擎好网</a></li>
+                <li class="footer_4g4_verList_liBor"><a href="javascript:gofooter('botAdv')">广告服务</a></li>
+                <li class="footer_4g4_verList_liBor"><a href="javascript:gofooter('botPing')">诚招英才</a></li>
+                <li class="footer_4g4_verList_liBor"><a href="javascript:gofooter('botLian')">联系我们</a></li>
+                <li class="footer_4g4_verList_liBor"><a href="javascript:gofooter('botQuan')">版权声明</a></li>
+                <li class="footer_4g4_verList_liBor"><a href="javascript:gofooter('botFriend')">友情链接</a></li>
+            </ul>
+            <p class="footer_4g4_number">京ICP1备5015468号</p>
+
+            <p class="footer_4g4_company">北京擎好网络科技有限公司 版权所有 Copyright © 2016 New Media Limited All Rights Reserved.</p>
+        </div>
+    </div>
+    <div class="script">
+        <script>
+            function gofooter(name){
+                window.open(blockBasePath+"/cms/goBottom.do?urlName="+name,"_blank");
+            }
+            var flag = "t";
+            if (flag == "v") {
+                vData()
+            } else {
+                footer_4g4_2_4group3tData();
+            }
+            function vData() {
+                var title = "广告服务";
+                var str = "";
+                for (var i = 0; i < 5; i++) {
+                    str += '<li class="footer_4g4_verList_liBor"><a href="#" onclick="goChannelDetail(\'\',\'\')">' + title + '</a></li>';
+                }
+                $(".appendCur .footer_4g4_verList ul").html(str);
+            }
+            function footer_4g4_2_4group3tData() {
+
+            }
+        </script>
+    </div>
+</div>
+</body>
+</html>

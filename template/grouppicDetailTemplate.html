@@ -1,0 +1,1698 @@
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>擎好网</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://114.113.231.46:90//templateResource/css/zui.min.css"/>
+    <link rel="stylesheet" href="http://114.113.231.46:90//templateResource/css/common_red.css"/>
+    <script src="http://114.113.231.46:90//templateResource/js/jquery-1.11.3.js"></script>
+    <script src="http://114.113.231.46:90//templateResource/js/zui.min.js"></script>
+    <script src="http://114.113.231.46:90//templateResource/js/wordNumber.js"></script>
+    <script src="http://114.113.231.46:90//templateResource/js/commonConfig.js"></script>
+    <script src="http://114.113.231.46:90//templateResource/js/commenFunction.js"></script>
+</head>
+<body>
+<div class="rel_header">
+    <div class="style">
+        <style>
+            /**********************组件---header01_4g4************************/
+            .header01_4g4_all {
+                width: 100%;
+            }
+
+            /*top--红*/
+            .header01_4g4_top {
+                height: 40px;
+            }
+
+            /*.header01_4g4_action li {
+                display: inline-block;
+                line-height: 40px;
+                color: #fff;
+                margin-right: 15px;
+                font-size: 14px;
+            }*/
+
+            .header01_4g4_searchCon {
+                display: inline-block;
+                width: 112px;
+                height: 20px;
+                margin: 10px 0;
+                position: relative;
+            }
+
+            .header01_4g4_searchInput {
+                border-radius: 36px;
+                width: 112px;
+                padding: 0 5px;
+                letter-spacing: 1px;
+                outline: none;
+                font-size: 14px;
+            }
+
+            .header01_4g4_searchCon label {
+                display: inline-block;
+                position: absolute;
+                right: 5px;
+                top: 5px;
+            }
+
+            .header01_4g4_searchCon label a {
+                display: inline-block;
+            }
+
+            .header01_4g4_phone, .header01_4g4_login {
+                display: inline-block;
+                margin-left: 20px;
+            }
+
+            .header01_4g4_phone span {
+                color: #fff;
+                font-size: 14px;
+                padding-left: 3px;
+            }
+
+            .header01_4g4_phone img {
+                padding-bottom: 2px;
+            }
+
+            .header01_4g4_login a {
+                color: #fff;
+                font-size: 14px;
+            }
+
+            /*logo*/
+            .header01_4g4_bottom {
+                background: #fff;
+                box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.24);
+                width: 100%;
+                height: 152px;
+            }
+
+            .header01_4g4_logo {
+                width: 250px;
+                margin-right: 50px;
+            }
+
+            .header01_4g4_logo > img {
+                width: 250px;
+                margin: 40px 0;
+            }
+
+            /*导航*/
+            .header01_4g4_nav {
+                background-color: #fff;
+                height: 150px;
+                width: 660px;
+            }
+
+            .header01_4g4_navChanel {
+                width: 100%;
+                height: 150px;
+            }
+
+            .header01_4g4_navChanel:after {
+                display: table;
+                content: '';
+                clear: both;
+            }
+
+            .header01_4g4_navChanel > li {
+                float: left;
+                display: inline-block;
+                height: 150px;
+                line-height: 150px;
+                vertical-align: middle;
+                position: relative;
+            }
+
+            .header01_4g4_border {
+                position: absolute;
+                display: table-cell;
+                background: #999999;
+                width: 1px;
+                height: 40px;
+                margin: 55px 0;
+            }
+
+            .header01_4g4_navChanel > li > a {
+                width: 35px;
+			    height: 150px;
+			    font-size: 19px;
+			    text-decoration: none;
+			    line-height: 30px;
+			    padding: 0 15px;
+			    display: table-cell;
+			    vertical-align: middle;
+			    text-align: center;
+			    box-sizing: content-box;
+            }
+
+            /*二级菜单*/
+            .header01_4g4_tan {
+                display: none;
+                background: #999999;
+                min-width: 50px;
+                height: 126px;
+                padding: 0 16px;
+                position: absolute;
+                top: 130px;
+                z-index: 100;
+            }
+
+            .header01_4g4_tan > li {
+                float: left;
+                height: 126px;
+                line-height: 126px;
+                vertical-align: middle;
+                padding: 0 4px;
+            }
+
+            .header01_4g4_tan > li > a {
+                display: table-cell;
+                width: 25px;
+                vertical-align: middle;
+                text-align: center;
+                height: 126px;
+                text-decoration: none;
+                line-height: 25px;
+                color: #fff;
+                font-size: 16px;
+            }
+
+            .header01_4g4_nav li a.header01_4g4_tanActive {
+                background: #777;
+            }
+
+            /*箭头*/
+            .header01_4g4_arrowTop {
+                display: none;
+                position: absolute;
+                bottom: 19px;
+                left: 44%;
+                text-align: center;
+            }
+
+            .header01_4g4_ren {
+                color: #fff;
+            }
+            .header01_4g4_action{
+                position: relative;
+                display: inline-block;
+                padding:10px 0;
+                color:#fff;
+            }
+            .header01_4g4_action span{
+                padding:0 3px;
+            }
+            /*header01_4g4_province*/
+            #header01_4g4_province{
+                display:none;
+                box-shadow:0 2px 4px 0 rgba(0, 0, 0, 0.24);
+                width:500px;
+                height:250px;
+                padding:20px 10px;
+                position:absolute;
+                top:40px;
+                left:-22px;
+                z-index:1000;
+                background:#fff;
+            }
+            #header01_4g4_province>li{
+                float:left;
+                font-size:16px;
+                padding:5px 15px;
+                margin-bottom:10px;
+                cursor:pointer;
+                position:relative;
+                color:#1a1a1a;
+            }
+            #header01_4g4_province>li:hover {
+                color: #c33;
+                background:#EFEEEE;
+            }
+            /*header01_4g4_city*/
+            .header01_4g4_city{
+                display:none;
+                overflow:hidden;
+                position:absolute;
+                z-index:100;
+                width:270px;
+                background:#EFEEEE;
+                color:#000;
+                top:30px;
+                left: 0;
+            }
+            .header01_4g4_city>li{
+                float:left;
+                font-size:14px;
+                padding:10px;
+            }
+            
+            /* 登录框 */
+            .header01_4g4_imgBox{
+                text-align: center;
+                margin-top:50px;
+            }
+            .header01_4g4_loginBox{
+                margin:40px auto 60px;
+                text-align: center;
+            }
+            .header01_4g4_loginBox>a{
+                display: inline-block;
+                width:100px;
+                margin:0 20px;
+            }
+            .header01_4g4_loginBox>a>span{
+                display: block;
+            }
+        </style>
+    </div>
+    <div class="header01_4g4_all">
+        <input type="hidden" class="v_header01_4g4_action" value="yes"/>
+        <!--top-->
+        <div class="header01_4g4_top">
+            <div class="commonContainer">
+                <div class="header01_4g4_action lf showId">
+                    <span id="header01_4g4_time"></span>
+                    <span id="header01_4g4_city"></span>
+                    <span id="header01_4g4_temperature"></span>
+                    <span id="header01_4g4_type"></span>
+                    <ul id="header01_4g4_province"></ul>
+                </div>
+                <div class="rt">
+                    <p class="header01_4g4_searchCon ">
+                        <input type="text" id="header01_4g4_searchInput" placeholder=""
+                               class="header01_4g4_searchInput "/>
+                        <label for="header01_4g4_searchInput"><a href="javascript:toSearch();"><img
+                                src="http://114.113.231.46:90//TemplateEditor/img/PP/header01_4g4/search_index.png"
+                                alt=""/></a></label>
+                    </p>
+
+                    <p class="header01_4g4_phone">
+                        <a href="javascript:window.open('http://114.113.231.46:90/TemplateEditor/downLoad/downLoad.html','_blank')">
+                            <img src="http://114.113.231.46:90//TemplateEditor/img/PP/header01_4g4/phone_index.png"
+                                 alt=""/><span>下载客户端</span>
+                        </a>
+                    </p>
+
+                    <p class="header01_4g4_login header01_4g4_2_4group0"></p>
+                </div>
+            </div>
+        </div>
+        <!--logo + nav-->
+        <div class="header01_4g4_bottom">
+            <div class="commonContainer clearFloat">
+                <!--logo-->
+                <div class="header01_4g4_logo lf">
+                    <img src="http://114.113.231.46:90//TemplateEditor/img/PP/header01_4g4/header01_logo.png">
+                </div>
+                <!--nav-->
+                <div class="header01_4g4_nav lf">
+                    <ul class="header01_4g4_navChanel header01_4g4_2_4group0"></ul>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <!--登录框-->
+    <div class="modal fade myModal" id="header01_4g4_modalLogin">
+        <div class="modal-dialog header01_4g4_dialog">
+            <div class="modal-content">
+                <p class="header01_4g4_imgBox"><img src="http://114.113.231.46:90/TemplateEditor/img/header01/login_logo.png" width="150px;" alt=""/></p>
+                <div class="header01_4g4_loginBox">
+                    <a href='javascript:autoLogin("weixin")' style='font-size:16px;'>
+                        <img style='width:30px;margin-bottom:5px;margin-top:8px;' src='http://114.113.231.46:90/TemplateEditor/img/header01/wechat.png' />
+                        <span>微信账号登录</span>
+                    </a>
+                    <a href='javascript:autoLogin("qq")' style='font-size:16px;'>
+                        <img style='width:30px;margin-bottom:5px;margin-top:8px;' src='http://114.113.231.46:90/TemplateEditor/img/header01/qq.png' />
+                        <span>QQ账号登录</span>
+                    </a>
+                    <a href='javascript:autoLogin("weibo")' style='font-size:16px;'>
+                        <img style='width:30px;margin-bottom:5px;margin-top:8px;' src='http://114.113.231.46:90/TemplateEditor/img/header01/weibo.png' />
+                        <span>新浪微博登录</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="script">
+        <script>
+            
+            $(document).ready(function(){
+                var url = blockBasePath + "blockData/getFrontUser";
+                var postData = {callBack:'userCallback'};
+                $.ajax({
+                    type: 'POST',
+                    url: url,
+                    data:postData,
+                    dataType:'jsonp',
+                    cache: false,
+                    async: true,//同步方法
+                    success:function(data){}
+                });
+            });
+            
+            function userCallback(data){
+                var user = data.userData;
+                if(user != undefined && user != null){
+                    isLoginFlag = "true"
+                    var aStr = "&lt;a href='http://www.bjfine.cn/template/87681caaf12f4fedb1f4a928633ff153.html' target='_Blank' &gt;";
+                            aStr += "&lt;img style='width:35px;height:35px;border-radius:100%;' src='"+user.headImgUrl+"' alt='' /&gt;";
+                        aStr += "&lt;/a&gt;";
+                    var a = $(aStr);
+                    $(".header01_4g4_login.header01_4g4_2_4group0").append(a);
+                }else{
+                	var aStr='&lt;span style="color:#fff;cursor: pointer;" data-position="100px" data-toggle="modal" data-target="#header01_4g4_modalLogin"&gt;登录&lt;/span&gt;';
+                	//var aStr = "&lt;a href='javascript:autoLogin(\"weixin\");' style='font-size:16px;'&gt;";
+                    //    aStr += "&lt;img style='width:30px;height:30px;margin-top:8px;' src='http://114.113.231.46:90/TemplateEditor/img/header01/weixin_cai.png' /&gt;&lt;/a&gt;";
+                    //    aStr += "&lt;a href='javascript:autoLogin(\"qq\");' style='font-size:16px;'&gt;";
+                    //    aStr += "&lt;img style='width:30px;height:30px;margin-top:8px;' src='http://114.113.231.46:90/TemplateEditor/img/header01/qq_cai.png' /&gt;&lt;/a&gt;";
+                    //    aStr += "&lt;a href='javascript:autoLogin(\"weibo\");' style='font-size:16px;'&gt;";
+                    //    aStr += "&lt;img style='width:30px;height:30px;margin-top:8px;' src='http://114.113.231.46:90/TemplateEditor/img/header01/weibo_cai.png' /&gt;&lt;/a&gt;";
+                    var a = $(aStr);
+                    $(".header01_4g4_login.header01_4g4_2_4group0").append(a);
+                }
+            }
+
+            function autoLogin(loginType){
+                var loginUrl="";
+                if("weixin"==loginType){
+                    loginUrl="https://open.weixin.qq.com/connect/qrconnect?appid=wxc93206bdacc7ed6c&redirect_uri=http%3a%2f%2fwww.bjfine.cn%2Fweixin%2FautoLogin.do&response_type=code&scope=snsapi_login&state=1#wechat_redirect";
+                }else if("qq"==loginType){
+                    loginUrl="https://graph.qq.com/oauth2.0/authorize?response_type=code&client_id=101341947&redirect_uri=http%3A%2F%2Fwww.bjfine.cn%2Fqq%2FautoLogin.do&state=1";
+                }else if("weibo"==loginType){
+                    loginUrl=blockBasePath + "weibo/sina4login";
+                }
+                //alert("loginUrl="+loginUrl)
+                window.location.href=loginUrl;
+            }
+
+            function toSearch(){
+                var title = $("#header01_4g4_searchInput").val();
+                if(title == undefined){
+                    title = "";
+                }
+                window.open('http://114.113.231.46:90/template/c232cd7fdad14c14952675a3c8bfadd5.html?title='+title,'_blank');
+            }
+            
+            var mydate = new Date();
+            var month=parseFloat(mydate.getMonth())+1;
+            var data=mydate.getDate();
+            var day=mydate.getDay();
+            var x;
+            switch (day) {
+                case 0:
+                    x="日";
+                    break;
+                case 1:
+                    x="一";
+                    break;
+                case 2:
+                    x="二";
+                    break;
+                case 3:
+                    x="三";
+                    break;
+                case 4:
+                    x="四";
+                    break;
+                case 5:
+                    x="五";
+                    break;
+                case 6:
+                    x="六";
+                    break;
+            }
+            $("#header01_4g4_time").text(month+"月"+data+"日 "+" 星期"+x);
+            var flag = "t";
+            if (flag == "v") {
+                vData();
+            } else {
+                header01_4g4_2_4group0tData();
+            }
+            function vData() {
+                //        天气显示
+                var weather = $(".appendCur .v_header01_4g4_action").val();
+                if (weather == "yes") {
+                    $(".appendCur .header01_4g4_action").show();
+                } else {
+                    $(".appendCur .header01_4g4_action").hide();
+                }
+                //        是否登录
+                // $(".appendCur .header01_4g4_login").html("");
+                // if (isLoginFlag == "true") {
+                //     $(".appendCur .header01_4g4_login").html("&lt;a href='#'&gt;登录&lt;/a&gt;");
+                // } else {
+                //     $(".appendCur .header01_4g4_login").html("&lt;span class='header01_4g4_ren'&gt;欢迎XXX&lt;/span&gt;");
+                // }
+
+                //        nav
+                $(".appendCur .header01_4g4_navChanel").html("");
+                var chanelStr = "";
+                for (var i = 0; i < 10; i++) {
+                    chanelStr += '&lt;li&gt;';
+                    if (i !== 0) {
+                        chanelStr += '&lt;span class="header01_4g4_border"&gt;&lt;/span&gt;' +
+                                '&lt;img class="header01_4g4_arrowTop" src="http://114.113.231.46:90//TemplateEditor/img/PP/header01_4g4/header01_4g4_top.png" alt=""/&gt;';
+                    }
+                    chanelStr += '&lt;a href="#" class="header01_4g4_active"&gt;首页&lt;/a&gt;';
+                    if (i !== 0) {
+                        chanelStr += '&lt;ul class="header01_4g4_tan"&gt;';
+                        for (var j = 0; j < 8; j++) {
+                            chanelStr += '&lt;li&gt;&lt;a href="#"&gt;图书馆&lt;/a&gt;&lt;/li&gt;';
+                        }
+                        chanelStr += '&lt;/ul&gt;';
+                    }
+                    chanelStr += '&lt;/li&gt;';
+                }
+                $(".appendCur .header01_4g4_navChanel").append(chanelStr);
+                countWithTan();
+            }
+
+            function header01_4g4_2_4group0tData() {
+                var header01_4g4_action = "";
+                if (header01_4g4_action == "") {
+                    header01_4g4_action = "yes";
+                }
+
+                var cb = "header01_4g4_2_4group0tDataCallback";
+
+                if (header01_4g4_action == "yes") {
+                    $(".header01_4g4_action.header01_4g4_2_4group0").show();
+                    $(".header01_4g4_action.showId").show();
+
+                    //天气预报
+                    $('.showId.header01_4g4_action').mouseover(function(){
+                        $('#header01_4g4_province').css('display','block');
+                    });
+                    $('.showId.header01_4g4_action').mouseout(function(){
+                        $('#header01_4g4_province').css('display','none');
+                    });
+                    //默认天气
+                    $.get('http://wthrcdn.etouch.cn/weather_mini?citykey=101010100',  function(data){
+                        var msg= JSON.parse( data);
+                        $('#header01_4g4_temperature').html( msg.data.wendu+'℃' );
+                        $('#header01_4g4_type').html( msg.data.forecast[2].type );
+                        $('#header01_4g4_city').html( '北京' );
+                    });
+                    //接收文件
+                    $.ajax({
+                        async: false,
+                        cache: true,
+                        type: 'post',
+                        dataType: "jsonp",
+                        url: "http://114.113.231.46:90//templateResource/city_json.txt",//请求的action路径
+                        success: function (data) { //请求成功后处理函数。
+                        }
+                    });
+                } else {
+                    $(".header01_4g4_action.header01_4g4_2_4group0").hide();
+                }
+
+                //是否登录
+                // if (isLoginFlag == "true") {
+                //     $(".header01_4g4_login.header01_4g4_2_4group0").html("&lt;a href='#'&gt;登录&lt;/a&gt;");
+                // } else {
+                //     $(".header01_4g4_login.header01_4g4_2_4group0").html("&lt;span class='header01_4g4_ren'&gt;欢迎XXX&lt;/span&gt;");
+                // }
+
+                $.ajax({
+                    async: false,
+                    cache: true,
+                    type: 'post',
+                    dataType: "jsonp",
+                    data: {header01_4g4_action: header01_4g4_action, callBack: cb},  //参数
+                    url: blockBasePath + "blockData/channelListData.do",//请求的action路径
+                    success: function (data) { //请求成功后处理函数。
+                    }
+                });
+            }
+            function callbackCity(data){
+                var msg = data;
+                //大的
+                $("#header01_4g4_province").html("");
+                for (var i = 0; i < msg['城市代码'].length; i++) {
+                    $('#header01_4g4_province').append($("&lt;li&gt;&lt;span&gt;" + msg['城市代码'][i]['省'] + "&lt;/span&gt;&lt;ul class='header01_4g4_city'&gt;&lt;/ul&gt;&lt;/li&gt;")); 
+                    //小的li
+                    (function (i_) {
+                        for (var a = 0; a < msg['城市代码'][i]['市'].length; a++) {
+                            $('#header01_4g4_province>li:nth-child(' + (i_ + 1) + ')>ul').append($('&lt;li&gt;' + msg['城市代码'][i_]['市'][a]['市名'] + '&lt;/li&gt;'));
+                        }
+                        //小的li点击
+                        $('#header01_4g4_province>li:nth-child(' + (i_ + 1) + ')>ul>li').click(function (event) {
+                            var index = $(this).prevAll().length,
+                                    key = msg['城市代码'][i_]['市'][index]['编码'],
+                                    header01_4g4_city_sm = $(this).html();
+                            var e = window.event || event;
+                            if (e.stopPropagation) {
+                                e.stopPropagation();
+                            } else {
+                                window.event.cancelBubble = true;
+                            }
+                            $.get('http://wthrcdn.etouch.cn/weather_mini?citykey=' + key, function (data) {
+                                var msg = JSON.parse(data);
+                                if (msg.data !== undefined) {
+                                    $('#header01_4g4_city').html(header01_4g4_city_sm);
+                                    $('#header01_4g4_temperature').html(msg.data.wendu + '℃');
+                                    $('#header01_4g4_type').html(msg.data.forecast[2].type);
+                                } else {
+                                    $('#header01_4g4_city').html(header01_4g4_city_sm);
+                                    $('#header01_4g4_temperature').html('暂不支持接收此城市天气');
+                                    $('#header01_4g4_type').html('');
+                                }
+                            })
+                        });
+                    })(i);
+                }
+                $('#header01_4g4_province>li').mouseover(function(){
+                    $(this).children('.header01_4g4_city').css('display','block');
+                });
+                $('#header01_4g4_province>li').mouseout(function(){
+                    $(this).children('.header01_4g4_city').css('display','none');
+                });
+                //上边li点击
+                $('#header01_4g4_province>li').click(function(event){
+                    var e = window.event || event;
+                    if ( e.stopPropagation ){
+                        e.stopPropagation();
+                    }else{
+                        window.event.cancelBubble = true;
+                    }
+                    var city=$(this).children('span').html();
+                    $.get('http://wthrcdn.etouch.cn/weather_mini?city='+city,  function(data){
+                        var msg= JSON.parse( data);
+                        if( msg.data!==undefined ){
+                            $('#header01_4g4_city').html( city );
+                            $('#header01_4g4_temperature').html( msg.data.wendu+'℃' );
+                            $('#header01_4g4_type').html( msg.data.forecast[2].type );
+                        }else{
+                            $('#header01_4g4_city').html(city );
+                            $('#header01_4g4_temperature').html( '请查看详情城市' );
+                            $('#header01_4g4_type').html('');
+                        }
+                    })
+                });
+            };
+            //返回的真实数据
+            function header01_4g4_2_4group0tDataCallback(data) {
+                var list = data.list;
+                var channelIdFlag = "";
+                var channelId = "";
+                if(window.location.href.indexOf("?channelId=") != -1){
+                    channelId = window.location.href.split("?channelId=")[1];
+                }
+                for (var i = 0; i < list.length; i++) {
+                    if (list[i].subChannel != undefined && list[i].subChannel != null) {
+                        for (var j = 0; j < list[i].subChannel.length; j++) {
+                            if(list[i].subChannel[j].channelId === channelId){
+                                channelIdFlag = list[i].subChannel[j].parentId;
+                            }
+                        }
+                    }
+                }
+                if(channelIdFlag == "" && channelId == ""){
+                    channelId = "index1";
+                }
+                var chanelStr = "";
+                for (var i = 0; i < list.length; i++) {
+                    chanelStr += '&lt;li&gt;';
+                    if(i != 0){
+                        chanelStr += '&lt;span class="header01_4g4_border"&gt;&lt;/span&gt;';
+                    }
+                    if (list[i].subChannel != undefined && list[i].subChannel != null) {
+                        chanelStr +='&lt;img class="header01_4g4_arrowTop" src="http://114.113.231.46:90//TemplateEditor/img/PP/header01_4g4/header01_4g4_top.png" alt=""/&gt;';
+                    }
+                    chanelStr += '&lt;a href="' + list[i].url + '" class="';
+                    if(list[i].channelId == channelId || list[i].channelId == channelIdFlag){
+                        chanelStr += 'header01_4g4_active';
+                    }
+                    chanelStr += '"&gt;' + list[i].channelName + '&lt;/a&gt;';
+                    if (list[i].subChannel != undefined && list[i].subChannel != null) {
+                        chanelStr += '&lt;ul class="header01_4g4_tan"&gt;';
+                        for (var j = 0; j < list[i].subChannel.length; j++) {
+                            chanelStr += '&lt;li&gt;&lt;a href="' + list[i].subChannel[j].url + '"&gt;' + list[i].subChannel[j].channelName + '&lt;/a&gt;&lt;/li&gt;';
+                        }
+                        chanelStr += '&lt;/ul&gt;';
+                    }
+                    chanelStr += '&lt;/li&gt;';
+                }
+                $(".header01_4g4_navChanel.header01_4g4_2_4group0").append(chanelStr);
+                countWithTan();
+            }
+
+            //首页一级点击
+            $('.header01_4g4_navChanel').on("click","&gt;li&gt;a",function (e) {
+                e = e || window.event;
+                var target = e.target || e.srcElement;
+                var a = $(".header01_4g4_active");
+                a.removeClass('header01_4g4_active');
+                target.className = 'header01_4g4_active';
+
+                $('.header01_4g4_tan>li>a').removeClass("header01_4g4_tanActive")
+            });
+            $('.header01_4g4_navChanel').on("mouseover","&gt;li&gt;a",function () {
+                if ($(this).next() !== null && $(this).next() !== undefined) {
+                    $(this).next().show();
+                    $(this).prev("img").show();
+                    $(this).addClass("header01_4g4_cur");
+                }
+            });
+            $('.header01_4g4_navChanel').on("mouseout","&gt;li&gt;a",function () {
+                if ($(this).next() !== null && $(this).next() !== undefined) {
+                    $(this).next().hide();
+                    $(this).prev("img").hide();
+                    $(this).removeClass("header01_4g4_cur");
+                }
+            });
+            //首页二级点击
+            $('.header01_4g4_navChanel').on("mouseover",".header01_4g4_tan",function () {
+                $(this).siblings().addClass("header01_4g4_cur");
+                $(this).show();
+                $(this).prev().prev().show();
+            });
+            $('.header01_4g4_navChanel').on("mouseout",".header01_4g4_tan",function () {
+                $(this).siblings().removeClass("header01_4g4_cur");
+                $(this).hide();
+                $(this).prev().prev().hide();
+            });
+            $('.header01_4g4_navChanel').on("click",".header01_4g4_tan&gt;li&gt;a",function () {
+                var a = $(".header01_4g4_active");
+                a.removeClass('header01_4g4_active');
+                $(this).parent().parent().prev().addClass("header01_4g4_active");
+                var cur = $(".header01_4g4_tanActive");
+                cur.removeClass("header01_4g4_tanActive");
+                $(this).addClass('header01_4g4_tanActive');
+                $(this).parent().siblings().children().removeClass('header01_4g4_tanActive');
+            });
+
+            function countWithTan(){
+                var tans = $(".header01_4g4_navChanel .header01_4g4_tan");
+                for (var i = 0; i < tans.length; i++) {
+                    $(tans[i]).css("width", ($(tans[i]).children("li").length) * 34 + parseFloat(32) + 'px');
+                    console.log(parseFloat($(tans[i]).css("width")));
+                    if (parseFloat($(tans[i]).css("width")) < 100) {
+                        $(tans[i]).css("left", "0");
+                    } else if (parseFloat($(tans[i]).css("width")) < 200) {
+                        $(tans[i]).css("left", "-40%")
+                    } else if (parseFloat($(tans[i]).css("width")) < 300) {
+                        $(tans[i]).css("left", "-80%")
+                    } else if (parseFloat($(tans[i]).css("width")) < 400) {
+                        $(tans[i]).css("left", "-130%")
+                    } else {
+                        $(tans[i]).css("left", "-400%")
+                    }
+                }
+            }
+            
+        </script>
+    </div>
+</div>
+<div class="rel4_section">
+    <div class="rel4_groupDiv3">
+        <div class="rel4_blockDiv">
+            <div class="style">
+                <link rel="stylesheet" href="http://114.113.231.46:90/TemplateEditor/css/pictures.css">
+                <style>
+                    .pictures_4g3_all{
+                        width:708px;
+                        box-shadow:0 2px 2px 0 rgba(0,0,0,0.24);
+                        background: #fff;
+                        padding-bottom:20px;
+                    }
+                    .pictures_4g3_allCon{
+                        width:660px;
+                        margin:0 auto;
+                        padding-top:22px;
+                    }
+                    .pictures_4g3_bread{
+                        font-size:15px;
+                        /*color:#cc3333;*/
+                        letter-spacing:1px;
+                        text-align:left;
+                    }
+                    .pictures_4g3_title{
+                        font-size:20px;
+                        letter-spacing:1px;
+                        text-align:center;
+                        margin:5px 0 10px 0;
+                    }
+                    .pictures_4g3_act{
+                        font-size:14px;
+                        /*color:#7b7b7b;*/
+                        letter-spacing:1px;
+                        text-align:center;
+                        margin-top:15px;
+                    }
+                    /*推荐*/
+                    .pictures_4g3_remtThreeImgAll{
+                        width:540px;
+                        margin:20px auto 0;
+                    }
+                    .pictures_4g3_remtThreeImg_head{
+                        width: 540px;
+                    }
+                    .pictures_4g3_remtThreeImg_title{
+                        font-size:16px;
+                        text-align:left;
+                        margin-top: 24px;
+                        border-bottom: 2px solid #dddddd;
+                        padding-bottom: 6px;
+                    }
+                    .pictures_4g3_remtThreeImg_redLine{
+                        width: 70px;
+                        height: 4px;
+                        border-bottom: 4px solid;
+                        padding-bottom: 8px;
+                    }
+                    .pictures_4g3_remtThreeImg_list{
+                        width: 540px;
+                        /*margin-left: 84px;*/
+                    }
+                    .pictures_4g3_remtThreeImg_list li{
+                        float: left;
+                    }
+                    .list_interval{
+                        margin-left: 8px;
+                    }
+                    .pictures_4g3_remtThreeImg_listimg{
+                        margin-top: 12px;
+                        width: 172px;
+                        height: 104px;
+                    }
+                    .pictures_4g3_remtThreeImg_listTitle{
+                        margin-top: 6px;
+                        width: 172px;
+                        height: 38px;
+                        font-size:14px;
+                        text-align:left;
+                        overflow: hidden;
+                    }
+                    /*讨论*/
+                    .pictures_4g3_discussAll{
+                        width:540px;
+                        margin:40px auto 0;
+                    }
+                    .pictures_4g3_discuss{
+                        background:#fff;
+                        padding-top:20px;
+                    }
+                    .pictures_4g3_discuss_head{
+                        width: 540px;
+                    }
+                    .pictures_4g3_discuss_title{
+                        font-size:16px;
+                        text-align:left;
+                        padding-bottom: 2px;
+                        border-bottom: 1px solid #dddddd;
+
+                    }
+                    .pictures_4g3_discuss_redLine{
+                        width: 70px;
+                        height: 4px;
+                        padding-bottom: 3px;
+                    }
+                    .pictures_4g3_discuss_inputAre{
+                        border-radius:4px;
+                        width:540px;
+                        height:107px;
+                        background:#fafafa;
+                        margin-top: 11px;
+                    }
+                    .pictures_4g3_discuss_logDes{
+                        font-size:12px;
+                        text-align: center;
+                        padding-top: 44px;
+                    }
+                    .pictures_4g3_discuss_logBtn{
+                        font-size:14px;
+                        text-align:left;
+                    }
+                    .pictures_4g3_discuss_list{
+                        width: 540px;
+                        margin-top: 21px;
+                    }
+                    .pictures_4g3_discuss_list dd{
+                        float: left;
+                        margin-left: 24px;
+                    }
+                    .pictures_4g3_discuss_list dt{
+                        float: left;
+                    }
+                    .pictures_4g3_discuss_listImg{
+                        margin-top: 17px;
+                        width:55px;
+                        height:56px;
+                        border-radius:100%;
+                        margin-bottom: 16px;
+                        border:2px solid #ffffff;
+                        box-shadow:0 2px 4px 0 rgba(0,0,0,0.24);
+                    }
+                    .pictures_4g3_discuss_listName{
+                        font-size:14px;
+                        text-align:left;
+                    }
+                    .pictures_4g3_discuss_listTime{
+                        font-size:12px;
+                        text-align:left;
+                    }
+                    .pictures_4g3_discuss_listContent{
+                        width: 415px;
+                        margin:15px 0 18px 0;
+                    }
+                    .pictures_4g3_discuss_listRi{
+                        float: left;
+                        margin-top: 20px;
+                    }
+                    .pictures_4g3_discuss_reply{
+                        font-size:12px;
+                        display: inline-block;
+                        margin-top: 57px;
+                        margin-left: 10px;
+                    }
+
+                    .pictures_4g3_discuss_disList{
+                        width: 540px;
+                    }
+                    .pictures_4g3_discuss_redLine{
+                        vertical-align: middle;
+                        border-bottom: 4px solid;
+                        padding-bottom:3px;
+                        letter-spacing: 1px;
+                    }
+                    .pictures_4g3_discuss_comment {
+                        background: #ffffff;
+                        border: 1px solid #999999;
+                        border-radius: 4px;
+                        width: 538px;
+                        height: 110px;
+                        margin-top: 23px;
+                    }
+                    .pictures_4g3_discuss_commentbtn {
+                        background: #cc3333;
+                        width: 122px;
+                        height: 30px;
+                        text-align: center;
+                        padding-top: 4px;
+                        margin-top: 16px;
+                        margin-left: 419px;
+                    }
+                    .pictures_4g3_discuss_btn{
+                        font-size:14px;
+                        color:#ffffff;
+                    }
+                    .pictures_4g3_discuss_btn:hover {
+                        color: #ffffff;
+                    }
+                    .pictures_4g3_discuss_list ul{
+                        border-top:1px solid #999999 ;
+                    }
+                    .pictures_4g3_discuss_list li {
+                        border-top: 1px solid #999999;
+                    }
+                    .pictures_4g3_discuss_list li:first-child{
+                        border-top:none;
+                    }
+                    .pictures_4g3_act{
+                        position:relative;
+                    }
+                    .jiathis_style_32x32{
+                        display:none;
+                        width: 112px;
+                        position: absolute;
+                        z-index:100;
+                        top: 25px;
+                        right: -45px;
+                        background-color: #fff;
+                        box-shadow: 0 2px 4px 0 rgba(0,0,0,.24);
+                        padding: 10px 20px;
+                    }
+                </style>
+            </div>
+            <div class="pictures_4g3_all">
+                <div class="pictures_4g3_allCon">
+                    <!--组图所有-->
+                    <div class="">
+                        <!--bread-->
+                        <div class="pictures_4g3_bread mainColor pictures_4g3_1_3group1"></div>
+                        <!--title-->
+                        <div class="pictures_4g3_titleAll pictures_4g3_1_3group1"></div>
+                        <!--组图-->
+                        <div class="pictures_4g3_zutu">
+                            <ul class='pgwSlideshow pictures_4g3_1_3group1'></ul>
+                        </div>
+                    </div>
+                    <!--相关推荐-->
+                    <div class="pictures_4g3_remtThreeImgAll">
+                        <div class="pictures_4g3_remtThreeImg_head">
+                            <p class="pictures_4g3_remtThreeImg_title mainColor">
+                                <span class="pictures_4g3_remtThreeImg_redLine">相关推荐</span>
+                            </p>
+                        </div>
+                        <div class="pictures_4g3_remtThreeImg_list">
+                            <ul class="clearFloat pictures_4g3_1_3group1"></ul>
+                        </div>
+                    </div>
+                    <!--讨论-->
+                    <div class="pictures_4g3_discussAll">
+                        <!--登录--未登录-->
+                        <div class="pictures_4g3_discuss_head pictures_4g3_1_3group1"></div>
+                        <!--评论数据-->
+                        <div class="pictures_4g3_discuss_list">
+                            <ul class="pictures_4g3_1_3group1"></ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="script">
+                <div id="pictures_4g3_js"></div>
+                <div id="pictures_4g3_jiathis"></div>
+                <script>
+                    setTimeout(function(){
+                        var pictures_4g3_jiathis = document.createElement('script');
+                        pictures_4g3_jiathis.src = "http://v3.jiathis.com/code/jia.js?uid=2108693";
+                        document.getElementById("pictures_4g3_jiathis").innerHTML = "";
+                        document.getElementById("pictures_4g3_jiathis").appendChild(pictures_4g3_jiathis);
+                    },2000);
+                    function strlen(str){
+                        var len = 0;
+                        for (var i=0 ;i<str.length;i++) {
+                            var c = str.charCodeAt(i);
+                            //单字节加1
+                            if ((c >= 0x0001 && c <= 0x007e) || (0xff60<=c && c<=0xff9f)) {
+                                len++;
+                            }
+                            else {
+                                len+=2;
+                            }
+                        }
+                        return len;
+                    }
+                    function saveComment(){
+                        var replace_3bdc8e5b35944fc3a96685a8f73c8e81="";
+                        var commentContent =$(".saveComment").val();
+                        if(strlen(commentContent)==0){
+                            alert("请输入评论内容！")
+                            return ;
+                        }
+                        if(strlen(commentContent)>250){
+                            alert("评论文字超过最大限度250！请修改~")
+                            return ;
+                        }
+
+                        var postData =  {"articleId":replace_3bdc8e5b35944fc3a96685a8f73c8e81,"commentContent":commentContent,"contentType":"groupPic",callBack:"commentResult",tm:new Date().getTime()};
+                        var processUrl= blockBasePath + 'blockData/processCommentB.do';
+                        $.ajax({
+                            type: 'POST',
+                            url: processUrl,
+                            data:postData,
+                            dataType:'jsonp',
+                            cache: false,
+                            async: true,//同步方法
+                            success:function(data){
+
+                            }
+                        })
+                    }
+                    function commentResult(data){
+                        var replace_3bdc8e5b35944fc3a96685a8f73c8e81="";
+                        var commentContent =$(".saveComment").val();
+                        if("success" != data.result){
+                            if(confirm("因包含敏感字符，评论已被处理为："+data.result+"确定要评论吗？")){
+                                $("#commentContent").val(data.result);
+                                var postData =  {"articleId":replace_3bdc8e5b35944fc3a96685a8f73c8e81,"commentContent":data.result,"contentType":"groupPic",callBack:"saveResult",tm:new Date().getTime()};
+                                var saveUrl= blockBasePath + 'blockData/saveCommentB.do';
+                                $.ajax({
+                                    type: 'POST',
+                                    url: saveUrl,
+                                    data:postData,
+                                    dataType:'jsonp',
+                                    cache: false,
+                                    async: true,//同步方法
+                                    success: function(data){
+                                        if(data.result="success"){
+                                            alert("评论成功~，请等待审核。")
+                                            window.location.reload();
+                                        }
+                                    }
+                                });
+                            }
+                        }else{
+                            var postData =  {"articleId":replace_3bdc8e5b35944fc3a96685a8f73c8e81,"commentContent":commentContent,"contentType":"groupPic",callBack:"saveResult",tm:new Date().getTime()};
+                            var saveUrl= blockBasePath + 'blockData/saveCommentB.do';
+                            $.ajax({
+                                type: 'POST',
+                                url: saveUrl,
+                                data:postData,
+                                dataType:'jsonp',
+                                cache: false,
+                                async: true,//同步方法
+                                success: function(data){
+
+                                }
+                            });
+                        }
+                    }
+                    function saveResult(data){
+                        if(data.result="success"){
+                            alert("评论成功~，请等待审核。")
+                            window.location.reload();
+                        }
+                    }
+                    var flag = "t";
+                    if (flag == "v") {
+                        vData()
+                    } else {
+                    	
+                    }
+                    function vData() {
+                        //        是否显示
+                        var remtVal = $(".appendCur .v_pictures_4g3_remtThreeImgAll").val();
+                        if (remtVal == 'yes') {
+                            $(".appendCur .pictures_4g3_remtThreeImgAll").show();
+                        } else {
+                            $(".appendCur .pictures_4g3_remtThreeImgAll").hide();
+                        }
+
+                        //        组图
+                        //        bread
+                        $(".appendCur .pictures_4g3_bread").html("");
+                        var breadStr = '&lt;a href="#" class="mainColor"&gt;经济&lt;/a&gt;' +
+                                '&lt;span&gt;&gt;&lt;/span&gt;' +
+                                '&lt;a href="#" class="mainColor"&gt;地产&lt;/a&gt;';
+                        $(".appendCur .pictures_4g3_bread").html(breadStr);
+                        //        title
+                        $(".appendCur .pictures_4g3_titleAll").html("");
+                        var picturesHeadStr = '&lt;p class="pictures_4g3_title articleTitleColor"&gt;李克强答记者问精彩语录&lt;/p&gt;' +
+                                '&lt;p class="pictures_4g3_act infoColor"&gt;' +
+                                '&lt;span&gt;2016-04-09 07:35&lt;/span&gt;' +
+                                '&lt;span&gt; | &lt;/span&gt;' +
+                                '&lt;span&gt;北京晨报&lt;/span&gt;' +
+                                '&lt;/p&gt;';
+                        $(".appendCur .pictures_4g3_titleAll").html(picturesHeadStr);
+                        //        img
+                        $(".appendCur .pictures_4g3_zutu ul").html("");
+                        $(".appendCur .pictures_4g3_zutu ul").removeClass("pgwSlideshow");
+                        var v_picturesStr = "&lt;ul&gt;&lt;li&gt;&lt;img src='http://114.113.231.46:90/TemplateEditor/img/PP/pictures/zutu.png'/&gt;&lt;/li&gt;&lt;/ul&gt;";
+                        $(".appendCur .pictures_4g3_zutu ul").html(v_picturesStr);
+
+                        //        想关推荐
+                        $(".appendCur .pictures_4g3_remtThreeImg_list ul").html("");
+                        var v_pictures_4g3_remtThreeImg_num = $(".appendCur .v_pictures_4g3_remtThreeImg_num").val();
+
+                        var title = "新闻标题新闻标题新闻标题新闻标题新闻标题";
+                        var str = "";
+                        for (var i = 0; i < v_pictures_4g3_remtThreeImg_num; i++) {
+                            str += '&lt;li class="list_interval"&gt;&lt;a href="#"&gt;' +
+                                    '&lt;img src="http://114.113.231.46:90/TemplateEditor/img/PP/remtThreeImg_4g3/test.png" class="pictures_4g3_remtThreeImg_listimg"&gt; ' +
+                                    '&lt;p class="titleColor pictures_4g3_remtThreeImg_listTitle "&gt;' + title + '&lt;/p&gt;&lt;/a&gt;' +
+                                    '&lt;/li&gt;';
+                        }
+                        $(".appendCur .pictures_4g3_remtThreeImg_list ul").append(str);
+
+                        //讨论
+                        $(".appendCur .pictures_4g3_discuss_head").html("");
+                        var v_pictures_4g3_discuss_num = $(".appendCur .v_pictures_4g3_discuss_num").val();
+                        var title = "国家主席习近平同美国总统特朗普通电话国家主席习近平同美国总统特朗普通电话家主席习近平同美国总统特朗普通电话国家主席习近平同美国总统特朗普通";
+                        var str = "";
+                        var headStr = "";
+                        //            讨论--登录
+                        if (isLoginFlag == "true") {
+                            headStr = '&lt;div class="pictures_4g3_discuss_disList"&gt;' +
+                                    '&lt;p class="pictures_4g3_discuss_title mainColor"&gt;' +
+                                    '&lt;span class="pictures_4g3_discuss_redLine"&gt;参与讨论&lt;/span&gt;' +
+                                    '&lt;/p&gt;' +
+                                    '&lt;textarea class="pictures_4g3_discuss_comment saveComment"&gt;&lt;/textarea&gt;' +
+                                    '&lt;p class="pictures_4g3_discuss_commentbtn mainColor"&gt;' +
+                                    '&lt;a href="javascript:saveComment()" class="pictures_4g3_discuss_btn"&gt;发表评论&lt;/a&gt;' +
+                                    '&lt;/p&gt;' +
+                                    '&lt;/div&gt;';
+                        } else {
+                            headStr = ' &lt;div&gt;' +
+                                    '&lt;p class="pictures_4g3_discuss_title mainColor"&gt;' +
+                                    '&lt;span class="pictures_4g3_discuss_redLine"&gt;参与谈论&lt;/span&gt;' +
+                                    '&lt;/p&gt;' +
+                                    '&lt;div class="pictures_4g3_discuss_inputAre" &gt;' +
+                                    '&lt;p class="pictures_4g3_discuss_logDes dateColor"&gt;' +
+                                    '&lt;a href="#" &gt;&lt;span class="mainColor pictures_4g3_discuss_logBtn" style="cursor:pointer;" data-position="100px" data-toggle="modal" data-target="#header01_4g4_modalLogin" &gt;登录&lt;/span&gt;&lt;/a&gt;后参与讨论&lt;span&gt;&lt;/span&gt;&lt;/p&gt;' +
+                                    '&lt;/div&gt;' +
+                                    '&lt;/div&gt;';
+                        }
+                        $(".appendCur .pictures_4g3_discuss_head").html(headStr);
+
+                        $(".appendCur .pictures_4g3_discuss_list ul").html("");
+                        for (var i = 0; i < 4; i++) {
+                            str += '&lt;li&gt;' +
+                                    '&lt;dl  class=" clearFloat"&gt;' +
+                                    '&lt;dt &gt;' +
+                                    '&lt;img src="http://114.113.231.46:90/TemplateEditor/img/PP/discuss_4g3/pic.png"  class="pictures_4g3_discuss_listImg"&gt;' +
+                                    '&lt;/dt&gt;' +
+                                    '&lt;dd&gt;' +
+                                    '&lt;div class="pictures_4g3_discuss_listRi"&gt;' +
+                                    '&lt;p class="pictures_4g3_discuss_listName mainColor"&gt;名dsadas字 &lt;span class="pictures_4g3_discuss_listTime dateColor"&gt; &nbsp;&nbsp;&nbsp;几分钟前&lt;/span&gt;&lt;/p&gt;' +
+                                    '&lt;p class="pictures_4g3_discuss_listContent dateColor" &gt;' + title + '&lt;/p&gt; ' +
+                                    '&lt;/div&gt;' +
+                                    '&lt;a href="#" onclick="reply(this)" class="pictures_4g3_discuss_reply"&gt;&lt;span class="dateColor"&gt;回复&lt;/span&gt;&lt;/a&gt;' +
+                                    '&lt;/dd&gt;' +
+                                    '&lt;/dl&gt;' +
+                                    '&lt;/li&gt;';
+                        }
+                        $(".appendCur .pictures_4g3_discuss_list ul").append(str);
+                    }
+
+                    function pictures_4g3_1_3group1tData() {
+                        //是否显示相关推荐
+                        var pictures_4g3_remtThreeImgAll = "";
+                        if (pictures_4g3_remtThreeImgAll == "") {
+                            pictures_4g3_remtThreeImgAll = "yes";
+                        }
+                        if (pictures_4g3_remtThreeImgAll == "yes") {
+                            $(".pictures_4g3_remtThreeImgAll.pictures_4g3_1_3group1").css("display", "block");
+                        } else {
+                            $(".pictures_4g3_remtThreeImgAll.pictures_4g3_1_3group1").css("display", "none");
+                        }
+                        //相关推荐显示数量
+                        var pictures_4g3_remtThreeImg_num = "";
+                        if (pictures_4g3_remtThreeImg_num == "") {
+                            pictures_4g3_remtThreeImg_num = "3";
+                        }
+
+                        var cb = "pictures_4g3_1_3group1tDataCallback";
+                        var replace_3bdc8e5b35944fc3a96685a8f73c8e81="";
+                        var articleId = replace_3bdc8e5b35944fc3a96685a8f73c8e81;
+
+                        $.ajax({
+                            async: false,
+                            cache: true,
+                            type: 'post',
+                            dataType: "jsonp",
+                            data: {articleId: articleId, limit: pictures_4g3_remtThreeImg_num, callBack: cb},  //参数
+                            url: blockBasePath + "blockData/getArticleDetail.do",//请求的action路径
+                            success: function (data) { //请求成功后处理函数。
+                            }
+                        });
+                    }
+
+                    //收藏方法          
+                    function collectBtn(articleId,channelId,contentType){
+                        if($("#collect").attr("src") == "http://114.113.231.46:90/TemplateEditor/img/PP/topic/collect.png"){
+                            var postData =  {"articleId":articleId,"channelId":channelId,"flag":"collect","contentType":contentType,callBack:"collectCallback",tm:new Date().getTime()};
+                            var collectUrl= blockBasePath +'blockData/goCollect.do';
+                            $.ajax({type: 'POST',url: collectUrl,data:postData,dataType:'jsonp',cache: false,
+                                async: true,//同步方法
+                                success: function(data){}
+                            });
+                        }else{
+                            var postData =  {"articleId":articleId,"channelId":channelId,"flag":"collectClick",callBack:"collectCallback",tm:new Date().getTime()};
+                            var collectUrl= blockBasePath +'blockData/goCollect.do';
+                            $.ajax({type: 'POST',url: collectUrl,data:postData,dataType:'jsonp',cache: false,
+                                async: true,//同步方法
+                                success: function(data){}
+                            });
+                        }
+                    }
+
+                    //收藏接口回调函数
+                    function collectCallback(data){
+                        if(data.result == 'login'){
+                            new $.zui.Messager('登陆之后才能收藏', {
+                                close: true// 禁用关闭按钮,
+                            }).show();
+                        }else if(data.result == 'collect'){
+                            $("#collect").attr("src","http://114.113.231.46:90/TemplateEditor/img/PP/topic/collect_red.png");
+                            new $.zui.Messager('收藏成功', {
+                                close: true// 禁用关闭按钮,
+                            }).show();
+                        }else if(data.result == 'collectClick'){
+                            $("#collect").attr("src","http://114.113.231.46:90/TemplateEditor/img/PP/topic/collect.png");
+                            new $.zui.Messager('取消收藏成功', {
+                                close: true// 禁用关闭按钮,
+                            }).show();
+                        }
+                    }
+
+                    //分享
+                    function goShare(){
+                        if($('.jiathis_style_32x32').css('display')=='none'){
+                            $('.jiathis_style_32x32').slideDown();
+                        }else if($('.jiathis_style_32x32').css('display')=='block'){
+                            $('.jiathis_style_32x32').slideUp();
+                        }
+                    }
+                    
+                    function pictures_4g3_1_3group1tDataCallback(data) {
+                        var pictures = data.article;
+                        
+                        var title=pictures.title;
+                        var jiathis_config={
+                            data_track_clickback:true,
+                            url:window.location.href,
+                            summary:"我分享了一篇擎好网的文章《"+title+"》，小伙伴们快来看看呀~~",
+                            title:"擎好 #擎好#",
+                            shortUrl:false,
+                            hideMore:true
+                        }
+
+                        //相关推荐
+                        var recommendList = pictures.refShowList;
+                        if (recommendList != '' && recommendList != undefined) {
+                            $(".pictures_4g3_remtThreeImg_list ul.pictures_4g3_1_3group1").html("");
+                            var str = "";
+                            for (var i = 0; i &lt; recommendList.length; i++) {
+                                str += '&lt;li class="list_interval"&gt;' +
+                                        '&lt;a href="javascript:goContentDetial(\'' + recommendList[i].picturesUrl + '\',\'\')&gt;' +
+                                        '&lt;img src="' + recommendList[i].pic + '" class="pictures_4g3_remtThreeImg_listimg"&gt; ' +
+                                        '&lt;p class="titleColor pictures_4g3_remtThreeImg_listTitle "&gt;' + recommendList[i].title + '&lt;/p&gt;' +
+                                        '&lt;/a&gt;' +
+                                        '&lt;/li&gt;';
+                            }
+                            $(".pictures_4g3_remtThreeImg_list ul.pictures_4g3_1_3group1").append(str);
+                        }else{
+                        	$(".pictures_4g3_remtThreeImgAll").hide();
+                        }
+
+                        //评论 是否登录
+                        var headStr = "";
+                        $(".pictures_4g3_discuss_head.pictures_4g3_1_3group1").html("");
+                        if (isLoginFlag == "true") {
+                            headStr = '&lt;div class="pictures_4g3_discuss_disList"&gt;' +
+                                    '&lt;p class="pictures_4g3_discuss_title mainColor"&gt;' +
+                                    '&lt;span class="pictures_4g3_discuss_redLine"&gt;参与讨论&lt;/span&gt;' +
+                                    '&lt;/p&gt;' +
+                                    '&lt;textarea class="pictures_4g3_discuss_comment saveComment"&gt;&lt;/textarea&gt;' +
+                                    '&lt;p class="pictures_4g3_discuss_commentbtn mainColor"&gt;' +
+                                    '&lt;a href="javascript:()" class="pictures_4g3_discuss_btn"&gt;发表评论&lt;/a&gt;' +
+                                    '&lt;/p&gt;' +
+                                    '&lt;/div&gt;';
+                        } else {
+                            headStr = ' &lt;div&gt;' +
+                                    '&lt;p class="pictures_4g3_discuss_title mainColor"&gt;' +
+                                    '&lt;span class="pictures_4g3_discuss_redLine"&gt;参与谈论&lt;/span&gt;' +
+                                    '&lt;/p&gt;' +
+                                    '&lt;div class="pictures_4g3_discuss_inputAre" &gt;' +
+                                    '&lt;p class="pictures_4g3_discuss_logDes dateColor"&gt;' +
+                                    '&lt;a href="#" &gt;&lt;span class="mainColor pictures_4g3_discuss_logBtn" style="cursor:pointer;" data-position="100px" data-toggle="modal" data-target="#header01_4g4_modalLogin" &gt;登录&lt;/span&gt;&lt;/a&gt;后参与讨论&lt;span&gt;&lt;/span&gt;&lt;/p&gt;' +
+                                    '&lt;/div&gt;' +
+                                    '&lt;/div&gt;';
+                        }
+                        $(".pictures_4g3_discuss_head.pictures_4g3_1_3group1").html(headStr);
+                        //评论
+                        var commentList = pictures.commentList;
+                        if (commentList != '' && commentList != undefined) {
+                            var str = "";
+                            $(".pictures_4g3_discuss_list ul.pictures_4g3_1_3group1").html("");
+                            for (var i = 0; i < commentList.length; i++) {
+                                str += '&lt;li&gt;' +
+                                        '&lt;dl class="clearFloat"&gt;' +
+                                        '&lt;dt&gt;' +
+                                        '&lt;img src="' + commentList[i].headImgurl + '" class="pictures_4g3_discuss_listImg"&gt;' +
+                                        '&lt;/dt&gt;' +
+                                        '&lt;dd&gt;' +
+                                        '&lt;div class="pictures_4g3_discuss_listRi"&gt;' +
+                                        '&lt;p class="pictures_4g3_discuss_listName mainColor"&gt;' + commentList[i].nickName + '' +
+                                        '&lt;span class="pictures_4g3_discuss_listTime dateColor"&gt; &nbsp;&nbsp;&nbsp;' + commentList[i].commentTime + '&lt;/span&gt;' +
+                                        '&lt;/p&gt;' +
+                                        '&lt;p class="pictures_4g3_discuss_listContent dateColor" &gt;' + commentList[i].commentContent + '&lt;/p&gt; ' +
+                                        '&lt;/div&gt;' +
+                                        '&lt;a onclick="reply(this)" class="pictures_4g3_discuss_reply"&gt;' +
+                                        '&lt;span class="dateColor"&gt;回复&lt;/span&gt;&lt;/a&gt;' +
+                                        '&lt;/dd&gt;' +
+                                        '&lt;/dl&gt;' +
+                                        '&lt;/li&gt;';
+                            }
+                            $(".pictures_4g3_discuss_list ul.pictures_4g3_1_3group1").append(str);
+                        }
+                        //-----组图
+                        //bread
+                        var channelId = "";
+                        if (window.location.href.indexOf("?channelId=") != -1) {
+                            channelId = window.location.href.split("?channelId=")[1];
+                        }
+                        $.ajax({
+                            async: false,
+                            cache: true,
+                            type: 'post',
+                            dataType: "jsonp",
+                            data: {channel_id:channelId,callBack: "createCrumbs"},  //参数
+                            url: blockBasePath + "blockData/getBreadcrumbNavigation.do",//请求的action路径
+                            success: function (data) { //请求成功后处理函数。
+                            }
+                        });
+                        
+                        //title
+                        $(".pictures_4g3_titleAll.pictures_4g3_1_3group1").html("");
+                        var picturesHeadStr = '&lt;p class="pictures_4g3_title articleTitleColor"&gt;' + pictures.title + '&lt;/p&gt;' +
+                                '&lt;p class="pictures_4g3_act infoColor"&gt;' +
+                                '&lt;span&gt;' + pictures.onlineTime + '&lt;/span&gt;' +
+                                '&lt;span&gt; | &lt;/span&gt;' +
+                                '&lt;span&gt;' + pictures.sourceTitle + '&lt;/span&gt;' +
+                                '&lt;a style="margin-left:10px;" class="rt" href="javascript:goShare();"&gt;' +
+                                '&lt;img src="http://114.113.231.46:90/TemplateEditor/img/PP/topic/share.png" class="topicNormal_4g3_share"&gt;&lt;/a&gt;'+
+                                '&lt;span class="jiathis_style_32x32"&gt;'+
+                                '&lt;a class="jiathis_button_tsina" &gt;&lt;/a&gt;&lt;a class="jiathis_button_weixin"&gt;&lt;/a&gt;'+
+                                '&lt;/span&gt;'+
+                                '&lt;a class="rt" href="javascript:collectBtn(\''+pictures.articleId+'\',\'\',\''+pictures.contentType+'\');"&gt;&lt;img src="';
+                                if(data.collectFlag == "success"){
+                                    picturesHeadStr+='http://114.113.231.46:90/TemplateEditor/img/PP/topic/collect_red.png';
+                                }else{
+                                    picturesHeadStr+='http://114.113.231.46:90/TemplateEditor/img/PP/topic/collect.png';
+                                }
+                                picturesHeadStr+='" id="collect" class="topicNormal_4g3_collec"&gt;&lt;/a&gt;'+
+                                '&lt;/p&gt;';
+                        $(".pictures_4g3_titleAll.pictures_4g3_1_3group1").html(picturesHeadStr);
+                        //        img
+                        $(".pictures_4g3_zutu ul.pictures_4g3_1_3group1").html("");
+                        var groupPicList = pictures.groupPicList;
+                        var t_picturesStr = '';
+                        for (var i = 0; i < groupPicList.length; i++) {
+                            t_picturesStr += '&lt;li&gt;' +
+                                    '&lt;img src="' + groupPicList[i].imgPath + '" data-num="' + (i + 1) + '" data-description="' + groupPicList[i].imgDesc + '"&gt;' +
+                                    '&lt;/li&gt;';
+                        }
+                        $(".pictures_4g3_zutu ul.pictures_4g3_1_3group1").html(t_picturesStr);
+                    }
+
+                    function createCrumbs(data){
+                        //bread
+                        var flag = data.flag;
+                        var breadStr = '';
+                        if(flag == '1' || flag == 1){
+                            breadStr = '&lt;a class="mainColor" href="'+data.channel.staticUrl+'"&gt;'+data.channel.channel_name+'&lt;/a&gt;';
+                        }else{
+                            breadStr = '&lt;a class="mainColor" href="'+data.channel.staticUrl+'"&gt;'+data.channel.channel_name+'&lt;/a&gt;&lt;span&gt;&gt;&lt;/span&gt;&lt;a class="mainColor" href="'+data.parentChannel.staticUrl+'"&gt;'+data.parentChannel.channel_name+'&lt;/a&gt;';
+                        }
+                        
+                        
+                        $(".pictures_4g3_bread.pictures_4g3_1_3group1").html(breadStr);
+                    }
+                    
+                    max(".pictures_4g3_discuss_listContent", 88);
+                    $(".pictures_4g3_remtThreeImg_list ul li:nth-child(3n-2)").removeClass("list_interval");
+                        
+                    var pictures_4g3_js = document.createElement('script');
+                    pictures_4g3_js.src = "http://114.113.231.46:90/TemplateEditor/js/pictures.js";
+                    document.getElementById("pictures_4g3_js").innerHTML = "";
+                    document.getElementById("pictures_4g3_js").appendChild(pictures_4g3_js);
+                </script>
+                
+            </div>
+        </div>
+    </div>
+    <div class="rel4_groupDiv1">
+        <div class="rel4_blockDiv">
+            <div class="style">
+                <style>
+                    .hotTopicList_4g1_top {
+                        width: 228px;
+                        height: 40px;
+                        background: #ffffff;
+                        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.24);
+                        /*margin-bottom: 10px;*/
+                    }
+
+                    .hotTopicList_4g1_title {
+                        line-height: 40px;
+                        font-size: 20px;
+                        margin-left: 16px;
+                    }
+
+                    .hotTopicList_4g1_name {
+                        display: inline-block;
+                    }
+
+                    .hotTopicList_4g1_name:first-letter {
+                        font-size: 22px;
+                    }
+
+                    .hotTopicList_4g1_li {
+                        width: 228px;
+                        height: 62px;
+                        border-top: 1px solid #dddddd;
+                    }
+
+                    .hotTopicList_4g1_li_content {
+                        max-height: 38px;
+                        overflow: hidden;
+                        line-height: 19px;
+                        font-size: 14px;
+                        margin: 12px 2px;
+                        letter-spacing: 0.5px;
+                    }
+
+                    .hotTopicList_4g1_li_index {
+                        float: left;
+                        line-height: 62px;
+                        width: 20px;
+                        padding-left: 3px;
+                    }
+
+                    .hotTopicList_4g1_ul {
+                        border: 1px solid #ddd;
+                        border-top: none;
+                    }
+
+                    .hotTopicList_4g1_more {
+                        margin-right: 16px;
+                        font-size: 20px;
+                    }
+                </style>
+            </div>
+            <div class="Grid4g1 pageBackGroundColor">
+                <div class="hotTopicList_4g1_top">
+                    <div class="hotTopicList_4g1_title titleColor">
+                        <p class="hotTopicList_4g1_name fistP hotTopicList_4g1_2_1group2">热门话题</p>
+                        <span class="hotTopicList_4g1_more rt"><a class="dateColor" href="http://114.113.231.46:90/template/cb09151196c44ed4bb60c2d29ae59ecd.html" target="_Blank">></a></span>
+                    </div>
+                </div>
+                <ul class="hotTopicList_4g1_ul hotTopicList_4g1_2_1group2"></ul>
+            </div>
+            <div class="script">
+                <script>
+                    var flag = "t";
+                    if (flag == "v") {
+                        vData()
+                    } else {
+                        hotTopicList_4g1_2_1group2tData();
+                    }
+                    function vData() {
+                        //title
+                        $(".appendCur .hotTopicList_4g1_name").html("");
+                        var v_hotTopicList_4g1_name = $(".appendCur .v_hotTopicList_4g1_name").val();
+                        if (v_hotTopicList_4g1_name != "") {
+                            $(".appendCur .hotTopicList_4g1_name").html(v_hotTopicList_4g1_name);
+                        }
+                        //content
+                        $(".appendCur .hotTopicList_4g1_ul").html("");
+                        var v_hotTopicList_4g1_ul_num = $(".appendCur .v_hotTopicList_4g1_ul_num").val();
+                        var hotTopicListStr = '';
+                        for (var i = 0; i < v_hotTopicList_4g1_ul_num; i++) {
+                            hotTopicListStr += '&lt;li class="hotTopicList_4g1_li"&gt;&lt;a&gt;' +
+                                    '&lt;p class="hotTopicList_4g1_li_index mainColor"&gt;' + (i + 1) + '&lt;/p&gt;' +
+                                    '&lt;p class="hotTopicList_4g1_li_content abstractColor"&gt;国家主席习普通电话国家主席习近平同美国总统特朗普通电话&lt;/p&gt;' +
+                                    '&lt;/a&gt;&lt;/li&gt;';
+                        }
+                        $(".appendCur .hotTopicList_4g1_ul").html(hotTopicListStr);
+                    }
+                    function hotTopicList_4g1_2_1group2tData() {
+                        var cb = "hotTopicList_4g1_2_1group2tDataCallback";
+                        var hotTopicList_4g1_name = "";
+                        if (hotTopicList_4g1_name == "") {
+                            hotTopicList_4g1_name = "热门话题";
+                        }
+                        var hotTopicList_4g1_ul_num = "";
+                        if (hotTopicList_4g1_ul_num == "") {
+                            hotTopicList_4g1_ul_num = "5";
+                        }
+                        var hotTopicList_4g1_select = "all";
+                        var hotTopicList_4g1_select_order = "clickRorder";
+
+                        var replace_3bdc8e5b35944fc3a96685a8f73c8e81="";
+
+                        $.ajax({
+                            async: false,
+                            cache: true,
+                            type: 'post',
+                            dataType: "jsonp",
+                            data: {callBack: cb},  //参数
+                            url: blockBasePath + "blockData/topicList.do",//请求的action路径
+                            success: function (data) { //请求成功后处理函数。
+                            }
+                        });
+                    }
+                    function hotTopicList_4g1_2_1group2tDataCallback(data) {
+                        var list = data.topicList;
+                        if (list != '' && list != undefined) {
+                            $(".hotTopicList_4g1_ul.hotTopicList_4g1_2_1group2").html("");
+                            var str = "";
+                            for (var i = 0; i < list.length; i++) {
+                                str += '&lt;li class="hotTopicList_4g1_li"&gt;' +
+                                        '&lt;a href="javascript:goContentDetial(\'' + list[i].articleUrl + '\',\'\')"&gt;' +
+                                        '&lt;p class="hotTopicList_4g1_li_index mainColor"&gt;' + (i + 1) + '&lt;/p&gt;' +
+                                        '&lt;p class="hotTopicList_4g1_li_content abstractColor"&gt;' + list[i].title + '&lt;/p&gt;' +
+                                        '&lt;/a&gt;' +
+                                        '&lt;/li&gt;';
+                            }
+                            $(".hotTopicList_4g1_ul.hotTopicList_4g1_2_1group2").append(str);
+                        }
+                    }
+                    max(".hotTopicList_4g1_li_content", 25);
+                </script>
+            </div>
+        </div>
+        <div class="rel4_blockDiv">
+            <div class="style">
+                <style>
+                    .adv_4g1_all {
+                        position: relative;
+                    }
+
+                    .adv_4g1_img {
+                        width: 100%;
+                        height: 114px;
+                        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.24);
+                    }
+
+                    .adv_4g1_mask {
+                        position: absolute;
+                        bottom: 0;
+                        right: 0;
+                        background: rgba(0, 0, 0, .5);
+                        width: 40px;
+                        height: 20px;
+                        color: #fff;
+                        text-align: center;
+                        font-size: 12px;
+                        line-height: 20px;
+                    }
+                </style>
+            </div>
+            <div class="Grid4g1 pageBackGroundColor adv_4g1_all">
+                <a class="adv_4g1_4_1group2">
+                <p class="adv_4g1_mask">广告</p>
+                <img class="adv_4g1_img adv_4g1_4_1group2" src="http://114.113.231.46:90/TemplateEditor/img/PP/adv/adv.png"/>
+                </a>
+            </div>
+            <div class="script">
+                <script>
+                    var flag = "t";
+                    var templateId = "3bdc8e5b35944fc3a96685a8f73c8e81";
+                    if (flag == "t") {
+                        adv_4g1_4_1group2tData();
+                    }
+                    function adv_4g1_4_1group2tData() {
+                        var cb = "adv_4g1_4_1group2tDataCallback";
+                        var adv_4g1_name = "右侧广告位";
+                        $.ajax({
+                            async: false,
+                            cache: true,
+                            type: 'post',
+                            dataType: "jsonp",
+                            data: {name: adv_4g1_name, templateId: templateId, callBack: cb},  //参数
+                            url: blockBasePath + "blockData/getAdv.do",//请求的action路径
+                            success: function (data) { //请求成功后处理函数。
+                            }
+                        });
+                    }
+                    function adv_4g1_4_1group2tDataCallback(data) {
+                    	var adv = data.adv;
+                        if (adv == '' || adv == undefined) {
+                            return;
+                        }
+                        $(".adv_4g1_img.adv_4g1_4_1group2").attr("src",adv.pic_url);
+                        $(".adv_4g1_all a.adv_4g1_4_1group2").attr("href", adv.advertisement_url);
+                    }
+                </script>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="rel_footer">
+    <div class="style">
+        <style>
+            .footer_4g4_main {
+                height: 122px;
+                background: #f1f1f1;
+                padding-top: 20px;
+            }
+
+            .footer_4g4_verList {
+                height: 19px;
+                background-color: #f1f1f1;
+            }
+
+            .footer_4g4_verList ul {
+                text-align: center;
+            }
+
+            .footer_4g4_verList_liBor {
+                border-left: 2px solid #777;;
+            }
+
+            .footer_4g4_verList li:first-child.footer_4g4_verList_liBor {
+                border-left: none;
+            }
+
+            .footer_4g4_verList li {
+                display: inline-block;
+                padding-left: 8px;
+                padding-right: 8px;
+                line-height: 12px;
+            }
+
+            .footer_4g4_number {
+                font-size: 12px;
+                text-align: center;
+                margin-top: 20px;
+            }
+
+            .footer_4g4_company {
+                font-size: 12px;
+                text-align: center;
+                margin-top: 8px;
+            }
+        </style>
+    </div>
+     <div class=" footer_4g4_main">
+        <div class="footer_4g4_verList">
+            <ul>
+                <li class="footer_4g4_verList_liBor"><a href="javascript:gofooter('botQH')">擎好网</a></li>
+                <li class="footer_4g4_verList_liBor"><a href="javascript:gofooter('botAdv')">广告服务</a></li>
+                <li class="footer_4g4_verList_liBor"><a href="javascript:gofooter('botPing')">诚招英才</a></li>
+                <li class="footer_4g4_verList_liBor"><a href="javascript:gofooter('botLian')">联系我们</a></li>
+                <li class="footer_4g4_verList_liBor"><a href="javascript:gofooter('botQuan')">版权声明</a></li>
+                <li class="footer_4g4_verList_liBor"><a href="javascript:gofooter('botFriend')">友情链接</a></li>
+            </ul>
+            <p class="footer_4g4_number">京ICP1备5015468号</p>
+
+            <p class="footer_4g4_company">北京擎好网络科技有限公司 版权所有 Copyright © 2016 New Media Limited All Rights Reserved.</p>
+        </div>
+    </div>
+    <div class="script">
+        <script>
+            function gofooter(name){
+                window.open(blockBasePath+"/cms/goBottom.do?urlName="+name,"_blank");
+            }
+            var flag = "t";
+            if (flag == "v") {
+                vData()
+            } else {
+                footer_4g4_2_4group3tData();
+            }
+            function vData() {
+                var title = "广告服务";
+                var str = "";
+                for (var i = 0; i < 5; i++) {
+                    str += '&lt;li class="footer_4g4_verList_liBor"&gt;&lt;a href="#" onclick="goChannelDetail(\'\',\'\')"&gt;' + title + '&lt;/a&gt;&lt;/li&gt;';
+                }
+                $(".appendCur .footer_4g4_verList ul").html(str);
+            }
+            function footer_4g4_2_4group3tData() {
+
+            }
+        </script>
+    </div>
+</div>
+</body>
+</html>

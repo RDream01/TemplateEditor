@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>我的积分</title>
+    <style>
+        table{
+            width: 540px;
+            text-align: center;
+        }
+        table td{
+            display: inline-block;
+            margin-top: 16px;
+            font-size:14px;
+            letter-spacing:0;
+            text-align:center;
+            width: 180px;
+            height: 20px;
+        }
+        .myScore_4g3_main{
+            margin-left: 84px;
+        }
+        .myScore_4g3_head{
+            text-align: right;
+            width: 540px;
+            padding:16px 10px 3px 0;
+            /*border-bottom: 1px solid #dddddd;*/
+        }
+        .myScore_4g3_head span{
+            padding:0 5px;
+        }
+        .myScore_4g3_onetr td{
+            font-size:14px;
+            letter-spacing:0;
+            text-align:center;
+        }
+    </style>
+</head>
+<body>
+<div class="Grid4g3">
+    <div class="myScore_4g3_main">
+        <p class="abstractColor myScore_4g3_head">全部积分<span class="mainColor showId allIn">0 </span>分</p>
+        <table>
+            <thead>
+                <tr class="myScore_4g3_onetr titleColor">
+                    <!--<td>时间</td>-->
+                    <!--<td >操作</td>-->
+                    <!--<td >积分</td>-->
+                </tr>
+            </thead>
+            <tbody class="showId"></tbody>
+        </table>
+    </div>
+</div>
+<script>
+    var flag="t";
+    if(flag == "v"){
+        vData()
+    }else{
+        tData();
+    }
+    function vData() {
+        $(".appendCur .myScore_4g3_main table tbody").html("");
+        $(".appendCur .myScore_4g3_head span").html("");
+        var v_myScore_4g3_score = "40";
+
+        var str = "";
+        for (var i = 0; i < 10; i++) {
+            str+='<tr class="abstractColor">'+
+                    '<td >2017-03-23</td><td >评论文章</td><td >＋5</td>'+
+                '</tr>'
+        }
+        $(".appendCur .myScore_4g3_main table tbody").append(str);
+        $(".appendCur .myScore_4g3_head span").append(v_myScore_4g3_score);
+    }
+    //返回的真实数据
+    function tData(){
+        $.ajax({
+            async: false,
+            cache: true,
+            type: 'post',
+            dataType: "jsonp",
+            data: {callBack:"getIntegralByUserIdCallBack"},  //参数
+            url: blockBasePath+"/blockData/getIntegralByUserId.do",//请求的action路径
+            success: function (data) { //请求成功后处理函数。
+            }
+        });
+    }
+    function getIntegralByUserIdCallBack(data){
+        var list = data.integralList;
+        if(data.pd.integral != undefined){
+            $(".allIn").text(data.pd.integral);
+        }
+    }
+</script>
+</body>
+</html>

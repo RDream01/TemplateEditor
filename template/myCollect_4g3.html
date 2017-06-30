@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>我收藏的</title>
+    <style>
+        .myCollect_4g3_editDiv{
+            width: 540px;
+            text-align: right;
+            margin-left: 82px;
+            margin-top: 18px;
+            padding-bottom: 6px;
+        }
+        .myCollect_4g3_editImg{
+            width:12px;
+            height:15px;
+            vertical-align: middle;
+        }
+        .myCollect_4g3_deleImage{
+            width: 9px;
+            height: 13px;
+            vertical-align: middle;
+        }
+        .myCollect_4g3_head{
+            width: 225px;
+            margin-left: 410px;
+            margin-bottom: 8px;
+            display: none;
+        }
+        .myCollect_4g3_head li{
+            float:  left;
+            margin-top: 25px;
+            margin-left: 36px;
+            margin-right: 0px;
+        }
+        .myCollect_4g3_list{
+            margin-left: 84px;
+            width: 540px;
+        }
+        .myCollect_4g3_image{
+            width:110px;
+            height:90px;
+            margin-left: 24px;
+            margin-top: 12px;
+        }
+        .myCollect_4g3_list ul{
+            /*border-top: 1px solid #dddddd;*/
+        }
+        .myCollect_4g3_list li{
+            height: 115px;
+            /*border-bottom: 1px solid #dddddd;*/
+            position: relative;
+        }
+        .myCollect_4g3_list dd{
+            float: left;
+        }
+        .myCollect_4g3_list dt{
+            float: left;
+            margin-left:8px ;
+        }
+        .myCollect_4g3_list_title{
+            font-size:14px;
+            text-align:left;
+            width: 349px;
+            height: 39px;
+            overflow: hidden;
+        }
+        .myCollect_4g3_list_content{
+            font-size:12px;
+            width: 346px;
+            height:22px;
+            line-height:20px;
+            overflow: hidden;
+            text-align:left;
+            margin-top: 8px;
+        }
+        .myCollect_4g3_listSource{
+            font-size:12px;
+            text-align:left;
+            float: left;
+            line-height:12px;
+        }
+        .myCollect_4g3_contentImage{
+            width: 12px;
+            height: 10px;
+            margin-right:2px;
+        }
+        .myCollect_4g3_contNum{
+            float: left;
+            margin-left:9px ;
+            margin-bottom: 0px;
+            font-size:12px;
+            line-height:12px;
+            text-align:left;
+        }
+        .myCollect_4g3_list_time {
+            font-size: 12px;
+            line-height: 12px;
+            text-align: right;
+        }
+        .myCollect_4g3_listfoot{
+            margin-top:4px ;
+            height: 12px
+        }
+        .myCollect_4g3_delDiv{
+            float: left;
+            text-align: center;
+            vertical-align: middle;
+            margin-left: 12px;
+        }
+        .myCollect_4g3_delSpan{
+            /*border-left: 1px solid #dddddd;*/
+            display: block;
+            height: 115px;
+            width: 20px;
+        }
+        .myCollect_4g3_delimage{
+            width: 12px;
+            height: 17px;
+            margin-left: 10px;
+            margin-top: 42px;
+        }
+        .myCollect_4g3_list .myCollect_4g3_selecr{
+            float: left;
+            margin-top: 43px;
+            display: none;
+        }
+
+    </style>
+</head>
+<body>
+<div class="Grid4g3" >
+    <div class="myCollect_4g3_editDiv ">
+        <a  onclick="changeB(this)" href="#" id="edit"><img src="http://114.113.231.46:90/TemplateEditor/img/PP/myCollect/edit.png" class="myCollect_4g3_editImg"> 编辑</a>
+    </div>
+    <div class="myCollect_4g3_head" >
+        <ul class="clearFloat">
+            <li>
+                <input type="checkbox" name="全选" id="selectAll">&nbsp;全选
+            </li>
+            <li>
+                <a onclick="dleAll()" href="#"><img src="http://114.113.231.46:90/TemplateEditor/img/PP/myCollect/dele.png" class="myCollect_4g3_deleImage" id="collectDel">&nbsp;删除</a>
+            </li>
+            <li>
+                <a href="#" onclick="changeB(this)" id="done">完成</a>
+            </li>
+        </ul>
+    </div>
+    <div class="myCollect_4g3_list">
+        <ul></ul>
+    </div>
+</div>
+<script>
+    $(function(){
+        $('#selectAll').click(function(){
+            if($('#selectAll').is(':checked')){
+                $('.myCollect_4g3_list li').find('input').prop('checked',true);
+            }else{
+                $('.myCollect_4g3_list li').find('input').prop('checked',false);
+            }
+
+        });
+        $('.myCollect_4g3_selecr').click(function(){
+            var i=0;
+            var arr=$('.myCollect_4g3_list').find('input').length;
+            $('.myCollect_4g3_selecr').each(function(){
+                if($(this).is(':checked')){
+                    i++;
+                }
+            });
+            if(i==arr){
+                $('.myCollect_4g3_head').find('input').prop('checked',true);
+            }else{
+                $('.myCollect_4g3_head').find('input').prop('checked',false);
+            }
+        })
+
+    });
+    function dleAll(){
+        var str= "";
+        $('.myCollect_4g3_selecr').each(function(){
+            if($(this).prop('checked')){
+                str += $(this).val()+",";
+                $(this).parent().parent().remove();
+            }
+        });
+        str = str.substring(0,str.length-1);
+        $.ajax({
+            async: false,
+            cache: true,
+            type: 'post',
+            dataType: "jsonp",
+            data: {fIdList:str},  //参数
+            url: blockBasePath+"blockData/deleteFavoriteArticle.do",//请求的action路径
+            success: function (data) { //请求成功后处理函数。
+            }
+        });
+    }
+
+    function changeB(obj){
+        var id = $(obj).attr("id");
+        if(id == "edit"){
+            $('.myCollect_4g3_head').css("display","block");
+            $('.myCollect_4g3_editDiv').css("display","none");
+            $('.myCollect_4g3_list .myCollect_4g3_selecr').css("display","block");
+        }else  if(id = "done"){
+            $('.myCollect_4g3_head').css("display","none");
+            $('.myCollect_4g3_editDiv').css("display","block");
+            $('.myCollect_4g3_list .myCollect_4g3_selecr').css("display","none");
+        }
+
+    }
+    function  singleDel(obj,id){
+        $(obj).parent().parent().parent().parent().parent().remove();
+        $.ajax({
+            async: false,
+            cache: true,
+            type: 'post',
+            dataType: "jsonp",
+            data: {fIdList:id},  //参数
+            url: blockBasePath+"blockData/deleteFavoriteArticle.do",//请求的action路径
+            success: function (data) { //请求成功后处理函数。
+            }
+        });
+
+    }
+    var currentPage =2;
+    var flag="t";
+    if(flag == "v"){
+        vData()
+    }else{
+        tData();
+    }
+    function vData() {
+        var title = "国家主33席习近平同美国总统特朗普通电话国家主席习近平美国总统特朗普通电话国家主席习近平同美国总统特朗普通";
+        var content="滚回家阿克苏但感觉哈舒服股东卡放大镜噶啥地方和故事的风格是否是甲方";
+        var source="擎好网";
+        var numComment="30";
+        var time="2017-04-12";
+
+        var str = "";
+        for (var i = 0; i < 10; i++) {
+            str = str +'<li>' +
+                        ' <dl class="clearFloat"> ' +
+                            '<input type="checkbox" name="" value="" class="myCollect_4g3_selecr"  align="center">'+
+                            '<dd><a href="#">' +
+                                '<img  class="myCollect_4g3_image" src="http://114.113.231.46:90/TemplateEditor/img/PP/myJoined/pic.png"> ' +
+                            '</a></dd> ' +
+                            '<dt class="clearFloat">' +
+                                '<div style="float: left;padding-top: 14px;">' +
+                                        '<p class="myCollect_4g3_list_title titleColor"><a href="#">'+title+'</a></p> ' +
+                                        '<p class="myCollect_4g3_list_content abstractColor">'+content+'</p> ' +
+                                    '<div  class="clearFloat myCollect_4g3_listfoot"> <p class="myCollect_4g3_listSource dateColor">'+source+'</p> ' +
+                                        '<p class="myCollect_4g3_contNum dateColor">' +
+                                        '<img src="http://114.113.231.46:90/TemplateEditor/img/PP/myJoined/contentNum.png" class="myCollect_4g3_contentImage ">'+numComment+'</p> ' +
+                                        '<p class="myCollect_4g3_list_time dateColor">'+time+'</p> ' +
+                                    '</div>' +
+                                '</div> ' +
+                                '<div class="myCollect_4g3_delDiv" >' +
+                                    '<span class="myCollect_4g3_delSpan"><a href="#" onclick="singleDel(this,\''+list[i].article_id+'\')">' +
+                                    '<img src="http://114.113.231.46:90/TemplateEditor/img/PP/myCollect/dele.png" class="myCollect_4g3_delimage"></a></span> ' +
+                                '</div>' +
+                            '</dt>' +
+                        '</dl> ' +
+                    '</li>';
+        }
+        $(" .myCollect_4g3_list ul").html(str);
+    }
+    function tData(){
+        $.ajax({
+            async: false,
+            cache: true,
+            type: 'post',
+            dataType: "jsonp",
+            data: {callBack:"favouiteCallback"},  //参数
+            url: blockBasePath+"blockData/getFavouriteByUserId.do",//请求的action路径
+            success: function (data) { //请求成功后处理函数。
+            }
+        });
+    }
+    //返回的真实数据
+    function favouiteCallback(data){
+        console.log(data)
+        var list = data.favoriteList;
+        if(list =='' || list == undefined){
+            return;
+        }
+        var str = "";
+        for (var i = 0; i<list.length; i++) {
+            str = str +'<li>' +
+                    ' <dl class="clearFloat"> ' +
+                    '<input type="checkbox" name="" value="'+list[i].FAVORITE_ID+'" class="myCollect_4g3_selecr"  align="center">'+
+                    '<dd><a href="javascript:window.open(\''+list[i].article_url+'\',\'_blank\')">' +
+                    '<img  class="myCollect_4g3_image" src="'+list[i].pic+'"> ' +
+                    '</a></dd> ' +
+                    '<dt class="clearFloat">' +
+                    '<div style="float: left;padding-top: 14px;">' +
+                    '<p class="myCollect_4g3_list_title titleColor"><a href="javascript:window.open(\''+list[i].article_url+'\',\'_blank\')">'+list[i].title+'</a></p> ' +
+                    '<p class="myCollect_4g3_list_content abstractColor">'+list[i].short_content+'</p> ' +
+                    '<div  class="clearFloat myCollect_4g3_listfoot"> <p class="myCollect_4g3_listSource dateColor">';
+                    if(list[i].srouce_title != null && list[i].source_title != undefined){
+                    str += list[i].source_title;	
+                    }else{
+                    	str += "擎好网";
+                    }
+                    str+='</p> ' +
+                    '<p class="myCollect_4g3_contNum dateColor">' +
+                    '<img src="http://114.113.231.46:90/TemplateEditor/img/PP/myJoined/contentNum.png" class="myCollect_4g3_contentImage ">'+list[i].comment_num+'</p> ' +
+                    '<p class="myCollect_4g3_list_time dateColor">'+list[i].online_time+'</p> ' +
+                    '</div>' +
+                    '</div> ' +
+                    '<div class="myCollect_4g3_delDiv" >' +
+                    '<span class="myCollect_4g3_delSpan"><a onclick="singleDel(this,\''+list[i].FAVORITE_ID+'\')">' +
+                    '<img src="http://114.113.231.46:90/TemplateEditor/img/PP/myCollect/dele.png" class="myCollect_4g3_delimage"></a></span> ' +
+                    '</div>' +
+                    '</dt>' +
+                    '</dl> ' +
+                    '</li>';
+        }
+        $(".myCollect_4g3_list ul").html(str);
+    }
+
+    function moreFavourite(){
+        $.ajax({
+            async: false,
+            cache: true,
+            type: 'post',
+            dataType: "jsonp",
+            data: {callBack:"favouiteCallback"},  //参数
+            url: blockBasePath + "blockData/getFavouriteByUserId.do",//请求的action路径
+            success: function (data) { //请求成功后处理函数。
+            }
+        });
+        currentPage++;
+    }
+
+    function moreFavouriteCallBack(data){
+        var list = data.favouritelist;
+        if(list =='' || list == undefined){
+            return;
+        }
+        var str = "";
+        for (var i = 0; i<list.length; i++) {
+            str = str +'<li>' +
+                    ' <dl class="clearFloat"> ' +
+                    '<input type="checkbox" name="" value="" class="myCollect_4g3_selecr"  align="center">'+
+                    '<dd><a href="javascript:window.open(\''+list[i].article_url+'\',\'_blank\')">' +
+                    '<img  class="myCollect_4g3_image" src="http://114.113.231.46:90/TemplateEditor/img/PP/myJoined/pic.png"> ' +
+                    '</a></dd> ' +
+                    '<dt class="clearFloat">' +
+                    '<div style="float: left;padding-top: 14px;">' +
+                    '<p class="myCollect_4g3_list_title titleColor"><a href="javascript:window.open(\''+list[i].article_url+'\',\'_blank\')">'+list[i].title+'</a></p> ' +
+                    '<p class="myCollect_4g3_list_content abstractColor">'+list[i].article_content+'</p> ' +
+                    '<div  class="clearFloat myCollect_4g3_listfoot"> <p class="myCollect_4g3_listSource dateColor">'+list[i].source+'</p> ' +
+                    '<p class="myCollect_4g3_contNum dateColor">' +
+                    '<img src="http://114.113.231.46:90/TemplateEditor/img/PP/myJoined/contentNum.png" class="myCollect_4g3_contentImage ">'+list[i].comment_num+'</p> ' +
+                    '<p class="myCollect_4g3_list_time dateColor">'+list[i].online_time+'</p> ' +
+                    '</div>' +
+                    '</div> ' +
+                    '<div class="myCollect_4g3_delDiv" >' +
+                    '<span class="myCollect_4g3_delSpan"><a onclick="(this)singleDel(this,\''+list[i].ARTICAL_ID+'\')singleDel">' +
+                    '<img src="http://114.113.231.46:90/TemplateEditor/img/PP/myCollect/dele.png" class="myCollect_4g3_delimage"></a></span> ' +
+                    '</div>' +
+                    '</dt>' +
+                    '</dl> ' +
+                    '</li>';
+        }
+        $(".myCollect_4g3_list ul").html(str);
+    }
+</script>
+</body>
+</html>
