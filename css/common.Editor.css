@@ -1,138 +1,138 @@
-
-.secPart,.headPart{
-    color:#000;
-    cursor: pointer;
-}
-.partAll .panel-group .panel-body{
-    padding:0;
-}
-
-/*form*/
-.control-label{
-    text-align: right;
-}
-.control-group{
-    margin:10px 0;
-}
-.form-input{
-    width:100%;
-}
-.form-select{
-    width:100%;
-    height:26px;
-    line-height:26px;
-}
-
-.appendNot{
-    border:1px solid blue;
-}
-.appendCur{
-    border:2px solid red;
-}
-.controls select.notNull,.controls input.notNull{
-    border:1px solid blue;
-}
-.notNullColor{
-    color:red;
-}
-/*form，右边属性*/
-.control-label{
-    text-align: right;
-}
-.control-group{
-    margin:10px 0;
-}
-.form-input{
-    width:100%;
-    border: 1px solid #000;
-}
-.form-select{
-    width:100%;
-    height:26px;
-    line-height:26px;
-}
-.controls select{
-    border: 1px solid #000;
-}
-/*delete*/
-.deletePart{
-    cursor: pointer;
-}
-
-/*删除区块btn*/
-.deleteBlockDiv{
-    text-align: center;
-    margin:30px auto 10px;
-}
-.deleteBlockBtn{
-}
-
-/*******************************************************/
-.appendStr{
-    /*position:absolute;*/
-}
-
-
-.adv_3g1_all{
-    position: relative;
-}
-.adv_3g1_mask{
-    position: absolute;
-    bottom:0;
-    right:0;
-    background:rgba(0,0,0,.5);
-    width:40px;
-    height:20px;
-    color:#fff;
-    text-align: center;
-    font-size: 12px;
-    line-height:20px;
-}
-.adv_3g1_all,.adv_3g1_all img{
-    width:308px;
-    height:148px;
-}
-
-/*组合框*/
-
-.groupDiv{
-    border:1px solid #26ff16;
-}
-
-
-
-.groupDiv.list-group-item{
-    padding:0;
-    /*background:#fafafa;*/
-}
-/* 为可拖动的条目应用可移动光标类型 */
-#sortableList > .list-group-item [data-trigger]{cursor: move}
-
-/* 为正在被拖动的条目应用半透明外观 */
-#sortableList > .list-group-item.dragging {
-    /*visibility: visible;*/
-    /*opacity: .8;*/
-}
-
-
-/*高亮*/
-.heightLight {
-    border-color: #FF38F8;
-}
-
-/*删除组件狂*/
-.sortArea{
-    border:1px solid #000;
-    position: relative;
-}
-.deleteGroup{
-    position:absolute;
-    top:0;
-    right:0;
-    cursor: pointer;
-    color:#c33;
-   background:#E7E9ED;
-    padding:0 6px;
-}
-
-
+
+.secPart,.headPart{
+    color:#000;
+    cursor: pointer;
+}
+.partAll .panel-group .panel-body{
+    padding:0;
+}
+
+/*form*/
+.control-label{
+    text-align: right;
+}
+.control-group{
+    margin:10px 0;
+}
+.form-input{
+    width:100%;
+}
+.form-select{
+    width:100%;
+    height:26px;
+    line-height:26px;
+}
+
+.appendNot{
+    border:1px solid blue;
+}
+.appendCur{
+    border:2px solid red;
+}
+.controls select.notNull,.controls input.notNull{
+    border:1px solid blue;
+}
+.notNullColor{
+    color:red;
+}
+/*form，右边属性*/
+.control-label{
+    text-align: right;
+}
+.control-group{
+    margin:10px 0;
+}
+.form-input{
+    width:100%;
+    border: 1px solid #000;
+}
+.form-select{
+    width:100%;
+    height:26px;
+    line-height:26px;
+}
+.controls select{
+    border: 1px solid #000;
+}
+/*delete*/
+.deletePart{
+    cursor: pointer;
+}
+
+/*删除区块btn*/
+.deleteBlockDiv{
+    text-align: center;
+    margin:30px auto 10px;
+}
+.deleteBlockBtn{
+}
+
+/*******************************************************/
+.appendStr{
+    /*position:absolute;*/
+}
+
+
+.adv_3g1_all{
+    position: relative;
+}
+.adv_3g1_mask{
+    position: absolute;
+    bottom:0;
+    right:0;
+    background:rgba(0,0,0,.5);
+    width:40px;
+    height:20px;
+    color:#fff;
+    text-align: center;
+    font-size: 12px;
+    line-height:20px;
+}
+.adv_3g1_all,.adv_3g1_all img{
+    width:308px;
+    height:148px;
+}
+
+/*组合框*/
+
+.groupDiv{
+    border:1px solid #26ff16;
+}
+
+
+
+.groupDiv.list-group-item{
+    padding:0;
+    /*background:#fafafa;*/
+}
+/* 为可拖动的条目应用可移动光标类型 */
+#sortableList > .list-group-item [data-trigger]{cursor: move}
+
+/* 为正在被拖动的条目应用半透明外观 */
+#sortableList > .list-group-item.dragging {
+    /*visibility: visible;*/
+    /*opacity: .8;*/
+}
+
+
+/*高亮*/
+.heightLight {
+    border-color: #FF38F8;
+}
+
+/*删除组件狂*/
+.sortArea{
+    border:1px solid #000;
+    position: relative;
+}
+.deleteGroup{
+    position:absolute;
+    top:0;
+    right:0;
+    cursor: pointer;
+    color:#c33;
+   background:#E7E9ED;
+    padding:0 6px;
+}
+
+

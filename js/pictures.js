@@ -283,25 +283,25 @@
                     //pgwSlideshow.plugin.find('.ps-caption').show();
                 }
             }
-            // if (elementNum != '') {
-            //     if( pgwSlideshow.plugin.find('.ps-list > ul > li:last-child a img').attr('data-num')===undefined ){
-            //         if( defaults.len<10 ){
-            //             pgwSlideshow.plugin.find('.ps-len').html(elementNum+'/0'+(defaults.len-1));
-            //             pgwSlideshow.plugin.find('.ps-len').fadeIn(pgwSlideshow.config.transitionDuration / 2);
-            //         }else{
-            //             pgwSlideshow.plugin.find('.ps-len').html(elementNum+'/'+(defaults.len-1));
-            //             pgwSlideshow.plugin.find('.ps-len').fadeIn(pgwSlideshow.config.transitionDuration / 2);
-            //         }
-            //     }else{
-            //         if( defaults.len<10 ){
-            //             pgwSlideshow.plugin.find('.ps-len').html(elementNum+'/0'+(defaults.len));
-            //             pgwSlideshow.plugin.find('.ps-len').fadeIn(pgwSlideshow.config.transitionDuration / 2);
-            //         }else{
-            //             pgwSlideshow.plugin.find('.ps-len').html(elementNum+'/'+(defaults.len));
-            //             pgwSlideshow.plugin.find('.ps-len').fadeIn(pgwSlideshow.config.transitionDuration / 2);
-            //         }
-            //     }
-            // }
+            if (elementNum != '') {
+                if( pgwSlideshow.plugin.find('.ps-list > ul > li:last-child a img').attr('data-num')===undefined ){
+                    if( defaults.len<10 ){
+                        //pgwSlideshow.plugin.find('.ps-len').html(elementNum+'/0'+(defaults.len-1));
+                        //pgwSlideshow.plugin.find('.ps-len').fadeIn(pgwSlideshow.config.transitionDuration / 2);
+                    }else{
+                        //pgwSlideshow.plugin.find('.ps-len').html(elementNum+'/'+(defaults.len-1));
+                        //pgwSlideshow.plugin.find('.ps-len').fadeIn(pgwSlideshow.config.transitionDuration / 2);
+                    }
+                }else{
+                    if( defaults.len<10 ){
+                        //pgwSlideshow.plugin.find('.ps-len').html(elementNum+'/0'+(defaults.len));
+                        //pgwSlideshow.plugin.find('.ps-len').fadeIn(pgwSlideshow.config.transitionDuration / 2);
+                    }else{
+                        //pgwSlideshow.plugin.find('.ps-len').html(elementNum+'/'+(defaults.len));
+                        //pgwSlideshow.plugin.find('.ps-len').fadeIn(pgwSlideshow.config.transitionDuration / 2);
+                    }
+                }
+            }
 
             // Update list items
             pgwSlideshow.plugin.find('.ps-list > ul > li .ps-item').removeClass('ps-selected');
@@ -617,19 +617,9 @@
     }
 })(window.Zepto || window.jQuery);
 
-setTimeout(test,100);
-function test(){
-    $('.pgwSlideshow').pgwSlideshow({
-        autoSlide:true
-    });
-}
-
-//$(document).ready(function(){
-    //$('.pgwSlideshow').pgwSlideshow({
-    //    autoSlide:true
-    //});
-//});
-
+window.onload=function(){    
+	$('.pgwSlideshow').pgwSlideshow();
+};
 
 
 

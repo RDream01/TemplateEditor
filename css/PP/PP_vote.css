@@ -1,313 +1,313 @@
-/*vote-锟街诧拷*/
-.bg{
-    height: 65px;
-}
-.indexList{
-    bottom:40px;
-}
-.infoList li a>h2 {
-    width:1000px;
-    margin-top:5px;
-    overflow:hidden;
-    font-weight: normal;
-}
-.infoList li a>h2>span:first-child{
-    font-size:26px;
-    padding-left:10px;
-}
-.infoList li a>h2>span:last-child{
-    font-size:20px;
-    padding-top:10px;
-}
-/*vote-锟斤拷锟斤拷--锟斤拷锟�*/
-section{
-    margin-top:65px;
-}
-.sec_lf{
-    width:749px;
-}
-.vote_main{
-    overflow:hidden;
-    margin-bottom:50px;
-}
-.vote_main li{
-    float:left;
-    width:195px;
-    padding:10px 10px 12px 10px;
-    margin:0 18px;
-    border:1px solid #E7E9ED;
-}
-.vote_main li:first-child{
-    margin-left:0;
-}
-.vote_main li:last-child{
-    margin-right:0;
-}
-/*dl*/
-.vote_detail{
-    width:195px;
-}
-.vote_detail>dt>a>img{
-    width:195px;
-    height:100px;
-}
-.vote_detail>dd{
-    text-align: center;
-}
-.vote_detail>dd>a>p{
-    font-size:15px;
-    margin:10px 0;
-    text-align: left;
-}
-.vote_detail>dd .vote_cont{
-    text-align: left;
-}
-.btn{
-    display:inline-block;
-    margin:20px 0;
-    color:#fff;
-    background: #FF6766;
-    width:85px;
-    font-size:16px;
-    padding:5px 0;
-}
-.btn:hover{
-    background: #cc3333;
-    color:#fff;
-}
-/*锟揭憋拷*/
-.rank{
-    margin-left:0;
-    margin-bottom:50px;
-}
-.rank_top{
-    height:21px;
-    color: #c33;
-    font-size:16px;
-    border:none;
-    margin-left:15px;
-    padding-left:10px;
-    border-left:2px solid #cc3333;
-}
-.ranking_detail{
-    margin-left:0;
-}
-.ranking_detail li{
-    font-style: normal;
-}
-.ranking_detail li.rank_color,.ranking_detail li.rank_color a {
-    color:#FF6766;
-}
-
-.ranking_detail li.rank_color a:hover{
-    color:#FF6766;
-}
-
-/*投票锟斤拷锟斤拷页*/
-/*title*/
-.vote_title{
-    padding-right:10px;
-    position:relative;
-    font-size:32px;
-    color:#262626;
-    letter-spacing: 3px;
-}
-.title_tu{
-    margin-left:660px;
-}
-#share{
-    cursor:pointer;
-}
-#share_detail{
-    display:none;
-    width:100px;
-    height:50px;
-    position:absolute;
-    top:93px;
-    right:0px;
-    z-index:1000000;
-    background-color:#ddd;
-    opacity:0.8;
-}
-#share_detail a span{
-    font-size:16px;
-   display:inline-block;
-   margin:8px 5px;
-}
-.vote_span{
-    margin-top:5px;
-}
-.vote_status{
-    display:inline-block;
-    width:60px;
-    padding:5px 0;
-    background:#FF3334;
-    color:#fff;
-    text-align:center;
-}
-.vote_time{
-    padding-left:30px;
-}
-.text{
-    font-size:16px;
-    color:#252525;
-    line-height:30px;
-    margin-top:20px;
-    margin-bottom:30px;
-    text-indent:2em;
-}
-.vote_img{
-    padding-top:20px;
-    text-align:center;
-}
-.vote_na{
-    width:655px;
-    background:#FAFAFA;
-    margin:0 auto;
-    margin-top:50px;
-    padding:20px 0 20px 30px;
-}
-.vote_name{
-    font-size:18px;
-    color:#000;
-    letter-spacing: 3px;
-    padding:20px 0 10px 0;
-}
-.vote_an{
-    margin:20px 0;
-    font-size:16px;
-    color:#111;
-    overflow:hidden;
-}
-.vote_an label img{
-    width:130px;
-    height:100px;
-    vertical-align: top;
-    margin-left:30px;
-    border:2px solid #FF6766;
-    border-radius:8px;
-
-}
-.vote_an label span{
-    display: block;
-    font-size:12px;
-    text-align:center;
-    margin-left:30px;
-    margin-top:5px;
-
-}
-.btn_fu{
-    text-align:center;
-    cursor: pointer;
-}
-/*投票锟斤拷锟�*/
-.vote_result{
-    overflow:hidden;
-}
-.vote_result li{
-    float:left;
-    margin:20px;
-    font-size:14px;
-    color:#333;
-}
-.vote_result li:first-child{
-    width:100px;
-}
-.vote_result li:first-child img{
-    width:130px;
-    height:100px;
-    /*border:2px solid #FF6766;*/
-    border-radius:8px;
-}
-.vote_result li:first-child span{
-    display: block;
-    font-size:12px;
-    text-align:center;
-    margin-top:5px;
-}
-.vote_result li.num01{
-    color:#000;
-}
-.meter{
-    width:180px;
-    height:12px;
-    background: #fff;
-}
-.meter span{
-    display:block;
-    width:63px;
-    height:12px;
-    background:#000;
-    /*margin-top:5px;*/
-}
-/*投票锟斤拷锟斤拷锟斤拷*/
-#form1{
-    display:none;
-    width:500px;
-    background:#FEF6F4;
-    padding:20px;
-    position:fixed;
-    top:19%;
-    left:17%;
-}
-.tof p{
-    margin:30px 0;
-    text-align: center;
-}
-.code {
-    font-style:italic;
-    color:#00AA91;
-    font-size: 26px;
-    padding:3px;
-    letter-spacing:3px;
-    font-weight:bolder;
-    cursor:pointer;
-    width:150px;
-    height:20px;
-}
-.bu{
-    background:#E7E9ED;
-    width:160px;
-    height:65px;
-    font-size:14px;
-    color:#333;
-    padding:10px ;
-    cursor: pointer;
-}
-#Button1{
-    border:1px solid #eee;
-    outline: none;
-    background:#EFEEEE;
-    padding:5px 0;
-    width:60px;
-
-}
-#inputCode{
-    border:1px solid #E7E9ED;
-    height:25px;
-}
-.close{
-    position:absolute;
-    top:0;right:0;
-    padding:2px 7px;
-    color:#333;
-    background:#fff;
-    cursor:pointer;
-    font-size:18px;
-}
-.close:hover{
-    background:#EFEEEE;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
+/*vote-锟街诧拷*/
+.bg{
+    height: 65px;
+}
+.indexList{
+    bottom:40px;
+}
+.infoList li a>h2 {
+    width:1000px;
+    margin-top:5px;
+    overflow:hidden;
+    font-weight: normal;
+}
+.infoList li a>h2>span:first-child{
+    font-size:26px;
+    padding-left:10px;
+}
+.infoList li a>h2>span:last-child{
+    font-size:20px;
+    padding-top:10px;
+}
+/*vote-锟斤拷锟斤拷--锟斤拷锟�*/
+section{
+    margin-top:65px;
+}
+.sec_lf{
+    width:749px;
+}
+.vote_main{
+    overflow:hidden;
+    margin-bottom:50px;
+}
+.vote_main li{
+    float:left;
+    width:195px;
+    padding:10px 10px 12px 10px;
+    margin:0 18px;
+    border:1px solid #E7E9ED;
+}
+.vote_main li:first-child{
+    margin-left:0;
+}
+.vote_main li:last-child{
+    margin-right:0;
+}
+/*dl*/
+.vote_detail{
+    width:195px;
+}
+.vote_detail>dt>a>img{
+    width:195px;
+    height:100px;
+}
+.vote_detail>dd{
+    text-align: center;
+}
+.vote_detail>dd>a>p{
+    font-size:15px;
+    margin:10px 0;
+    text-align: left;
+}
+.vote_detail>dd .vote_cont{
+    text-align: left;
+}
+.btn{
+    display:inline-block;
+    margin:20px 0;
+    color:#fff;
+    background: #FF6766;
+    width:85px;
+    font-size:16px;
+    padding:5px 0;
+}
+.btn:hover{
+    background: #cc3333;
+    color:#fff;
+}
+/*锟揭憋拷*/
+.rank{
+    margin-left:0;
+    margin-bottom:50px;
+}
+.rank_top{
+    height:21px;
+    color: #c33;
+    font-size:16px;
+    border:none;
+    margin-left:15px;
+    padding-left:10px;
+    border-left:2px solid #cc3333;
+}
+.ranking_detail{
+    margin-left:0;
+}
+.ranking_detail li{
+    font-style: normal;
+}
+.ranking_detail li.rank_color,.ranking_detail li.rank_color a {
+    color:#FF6766;
+}
+
+.ranking_detail li.rank_color a:hover{
+    color:#FF6766;
+}
+
+/*投票锟斤拷锟斤拷页*/
+/*title*/
+.vote_title{
+    padding-right:10px;
+    position:relative;
+    font-size:32px;
+    color:#262626;
+    letter-spacing: 3px;
+}
+.title_tu{
+    margin-left:660px;
+}
+#share{
+    cursor:pointer;
+}
+#share_detail{
+    display:none;
+    width:100px;
+    height:50px;
+    position:absolute;
+    top:93px;
+    right:0px;
+    z-index:1000000;
+    background-color:#ddd;
+    opacity:0.8;
+}
+#share_detail a span{
+    font-size:16px;
+   display:inline-block;
+   margin:8px 5px;
+}
+.vote_span{
+    margin-top:5px;
+}
+.vote_status{
+    display:inline-block;
+    width:60px;
+    padding:5px 0;
+    background:#FF3334;
+    color:#fff;
+    text-align:center;
+}
+.vote_time{
+    padding-left:30px;
+}
+.text{
+    font-size:16px;
+    color:#252525;
+    line-height:30px;
+    margin-top:20px;
+    margin-bottom:30px;
+    text-indent:2em;
+}
+.vote_img{
+    padding-top:20px;
+    text-align:center;
+}
+.vote_na{
+    width:655px;
+    background:#FAFAFA;
+    margin:0 auto;
+    margin-top:50px;
+    padding:20px 0 20px 30px;
+}
+.vote_name{
+    font-size:18px;
+    color:#000;
+    letter-spacing: 3px;
+    padding:20px 0 10px 0;
+}
+.vote_an{
+    margin:20px 0;
+    font-size:16px;
+    color:#111;
+    overflow:hidden;
+}
+.vote_an label img{
+    width:130px;
+    height:100px;
+    vertical-align: top;
+    margin-left:30px;
+    border:2px solid #FF6766;
+    border-radius:8px;
+
+}
+.vote_an label span{
+    display: block;
+    font-size:12px;
+    text-align:center;
+    margin-left:30px;
+    margin-top:5px;
+
+}
+.btn_fu{
+    text-align:center;
+    cursor: pointer;
+}
+/*投票锟斤拷锟�*/
+.vote_result{
+    overflow:hidden;
+}
+.vote_result li{
+    float:left;
+    margin:20px;
+    font-size:14px;
+    color:#333;
+}
+.vote_result li:first-child{
+    width:100px;
+}
+.vote_result li:first-child img{
+    width:130px;
+    height:100px;
+    /*border:2px solid #FF6766;*/
+    border-radius:8px;
+}
+.vote_result li:first-child span{
+    display: block;
+    font-size:12px;
+    text-align:center;
+    margin-top:5px;
+}
+.vote_result li.num01{
+    color:#000;
+}
+.meter{
+    width:180px;
+    height:12px;
+    background: #fff;
+}
+.meter span{
+    display:block;
+    width:63px;
+    height:12px;
+    background:#000;
+    /*margin-top:5px;*/
+}
+/*投票锟斤拷锟斤拷锟斤拷*/
+#form1{
+    display:none;
+    width:500px;
+    background:#FEF6F4;
+    padding:20px;
+    position:fixed;
+    top:19%;
+    left:17%;
+}
+.tof p{
+    margin:30px 0;
+    text-align: center;
+}
+.code {
+    font-style:italic;
+    color:#00AA91;
+    font-size: 26px;
+    padding:3px;
+    letter-spacing:3px;
+    font-weight:bolder;
+    cursor:pointer;
+    width:150px;
+    height:20px;
+}
+.bu{
+    background:#E7E9ED;
+    width:160px;
+    height:65px;
+    font-size:14px;
+    color:#333;
+    padding:10px ;
+    cursor: pointer;
+}
+#Button1{
+    border:1px solid #eee;
+    outline: none;
+    background:#EFEEEE;
+    padding:5px 0;
+    width:60px;
+
+}
+#inputCode{
+    border:1px solid #E7E9ED;
+    height:25px;
+}
+.close{
+    position:absolute;
+    top:0;right:0;
+    padding:2px 7px;
+    color:#333;
+    background:#fff;
+    cursor:pointer;
+    font-size:18px;
+}
+.close:hover{
+    background:#EFEEEE;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

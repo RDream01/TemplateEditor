@@ -1,575 +1,575 @@
-@charset "utf-8";
-/*通用样式*/
-body {
-    /*font: 12px "microsoft yahei", Arial, Helvetica, sans-serif;*/
-    color:#666;
-    margin:0;
-    padding:0;
-    /*background-color:#fafafa;*/
-    overflow-y: hidden;
-
-}
-ul,li,p,h1,h2,h3,h4,h5,h6,dl,dt,dd,input {
-    margin:0;
-    padding:0;
-    border:none;
-    list-style:none;
-}
-iframe{
-    width:0;
-    height:0;
-    margin:0;
-    padding:0;
-}
-input,select,option {border:none;}
-.lf   {float:left;}
-.rt  {float:right;}
-.clear  {clear:both;}
-a{text-decoration:none; color:#1a1a1a;}
-a:hover{text-decoration: none;}
-img{ vertical-align: bottom; border:none;}
-nav,#banner,section,footer{
-    margin:0 auto;
-}
-.commonContainer{
-    width:960px;
-    margin:0 auto;
-    padding:0;
-}
-.row{
-    margin:0;
-}
-.container{
-    padding:0;
-}
-
-/*header*/
-.editorIndexHeader{
-    background:#4285f4;
-    box-shadow:0 1px 1px 0 rgba(0,0,0,0.12);
-    width:100%;
-    height:65px;
-    line-height:65px;
-    position: relative;
-    text-align: center;
-}
-
-.editorAct{
-    position: absolute;
-    z-index: 1000;
-    float: left;
-    margin-left:50px;
-}
-.firstEditorAct.editorAct{
-    line-height: 45px;
-}
-.editorAct img{
-    width:20px;
-    margin-right:20px;
-    cursor: pointer;
-}
-.editorTxt{
-    position: fixed;
-    width:100%;
-    text-align: center;
-    font-size:20px;
-    color:#ffffff;
-}
-
-/*section*/
-#multiDroppableContainer:after{
-    display: block;
-    content: "";
-    clear: both;
-}
-#multiDroppableContainer .partAll{width:230px;float: left;}
-#multiDroppableContainer .main{float: left;}
-#multiDroppableContainer .property{width:230px;float: left;}
-
-/*partAll*/
-.partAll,.property,.main{
-    overflow-y: auto;
-}
-.partAll{
-    border-right:2px solid rgba(0,0,0,.12);
-    padding:0;
-    color:#333;
-}
-.partClassify .partOption:last-child{
-    margin-bottom:100px;
-}
-.property{
-    border-left:2px solid rgba(0,0,0,.12);
-    padding:0 0 65px 0;
-    color:#333;
-    font-size:13px;
-}
-.gridSizeThree{
-    background:url("../img/editor/groupBack_3.png") no-repeat;
-    background-size:  100%  100%;
-}
-.gridSizeFour{
-    background:url("../img/editor/groupBack_4.png") no-repeat;
-    background-size:  100%  100%;
-}
-/*.partAll::-webkit-scrollbar,.property::-webkit-scrollbar,.main::-webkit-scrollbar{width:3px;}*/
-/*.partAll::-webkit-scrollbar-track,.property::-webkit-scrollbar-track,.main::-webkit-scrollbar-track{background-color:#e9e9e9;}*/
-/*.partAll::-webkit-scrollbar-thumb,.property::-webkit-scrollbar-thumb,.main::-webkit-scrollbar-thumb{background-color:#c33;}*/
-/*@-moz-document url-prefix(http://),url-prefix(https://) {*/
-    /*/!* 滚动条颜色 *!/*/
-    /*scrollbar {*/
-        /*-moz-appearance: none !important;*/
-        /*background: rgb(0,255,0) !important;*/
-    /*}*/
-    /*/!* 滚动条按钮颜色 *!/*/
-    /*thumb,scrollbarbutton {*/
-        /*-moz-appearance: none !important;*/
-        /*background-color: rgb(0,0,255) !important;*/
-    /*}*/
-    /*/!* 鼠标悬停时按钮颜色 *!/*/
-
-    /*thumb:hover,scrollbarbutton:hover {*/
-        /*-moz-appearance: none !important;*/
-        /*background-color: rgb(255,0,0) !important;*/
-    /*}*/
-    /*/!* 隐藏上下箭头 *!/*/
-    /*scrollbarbutton {*/
-        /*display: none !important;*/
-    /*}*/
-    /*/!* 纵向滚动条宽度 *!/*/
-    /*scrollbar[orient="vertical"] {*/
-        /*min-width: 15px !important;*/
-    /*}*/
-/*}*/
-
-/*属性控件*/
-.partAll .widget:first-child{
-    border-top:none;
-}
-.widget{
-    border-top:1px solid #ccc;
-    text-align: center;
-    box-shadow: 0 0 1px rgba(0,0,0,.12);
-}
-.widgetP{
-    background:#e9e9e9;
-    width:100%;
-    height:32px;
-    line-height:32px;
-    position:relative;
-}
-.widget .icon-2x{
-    position: absolute;
-    right:15px;
-    font-size: 24px;
-}
-.widgetDiv{
-    background:#e9e9e9;
-    width:100%;
-    height:75px;
-}
-.widgetDiv p{
-    padding-top:8px;
-}
-.widgetDiv select{
-    width:90%;
-    margin:5px auto;
-    background: #e9e9e9;
-    border-radius: 0;
-    border-color: #cdcdcd;
-}
-/*widgetBottom*/
-.widgetBottom{
-    height:65px;
-    padding-top: 12px;
-    width:225px;
-    text-align: center;
-    position: fixed;
-    bottom:0;
-    left:0;
-    background:#fafafa;
-    box-shadow:0 -1px 1px 0 rgba(0,0,0,0.12);
-}
-.widgetFixed{
-    background:#eeeeee;
-    border-radius:2px;
-    height:40px;
-    line-height:40px;
-    width:90%;
-    text-align: center;
-    margin:0 auto;
-}
-.widgetFixed input{
-    height:40px;
-    outline: none;
-    color:#aaa;
-    font-size: 12px;
-    padding:0 5px;
-    background-color: #eee;
-}
-.widgetFixed label{
-    padding-right:10px;
-}
-.widgetFixed img{
-    width: 12px;
-    vertical-align: middle;
-}
-/*widgetBottomDelete*/
-.widgetBottomDelete{
-    cursor: pointer;
-    height:65px;
-    padding-top: 12px;
-    width:225px;
-    text-align: center;
-    position: fixed;
-    bottom:0;
-    right:3px;
-    background:#fff;
-}
-.widgetBottomDelete .widgetFixed{
-    background-color: #f2f2f2;
-}
-.widgetBottomDelete .widgetFixed span{
-    font-size: 14px;
-    color:#666;
-    padding-left:3px;
-}
-/*新建导入*/
-.editorFunction{
-    font-size:18px;
-    color:#666666;
-    width:100%;
-    text-align: center;
-    margin-top: 200px;
-}
-.editorFunction .editorNew,.editorFunction .editorLeadIn{
-    color:#4285f4;
-    cursor: pointer;
-}
-.tooltip-inner{
-    width:70px;
-    height:26px;
-    line-height: 20px;
-}
-/*新建名字错误提示*/
-.templateNameCon{
-    position:relative;
-}
-.existAlert{
-    display: none;
-    position:absolute;
-    top:6px;
-    right:30px;
-    font-size:12px;
-    color:#ea4335;
-}
-.existAlertBorder{
-    border-color:#ea4335;
-}
-.existAlert img{
-    width:12px;
-    vertical-align: middle;
-    margin-right:3px;
-}
-/*新建，导入对话框*/
-.myModal .modal-dialog{
-    width:780px;
-    border-radius: 0;
-}
-.modelTitle{
-    background:#4285f4;
-    height:55px;
-    line-height:55px;
-    font-size:20px;
-    letter-spacing: 1px;
-    color:#ffffff;
-    text-align:center;
-}
-.modalOption{
-    width:520px;
-    margin:50px auto 80px;
-}
-.modalAct{
-    border-bottom:1px solid #cbcbcb;
-    padding:4px 30px;
-}
-.modalAct input{
-    width:100%;
-    outline: none;
-    font-size:14px;
-    color:#aaa;
-}
-
-.modalAlter{
-    display: none;
-    max-height: 200px;
-    overflow-y: auto;
-}
-.modalCon{
-    position: relative;
-}
-.modalSelect{
-    padding:15px 30px 10px 30px;
-    cursor: pointer;
-    color:#333;
-}
-.modalBorder{
-    box-shadow:0 2px 2px 0 rgba(0,0,0,0.12), 0 4px 4px 0 rgba(0,0,0,0.24);
-}
-.modalSelect i{
-    float:right;
-}
-.modalAlter{
-    position: absolute;
-    left:0;
-    z-index:1000;
-    width:520px;
-    background:#ffffff;
-    box-shadow:0 2px 2px 0 rgba(0,0,0,0.12), 0 4px 4px 0 rgba(0,0,0,0.24);
-    border-radius:0 0 2px 2px;
-}
-.modalAlter .modalTxt{
-    padding:8px 10px;
-    position: relative;
-    cursor: pointer;
-}
-.modalAlter .modalTxt span{
-    padding-left:22px;
-}
-.modalAlter .modalTxt i{
-    color:#4285f4;
-    position:absolute;
-    top:10px;
-}
-.modalTxtSelect{
-    background:#f1f1f1;
-}
-.modalGrid img{
-    padding-left: 22px;
-}
-.modalGrid i,.modalGrid span{
-    line-height: 50px;
-}
-.modalLayout{
-    display: inline-block;
-    text-align: center;
-}
-.modalLayout img{
-    display: block;
-    padding:0;
-    margin: 10px 20px 5px 20px;
-}
-.modalAlter .modalLayout span{
-    padding:0;
-    line-height: 0;
-}
-.modalColor img{
-    padding-left:22px;
-}
-
-/*modalBottom*/
-.modalBottom{
-    background:#eeeeee;
-    width:100%;
-    height:64px;
-    padding:12px 0;
-    text-align: center;
-}
-.modalCancel{
-    display: inline-block;
-    color:#4285f4;
-    width:112px;
-    height:40px;
-    line-height:40px;
-    letter-spacing: 1px;
-    cursor: pointer;
-}
-.modalConfirm{
-    display: inline-block;
-    background:#4285f4;
-    box-shadow:0 2px 2px 0 rgba(0,0,0,0.24);
-    border-radius:2px;
-    width:112px;
-    height:40px;
-    line-height:40px;
-    color:#fff;
-    margin-left:10px;
-    letter-spacing: 1px;
-    cursor: pointer;
-}
-/*.layoutImgAll*/
-.layoutImgAll .widgetP{
-    cursor: pointer;
-}
-.layoutImgAll .with-padding{
-    /*padding:10px 12px;*/
-    padding:0;
-
-}
-.with-padding{
-    text-align: left;
-    padding:0;
-}
-.layoutImg{
-    display: inline-block;
-    padding:10px ;
-}
-.layoutImg img{
-    width:76px;
-    height:52px;
-}
-/*组件分类*/
-.partOptionTitle{
-    background:#fafafa;
-    width:100%;
-    height:32px;
-    line-height:32px;
-    padding:0 10px;
-}
-.partImg{
-    display: inline-block;
-    padding:5px 3px;
-    text-align: center;
-}
-.partImg img{
-    width:92px;
-    height:52px;
-    display: block;
-}
-.partImg span{
-    font-size: 12px;
-    color:#666;
-}
-/*主页功能*/
-.homePageAct{
-    right:0;
-}
-.homePageAct img{
-    width:30px;
-}
-.modalContent{
-    font-size:20px;
-    color:#333333;
-}
-
-/*属性*/
-.propertyOption{
-    padding:0 15px;
-    height:32px;
-    line-height:32px;
-}
-.propertyLabel{
-    display: inline-block;
-    float: left;
-    font-weight: normal;
-    margin:0;
-}
-.propertyInputSm{
-    display: inline-block;
-    float: right;
-    background:#ffffff;
-    border:1px solid #cccccc;
-    width:40px;
-    height:16px;
-    line-height:16px;
-    margin-top:8px;
-    outline: none;
-    padding:2px 5px;
-    font-size: 12px;
-    color:#333;
-}
-.propertyBackDark{
-    background:#f2f2f2;
-}
-.propertyShow{
-    background:#fafafa;
-}
-.propertyRelated{
-    display: none;
-    padding-left:30px;
-    font-size: 12px;
-}
-.propertyInputBig{
-    display: inline-block;
-    float: right;
-    background:#ffffff;
-    border:1px solid #cccccc;
-    width:85px;
-    height:16px;
-    line-height:16px;
-    margin-top:8px;
-    outline: none;
-    padding:0 3px;
-    font-size: 12px;
-    color:#333;
-}
-.propertyOptionAll .propertyShow .propertyOption:last-child{
-    margin-bottom:30px;
-}
-.propertyLink .propertyRelated{
-    padding-left:15px;
-}
-
-/*main*/
-.main{
-    /*position: relative;*/
-}
-.mainAct{
-    /*position: fixed;*/
-    /*bottom:0;*/
-    /*left:220px;*/
-    /*right:220px;*/
-    /*height:65px;*/
-}
-
-.mainAct .revocation{
-    position:fixed;
-    bottom:20px;
-    left:210px;
-}
-.fullScreen{
-    position:fixed;
-    bottom:20px;
-    right:240px;
-}
-.mainAct img{
-    width:48px;
-    height:40px;
-}
-.mainAct img.fullScreen{
-    width:55px;
-    height:40px;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+@charset "utf-8";
+/*通用样式*/
+body {
+    /*font: 12px "microsoft yahei", Arial, Helvetica, sans-serif;*/
+    color:#666;
+    margin:0;
+    padding:0;
+    /*background-color:#fafafa;*/
+    overflow-y: hidden;
+
+}
+ul,li,p,h1,h2,h3,h4,h5,h6,dl,dt,dd,input {
+    margin:0;
+    padding:0;
+    border:none;
+    list-style:none;
+}
+iframe{
+    width:0;
+    height:0;
+    margin:0;
+    padding:0;
+}
+input,select,option {border:none;}
+.lf   {float:left;}
+.rt  {float:right;}
+.clear  {clear:both;}
+a{text-decoration:none; color:#1a1a1a;}
+a:hover{text-decoration: none;}
+img{ vertical-align: bottom; border:none;}
+nav,#banner,section,footer{
+    margin:0 auto;
+}
+.commonContainer{
+    width:960px;
+    margin:0 auto;
+    padding:0;
+}
+.row{
+    margin:0;
+}
+.container{
+    padding:0;
+}
+
+/*header*/
+.editorIndexHeader{
+    background:#4285f4;
+    box-shadow:0 1px 1px 0 rgba(0,0,0,0.12);
+    width:100%;
+    height:65px;
+    line-height:65px;
+    position: relative;
+    text-align: center;
+}
+
+.editorAct{
+    position: absolute;
+    z-index: 1000;
+    float: left;
+    margin-left:50px;
+}
+.firstEditorAct.editorAct{
+    line-height: 45px;
+}
+.editorAct img{
+    width:20px;
+    margin-right:20px;
+    cursor: pointer;
+}
+.editorTxt{
+    position: fixed;
+    width:100%;
+    text-align: center;
+    font-size:20px;
+    color:#ffffff;
+}
+
+/*section*/
+#multiDroppableContainer:after{
+    display: block;
+    content: "";
+    clear: both;
+}
+#multiDroppableContainer .partAll{width:230px;float: left;}
+#multiDroppableContainer .main{float: left;}
+#multiDroppableContainer .property{width:230px;float: left;}
+
+/*partAll*/
+.partAll,.property,.main{
+    overflow-y: auto;
+}
+.partAll{
+    border-right:2px solid rgba(0,0,0,.12);
+    padding:0;
+    color:#333;
+}
+.partClassify .partOption:last-child{
+    margin-bottom:100px;
+}
+.property{
+    border-left:2px solid rgba(0,0,0,.12);
+    padding:0 0 65px 0;
+    color:#333;
+    font-size:13px;
+}
+.gridSizeThree{
+    background:url("../img/editor/groupBack_3.png") no-repeat;
+    background-size:  100%  100%;
+}
+.gridSizeFour{
+    background:url("../img/editor/groupBack_4.png") no-repeat;
+    background-size:  100%  100%;
+}
+/*.partAll::-webkit-scrollbar,.property::-webkit-scrollbar,.main::-webkit-scrollbar{width:3px;}*/
+/*.partAll::-webkit-scrollbar-track,.property::-webkit-scrollbar-track,.main::-webkit-scrollbar-track{background-color:#e9e9e9;}*/
+/*.partAll::-webkit-scrollbar-thumb,.property::-webkit-scrollbar-thumb,.main::-webkit-scrollbar-thumb{background-color:#c33;}*/
+/*@-moz-document url-prefix(http://),url-prefix(https://) {*/
+    /*/!* 滚动条颜色 *!/*/
+    /*scrollbar {*/
+        /*-moz-appearance: none !important;*/
+        /*background: rgb(0,255,0) !important;*/
+    /*}*/
+    /*/!* 滚动条按钮颜色 *!/*/
+    /*thumb,scrollbarbutton {*/
+        /*-moz-appearance: none !important;*/
+        /*background-color: rgb(0,0,255) !important;*/
+    /*}*/
+    /*/!* 鼠标悬停时按钮颜色 *!/*/
+
+    /*thumb:hover,scrollbarbutton:hover {*/
+        /*-moz-appearance: none !important;*/
+        /*background-color: rgb(255,0,0) !important;*/
+    /*}*/
+    /*/!* 隐藏上下箭头 *!/*/
+    /*scrollbarbutton {*/
+        /*display: none !important;*/
+    /*}*/
+    /*/!* 纵向滚动条宽度 *!/*/
+    /*scrollbar[orient="vertical"] {*/
+        /*min-width: 15px !important;*/
+    /*}*/
+/*}*/
+
+/*属性控件*/
+.partAll .widget:first-child{
+    border-top:none;
+}
+.widget{
+    border-top:1px solid #ccc;
+    text-align: center;
+    box-shadow: 0 0 1px rgba(0,0,0,.12);
+}
+.widgetP{
+    background:#e9e9e9;
+    width:100%;
+    height:32px;
+    line-height:32px;
+    position:relative;
+}
+.widget .icon-2x{
+    position: absolute;
+    right:15px;
+    font-size: 24px;
+}
+.widgetDiv{
+    background:#e9e9e9;
+    width:100%;
+    height:75px;
+}
+.widgetDiv p{
+    padding-top:8px;
+}
+.widgetDiv select{
+    width:90%;
+    margin:5px auto;
+    background: #e9e9e9;
+    border-radius: 0;
+    border-color: #cdcdcd;
+}
+/*widgetBottom*/
+.widgetBottom{
+    height:65px;
+    padding-top: 12px;
+    width:225px;
+    text-align: center;
+    position: fixed;
+    bottom:0;
+    left:0;
+    background:#fafafa;
+    box-shadow:0 -1px 1px 0 rgba(0,0,0,0.12);
+}
+.widgetFixed{
+    background:#eeeeee;
+    border-radius:2px;
+    height:40px;
+    line-height:40px;
+    width:90%;
+    text-align: center;
+    margin:0 auto;
+}
+.widgetFixed input{
+    height:40px;
+    outline: none;
+    color:#aaa;
+    font-size: 12px;
+    padding:0 5px;
+    background-color: #eee;
+}
+.widgetFixed label{
+    padding-right:10px;
+}
+.widgetFixed img{
+    width: 12px;
+    vertical-align: middle;
+}
+/*widgetBottomDelete*/
+.widgetBottomDelete{
+    cursor: pointer;
+    height:65px;
+    padding-top: 12px;
+    width:225px;
+    text-align: center;
+    position: fixed;
+    bottom:0;
+    right:3px;
+    background:#fff;
+}
+.widgetBottomDelete .widgetFixed{
+    background-color: #f2f2f2;
+}
+.widgetBottomDelete .widgetFixed span{
+    font-size: 14px;
+    color:#666;
+    padding-left:3px;
+}
+/*新建导入*/
+.editorFunction{
+    font-size:18px;
+    color:#666666;
+    width:100%;
+    text-align: center;
+    margin-top: 200px;
+}
+.editorFunction .editorNew,.editorFunction .editorLeadIn{
+    color:#4285f4;
+    cursor: pointer;
+}
+.tooltip-inner{
+    width:70px;
+    height:26px;
+    line-height: 20px;
+}
+/*新建名字错误提示*/
+.templateNameCon{
+    position:relative;
+}
+.existAlert{
+    display: none;
+    position:absolute;
+    top:6px;
+    right:30px;
+    font-size:12px;
+    color:#ea4335;
+}
+.existAlertBorder{
+    border-color:#ea4335;
+}
+.existAlert img{
+    width:12px;
+    vertical-align: middle;
+    margin-right:3px;
+}
+/*新建，导入对话框*/
+.myModal .modal-dialog{
+    width:780px;
+    border-radius: 0;
+}
+.modelTitle{
+    background:#4285f4;
+    height:55px;
+    line-height:55px;
+    font-size:20px;
+    letter-spacing: 1px;
+    color:#ffffff;
+    text-align:center;
+}
+.modalOption{
+    width:520px;
+    margin:50px auto 80px;
+}
+.modalAct{
+    border-bottom:1px solid #cbcbcb;
+    padding:4px 30px;
+}
+.modalAct input{
+    width:100%;
+    outline: none;
+    font-size:14px;
+    color:#aaa;
+}
+
+.modalAlter{
+    display: none;
+    max-height: 200px;
+    overflow-y: auto;
+}
+.modalCon{
+    position: relative;
+}
+.modalSelect{
+    padding:15px 30px 10px 30px;
+    cursor: pointer;
+    color:#333;
+}
+.modalBorder{
+    box-shadow:0 2px 2px 0 rgba(0,0,0,0.12), 0 4px 4px 0 rgba(0,0,0,0.24);
+}
+.modalSelect i{
+    float:right;
+}
+.modalAlter{
+    position: absolute;
+    left:0;
+    z-index:1000;
+    width:520px;
+    background:#ffffff;
+    box-shadow:0 2px 2px 0 rgba(0,0,0,0.12), 0 4px 4px 0 rgba(0,0,0,0.24);
+    border-radius:0 0 2px 2px;
+}
+.modalAlter .modalTxt{
+    padding:8px 10px;
+    position: relative;
+    cursor: pointer;
+}
+.modalAlter .modalTxt span{
+    padding-left:22px;
+}
+.modalAlter .modalTxt i{
+    color:#4285f4;
+    position:absolute;
+    top:10px;
+}
+.modalTxtSelect{
+    background:#f1f1f1;
+}
+.modalGrid img{
+    padding-left: 22px;
+}
+.modalGrid i,.modalGrid span{
+    line-height: 50px;
+}
+.modalLayout{
+    display: inline-block;
+    text-align: center;
+}
+.modalLayout img{
+    display: block;
+    padding:0;
+    margin: 10px 20px 5px 20px;
+}
+.modalAlter .modalLayout span{
+    padding:0;
+    line-height: 0;
+}
+.modalColor img{
+    padding-left:22px;
+}
+
+/*modalBottom*/
+.modalBottom{
+    background:#eeeeee;
+    width:100%;
+    height:64px;
+    padding:12px 0;
+    text-align: center;
+}
+.modalCancel{
+    display: inline-block;
+    color:#4285f4;
+    width:112px;
+    height:40px;
+    line-height:40px;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+.modalConfirm{
+    display: inline-block;
+    background:#4285f4;
+    box-shadow:0 2px 2px 0 rgba(0,0,0,0.24);
+    border-radius:2px;
+    width:112px;
+    height:40px;
+    line-height:40px;
+    color:#fff;
+    margin-left:10px;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+/*.layoutImgAll*/
+.layoutImgAll .widgetP{
+    cursor: pointer;
+}
+.layoutImgAll .with-padding{
+    /*padding:10px 12px;*/
+    padding:0;
+
+}
+.with-padding{
+    text-align: left;
+    padding:0;
+}
+.layoutImg{
+    display: inline-block;
+    padding:10px ;
+}
+.layoutImg img{
+    width:76px;
+    height:52px;
+}
+/*组件分类*/
+.partOptionTitle{
+    background:#fafafa;
+    width:100%;
+    height:32px;
+    line-height:32px;
+    padding:0 10px;
+}
+.partImg{
+    display: inline-block;
+    padding:5px 3px;
+    text-align: center;
+}
+.partImg img{
+    width:92px;
+    height:52px;
+    display: block;
+}
+.partImg span{
+    font-size: 12px;
+    color:#666;
+}
+/*主页功能*/
+.homePageAct{
+    right:0;
+}
+.homePageAct img{
+    width:30px;
+}
+.modalContent{
+    font-size:20px;
+    color:#333333;
+}
+
+/*属性*/
+.propertyOption{
+    padding:0 15px;
+    height:32px;
+    line-height:32px;
+}
+.propertyLabel{
+    display: inline-block;
+    float: left;
+    font-weight: normal;
+    margin:0;
+}
+.propertyInputSm{
+    display: inline-block;
+    float: right;
+    background:#ffffff;
+    border:1px solid #cccccc;
+    width:40px;
+    height:16px;
+    line-height:16px;
+    margin-top:8px;
+    outline: none;
+    padding:2px 5px;
+    font-size: 12px;
+    color:#333;
+}
+.propertyBackDark{
+    background:#f2f2f2;
+}
+.propertyShow{
+    background:#fafafa;
+}
+.propertyRelated{
+    display: none;
+    padding-left:30px;
+    font-size: 12px;
+}
+.propertyInputBig{
+    display: inline-block;
+    float: right;
+    background:#ffffff;
+    border:1px solid #cccccc;
+    width:85px;
+    height:16px;
+    line-height:16px;
+    margin-top:8px;
+    outline: none;
+    padding:0 3px;
+    font-size: 12px;
+    color:#333;
+}
+.propertyOptionAll .propertyShow .propertyOption:last-child{
+    margin-bottom:30px;
+}
+.propertyLink .propertyRelated{
+    padding-left:15px;
+}
+
+/*main*/
+.main{
+    /*position: relative;*/
+}
+.mainAct{
+    /*position: fixed;*/
+    /*bottom:0;*/
+    /*left:220px;*/
+    /*right:220px;*/
+    /*height:65px;*/
+}
+
+.mainAct .revocation{
+    position:fixed;
+    bottom:20px;
+    left:210px;
+}
+.fullScreen{
+    position:fixed;
+    bottom:20px;
+    right:240px;
+}
+.mainAct img{
+    width:48px;
+    height:40px;
+}
+.mainAct img.fullScreen{
+    width:55px;
+    height:40px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

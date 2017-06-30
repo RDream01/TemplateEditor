@@ -1,74 +1,74 @@
-.row{
-    margin:0;
-}
-.container{
-    padding:0;
-}
-.spanAll{
-    margin:10px 0 50px 0;
-}
-.secPart,.headPart{
-    color:#000;
-    cursor: pointer;
-}
-/*.cur{*/
-    /*border-color:red;*/
-/*}*/
-.keepCon{
-    padding:10px;
-}
-.keep{
-    background:#3280FC;
-    color:#fff;
-    font-size: 14px;
-    padding:8px;
-    text-align: center;
-    cursor: pointer;
-}
-
-/*拖拽*/
-/*.type .sortableList >div {*/
-    /*cursor: move;*/
-    /*border:1px solid #000;*/
-/*}*/
-/*.type .sortableList >div.dragging {*/
-    /*visibility: visible;*/
-    /*opacity: .3;*/
-/*}*/
-
-.indexAll>.row>div{
-    border:1px solid #000;
-    min-height:500px;
-}
-.partAll{
-    padding:0;
-}
-
-.appendCur{
-    border:1px solid red;
-}
-
-/*form*/
-.control-label{
-    text-align: right;
-}
-.control-group{
-    margin:10px 0;
-}
-.form-input{
-    width:100%;
-}
-.form-select{
-    width:100%;
-    height:26px;
-    line-height:26px;
-}
-/*property*/
-.property>div{
-    display: none;
-}
-
-
-
-
-
+.row{
+    margin:0;
+}
+.container{
+    padding:0;
+}
+.spanAll{
+    margin:10px 0 50px 0;
+}
+.secPart,.headPart{
+    color:#000;
+    cursor: pointer;
+}
+/*.cur{*/
+    /*border-color:red;*/
+/*}*/
+.keepCon{
+    padding:10px;
+}
+.keep{
+    background:#3280FC;
+    color:#fff;
+    font-size: 14px;
+    padding:8px;
+    text-align: center;
+    cursor: pointer;
+}
+
+/*拖拽*/
+/*.type .sortableList >div {*/
+    /*cursor: move;*/
+    /*border:1px solid #000;*/
+/*}*/
+/*.type .sortableList >div.dragging {*/
+    /*visibility: visible;*/
+    /*opacity: .3;*/
+/*}*/
+
+.indexAll>.row>div{
+    border:1px solid #000;
+    min-height:500px;
+}
+.partAll{
+    padding:0;
+}
+
+.appendCur{
+    border:1px solid red;
+}
+
+/*form*/
+.control-label{
+    text-align: right;
+}
+.control-group{
+    margin:10px 0;
+}
+.form-input{
+    width:100%;
+}
+.form-select{
+    width:100%;
+    height:26px;
+    line-height:26px;
+}
+/*property*/
+.property>div{
+    display: none;
+}
+
+
+
+
+

@@ -130,7 +130,7 @@ function validationCallback(data){
 }
 
 function vote(voteId,voteOptionIds){
-    url=blockBasePath + "createHtml/goVote.do?voteId="+voteId+"&voteOptionIds="+voteOptionIds;
+    url= blockBasePath + "createHtml/goVote.do?voteId="+voteId+"&voteOptionIds="+voteOptionIds;
     $.ajax({
         type: 'POST',
         url:url,
