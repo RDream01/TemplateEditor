@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>我的信息</title>
+    <link rel="stylesheet" href="http://www.bjfine.cn/TemplateEditor/css/datetimepicker.min.css"/>
     <style>
         .myInformation_4g3_list{
             margin-left: 84px;
@@ -108,7 +109,7 @@
                     <li class="clearFloat">
                         <div >
                             <p class="myInformation_4g3_head titleColor">头像</p>
-                            <img src="http://114.113.231.46:90/TemplateEditor/img/PP/myJoined/pic.png" class="myInformation_4g3_headImage">
+                            <img src="http://www.bjfine.cn/TemplateEditor/img/PP/myJoined/pic.png" class="myInformation_4g3_headImage">
                             <input type="button" value="修改头像" onclick="path.click()" class="myInformation_4g3_editImage">
                             <input type="file" name="headPic" id="path" style="display:none" onchange="changeImg(this)">
                         </div>
@@ -148,16 +149,37 @@
             </form>
         </div>
     </div>
-    <script src="http://114.113.231.46:90//templateResource/js/jquery-1.11.3.js"></script>
-<script src="http://114.113.231.46:90/TemplateEditor/js/datetimepicker.js"></script>
+                             
+                       <div id="datetimepicker_div"></div>
 <script>
-    function PostData() {
+var datetimepicker_js = document.createElement('script');
+datetimepicker_js.src = "http://www.bjfine.cn/TemplateEditor/js/datetimepicker.min.js";
+document.getElementById("datetimepicker_div").innerHTML = "";
+document.getElementById("datetimepicker_div").appendChild(datetimepicker_js);
+
+  setTimeout(function(){
+                       // 仅选择日期
+    $(".form-date").datetimepicker({
+        language:  "zh-CN",
+        weekStart: 1,
+        todayBtn:  1,
+        autoclose: 1,
+        todayHighlight: 1,
+        startView: 2,
+        minView: 2,
+        forceParse: 0,
+        format: "yyyy/mm/dd"
+    });
+    
+                    },2000);
+
+function PostData() {
         var formData = new FormData($("#Form")[0]);
+	console.log(formData);
         $.ajax({
             type: "POST",
             url: blockBasePath+"blockData/update.do",
             data:formData,
-            dataType: 'jsonp',
             async: false,
             cache: false,
             contentType: false,
@@ -172,18 +194,6 @@
     }
 
 
-    // 仅选择日期
-    $(".form-date").datetimepicker({
-        language:  "zh-CN",
-        weekStart: 1,
-        todayBtn:  1,
-        autoclose: 1,
-        todayHighlight: 1,
-        startView: 2,
-        minView: 2,
-        forceParse: 0,
-        format: "yyyy/mm/dd"
-    });
     function changeImg(target){
         var f=target.files[0];
         var img = new Image();
@@ -196,6 +206,7 @@
             img.src = e.target.result;
         };
         reader.readAsDataURL(f);
+	editUser();
     }
     try{
        getUserInfo();
