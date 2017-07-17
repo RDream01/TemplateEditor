@@ -1,6 +1,19 @@
-<div class="col-md-9 col-sm-9 appendStr channelArticleList_4g3" id="channelArticleList_4g3" data-blockSize="9">
-
-<div class="style" "exist">
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>index</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../css/zui.css"/>
+    <link rel="stylesheet" href="../../css/editor.css"/>
+    <link rel="stylesheet" href="../../css/zui.dashboard.Editor.css"/>
+    <link rel="stylesheet" href="../../css/common.Editor.css"/>
+    <link id="templateColorLink" rel="stylesheet" href=""/>
+    <script src="../../js/respond.js"></script>
+    <script src="../../js/jquery-1.11.3.js"></script>
+    <script src="../../js/wordNumber.js"></script>
+</head>
     <style>
         .channelArticleList_4g3_style{
             width: 66px;
@@ -223,14 +236,10 @@
             font-size: 12px;
         }
     </style>
-</div>
+<body>
 
-<div class="panel">
-    <div class="panel-heading">
-        <!--<span class="title">文章栏目列表</span>-->
-    </div>
-    <div class="panel-body">
-        <div class="Grid4g3 pageBackGroundColor channelArticleList_4g3" "exist">
+
+        <div class="Grid4g3 pageBackGroundColor channelArticleList_4g3" >
             <input type="hidden" class="v_channelArticleList_4g3_commentNum" value="yes">
             <div class="channelArticleList_4g3_top">
                 <p class="channelArticleList_4g3_style channelArticleList_4g3_styleSelected styleList" onclick="selectStyle('styleList')" >
@@ -243,11 +252,6 @@
             <ul class="channelArticleList_4g3_list_ul pageBackGroundColor showId">
             </ul>
         </div>
-    </div>
-</div>
-<div class="resize-handle"><i class="icon icon-resize-h"></i></div>
-
-<div class="script" "exist">
     <script>
         var pageStyle="list";
 
@@ -354,24 +358,23 @@
            $(".channelArticleList_4g3_"+pageStyle+"_ul").html("");
             for(var i=0;i<num;i++){
                 var str="";
-                str += '&lt;li class="channelArticleList_4g3_'+pageStyle+'_li"&gt;';
-                str += '&lt;div class="channelArticleList_4g3_'+pageStyle+'_first"&gt;';
-                str += '&lt;a&gt;&lt;img  class="channelArticleList_4g3_'+pageStyle+'_img" src="../../img/PP/channelArticleList/pic.png"&gt;';
-                str += '&lt;p class="channelArticleList_4g3_'+pageStyle+'_videoBottom"&gt;';
-                str += '&lt;span class="channelArticleList_4g3_'+pageStyle+'_videoTime"&gt;10:30&lt;/span&gt;';
-                str += '&lt;span class="channelArticleList_4g3_'+pageStyle+'_videoCount"&gt;';
-                str += '&lt;img class="channelArticleList_4g3_'+pageStyle+'_videoPlay" src="../../img/PP/channelArticleList/video_play.png"/&gt;';
-                str += ' 3&lt;/span&gt;&lt;/p&gt;&lt;/a&gt;&lt;/div&gt;';
-                str += '&lt;div class="channelArticleList_4g3_'+pageStyle+'_second"&gt;';
-                str += '&lt;a&gt;&lt;p class="channelArticleList_4g3_'+pageStyle+'_title"  data-value="哈利路亚哈利虎牙哈哈哈哈哈哈或少时诵诗书事实上"&gt;&lt;/p&gt;&lt;/a&gt;';
-                str += '&lt;p class="channelArticleList_4g3_'+pageStyle+'_content abstractColor" data-value="习近平强很海湖庄不久前在海湖。"&gt;&lt;/p&gt;';
-                str += '&lt;p class="channelArticleList_4g3_'+pageStyle+'_bottom"&gt;&lt;span class="channelArticleList_4g3_'+pageStyle+'_source"&gt;擎好网&lt;/span&gt;';
+                str += '<li class="channelArticleList_4g3_'+pageStyle+'_li">';
+                str += '<div class="channelArticleList_4g3_'+pageStyle+'_first">';
+                str += '<a><img  class="channelArticleList_4g3_'+pageStyle+'_img" src="../../img/PP/channelArticleList/pic.png">';
+                str += '<p class="channelArticleList_4g3_'+pageStyle+'_topicTag">';
+                str += '<img src="../../img/PP/channelArticleList/tag.png">';
+                str += '<span >10:30</span>';
+                str += '</p></a></div>';
+                str += '<div class="channelArticleList_4g3_'+pageStyle+'_second">';
+                str += '<a><p class="channelArticleList_4g3_'+pageStyle+'_title"  data-value="哈利路亚哈利虎牙哈哈哈哈哈哈或少时诵诗书事实上"></p></a>';
+                str += '<p class="channelArticleList_4g3_'+pageStyle+'_content abstractColor" data-value="习近平强很海湖庄不久前在海湖。"></p>';
+                str += '<p class="channelArticleList_4g3_'+pageStyle+'_bottom"><span class="channelArticleList_4g3_'+pageStyle+'_source">擎好网</span>';
                 if(commentNum == "yes"){
-                    str += '&lt;span&gt;|&lt;/span&gt;&lt;span class="channelArticleList_4g3_'+pageStyle+'_count"&gt;';
-                    str += '&lt;img src="../../img/PP/channelArticleList/comment.png"/&gt;20&lt;/span&gt;';
+                    str += '<span>|</span><span class="channelArticleList_4g3_'+pageStyle+'_count">';
+                    str += '<img src="../../img/PP/channelArticleList/comment.png"/>20</span>';
                 }
-                str += '&lt;span class="rt"&gt;2017-4-23&lt;/span&gt;&lt;/p&gt;&lt;/div&gt;';
-                str += '&lt;/div&gt;&lt;/li&gt;';
+                str += '<span class="rt">2017-4-23</span></p></div>';
+                str += '</div></li>';
                 $(".channelArticleList_4g3_"+pageStyle+"_ul").append(str);
             }
 
@@ -414,24 +417,24 @@
             }
             for(var i=0;i<aticleList.length;i++){
                 var str="";
-                str += '&lt;li class="channelArticleList_4g3_'+pageStyle+'_li"&gt;';
-                str += '&lt;div class="channelArticleList_4g3_'+pageStyle+'_first"&gt;';
-                str += '&lt;a onclick="goContentDetial(\''+articlelist[i].staticUrl+'\',\''+channelArticleList_4g3_channelId_SS+'\')" &gt;&lt;img  class="channelArticleList_4g3_'+pageStyle+'_img" src="'+articleList[i].pic+'"&gt;';
-                str += '&lt;p class="channelArticleList_4g3_'+pageStyle+'_videoBottom"&gt;';
-                str += '&lt;span class="channelArticleList_4g3_'+pageStyle+'_videoTime"&gt;articleList[i].videoTime&lt;/span&gt;';
-                str += '&lt;span class="channelArticleList_4g3_'+pageStyle+'_videoCount"&gt;';
-                str += '&lt;img class="channelArticleList_4g3_'+pageStyle+'_videoPlay" src="../../img/PP/channelArticleList/video_play.png"/&gt;';
-                str += ' 3&lt;/span&gt;&lt;/p&gt;&lt;/a&gt;&lt;/div&gt;';
-                str += '&lt;div class="channelArticleList_4g3_'+pageStyle+'_second"&gt;';
-                str += '&lt;a onclick="goContentDetial(\''+articlelist[i].staticUrl+'\',\''+channelArticleList_4g3_channelId_SS+'\')" &gt;&lt;p class="channelArticleList_4g3_'+pageStyle+'_title"  data-value="'+articlelist[i].title+'"&gt;&lt;/p&gt;&lt;/a&gt;';
-                str += '&lt;p class="channelArticleList_4g3_'+pageStyle+'_content abstractColor" data-value="'+articlelist[i].shortContent+'"&gt;&lt;/p&gt;';
-                str += '&lt;p class="channelArticleList_4g3_'+pageStyle+'_bottom"&gt;&lt;span class="channelArticleList_4g3_'+pageStyle+'_source"&gt;'+articlelist[i].resourceTitle+'&lt;/span&gt;';
+                str += '<li class="channelArticleList_4g3_'+pageStyle+'_li">';
+                str += '<div class="channelArticleList_4g3_'+pageStyle+'_first">';
+                str += '<a onclick="goContentDetial(\''+articlelist[i].staticUrl+'\',\''+channelArticleList_4g3_channelId_SS+'\')" ><img  class="channelArticleList_4g3_'+pageStyle+'_img" src="'+articleList[i].pic+'">';
+                str += '<p class="channelArticleList_4g3_'+pageStyle+'_videoBottom">';
+                str += '<span class="channelArticleList_4g3_'+pageStyle+'_videoTime">articleList[i].videoTime</span>';
+                str += '<span class="channelArticleList_4g3_'+pageStyle+'_videoCount">';
+                str += '<img class="channelArticleList_4g3_'+pageStyle+'_videoPlay" src="../../img/PP/channelArticleList/video_play.png"/>';
+                str += ' 3</span></p></a></div>';
+                str += '<div class="channelArticleList_4g3_'+pageStyle+'_second">';
+                str += '<a onclick="goContentDetial(\''+articlelist[i].staticUrl+'\',\''+channelArticleList_4g3_channelId_SS+'\')" ><p class="channelArticleList_4g3_'+pageStyle+'_title"  data-value="'+articlelist[i].title+'"></p></a>';
+                str += '<p class="channelArticleList_4g3_'+pageStyle+'_content abstractColor" data-value="'+articlelist[i].shortContent+'"></p>';
+                str += '<p class="channelArticleList_4g3_'+pageStyle+'_bottom"><span class="channelArticleList_4g3_'+pageStyle+'_source">'+articlelist[i].resourceTitle+'</span>';
                 if(channelArticleList_4g3_commentNum == "yes"){
-                    str += '&lt;span&gt;|&lt;/span&gt;&lt;span class="channelArticleList_4g3_'+pageStyle+'_count"&gt;';
-                    str += '&lt;img src="../../img/PP/channelArticleList/comment.png"/&gt;'+articleList[i].commentNum+'&lt;/span&gt;';
+                    str += '<span>|</span><span class="channelArticleList_4g3_'+pageStyle+'_count">';
+                    str += '<img src="../../img/PP/channelArticleList/comment.png"/>'+articleList[i].commentNum+'</span>';
                 }
-                str += '&lt;span class="rt"&gt;'+articleList[i].articleTime+'&lt;/span&gt;&lt;/p&gt;&lt;/div&gt;';
-                str += '&lt;/div&gt;&lt;/li&gt;';
+                str += '<span class="rt">'+articleList[i].articleTime+'</span></p></div>';
+                str += '</div></li>';
                 $(".channelArticleList_4g3_"+pageStyle+"_ul.showId").append(str);
             }
             maxLength();
@@ -443,6 +446,5 @@
 
         }
     </script>
-</div>
-
-</div>
+</body>
+</html>

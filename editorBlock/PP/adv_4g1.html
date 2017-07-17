@@ -29,10 +29,10 @@
     </div>
     <div class="panel-body">
         <div class="Grid4g1 pageBackGroundColor adv_4g1_all" "exist">
-            <a class="showId">
+            &lt;a class="showId"&gt;
             <p class="adv_4g1_mask">广告</p>
             <img class="adv_4g1_img showId" src="../../img/PP/adv/adv.png"/>
-            </a>
+            &lt;/a&gt;
         </div>
     </div>
 </div>
@@ -40,10 +40,10 @@
     <div class="script" "exist">
         <script>
             var flag="v";
+            var templateId="";
             if(flag == "t"){
                 tData();
             }
-            var templateId="";
             function tData(){
                 var cb="tDataCallback";
                 var adv_4g1_name="";
@@ -59,11 +59,12 @@
                 });
             }
             function tDataCallback(data){
-                if(data == '' || data == undefined){
+                var adv = data.adv;
+                if (adv == '' || adv == undefined) {
                     return;
                 }
-                $(".adv_4g1_img.showId").val(data.pic);
-                $(".adv_4g1_all a.showId").attr("href",data.url);
+                $(".adv_4g1_img.showId").attr("src",adv.pic_url);
+                $(".adv_4g1_all a.showId").attr("href","javascript:window.open('"+adv.advertisement_url+"','_blank')");
             }
         </script>
     </div>

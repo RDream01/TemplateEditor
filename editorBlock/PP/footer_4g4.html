@@ -46,12 +46,12 @@
         <div class="Grid4g4 footer_4g4_main" "exist">
             <div class="footer_4g4_verList">
                 <ul>
-                    <li class="footer_4g4_verList_liBor">擎好网<a onclick="goChannelDetail("","")">' + title + '</a></li>
-                    <li class="footer_4g4_verList_liBor">广告服务<a onclick="goChannelDetail("","")">' + title + '</a></li>
-                    <li class="footer_4g4_verList_liBor">诚招英才<a onclick="goChannelDetail("","")">' + title + '</a></li>
-                    <li class="footer_4g4_verList_liBor">联系我们<a onclick="goChannelDetail("","")">' + title + '</a></li>
-                    <li class="footer_4g4_verList_liBor">版权声明<a onclick="goChannelDetail("","")">' + title + '</a></li>
-                    <li class="footer_4g4_verList_liBor">友情链接<a onclick="goChannelDetail("","")">' + title + '</a></li>
+                    <li class="footer_4g4_verList_liBor"><a href="javascript:gofooter('botQH')">擎好网</a></li>
+                    <li class="footer_4g4_verList_liBor"><a href="javascript:gofooter('botAdv')">广告服务</a></li>
+                    <li class="footer_4g4_verList_liBor"><a href="javascript:gofooter('botPing')">诚招英才</a></li>
+                    <li class="footer_4g4_verList_liBor"><a href="javascript:gofooter('botLian')">联系我们</a></li>
+                    <li class="footer_4g4_verList_liBor"><a href="javascript:gofooter('botQuan')">版权声明</a></li>
+                    <li class="footer_4g4_verList_liBor"><a href="javascript:gofooter('botFriend')">友情链接</a></li>
                 </ul>
                 <p class="footer_4g4_number">京ICP1备5015468号</p>
                 <p class="footer_4g4_company">北京擎好网络科技有限公司 版权所有   Copyright © 2016 New Media Limited All Rights Reserved.</p>
@@ -63,22 +63,8 @@
 
 <div class="script" "exist">
     <script>
-        var flag="v";
-        if(flag == "v"){
-            vData()
-        }else{
-            tData();
-        }
-        function vData() {
-            var title = "广告服务";
-            var str = "";
-            for (var i = 0; i < 5; i++) {
-                str+= '&lt;li class="footer_4g4_verList_liBor"&gt;&lt;a href="#" onclick="goChannelDetail("","")"&gt;' + title + '&lt;/a&gt;&lt;/li&gt;';
-            }
-            $(".appendCur .footer_4g4_verList ul").html(str);
-        }
-        function tData(){
-
+        function gofooter(name){
+            window.open(blockBasePath+"/cms/goBottom.do?urlName="+name,"_blank");
         }
     </script>
 </div>
