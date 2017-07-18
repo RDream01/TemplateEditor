@@ -1,0 +1,207 @@
+<div class="col-md-12 col-sm-12 appendStr headerCenter_4g4" id="headerCenter_4g4" data-blockSize="12">
+    <div class="style" "exist">
+    <style>
+        /**********************组件---headerCenter_4g4************************/
+        .headerCenter_4g4{
+            width: 100%;
+        }
+        /*top--红*/
+        .headerCenter_4g4_top{
+            height:40px;
+        }
+        .headerCenter_4g4_action li{
+            display: inline-block;
+            line-height:40px;
+            color:#fff;
+            margin-right:15px;
+            font-size:14px;
+        }
+        /*headerCenter_4g4_action*/
+        .headerCenter_4g4_action{
+            line-height: 40px;
+            color:#fff;
+        }
+        .headerCenter_4g4_searchCon{
+            display: inline-block;
+            width:112px;
+            height:20px;
+            margin:10px 0;
+            position:relative;
+        }
+        .headerCenter_4g4_searchInput{
+            border-radius: 36px;
+            width:112px;
+            padding:0 5px;
+            letter-spacing: 1px;
+            outline: none;
+            font-size:14px;
+        }
+        .headerCenter_4g4_searchCon label{
+            display: inline-block;
+            position:absolute;
+            right:5px;
+            top:-3px;
+        }
+        .headerCenter_4g4_searchCon label a{
+            display: inline-block;
+        }
+        .headerCenter_4g4_phone,.headerCenter_4g4_login{
+            display: inline-block;
+            margin-left:20px;
+        }
+        .headerCenter_4g4_phone span{
+            color:#fff;
+            font-size:14px;
+            padding-left:3px;
+        }
+        .headerCenter_4g4_phone img{
+            padding-bottom:2px;
+        }
+        .headerCenter_4g4_login a{
+            color:#fff;
+            font-size:14px;
+        }
+        /*logo*/
+        .headerCenter_4g4_bottom{
+            background:#fff;
+            box-shadow:0 2px 4px 0 rgba(0,0,0,0.24);
+            width:100%;
+            height:152px;
+        }
+        .headerCenter_4g4_logo{
+            width:250px;
+            margin-right:50px;
+        }
+        .headerCenter_4g4_logo>img{
+            width:250px;
+            margin:30px 0;
+        }
+        .headerCenter_4g4_ren{
+            color:#fff;
+        }
+    </style>
+</div>
+
+<div class="panel" data-header="header">
+
+    <div class="panel-heading">
+        <!--<span class="title">头部&#45;&#45;话题</span>-->
+    </div>
+    <div class="panel-body">
+        <div class="headerCenter_4g4" "exist">
+        <!--top-->
+        <input type="hidden" value="yes" class="v_headerCenter_4g4_action"/>
+        <div class="headerCenter_4g4_top mainColor_background">
+            <div class="commonContainer">
+                <div class="headerCenter_4g4_action lf showId">
+                    <span id="headerCenter_4g4_city">北京&nbsp;&nbsp;</span>
+                    <span id="headerCenter_4g4_time"></span>
+                    <span id="headerCenter_4g4_temperature">&nbsp;&nbsp;27℃</span>
+                    <span id="headerCenter_4g4_type"></span>
+                    <ul id="headerCenter_4g4_province"></ul>
+                </div>
+                <div class="rt">
+                    <p class="headerCenter_4g4_searchCon ">
+                        <input type="text" id="headerCenter_4g4_searchInput" placeholder="" class="headerCenter_4g4_searchInput "/>
+                        <label for="headerCenter_4g4_searchInput"><a href="#"><img src="../../img/PP/header01_4g4/search_index.png" alt=""/></a></label>
+                    </p>
+                    <p class="headerCenter_4g4_phone">
+                        <a href="#">
+                            <img src="../../img/PP/header01_4g4/phone_index.png" alt=""/><span>下载客户端</span>
+                        </a>
+                    </p>
+                    <p class="headerCenter_4g4_login showId"></p>
+                </div>
+            </div>
+        </div>
+        <!--logo + nav-->
+        <div class="headerCenter_4g4_bottom">
+            <div class="commonContainer clearFloat">
+                <!--logo-->
+                <div class="headerCenter_4g4_logo lf">
+                    <img src="../../img/PP/headerCenter_4g4/headerCenter_logo.png">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<div class="resize-handle"><i class="icon icon-resize-h"></i></div>
+
+<div class="script" "exist">
+<script>
+
+    var mydate = new Date();
+    var month=parseFloat(mydate.getMonth())+1;
+    var data=mydate.getDate();
+    var day=mydate.getDay();
+    var x;
+    switch (day) {
+        case 0:
+            x="日";
+            break;
+        case 1:
+            x="一";
+            break;
+        case 2:
+            x="二";
+            break;
+        case 3:
+            x="三";
+            break;
+        case 4:
+            x="四";
+            break;
+        case 5:
+            x="五";
+            break;
+        case 6:
+            x="六";
+            break;
+    }
+    $("#headerCenter_4g4_time").text(month+"月"+data+"日 "+" 星期"+x);
+
+    var flag = "v";
+    if (flag == "v") {
+        vData()
+    } else {
+        tData();
+    }
+    function vData() {
+//            天气
+        var v_headerCenter_4g4_action=$(".appendCur .v_headerCenter_4g4_action").val();
+        if( v_headerCenter_4g4_action=='yes' ){
+            $(".appendCur .headerCenter_4g4_action").show();
+        }else if( v_headerCenter_4g4_action=='no' ){
+            $(".appendCur .headerCenter_4g4_action").hide();
+        }
+//            是否登录
+        $(".appendCur .headerCenter_4g4_login").html("");
+        if( true ){
+            $(".appendCur .headerCenter_4g4_login").html("&lt;a href='#'&gt;登录&lt;/a&gt;");
+        }else{
+            $(".appendCur .headerCenter_4g4_login").html("&lt;span class='headerCenter_4g4_ren'&gt;欢迎XXX&lt;/span&gt;");
+        }
+    }
+    function tData() {
+        var headerCenter_4g4_action="";
+        if(headerCenter_4g4_action == ""){
+            headerCenter_4g4_action = "yes";
+        }
+        if(headerCenter_4g4_action=="yes"){
+            $(".headerCenter_4g4_action.showId").show();
+        }else{
+            $(".headerCenter_4g4_action.showId").hide();
+        }
+        //登录
+        if( true ){
+            $(".headerCenter_4g4_login.showId").html("&lt;a href='#'&gt;登录&lt;/a&gt;");
+        }else{
+            $(".headerCenter_4g4_login.showId").html("&lt;span class='headerCenter_4g4_ren'&gt;欢迎XXX&lt;/span&gt;");
+        }
+
+    }
+
+</script>
+</div>
+</div>

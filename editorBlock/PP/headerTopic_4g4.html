@@ -16,6 +16,11 @@
             margin-right:15px;
             font-size:14px;
         }
+        /*headerTopic_4g4_action*/
+        .headerTopic_4g4_action{
+            line-height: 40px;
+            color:#fff;
+        }
         .headerTopic_4g4_searchCon{
             display: inline-block;
             width:112px;
@@ -88,11 +93,13 @@
             <input type="hidden" value="yes" class="v_headerTopic_4g4_action"/>
             <div class="headerTopic_4g4_top mainColor_background">
                 <div class="commonContainer">
-                    <ul class="headerTopic_4g4_action lf showId">
-                        <li class="headerTopic_4g4_GPS">北京</li>
-                        <li class="headerTopic_4g4_time">2017年3月20日 周四</li>
-                        <li class="headerTopic_4g4_TEMP">27℃</li>
-                    </ul>
+                    <div class="headerTopic_4g4_action lf showId">
+                        <span id="headerTopic_4g4_city">北京&nbsp;&nbsp;</span>
+                        <span id="headerTopic_4g4_time"></span>
+                        <span id="headerTopic_4g4_temperature">&nbsp;&nbsp;27℃</span>
+                        <span id="headerTopic_4g4_type"></span>
+                        <ul id="headerTopic_4g4_province"></ul>
+                    </div>
                     <div class="rt">
                         <p class="headerTopic_4g4_searchCon ">
                             <input type="text" id="headerTopic_4g4_searchInput" placeholder="" class="headerTopic_4g4_searchInput "/>
@@ -123,6 +130,37 @@
 
 <div class="script" "exist">
     <script>
+
+        var mydate = new Date();
+        var month=parseFloat(mydate.getMonth())+1;
+        var data=mydate.getDate();
+        var day=mydate.getDay();
+        var x;
+        switch (day) {
+            case 0:
+                x="日";
+                break;
+            case 1:
+                x="一";
+                break;
+            case 2:
+                x="二";
+                break;
+            case 3:
+                x="三";
+                break;
+            case 4:
+                x="四";
+                break;
+            case 5:
+                x="五";
+                break;
+            case 6:
+                x="六";
+                break;
+        }
+        $("#headerTopic_4g4_time").text(month+"月"+data+"日 "+" 星期"+x);
+
         var flag = "v";
         if (flag == "v") {
             vData()
