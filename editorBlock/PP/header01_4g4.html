@@ -2,99 +2,117 @@
 <div class="style" "exist">
     <style>
         /**********************组件---header01_4g4************************/
-        .header01_4g4_all{
+        .header01_4g4_all {
             width: 100%;
         }
+
         /*top--红*/
-        .header01_4g4_top{
-            height:40px;
+        .header01_4g4_top {
+            height: 40px;
         }
-        .header01_4g4_action li{
+
+        /*.header01_4g4_action li {
             display: inline-block;
-            line-height:40px;
-            color:#fff;
-            margin-right:15px;
-            font-size:14px;
-        }
-        .header01_4g4_searchCon{
+            line-height: 40px;
+            color: #fff;
+            margin-right: 15px;
+            font-size: 14px;
+        }*/
+
+        .header01_4g4_searchCon {
             display: inline-block;
-            width:112px;
-            height:20px;
-            margin:10px 0;
-            position:relative;
+            width: 112px;
+            height: 20px;
+            margin: 10px 0;
+            position: relative;
         }
-        .header01_4g4_searchInput{
+
+        .header01_4g4_searchInput {
             border-radius: 36px;
-            width:112px;
-            padding:0 5px;
+            width: 112px;
+            padding: 0 5px;
             letter-spacing: 1px;
             outline: none;
-            font-size:14px;
+            font-size: 14px;
         }
-        .header01_4g4_searchCon label{
+
+        .header01_4g4_searchCon label {
             display: inline-block;
-            position:absolute;
-            right:5px;
-            top:-3px;
+            position: absolute;
+            right: 5px;
+            top: 5px;
         }
-        .header01_4g4_searchCon label a{
+
+        .header01_4g4_searchCon label a {
             display: inline-block;
         }
-        .header01_4g4_phone,.header01_4g4_login{
+
+        .header01_4g4_phone, .header01_4g4_login {
             display: inline-block;
-            margin-left:20px;
+            margin-left: 20px;
         }
-        .header01_4g4_phone span{
-            color:#fff;
-            font-size:14px;
-            padding-left:3px;
+
+        .header01_4g4_phone span {
+            color: #fff;
+            font-size: 14px;
+            padding-left: 3px;
         }
-        .header01_4g4_phone img{
-            padding-bottom:2px;
+
+        .header01_4g4_phone img {
+            padding-bottom: 2px;
         }
-        .header01_4g4_login a{
-            color:#fff;
-            font-size:14px;
+
+        .header01_4g4_login a {
+            color: #fff;
+            font-size: 14px;
         }
+
         /*logo*/
-        .header01_4g4_bottom{
-            background:#fff;
-            box-shadow:0 2px 4px 0 rgba(0,0,0,0.24);
-            width:100%;
-            height:152px;
+        .header01_4g4_bottom {
+            background: #fff;
+            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.24);
+            width: 100%;
+            height: 152px;
         }
-        .header01_4g4_logo{
-            width:250px;
-            margin-right:50px;
+
+        .header01_4g4_logo {
+            width: 250px;
+            margin-right: 50px;
         }
-        .header01_4g4_logo>img{
-            width:250px;
-            margin:40px 0;
+
+        .header01_4g4_logo > img {
+            width: 250px;
+            margin: 40px 0;
         }
+
         /*导航*/
-        .header01_4g4_nav{
+        .header01_4g4_nav {
             background-color: #fff;
-            height:150px;
-            width:660px;
+            height: 150px;
+            width: 660px;
         }
-        .header01_4g4_navChanel{
-            width:100%;
-            height:150px;
+
+        .header01_4g4_navChanel {
+            width: 100%;
+            height: 150px;
         }
-        .header01_4g4_navChanel:after{
+
+        .header01_4g4_navChanel:after {
             display: table;
             content: '';
             clear: both;
         }
-        .header01_4g4_navChanel>li{
+
+        .header01_4g4_navChanel > li {
             float: left;
             display: inline-block;
-            height:150px;
-            line-height:150px;
+            height: 150px;
+            line-height: 150px;
             vertical-align: middle;
-            position:relative;
+            position: relative;
         }
-        .header01_4g4_border{
+
+        .header01_4g4_border {
             position: absolute;
             display: table-cell;
             background: #999999;
@@ -102,78 +120,153 @@
             height: 40px;
             margin: 55px 0;
         }
-        .header01_4g4_navChanel>li>a{
-            width:63px;
-            height:150px;
-            font-size:19px;
+
+        .header01_4g4_navChanel > li > a {
+            width: 35px;
+            height: 150px;
+            font-size: 19px;
             text-decoration: none;
             line-height: 30px;
-            padding:0 15px;
+            padding: 0 15px;
             display: table-cell;
             vertical-align: middle;
             text-align: center;
+            box-sizing: content-box;
         }
+
         /*二级菜单*/
-        .header01_4g4_tan{
-            display:none;
-            background:#999999;
-            min-width:50px;
-            height:126px;
-            padding:0 16px;
+        .header01_4g4_tan {
+            display: none;
+            background: #999999;
+            min-width: 50px;
+            height: 126px;
+            padding: 0 16px;
             position: absolute;
-            top:130px;
-            z-index:100;
+            top: 130px;
+            z-index: 100;
         }
-        .header01_4g4_tan>li{
+
+        .header01_4g4_tan > li {
             float: left;
-            height:126px;
-            line-height:126px;
+            height: 126px;
+            line-height: 126px;
             vertical-align: middle;
-            padding:0 4px;
+            padding: 0 4px;
         }
-        .header01_4g4_tan>li>a{
+
+        .header01_4g4_tan > li > a {
             display: table-cell;
-            width:25px;
+            width: 25px;
             vertical-align: middle;
             text-align: center;
-            height:126px;
+            height: 126px;
             text-decoration: none;
             line-height: 25px;
-            color:#fff;
-            font-size:16px;
+            color: #fff;
+            font-size: 16px;
         }
-        .header01_4g4_nav li a.header01_4g4_tanActive{
+
+        .header01_4g4_nav li a.header01_4g4_tanActive {
             background: #777;
         }
+
         /*箭头*/
-        .header01_4g4_arrowTop{
+        .header01_4g4_arrowTop {
             display: none;
-            position:absolute;
-            bottom:19px;
-            left:44%;
+            position: absolute;
+            bottom: 19px;
+            left: 44%;
             text-align: center;
         }
-        .header01_4g4_ren{
+
+        .header01_4g4_ren {
+            color: #fff;
+        }
+        .header01_4g4_action{
+            position: relative;
+            display: inline-block;
+            padding:10px 0;
             color:#fff;
         }
 
-        /*header01_4g4_action*/
-        .header01_4g4_action{
-            line-height: 40px;
-            color:#fff;
+        .header01_4g4_action span{
+            padding:0 3px;
+        }
+        /*header01_4g4_province*/
+        #header01_4g4_province{
+            display:none;
+            box-shadow:0 2px 4px 0 rgba(0, 0, 0, 0.24);
+            width:500px;
+            height:250px;
+            padding:20px 10px;
+            position:absolute;
+            top:40px;
+            left:-22px;
+            z-index:1000;
+            background:#fff;
+        }
+        #header01_4g4_province>li{
+            float:left;
+            font-size:16px;
+            padding:5px 15px;
+            margin-bottom:10px;
+            cursor:pointer;
+            position:relative;
+            color:#1a1a1a;
+        }
+        #header01_4g4_province>li:hover {
+            color: #c33;
+            background:#EFEEEE;
+        }
+        /*header01_4g4_city*/
+        .header01_4g4_city{
+            display:none;
+            overflow:hidden;
+            position:absolute;
+            z-index:100;
+            width:270px;
+            background:#EFEEEE;
+            color:#000;
+            top:30px;
+            left: 0;
+        }
+        .header01_4g4_city>li{
+            float:left;
+            font-size:14px;
+            padding:10px;
+        }
+
+        /* 登录框 */
+        /*#header01_4g4_modalLogin {*/
+        /*padding: 50px 30px;*/
+        /*}*/
+        .header01_4g4_imgBox{
+            text-align: center;
+            margin-top:50px;
+        }
+        .header01_4g4_loginBox{
+            margin:40px auto 60px;
+            text-align: center;
+        }
+        .header01_4g4_loginBox>a{
+            display: inline-block;
+            width:100px;
+            margin:0 20px;
+        }
+        .header01_4g4_loginBox>a>span{
+            display: block;
         }
     </style>
 </div>
 
 
 <div class="panel" data-header="header">
-
     <div class="panel-heading">
         <!--<span class="title">头部1</span>-->
     </div>
     <div class="panel-body">
         <div class="header01_4g4_all" "exist">
-        <input type="hidden" class="v_header01_4g4_action" value="yes"/>
+            <input type="hidden" class="v_header01_4g4_action" value="yes"/>
             <!--top-->
             <div class="header01_4g4_top">
                 <div class="commonContainer">
@@ -187,10 +280,10 @@
                     <div class="rt">
                         <p class="header01_4g4_searchCon ">
                             <input type="text" id="header01_4g4_searchInput" placeholder="" class="header01_4g4_searchInput "/>
-                            <label for="header01_4g4_searchInput"><a href="#"><img src="../../img/PP/header01_4g4/search_index.png" alt=""/></a></label>
+                            <label for="header01_4g4_searchInput"><a href="javascript:toSearch();"><img src="../../img/PP/header01_4g4/search_index.png" alt=""/></a></label>
                         </p>
                         <p class="header01_4g4_phone">
-                            <a href="#">
+                            <a href="javascript:window.open('http://www.bjfine.cn/TemplateEditor/downLoad/downLoad.html','_blank')">
                                 <img src="../../img/PP/header01_4g4/phone_index.png" alt=""/><span>下载客户端</span>
                             </a>
                         </p>
@@ -212,8 +305,31 @@
                 </div>
             </div>
         </div>
+        <!--登录框-->
+        <div class="modal fade myModal" id="header01_4g4_modalLogin" "exist">
+            <div class="modal-dialog header01_4g4_dialog">
+                <div class="modal-content">
+                    <p class="header01_4g4_imgBox"><img src="http://www.bjfine.cn/TemplateEditor/img/header01/login_logo.png" width="150px;" alt=""/></p>
+                    <div class="header01_4g4_loginBox">
+                        <a href='javascript:autoLogin("weixin")' style='font-size:16px;'>
+                            <img style='width:30px;margin-bottom:5px;margin-top:8px;' src='http://www.bjfine.cn/TemplateEditor/img/header01/wechat.png' />
+                            <span>微信账号登录</span>
+                        </a>
+                        <a href='javascript:autoLogin("qq")' style='font-size:16px;'>
+                            <img style='width:30px;margin-bottom:5px;margin-top:8px;' src='http://www.bjfine.cn/TemplateEditor/img/header01/qq.png' />
+                            <span>QQ账号登录</span>
+                        </a>
+                        <a href='javascript:autoLogin("weibo")' style='font-size:16px;'>
+                            <img style='width:30px;margin-bottom:5px;margin-top:8px;' src='http://www.bjfine.cn/TemplateEditor/img/header01/weibo.png' />
+                            <span>新浪微博登录</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
+
 <div class="resize-handle"><i class="icon icon-resize-h"></i></div>
 
 
@@ -254,15 +370,17 @@
         }else{
             tData();
         }
+
+        //假数据
         function vData() {
-//        天气显示
+            //        天气显示
             var weather=$(".appendCur .v_header01_4g4_action").val();
             if( weather=="yes" ){
                 $(".appendCur .header01_4g4_action").show();
             }else{
                 $(".appendCur .header01_4g4_action").hide();
             }
-//        是否登录
+            //        是否登录
             $(".appendCur .header01_4g4_login").html("");
             if( true ){
                 $(".appendCur .header01_4g4_login").html("&lt;a href='#'&gt;登录&lt;/a&gt;");
@@ -292,25 +410,45 @@
             $(".appendCur .header01_4g4_navChanel").append(chanelStr);
         }
 
+        //真实数据方法
         function tData(){
             var header01_4g4_action="";
-            if(header01_4g4_action == ""){
+            if (header01_4g4_action == "") {
                 header01_4g4_action = "yes";
             }
 
             var cb="tDataCallback";
 
-            if( header01_4g4_action == "yes" ){
+            if (header01_4g4_action == "yes") {
                 $(".header01_4g4_action.showId").show();
-            }else{
-                $(".header01_4g4_action.showId").hide();
-            }
+                $(".header01_4g4_action.showId").show();
 
-            //是否登录
-            if( true ){
-                $(".header01_4g4_login.showId").html("&lt;a href='#'&gt;登录&lt;/a&gt;");
-            }else{
-                $(".header01_4g4_login.showId").html("&lt;span class='header01_4g4_ren'&gt;欢迎XXX&lt;/span&gt;");
+                //天气预报
+                $('.showId.header01_4g4_action').mouseover(function(){
+                    $('#header01_4g4_province').css('display','block');
+                });
+                $('.showId.header01_4g4_action').mouseout(function(){
+                    $('#header01_4g4_province').css('display','none');
+                });
+                //默认天气
+                $.get('http://wthrcdn.etouch.cn/weather_mini?citykey=101010100',  function(data){
+                    var msg= JSON.parse( data);
+                    $('#header01_4g4_temperature').html( msg.data.wendu+'℃' );
+                    $('#header01_4g4_type').html( msg.data.forecast[2].type );
+                    $('#header01_4g4_city').html( '北京' );
+                });
+                //接收文件
+                $.ajax({
+                    async: false,
+                    cache: true,
+                    type: 'get',
+                    dataType: "jsonp",
+                    url: "http://www.bjfine.cn/TemplateEditor/templateResource/city_json.txt",//请求的action路径
+                    success: function (data) { //请求成功后处理函数。
+                    }
+                });
+            } else {
+                $(".header01_4g4_action.showId").hide();
             }
 
             $.ajax({
@@ -318,7 +456,7 @@
                 cache: true,
                 type: 'post',
                 dataType: "jsonp",
-                data: {header01_4g4_action:header01_4g4_action,callBack: cb},  //参数
+                data: {header01_4g4_action: header01_4g4_action, callBack: cb},  //参数
                 url: blockBasePath + "blockData/channelListData.do",//请求的action路径
                 success: function (data) { //请求成功后处理函数。
                 }
@@ -326,91 +464,288 @@
         }
 
         //返回的真实数据
-        function tDataCallback(data){
+        function tDataCallback(data) {
             var list = data.list;
-            var chanelStr="";
-            for( var i= 0;i<list.length;i++ ){
-                chanelStr+='&lt;li&gt;';
-                if( list[i].subChannel != undefined && list[i].subChannel != null ){
-                    chanelStr+='&lt;span class="header01_4g4_border"&gt;&lt;/span&gt;'+
-                            '&lt;img class="header01_4g4_arrowTop" src="../../img/PP/header01_4g4/header01_4g4_top.png" alt=""/&gt;';
+            var channelId = "";
+            var channelIdTwo = "";
+            for (var i = 0; i < list.length; i++) {
+                if(window.location.href.indexOf(list[i].channelId) != -1){
+                    channelId = list[i].channelId;
                 }
-                chanelStr+='&lt;a href="#" class="header01_4g4_active"&gt;'+list[i].channelName+'&lt;/a&gt;';
-                if( list[i].subChannel != undefined && list[i].subChannel != null ){
-                    chanelStr+='&lt;ul class="header01_4g4_tan"&gt;';
-                    for( var j=0;j<list[i].subChannel.length;j++ ){
-                        chanelStr+='&lt;li&gt;&lt;a href="#"&gt;'+list[i].subChannel[j].channelName+'&lt;/a&gt;&lt;/li&gt;';
+                if (list[i].subChannel != undefined && list[i].subChannel != null) {
+                    for (var j = 0; j < list[i].subChannel.length; j++) {
+                        if(window.location.href.indexOf(list[i].subChannel[j].channelId) != -1){
+                            channelId = list[i].subChannel[j].parentId;
+                            channelIdTwo = list[i].subChannel[j].channelId;
+                        }
                     }
-                    chanelStr+='&lt;/ul&gt;';
                 }
-                chanelStr+='&lt;/li&gt;';
+            }
+
+            var chanelStr = "";
+            for (var i = 0; i < list.length; i++) {
+                chanelStr += '&lt;li&gt;';
+                if(i != 0){
+                    chanelStr += '&lt;span class="header01_4g4_border"&gt;&lt;/span&gt;';
+                }
+                if (list[i].subChannel != undefined && list[i].subChannel != null) {
+                    chanelStr +='&lt;img class="header01_4g4_arrowTop" src="http://www.bjfine.cn/TemplateEditor/img/PP/header01_4g4/header01_4g4_top.png" alt=""/&gt;';
+                }
+                chanelStr += '&lt;a href="'+list[i].url+'" class="';
+                if(channelId == list[i].channelId){
+                    chanelStr += 'header01_4g4_active';
+                }
+                chanelStr += '"&gt;' + list[i].channelName + '&lt;/a&gt;';
+                if (list[i].subChannel != undefined && list[i].subChannel != null) {
+                    chanelStr += '&lt;ul class="header01_4g4_tan"&gt;';
+                    for (var j = 0; j < list[i].subChannel.length; j++) {
+                        chanelStr += '&lt;li&gt;&lt;a class="';
+                        if(list[i].subChannel[j].channelId == channelIdTwo){
+                            chanelStr += 'header01_4g4_tanActive';
+                        }
+                        chanelStr += '" href="'+list[i].subChannel[j].url+'"&gt;' + list[i].subChannel[j].channelName + '&lt;/a&gt;&lt;/li&gt;';
+                    }
+                    chanelStr += '&lt;/ul&gt;';
+                }
+                chanelStr += '&lt;/li&gt;';
             }
             $(".header01_4g4_navChanel.showId").append(chanelStr);
+            countWithTan();
         }
 
-        //    $(".header01_4g4_tan").css("width",)
-        var tans=$(".header01_4g4_tan");
-        for( var i=0;i<tans.length;i++ ){
-            $(tans[i]).css("width", ($(tans[i]).children("li").length)*34+parseFloat(32)+'px');
-            console.log(parseFloat($(tans[i]).css("width")) );
-            if( parseFloat( $(tans[i]).css("width"))&lt;100 ){
-                $(tans[i]).css("left","0");
-            }else if( parseFloat( $(tans[i]).css("width"))&lt;200 ){
-                $(tans[i]).css("left","-40%")
-            }else if( parseFloat( $(tans[i]).css("width"))&lt;300 ){
-                $(tans[i]).css("left","-80%")
-            }else if( parseFloat( $(tans[i]).css("width"))&lt;400 ){
-                $(tans[i]).css("left","-130%")
-            }else{
-                $(tans[i]).css("left","-400%")
+        //真数据时天气数据
+        function callbackCity(data){
+            var msg = data;
+            //大的
+            $("#header01_4g4_province").html("");
+            for (var i = 0; i < msg['城市代码'].length; i++) {
+                $('#header01_4g4_province').append($("&lt;li&gt;&lt;span&gt;" + msg['城市代码'][i]['省'] + "&lt;/span&gt;&lt;ul class='header01_4g4_city'&gt;&lt;/ul&gt;&lt;/li&gt;"));
+                //小的li
+                (function (i_) {
+                    for (var a = 0; a < msg['城市代码'][i]['市'].length; a++) {
+                        $('#header01_4g4_province>li:nth-child(' + (i_ + 1) + ')>ul').append($('&lt;li&gt;' + msg['城市代码'][i_]['市'][a]['市名'] + '&lt;/li&gt;'));
+                    }
+                    //小的li点击
+                    $('#header01_4g4_province>li:nth-child(' + (i_ + 1) + ')>ul>li').click(function (event) {
+                        var index = $(this).prevAll().length,
+                                key = msg['城市代码'][i_]['市'][index]['编码'],
+                                header01_4g4_city_sm = $(this).html();
+                        var e = window.event || event;
+                        if (e.stopPropagation) {
+                            e.stopPropagation();
+                        } else {
+                            window.event.cancelBubble = true;
+                        }
+                        $.get('http://wthrcdn.etouch.cn/weather_mini?citykey=' + key, function (data) {
+                            var msg = JSON.parse(data);
+                            if (msg.data !== undefined) {
+                                $('#header01_4g4_city').html(header01_4g4_city_sm);
+                                $('#header01_4g4_temperature').html(msg.data.wendu + '℃');
+                                $('#header01_4g4_type').html(msg.data.forecast[2].type);
+                            } else {
+                                $('#header01_4g4_city').html(header01_4g4_city_sm);
+                                $('#header01_4g4_temperature').html('暂不支持接收此城市天气');
+                                $('#header01_4g4_type').html('');
+                            }
+                        })
+                    });
+                })(i);
             }
+            $('#header01_4g4_province>li').mouseover(function(){
+                $(this).children('.header01_4g4_city').css('display','block');
+            });
+            $('#header01_4g4_province>li').mouseout(function(){
+                $(this).children('.header01_4g4_city').css('display','none');
+            });
+            //上边li点击
+            $('#header01_4g4_province>li').click(function(event){
+                var e = window.event || event;
+                if ( e.stopPropagation ){
+                    e.stopPropagation();
+                }else{
+                    window.event.cancelBubble = true;
+                }
+                var city=$(this).children('span').html();
+                $.get('http://wthrcdn.etouch.cn/weather_mini?city='+city,  function(data){
+                    var msg= JSON.parse( data);
+                    if( msg.data!==undefined ){
+                        $('#header01_4g4_city').html( city );
+                        $('#header01_4g4_temperature').html( msg.data.wendu+'℃' );
+                        $('#header01_4g4_type').html( msg.data.forecast[2].type );
+                    }else{
+                        $('#header01_4g4_city').html(city );
+                        $('#header01_4g4_temperature').html( '请查看详情城市' );
+                        $('#header01_4g4_type').html('');
+                    }
+                })
+            });
+        };
 
+        //真数据时判断用户是否登录
+        if(flag == "t") {
+            $(document).ready(function () {
+                var url = blockBasePath + "blockData/getFrontUser";
+                var postData = {callBack: 'userCallback'};
+                $.ajax({
+                    type: 'POST',
+                    url: url,
+                    data: postData,
+                    dataType: 'jsonp',
+                    cache: false,
+                    async: true,//同步方法
+                    success: function (data) {
+                    }
+                });
+            });
+        }
+
+        //用户状态的回调函数
+        function userCallback(data){
+            var user = data.userData;
+            if(user != undefined && user != null){
+                isLoginFlag = "true"
+                var aStr = "&lt;a href='http://www.bjfine.cn/TemplateEditor/template/87681caaf12f4fedb1f4a928633ff153.html' target='_Blank' &gt;";
+                aStr += "&lt;img style='width:35px;height:35px;border-radius:100%;' src='"+user.headImgUrl+"' alt='' /&gt;";
+                aStr += "&lt;/a&gt;";
+                var a = $(aStr);
+                $('.header01_4g4_login.showId').append(a);
+            }else{
+                var aStr='&lt;span style="color:#fff;cursor: pointer;" data-position="100px" data-toggle="modal" data-target="#header01_4g4_modalLogin"&gt;登录&lt;/span&gt;';
+                //var aStr = "&lt;a href='javascript:autoLogin(\"weixin\");' style='font-size:16px;'&gt;";
+                //    aStr += "&lt;img style='width:30px;height:30px;margin-top:8px;' src='http://www.bjfine.cn/TemplateEditor/img/header01/weixin_cai.png' /&gt;&lt;/a&gt;";
+                //    aStr += "&lt;a href='javascript:autoLogin(\"qq\");' style='font-size:16px;'&gt;";
+                //    aStr += "&lt;img style='width:30px;height:30px;margin-top:8px;' src='http://www.bjfine.cn/TemplateEditor/img/header01/qq_cai.png' /&gt;&lt;/a&gt;";
+                //    aStr += "&lt;a href='javascript:autoLogin(\"weibo\");' style='font-size:16px;'&gt;";
+                //    aStr += "&lt;img style='width:30px;height:30px;margin-top:8px;' src='http://www.bjfine.cn/TemplateEditor/img/header01/weibo_cai.png' /&gt;&lt;/a&gt;";
+                var a = $(aStr);
+                $('.header01_4g4_login.showId').append(a);
+            }
+        }
+
+        //登录方法
+        function autoLogin(loginType){
+            var loginUrl="";
+            if("weixin"==loginType){
+                loginUrl="https://open.weixin.qq.com/connect/qrconnect?appid=wxc93206bdacc7ed6c&redirect_uri=http%3a%2f%2fwww.bjfine.cn%2Fweixin%2FautoLogin.do&response_type=code&scope=snsapi_login&state=1#wechat_redirect";
+            }else if("qq"==loginType){
+                loginUrl="https://graph.qq.com/oauth2.0/authorize?response_type=code&client_id=101341947&redirect_uri=http%3A%2F%2Fwww.bjfine.cn%2Fqq%2FautoLogin.do&state=1";
+            }else if("weibo"==loginType){
+                loginUrl=blockBasePath + "weibo/sina4login";
+            }
+            //alert("loginUrl="+loginUrl)
+            window.location.href=loginUrl;
+        }
+
+        //搜索方法
+        function toSearch(){
+            var title = $("#header01_4g4_searchInput").val();
+            if(title == undefined){
+                title = "";
+            }
+            window.open('http://www.bjfine.cn/TemplateEditor/template/c232cd7fdad14c14952675a3c8bfadd5.html?title='+title,'_blank');
+        }
+
+        //真实数据的日期
+        if(flag == "t") {
+            var mydate = new Date();
+            var month = parseFloat(mydate.getMonth()) + 1;
+            var data = mydate.getDate();
+            var day = mydate.getDay();
+            var x;
+            switch (day) {
+                case 0:
+                    x = "日";
+                    break;
+                case 1:
+                    x = "一";
+                    break;
+                case 2:
+                    x = "二";
+                    break;
+                case 3:
+                    x = "三";
+                    break;
+                case 4:
+                    x = "四";
+                    break;
+                case 5:
+                    x = "五";
+                    break;
+                case 6:
+                    x = "六";
+                    break;
+            }
+            $("#header01_4g4_time").text(month + "月" + data + "日 " + " 星期" + x);
         }
 
         //首页一级点击
-        $('.header01_4g4_navChanel&gt;li&gt;a').click(function(e){
-            e=e||window.event;
-            var target=e.target||e.srcElement;
-            var a=$(".header01_4g4_active");
+        $('.header01_4g4_navChanel').on("click",">li>a",function (e) {
+            e = e || window.event;
+            var target = e.target || e.srcElement;
+            var a = $(".header01_4g4_active");
             a.removeClass('header01_4g4_active');
-            target.className='header01_4g4_active';
+            target.className = 'header01_4g4_active';
 
-            $('.header01_4g4_tan&gt;li&gt;a').removeClass("header01_4g4_tanActive")
+            $('.header01_4g4_tan>li>a').removeClass("header01_4g4_tanActive")
         });
-        $('.header01_4g4_navChanel&gt;li&gt;a').mousemove(function(){
-            if( $(this).next()!==null ){
+
+        $('.header01_4g4_navChanel').on("mouseover",">li>a",function () {
+            if ($(this).next() !== null && $(this).next() !== undefined) {
                 $(this).next().show();
-                $(this).prev().show();
+                $(this).prev("img").show();
                 $(this).addClass("header01_4g4_cur");
             }
         });
-        $('.header01_4g4_navChanel&gt;li&gt;a').mouseout(function(){
-            if( $(this).next()!==null ){
+
+        $('.header01_4g4_navChanel').on("mouseout",">li>a",function () {
+            if ($(this).next() !== null && $(this).next() !== undefined) {
                 $(this).next().hide();
-                $(this).prev().hide();
+                $(this).prev("img").hide();
                 $(this).removeClass("header01_4g4_cur");
             }
         });
+
         //首页二级点击
-        $('.header01_4g4_tan').mouseover(function(){
+        $('.header01_4g4_navChanel').on("mouseover",".header01_4g4_tan",function () {
             $(this).siblings().addClass("header01_4g4_cur");
             $(this).show();
             $(this).prev().prev().show();
         });
-        $('.header01_4g4_tan').mouseout(function(){
+
+        $('.header01_4g4_navChanel').on("mouseout",".header01_4g4_tan",function () {
             $(this).siblings().removeClass("header01_4g4_cur");
             $(this).hide();
             $(this).prev().prev().hide();
         });
-        $('.header01_4g4_tan&gt;li&gt;a').click(function(){
-            var a=$(".header01_4g4_active");
+
+        $('.header01_4g4_navChanel').on("click",".header01_4g4_tan>li>a",function () {
+            var a = $(".header01_4g4_active");
             a.removeClass('header01_4g4_active');
             $(this).parent().parent().prev().addClass("header01_4g4_active");
-            var cur=$(".header01_4g4_tanActive");
+            var cur = $(".header01_4g4_tanActive");
             cur.removeClass("header01_4g4_tanActive");
             $(this).addClass('header01_4g4_tanActive');
             $(this).parent().siblings().children().removeClass('header01_4g4_tanActive');
         });
+
+        function countWithTan(){
+            var tans = $(".header01_4g4_navChanel .header01_4g4_tan");
+            for (var i = 0; i < tans.length; i++) {
+                $(tans[i]).css("width", ($(tans[i]).children("li").length) * 34 + parseFloat(32) + 'px');
+                //console.log(parseFloat($(tans[i]).css("width")));
+                if (parseFloat($(tans[i]).css("width")) < 100) {
+                    $(tans[i]).css("left", "0");
+                } else if (parseFloat($(tans[i]).css("width")) < 200) {
+                    $(tans[i]).css("left", "-40%")
+                } else if (parseFloat($(tans[i]).css("width")) < 300) {
+                    $(tans[i]).css("left", "-80%")
+                } else if (parseFloat($(tans[i]).css("width")) < 400) {
+                    $(tans[i]).css("left", "-130%")
+                } else {
+                    $(tans[i]).css("left", "-400%")
+                }
+            }
+        }
     </script>
 </div>
 </div>
