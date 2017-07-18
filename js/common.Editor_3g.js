@@ -1010,6 +1010,48 @@ function moveAll(){
     });
 }
 
+//预览--代码
+function previewCode(){
+    var main=$('.main').clone();
+    var strSection="";
+    var strHeader="";
+    var strFooter="";
+    $(main).find(".editorBlock").removeClass("container").addClass("sectionContainer");
+    $(main).find(".panel-heading").remove();
+    $(main).find(".resize-handle").remove();
+    $(main).find(".sortArea").remove();
+    $(main).find(".firstLocation").remove();
+    $(main).find(".mainAct").remove();
+    $(main).find(".dragging-col-holder").remove();
+
+    var groupDivs=$(main).find(".groupDiv ");
+    for( var i=0;i<groupDivs.length;i++ ){
+        $(groupDivs[i]).removeClass("list-group-item");
+        $(groupDivs[i]).find(".panel-body").removeClass("panel-body");
+
+        if( $(groupDivs[i]).find(".panel").attr("data-header")=="header" ){
+            strHeader+=$(groupDivs[i]).prop("outerHTML");
+        }else if( $(groupDivs[i]).find(".panel").attr("data-footer")=="footer" ){
+            strFooter+=$(groupDivs[i]).prop("outerHTML");
+        }else{
+            strSection+=$(groupDivs[i]).prop("outerHTML");
+        }
+        $(groupDivs[i]).find(".panel").removeClass("panel");
+    }
+
+    $(main).find(".editorBlock").html("").html(strSection).removeClass("editorBlock").addClass("section");
+    $(main).find(".editorHeader").html("").html(strHeader).removeClass("editorHeader").addClass("header");
+    $(main).find(".editorFooter").html("").html(strFooter).removeClass("editorFooter").addClass("footer");
+
+    var strAll=$(main).html();
+    return strAll;
+}
+//preview---预览
+function preview(previewBtn){
+    $.zui.store.set('previewName',previewCode());
+    window.open('preview.html');
+}
+
 //存为草稿
 function saveDraft(draftBtn){
 
@@ -1045,6 +1087,21 @@ function saveDraft(draftBtn){
             }
         }
     });
+    //草稿预览
+    var formPreviewCode=new FormData();
+    formPreviewCode.append('templateId',templateIdVal);
+    formPreviewCode.append('previewCode',previewCode());
+    $.ajax({
+        url:basePath+"template_editor/savePreviewCode.do",//远程url
+        async :false,
+        type:"POST",
+        dataType: 'json',
+        contentType: false,
+        processData: false,
+        data: formPreviewCode,
+        success:function(data){}
+    });
+
 }
 
 //保存
@@ -1120,6 +1177,22 @@ function keep(keepBtn){
                     templateId:templateIdVal,templateColor:templateColorVal,gridSize:gridSizeVal },  //参数
                 url:basePath+"template_editor/saveTemplate"//请求的action路径
             });
+
+            //草稿预览
+            var formPreviewCode=new FormData();
+            formPreviewCode.append('templateId',templateIdVal);
+            formPreviewCode.append('previewCode',previewCode());
+            $.ajax({
+                url:basePath+"template_editor/savePreviewCode.do",//远程url
+                async :false,
+                type:"POST",
+                dataType: 'json',
+                contentType: false,
+                processData: false,
+                data: formPreviewCode,
+                success:function(data){}
+            });
+
         }
     }else{
         alert("当前没有可保存项");
@@ -1128,45 +1201,6 @@ function keep(keepBtn){
 function saveTemplateCallback(data){
     alert("保存成功~");
     //window.location.href="editor_index.html";
-}
-
-//preview---预览
-function preview(previewBtn){
-    var main=$('.main').clone();
-    var strSection="";
-    var strHeader="";
-    var strFooter="";
-    $(main).find(".editorBlock").removeClass("container").addClass("sectionContainer");
-    $(main).find(".panel-heading").remove();
-    $(main).find(".resize-handle").remove();
-    $(main).find(".sortArea").remove();
-    $(main).find(".firstLocation").remove();
-    $(main).find(".mainAct").remove();
-    $(main).find(".dragging-col-holder").remove();
-
-    var groupDivs=$(main).find(".groupDiv ");
-    for( var i=0;i<groupDivs.length;i++ ){
-        $(groupDivs[i]).removeClass("list-group-item");
-        $(groupDivs[i]).find(".panel-body").removeClass("panel-body");
-
-        if( $(groupDivs[i]).find(".panel").attr("data-header")=="header" ){
-            strHeader+=$(groupDivs[i]).prop("outerHTML");
-        }else if( $(groupDivs[i]).find(".panel").attr("data-footer")=="footer" ){
-            strFooter+=$(groupDivs[i]).prop("outerHTML");
-        }else{
-            strSection+=$(groupDivs[i]).prop("outerHTML");
-        }
-        $(groupDivs[i]).find(".panel").removeClass("panel");
-    }
-
-    $(main).find(".editorBlock").html("").html(strSection).removeClass("editorBlock").addClass("section");
-    $(main).find(".editorHeader").html("").html(strHeader).removeClass("editorHeader").addClass("header");
-    $(main).find(".editorFooter").html("").html(strFooter).removeClass("editorFooter").addClass("footer");
-
-    var strAll=$(main).html();
-
-    $.zui.store.set('previewName', strAll);
-    window.open('preview.html');
 }
 
 //鼠标拖动上下移动
