@@ -67,6 +67,10 @@
             text-align: right;
             margin-bottom: 7px;
         }
+        .searchResult_4g3_more{
+            text-align: center;
+            margin: 50px 0 30px 0;
+        }
     </style>
 </div>
 
@@ -78,12 +82,12 @@
         <div class="Grid4g3 searchResult_4g3_all" "exist">
             <div class="searchResult_4g3_head">
                 <ul class="clearFloat">
-                    <li class="searchResult_4g3_liSel"><span>全部</span></li>
-                    <li><span>新闻</span></li>
-                    <li><span>视频</span></li>
-                    <li><span>组图</span></li>
-                    <li><span>话题</span></li>
-                    <li><span>投票</span></li>
+                    <li class="searchResult_4g3_liSel" onclick="javascript:goSearch();"><span>全部</span></li>
+                    <li onclick="javascript:goSearch('article');"><span>新闻</span></li>
+                    <li onclick="javascript:goSearch('video');"><span>视频</span></li>
+                    <li onclick="javascript:goSearch('grouppic');"><span>组图</span></li>
+                    <li onclick="javascript:goSearch('topic');"><span>话题</span></li>
+                    <li onclick="javascript:goSearch('vote');"><span>投票</span></li>
                 </ul>
             </div>
             <div class="searchResult_4g3_mian">
@@ -91,6 +95,7 @@
                     <span class="mainColor searchResult_4g3_resultTip searchResult_4g3_num showId"></span> 条搜索结果
                 </p>
                 <ul class="showId"></ul>
+                <p class="searchResult_4g3_more" style="display:none;"><img style="width:40px;" src="http://www.bjfine.cn/TemplateEditor/img/PP/channelArticleList/waiting.gif" alt=""/></p>
             </div>
         </div>
     </div>
@@ -118,7 +123,7 @@
 
             var title = "国家主席习近平同美国总统特朗普通电话家主席习近平同美国总统特朗普通电话国家主席习近平同美国总统特朗普通";
             var str = '';
-            for (var i = 0; i < 10; i++) {
+            for (var i = 0; i &lt; 10; i++) {
                 str +='&lt;li&gt;' +
                 '&lt;p class="searchResult_4g3_listTit titleColor"&gt;'+title+'&lt;/p&gt; ' +
                 '&lt;p class="searchResult_4g3_listCnt abstractColor"&gt;'+title+'&lt;/p&gt; ' +
@@ -129,43 +134,143 @@
         }
 
         function tData(){
+            var title = "";
+            if (window.location.href.indexOf("?title=") != -1) {
+                title = window.location.href.split("?title=")[1];
+            }
+            if(title !== ""){
+                title=decodeURIComponent(title);
+                $("#searchBox_4g3_input").val(title)
+            }
             goSearch();
         }
-
-        function goSearch(){
+        var type = "";
+        function goSearch(contentType){
+            currentPage = 1;
             var searchVal=$("#searchBox_4g3_input").val();
-            var cb="tDataCallback";
+            var cb="searchResult_4g3_2_3group1tDataCallback";
+            type = contentType;
             $.ajax({
                 async: false,
                 cache: true,
                 type: 'post',
                 dataType: "jsonp",
-                data: {searchVal:searchVal,callBack: cb},  //参数
-                url: blockBasePath + "template_editor/channel_article_list_index.do",//请求的action路径
+                data: {contentType:contentType,title:searchVal,callBack: cb},  //参数
+                url: blockBasePath + "blockData/getSearchInfo.do",//请求的action路径
+                success: function (data) { //请求成功后处理函数。
+                }
+            });
+            if($('.searchResult_4g3_more').html() == "已经拉到最后了~~~~~~~"){
+                $('.searchResult_4g3_more').html('&lt;img style="width:40px;" src="http://www.bjfine.cn/TemplateEditor/img/PP/channelArticleList/waiting.gif" alt=""/&gt;');
+            }
+        }
+        function tDataCallback(data) {
+            currentPage ++;
+            var list=data.resultList;
+            if( list != '' && list != undefined && list != null){
+                $(".searchResult_4g3_mian ul.searchResult_4g3_2_3group1").html("");
+                $(".searchResult_4g3_num.searchResult_4g3_2_3group1").html("");
+                $(".searchResult_4g3_num.searchResult_4g3_2_3group1").html(data.resultNum);
+                var str = '';
+                for (var i = 0; i &lt; list.length; i++) {
+                    str +='&lt;li&gt;' +
+                            '&lt;p class="searchResult_4g3_listTit titleColor"&gt;' +
+                            '&lt;a href="javascript:goContentDetial(\''+list[i].articleUrl+'\',\'\')"&gt;';
+                    if (list[i].contentType == 'article') {
+                        str +='新闻';
+                    } else if (list[i].contentType == 'video') {
+                        str +='视频';
+                    } else if (list[i].contentType == 'grouppic') {
+                        str +='组图';
+                    } else if (list[i].contentType == 'vote') {
+                        str +='投票';
+                    } else if (list[i].contentType == 'topic') {
+                        str +='话题';
+                    }
+
+                    str += ' | ' + list[i].title+'&lt;/a&gt;' +
+                            '&lt;/p&gt; ' +
+                            '&lt;p class="searchResult_4g3_listCnt abstractColor"&gt;' +list[i].title+ '&lt;/p&gt; ' +
+                            '&lt;p class="searchResult_4g3_time dateColor"&gt;' +
+                            '&lt;span class="dateColor"&gt;'+list[i].sourceTitle+'｜'+list[i].onlineTime+'｜' +
+                            '&lt;img src="http://www.bjfine.cn/TemplateEditor/img/PP/myJoined/contentNum.png" class="searchResult_4g3_numImg"&gt; '+list[i].commentNum+'&lt;/span&gt;&lt;/p&gt; ' +
+                            '&lt;/li&gt;';
+                }
+                $(".searchResult_4g3_mian ul.searchResult_4g3_2_3group1").append(str);
+            }else{
+                $(".searchResult_4g3_mian ul.searchResult_4g3_2_3group1").html("");
+                $(".searchResult_4g3_num.searchResult_4g3_2_3group1").html("0");
+            }
+        }
+
+        $(window).scroll(function(){
+            //下面这句主要是获取网页的总高度，主要是考虑兼容性所以把Ie支持的documentElement也写了，这个方法至少支持IE8
+            var htmlHeight=document.body.scrollHeight||document.documentElement.scrollHeight;
+            //clientHeight是网页在浏览器中的可视高度，
+            var clientHeight=document.body.clientHeight||document.documentElement.clientHeight;
+            //scrollTop是浏览器滚动条的top位置，
+            var scrollTop=document.body.scrollTop||document.documentElement.scrollTop;
+            //通过判断滚动条的top位置与可视网页之和与整个网页的高度是否相等来决定是否加载内容；
+            if(scrollTop+clientHeight==htmlHeight){
+                setTimeout(function(){
+                    $('.searchResult_4g3_more').fadeIn();
+                },0);
+                setTimeout(moreArticleList,3000);
+            }
+        })
+
+        var currentPage = 2;
+        function moreArticleList() {
+            var searchVal=$("#searchBox_4g3_input").val();
+            var cb = "moreArticleListCallBack";
+            $.ajax({
+                async: false,
+                cache: true,
+                type: 'post',
+                dataType: "jsonp",
+                data: {contentType:type,title:searchVal,currentPage:currentPage,callBack: cb},  //参数
+                url: blockBasePath + "blockData/getSearchInfo.do",//请求的action路径
                 success: function (data) { //请求成功后处理函数。
                 }
             });
         }
-        function tDataCallback(data) {
-            var list=data.list;
-            if( list != '' && list != undefined){
-                $(".searchResult_4g3_mian ul.showId").html("");
-                $(".searchResult_4g3_num.showId").html("");
-                $(".searchResult_4g3_num.showId").html(list.totalNumber);
-                var title = "国家主席习近平同美国总统特朗普通电话家主席习近平同美国总统特朗普通电话国家主席习近平同美国总统特朗普通";
+
+        function moreArticleListCallBack(data){
+            currentPage++;
+            if(data.result == 'yes'){
+                var list = data.resultList;
                 var str = '';
-                for (var i = 0; i < list.length; i++) {
+                for (var i = 0; i &lt; list.length; i++) {
                     str +='&lt;li&gt;' +
-                    '&lt;p class="searchResult_4g3_listTit titleColor"&gt;' +
-                    '&lt;a onclick="goContentDetial(\''+list[i].articleUrl+'\',\'\')&gt;'+list[i].title+'&lt;/a&gt;' +
-                    '&lt;/p&gt; ' +
-                    '&lt;p class="searchResult_4g3_listCnt abstractColor"&gt;'+list[i].content+'&lt;/p&gt; ' +
-                    '&lt;p class="searchResult_4g3_time dateColor"&gt;' +
-                    '&lt;span class="dateColor"&gt;'+list[i].source+'｜'+list[i].time+'｜' +
-                    '&lt;img src="../../img/PP/myJoined/contentNum.png" class="searchResult_4g3_numImg"&gt; '+list[i].discussNum+'&lt;/span&gt;&lt;/p&gt; ' +
-                    '&lt;/li&gt;';
+                            '&lt;p class="searchResult_4g3_listTit titleColor"&gt;' +
+                            '&lt;a href="javascript:goContentDetial(\''+list[i].articleUrl+'\',\'\')"&gt;';
+                    if (list[i].contentType == 'article') {
+                        str +='新闻';
+                    } else if (list[i].contentType == 'video') {
+                        str +='视频';
+                    } else if (list[i].contentType == 'grouppic') {
+                        str +='组图';
+                    } else if (list[i].contentType == 'vote') {
+                        str +='投票';
+                    } else if (list[i].contentType == 'topic') {
+                        str +='话题';
+                    }
+
+                    str += ' | ' + list[i].title+'&lt;/a&gt;' +
+                            '&lt;/p&gt; ' +
+                            '&lt;p class="searchResult_4g3_listCnt abstractColor"&gt;' +list[i].title+ '&lt;/p&gt; ' +
+                            '&lt;p class="searchResult_4g3_time dateColor"&gt;' +
+                            '&lt;span class="dateColor"&gt;'+list[i].sourceTitle+'｜'+list[i].onlineTime+'｜' +
+                            '&lt;img src="http://www.bjfine.cn/TemplateEditor/img/PP/myJoined/contentNum.png" class="searchResult_4g3_numImg"&gt; '+list[i].commentNum+'&lt;/span&gt;&lt;/p&gt; ' +
+                            '&lt;/li&gt;';
                 }
-                $(".searchResult_4g3_mian ul.showId").append(str);
+                $(".searchResult_4g3_mian ul.searchResult_4g3_2_3group1").append(str);
+
+            }else{
+                if($('.searchResult_4g3_more').html() !== "已经拉到最后了~~~~~~~"){
+                    $('.searchResult_4g3_more img').remove();
+                    $('.searchResult_4g3_more').html("已经拉到最后了~~~~~~~");
+                }
             }
         }
     </script>
