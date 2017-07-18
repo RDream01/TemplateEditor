@@ -1,65 +1,71 @@
 <div class="col-md-3 col-sm-3 appendStr rankingList_4g1" id="rankingList_4g1" data-blockSize="3">
 <div class="style" "exist">
     <style>
-        .rankingList_top{
+        .rankingList_top {
             width: 228px;
             height: 40px;
-            background:#ffffff;
-            box-shadow: 0 2px 2px 0 rgba(0,0,0,0.24);
-            margin-nottom:10px;
+            background: #ffffff;
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.24);
+            margin-nottom: 10px;
         }
-        .rankingList_title{
+
+        .rankingList_title {
             line-height: 40px;
             font-size: 20px;
             margin-left: 16px;
         }
 
-        .rankingList_title:first-letter{
+        .rankingList_title:first-letter {
             font-size: 22px;
         }
 
-        .rankingList_li{
+        .rankingList_li {
             width: 228px;
             height: 62px;
             border-top: 1px solid #dddddd;
         }
-        .rankingList_li_content{
+
+        .rankingList_li_content {
             height: 38px;
             line-height: 19px;
             font-size: 14px;
             margin: 12px auto;
         }
-        .rankingList_li_index{
+
+        .rankingList_li_index {
             float: left;
             line-height: 62px;
             width: 20px;
-            padding-left:3px;
+            padding-left: 3px;
         }
-        .rankingList_select{
+
+        .rankingList_select {
             border-bottom: 2px solid #cccccc;
-            border-left:1px solid #ddd;
-            border-right:1px solid #ddd;
+            border-left: 1px solid #ddd;
+            border-right: 1px solid #ddd;
             height: 43px;
             line-height: 44px;
         }
-        .rankingList_select_option{
+
+        .rankingList_select_option {
             font-size: 16px;
             display: inline-block;
-            width: 73px;
+            width: 72px;
             text-align: center;
-            height:42px;
+            height: 42px;
         }
 
-        .rankingList_select_option img{
+        .rankingList_select_option img {
             position: relative;
             bottom: 45px;
-            width:78px;
+            width: 78px;
             vertical-align: bottom;
         }
-        .rankingList ul{
+
+        .rankingList ul {
             display: none;
-            border:1px solid #ddd;
-            border-top:none;
+            border-bottom: 1px solid #ddd;
+            border-top: none;
         }
     </style>
 </div>
@@ -73,23 +79,23 @@
     <div class="panel-body">
         <div class="Grid4g1 pageBackGroundColor rankingList" "exist">
             <div class="rankingList_top">
-                <p class="rankingList_title titleColor fistP showId"></p>
+                <p class="rankingList_title titleColor fistP showId">点击排行</p>
             </div>
             <div class="rankingList_select">
                 <a href="javascript:selectOption('today')">
-                    <span class="rankingList_select_option mainColor rankingList_today">
-                        今天<img src="../../img/PP/rankingList/selected.png">
-                    </span>
+                        <span class="rankingList_select_option mainColor rankingList_today">
+                            今天<img src="http://www.bjfine.cn/TemplateEditor/img/PP/rankingList/selected.png">
+                        </span>
                 </a>
                 <a href="javascript:selectOption('week')">
-                    <span class="rankingList_select_option dateColor rankingList_week">
-                        本周<img src="../../img/PP/rankingList/un_selected.png">
-                    </span>
+                        <span class="rankingList_select_option dateColor rankingList_week">
+                            本周<img src="http://www.bjfine.cn/TemplateEditor/img/PP/rankingList/un_selected.png">
+                        </span>
                 </a>
                 <a href="javascript:selectOption('month')">
-                    <span class="rankingList_select_option dateColor rankingList_month">
-                        本月<img src="../../img/PP/rankingList/un_selected.png">
-                    </span>
+                        <span class="rankingList_select_option dateColor rankingList_month">
+                            本月<img src="http://www.bjfine.cn/TemplateEditor/img/PP/rankingList/un_selected.png">
+                        </span>
                 </a>
             </div>
             <!--today-->
@@ -105,7 +111,7 @@
 
 <div class="script" "exist">
     <script>
-        var flag = "v";
+        var flag="v";
         if (flag == "v") {
             vData()
         } else {
@@ -158,7 +164,7 @@
             if(rankingList_4g1_num == ""){
                 rankingList_4g1_num = "10";
             }
-            var templateId_replace="";
+            var replace_templateId="";
             $.ajax({
                 async: false,
                 cache: true,

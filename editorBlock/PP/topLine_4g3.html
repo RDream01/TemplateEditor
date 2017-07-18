@@ -66,7 +66,7 @@
 
 <div class="script" "exist">
 <script>
-    var flag = "v";
+    var flag="v";
     if (flag == "v") {
         vData()
     } else {
@@ -95,7 +95,7 @@
 //    tData
     function tData() {
         var cb="tDataCallback";
-        var templateId_replace="";
+        var replace_templateId="";
         var topLine_4g3_select_SS='';
 
 
@@ -114,32 +114,58 @@
         var templateId_replace="";
         var topLine_4g3_select_SS='';
         var data=data.article;
-        if( data != '' && data != undefined){
-            $(".topLine_4g3All.showId").html("");
-            var topLineStr='';
-            topLineStr='&lt;div class="topLine_left lf"&gt;'+
-                '&lt;a onclick="goContentDetial(\''+data.staticUrl+'\',\''+topLine_4g3_select_SS+'\')&gt;' +
-                '&lt;img src="'+data.pic+'"&gt;' +
-                '&lt;/a&gt;'+
-                '&lt;/div&gt;'+
-                '&lt;div class="topLine_right lf"&gt;'+
-                '&lt;p class="topLine_title titleColor"&gt;' +
-                '&lt;a onclick="goContentDetial(\''+data.staticUrl+'\',\''+topLine_4g3_select_SS+'\')"&gt;'+data.title+'&lt;/a&gt;' +
-                '&lt;/p&gt;'+
-                '&lt;p class="topLine_content abstractColor"&gt;'+data.shortContent+'&lt;/p&gt;'+
-                '&lt;p class="dateColor topicLine_bottom"&gt;'+
-                '&lt;span class="topLine_source"&gt;'+data.sourceTitle+'&lt;/span&gt;'+
-                '&lt;span class="topLine_count"&gt;&nbsp;|&nbsp;' +
-                '&lt;img src="../../img/PP/topLine/comment_count.png"/&gt;'+data.commentNum+'&lt;/span&gt;'+
-                '&lt;span class="rt"&gt;'+data.onlineTime+'&lt;/span&gt;'+
-                '&lt;/p&gt;'+
-                '&lt;/div&gt;';
-            $(".topLine_4g3All.showId").html(topLineStr);
+        if (data != '' && data != undefined) {
+            $(".topLine_4g3All.topLine_4g3_3_3group1").html("");
+            var topLineStr = '';
+            topLineStr = '&lt;div class="topLine_left lf"&gt;' +
+                    '&lt;a href="';
+            if(data.contentType == 'special'){
+                topLineStr += blockBasePath + 'cms/goViewSpecial.do?specialId=' + data.articleId;
+            }else{
+                topLineStr += 'javascript:goContentDetial(\'' + data.articleUrl + '\',\'' + topLine_4g3_select_SS + '\')';
+            }
+            topLineStr += '" ';
+            if(data.contentType == 'special'){
+                topLineStr += 'target="_Blank"';
+            }
+            topLineStr += '&gt;' +
+                    '&lt;img src="' + data.pic + '"&gt;' +
+                    '&lt;/a&gt;' +
+                    '&lt;/div&gt;' +
+                    '&lt;div class="topLine_right lf"&gt;' +
+                    '&lt;p class="topLine_title titleColor"&gt;' +
+                    '&lt;a href="';
+            if(data.contentType == 'special'){
+                topLineStr += blockBasePath + 'cms/goViewSpecial.do?specialId=' + data.articleId;
+            }else{
+                topLineStr += 'javascript:goContentDetial(\'' + data.articleUrl + '\',\'' + topLine_4g3_select_SS + '\')';
+            }
+            topLineStr += '" ';
+            if(data.contentType == 'special'){
+                topLineStr += 'target="_Blank"';
+            }
+            topLineStr += '&gt;' + data.title + '&lt;/a&gt;' +
+                    '&lt;/p&gt;' +
+                    '&lt;p class="topLine_content abstractColor"&gt;' + data.shortContent + '&lt;/p&gt;' +
+                    '&lt;p class="dateColor topicLine_bottom"&gt;' +
+                    '&lt;span class="topLine_source"&gt';
+            if(data.sourceTitle !=null && data.sourceTitle != undefined){
+                topLineStr+=data.sourceTitle;
+            }else{
+                topLineStr+= "擎好网";
+            }
+            topLineStr += '&lt;/span&gt;' +
+                    '&lt;span class="topLine_count"&gt;&nbsp;|&nbsp;' +
+                    '&lt;img src="http://www.bjfine.cn/TemplateEditor/img/PP/topLine/comment_count.png"/&gt;' + data.commentNum + '&lt;/span&gt;' +
+                    '&lt;span class="rt"&gt;' + data.onlineTime + '&lt;/span&gt;' +
+                    '&lt;/p&gt;' +
+                    '&lt;/div&gt;';
+            $(".topLine_4g3All.topLine_4g3_3_3group1").html(topLineStr);
         }
     }
 
-    max(".topLine_title a",23);
-    max(".topLine_content",90);
+    max(".topLine_title a", 23);
+    max(".topLine_content", 90);
 </script>
 </div>
 
